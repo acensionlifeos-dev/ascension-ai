@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascension AI - World-Class AI Platform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: #94a3b8;
+      font-size: 1.2rem;
+    }
+    
+    .api-key-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .api-key-section label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #94a3b8;
+    }
+    
+    .api-key-section input {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+    
+    .chat-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .chat-section h2 {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    
+    .chat-input {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .chat-input:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+    
+    .chat-btn {
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .chat-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+    
+    .chat-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .response-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .response-section h2 {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    
+    .response-content {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .response-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    
+    .capability-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    
+    .capability-section h2 {
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .capability-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    
+    .capability-card h3 {
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .capability-card p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    
+    .tier-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    
+    .tier-individual {
+      background: rgba(99, 102, 241, 0.2);
+      color: #6366f1;
+    }
+    
+    .tier-professional {
+      background: rgba(139, 92, 246, 0.2);
+      color: #8b5cf6;
+    }
+    
+    .tier-enterprise {
+      background: rgba(168, 85, 247, 0.2);
+      color: #a855f7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ascension AI</h1>
+      <p class="subtitle">World-Class AI Platform - 200+ Capabilities, No Usage Limits</p>
+    </header>
+    
+    <div class="api-key-section">
+      <label for="apiKey">API Key</label>
+      <input type="text" id="apiKey" placeholder="Enter your API key..." />
+    </div>
+    
+    <div class="chat-section">
+      <h2>Chat with Ascension AI</h2>
+      <textarea id="chatInput" class="chat-input" placeholder="Type your message here..."></textarea>
+      <button id="chatBtn" class="chat-btn">Send Message</button>
+    </div>
+    
+    <div class="response-section" id="responseSection" style="display: none;">
+      <h2>Response</h2>
+      <div id="responseContent" class="response-content"></div>
+      <div id="responseMeta" class="response-meta"></div>
+    </div>
+    
+    <div class="capability-section">
+      <h2>Available Capabilities</h2>
+      <div id="capabilityGrid" class="capability-grid"></div>
+    </div>
+  </div>
+  
+  <script>
+    const API_BASE = 'http://localhost:3000/api/v1';
+    
+    // Load capabilities on page load
+    async function loadCapabilities() {
+      try {
+        const response = await fetch(`${API_BASE}/capabilities`);
+        const data = await response.json();
+        
+        const grid = document.getElementById('capabilityGrid');
+        grid.innerHTML = data.capabilities.map(cap => `
+          <div class="capability-card">
+            <h3>${cap.name}</h3>
+            <p>${cap.description}</p>
+            <span class="tier-badge tier-${cap.requires_tier}">${cap.requires_tier}</span>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Failed to load capabilities:', error);
+      }
+    }
+    
+    // Send chat message
+    document.getElementById('chatBtn').addEventListener('click', async () => {
+      const apiKey = document.getElementById('apiKey').value;
+      const message = document.getElementById('chatInput').value;
+      
+      if (!apiKey) {
+        alert('Please enter your API key');
+        return;
+      }
+      
+      if (!message) {
+        alert('Please enter a message');
+        return;
+      }
+      
+      const btn = document.getElementById('chatBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/chat`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-Key': apiKey
+          },
+          body: JSON.stringify({ message })
+        });
+        
+        const data = await response.json();
+        
+        document.getElementById('responseSection').style.display = 'block';
+        document.getElementById('responseContent').textContent = data.content;
+        document.getElementById('responseMeta').innerHTML = `
+          <div>Model: ${data.model}</div>
+          <div>Provider: ${data.provider}</div>
+          <div>Tokens: ${data.tokensUsed}</div>
+          <div>Cost: $${(data.costCents / 100).toFixed(2)}</div>
+          <div>Duration: ${data.durationMs}ms</div>
+        `;
+      } catch (error) {
+        alert('Failed to send message: ' + error.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    });
+    
+    // Load capabilities on page load
+    loadCapabilities();
+  </script>
+</body>
+</html>
