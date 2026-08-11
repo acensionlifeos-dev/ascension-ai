@@ -38,11 +38,14 @@ def main() -> None:
     check("schedule guard reflects explicit shorthand instead of re-asking it", "Wednesday" in schedule_answer and "Sunday" in schedule_answer and "10 pm" in schedule_answer and "6 am" in schedule_answer)
     fast_schedule = deterministic_first_pass(prepared["cognition"], "planning")
     check("structured schedule planning bypasses model latency", fast_schedule is not None and "sleep block" in fast_schedule and "Nothing has been changed" in fast_schedule)
+    calendar_prepared = prepare_inference(shell=Shell.AP,tier=Tier.LIFE_OS,messages=[{"role":"user","content":"Add a dentist appointment Tuesday at 3 pm"}],context={},surface="chat",mode="conversation",allowed_capabilities=["schedule"])
+    calendar_answer = deterministic_first_pass(calendar_prepared["cognition"], "conversation")
+    check("calendar writes require approval and provider receipts", calendar_answer is not None and "Nothing has been added" in calendar_answer and "provider-confirmed" in calendar_answer)
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 13/13")
+    print("Replacement contract evaluation passed: 14/14")
 
 
 if __name__ == "__main__":

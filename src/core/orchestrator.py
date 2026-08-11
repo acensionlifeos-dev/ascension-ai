@@ -26,6 +26,13 @@ def _day_list(days: list[str]) -> str:
 
 def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
     """Answer structured, high-confidence intents without paying model latency."""
+    actions = {item.get("action") for item in cognitive.get("action_proposals", [])}
+    if "finance.payment" in actions:
+        return "No payment or transfer has been made. I can prepare the exact amount, destination, funding source, and timing for review; execution requires your explicit final confirmation and a provider receipt."
+    if "messages.send" in actions:
+        return "Nothing has been sent or posted. I can prepare the recipient, channel, and exact message for your review; delivery requires your explicit approval and a provider receipt."
+    if "calendar.external_write" in actions:
+        return "Nothing has been added, changed, or removed from a calendar. I can resolve the event title, exact date and time, timezone, target calendar, and recurrence, then present the proposed change for your approval and provider-confirmed execution."
     if mode != "planning":
         return None
     schedule = next(
@@ -43,7 +50,6 @@ def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
             "keep the hours before work light, and place demanding personal work on the nights off when possible. "
             "The two details that materially change the weekly map are the preferred sleep window and any fixed commitments or commute time."
         )
-    actions = {item.get("action") for item in cognitive.get("action_proposals", [])}
     if "finance.prepare_budget" in actions:
         return (
             "Nothing has been budgeted or moved yet. First protect housing, utilities, food, transportation, medication, and the income-producing essentials. "

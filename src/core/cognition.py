@@ -215,6 +215,8 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("learning.prepare_course", "The user requested learning; prepare an optional adaptive Academy course.", missing=["current skill level", "time available", "desired outcome"]))
     if re.search(r"\b(?:job|career|resume|apply)\b", lowered):
         proposals.append(_proposal("career.research_jobs", "Research and enrich relevant opportunities without inventing missing facts."))
+    if re.search(r"\b(?:add|schedule|book|put|create|remove|delete|cancel)\b.{0,50}\b(?:appointment|event|calendar|meeting)\b", lowered):
+        proposals.append(_proposal("calendar.external_write", "A calendar change must be resolved to a specific event and confirmed by the connected calendar provider.", {"request": str(text or "")[:1000]}, missing=["resolved date and timezone", "target calendar", "explicit final confirmation"]))
     if re.search(r"\b(?:i have an idea|idea for|create|build|make)\b", lowered):
         proposals.append(_proposal("creation.save_seed", "Preserve the idea without interrupting the conversation."))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
