@@ -54,7 +54,8 @@ class NativeModelRuntime:
                 model_path=str(path),
                 n_ctx=int(os.getenv("ASCENSION_MODEL_CONTEXT", self.profile["context_tokens"])),
                 n_threads=int(os.getenv("ASCENSION_MODEL_THREADS", self.profile["threads"])),
-                n_batch=int(os.getenv("ASCENSION_MODEL_BATCH", "16")),
+                n_threads_batch=int(os.getenv("ASCENSION_MODEL_THREADS_BATCH", self.profile["threads"])),
+                n_batch=int(os.getenv("ASCENSION_MODEL_BATCH", "64")),
                 use_mmap=True,
                 use_mlock=False,
                 verbose=False,
@@ -86,16 +87,19 @@ class NativeModelRuntime:
         if self.model is None:
             raise RuntimeError(self.load_error or "Native model is not loaded.")
         started = time.perf_counter()
+        inference_messages = self._prepare_messages(messages)
         with self.lock:
             result = self.model.create_chat_completion(
-                messages=messages,
+                messages=inference_messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=0.9,
                 repeat_penalty=1.08,
                 stop=["<|im_end|>", "<|endoftext|>"],
             )
-        content = str(result.get("choices", [{}])[0].get("message", {}).get("content", "")).strip()
+        content = self._clean_content(
+            str(result.get("choices", [{}])[0].get("message", {}).get("content", ""))
+        )
         if not content:
             raise RuntimeError("Native model returned an empty response.")
         return {
@@ -109,9 +113,10 @@ class NativeModelRuntime:
     def stream_chat(self, messages: list[dict], temperature: float, max_tokens: int):
         if self.model is None:
             raise RuntimeError(self.load_error or "Native model is not loaded.")
+        inference_messages = self._prepare_messages(messages)
         with self.lock:
             chunks = self.model.create_chat_completion(
-                messages=messages,
+                messages=inference_messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=0.9,
@@ -123,6 +128,29 @@ class NativeModelRuntime:
                 token = str(chunk.get("choices", [{}])[0].get("delta", {}).get("content", ""))
                 if token:
                     yield token
+
+    def _prepare_messages(self, messages: list[dict]) -> list[dict]:
+        """Keep Qwen3 in fast non-thinking mode without exposing control tokens in UI."""
+        prepared = [dict(message) for message in messages]
+        if "Qwen3" not in str(self.profile.get("repo_id", "")):
+            return prepared
+        for index in range(len(prepared) - 1, -1, -1):
+            if prepared[index].get("role") == "user":
+                content = str(prepared[index].get("content", ""))
+                if "/no_think" not in content:
+                    prepared[index]["content"] = f"{content}\n/no_think"
+                break
+        return prepared
+
+    @staticmethod
+    def _clean_content(content: str) -> str:
+        """Never surface hidden reasoning or model control tags to users."""
+        cleaned = content.strip()
+        if "</think>" in cleaned:
+            cleaned = cleaned.split("</think>", 1)[1].strip()
+        if cleaned.startswith("<think>"):
+            cleaned = cleaned.removeprefix("<think>").strip()
+        return cleaned
 
 
 runtime = NativeModelRuntime()
