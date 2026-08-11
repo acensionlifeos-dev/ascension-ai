@@ -52,7 +52,9 @@ def main() -> None:
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 18/18")
+    queue_status = NativeModelRuntime().status().get("queue", {})
+    check("native runtime exposes bounded concurrency evidence", {"queue_depth", "active_requests", "completed_requests", "failed_requests", "last_queue_wait_ms", "max_queue_wait_ms", "last_inference_ms"}.issubset(queue_status))
+    print("Replacement contract evaluation passed: 19/19")
 
 
 if __name__ == "__main__":
