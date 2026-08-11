@@ -60,6 +60,8 @@ I've built the foundation for the best AI on Earth from scratch. This is the AI 
 - **Financial Intelligence**: Credit analysis, income/debt analysis, spending habits, opportunity finding, step-by-step wealth building
 - **Trading Intelligence**: Multi-market trading (stocks, forex, crypto, coins, commodities), early buy detection, automated trading bots, custom strategies, $1 to $1M compounding
 - **Personal Assistant**: Deep personal relationship, coaching, mentoring, executive assistance, flight booking, business plans, grants, patents, company docs
+- **Overlay Intelligence**: Health, HomeOS, Sprout, FamilyOS unified under AI core
+- **Replacement Contract**: Evidence-based evaluation of native vs outside AI capabilities
 
 ### Competitive Advantages
 
