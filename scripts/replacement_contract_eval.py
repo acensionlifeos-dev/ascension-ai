@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
-from src.core.orchestrator import compact_context, deterministic_first_pass, enforce_response_contract, prepare_inference
+from src.core.orchestrator import compact_context, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
 
 
 def check(name: str, passed: bool) -> None:
@@ -42,11 +42,13 @@ def main() -> None:
     calendar_prepared = prepare_inference(shell=Shell.AP,tier=Tier.LIFE_OS,messages=[{"role":"user","content":"Add a dentist appointment Tuesday at 3 pm"}],context={},surface="chat",mode="conversation",allowed_capabilities=["schedule"])
     calendar_answer = deterministic_first_pass(calendar_prepared["cognition"], "conversation")
     check("calendar writes require approval and provider receipts", calendar_answer is not None and "Nothing has been added" in calendar_answer and "provider-confirmed" in calendar_answer)
+    scope_answer = deterministic_scope_answer(Shell.NEXUS_FAMILY, "What private information can you see about each family member?")
+    check("Nexus cannot improvise access to family member data", "cannot see" in scope_answer.lower() and "permission-scoped context" in scope_answer.lower())
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 15/15")
+    print("Replacement contract evaluation passed: 16/16")
 
 
 if __name__ == "__main__":

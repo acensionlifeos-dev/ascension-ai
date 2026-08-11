@@ -15,6 +15,36 @@ UNRECEIPTED_CLAIM = re.compile(
     r"\bI(?:'ve| have)?\s+(?:saved|added|updated|scheduled|connected|sent|paid|booked|deleted|removed|completed|created)\b",
     re.I,
 )
+ACCESS_SCOPE_QUESTION = re.compile(
+    r"\b(?:what|which)\s+(?:private\s+|personal\s+)?(?:information|data|details)|\bwhat\s+(?:can|do)\s+you\s+(?:see|know|access)|\bcan\s+you\s+(?:see|access)\b",
+    re.I,
+)
+
+
+def deterministic_scope_answer(shell: Shell, text: str) -> str | None:
+    """Never let a small model improvise its access to private shell data."""
+    if not ACCESS_SCOPE_QUESTION.search(str(text or "")):
+        return None
+    if shell == Shell.NEXUS_FAMILY:
+        return (
+            "I can use only the family information explicitly shared with NexusFamily and included in this request by the authorized FamilyOS shell. "
+            "I cannot see a member's private LifeOS or household data unless that member shared it for this purpose and the shell supplied it. "
+            "I will not claim access to any specific member information unless it is present in the permission-scoped context."
+        )
+    if shell == Shell.NEXUS_HOME:
+        return (
+            "I can use only the household or co-parenting information explicitly shared with NexusHome and included in this request by the authorized shell. "
+            "I cannot see private LifeOS or FamilyOS data by default, and I will not claim access to details that were not supplied."
+        )
+    if shell == Shell.AP:
+        return (
+            "I can use only your permissioned LifeOS context that the authenticated shell included in this request. "
+            "I cannot see accounts, messages, files, memories, or live services that were not connected, authorized, and supplied here, and I will not pretend otherwise."
+        )
+    return (
+        "I can use only the permission-scoped context included in this request. "
+        "I cannot see or access personal data that the authenticated Ascension shell did not explicitly supply."
+    )
 
 
 def _day_list(days: list[str]) -> str:
@@ -164,7 +194,8 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
 
 def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int) -> dict:
     prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
-    first_pass = deterministic_first_pass(prepared["cognition"], mode)
+    latest = messages[-1].get("content", "") if messages else ""
+    first_pass = deterministic_scope_answer(shell, latest) or deterministic_first_pass(prepared["cognition"], mode)
     result = ({
         "content": first_pass,
         "model": "Ascension Contract Engine",
