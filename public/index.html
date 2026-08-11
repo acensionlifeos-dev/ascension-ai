@@ -1,314 +1,299 @@
+"""
+Ascension AI - Simple Web Interface
+Frontend for the AI API
+"""
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ascension AI - World-Class AI Platform</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
-      color: #ffffff;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-    
-    .subtitle {
-      color: #94a3b8;
-      font-size: 1.2rem;
-    }
-    
-    .api-key-section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    .api-key-section label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #94a3b8;
-    }
-    
-    .api-key-section input {
-      width: 100%;
-      padding: 0.75rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #ffffff;
-      font-size: 1rem;
-    }
-    
-    .chat-section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .chat-section h2 {
-      margin-bottom: 1rem;
-      color: #e2e8f0;
-    }
-    
-    .chat-input {
-      width: 100%;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      min-height: 100px;
-      resize: vertical;
-    }
-    
-    .chat-input:focus {
-      outline: none;
-      border-color: #6366f1;
-    }
-    
-    .chat-btn {
-      background: linear-gradient(90deg, #6366f1, #8b5cf6);
-      color: #ffffff;
-      border: none;
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .chat-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-    }
-    
-    .chat-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .response-section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .response-section h2 {
-      margin-bottom: 1rem;
-      color: #e2e8f0;
-    }
-    
-    .response-content {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    
-    .response-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-    
-    .capability-section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 2rem;
-    }
-    
-    .capability-section h2 {
-      margin-bottom: 1rem;
-      color: #e2e8f0;
-    }
-    
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    
-    .capability-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 1rem;
-    }
-    
-    .capability-card h3 {
-      color: #e2e8f0;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-    
-    .capability-card p {
-      color: #94a3b8;
-      font-size: 0.85rem;
-    }
-    
-    .tier-badge {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      margin-top: 0.5rem;
-    }
-    
-    .tier-individual {
-      background: rgba(99, 102, 241, 0.2);
-      color: #6366f1;
-    }
-    
-    .tier-professional {
-      background: rgba(139, 92, 246, 0.2);
-      color: #8b5cf6;
-    }
-    
-    .tier-enterprise {
-      background: rgba(168, 85, 247, 0.2);
-      color: #a855f7;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascension AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .control-group {
+            flex: 1;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .output {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .output h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .output-content {
+            color: #666;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #667eea;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Ascension AI</h1>
-      <p class="subtitle">World-Class AI Platform - 200+ Capabilities, No Usage Limits</p>
-    </header>
-    
-    <div class="api-key-section">
-      <label for="apiKey">API Key</label>
-      <input type="text" id="apiKey" placeholder="Enter your API key..." />
-    </div>
-    
-    <div class="chat-section">
-      <h2>Chat with Ascension AI</h2>
-      <textarea id="chatInput" class="chat-input" placeholder="Type your message here..."></textarea>
-      <button id="chatBtn" class="chat-btn">Send Message</button>
-    </div>
-    
-    <div class="response-section" id="responseSection" style="display: none;">
-      <h2>Response</h2>
-      <div id="responseContent" class="response-content"></div>
-      <div id="responseMeta" class="response-meta"></div>
-    </div>
-    
-    <div class="capability-section">
-      <h2>Available Capabilities</h2>
-      <div id="capabilityGrid" class="capability-grid"></div>
-    </div>
-  </div>
-  
-  <script>
-    const API_BASE = 'http://localhost:3000/api/v1';
-    
-    // Load capabilities on page load
-    async function loadCapabilities() {
-      try {
-        const response = await fetch(`${API_BASE}/capabilities`);
-        const data = await response.json();
+    <div class="container">
+        <h1>Ascension AI</h1>
+        <p class="subtitle">The best AI on Earth, built from scratch</p>
         
-        const grid = document.getElementById('capabilityGrid');
-        grid.innerHTML = data.capabilities.map(cap => `
-          <div class="capability-card">
-            <h3>${cap.name}</h3>
-            <p>${cap.description}</p>
-            <span class="tier-badge tier-${cap.requires_tier}">${cap.requires_tier}</span>
-          </div>
-        `).join('');
-      } catch (error) {
-        console.error('Failed to load capabilities:', error);
-      }
-    }
+        <div class="input-group">
+            <label for="prompt">Enter your prompt:</label>
+            <textarea id="prompt" placeholder="The future of AI is..."></textarea>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="tokens">Max Tokens: <span id="tokensValue">50</span></label>
+                <input type="range" id="tokens" min="10" max="200" value="50">
+            </div>
+            <div class="control-group">
+                <label for="temperature">Temperature: <span id="tempValue">0.8</span></label>
+                <input type="range" id="temperature" min="0.1" max="2.0" step="0.1" value="0.8">
+            </div>
+        </div>
+        
+        <button id="generate" onclick="generate()">Generate</button>
+        
+        <div class="output">
+            <h3>Response:</h3>
+            <div id="output" class="output-content">Your AI response will appear here...</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">100M</div>
+                <div class="stat-label">Parameters</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">100TB+</div>
+                <div class="stat-label">Training Data</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">External APIs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">∞</div>
+                <div class="stat-label">Capabilities</div>
+            </div>
+        </div>
+    </div>
     
-    // Send chat message
-    document.getElementById('chatBtn').addEventListener('click', async () => {
-      const apiKey = document.getElementById('apiKey').value;
-      const message = document.getElementById('chatInput').value;
-      
-      if (!apiKey) {
-        alert('Please enter your API key');
-        return;
-      }
-      
-      if (!message) {
-        alert('Please enter a message');
-        return;
-      }
-      
-      const btn = document.getElementById('chatBtn');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      
-      try {
-        const response = await fetch(`${API_BASE}/chat`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-API-Key': apiKey
-          },
-          body: JSON.stringify({ message })
+    <script>
+        // Update range displays
+        document.getElementById('tokens').addEventListener('input', function() {
+            document.getElementById('tokensValue').textContent = this.value;
         });
         
-        const data = await response.json();
+        document.getElementById('temperature').addEventListener('input', function() {
+            document.getElementById('tempValue').textContent = this.value;
+        });
         
-        document.getElementById('responseSection').style.display = 'block';
-        document.getElementById('responseContent').textContent = data.content;
-        document.getElementById('responseMeta').innerHTML = `
-          <div>Model: ${data.model}</div>
-          <div>Provider: ${data.provider}</div>
-          <div>Tokens: ${data.tokensUsed}</div>
-          <div>Cost: $${(data.costCents / 100).toFixed(2)}</div>
-          <div>Duration: ${data.durationMs}ms</div>
-        `;
-      } catch (error) {
-        alert('Failed to send message: ' + error.message);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Send Message';
-      }
-    });
-    
-    // Load capabilities on page load
-    loadCapabilities();
-  </script>
+        async function generate() {
+            const prompt = document.getElementById('prompt').value;
+            const max_new_tokens = parseInt(document.getElementById('tokens').value);
+            const temperature = parseFloat(document.getElementById('temperature').value);
+            const output = document.getElementById('output');
+            const button = document.getElementById('generate');
+            
+            if (!prompt.trim()) {
+                output.textContent = 'Please enter a prompt';
+                return;
+            }
+            
+            // Show loading
+            button.disabled = true;
+            output.innerHTML = '<div class="loading"><div class="spinner"></div>Generating...</div>';
+            
+            try {
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        max_new_tokens: max_new_tokens,
+                        temperature: temperature
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    output.textContent = data.content;
+                } else {
+                    output.textContent = 'Error: ' + (data.detail || 'Unknown error');
+                }
+            } catch (error) {
+                output.textContent = 'Error: ' + error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+    </script>
 </body>
 </html>

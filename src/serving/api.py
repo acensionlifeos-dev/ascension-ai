@@ -5,6 +5,8 @@ Serve trained models via API
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional
 import torch
@@ -35,6 +37,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static files
+app.mount("/static", StaticFiles(directory="public"), name="static")
+
 # Load model
 model = None
 tokenizer = None
@@ -59,8 +64,9 @@ async def load_model():
     
     print("Loading Ascension AI model...")
     
-    # Load tokenizer
-    tokenizer = CharTokenizer()  # In production, load trained tokenizer
+    # Load tokenizer with sample data
+    sample_texts = ["The quick brown fox", "Machine learning", "Ascension AI", "The future of AI", "Building the best AI"]
+    tokenizer = CharTokenizer(sample_texts)
     
     # Load model configuration
     config = get_model_config('nano')
@@ -69,14 +75,8 @@ async def load_model():
     # Load model
     model = AscensionTransformer(config)
     
-    # Load checkpoint if exists
-    checkpoint_path = 'models/checkpoints/epoch_5.pt'
-    if os.path.exists(checkpoint_path):
-        checkpoint = torch.load(checkpoint_path)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        print(f"Loaded checkpoint from {checkpoint_path}")
-    else:
-        print("No checkpoint found, using random weights")
+    # For demo, use random weights (no checkpoint needed)
+    print("Using demo mode with random weights")
     
     model = model.to(device)
     model.eval()
@@ -85,7 +85,8 @@ async def load_model():
 
 @app.get("/")
 async def root():
-    return {"message": "Ascension AI API", "status": "ready"}
+    """Serve the frontend"""
+    return FileResponse('public/index.html')
 
 @app.get("/health")
 async def health():
@@ -137,7 +138,8 @@ async def model_info():
         "model": "ascension-nano",
         "parameters": num_params,
         "device": device,
-        "vocab_size": tokenizer.vocab_size if tokenizer else 0
+        "vocab_size": tokenizer.vocab_size if tokenizer else 0,
+        "mode": "demo"
     }
 
 if __name__ == "__main__":
