@@ -289,20 +289,6 @@ class ModelRouter {
       };
     }
   }
-  
-  private async executeGoogle(routingDecision: RoutingDecision, request: any): Promise<any> {
-    if (!this.google) throw new Error('Google not initialized');
-    
-    const model = this.google.getGenerativeModel({ model: routingDecision.model });
-    const response = await model.generateContent(request.messages?.[0]?.content || '');
-    
-    return {
-      content: response.response.text(),
-      model: routingDecision.model,
-      provider: 'google',
-      tokensUsed: 0 // Google doesn't provide token count
-    };
-  }
 }
 
 export const modelRouter = new ModelRouter();
