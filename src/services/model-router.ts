@@ -270,7 +270,7 @@ class ModelRouter {
         throw new Error(`Native runtime returned ${response.status}`);
       }
       
-      const data = await response.json();
+      const data: any = await response.json();
       
       return {
         content: data.content,

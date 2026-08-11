@@ -8,9 +8,9 @@ import helmet from 'helmet';
 import compression from 'compression';
 import path from 'path';
 import { authMiddleware } from './middleware/auth';
-import { chatRoutes } from './routes/chat';
-import { capabilityRoutes } from './routes/capabilities';
-import { usageRoutes } from './routes/usage';
+import chatRoutes from './routes/chat';
+import capabilityRoutes from './routes/capabilities';
+import usageRoutes from './routes/usage';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
