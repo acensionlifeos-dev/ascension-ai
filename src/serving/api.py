@@ -196,16 +196,18 @@ async def health() -> dict:
 
 @app.get("/v1/readiness")
 async def replacement_readiness(_: None = Depends(require_access)) -> dict:
+    required_gates = [
+        "conversation_quality", "shell_isolation", "action_integrity",
+        "domain_reasoning", "safety_privacy", "interactive_latency",
+        "concurrency_recovery", "native_primary_canary",
+    ]
     return {
         "candidate_ready": runtime.status()["ready"],
         "replacement_ready": False,
         "evaluation_suite": "replacement_readiness_prompts_v1",
         "evaluation_cases": 20,
-        "required_gates": [
-            "conversation_quality", "shell_isolation", "action_integrity",
-            "domain_reasoning", "safety_privacy", "interactive_latency",
-            "concurrency_recovery", "native_primary_canary",
-        ],
+        "required_gates": required_gates,
+        "gates": {gate: False for gate in required_gates},
         "promotion_rule": "Every gate must pass before outside-model fallback is removed.",
         "runtime": runtime.status(),
     }

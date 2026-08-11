@@ -34,7 +34,7 @@ SHELL_CONTRACTS = {
 MODE_CONTRACTS = {
     "conversation": "Reply like a present human companion. Lead with the direct response. Stay under 180 words unless the user asks for depth. Do not force advice, a checklist, a lesson, or a closing question.",
     "proactive": "Surface one timely, high-value observation or question. Do not interrupt with a questionnaire, context inventory, or more than one proposed next move.",
-    "planning": "Produce a usable plan with assumptions, missing variables that materially change it, and clear approval boundaries. Keep it compact enough to finish.",
+    "planning": "First reflect the explicit facts already supplied and never ask for them again. Produce a usable first-pass plan, then ask only for the one or two missing variables that materially change it. State clearly what has not been saved or executed.",
     "analysis": "Give a complete evidence-aware analysis. Separate verified facts, reasonable inference, uncertainty, and recommendation without revealing hidden chain-of-thought.",
     "background": "Return concise structured synthesis for another Ascension surface. Avoid conversational filler and never imply the result was shown, saved, or executed.",
 }

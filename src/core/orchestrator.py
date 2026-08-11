@@ -3,11 +3,69 @@
 from __future__ import annotations
 
 import json
+import re
 
 from .capabilities import capability_packet, detect_domains
 from .cognition import build_cognitive_packet
 from .contracts import Shell, Tier, response_contract, system_contract
 from .model_runtime import runtime
+
+
+UNRECEIPTED_CLAIM = re.compile(
+    r"\bI(?:'ve| have)?\s+(?:saved|added|updated|scheduled|connected|sent|paid|booked|deleted|removed|completed|created)\b",
+    re.I,
+)
+
+
+def _day_list(days: list[str]) -> str:
+    labels = [str(day).capitalize() for day in days]
+    if len(labels) < 2:
+        return labels[0] if labels else "the supplied days"
+    return f"{', '.join(labels[:-1])} and {labels[-1]}"
+
+
+def enforce_response_contract(content: str, cognitive: dict, context: dict, mode: str) -> str:
+    """Apply deterministic integrity checks where a small model must not improvise."""
+    answer = str(content or "").strip()
+    receipts = []
+    if isinstance(context, dict):
+        receipts = list(context.get("action_receipts") or []) + list(context.get("memory_receipts") or [])
+    if not receipts and UNRECEIPTED_CLAIM.search(answer):
+        kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
+        answer = " ".join(kept).strip()
+        answer = f"Nothing is confirmed as saved or executed yet. {answer}".strip()
+
+    schedule = next(
+        (item for item in cognitive.get("memory_candidates", []) if item.get("type") == "recurring_schedule"),
+        None,
+    )
+    if schedule and mode == "planning":
+        value = schedule.get("value", {})
+        days = value.get("days", [])
+        summary = (
+            f"I understand the recurring work pattern as {_day_list(days)}, "
+            f"{value.get('start_time')}–{value.get('end_time')}, crossing midnight."
+        )
+        normalized = answer.lower()
+        reflects_schedule = (
+            str(value.get("start_time", "")).lower() in normalized
+            and str(value.get("end_time", "")).lower() in normalized
+            and sum(day in normalized for day in days) >= max(1, len(days) - 1)
+        )
+        if not reflects_schedule or answer.count("?") > 2:
+            off_days = [day for day in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday") if day not in days]
+            answer = (
+                f"{summary} Nothing has been changed or saved yet. "
+                f"First pass: protect the main sleep block after each shift, keep pre-shift time light, "
+                f"and place demanding personal work on {_day_list(off_days)} when possible. "
+                "The two variables that materially change the weekly map are your preferred sleep window and any fixed commitments or commute time."
+            )
+
+    if mode == "conversation":
+        words = answer.split()
+        if len(words) > 180:
+            answer = " ".join(words[:180]).rstrip(" ,;:") + "…"
+    return answer
 
 
 def compact_context(context: dict, limit: int = 8_000) -> str:
@@ -74,6 +132,7 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
         temperature=temperature,
         max_tokens=max_tokens,
     )
+    result["content"] = enforce_response_contract(result.get("content", ""), prepared["cognition"], context, mode)
     return {
         **result,
         **{key: value for key, value in prepared.items() if key != "messages"},

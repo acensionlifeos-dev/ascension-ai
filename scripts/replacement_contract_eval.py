@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
-from src.core.orchestrator import compact_context, prepare_inference
+from src.core.orchestrator import compact_context, enforce_response_contract, prepare_inference
 
 
 def check(name: str, passed: bool) -> None:
@@ -34,9 +34,13 @@ def main() -> None:
     check("receipts survive while debug noise is excluded", "action_receipts" in compacted and "ui_state" not in compacted and "telemetry" not in compacted)
     prepared = prepare_inference(shell=Shell.AP,tier=Tier.LIFE_OS,messages=[{"role":"user","content":"I work 10 pm-6 am Wed-Sun"}],context={},surface="chat",mode="conversation",allowed_capabilities=["schedule"])
     check("inference packet includes response mode and schedule cognition", "Response contract" in prepared["messages"][1]["content"] and "schedule" in prepared["domains"])
+    schedule_answer = enforce_response_contract("What days do you work? What time? What are your goals?", prepared["cognition"], {}, "planning")
+    check("schedule guard reflects explicit shorthand instead of re-asking it", "Wednesday" in schedule_answer and "Sunday" in schedule_answer and "10 pm" in schedule_answer and "6 am" in schedule_answer)
+    claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
+    check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 10/10")
+    print("Replacement contract evaluation passed: 12/12")
 
 
 if __name__ == "__main__":
