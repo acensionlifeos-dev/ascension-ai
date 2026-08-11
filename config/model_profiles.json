@@ -35,6 +35,18 @@
     "threads": 2,
     "quality_note": "Primary latency-bounded profile for multilingual conversation, planning, structured cognition, and tool selection on the 4 GB Pro service."
   },
+  "candidate": {
+    "label": "Ascension Candidate 3B",
+    "repo_id": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+    "filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
+    "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+    "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+    "size_bytes": 2104932768,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Controlled benchmark profile for evaluating stronger natural conversation and instruction following without the long hidden-reasoning latency of the 4B Qwen3 worker."
+  },
   "deep": {
     "label": "Ascension Deep 4B",
     "repo_id": "bartowski/Qwen_Qwen3-4B-GGUF",
