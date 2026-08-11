@@ -1,0 +1,38 @@
+{
+  "starter": {
+    "label": "Ascension Seed",
+    "repo_id": "tensorblock/SmolLM2-360M-Instruct-GGUF",
+    "filename": "SmolLM2-360M-Instruct-Q2_K.gguf",
+    "revision": "0f5adbbb0caf54db4eb6d6a7d8bb4bdaf640332c",
+    "sha256": "a0426e69276621295cd49cd69e879c35df02c52af6d3523ff4e8fad882874903",
+    "size_bytes": 218675200,
+    "minimum_render_plan": "free_or_starter_512mb",
+    "context_tokens": 768,
+    "threads": 1,
+    "quality_note": "Bootstrap model for proving private local inference and orchestration. Limited reasoning depth."
+  },
+  "standard": {
+    "label": "Ascension Core 0.5B",
+    "repo_id": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "filename": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "revision": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+    "size_bytes": 491400032,
+    "minimum_render_plan": "standard_2gb",
+    "context_tokens": 4096,
+    "threads": 1,
+    "quality_note": "Stronger instruction-following profile for a 2 GB service."
+  },
+  "pro": {
+    "label": "Ascension Core 3B",
+    "repo_id": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+    "filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
+    "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+    "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+    "size_bytes": 2104932768,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 6144,
+    "threads": 2,
+    "quality_note": "Primary Pro target for deeper conversation, planning, structured output, and tool selection."
+  }
+}

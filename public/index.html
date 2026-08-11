@@ -1,299 +1,66 @@
-"""
-Ascension AI - Simple Web Interface
-Frontend for the AI API
-"""
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ascension AI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            width: 100%;
-            padding: 40px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: inherit;
-            resize: vertical;
-            min-height: 120px;
-            transition: border-color 0.3s;
-        }
-        
-        textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .control-group {
-            flex: 1;
-        }
-        
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        
-        input[type="range"] {
-            width: 100%;
-        }
-        
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .output {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            min-height: 100px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .output h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        
-        .output-content {
-            color: #666;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-        
-        .loading {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #667eea;
-        }
-        
-        .spinner {
-            width: 20px;
-            height: 20px;
-            border: 3px solid #e0e0e0;
-            border-top-color: #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .stat-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 2em;
-            font-weight: 700;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07080b">
+  <title>Ascension AI — Private Candidate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/ascension-ai.css?v=1.1.0">
 </head>
 <body>
-    <div class="container">
-        <h1>Ascension AI</h1>
-        <p class="subtitle">The best AI on Earth, built from scratch</p>
-        
-        <div class="input-group">
-            <label for="prompt">Enter your prompt:</label>
-            <textarea id="prompt" placeholder="The future of AI is..."></textarea>
+  <div class="access-gate" id="access-gate" hidden>
+    <form class="access-card" id="access-form">
+      <div class="access-mark">A</div>
+      <p class="eyebrow">PRIVATE CANDIDATE</p>
+      <h1>Ascension AI Lab</h1>
+      <p>This isolated service cannot access or change LifeOS. Enter the private Render test code to evaluate it.</p>
+      <label for="access-code">Test access code</label>
+      <div class="access-row"><input id="access-code" type="password" autocomplete="current-password" required><button type="submit">Enter lab</button></div>
+      <span class="access-error" id="access-error"></span>
+    </form>
+  </div>
+
+  <div class="shell" id="shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">A</div><span><strong>ASCENSION AI</strong><small>Native alpha 2.0</small></span></div>
+      <button class="new-chat" id="new-chat" type="button"><span>＋</span> New test</button>
+      <p class="history-label">Test history</p>
+      <nav class="history" id="history" aria-label="Test conversations"></nav>
+      <div class="sidebar-foot"><button id="theme-toggle" type="button">Light mode</button><button id="lock-lab" type="button">Lock lab</button></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu" id="menu" type="button" aria-label="Open test history">☰</button>
+        <div class="engine-title"><strong>Ascension AI Native</strong><label><span>Shell</span><select id="shell-select" aria-label="Ascension intelligence shell"><option value="ap">AP · Personal</option><option value="lifeos">LifeOS · Domain intelligence</option><option value="nexus_home">NexusHome · Household</option><option value="nexus_family">NexusFamily · Family enterprise</option><option value="core">Core · Neutral reasoning</option></select></label><label><span>Tier</span><select id="tier-select" aria-label="Ascension subscription tier"><option value="freeos">FreeOS</option><option value="lifeos">LifeOS</option><option value="lifeos_plus">LifeOS+</option><option value="founderos">FounderOS</option><option value="lifeos_infinite" selected>LifeOS Infinite</option></select></label></div>
+        <div class="status" id="status"><i></i><span>Checking engine</span></div>
+      </header>
+
+      <section class="conversation" id="conversation" aria-live="polite">
+        <div class="empty" id="empty">
+          <div class="hero-mark">A</div>
+          <p class="eyebrow">ISOLATED INTELLIGENCE TEST</p>
+          <h1>What do you want to test?</h1>
+          <p>This candidate is deliberately separate from LifeOS. It runs a local model with no outside AI provider, cannot read AP memory or perform actions, and lets you test each Ascension shell contract.</p>
+          <div class="starters">
+            <button type="button" data-prompt="Talk with me like a real friend. I had a hard day and I do not want advice immediately."><strong>Human conversation</strong><span>Presence before advice</span></button>
+            <button type="button" data-prompt="Help me turn a vague goal into a realistic plan. Ask only for information that truly changes the plan."><strong>Adaptive planning</strong><span>Judgment and questions</span></button>
+            <button type="button" data-prompt="I changed my mind about a goal we discussed. Show me how you handle correction and uncertainty."><strong>Memory discipline</strong><span>Correction without invention</span></button>
+            <button type="button" data-prompt="Help me reason through a difficult decision without taking control away from me."><strong>Reasoning quality</strong><span>Depth and agency</span></button>
+          </div>
         </div>
-        
-        <div class="controls">
-            <div class="control-group">
-                <label for="tokens">Max Tokens: <span id="tokensValue">50</span></label>
-                <input type="range" id="tokens" min="10" max="200" value="50">
-            </div>
-            <div class="control-group">
-                <label for="temperature">Temperature: <span id="tempValue">0.8</span></label>
-                <input type="range" id="temperature" min="0.1" max="2.0" step="0.1" value="0.8">
-            </div>
-        </div>
-        
-        <button id="generate" onclick="generate()">Generate</button>
-        
-        <div class="output">
-            <h3>Response:</h3>
-            <div id="output" class="output-content">Your AI response will appear here...</div>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-value">100M</div>
-                <div class="stat-label">Parameters</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">100TB+</div>
-                <div class="stat-label">Training Data</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">0</div>
-                <div class="stat-label">External APIs</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">∞</div>
-                <div class="stat-label">Capabilities</div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Update range displays
-        document.getElementById('tokens').addEventListener('input', function() {
-            document.getElementById('tokensValue').textContent = this.value;
-        });
-        
-        document.getElementById('temperature').addEventListener('input', function() {
-            document.getElementById('tempValue').textContent = this.value;
-        });
-        
-        async function generate() {
-            const prompt = document.getElementById('prompt').value;
-            const max_new_tokens = parseInt(document.getElementById('tokens').value);
-            const temperature = parseFloat(document.getElementById('temperature').value);
-            const output = document.getElementById('output');
-            const button = document.getElementById('generate');
-            
-            if (!prompt.trim()) {
-                output.textContent = 'Please enter a prompt';
-                return;
-            }
-            
-            // Show loading
-            button.disabled = true;
-            output.innerHTML = '<div class="loading"><div class="spinner"></div>Generating...</div>';
-            
-            try {
-                const response = await fetch('/generate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        prompt: prompt,
-                        max_new_tokens: max_new_tokens,
-                        temperature: temperature
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    output.textContent = data.content;
-                } else {
-                    output.textContent = 'Error: ' + (data.detail || 'Unknown error');
-                }
-            } catch (error) {
-                output.textContent = 'Error: ' + error.message;
-            } finally {
-                button.disabled = false;
-            }
-        }
-    </script>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <form class="composer" id="composer"><textarea id="prompt" rows="1" maxlength="12000" placeholder="Message Ascension AI…" aria-label="Message Ascension AI"></textarea><button id="send" type="submit" aria-label="Send">↑</button></form>
+        <p>Private native candidate · No outside AI · No LifeOS access · No production replacement</p>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/static/ascension-ai.js?v=1.1.0" defer></script>
 </body>
 </html>

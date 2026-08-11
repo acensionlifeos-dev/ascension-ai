@@ -2,5 +2,18 @@ services:
   - type: web
     name: ascension-ai
     env: python
-    buildCommand: pip install -r requirements.txt
+    plan: free
+    buildCommand: pip install -r requirements.txt && python scripts/download_model.py
     startCommand: uvicorn src.serving.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ASCENSION_AI_TEST_TOKEN
+        generateValue: true
+      - key: ASCENSION_AI_SERVICE_TOKEN
+        generateValue: true
+      - key: ASCENSION_MODEL_PROFILE
+        value: starter
+      - key: ASCENSION_MODEL_BATCH
+        value: "16"
+      - key: ASCENSION_AI_ALLOWED_ORIGINS
+        value: https://ascensionlifeos.onrender.com

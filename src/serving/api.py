@@ -1,206 +1,286 @@
-"""
-Ascension AI - Model Serving
-Serve trained models via API
-"""
+"""Standalone self-contained Ascension AI service."""
 
-from fastapi import FastAPI, HTTPException, UploadFile, File
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
-from pydantic import BaseModel
-from typing import Optional
-import torch
-import sys
+from __future__ import annotations
+
+import asyncio
+import hmac
+import json
 import os
+import time
+from contextlib import asynccontextmanager
+from pathlib import Path
+from typing import Literal
 
-# Simple import fix
-import importlib.util
-spec = importlib.util.spec_from_file_location("transformer", os.path.join(os.path.dirname(__file__), "..", "architecture", "transformer.py"))
-transformer_module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(transformer_module)
-AscensionTransformer = transformer_module.AscensionTransformer
-get_model_config = transformer_module.get_model_config
+from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.responses import StreamingResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field, field_validator
 
-spec2 = importlib.util.spec_from_file_location("tokenizer", os.path.join(os.path.dirname(__file__), "..", "data", "tokenizer.py"))
-tokenizer_module = importlib.util.module_from_spec(spec2)
-spec2.loader.exec_module(tokenizer_module)
-CharTokenizer = tokenizer_module.CharTokenizer
+from src.core.capabilities import CAPABILITIES
+from src.core.contracts import Shell, Tier
+from src.core.model_runtime import runtime
+from src.core.orchestrator import prepare_inference, respond, surface_plan
 
-app = FastAPI(title="Ascension AI API")
 
-# CORS
+ROOT = Path(__file__).resolve().parents[2]
+PUBLIC = ROOT / "public"
+APP_VERSION = "2.1.0-native-alpha"
+MAX_MESSAGES = 24
+MAX_MESSAGE_LENGTH = 12_000
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    try:
+        await asyncio.to_thread(runtime.load)
+    except Exception as error:
+        print(f"Ascension native model did not load: {error}")
+    yield
+
+
+app = FastAPI(title="Ascension AI Native Core", version=APP_VERSION, lifespan=lifespan)
+allowed_origins = [value.strip() for value in os.getenv("ASCENSION_AI_ALLOWED_ORIGINS", "").split(",") if value.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=allowed_origins,
+    allow_credentials=False,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Authorization", "Content-Type"],
 )
+app.mount("/static", StaticFiles(directory=str(PUBLIC)), name="static")
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="public"), name="static")
 
-# Load model
-model = None
-tokenizer = None
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+@app.middleware("http")
+async def security_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=(), payment=()"
+    response.headers["Cache-Control"] = "no-store" if request.url.path.startswith("/v1") or request.url.path in {"/chat", "/model/info"} else "public, max-age=300"
+    return response
 
-class GenerationRequest(BaseModel):
-    prompt: str
-    max_new_tokens: int = 50
-    temperature: float = 0.8
-    top_k: Optional[int] = None
 
-class GenerationResponse(BaseModel):
-    content: str
-    model: str
-    tokens_generated: int
-    generation_time_ms: float
+class ChatMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
 
-@app.on_event("startup")
-async def load_model():
-    """Load model on startup"""
-    global model, tokenizer
-    
-    print("Loading Ascension AI model...")
-    
-    # Load tokenizer with sample data
-    sample_texts = ["The quick brown fox", "Machine learning", "Ascension AI", "The future of AI", "Building the best AI"]
-    tokenizer = CharTokenizer(sample_texts)
-    
-    # Load model configuration
-    config = get_model_config('nano')
-    config.vocab_size = tokenizer.vocab_size
-    
-    # Load model
-    model = AscensionTransformer(config)
-    
-    # For demo, use random weights (no checkpoint needed)
-    print("Using demo mode with random weights")
-    
-    model = model.to(device)
-    model.eval()
-    
-    print("Model loaded successfully")
+    @field_validator("content")
+    @classmethod
+    def clean_content(cls, value: str) -> str:
+        cleaned = value.strip()
+        if not cleaned:
+            raise ValueError("message cannot be empty")
+        return cleaned
+
+
+class IntelligenceRequest(BaseModel):
+    shell: Shell = Shell.AP
+    tier: Tier = Tier.LIFE_OS
+    messages: list[ChatMessage] = Field(min_length=1, max_length=MAX_MESSAGES)
+    context: dict = Field(default_factory=dict)
+    surface: str = Field(default="chat", max_length=100)
+    mode: Literal["conversation", "analysis", "planning", "proactive", "background"] = "conversation"
+    allowed_capabilities: list[str] = Field(default_factory=list, max_length=100)
+    temperature: float = Field(default=0.65, ge=0.0, le=1.2)
+    max_tokens: int = Field(default=500, ge=32, le=1600)
+
+    @field_validator("messages")
+    @classmethod
+    def require_user_turn(cls, value: list[ChatMessage]) -> list[ChatMessage]:
+        if value[-1].role != "user":
+            raise ValueError("the final message must be from the user")
+        return value
+
+    @field_validator("context")
+    @classmethod
+    def bound_context(cls, value: dict) -> dict:
+        if len(json.dumps(value, default=str)) > 50_000:
+            raise ValueError("context packet is too large")
+        return value
+
+    @field_validator("allowed_capabilities")
+    @classmethod
+    def validate_capabilities(cls, value: list[str]) -> list[str]:
+        cleaned = list(dict.fromkeys(item.strip().lower() for item in value if item.strip()))
+        unknown = [item for item in cleaned if item not in CAPABILITIES]
+        if unknown:
+            raise ValueError(f"unknown capabilities: {', '.join(unknown)}")
+        return cleaned
+
+
+class SurfacePlanRequest(BaseModel):
+    shell: Shell = Shell.LIFE_OS
+    tier: Tier = Tier.LIFE_OS
+    trigger: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+    context: dict = Field(default_factory=dict)
+    available_actions: list[str] = Field(default_factory=list, max_length=100)
+    allowed_capabilities: list[str] = Field(default_factory=list, max_length=100)
+
+
+class LegacyGenerationRequest(BaseModel):
+    prompt: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+    max_new_tokens: int = Field(default=300, ge=32, le=1000)
+    temperature: float = Field(default=0.65, ge=0.0, le=1.2)
+
+
+def _authorized_token(authorization: str | None) -> bool:
+    supplied = ""
+    if authorization and authorization.lower().startswith("bearer "):
+        supplied = authorization[7:].strip()
+    expected = [
+        os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip(),
+        os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip(),
+    ]
+    return bool(supplied) and any(token and hmac.compare_digest(supplied, token) for token in expected)
+
+
+def require_access(authorization: str | None = Header(default=None)) -> None:
+    if not any(os.getenv(name, "").strip() for name in ("ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")):
+        raise HTTPException(status_code=503, detail="Private Ascension AI access is not configured.")
+    if not _authorized_token(authorization):
+        raise HTTPException(status_code=401, detail="Invalid Ascension AI access code.")
+
+
+def require_native_ready() -> None:
+    if not runtime.status()["ready"]:
+        raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Ascension native model is not ready.")
+
 
 @app.get("/")
-async def root():
-    """Serve the frontend"""
-    return FileResponse('public/index.html')
+async def root() -> FileResponse:
+    return FileResponse(PUBLIC / "index.html")
+
 
 @app.get("/health")
-async def health():
-    return {"status": "healthy", "device": device}
-
-@app.post("/generate", response_model=GenerationResponse)
-async def generate(request: GenerationRequest):
-    """Generate text"""
-    import time
-    
-    if model is None:
-        raise HTTPException(status_code=503, detail="Model not loaded")
-    
-    start_time = time.time()
-    
-    # Tokenize input
-    input_tokens = tokenizer.encode(request.prompt, max_length=128)
-    input_tensor = torch.tensor([input_tokens], dtype=torch.long).to(device)
-    
-    # Generate
-    with torch.no_grad():
-        generated = model.generate(
-            input_tensor,
-            max_new_tokens=request.max_new_tokens,
-            temperature=request.temperature,
-            top_k=request.top_k
-        )
-    
-    # Decode
-    generated_text = tokenizer.decode(generated[0].tolist())
-    generation_time = (time.time() - start_time) * 1000
-    
-    return GenerationResponse(
-        content=generated_text,
-        model="ascension-nano",
-        tokens_generated=request.max_new_tokens,
-        generation_time_ms=generation_time
-    )
-
-@app.get("/model/info")
-async def model_info():
-    """Get model information"""
-    if model is None:
-        return {"status": "not_loaded"}
-    
-    num_params = sum(p.numel() for p in model.parameters())
-    
+async def health() -> dict:
+    model = runtime.status()
     return {
-        "model": "ascension-nano",
-        "parameters": num_params,
-        "device": device,
-        "vocab_size": tokenizer.vocab_size if tokenizer else 0,
-        "mode": "demo"
+        "status": "healthy" if model["ready"] else "loading_or_degraded",
+        "version": APP_VERSION,
+        "mode": "ascension_native_local",
+        "candidate_ready": model["ready"],
+        "provider": "ascension-native" if model["ready"] else None,
+        "model": model["model"],
+        "outside_provider": False,
+        "test_access_configured": bool(os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()),
+        "service_access_configured": bool(os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip()),
+        "runtime": model,
     }
 
-@app.post("/document/analyze")
-async def analyze_document(file: UploadFile = File(...)):
-    """Analyze uploaded document"""
-    try:
-        # Read file content
-        content = await file.read()
-        text_content = content.decode('utf-8')
-        
-        # Import document analyzer
-        import importlib.util
-        spec = importlib.util.spec_from_file_location("document_analysis", os.path.join(os.path.dirname(__file__), "..", "documents", "document_analysis.py"))
-        doc_analysis_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(doc_analysis_module)
-        DocumentAnalyzer = doc_analysis_module.DocumentAnalyzer
-        
-        # Analyze document
-        analyzer = DocumentAnalyzer()
-        analysis = analyzer.analyze_document(file.filename, text_content)
-        
-        return {
-            "file_name": file.filename,
-            "analysis": analysis
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/document/recreate")
-async def recreate_document(file: UploadFile = File(...), style: str = "original"):
-    """Recreate uploaded document"""
-    try:
-        # Read file content
-        content = await file.read()
-        text_content = content.decode('utf-8')
-        
-        # Import document analyzer and recreator
-        import importlib.util
-        spec = importlib.util.spec_from_file_location("document_analysis", os.path.join(os.path.dirname(__file__), "..", "documents", "document_analysis.py"))
-        doc_analysis_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(doc_analysis_module)
-        DocumentAnalyzer = doc_analysis_module.DocumentAnalyzer
-        DocumentRecreator = doc_analysis_module.DocumentRecreator
-        
-        # Analyze document
-        analyzer = DocumentAnalyzer()
-        analysis = analyzer.analyze_document(file.filename, text_content)
-        analysis['content'] = text_content
-        
-        # Recreate document
-        recreator = DocumentRecreator()
-        recreation = recreator.recreate_document(analysis, style)
-        
-        return {
-            "file_name": file.filename,
-            "style": style,
-            "recreation": recreation
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+@app.get("/model/info")
+async def model_info(_: None = Depends(require_access)) -> dict:
+    return {
+        "name": "Ascension AI Native Core",
+        "version": APP_VERSION,
+        "runtime": runtime.status(),
+        "shells": [shell.value for shell in Shell],
+        "tiers": [tier.value for tier in Tier],
+        "capability_domains": list(CAPABILITIES),
+        "outside_provider": False,
+        "production_replacement_enabled": False,
+        "promotion_rule": "Enable production replacement only after shell-specific evaluation gates pass.",
+    }
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+@app.get("/v1/capabilities")
+async def capabilities(_: None = Depends(require_access)) -> dict:
+    return {
+        "capabilities": CAPABILITIES,
+        "shells": [shell.value for shell in Shell],
+        "tiers": [tier.value for tier in Tier],
+        "tier_scope": "all_ascension_tiers",
+        "entitlement_rule": "The authenticated calling shell supplies and enforces tier permissions; the shared native core retains one capability model.",
+    }
+
+
+@app.post("/v1/surface-plan")
+async def plan_surfaces(request: SurfacePlanRequest, _: None = Depends(require_access)) -> dict:
+    return surface_plan(
+        shell=request.shell,
+        tier=request.tier,
+        trigger=request.trigger,
+        context=request.context,
+        available_actions=request.available_actions,
+        allowed_capabilities=request.allowed_capabilities,
+    )
+
+
+@app.post("/v1/intelligence")
+async def intelligence(request: IntelligenceRequest, _: None = Depends(require_access)) -> dict:
+    require_native_ready()
+    try:
+        return await asyncio.to_thread(
+            respond,
+            shell=request.shell,
+            tier=request.tier,
+            messages=[message.model_dump() for message in request.messages],
+            context=request.context,
+            surface=request.surface,
+            mode=request.mode,
+            allowed_capabilities=request.allowed_capabilities,
+            temperature=request.temperature,
+            max_tokens=request.max_tokens,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=502, detail=str(error)) from error
+
+
+@app.post("/chat")
+async def chat(request: IntelligenceRequest, access: None = Depends(require_access)) -> dict:
+    return await intelligence(request, access)
+
+
+@app.post("/v1/stream")
+async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(require_access)):
+    require_native_ready()
+    prepared = prepare_inference(
+        shell=request.shell,
+        tier=request.tier,
+        messages=[message.model_dump() for message in request.messages],
+        context=request.context,
+        surface=request.surface,
+        mode=request.mode,
+        allowed_capabilities=request.allowed_capabilities,
+    )
+
+    def events():
+        started = time.perf_counter()
+        meta = {key: value for key, value in prepared.items() if key != "messages"}
+        meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
+        yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
+        try:
+            for token in runtime.stream_chat(prepared["messages"], request.temperature, request.max_tokens):
+                yield f"event: token\ndata: {json.dumps({'token': token}, ensure_ascii=False)}\n\n"
+            done = {"latency_ms": round((time.perf_counter() - started) * 1000), "production_replacement_enabled": False}
+            yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
+        except Exception as error:
+            yield f"event: error\ndata: {json.dumps({'message': str(error)})}\n\n"
+
+    return StreamingResponse(events(), media_type="text/event-stream", headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"})
+
+
+@app.post("/generate")
+async def generate(request: LegacyGenerationRequest, access: None = Depends(require_access)) -> dict:
+    result = await intelligence(
+        IntelligenceRequest(
+            shell=Shell.CORE,
+            messages=[ChatMessage(role="user", content=request.prompt)],
+            surface="legacy_generate",
+            mode="analysis",
+            max_tokens=request.max_new_tokens,
+            temperature=request.temperature,
+        ),
+        access,
+    )
+    return {
+        "content": result["content"],
+        "model": result["model"],
+        "provider": result["provider"],
+        "tokens_generated": result.get("usage", {}).get("completion_tokens", 0),
+        "generation_time_ms": result["latency_ms"],
+        "mode": "ascension_native_local",
+    }
