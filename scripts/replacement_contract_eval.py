@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
-from src.core.orchestrator import compact_context, enforce_response_contract, prepare_inference
+from src.core.orchestrator import compact_context, deterministic_first_pass, enforce_response_contract, prepare_inference
 
 
 def check(name: str, passed: bool) -> None:
@@ -36,11 +36,13 @@ def main() -> None:
     check("inference packet includes response mode and schedule cognition", "Response contract" in prepared["messages"][1]["content"] and "schedule" in prepared["domains"])
     schedule_answer = enforce_response_contract("What days do you work? What time? What are your goals?", prepared["cognition"], {}, "planning")
     check("schedule guard reflects explicit shorthand instead of re-asking it", "Wednesday" in schedule_answer and "Sunday" in schedule_answer and "10 pm" in schedule_answer and "6 am" in schedule_answer)
+    fast_schedule = deterministic_first_pass(prepared["cognition"], "planning")
+    check("structured schedule planning bypasses model latency", fast_schedule is not None and "sleep block" in fast_schedule and "Nothing has been changed" in fast_schedule)
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 12/12")
+    print("Replacement contract evaluation passed: 13/13")
 
 
 if __name__ == "__main__":

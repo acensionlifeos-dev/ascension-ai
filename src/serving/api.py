@@ -167,7 +167,7 @@ def require_native_ready() -> None:
 def effective_max_tokens(requested: int, mode: str = "conversation") -> int:
     """Bound interactive latency while preserving deeper queued reasoning."""
     profile_limits = {"starter": 72, "standard": 420, "pro": 1200, "deep": 1400}
-    mode_limits = {"conversation": 240, "proactive": 280, "planning": 620, "analysis": 820, "background": 1200}
+    mode_limits = {"conversation": 160, "proactive": 240, "planning": 420, "analysis": 680, "background": 1200}
     return min(requested, profile_limits.get(runtime.profile_name, requested), mode_limits.get(mode, 240))
 
 

@@ -24,6 +24,39 @@ def _day_list(days: list[str]) -> str:
     return f"{', '.join(labels[:-1])} and {labels[-1]}"
 
 
+def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
+    """Answer structured, high-confidence intents without paying model latency."""
+    if mode != "planning":
+        return None
+    schedule = next(
+        (item for item in cognitive.get("memory_candidates", []) if item.get("type") == "recurring_schedule"),
+        None,
+    )
+    if schedule:
+        value = schedule.get("value", {})
+        days = value.get("days", [])
+        off_days = [day for day in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday") if day not in days]
+        return (
+            f"I understand the recurring work pattern as {_day_list(days)}, "
+            f"{value.get('start_time')}–{value.get('end_time')}, crossing midnight, with {_day_list(off_days)} off. "
+            "Nothing has been changed or saved yet. First pass: protect the main sleep block after each shift, "
+            "keep the hours before work light, and place demanding personal work on the nights off when possible. "
+            "The two details that materially change the weekly map are the preferred sleep window and any fixed commitments or commute time."
+        )
+    actions = {item.get("action") for item in cognitive.get("action_proposals", [])}
+    if "finance.prepare_budget" in actions:
+        return (
+            "Nothing has been budgeted or moved yet. First protect housing, utilities, food, transportation, medication, and the income-producing essentials. "
+            "The minimum evidence needed for a safe cash plan is current available balances, the next income date and expected amount, and every bill due before then—including overdraft or cash-advance terms."
+        )
+    if "housing.search_options" in actions:
+        return (
+            "Nothing has been searched, applied for, or reserved yet. I can build a housing plan around real cash flow instead of a generic price ceiling. "
+            "The variables that materially change the options are location, move-in date, household and accessibility needs, verified monthly housing limit, and total move-in cash available."
+        )
+    return None
+
+
 def enforce_response_contract(content: str, cognitive: dict, context: dict, mode: str) -> str:
     """Apply deterministic integrity checks where a small model must not improvise."""
     answer = str(content or "").strip()
@@ -127,11 +160,18 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
 
 def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int) -> dict:
     prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
-    result = runtime.chat(
+    first_pass = deterministic_first_pass(prepared["cognition"], mode)
+    result = ({
+        "content": first_pass,
+        "model": "Ascension Contract Engine",
+        "provider": "ascension-native",
+        "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
+        "latency_ms": 0,
+    } if first_pass else runtime.chat(
         messages=prepared["messages"],
         temperature=temperature,
         max_tokens=max_tokens,
-    )
+    ))
     result["content"] = enforce_response_contract(result.get("content", ""), prepared["cognition"], context, mode)
     return {
         **result,
