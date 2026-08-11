@@ -17,6 +17,12 @@ export interface AuthRequest extends Request {
 export async function authMiddleware(req: AuthRequest, res: Response, next: NextFunction) {
   const apiKey = req.headers['x-api-key'] as string;
   
+  // Development bypass for local testing without database
+  if (process.env.NODE_ENV === 'development' || process.env.DEV_AUTH_BYPASS === 'true') {
+    req.user = { id: 1, email: 'dev@ascension.local', tier: 'founderos' };
+    return next();
+  }
+  
   if (!apiKey) {
     return res.status(401).json({ error: 'API key required' });
   }
