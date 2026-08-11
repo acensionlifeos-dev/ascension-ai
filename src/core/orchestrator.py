@@ -33,8 +33,6 @@ def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
         return "Nothing has been sent or posted. I can prepare the recipient, channel, and exact message for your review; delivery requires your explicit approval and a provider receipt."
     if "calendar.external_write" in actions:
         return "Nothing has been added, changed, or removed from a calendar. I can resolve the event title, exact date and time, timezone, target calendar, and recurrence, then present the proposed change for your approval and provider-confirmed execution."
-    if mode != "planning":
-        return None
     schedule = next(
         (item for item in cognitive.get("memory_candidates", []) if item.get("type") == "recurring_schedule"),
         None,
