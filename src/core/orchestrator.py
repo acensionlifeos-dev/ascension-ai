@@ -19,6 +19,29 @@ ACCESS_SCOPE_QUESTION = re.compile(
     r"\b(?:what|which)\s+(?:private\s+|personal\s+)?(?:information|data|details)|\bwhat\s+(?:can|do)\s+you\s+(?:see|know|access)|\bcan\s+you\s+(?:see|access)\b",
     re.I,
 )
+CONVERSATION_REPAIR = re.compile(
+    r"\b(?:why\s+do\s+you\s+always\s+ask|stop\s+asking|feels?\s+robotic|sound(?:s|ing)?\s+robotic|too\s+many\s+questions)\b",
+    re.I,
+)
+PRESENCE_ONLY = re.compile(
+    r"\b(?:do\s+not|don't|dont|no)\s+(?:want\s+)?advice\b|\bjust\s+want\s+to\s+talk\b|\bjust\s+listen\b",
+    re.I,
+)
+
+
+def deterministic_conversation_repair(text: str, mode: str) -> str | None:
+    """Honor direct conversational feedback without another reflex question."""
+    if mode != "conversation":
+        return None
+    value = str(text or "")
+    if CONVERSATION_REPAIR.search(value):
+        return (
+            "Fair point. I fell into a default question instead of responding to you like a person. "
+            "I can stay in the conversation without turning every message into an intake or coaching session."
+        )
+    if PRESENCE_ONLY.search(value):
+        return "I'm here. No advice, no agenda, and no need to turn this into a task. Say it however it comes out; I'll stay with you."
+    return None
 
 
 def deterministic_scope_answer(shell: Shell, text: str) -> str | None:
@@ -195,7 +218,11 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
 def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int) -> dict:
     prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
     latest = messages[-1].get("content", "") if messages else ""
-    first_pass = deterministic_scope_answer(shell, latest) or deterministic_first_pass(prepared["cognition"], mode)
+    first_pass = (
+        deterministic_scope_answer(shell, latest)
+        or deterministic_conversation_repair(latest, mode)
+        or deterministic_first_pass(prepared["cognition"], mode)
+    )
     result = ({
         "content": first_pass,
         "model": "Ascension Contract Engine",

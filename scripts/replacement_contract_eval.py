@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
-from src.core.orchestrator import compact_context, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
+from src.core.orchestrator import compact_context, deterministic_conversation_repair, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
 
 
 def check(name: str, passed: bool) -> None:
@@ -44,11 +44,15 @@ def main() -> None:
     check("calendar writes require approval and provider receipts", calendar_answer is not None and "Nothing has been added" in calendar_answer and "provider-confirmed" in calendar_answer)
     scope_answer = deterministic_scope_answer(Shell.NEXUS_FAMILY, "What private information can you see about each family member?")
     check("Nexus cannot improvise access to family member data", "cannot see" in scope_answer.lower() and "permission-scoped context" in scope_answer.lower())
+    repair_answer = deterministic_conversation_repair("Why do you always ask what I'm thinking? It feels robotic.", "conversation")
+    check("conversation criticism does not trigger another reflex question", repair_answer is not None and "?" not in repair_answer and "Fair point" in repair_answer)
+    presence_answer = deterministic_conversation_repair("I don't want advice; I just want to talk.", "conversation")
+    check("presence requests do not become tasks or coaching", presence_answer is not None and "No advice" in presence_answer and "?" not in presence_answer)
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
-    print("Replacement contract evaluation passed: 16/16")
+    print("Replacement contract evaluation passed: 18/18")
 
 
 if __name__ == "__main__":
