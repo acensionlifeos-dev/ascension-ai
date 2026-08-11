@@ -1,15 +1,15 @@
 {
   "starter": {
     "label": "Ascension Seed",
-    "repo_id": "tensorblock/SmolLM2-360M-Instruct-GGUF",
-    "filename": "SmolLM2-360M-Instruct-Q2_K.gguf",
-    "revision": "0f5adbbb0caf54db4eb6d6a7d8bb4bdaf640332c",
-    "sha256": "a0426e69276621295cd49cd69e879c35df02c52af6d3523ff4e8fad882874903",
-    "size_bytes": 218675200,
+    "repo_id": "tensorblock/SmolLM2-135M-Instruct-GGUF",
+    "filename": "SmolLM2-135M-Instruct-Q2_K.gguf",
+    "revision": "32db44d69cedb731dc0fc96f60e01a86c6f5919d",
+    "sha256": "478cca924101ed67bb2751f597be41532b2f4817ee2ab1b0d7cc379c76e79faf",
+    "size_bytes": 88202816,
     "minimum_render_plan": "free_or_starter_512mb",
     "context_tokens": 768,
     "threads": 1,
-    "quality_note": "Bootstrap model for proving private local inference and orchestration. Limited reasoning depth."
+    "quality_note": "Latency-first bootstrap model for proving private local inference and orchestration on Render Free. Limited reasoning depth."
   },
   "standard": {
     "label": "Ascension Core 0.5B",

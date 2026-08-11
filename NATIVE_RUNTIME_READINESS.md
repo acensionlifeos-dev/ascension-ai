@@ -28,7 +28,7 @@ Ascension AI is the shared intelligence core. It is not another consumer screen 
 
 | Profile | Model | Quantized size | Minimum target | Purpose |
 |---|---|---:|---|---|
-| `starter` | SmolLM2 360M Q2 | 219 MB | Render Free/Starter, 512 MB | Prove native boot, privacy, API, and shell routing. Quality is limited. |
+| `starter` | SmolLM2 135M Q2 | 88 MB | Render Free/Starter, 512 MB | Prove native boot, privacy, API, and shell routing with a responsive bootstrap. Quality is limited. |
 | `standard` | Qwen2.5 0.5B Q4_K_M | 491 MB | Render Standard, 2 GB | Better instruction following and conversation. |
 | `pro` | Qwen2.5 3B Q4_K_M | 2.10 GB | Render Pro, 4 GB | Primary evaluation target for reasoning, planning, structured output, and tool selection. |
 

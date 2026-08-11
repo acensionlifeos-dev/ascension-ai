@@ -24,7 +24,7 @@ The AI proposes intelligence and actions. LifeOS owns authentication, database a
 
 | Profile | Model | Intended host |
 | --- | --- | --- |
-| `starter` | SmolLM2 360M Q2 | 512 MB bootstrap validation |
+| `starter` | SmolLM2 135M Q2 | 512 MB latency-first bootstrap validation |
 | `standard` | Qwen2.5 0.5B Q4 | 2 GB service |
 | `pro` | Qwen2.5 3B Q4 | 4 GB service |
 

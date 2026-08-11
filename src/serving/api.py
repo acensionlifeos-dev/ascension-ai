@@ -149,6 +149,12 @@ def require_native_ready() -> None:
         raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Ascension native model is not ready.")
 
 
+def effective_max_tokens(requested: int) -> int:
+    """Keep evaluation profiles responsive on their intended hardware."""
+    profile_limits = {"starter": 72, "standard": 512, "pro": 1600}
+    return min(requested, profile_limits.get(runtime.profile_name, requested))
+
+
 @app.get("/")
 async def root() -> FileResponse:
     return FileResponse(PUBLIC / "index.html")
@@ -223,7 +229,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             mode=request.mode,
             allowed_capabilities=request.allowed_capabilities,
             temperature=request.temperature,
-            max_tokens=request.max_tokens,
+            max_tokens=effective_max_tokens(request.max_tokens),
         )
     except Exception as error:
         raise HTTPException(status_code=502, detail=str(error)) from error
@@ -253,7 +259,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
         meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
         try:
-            for token in runtime.stream_chat(prepared["messages"], request.temperature, request.max_tokens):
+            for token in runtime.stream_chat(prepared["messages"], request.temperature, effective_max_tokens(request.max_tokens)):
                 yield f"event: token\ndata: {json.dumps({'token': token}, ensure_ascii=False)}\n\n"
             done = {"latency_ms": round((time.perf_counter() - started) * 1000), "production_replacement_enabled": False}
             yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
