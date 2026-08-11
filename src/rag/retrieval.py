@@ -242,16 +242,16 @@ class HybridRAG:
         return results[:top_k]
 
 # For production, we'll integrate with:
-- Pinecone for vector database
-- Weaviate for vector database
-- Chroma for local vector database
-- SentenceBERT for embeddings
-- OpenAI embeddings (as fallback)
-- HuggingFace embeddings
-- Hybrid search (semantic + keyword)
-- Re-ranking with cross-encoder
-- Document chunking strategies
-- Metadata filtering
+# - Pinecone for vector database
+# - Weaviate for vector database
+# - Chroma for local vector database
+# - SentenceBERT for embeddings
+# - OpenAI embeddings (as fallback)
+# - HuggingFace embeddings
+# - Hybrid search (semantic + keyword)
+# - Re-ranking with cross-encoder
+# - Document chunking strategies
+# - Metadata filtering
 
 if __name__ == '__main__':
     print("RAG system ready")

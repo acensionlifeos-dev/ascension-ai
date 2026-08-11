@@ -231,17 +231,17 @@ class AnalyticsDashboard:
         }
 
 # For production, we'll implement:
-- Actual document parsers (PyPDF2, python-docx)
-- Named entity recognition (spaCy, transformers)
-- Key phrase extraction algorithms
-- Abstractive summarization
-- Vector embeddings for semantic search
-- Faiss for efficient similarity search
-- Collaborative filtering algorithms
-- Content-based filtering
-- Hybrid recommendation systems
-- Real-time analytics
-- Search relevance scoring
+# - Actual document parsers (PyPDF2, python-docx)
+# - Named entity recognition (spaCy, transformers)
+# - Key phrase extraction algorithms
+# - Abstractive summarization
+# - Vector embeddings for semantic search
+# - Faiss for efficient similarity search
+# - Collaborative filtering algorithms
+# - Content-based filtering
+# - Hybrid recommendation systems
+# - Real-time analytics
+# - Search relevance scoring
 
 if __name__ == '__main__':
     print("Document processing system ready")

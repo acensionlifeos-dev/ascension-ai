@@ -229,16 +229,16 @@ class StructuredReasoning:
         }
 
 # For production, we'll implement:
-- Knowledge graph embeddings
-- Graph neural networks
-- Ontology integration
-- RDF/OWL support
-- SPARQL queries
-- Temporal reasoning
-- Causal reasoning
-- Abductive reasoning
-- Commonsense reasoning
-- Knowledge graph visualization
+# - Knowledge graph embeddings
+# - Graph neural networks
+# - Ontology integration
+# - RDF/OWL support
+# - SPARQL queries
+# - Temporal reasoning
+# - Causal reasoning
+# - Abductive reasoning
+# - Commonsense reasoning
+# - Knowledge graph visualization
 
 if __name__ == '__main__':
     print("Knowledge graph system ready")

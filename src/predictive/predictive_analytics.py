@@ -87,7 +87,7 @@ class BehaviorPredictor:
         """Extract frequency patterns"""
         return ['Daily engagement', 'Consistent patterns']
     
-    def extract_sequence_patterns(self, List[Dict]) -> List[str]:
+    def extract_sequence_patterns(self, behavior_history: List[Dict]) -> List[str]:
         """Extract sequence patterns"""
         return ['A then B then C sequence', 'D followed by E']
     
@@ -485,16 +485,16 @@ class RiskAssessment:
             ]
 
 # For production, we'll implement:
-- Machine learning models (XGBoost, LightGBM, neural networks)
-- Time series forecasting (ARIMA, Prophet, LSTM)
-- Feature engineering and selection
-- Model validation and testing
-- A/B testing framework
-- Real-time prediction serving
-- Model monitoring and retraining
-- Explainable AI (SHAP, LIME)
-- Ensemble methods
-- Hyperparameter optimization
+# - Machine learning models (XGBoost, LightGBM, neural networks)
+# - Time series forecasting (ARIMA, Prophet, LSTM)
+# - Feature engineering and selection
+# - Model validation and testing
+# - A/B testing framework
+# - Real-time prediction serving
+# - Model monitoring and retraining
+# - Explainable AI (SHAP, LIME)
+# - Ensemble methods
+# - Hyperparameter optimization
 
 if __name__ == '__main__':
     print("Predictive analytics system ready")

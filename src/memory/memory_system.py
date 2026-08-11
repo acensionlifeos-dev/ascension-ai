@@ -265,12 +265,12 @@ class PersonalizedAI:
         return f"Based on your input: {user_input} and context: {len(memories)} relevant memories"
 
 # For production, we'll implement:
-- Vector embeddings for semantic search
-- Memory consolidation during sleep
-- Memory importance scoring
-- Forgetting mechanism for old memories
-- Cross-session memory persistence
-- Privacy controls for memory storage
+# - Vector embeddings for semantic search
+# - Memory consolidation during sleep
+# - Memory importance scoring
+# - Forgetting mechanism for old memories
+# - Cross-session memory persistence
+# - Privacy controls for memory storage
 
 if __name__ == '__main__':
     print("Memory system ready")

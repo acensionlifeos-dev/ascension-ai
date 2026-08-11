@@ -293,16 +293,16 @@ class MetaverseBuilder:
         }
 
 # For production, we'll integrate with:
-- Unity/Unreal Engine for rendering
-- WebXR for browser-based VR/AR
-- Three.js for web 3D
-- ARKit/ARCore for mobile AR
-- OpenXR for cross-platform VR
-- Spatial audio engines
-- Physics engines (PhysX, Bullet)
-- Real-time ray tracing
-- Volumetric rendering
-- Haptic feedback
+# - Unity/Unreal Engine for rendering
+# - WebXR for browser-based VR/AR
+# - Three.js for web 3D
+# - ARKit/ARCore for mobile AR
+# - OpenXR for cross-platform VR
+# - Spatial audio engines
+# - Physics engines (PhysX, Bullet)
+# - Real-time ray tracing
+# - Volumetric rendering
+# - Haptic feedback
 
 if __name__ == '__main__':
     print("VR/AR rendering system ready")

@@ -246,16 +246,16 @@ class ReminderSystem:
             reminder['status'] = 'pending'
 
 # For production, we'll implement:
-- Distributed task scheduling (Celery, Airflow)
-- Calendar API integrations (Google Calendar, Outlook)
-- Recurring task patterns
-- Task dependencies
-- Parallel execution
-- Error handling and retries
-- Task timeouts
-- Workflow visualization
-- Calendar conflict detection
-- Smart scheduling algorithms
+# - Distributed task scheduling (Celery, Airflow)
+# - Calendar API integrations (Google Calendar, Outlook)
+# - Recurring task patterns
+# - Task dependencies
+# - Parallel execution
+# - Error handling and retries
+# - Task timeouts
+# - Workflow visualization
+# - Calendar conflict detection
+# - Smart scheduling algorithms
 
 if __name__ == '__main__':
     print("Scheduling and task management system ready")

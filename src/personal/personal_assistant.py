@@ -572,10 +572,10 @@ We operate in the {data.get('industry', 'industry')} market with a focus on {dat
 Our mission is to {data.get('mission', 'create value')}. We aim to achieve {data.get('goals', 'our goals')} by {data.get('approach', 'our approach')}.
 
 Key highlights:
-- Unique value proposition: {data.get('value_proposition', 'unique')}
-- Target market: {data.get('target_market', 'specific customers')}
-- Revenue model: {data.get('revenue_model', 'subscription')}
-- Growth potential: {data.get('growth_potential', 'significant')}
+# - Unique value proposition: {data.get('value_proposition', 'unique')}
+# - Target market: {data.get('target_market', 'specific customers')}
+# - Revenue model: {data.get('revenue_model', 'subscription')}
+# - Growth potential: {data.get('growth_potential', 'significant')}
 """
     
     def generate_company_description(self, data: Dict) -> str:
@@ -949,7 +949,7 @@ Date: {datetime.now().strftime('%Y-%m-%d')}
     def generate_operating_agreement(self, data: Dict) -> str:
         """Generate LLC operating agreement"""
         return f"""
-OPERATING AGREEMENT OF {data.get('name', 'Company Name') LLC}
+OPERATING AGREEMENT OF {data.get('name', 'Company Name')} LLC
 
 1. Name
 The name of the limited liability company is {data.get('name', 'Company Name')} LLC.
@@ -1122,19 +1122,19 @@ class PersonalAssistantSystem:
             return 'general'
 
 # For production, we'll implement:
-- Advanced NLP for personalization
-- Real relationship tracking
-- Flight booking API integration
-- Business plan AI generation
-- Legal document AI generation
-- Grant submission systems
-- Patent filing systems
-- Company formation integration
-- Executive assistant AI
-- Quality assurance systems
-- Permission management
-- Task automation
-- Calendar integration
+# - Advanced NLP for personalization
+# - Real relationship tracking
+# - Flight booking API integration
+# - Business plan AI generation
+# - Legal document AI generation
+# - Grant submission systems
+# - Patent filing systems
+# - Company formation integration
+# - Executive assistant AI
+# - Quality assurance systems
+# - Permission management
+# - Task automation
+# - Calendar integration
 
 if __name__ == '__main__':
     print("Personal assistant system ready")

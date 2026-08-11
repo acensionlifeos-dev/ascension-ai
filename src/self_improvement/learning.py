@@ -186,12 +186,12 @@ class KnowledgeRetention:
         return [f['fact'] for f in self.knowledge_base['facts'][:top_k]]
 
 # For production, we'll implement:
-- Continuous learning from user feedback
-- Automatic fine-tuning on new data
-- Knowledge graph expansion
-- Performance-based model selection
-- A/B testing of improvements
-- Rollback capability
+# - Continuous learning from user feedback
+# - Automatic fine-tuning on new data
+# - Knowledge graph expansion
+# - Performance-based model selection
+# - A/B testing of improvements
+# - Rollback capability
 
 if __name__ == '__main__':
     print("Self-improvement system ready")

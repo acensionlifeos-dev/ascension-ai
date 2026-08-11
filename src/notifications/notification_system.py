@@ -183,16 +183,16 @@ class NotificationTemplate:
         self.templates[template_name] = template
 
 # For production, we'll implement:
-- Actual email sending (SendGrid, AWS SES)
-- SMS integration (Twilio)
-- Push notification services (FCM, APNs)
-- Webhook delivery with retries
-- Notification batching
-- Delivery tracking
-- Read receipts
-- Unsubscribe management
-- Spam protection
-- Rate limiting per channel
+# - Actual email sending (SendGrid, AWS SES)
+# - SMS integration (Twilio)
+# - Push notification services (FCM, APNs)
+# - Webhook delivery with retries
+# - Notification batching
+# - Delivery tracking
+# - Read receipts
+# - Unsubscribe management
+# - Spam protection
+# - Rate limiting per channel
 
 if __name__ == '__main__':
     print("Notification system ready")

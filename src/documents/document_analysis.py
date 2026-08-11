@@ -293,16 +293,16 @@ class DocumentComparison:
         return list(topics1 & topics2)
 
 # For production, we'll implement:
-- Advanced NLP models for analysis
-- Deep learning for sentiment analysis
-- Topic modeling (LDA, BERTopic)
-- Document generation using GPT-style models
-- Style transfer for recreation
-- Advanced similarity metrics (cosine similarity, Jaccard)
-- Diff comparison algorithms
-- Format preservation
-- Metadata extraction
-- OCR for scanned documents
+# - Advanced NLP models for analysis
+# - Deep learning for sentiment analysis
+# - Topic modeling (LDA, BERTopic)
+# - Document generation using GPT-style models
+# - Style transfer for recreation
+# - Advanced similarity metrics (cosine similarity, Jaccard)
+# - Diff comparison algorithms
+# - Format preservation
+# - Metadata extraction
+# - OCR for scanned documents
 
 if __name__ == '__main__':
     print("Document analysis and recreation system ready")
