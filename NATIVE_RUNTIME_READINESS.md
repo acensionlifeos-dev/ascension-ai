@@ -30,15 +30,17 @@ Ascension AI is the shared intelligence core. It is not another consumer screen 
 |---|---|---:|---|---|
 | `starter` | SmolLM2 135M Q2 | 88 MB | Render Free/Starter, 512 MB | Prove native boot, privacy, API, and shell routing with a responsive bootstrap. Quality is limited. |
 | `standard` | Qwen2.5 0.5B Q4_K_M | 491 MB | Render Standard, 2 GB | Better instruction following and conversation. |
-| `pro` | Qwen2.5 3B Q4_K_M | 2.10 GB | Render Pro, 4 GB | Primary evaluation target for reasoning, planning, structured output, and tool selection. |
+| `pro` | Qwen3 1.7B Q8_0 | 1.83 GB | Render Pro, 4 GB | Responsive multilingual conversation, planning, structured cognition, and tool selection. |
+| `deep` | Qwen3 4B Q4_K_M | 2.50 GB | Pro 4 GB background worker | Queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required. |
 
 The service must be redeployed after changing `ASCENSION_MODEL_PROFILE`. Model selection does not change the API or shell contracts.
 
 ## Measured local evidence (2026-08-11)
 
 - Starter profile: 30/30 native smoke prompts passed across AP, LifeOS, NexusHome, NexusFamily, and Core; median 2,558 ms and p95 3,409 ms; no outside provider.
-- Pro profile: all five shell smoke requests returned successfully on the 3B model. Local CPU latency ranged from 20.7 to 30.2 seconds for 64 output tokens, so genuine SSE streaming is required for the user experience.
-- Pro process memory was previously measured at about 1.9 GB with the 3B Q4 model, within a 4 GB Render Pro instance while leaving operational headroom.
+- The earlier 3B test passed five shell smoke requests but was too slow for ordinary conversation.
+- Production candidate 2.2 now runs the pinned Qwen3 1.7B Q8 profile on Render Pro with real SSE streaming and bounded mode-specific output budgets.
+- Replacement readiness remains false until the rubric-based live suite, concurrency/recovery checks, and native-primary canary all pass.
 
 ## Capability surfacing rule
 

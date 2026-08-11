@@ -2,7 +2,7 @@
 
 Ascension AI is the private, shared intelligence core for Ascension LifeOS. It runs a pinned open-weight model locally through `llama.cpp`; the production runtime does not call OpenAI, Gemini, Anthropic, or another hosted model.
 
-Current status: native alpha. The standalone service is suitable for evaluation and staged LifeOS routing. It is not yet approved as the only production intelligence provider.
+Current status: native alpha 2.3. The standalone service is live and suitable for evaluation and staged LifeOS routing. It is not yet approved as the only production intelligence provider; `/v1/readiness` deliberately reports that distinction.
 
 ## Product shells
 
@@ -91,9 +91,13 @@ The LifeOS router sends the relevant shell, subscription tier, product surface, 
 
 ```bash
 python scripts/native_conversation_eval.py
+python scripts/replacement_contract_eval.py
+set ASCENSION_AI_BASE_URL=https://ascension-ai.onrender.com
+set ASCENSION_AI_TEST_TOKEN=<private test token>
+python scripts/replacement_readiness_eval.py
 ```
 
-The current smoke set contains 30 human prompts across AP, LifeOS, NexusHome, NexusFamily, and Core. See `NATIVE_RUNTIME_READINESS.md` for measured local results, known limits, and promotion gates.
+The smoke set contains 30 human prompts across AP, LifeOS, NexusHome, NexusFamily, and Core. The replacement suite adds explicit required concepts, forbidden claims, response-length limits, provider-integrity checks, hidden-reasoning checks, and an interactive-latency gate. Passing the smoke set alone does not authorize provider replacement.
 
 ## Security boundaries
 

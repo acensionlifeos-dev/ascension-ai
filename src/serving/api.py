@@ -27,7 +27,7 @@ from src.core.orchestrator import prepare_inference, respond, surface_plan
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
-APP_VERSION = "2.2.0-native-alpha"
+APP_VERSION = "2.3.0-native-alpha"
 MAX_MESSAGES = 24
 MAX_MESSAGE_LENGTH = 12_000
 
@@ -164,10 +164,11 @@ def require_native_ready() -> None:
         raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Ascension native model is not ready.")
 
 
-def effective_max_tokens(requested: int) -> int:
-    """Keep evaluation profiles responsive on their intended hardware."""
-    profile_limits = {"starter": 72, "standard": 512, "pro": 1600}
-    return min(requested, profile_limits.get(runtime.profile_name, requested))
+def effective_max_tokens(requested: int, mode: str = "conversation") -> int:
+    """Bound interactive latency while preserving deeper queued reasoning."""
+    profile_limits = {"starter": 72, "standard": 420, "pro": 1200, "deep": 1400}
+    mode_limits = {"conversation": 240, "proactive": 280, "planning": 620, "analysis": 820, "background": 1200}
+    return min(requested, profile_limits.get(runtime.profile_name, requested), mode_limits.get(mode, 240))
 
 
 @app.get("/")
@@ -183,12 +184,30 @@ async def health() -> dict:
         "version": APP_VERSION,
         "mode": "ascension_native_local",
         "candidate_ready": model["ready"],
+        "replacement_ready": False,
         "provider": "ascension-native" if model["ready"] else None,
         "model": model["model"],
         "outside_provider": False,
         "test_access_configured": bool(os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()),
         "service_access_configured": bool(os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip()),
         "runtime": model,
+    }
+
+
+@app.get("/v1/readiness")
+async def replacement_readiness(_: None = Depends(require_access)) -> dict:
+    return {
+        "candidate_ready": runtime.status()["ready"],
+        "replacement_ready": False,
+        "evaluation_suite": "replacement_readiness_prompts_v1",
+        "evaluation_cases": 20,
+        "required_gates": [
+            "conversation_quality", "shell_isolation", "action_integrity",
+            "domain_reasoning", "safety_privacy", "interactive_latency",
+            "concurrency_recovery", "native_primary_canary",
+        ],
+        "promotion_rule": "Every gate must pass before outside-model fallback is removed.",
+        "runtime": runtime.status(),
     }
 
 
@@ -305,7 +324,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             mode=request.mode,
             allowed_capabilities=request.allowed_capabilities,
             temperature=request.temperature,
-            max_tokens=effective_max_tokens(request.max_tokens),
+            max_tokens=effective_max_tokens(request.max_tokens, request.mode),
         )
     except Exception as error:
         raise HTTPException(status_code=502, detail=str(error)) from error
@@ -346,7 +365,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
         meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
         try:
-            for token in runtime.stream_chat(prepared["messages"], request.temperature, effective_max_tokens(request.max_tokens)):
+            for token in runtime.stream_chat(prepared["messages"], request.temperature, effective_max_tokens(request.max_tokens, request.mode)):
                 yield f"event: token\ndata: {json.dumps({'token': token}, ensure_ascii=False)}\n\n"
             done = {"latency_ms": round((time.perf_counter() - started) * 1000), "production_replacement_enabled": False}
             yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"

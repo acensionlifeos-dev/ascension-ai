@@ -26,7 +26,7 @@ CAPABILITIES = {
 
 KEYWORDS = {
     "identity": r"\b(identity|become|aspiration|dream|goal|alignment|quest|future self)\b",
-    "schedule": r"\b(schedule|calendar|shift|work hours?|appointment|event|weekly|remind|circadian|sleep)\b",
+    "schedule": r"\b(schedule|calendar|shift|work hours?|appointment|event|weekly|remind|circadian|sleep)\b|\bwork\s+\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)?",
     "finance": r"\b(money|cash|bank|payroll|income|salary|budget|bill|debt|credit|overdraft|wealth|afford|price)\b",
     "health": r"\b(health|workout|exercise|nutrition|meal|food|weight|sleep|recovery|medication|gym)\b",
     "learning": r"\b(learn|lesson|course|academy|book|study|skill|teach|practice)\b",

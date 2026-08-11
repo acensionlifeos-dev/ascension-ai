@@ -6,12 +6,22 @@ import json
 
 from .capabilities import capability_packet, detect_domains
 from .cognition import build_cognitive_packet
-from .contracts import Shell, Tier, system_contract
+from .contracts import Shell, Tier, response_contract, system_contract
 from .model_runtime import runtime
 
 
-def compact_context(context: dict, limit: int = 12_000) -> str:
-    encoded = json.dumps(context or {}, ensure_ascii=False, separators=(",", ":"), default=str)
+def compact_context(context: dict, limit: int = 8_000) -> str:
+    """Keep evidence and receipts ahead of low-value UI/runtime metadata."""
+    if not isinstance(context, dict):
+        return "{}"
+    priority = (
+        "action_receipts", "memory_receipts", "verified_evidence", "evidence",
+        "memories", "documents", "knowledge", "profile", "schedule", "finance",
+        "health", "relationships", "goals", "available_actions",
+    )
+    ordered = {key: context[key] for key in priority if key in context}
+    ordered.update({key: value for key, value in context.items() if key not in ordered and key not in {"debug", "telemetry", "ui_state"}})
+    encoded = json.dumps(ordered, ensure_ascii=False, separators=(",", ":"), default=str)
     return encoded[:limit]
 
 
@@ -39,7 +49,8 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
         "role": "system",
         "content": (
             f"Invocation mode: {mode}. Current product surface: {surface}. "
-            f"Relevant capability map: {json.dumps(capabilities, separators=(',', ':'))}. "
+            f"Response contract: {response_contract(mode)} "
+            f"Relevant domains: {','.join(domains)}. "
             f"Ascension cognition packet: {json.dumps(prompt_cognition, ensure_ascii=False, separators=(',', ':'))}. "
             f"Permission-scoped context packet: {compact_context(context)}"
         ),

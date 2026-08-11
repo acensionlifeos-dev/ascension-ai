@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import threading
 import time
 from pathlib import Path
@@ -149,7 +150,9 @@ class NativeModelRuntime:
         if "</think>" in cleaned:
             cleaned = cleaned.split("</think>", 1)[1].strip()
         if cleaned.startswith("<think>"):
-            cleaned = cleaned.removeprefix("<think>").strip()
+            return ""
+        cleaned = re.sub(r"<\|[^>]+\|>", "", cleaned).strip()
+        cleaned = re.sub(r"^\s*(?:analysis|reasoning)\s*:\s*", "", cleaned, flags=re.I)
         return cleaned
 
 
