@@ -67,5 +67,3 @@ Google: Good code generation, good benchmarks
 **Ascension AI: Full code generation + comprehensive benchmarking + competitor comparison**
 
 This is what makes AI production-ready - it can be rigorously tested and compared against competitors.
-
-Generated with [Devin](https://devin.ai)

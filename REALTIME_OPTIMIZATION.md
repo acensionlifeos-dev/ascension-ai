@@ -57,6 +57,4 @@ Google: Good real-time, good optimization
 
 This is what makes AI production-ready - it can process data in real-time and be optimized for any deployment scenario.
 
-Generated with [Devin](https://devin.ai)
-
 Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>
