@@ -15,7 +15,7 @@ const router = Router();
  */
 router.post('/', async (req: AuthRequest, res: Response) => {
   try {
-    const { message, model, provider } = req.body;
+    const { message, capabilityId } = req.body;
     
     if (!message) {
       return res.status(400).json({ error: 'Message required' });
@@ -23,8 +23,13 @@ router.post('/', async (req: AuthRequest, res: Response) => {
     
     const startTime = Date.now();
     
+    // Prefer native chat if enabled and no explicit capability requested
+    const defaultCapability = process.env.ASCENSION_NATIVE_ENABLED === 'true' && !capabilityId
+      ? 'ascension_chat'
+      : capabilityId || 'chat_gpt4';
+    
     // Route to best provider
-    const routingDecision = await modelRouter.route('chat_gpt4', req.user?.tier || 'individual');
+    const routingDecision = await modelRouter.route(defaultCapability, req.user?.tier || 'individual');
     
     // Execute request
     const response = await modelRouter.execute(routingDecision, {
@@ -47,6 +52,7 @@ router.post('/', async (req: AuthRequest, res: Response) => {
       content: response.content,
       model: response.model,
       provider: response.provider,
+      capabilityId: defaultCapability,
       tokensUsed: response.tokensUsed,
       costCents: Math.ceil(response.tokensUsed * 0.03),
       durationMs
