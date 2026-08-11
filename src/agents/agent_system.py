@@ -25,26 +25,14 @@ class Tool:
 class AgentPlanner:
     """Plans tasks for agents"""
     
-    def __init__(self, model, tokenizer, device='cuda'):
-        self.model = model.to(device)
-        self.tokenizer = tokenizer
-        self.device = device
-        self.model.eval()
+    def __init__(self):
+        pass
     
     def plan(self, goal: str, available_tools: List[Tool]) -> List[Dict]:
         """
         Plan how to achieve a goal using available tools
         Returns a list of tool calls
         """
-        # Encode goal
-        tokens = self.tokenizer.encode(goal, max_length=128)
-        input_tensor = torch.tensor([tokens], dtype=torch.long).self.device
-        
-        # Get tool descriptions
-        tool_descriptions = "\n".join([
-            f"{tool.name}: {tool.description}" for tool in available_tools
-        ])
-        
         # Simple planning: In production, use LLM to generate plan
         # For now, return a simple plan
         plan = [
@@ -98,16 +86,12 @@ class AgentExecutor:
 class Agent:
     """Autonomous agent that can perform tasks"""
     
-    def __init__(self, model, tokenizer, tools: List[Tool], device='cuda'):
-        self.model = model
-        self.tokenizer = tokenizer
-        self.device = device
-        
+    def __init__(self, tools: List[Tool]):
         # Create tool registry
         self.tools = {tool.name: tool for tool in tools}
         
-        # Create planner
-        self.planner = AgentPlanner(model, tokenizer, device)
+        # Create planner (simplified - in production, use LLM)
+        self.planner = AgentPlanner()
         
         # Create executor
         self.executor = AgentExecutor(self.tools)
@@ -185,20 +169,9 @@ DEFAULT_TOOLS = [
 class AgentSystem:
     """Agent system for autonomous task execution"""
     
-    def __init__(self, model, tokenizer, tools: Optional[List[Tool]] = None, device='cuda'):
-        self.model = model
-        self.tokenizer = tokenizer
-        self.device = device
-        
+    def __init__(self, tools: Optional[List[Tool]] = None):
         # Create tools
         self.tools = tools or DEFAULT_TOOLS
-        
-        # Create agent
-        self.agent = Agent(model, tokenizer, self.tools, device)
-    
-    def execute_task(self, goal: str) -> Dict:
-        """Execute a task"""
-        return self.agent.execute(goal)
 
 # For production, we'll implement:
 # - Complex reasoning chains
