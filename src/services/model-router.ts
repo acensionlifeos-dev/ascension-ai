@@ -11,7 +11,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { getCapabilityById } from './capability-registry';
 
 export interface ModelConfig {
-  provider: 'openai' | 'anthropic' | 'google' | 'midjourney' | 'elevenlabs' | 'suno' | 'runway' | 'luma' | 'stability' | 'custom';
+  provider: 'openai' | 'anthropic' | 'google' | 'midjourney' | 'elevenlabs' | 'suno' | 'runway' | 'luma' | 'stability' | 'ascension-native' | 'custom';
   model: string;
   apiKey: string;
 }
@@ -115,6 +115,8 @@ class ModelRouter {
         return process.env.LUMA_API_KEY !== undefined;
       case 'stability':
         return process.env.STABILITY_API_KEY !== undefined;
+      case 'ascension-native':
+        return process.env.ASCENSION_NATIVE_ENABLED === 'true';
       case 'custom':
         return true; // Custom providers always available
       default:
@@ -145,6 +147,8 @@ class ModelRouter {
         return 'luma-dream-machine';
       case 'stability':
         return 'stable-diffusion-xl';
+      case 'ascension-native':
+        return 'Ascension Candidate 3B';
       case 'custom':
         return 'custom-model';
       default:
@@ -202,6 +206,8 @@ class ModelRouter {
         return this.executeOpenAI(routingDecision, request);
       case 'anthropic':
         return this.executeAnthropic(routingDecision, request);
+      case 'ascension-native':
+        return this.executeAscensionNative(routingDecision, request);
       // case 'google':
       //   return this.executeGoogle(routingDecision, request);
       default:
@@ -242,6 +248,46 @@ class ModelRouter {
       provider: 'anthropic',
       tokensUsed: response.usage?.input_tokens + response.usage?.output_tokens || 0
     };
+  }
+  
+  private async executeAscensionNative(routingDecision: RoutingDecision, request: any): Promise<any> {
+    // Route to the native Python core via internal endpoint or local model
+    const nativeEndpoint = process.env.ASCENSION_NATIVE_URL || 'http://localhost:8000/chat';
+    
+    try {
+      const response = await fetch(nativeEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: request.messages || [],
+          temperature: request.temperature ?? 0.7,
+          max_tokens: request.max_tokens || 2048,
+          capability: request.capability
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Native runtime returned ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      return {
+        content: data.content,
+        model: routingDecision.model,
+        provider: 'ascension-native',
+        tokensUsed: data.tokensUsed || 0
+      };
+    } catch (error) {
+      // Fallback to first-pass deterministic response if native runtime is unavailable
+      return {
+        content: `Ascension native response for ${routingDecision.model} (stub: native model not loaded yet).`,
+        model: routingDecision.model,
+        provider: 'ascension-native',
+        tokensUsed: 0,
+        fallback: true
+      };
+    }
   }
   
   private async executeGoogle(routingDecision: RoutingDecision, request: any): Promise<any> {

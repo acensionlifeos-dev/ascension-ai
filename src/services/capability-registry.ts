@@ -471,6 +471,96 @@ export const CAPABILITIES = [
     executor: 'health'
   },
   
+  // Native Ascension overlay capabilities (replace outside AI)
+  {
+    id: 'ascension_chat',
+    name: 'Ascension Native Chat',
+    category: 'text',
+    description: 'General chat powered by native Ascension AI core',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'chat'
+  },
+  {
+    id: 'ascension_home',
+    name: 'Ascension HomeOS',
+    category: 'home',
+    description: 'Household and co-parenting coordination',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_sprout',
+    name: 'Ascension Sprout',
+    category: 'sprout',
+    description: 'Child development and learning paths',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sprout'
+  },
+  {
+    id: 'ascension_family',
+    name: 'Ascension FamilyOS',
+    category: 'family',
+    description: 'Family enterprise, tree, and governance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'family'
+  },
+  {
+    id: 'ascension_health',
+    name: 'Ascension Health',
+    category: 'health',
+    description: 'Health, wellness, and symptom guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'health'
+  },
+  {
+    id: 'ascension_finance',
+    name: 'Ascension Financial Intelligence',
+    category: 'finance',
+    description: 'Financial analysis, planning, and opportunity finding',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_trading',
+    name: 'Ascension Trading Intelligence',
+    category: 'finance',
+    description: 'Multi-market analysis, backtesting, and paper trading',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_vision',
+    name: 'Ascension Vision',
+    category: 'vision',
+    description: 'Camera and environmental understanding',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'vision'
+  },
+  
   // Add 180+ more capabilities here...
 ];
 
