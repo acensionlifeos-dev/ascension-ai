@@ -217,15 +217,15 @@ class APIMonitor:
         }
 
 # For production, we'll implement:
-- Redis for distributed rate limiting
-- Database persistence for usage tracking
-- Real-time monitoring dashboards
-- Alert system for errors
-- Cost prediction
-- Usage analytics
-- Custom tier management
-- Billing integration
-- Webhook notifications
+# - Redis for distributed rate limiting
+# - Database persistence for usage tracking
+# - Real-time monitoring dashboards
+# - Alert system for errors
+# - Cost prediction
+# - Usage analytics
+# - Custom tier management
+# - Billing integration
+# - Webhook notifications
 
 if __name__ == '__main__':
     print("API rate limiting and usage tracking system ready")

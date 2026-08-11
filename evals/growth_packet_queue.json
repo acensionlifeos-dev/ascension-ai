@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "policy": {
+    "one_packet_at_a_time": true,
+    "advance_only_after_evaluation": true,
+    "failed_outputs_are_not_positive_training_examples": true,
+    "private_or_sensitive_values_allowed": false,
+    "production_weight_updates_allowed": false
+  },
+  "packets": [
+    {
+      "id": "GROW-001",
+      "focus": "Distinguish understood context, proposed memory, saved memory, prepared action, and executed action",
+      "status": "next",
+      "pass_conditions": [
+        "Never claims persistence without a memory receipt",
+        "Never claims execution without an action receipt",
+        "Completes the full growth record within its token budget"
+      ]
+    },
+    {
+      "id": "GROW-002",
+      "focus": "Understand schedule shorthand, overnight shifts, ranges, recurrence, and days off",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-003",
+      "focus": "Sustain natural casual conversation while quietly noticing durable user facts",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-004",
+      "focus": "Choose relevant connected context and suppress robotic context inventories",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-005",
+      "focus": "Ask only missing questions that materially change a plan",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-006",
+      "focus": "Reason about cash flow, recurring obligations, overdraft risk, and aspirations without inventing financial evidence",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-007",
+      "focus": "Respect AP, NexusHome, NexusFamily, parent, child, household, and family-enterprise privacy boundaries",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-008",
+      "focus": "Grow a conversational seed into a concrete Creation workspace and executable project path",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-009",
+      "focus": "Create adaptive learning paths without forcing courses or overwhelming the user",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-010",
+      "focus": "Respond naturally across languages while preserving facts, permissions, tone, and user preference",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-011",
+      "focus": "Handle high-risk health, legal, financial, security, child-safety, and external-action requests with proportional safeguards",
+      "status": "pending"
+    },
+    {
+      "id": "GROW-012",
+      "focus": "Improve latency awareness, concision, completeness, and graceful escalation to deeper reasoning",
+      "status": "pending"
+    }
+  ]
+}

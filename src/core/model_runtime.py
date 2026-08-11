@@ -1,0 +1,207 @@
+"""Thread-safe local GGUF inference runtime for Ascension AI."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import re
+import threading
+import time
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[2]
+PROFILES_PATH = ROOT / "config" / "model_profiles.json"
+
+
+class NativeModelRuntime:
+    def __init__(self) -> None:
+        self.model = None
+        self.profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "starter").strip().lower()
+        self.profile: dict = {}
+        self.loaded_at: float | None = None
+        self.load_error: str | None = None
+        self.lock = threading.Lock()
+        self.metrics_lock = threading.Lock()
+        self.queue_depth = 0
+        self.active_requests = 0
+        self.completed_requests = 0
+        self.failed_requests = 0
+        self.last_queue_wait_ms = 0
+        self.max_queue_wait_ms = 0
+        self.last_inference_ms = 0
+
+    def _read_profile(self) -> dict:
+        profiles = json.loads(PROFILES_PATH.read_text(encoding="utf-8"))
+        if self.profile_name not in profiles:
+            raise RuntimeError(f"Unknown model profile: {self.profile_name}")
+        return profiles[self.profile_name]
+
+    def _model_path(self) -> Path:
+        override = os.getenv("ASCENSION_MODEL_PATH", "").strip()
+        return Path(override) if override else ROOT / "models" / self.profile["filename"]
+
+    @staticmethod
+    def _sha256(path: Path) -> str:
+        digest = hashlib.sha256()
+        with path.open("rb") as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+
+    def load(self) -> None:
+        try:
+            from llama_cpp import Llama
+            self.profile = self._read_profile()
+            path = self._model_path()
+            if not path.is_file():
+                raise RuntimeError("Pinned model file is missing. Run scripts/download_model.py during the build.")
+            if os.getenv("ASCENSION_VERIFY_MODEL_ON_BOOT", "1") != "0" and self._sha256(path) != self.profile["sha256"]:
+                raise RuntimeError("Pinned model checksum verification failed.")
+            self.model = Llama(
+                model_path=str(path),
+                n_ctx=int(os.getenv("ASCENSION_MODEL_CONTEXT", self.profile["context_tokens"])),
+                n_threads=int(os.getenv("ASCENSION_MODEL_THREADS", self.profile["threads"])),
+                n_threads_batch=int(os.getenv("ASCENSION_MODEL_THREADS_BATCH", self.profile["threads"])),
+                n_batch=int(os.getenv("ASCENSION_MODEL_BATCH", "64")),
+                use_mmap=True,
+                use_mlock=False,
+                verbose=False,
+            )
+            self.loaded_at = time.time()
+            self.load_error = None
+        except Exception as error:
+            self.model = None
+            self.load_error = str(error)
+            raise
+
+    def status(self) -> dict:
+        with self.metrics_lock:
+            queue = {
+                "queue_depth": self.queue_depth,
+                "active_requests": self.active_requests,
+                "completed_requests": self.completed_requests,
+                "failed_requests": self.failed_requests,
+                "last_queue_wait_ms": self.last_queue_wait_ms,
+                "max_queue_wait_ms": self.max_queue_wait_ms,
+                "last_inference_ms": self.last_inference_ms,
+            }
+        return {
+            "ready": self.model is not None,
+            "profile": self.profile_name,
+            "model": self.profile.get("label"),
+            "repo_id": self.profile.get("repo_id"),
+            "filename": self.profile.get("filename"),
+            "context_tokens": self.profile.get("context_tokens"),
+            "threads": self.profile.get("threads"),
+            "minimum_render_plan": self.profile.get("minimum_render_plan"),
+            "loaded_at": self.loaded_at,
+            "error": self.load_error,
+            "inference": "local_gguf_llama_cpp",
+            "outside_provider": False,
+            "queue": queue,
+        }
+
+    def chat(self, messages: list[dict], temperature: float, max_tokens: int) -> dict:
+        if self.model is None:
+            raise RuntimeError(self.load_error or "Native model is not loaded.")
+        started = time.perf_counter()
+        queued_at = started
+        inference_messages = self._prepare_messages(messages)
+        dequeued = False
+        with self.metrics_lock:
+            self.queue_depth += 1
+        try:
+            with self.lock:
+                inference_started = time.perf_counter()
+                queue_wait_ms = round((inference_started - queued_at) * 1000)
+                with self.metrics_lock:
+                    self.queue_depth = max(0, self.queue_depth - 1)
+                    dequeued = True
+                    self.active_requests += 1
+                    self.last_queue_wait_ms = queue_wait_ms
+                    self.max_queue_wait_ms = max(self.max_queue_wait_ms, queue_wait_ms)
+                try:
+                    result = self.model.create_chat_completion(
+                        messages=inference_messages,
+                        temperature=temperature,
+                        max_tokens=max_tokens,
+                        top_p=0.9,
+                        repeat_penalty=1.08,
+                        stop=["<|im_end|>", "<|endoftext|>"],
+                    )
+                    inference_ms = round((time.perf_counter() - inference_started) * 1000)
+                    with self.metrics_lock:
+                        self.completed_requests += 1
+                        self.last_inference_ms = inference_ms
+                finally:
+                    with self.metrics_lock:
+                        self.active_requests = max(0, self.active_requests - 1)
+        except Exception:
+            with self.metrics_lock:
+                if not dequeued:
+                    self.queue_depth = max(0, self.queue_depth - 1)
+                self.failed_requests += 1
+            raise
+        content = self._clean_content(
+            str(result.get("choices", [{}])[0].get("message", {}).get("content", ""))
+        )
+        if not content:
+            raise RuntimeError("Native model returned an empty response.")
+        return {
+            "content": content,
+            "model": self.profile.get("label") or self.profile_name,
+            "provider": "ascension-native",
+            "usage": result.get("usage") or {},
+            "latency_ms": round((time.perf_counter() - started) * 1000),
+            "queue_wait_ms": queue_wait_ms,
+            "inference_ms": inference_ms,
+        }
+
+    def stream_chat(self, messages: list[dict], temperature: float, max_tokens: int):
+        if self.model is None:
+            raise RuntimeError(self.load_error or "Native model is not loaded.")
+        inference_messages = self._prepare_messages(messages)
+        with self.lock:
+            chunks = self.model.create_chat_completion(
+                messages=inference_messages,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                top_p=0.9,
+                repeat_penalty=1.08,
+                stop=["<|im_end|>", "<|endoftext|>"],
+                stream=True,
+            )
+            for chunk in chunks:
+                token = str(chunk.get("choices", [{}])[0].get("delta", {}).get("content", ""))
+                if token:
+                    yield token
+
+    def _prepare_messages(self, messages: list[dict]) -> list[dict]:
+        """Keep Qwen3 in fast non-thinking mode without exposing control tokens in UI."""
+        prepared = [dict(message) for message in messages]
+        if "Qwen3" not in str(self.profile.get("repo_id", "")):
+            return prepared
+        for index in range(len(prepared) - 1, -1, -1):
+            if prepared[index].get("role") == "user":
+                content = str(prepared[index].get("content", ""))
+                if "/no_think" not in content:
+                    prepared[index]["content"] = f"{content}\n/no_think"
+                break
+        return prepared
+
+    @staticmethod
+    def _clean_content(content: str) -> str:
+        """Never surface hidden reasoning or model control tags to users."""
+        cleaned = content.strip()
+        if "</think>" in cleaned:
+            cleaned = cleaned.split("</think>", 1)[1].strip()
+        if cleaned.startswith("<think>"):
+            return ""
+        cleaned = re.sub(r"<\|[^>]+\|>", "", cleaned).strip()
+        cleaned = re.sub(r"^\s*(?:analysis|reasoning)\s*:\s*", "", cleaned, flags=re.I)
+        return cleaned
+
+
+runtime = NativeModelRuntime()

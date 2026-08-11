@@ -1,0 +1,62 @@
+{
+  "starter": {
+    "label": "Ascension Seed",
+    "repo_id": "tensorblock/SmolLM2-135M-Instruct-GGUF",
+    "filename": "SmolLM2-135M-Instruct-Q2_K.gguf",
+    "revision": "32db44d69cedb731dc0fc96f60e01a86c6f5919d",
+    "sha256": "478cca924101ed67bb2751f597be41532b2f4817ee2ab1b0d7cc379c76e79faf",
+    "size_bytes": 88202816,
+    "minimum_render_plan": "free_or_starter_512mb",
+    "context_tokens": 1536,
+    "threads": 1,
+    "quality_note": "Latency-first bootstrap model for proving private local inference and orchestration on Render Free. Limited reasoning depth."
+  },
+  "standard": {
+    "label": "Ascension Core 0.5B",
+    "repo_id": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "filename": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "revision": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+    "size_bytes": 491400032,
+    "minimum_render_plan": "standard_2gb",
+    "context_tokens": 4096,
+    "threads": 1,
+    "quality_note": "Stronger instruction-following profile for a 2 GB service."
+  },
+  "pro": {
+    "label": "Ascension Live 1.7B",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "size_bytes": 1834426016,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Primary latency-bounded profile for multilingual conversation, planning, structured cognition, and tool selection on the 4 GB Pro service."
+  },
+  "candidate": {
+    "label": "Ascension Candidate 3B",
+    "repo_id": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+    "filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
+    "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+    "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+    "size_bytes": 2104932768,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Controlled benchmark profile for evaluating stronger natural conversation and instruction following without the long hidden-reasoning latency of the 4B Qwen3 worker."
+  },
+  "deep": {
+    "label": "Ascension Deep 4B",
+    "repo_id": "bartowski/Qwen_Qwen3-4B-GGUF",
+    "filename": "Qwen_Qwen3-4B-Q3_K_S.gguf",
+    "revision": "cb76885dc66d50759b207c5a48c4e78dfa00c638",
+    "sha256": "9a8cde953fd268fee5fcca36523b303cace78c1a648e974608517d47340e5560",
+    "size_bytes": 1886997440,
+    "minimum_render_plan": "separate_pro_4gb_background_worker",
+    "context_tokens": 3072,
+    "threads": 2,
+    "quality_note": "Memory-bounded deeper-reasoning worker for queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required."
+  }
+}

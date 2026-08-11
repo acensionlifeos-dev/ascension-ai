@@ -1,274 +1,119 @@
-# Ascension AI - World-Class AI/AGI System
+# Ascension AI
 
-## Vision
-The most capable AI system on Earth - better than OpenAI, Monday, Alibaba combined. No credit limits, unlimited capabilities, under the Ascension brand.
+Ascension AI is the private, shared intelligence core for Ascension LifeOS. It runs a pinned open-weight model locally through `llama.cpp`; the production runtime does not call OpenAI, Gemini, Anthropic, or another hosted model.
 
-## Core Principles
+Current status: native alpha 2.3. The standalone service is live and suitable for evaluation and staged LifeOS routing. It is not yet approved as the only production intelligence provider; `/v1/readiness` deliberately reports that distinction.
 
-1. **No Limits** - Unlimited usage, no credit constraints
-2. **Universal Intelligence** - All AI capabilities in one system
-3. **Self-Improving** - Learns from every interaction
-4. **Multi-Modal** - Text, image, video, audio, code, 3D, AR/VR
-5. **Agent-Based** - Intelligent agents for any task
-6. **Real-Time** - Instant responses, low latency
-7. **Enterprise-Grade** - Security, compliance, scalability
-8. **Developer-First** - Open API for third-party integration
+## Product shells
 
-## Architecture
+- **AP** — one person’s conversational partner, assistant, task manager, coach, and mentor.
+- **LifeOS** — domain intelligence that turns permissioned context into screen-ready insights and proposed next actions.
+- **NexusHome** — household and co-parenting coordination with strict private-data boundaries.
+- **NexusFamily** — FamilyOS and family-enterprise coordination; shared-chat behavior follows the FamilyOS consent contract.
+- **Core** — neutral analysis without a relationship persona.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      Ascension AI Platform                     │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
-│  │  Frontend UI  │  │  API Gateway  │  │  Model Router │       │
-│  └──────────────┘  └──────────────┘  └──────────────┘       │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │             Core AI Engine                            │   │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────┐  │   │
-│  │  │ LLM Core │ │  Vision  │ │  Audio   │ │ Code │  │   │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────┘  │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │             Agent Orchestration                         │   │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────┐  │   │
-│  │  │ Planner  │ │ Executor │ │ Monitor  │ │Learn │  │   │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────┘  │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │             Memory & Learning                           │   │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────┐  │   │
-│  │  │ Short-   │ │ Long-    │ │ Embedd-  │ │Vec-  │  │   │
-│  │  │ Term     │ │ Term     │ │ ings    │ │DB   │  │   │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────┘  │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │             External Integrations                       │   │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────┐  │   │
-│  │  │  GPT-4    │ │  Claude   │ │  Gemini  │ │Local │  │   │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────┘  │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+The same core recognizes FreeOS, LifeOS, LifeOS+, FounderOS, and LifeOS Infinite requests. The authenticated calling product—not the model—enforces subscriptions, permissions, and available actions.
+
+## Executable capability domains
+
+The native orchestration contract currently routes identity, scheduling, finance, health, learning, creation, relationships, family, home, career, emotional intelligence, documents, research, environment, business, and safety. These domains can be invoked through chat or as page/surface intelligence.
+
+The AI proposes intelligence and actions. LifeOS owns authentication, database access, entitlement checks, confirmations, action execution, evidence, and audit logs. A model response alone never proves that an action occurred.
+
+## Local profiles
+
+| Profile | Model | Intended host |
+| --- | --- | --- |
+| `starter` | SmolLM2 135M Q2 | 512 MB latency-first bootstrap validation |
+| `standard` | Qwen2.5 0.5B Q4 | 2 GB service |
+| `pro` | Qwen3 1.7B Q8 | 4 GB interactive service |
+| `deep` | Qwen3 4B Q3_K_S | Separate 4 GB queued background service |
+
+Every model file is pinned by repository revision and SHA-256 checksum in `config/model_profiles.json`.
+
+The live and deep roles can be deployed as separate services. `render.deep-worker.example.yaml` prepares the 4B background worker without silently creating another paid instance. LifeOS routes `analysis` and `background` calls to it only when the owner supplies `ASCENSION_AI_DEEP_URL` and `ASCENSION_AI_DEEP_SERVICE_TOKEN`; live conversation remains on the faster service.
+
+## Run locally
+
+```bash
+python -m venv .venv
+pip install -r requirements.txt
+python scripts/download_model.py
+set ASCENSION_AI_TEST_TOKEN=choose-a-private-test-code
+uvicorn src.serving.api:app --host 0.0.0.0 --port 8000
 ```
 
-## Capabilities
+Open `http://localhost:8000` and enter the private test code. The standalone page provides real token streaming, shell selection, and tier selection.
 
-### Core AI
-- Text generation and understanding
-- Code generation, review, debugging
-- Mathematical reasoning
-- Scientific analysis
-- Logical deduction
-- Creative writing
-- Translation (100+ languages)
+## API
 
-### Vision
-- Image generation (photorealistic, artistic)
-- Image editing and manipulation
-- Video generation and editing
-- Object detection and recognition
-- Scene understanding
-- OCR and document analysis
-- Medical imaging
-- 3D model generation
+- `GET /health` — public readiness without secrets.
+- `GET /model/info` — protected runtime metadata.
+- `GET /v1/capabilities` — protected shell, tier, and domain registry.
+- `POST /v1/intelligence` — protected native inference.
+- `POST /v1/stream` — protected SSE inference with real token deltas.
+- `POST /v1/surface-plan` — protected deterministic domain-to-surface proposal.
+- `POST /chat` — compatibility alias for native inference.
+- `POST /generate` — legacy prompt compatibility.
 
-### Audio
-- Text-to-speech (multiple voices)
-- Speech-to-text
-- Music generation
-- Audio editing and mixing
-- Sound effect generation
-- Voice cloning
-- Audio analysis
+Example request:
 
-### Code
-- Code generation (all languages)
-- Code review and optimization
-- Debugging and error fixing
-- Architecture design
-- Documentation generation
-- Test generation
-- Code refactoring
+```json
+{
+  "shell": "lifeos",
+  "tier": "lifeos_plus",
+  "messages": [{"role": "user", "content": "Review this creation idea."}],
+  "context": {"workspace": "software", "verified_evidence": []},
+  "surface": "creation/software",
+  "mode": "planning",
+  "allowed_capabilities": ["creation", "research", "business", "safety"]
+}
+```
 
-### Data
-- Data analysis and visualization
-- Machine learning model training
-- Pattern recognition
-- Anomaly detection
-- Predictive analytics
-- Data cleaning and preprocessing
-- Statistical analysis
+## Connect LifeOS
 
-### Integration
-- Web browsing and research
-- API integration
-- Database operations
-- File system access
-- Cloud services
-- External tool execution
+Deploy this repository as its own Render service. Configure the LifeOS service with:
 
-### Agents
-- Task planning and execution
-- Multi-step reasoning
-- Tool selection and use
-- Error recovery
-- Self-correction
-- Continuous learning
+```text
+ASCENSION_AI_URL=https://ascension-ai.onrender.com
+ASCENSION_AI_SERVICE_TOKEN=<same private service token>
+ASCENSION_NATIVE_MODE=primary
+ASCENSION_AI_TIMEOUT_MS=120000
+```
 
-## Technical Stack
+Routing modes:
 
-### Backend
-- Node.js + Express
-- TypeScript
-- PostgreSQL (vector database for embeddings)
-- Redis (caching, real-time)
-- GPU servers for local models
-- Queue system for async tasks
+- `primary` — Ascension AI first, existing providers only if native inference fails.
+- `fallback` — existing provider first, Ascension AI available afterward.
+- `only` — native intelligence only; use after replacement evaluations pass.
+- `off` — native routing disabled.
 
-### Frontend
-- React + TypeScript
-- Next.js (SSR, API routes)
-- Tailwind CSS
-- shadcn/ui components
-- Web Speech API
-- Web Audio API
-- Canvas/WebGL
+The LifeOS router sends the relevant shell, subscription tier, product surface, allowed capability domains, and permission-scoped context. AP chat, Academy program generation, culinary intelligence, workout intelligence, content enrichment, translation, and Creation workspace requests share that router.
 
-### AI Models
-- GPT-4 (text, code)
-- Claude 3.5 (text, code)
-- Gemini Pro (multimodal)
-- Stable Diffusion (image)
-- DALL-E 3 (image)
-- Whisper (audio)
-- Llama 3 (local)
-- Mistral (local)
-- Custom fine-tuned models
+## Verification
 
-### Infrastructure
-- Auto-scaling Kubernetes clusters
-- GPU instances for inference
-- CDN for fast content delivery
-- Load balancing
-- Database replication
-- Backup and disaster recovery
+```bash
+python scripts/native_conversation_eval.py
+python scripts/replacement_contract_eval.py
+set ASCENSION_AI_BASE_URL=https://ascension-ai.onrender.com
+set ASCENSION_AI_TEST_TOKEN=<private test token>
+python scripts/replacement_readiness_eval.py
+```
 
-## Business Model
+The smoke set contains 30 human prompts across AP, LifeOS, NexusHome, NexusFamily, and Core. The replacement suite adds explicit required concepts, forbidden claims, response-length limits, provider-integrity checks, hidden-reasoning checks, and an interactive-latency gate. Passing the smoke set alone does not authorize provider replacement.
 
-### No Credit Limits
-- Subscription tiers based on features, not usage
-- Enterprise: Unlimited everything
-- Startup: Unlimited core features
-- Individual: Reasonable limits
-- Free: Limited access
+## Security boundaries
 
-### Usage-Based Pricing
-- Pay for compute resources, not "credits"
-- Transparent cost breakdown
-- Cost optimization suggestions
-- Usage analytics
+- The public web page never receives the service token.
+- Requests require a test token or server-to-server service token.
+- Context is bounded and supplied per request; the model does not directly query LifeOS databases.
+- The runtime makes no external model call and performs no external action.
+- Model files are checksum-verified on boot.
+- CORS is allow-list based.
+- Production replacement remains disabled until quality, safety, privacy, action-integrity, and shell-boundary evaluations pass.
 
-## API for Developers
+## What is not production-proven yet
 
-### Endpoints
-- `/api/v1/chat` - AI conversation
-- `/api/v1/generate/text` - Text generation
-- `/api/v1/generate/image` - Image generation
-- `/api/v1/generate/code` - Code generation
-- `/api/v1/generate/audio` - Audio generation
-- `/api/v1/agent` - Agent execution
-- `/api/v1/memory` - Memory operations
-- `/api/v1/learn` - Learning operations
+The repository contains earlier experimental modules and roadmap concepts. They are not loaded by the native production path and must not be treated as working merely because a file or feature name exists. Multimodal perception, autonomous execution, long-term model training, distributed inference, and most legacy specialist modules still require implementation and evaluation.
 
-### SDKs
-- JavaScript/TypeScript
-- Python
-- Go
-- Rust
-- Java
-- C#
-
-## Features Better Than Competitors
-
-### vs OpenAI
-- No credit limits
-- More model options
-- Built-in agent orchestration
-- Better memory system
-- Lower cost
-- More capabilities
-
-### vs Monday
-- AI-powered project management
-- Automated task planning
-- Predictive resource allocation
-- Intelligent scheduling
-- Real-time optimization
-
-### vs Alibaba
-- Better user experience
-- More AI capabilities
-- Simpler integration
-- Better documentation
-- Faster response times
-
-## Implementation Plan
-
-### Phase 1: Core Infrastructure
-1. Repository setup
-2. Database schema
-3. API gateway
-4. Authentication
-5. Basic UI
-
-### Phase 2: AI Engine
-1. Model integrations
-2. Core LLM service
-3. Vision pipeline
-4. Audio pipeline
-5. Code pipeline
-
-### Phase 3: Agent System
-1. Agent framework
-2. Task planner
-3. Tool registry
-4. Execution engine
-5. Learning system
-
-### Phase 4: Memory System
-1. Short-term memory
-2. Long-term memory
-3. Vector database
-4. Embedding service
-5. Retrieval system
-
-### Phase 5: Advanced Features
-1. Multi-modal generation
-2. Real-time processing
-3. Agent chains
-4. Custom model training
-5. Fine-tuning platform
-
-### Phase 6: Developer Platform
-1. API documentation
-2. SDK development
-3. Playground
-4. Analytics dashboard
-5. Billing system
-
-## Next Steps
-
-1. Initialize repository
-2. Set up project structure
-3. Implement core AI engine
-4. Build agent system
-5. Create UI
-6. Deploy to production
-
-This will be the most capable AI system on Earth.
+© 2026 The B.E.I.N.G Group LLC. All rights reserved.

@@ -336,16 +336,16 @@ class ProblemSolver:
         }
 
 # For production, we'll implement:
-- Advanced logical reasoning models
-- Knowledge graph integration
-- Expert system rules
-- Critical thinking models
-- Problem-solving AI
-- Decision theory
-- Bayesian reasoning
-- Causal inference
-- Argument mining
-- Fallacy detection
+# - Advanced logical reasoning models
+# - Knowledge graph integration
+# - Expert system rules
+# - Critical thinking models
+# - Problem-solving AI
+# - Decision theory
+# - Bayesian reasoning
+# - Causal inference
+# - Argument mining
+# - Fallacy detection
 
 if __name__ == '__main__':
     print("Advanced reasoning system ready")

@@ -121,15 +121,15 @@ class DeploymentOptimizer:
         return configs.get(scenario, {})
 
 # For production, we'll implement:
-- TensorRT optimization
-- ONNX export
-- CoreML for Apple Silicon
-- TFLite for mobile
-- Vulkan for cross-platform
-- CUDA kernels
-- Custom ops
-- Auto-tuning
-- Benchmarking
+# - TensorRT optimization
+# - ONNX export
+# - CoreML for Apple Silicon
+# - TFLite for mobile
+# - Vulkan for cross-platform
+# - CUDA kernels
+# - Custom ops
+# - Auto-tuning
+# - Benchmarking
 
 if __name__ == '__main__':
     print("Model optimization system ready")

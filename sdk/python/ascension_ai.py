@@ -1,155 +1,103 @@
-"""
-Ascension AI - Python SDK
-Easy-to-use Python client for Ascension AI
-"""
+"""Truthful Python client for the Ascension AI native intelligence core."""
+
+from __future__ import annotations
+
+from typing import Any
 
 import requests
-from typing import Dict, List, Optional
-import json
+
 
 class AscensionAI:
-    """Python SDK for Ascension AI"""
-    
-    def __init__(self, api_key: str, base_url: str = "https://ascension-ai.onrender.com"):
-        self.api_key = api_key
-        self.base_url = base_url
+    """Client for native conversation, cognition, retrieval, and action planning."""
+
+    def __init__(self, api_key: str, base_url: str = "https://ascension-ai.onrender.com", timeout: int = 180):
+        self.base_url = base_url.rstrip("/")
+        self.timeout = timeout
         self.session = requests.Session()
         self.session.headers.update({
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
         })
-    
-    def generate(self, prompt: str, max_tokens: int = 50, temperature: float = 0.8) -> Dict:
-        """Generate text from prompt"""
-        response = self.session.post(
-            f'{self.base_url}/generate',
-            json={
-                'prompt': prompt,
-                'max_new_tokens': max_tokens,
-                'temperature': temperature
-            }
-        )
+
+    def _get(self, path: str) -> dict[str, Any]:
+        response = self.session.get(f"{self.base_url}{path}", timeout=self.timeout)
         response.raise_for_status()
         return response.json()
-    
-    def chat(self, messages: List[Dict], temperature: float = 0.8) -> Dict:
-        """Chat with the AI"""
-        # Convert messages to prompt
-        prompt = '\n'.join([f"{m['role']}: {m['content']}" for m in messages])
-        
-        response = self.session.post(
-            f'{self.base_url}/generate',
-            json={
-                'prompt': prompt,
-                'max_new_tokens': 200,
-                'temperature': temperature
-            }
-        )
+
+    def _post(self, path: str, payload: dict[str, Any]) -> dict[str, Any]:
+        response = self.session.post(f"{self.base_url}{path}", json=payload, timeout=self.timeout)
         response.raise_for_status()
         return response.json()
-    
-    def get_model_info(self) -> Dict:
-        """Get model information"""
-        response = self.session.get(f'{self.base_url}/model/info')
-        response.raise_for_status()
-        return response.json()
-    
-    def get_capabilities(self) -> Dict:
-        """Get available capabilities"""
-        response = self.session.get(f'{self.base_url}/capabilities')
-        response.raise_for_status()
-        return response.json()
-    
-    def get_usage(self) -> Dict:
-        """Get usage statistics"""
-        response = self.session.get(f'{self.base_url}/usage')
-        response.raise_for_status()
-        return response.json()
+
+    def chat(
+        self,
+        messages: list[dict[str, str]],
+        *,
+        shell: str = "ap",
+        tier: str = "lifeos",
+        context: dict[str, Any] | None = None,
+        surface: str = "chat",
+        mode: str = "conversation",
+        allowed_capabilities: list[str] | None = None,
+        temperature: float = 0.65,
+        max_tokens: int = 500,
+    ) -> dict[str, Any]:
+        return self._post("/v1/intelligence", {
+            "shell": shell,
+            "tier": tier,
+            "messages": messages,
+            "context": context or {},
+            "surface": surface,
+            "mode": mode,
+            "allowed_capabilities": allowed_capabilities or [],
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        })
+
+    def plan(
+        self,
+        trigger: str,
+        *,
+        shell: str = "ap",
+        tier: str = "lifeos",
+        context: dict[str, Any] | None = None,
+        available_actions: list[str] | None = None,
+        allowed_capabilities: list[str] | None = None,
+    ) -> dict[str, Any]:
+        return self._post("/v1/agent/plan", {
+            "shell": shell,
+            "tier": tier,
+            "trigger": trigger,
+            "context": context or {},
+            "available_actions": available_actions or [],
+            "allowed_capabilities": allowed_capabilities or [],
+        })
+
+    def retrieve(self, query: str, context: dict[str, Any], top_k: int = 6) -> dict[str, Any]:
+        return self._post("/v1/retrieve", {"query": query, "context": context, "top_k": top_k})
+
+    def memory_candidates(self, text: str) -> dict[str, Any]:
+        return self._post("/v1/memory/candidates", {"text": text})
+
+    def get_model_info(self) -> dict[str, Any]:
+        return self._get("/model/info")
+
+    def get_capabilities(self) -> dict[str, Any]:
+        return self._get("/v1/capabilities")
+
+    def get_talents(self) -> dict[str, Any]:
+        return self._get("/v1/talents")
+
 
 class AscensionAIImage:
-    """Image generation SDK"""
-    
-    def __init__(self, api_key: str, base_url: str = "https://ascension-ai.onrender.com"):
-        self.api_key = api_key
-        self.base_url = base_url
-        self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json'
-        })
-    
-    def generate_image(self, prompt: str, size: str = "512x512") -> Dict:
-        """Generate image from prompt"""
-        response = self.session.post(
-            f'{self.base_url}/image/generate',
-            json={
-                'prompt': prompt,
-                'size': size
-            }
-        )
-        response.raise_for_status()
-        return response.json()
+    """Reserved interface; image generation is not active in the native core yet."""
+
+    def generate_image(self, *_: Any, **__: Any) -> dict[str, Any]:
+        raise NotImplementedError("Native image generation remains a gated Ascension AI roadmap capability.")
+
 
 class AscensionAIAudio:
-    """Audio generation SDK"""
-    
-    def __init__(self, api_key: str, base_url: str = "https://ascension-ai.onrender.com"):
-        self.api_key = api_key
-        self.base_url = base_url
-        self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json'
-        })
-    
-    def text_to_speech(self, text: str, voice: str = "default") -> Dict:
-        """Convert text to speech"""
-        response = self.session.post(
-            f'{self.base_url}/audio/tts',
-            json={
-                'text': text,
-                'voice': voice
-            }
-        )
-        response.raise_for_status()
-        return response.json()
+    """Reserved interface; native speech generation is not active yet."""
 
-class AscensionAIAgent:
-    """Agent execution SDK"""
-    
-    def __init__(self, api_key: str, base_url: str = "https://ascension-ai.onrender.com"):
-        self.api_key = api_key
-        self.base_url = base_url
-        self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json'
-        })
-    
-    def execute_task(self, goal: str) -> Dict:
-        """Execute a task using agents"""
-        response = self.session.post(
-            f'{self.base_url}/agent/execute',
-            json={
-                'goal': goal
-            }
-        )
-        response.raise_for_status()
-        return response.json()
-
-# Example usage
-if __name__ == '__main__':
-    # Initialize client
-    ai = AscensionAI(api_key="your-api-key")
-    
-    # Generate text
-    response = ai.generate("The future of AI is")
-    print(response)
-    
-    # Chat
-    messages = [
-        {"role": "user", "content": "Hello!"},
-        {"role": "assistant", "content": "Hi there! How can I help?"}
-    ]
-    chat_response = ai.chat(messages)
-    print(chat_response)
+    def text_to_speech(self, *_: Any, **__: Any) -> dict[str, Any]:
+        raise NotImplementedError("Native voice remains a shell-required Ascension AI roadmap capability.")

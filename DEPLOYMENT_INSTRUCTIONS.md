@@ -16,11 +16,15 @@ Visit: https://dashboard.render.com
 - **Name**: `ascension-ai`
 - **Region**: Oregon (or closest to you)
 - **Runtime**: Python 3
-- **Build Command**: `pip install -r requirements.txt`
+- **Build Command**: `pip install -r requirements.txt && python scripts/download_model.py`
 - **Start Command**: `uvicorn src.serving.api:app --host 0.0.0.0 --port $PORT`
 
 ### 4. Environment Variables
-No additional environment variables needed for demo mode.
+- `ASCENSION_AI_TEST_TOKEN`: private code for the standalone test screen.
+- `ASCENSION_AI_SERVICE_TOKEN`: separate private code for future LifeOS and Nexus server-to-server calls.
+- `ASCENSION_MODEL_PROFILE`: `starter`, `standard`, or `pro`.
+- `ASCENSION_AI_ALLOWED_ORIGINS`: `https://ascensionlifeos.onrender.com` if the protected browser lab will be accessed cross-origin.
+- Start with `starter` on a 512 MB service. After upgrading the AI service to Render Pro, change this to `pro` and redeploy.
 
 ### 5. Deploy
 Click "Create Web Service"
@@ -30,15 +34,16 @@ Once deployed, the AI will be available at:
 `https://ascension-ai.onrender.com`
 
 ## What You'll See
-- Beautiful gradient interface
-- AI generation capability
-- Model information
-- Stats showing 100M parameters, 100TB+ training data, 0 external APIs
+- Private ChatGPT-style test interface
+- Selectable AP, LifeOS, NexusHome, NexusFamily, and neutral-core shells
+- Local model and runtime status
+- No hosted AI provider calls
 
 ## This Is The AI That Will Power Ascension
 
-This deployment is the foundation for the AI that will eventually:
-- Power the Ascension LifeOS system
+This deployment is the native foundation wired to:
+- Power AP chat and router-backed LifeOS intelligence when the LifeOS service enables native routing
+- Surface direct intelligence inside Creation workspaces
 - Replace external AI dependencies
 - Provide true multi-modal capabilities
 - Run entirely on our infrastructure

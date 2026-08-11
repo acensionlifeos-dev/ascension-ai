@@ -254,14 +254,14 @@ class SecureAI:
         return f"Response to: {prompt}"
 
 # For production, we'll implement:
-- End-to-end encryption
-- Zero-knowledge proofs
-- Federated learning for privacy
-- GDPR/CCPA compliance
-- Security audit trails
-- Intrusion detection
-- Data loss prevention
-- Secure key management
+# - End-to-end encryption
+# - Zero-knowledge proofs
+# - Federated learning for privacy
+# - GDPR/CCPA compliance
+# - Security audit trails
+# - Intrusion detection
+# - Data loss prevention
+# - Secure key management
 
 if __name__ == '__main__':
     print("Security and privacy system ready")

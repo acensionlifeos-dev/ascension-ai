@@ -1,7 +1,7 @@
 {
   "name": "ascension-ai",
   "version": "1.0.0",
-  "description": "World-class AI/AGI system - better than OpenAI, Monday, Alibaba combined",
+  "description": "Self-contained Ascension personal intelligence core and shell orchestration system",
   "main": "src/index.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -58,7 +58,6 @@
     "@types/bcrypt": "^5.0.2",
     "@types/multer": "^1.4.11",
     "@types/ws": "^8.5.9",
-    "@types/path": "^0.0.0",
     "typescript": "^5.3.3",
     "tsx": "^4.7.0",
     "jest": "^29.7.0",

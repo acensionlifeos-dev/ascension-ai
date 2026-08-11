@@ -186,15 +186,15 @@ class ProjectGenerator:
         return instructions.get(project_type, [])
 
 # For production, we'll implement:
-- AST-based code analysis
-- Code complexity metrics
-- Security vulnerability detection
-- Performance optimization suggestions
-- Test generation
-- Documentation generation
-- Multi-file project generation
-- Dependency management
-- Code refactoring
+# - AST-based code analysis
+# - Code complexity metrics
+# - Security vulnerability detection
+# - Performance optimization suggestions
+# - Test generation
+# - Documentation generation
+# - Multi-file project generation
+# - Dependency management
+# - Code refactoring
 
 if __name__ == '__main__':
     print("Code generation system ready")

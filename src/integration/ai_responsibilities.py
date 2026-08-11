@@ -343,15 +343,15 @@ class AIIntegrationCoordinator:
         }
 
 # For production, we'll implement:
-- Real API calls to product endpoints
-- WebSocket for real-time content surfacing
-- Event-driven architecture
-- Context synchronization
-- Error handling and retries
-- Content caching
-- Priority queues
-- Rate limiting per product
-- Monitoring and logging
+# - Real API calls to product endpoints
+# - WebSocket for real-time content surfacing
+# - Event-driven architecture
+# - Context synchronization
+# - Error handling and retries
+# - Content caching
+# - Priority queues
+# - Rate limiting per product
+# - Monitoring and logging
 
 if __name__ == '__main__':
     print("AI integration responsibilities system ready")

@@ -1,0 +1,34 @@
+{
+  "prompt_id": "ascension-growth-curriculum-v1",
+  "submitted_to": "production Ascension Live 1.7B",
+  "submitted_at": "2026-08-11",
+  "lesson_packet": "Recurring overnight schedule shorthand with no action receipt",
+  "attempts": [
+    {
+      "latency_seconds": 93.6,
+      "passed": false,
+      "observations": [
+        "Identified the human need and the transferable elder pattern.",
+        "Exceeded the useful response budget and stopped during section 6 of 10.",
+        "Used confirmation language that could be mistaken for a completed persistence action."
+      ]
+    },
+    {
+      "latency_seconds": 76.5,
+      "passed": false,
+      "observations": [
+        "Improved structure by returning JSON and distinguishing understanding from execution.",
+        "Still exhausted the response budget before completing every required field.",
+        "Suggested internally noting the schedule even though no verified memory receipt existed.",
+        "Produced practice tests that were less useful than testing generalization across different schedule phrases."
+      ]
+    }
+  ],
+  "accepted_growth_lessons": [
+    "Ascension AI must distinguish understanding, proposed memory, saved memory, and external execution.",
+    "Growth reflections must be short enough to finish their evaluation contract.",
+    "Practice tests should vary the underlying situation instead of merely restating the same facts.",
+    "A failed growth submission is evaluation evidence, not a mentor example to reinforce."
+  ],
+  "promotion_gate": "Do not treat the generated answers as positive training examples. Preserve the revised curriculum prompt and use these failures to evaluate the next live or deep model revision."
+}
