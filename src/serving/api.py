@@ -19,6 +19,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
 from src.core.capabilities import CAPABILITIES
+from src.core.cognition import TALENTS, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import runtime
 from src.core.orchestrator import prepare_inference, respond, surface_plan
@@ -26,7 +27,7 @@ from src.core.orchestrator import prepare_inference, respond, surface_plan
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
-APP_VERSION = "2.1.0-native-alpha"
+APP_VERSION = "2.2.0-native-alpha"
 MAX_MESSAGES = 24
 MAX_MESSAGE_LENGTH = 12_000
 
@@ -120,6 +121,20 @@ class SurfacePlanRequest(BaseModel):
     allowed_capabilities: list[str] = Field(default_factory=list, max_length=100)
 
 
+class CognitionRequest(SurfacePlanRequest):
+    pass
+
+
+class RetrievalRequest(BaseModel):
+    query: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+    context: dict = Field(default_factory=dict)
+    top_k: int = Field(default=6, ge=1, le=10)
+
+
+class MemoryCandidateRequest(BaseModel):
+    text: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+
+
 class LegacyGenerationRequest(BaseModel):
     prompt: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
     max_new_tokens: int = Field(default=300, ge=32, le=1000)
@@ -203,6 +218,67 @@ async def capabilities(_: None = Depends(require_access)) -> dict:
     }
 
 
+@app.get("/capabilities")
+async def capabilities_compat(access: None = Depends(require_access)) -> dict:
+    """Compatibility alias retained for Devin's original SDK consumers."""
+    return await capabilities(access)
+
+
+@app.get("/v1/talents")
+async def talents(_: None = Depends(require_access)) -> dict:
+    active = [key for key, value in TALENTS.items() if value["state"] == "active"]
+    shell_required = [key for key, value in TALENTS.items() if value["state"] == "shell_required"]
+    return {
+        "talents": TALENTS,
+        "counts": {"active": len(active), "shell_required": len(shell_required)},
+        "active": active,
+        "shell_required": shell_required,
+        "truth_rule": "A talent is active only when this service can produce its structured intelligence now; shell-required talents depend on permissioned LifeOS integrations.",
+    }
+
+
+@app.post("/v1/cognition")
+async def cognition(request: CognitionRequest, _: None = Depends(require_access)) -> dict:
+    packet = build_cognitive_packet(
+        request.trigger,
+        request.context,
+        request.allowed_capabilities,
+        request.available_actions,
+    )
+    return {
+        "shell": request.shell.value,
+        "tier": request.tier.value,
+        "surface": request.context.get("surface", "chat"),
+        **packet,
+        "outside_provider": False,
+    }
+
+
+@app.post("/v1/agent/plan")
+async def agent_plan(request: CognitionRequest, access: None = Depends(require_access)) -> dict:
+    """Plan but never silently execute; the authenticated product shell owns execution."""
+    return await cognition(request, access)
+
+
+@app.post("/v1/retrieve")
+async def retrieve(request: RetrievalRequest, _: None = Depends(require_access)) -> dict:
+    return {
+        "query": request.query,
+        "results": hybrid_retrieve(request.query, request.context, request.top_k),
+        "scope": "request_supplied_permissioned_context",
+        "outside_provider": False,
+    }
+
+
+@app.post("/v1/memory/candidates")
+async def memory_candidates(request: MemoryCandidateRequest, _: None = Depends(require_access)) -> dict:
+    return {
+        "candidates": extract_memory_candidates(request.text),
+        "persistence": "calling_shell_validates_and_persists",
+        "outside_provider": False,
+    }
+
+
 @app.post("/v1/surface-plan")
 async def plan_surfaces(request: SurfacePlanRequest, _: None = Depends(require_access)) -> dict:
     return surface_plan(
@@ -255,7 +331,18 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
 
     def events():
         started = time.perf_counter()
-        meta = {key: value for key, value in prepared.items() if key != "messages"}
+        cognition_meta = prepared.get("cognition", {})
+        meta = {
+            key: value for key, value in prepared.items()
+            if key not in {"messages", "cognition"}
+        }
+        meta["cognition"] = {
+            "domains": cognition_meta.get("domains", []),
+            "talents": [item.get("key") for item in cognition_meta.get("talents", [])],
+            "memory_candidates": cognition_meta.get("memory_candidates", []),
+            "action_proposals": cognition_meta.get("action_proposals", []),
+            "surface_recommendations": cognition_meta.get("surface_recommendations", []),
+        }
         meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
         try:

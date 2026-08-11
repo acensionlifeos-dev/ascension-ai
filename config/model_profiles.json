@@ -7,7 +7,7 @@
     "sha256": "478cca924101ed67bb2751f597be41532b2f4817ee2ab1b0d7cc379c76e79faf",
     "size_bytes": 88202816,
     "minimum_render_plan": "free_or_starter_512mb",
-    "context_tokens": 768,
+    "context_tokens": 1536,
     "threads": 1,
     "quality_note": "Latency-first bootstrap model for proving private local inference and orchestration on Render Free. Limited reasoning depth."
   },
@@ -24,15 +24,15 @@
     "quality_note": "Stronger instruction-following profile for a 2 GB service."
   },
   "pro": {
-    "label": "Ascension Core 3B",
-    "repo_id": "Qwen/Qwen2.5-3B-Instruct-GGUF",
-    "filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
-    "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
-    "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
-    "size_bytes": 2104932768,
+    "label": "Ascension Core 4B",
+    "repo_id": "Qwen/Qwen3-4B-GGUF",
+    "filename": "Qwen3-4B-Q4_K_M.gguf",
+    "revision": "bc640142c66e1fdd12af0bd68f40445458f3869b",
+    "sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+    "size_bytes": 2497280256,
     "minimum_render_plan": "pro_4gb",
-    "context_tokens": 6144,
+    "context_tokens": 4096,
     "threads": 2,
-    "quality_note": "Primary Pro target for deeper conversation, planning, structured output, and tool selection."
+    "quality_note": "Primary Pro profile for deeper multilingual conversation, planning, structured cognition, and tool selection."
   }
 }

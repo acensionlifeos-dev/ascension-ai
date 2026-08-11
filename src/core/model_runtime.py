@@ -74,6 +74,8 @@ class NativeModelRuntime:
             "repo_id": self.profile.get("repo_id"),
             "filename": self.profile.get("filename"),
             "context_tokens": self.profile.get("context_tokens"),
+            "threads": self.profile.get("threads"),
+            "minimum_render_plan": self.profile.get("minimum_render_plan"),
             "loaded_at": self.loaded_at,
             "error": self.load_error,
             "inference": "local_gguf_llama_cpp",
@@ -91,6 +93,7 @@ class NativeModelRuntime:
                 max_tokens=max_tokens,
                 top_p=0.9,
                 repeat_penalty=1.08,
+                stop=["<|im_end|>", "<|endoftext|>"],
             )
         content = str(result.get("choices", [{}])[0].get("message", {}).get("content", "")).strip()
         if not content:
@@ -113,6 +116,7 @@ class NativeModelRuntime:
                 max_tokens=max_tokens,
                 top_p=0.9,
                 repeat_penalty=1.08,
+                stop=["<|im_end|>", "<|endoftext|>"],
                 stream=True,
             )
             for chunk in chunks:

@@ -3,7 +3,7 @@
   const ACCESS_KEY = 'ascension_ai_test_access';
   const SESSION_KEY = 'ascension_ai_test_sessions';
   const THEME_KEY = 'ascension_ai_test_theme';
-  const state = { sessions: [], activeId: null, busy: false, health: null, shell: 'ap', tier: 'lifeos_infinite' };
+  const state = { sessions: [], activeId: null, busy: false, health: null, talents: null, shell: 'ap', tier: 'lifeos_infinite' };
   const $ = selector => document.querySelector(selector);
   const access = () => sessionStorage.getItem(ACCESS_KEY) || '';
 
@@ -64,7 +64,7 @@
     const payload = { shell: state.shell, tier: state.tier, messages: session.messages.map(({ role, content }) => ({ role, content })), surface: 'standalone_lab', mode: 'conversation' };
     try {
       const streamed = await streamRequest(payload, (event, data) => {
-        if (event === 'meta') { meta = data; metaNode.textContent = `${data.shell || state.shell} · ${data.tier || state.tier} · ${data.model || 'Ascension native'}`; }
+        if (event === 'meta') { meta = data; const talentCount = data.cognition?.talents?.length || 0; metaNode.textContent = `${data.shell || state.shell} · ${data.tier || state.tier} · ${talentCount} relevant talents · ${data.model || 'Ascension native'}`; }
         if (event === 'token') { body.textContent += data.token || ''; $('#conversation').scrollTop = $('#conversation').scrollHeight; }
         if (event === 'done') done = data;
       });
@@ -81,10 +81,10 @@
   }
 
   function showGate(error = '') { $('#shell').hidden = true; $('#access-gate').hidden = false; $('#access-error').textContent = error; setTimeout(() => $('#access-code').focus(), 0); }
-  async function unlock(code) { sessionStorage.setItem(ACCESS_KEY, code); try { await request('/model/info', {}, 12000); $('#access-gate').hidden = true; $('#shell').hidden = false; render(); } catch (error) { sessionStorage.removeItem(ACCESS_KEY); showGate(error.message); } }
-  async function readHealth() { try { state.health = await request('/health', {}, 12000); const node = $('#status'); node.classList.toggle('ready', state.health.candidate_ready); node.querySelector('span').textContent = state.health.candidate_ready ? `${state.health.model} ready` : 'Setup incomplete'; } catch (_) { $('#status span').textContent = 'Service unavailable'; } }
+  async function unlock(code) { sessionStorage.setItem(ACCESS_KEY, code); try { await request('/model/info', {}, 12000); state.talents = await request('/v1/talents', {}, 12000); $('#access-gate').hidden = true; $('#shell').hidden = false; render(); readHealth(); } catch (error) { sessionStorage.removeItem(ACCESS_KEY); showGate(error.message); } }
+  async function readHealth() { try { state.health = await request('/health', {}, 12000); const node = $('#status'); node.classList.toggle('ready', state.health.candidate_ready); const talents = state.talents?.counts?.active; node.querySelector('span').textContent = state.health.candidate_ready ? `${state.health.model} ready${talents ? ` · ${talents} talents` : ''}` : 'Setup incomplete'; } catch (_) { $('#status span').textContent = 'Service unavailable'; } }
 
   function bind() { $('#new-chat').onclick = createSession; $('#menu').onclick = () => $('#sidebar').classList.toggle('open'); $('#shell-select').onchange = event => { state.shell = event.target.value; createSession(); toast(`Testing ${event.target.options[event.target.selectedIndex].text}`); }; $('#tier-select').onchange = event => { state.tier = event.target.value; createSession(); toast(`Testing ${event.target.options[event.target.selectedIndex].text}`); }; $('#lock-lab').onclick = () => { sessionStorage.removeItem(ACCESS_KEY); showGate(); }; $('#theme-toggle').onclick = () => { const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'; document.documentElement.dataset.theme = next; localStorage.setItem(THEME_KEY, next); $('#theme-toggle').textContent = next === 'light' ? 'Dark mode' : 'Light mode'; }; $('#access-form').onsubmit = event => { event.preventDefault(); unlock($('#access-code').value); }; $('#composer').onsubmit = event => { event.preventDefault(); send($('#prompt').value); }; $('#prompt').addEventListener('input', resize); $('#prompt').addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); $('#composer').requestSubmit(); } }); document.querySelectorAll('[data-prompt]').forEach(button => button.onclick = () => send(button.dataset.prompt)); }
-  async function boot() { document.documentElement.dataset.theme = localStorage.getItem(THEME_KEY) || 'dark'; load(); bind(); await readHealth(); if (access()) { try { await request('/model/info', {}, 12000); $('#shell').hidden = false; render(); } catch (_) { showGate(); } } else showGate(); }
+  async function boot() { document.documentElement.dataset.theme = localStorage.getItem(THEME_KEY) || 'dark'; load(); bind(); await readHealth(); if (access()) { try { await request('/model/info', {}, 12000); state.talents = await request('/v1/talents', {}, 12000); $('#shell').hidden = false; render(); readHealth(); } catch (_) { showGate(); } } else showGate(); }
   document.addEventListener('DOMContentLoaded', boot);
 })();
