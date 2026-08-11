@@ -3,7 +3,7 @@ Ascension AI - Model Serving
 Serve trained models via API
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -141,6 +141,65 @@ async def model_info():
         "vocab_size": tokenizer.vocab_size if tokenizer else 0,
         "mode": "demo"
     }
+
+@app.post("/document/analyze")
+async def analyze_document(file: UploadFile = File(...)):
+    """Analyze uploaded document"""
+    try:
+        # Read file content
+        content = await file.read()
+        text_content = content.decode('utf-8')
+        
+        # Import document analyzer
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("document_analysis", os.path.join(os.path.dirname(__file__), "..", "documents", "document_analysis.py"))
+        doc_analysis_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(doc_analysis_module)
+        DocumentAnalyzer = doc_analysis_module.DocumentAnalyzer
+        
+        # Analyze document
+        analyzer = DocumentAnalyzer()
+        analysis = analyzer.analyze_document(file.filename, text_content)
+        
+        return {
+            "file_name": file.filename,
+            "analysis": analysis
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/document/recreate")
+async def recreate_document(file: UploadFile = File(...), style: str = "original"):
+    """Recreate uploaded document"""
+    try:
+        # Read file content
+        content = await file.read()
+        text_content = content.decode('utf-8')
+        
+        # Import document analyzer and recreator
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("document_analysis", os.path.join(os.path.dirname(__file__), "..", "documents", "document_analysis.py"))
+        doc_analysis_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(doc_analysis_module)
+        DocumentAnalyzer = doc_analysis_module.DocumentAnalyzer
+        DocumentRecreator = doc_analysis_module.DocumentRecreator
+        
+        # Analyze document
+        analyzer = DocumentAnalyzer()
+        analysis = analyzer.analyze_document(file.filename, text_content)
+        analysis['content'] = text_content
+        
+        # Recreate document
+        recreator = DocumentRecreator()
+        recreation = recreator.recreate_document(analysis, style)
+        
+        return {
+            "file_name": file.filename,
+            "style": style,
+            "recreation": recreation
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
