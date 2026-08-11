@@ -30,8 +30,8 @@ Ascension AI is the shared intelligence core. It is not another consumer screen 
 |---|---|---:|---|---|
 | `starter` | SmolLM2 135M Q2 | 88 MB | Render Free/Starter, 512 MB | Prove native boot, privacy, API, and shell routing with a responsive bootstrap. Quality is limited. |
 | `standard` | Qwen2.5 0.5B Q4_K_M | 491 MB | Render Standard, 2 GB | Better instruction following and conversation. |
-| `pro` | Qwen3 4B Q3_K_S | 1.89 GB | Render Pro, 4 GB | Memory-bounded stronger multilingual conversation, planning, structured cognition, and tool selection. |
-| `deep` | Qwen3 4B Q4_K_M | 2.50 GB | Pro 4 GB background worker | Queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required. |
+| `pro` | Qwen3 1.7B Q8_0 | 1.83 GB | Render Pro, 4 GB | Latency-bounded multilingual conversation, planning, structured cognition, and tool selection. |
+| `deep` | Qwen3 4B Q3_K_S | 1.89 GB | Separate Pro 4 GB worker | Queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required. |
 
 The service must be redeployed after changing `ASCENSION_MODEL_PROFILE`. Model selection does not change the API or shell contracts.
 
@@ -39,7 +39,7 @@ The service must be redeployed after changing `ASCENSION_MODEL_PROFILE`. Model s
 
 - Starter profile: 30/30 native smoke prompts passed across AP, LifeOS, NexusHome, NexusFamily, and Core; median 2,558 ms and p95 3,409 ms; no outside provider.
 - The earlier 3B test passed five shell smoke requests but was too slow for ordinary conversation.
-- Production candidate 2.3 now targets the pinned Qwen3 4B Q3_K_S profile on Render Pro with real SSE streaming and bounded mode-specific output budgets.
+- Production candidate 2.3 keeps the pinned Qwen3 1.7B Q8 profile for live interaction after the 4B profile exceeded the 120-second interactive timeout. The 4B Q3 profile remains available as a separate deep-work service.
 - Replacement readiness remains false until the rubric-based live suite, concurrency/recovery checks, and native-primary canary all pass.
 
 ## Capability surfacing rule

@@ -27,7 +27,7 @@ from src.core.orchestrator import prepare_inference, respond, surface_plan
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC = ROOT / "public"
-APP_VERSION = "2.3.0-native-alpha"
+APP_VERSION = "2.3.1-native-alpha"
 MAX_MESSAGES = 24
 MAX_MESSAGE_LENGTH = 12_000
 

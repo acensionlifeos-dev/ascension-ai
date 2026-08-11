@@ -26,10 +26,12 @@ The AI proposes intelligence and actions. LifeOS owns authentication, database a
 | --- | --- | --- |
 | `starter` | SmolLM2 135M Q2 | 512 MB latency-first bootstrap validation |
 | `standard` | Qwen2.5 0.5B Q4 | 2 GB service |
-| `pro` | Qwen3 4B Q3_K_S | 4 GB interactive service |
-| `deep` | Qwen3 4B Q4_K_M | Higher-memory or queued background service |
+| `pro` | Qwen3 1.7B Q8 | 4 GB interactive service |
+| `deep` | Qwen3 4B Q3_K_S | Separate 4 GB queued background service |
 
 Every model file is pinned by repository revision and SHA-256 checksum in `config/model_profiles.json`.
+
+The live and deep roles can be deployed as separate services. `render.deep-worker.example.yaml` prepares the 4B background worker without silently creating another paid instance. LifeOS routes `analysis` and `background` calls to it only when the owner supplies `ASCENSION_AI_DEEP_URL` and `ASCENSION_AI_DEEP_SERVICE_TOKEN`; live conversation remains on the faster service.
 
 ## Run locally
 

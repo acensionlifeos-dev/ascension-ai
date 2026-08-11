@@ -1,0 +1,30 @@
+# Optional second service for deep/background work. This file is intentionally
+# not the active Render Blueprint because a second Pro instance has separate
+# compute cost. Create it only after owner approval, then set its generated
+# service token and URL in LifeOS as ASCENSION_AI_DEEP_SERVICE_TOKEN and
+# ASCENSION_AI_DEEP_URL.
+services:
+  - type: web
+    name: ascension-ai-deep
+    env: python
+    plan: pro
+    buildCommand: pip install -r requirements.txt && python scripts/download_model.py
+    startCommand: uvicorn src.serving.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ASCENSION_AI_SERVICE_TOKEN
+        generateValue: true
+      - key: ASCENSION_MODEL_PROFILE
+        value: deep
+      - key: ASCENSION_MODEL_BATCH
+        value: "32"
+      - key: ASCENSION_MODEL_CONTEXT
+        value: "3072"
+      - key: ASCENSION_MODEL_THREADS
+        value: "2"
+      - key: ASCENSION_MODEL_THREADS_BATCH
+        value: "2"
+      - key: WEB_CONCURRENCY
+        value: "1"
+      - key: ASCENSION_AI_ALLOWED_ORIGINS
+        value: https://ascensionlifeos.onrender.com

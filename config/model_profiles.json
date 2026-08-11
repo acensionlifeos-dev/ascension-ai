@@ -24,27 +24,27 @@
     "quality_note": "Stronger instruction-following profile for a 2 GB service."
   },
   "pro": {
-    "label": "Ascension Live 4B",
+    "label": "Ascension Live 1.7B",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "size_bytes": 1834426016,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Primary latency-bounded profile for multilingual conversation, planning, structured cognition, and tool selection on the 4 GB Pro service."
+  },
+  "deep": {
+    "label": "Ascension Deep 4B",
     "repo_id": "bartowski/Qwen_Qwen3-4B-GGUF",
     "filename": "Qwen_Qwen3-4B-Q3_K_S.gguf",
     "revision": "cb76885dc66d50759b207c5a48c4e78dfa00c638",
     "sha256": "9a8cde953fd268fee5fcca36523b303cace78c1a648e974608517d47340e5560",
     "size_bytes": 1886997440,
-    "minimum_render_plan": "pro_4gb",
+    "minimum_render_plan": "separate_pro_4gb_background_worker",
     "context_tokens": 3072,
     "threads": 2,
-    "quality_note": "Memory-bounded 4B profile for stronger multilingual conversation, planning, structured cognition, and tool selection on the 4 GB Pro service."
-  },
-  "deep": {
-    "label": "Ascension Deep 4B",
-    "repo_id": "Qwen/Qwen3-4B-GGUF",
-    "filename": "Qwen3-4B-Q4_K_M.gguf",
-    "revision": "bc640142c66e1fdd12af0bd68f40445458f3869b",
-    "sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
-    "size_bytes": 2497280256,
-    "minimum_render_plan": "pro_4gb_background_worker",
-    "context_tokens": 4096,
-    "threads": 2,
-    "quality_note": "Preserved deeper-reasoning profile for queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required."
+    "quality_note": "Memory-bounded deeper-reasoning worker for queued research, synthesis, evaluation, and apprenticeship distillation where interactive latency is not required."
   }
 }
