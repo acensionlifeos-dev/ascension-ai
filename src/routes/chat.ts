@@ -5,8 +5,20 @@
 import { Router, Request, Response } from 'express';
 import { modelRouter } from '../services/model-router';
 import { requestPermissions } from '../services/permission-engine';
+import { routeNativeDomain } from '../services/native-domain-router';
 import { logUsage } from '../services/usage-tracker';
 import { AuthRequest } from '../middleware/auth';
+
+const DOMAIN_ROUTED_CAPABILITIES = new Set([
+  'ascension_travel',
+  'ascension_legal',
+  'ascension_realestate',
+  'ascension_research',
+  'ascension_events',
+  'ascension_automotive',
+  'ascension_pets',
+  'ascension_weather'
+]);
 
 const router = Router();
 
@@ -88,6 +100,18 @@ router.post('/capability', async (req: AuthRequest, res: Response) => {
         ...permissionRequest,
         durationMs: Date.now() - startTime
       });
+    }
+    
+    // Fast, structured native domain response for specialized overlays
+    if (capabilityId.startsWith('ascension_') && process.env.ASCENSION_NATIVE_ENABLED === 'true') {
+      const nativeResponse = routeNativeDomain(capabilityId, message, permissions as any);
+      if (DOMAIN_ROUTED_CAPABILITIES.has(capabilityId)) {
+        return res.json({
+          ...nativeResponse,
+          capabilityId,
+          durationMs: Date.now() - startTime
+        });
+      }
     }
     
     // Route to best provider for capability
