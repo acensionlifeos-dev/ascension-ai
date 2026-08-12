@@ -6086,6 +6086,732 @@ function ascension_routineResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_human_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Human Intelligence. Understand the human completely: identity, emotion, life flow, biometric, voice, behavior What do you need?`,
+    model: 'Ascension Human Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_human_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_behavioral_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Behavioral Intelligence. Model procrastination, consistency, risk tolerance, follow-through, and motivation patterns What do you need?`,
+    model: 'Ascension Behavioral Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_behavioral_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_astrology_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Astrology Intelligence. Symbolic astrological context as a supplement, never a deterministic prediction What do you need?`,
+    model: 'Ascension Astrology Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_astrology_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_identityResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Identity. Track and evolve the user What do you need?`,
+    model: 'Ascension Identity',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_identity',
+    data: { question: null }
+  };
+}
+
+function ascension_life_flowResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Life Flow. Model energy, schedule, recovery, and optimal execution windows What do you need?`,
+    model: 'Ascension Life Flow',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_life_flow',
+    data: { question: null }
+  };
+}
+
+function ascension_biometricResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Biometric. Read and act on HRV, sleep, recovery, and wearable signals What do you need?`,
+    model: 'Ascension Biometric',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_biometric',
+    data: { question: null }
+  };
+}
+
+function ascension_voice_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Voice Intelligence. Voice-based interaction, tone, and voiceprint identity signals What do you need?`,
+    model: 'Ascension Voice Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_voice_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_personalityResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Personality. Track personality layers, preferences, and decision style What do you need?`,
+    model: 'Ascension Personality',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_personality',
+    data: { question: null }
+  };
+}
+
+function ascension_resource_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Resource Intelligence. Manage all resources: money, time, energy, skills, assets, credit, investments What do you need?`,
+    model: 'Ascension Resource Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_resource_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_global_economicsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Global Economics. Track macro signals: inflation, rates, employment, commodities, government incentives What do you need?`,
+    model: 'Ascension Global Economics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_global_economics',
+    data: { question: null }
+  };
+}
+
+function ascension_assetsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Assets. Track real estate, vehicles, collectibles, and illiquid assets What do you need?`,
+    model: 'Ascension Assets',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_assets',
+    data: { question: null }
+  };
+}
+
+function ascension_opportunity_financeResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Opportunity Finance. Find grants, scholarships, tax credits, refinancing, and rebates What do you need?`,
+    model: 'Ascension Opportunity Finance',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_opportunity_finance',
+    data: { question: null }
+  };
+}
+
+function ascension_world_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension World Intelligence. Understand the external world: environment, markets, government, science, tech What do you need?`,
+    model: 'Ascension World Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_world_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_environmentalResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Environmental. Track environmental, weather, pollen, AQI, and climate factors What do you need?`,
+    model: 'Ascension Environmental',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_environmental',
+    data: { question: null }
+  };
+}
+
+function ascension_governmentResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Government. Track government programs, policy, and regulatory impact What do you need?`,
+    model: 'Ascension Government',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_government',
+    data: { question: null }
+  };
+}
+
+function ascension_politicsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Politics. Track political context and civic opportunities What do you need?`,
+    model: 'Ascension Politics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_politics',
+    data: { question: null }
+  };
+}
+
+function ascension_relationship_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Relationship Intelligence. Synthesize relationships, network, community, mentors, and influence What do you need?`,
+    model: 'Ascension Relationship Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_relationship_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_network_vortexResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Network Vortex. Maintain the people graph: relationships, organizations, and community What do you need?`,
+    model: 'Ascension Network Vortex',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_network_vortex',
+    data: { question: null }
+  };
+}
+
+function ascension_communityResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Community. Track communities, groups, and local/global causes What do you need?`,
+    model: 'Ascension Community',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_community',
+    data: { question: null }
+  };
+}
+
+function ascension_professional_networkResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Professional Network. Track mentors, recruiters, collaborators, and career relationships What do you need?`,
+    model: 'Ascension Professional Network',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_professional_network',
+    data: { question: null }
+  };
+}
+
+function ascension_mentorsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Mentors. Track mentors, coaches, advisors, and guidance relationships What do you need?`,
+    model: 'Ascension Mentors',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_mentors',
+    data: { question: null }
+  };
+}
+
+function ascension_influenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Influence. Track thought leadership, audience, and influence growth What do you need?`,
+    model: 'Ascension Influence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_influence',
+    data: { question: null }
+  };
+}
+
+function ascension_creation_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Creation Intelligence. Accelerate creation across business, media, product, software, knowledge, and creative studios What do you need?`,
+    model: 'Ascension Creation Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creation_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_business_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Business Studio. Think like a founder: model, revenue, CAC, retention, operations, funding What do you need?`,
+    model: 'Ascension Business Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_business_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_media_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Media Studio. Think like a publisher: consistency, audience, engagement, monetization What do you need?`,
+    model: 'Ascension Media Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_media_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_product_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Product Studio. Think like an industrial designer and manufacturing advisor What do you need?`,
+    model: 'Ascension Product Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_product_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_software_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Software Studio. Think like a software architect: architecture, tech debt, testing, deployment, security What do you need?`,
+    model: 'Ascension Software Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_software_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_knowledge_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Knowledge Studio. Think like an educator, researcher, and author What do you need?`,
+    model: 'Ascension Knowledge Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_knowledge_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_creative_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Creative Studio. Think like an art director, creative coach, and portfolio strategist What do you need?`,
+    model: 'Ascension Creative Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creative_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_creation_auditorResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Creation Auditor. Continuous health audit for any project or studio What do you need?`,
+    model: 'Ascension Creation Auditor',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creation_auditor',
+    data: { question: null }
+  };
+}
+
+function ascension_roadmap_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Roadmap Engine. Build and track project roadmaps, milestones, and dependencies What do you need?`,
+    model: 'Ascension Roadmap Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_roadmap_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_scorecardsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Scorecards. Idea maturity, execution momentum, validation, launch, and risk scorecards What do you need?`,
+    model: 'Ascension Scorecards',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_scorecards',
+    data: { question: null }
+  };
+}
+
+function ascension_creation_transformationResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Creation Transformation. Dream-to-reality transformation loop: observe, design, build, launch, scale What do you need?`,
+    model: 'Ascension Creation Transformation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creation_transformation',
+    data: { question: null }
+  };
+}
+
+function ascension_opportunity_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Opportunity Intelligence. Synthesize all engines to find and prioritize opportunities What do you need?`,
+    model: 'Ascension Opportunity Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_opportunity_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_decision_physicsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Decision Physics. Observe, predict, simulate, decide, explain, and learn from outcomes What do you need?`,
+    model: 'Ascension Decision Physics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_decision_physics',
+    data: { question: null }
+  };
+}
+
+function ascension_adaptive_questResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Adaptive Quest. Calibrate quest difficulty and selection based on tri-baseline, life flow, and behavior What do you need?`,
+    model: 'Ascension Adaptive Quest',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_adaptive_quest',
+    data: { question: null }
+  };
+}
+
+function ascension_cieResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension CIE. Conversation Intelligence Engine: score and gate all proactive AP messages What do you need?`,
+    model: 'Ascension CIE',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cie',
+    data: { question: null }
+  };
+}
+
+function ascension_ageResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension AGE. Ascension Guide Engine: onboarding, feature unlocking, and readiness scoring What do you need?`,
+    model: 'Ascension AGE',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_age',
+    data: { question: null }
+  };
+}
+
+function ascension_personal_vortexResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Personal Vortex. Everything about the user: identity, goals, behavior, history, preferences What do you need?`,
+    model: 'Ascension Personal Vortex',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_personal_vortex',
+    data: { question: null }
+  };
+}
+
+function ascension_world_vortexResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension World Vortex. Everything external: markets, science, tech, politics, weather, news What do you need?`,
+    model: 'Ascension World Vortex',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_world_vortex',
+    data: { question: null }
+  };
+}
+
+function ascension_unified_vortexResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Unified Vortex. Synthesize Personal, World, and Network Vortex into composite insights What do you need?`,
+    model: 'Ascension Unified Vortex',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_unified_vortex',
+    data: { question: null }
+  };
+}
+
+function ascension_vortex_signalsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Vortex Signals. Store and reason over signals from every engine and connected API What do you need?`,
+    model: 'Ascension Vortex Signals',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_vortex_signals',
+    data: { question: null }
+  };
+}
+
+function ascension_calendar_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Calendar Intelligence. Infer productivity windows, meeting density, key relationships, and burnout from calendar What do you need?`,
+    model: 'Ascension Calendar Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_calendar_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_email_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Email Intelligence. Infer communication network, opportunity signals, and subscription creep from email What do you need?`,
+    model: 'Ascension Email Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_email_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_plaid_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Plaid Intelligence. Infer financial behavior, stress spending, and cash flow patterns from Plaid What do you need?`,
+    model: 'Ascension Plaid Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_plaid_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_investment_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Investment Intelligence. Infer risk, diversification, contribution discipline, and retirement readiness What do you need?`,
+    model: 'Ascension Investment Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_investment_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_crypto_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Crypto Intelligence. Track wallets, exchanges, staking, DeFi, and tax events What do you need?`,
+    model: 'Ascension Crypto Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_crypto_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_health_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Health Intelligence. Read HRV, sleep, recovery, and burnout signals from wearables What do you need?`,
+    model: 'Ascension Health Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_health_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_location_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Location Intelligence. Infer routines, gym attendance, nature exposure, and home-away ratio What do you need?`,
+    model: 'Ascension Location Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_location_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_spotify_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Spotify Intelligence. Infer mood, energy, work style, and stress management from music What do you need?`,
+    model: 'Ascension Spotify Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_spotify_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_linkedin_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension LinkedIn Intelligence. Infer career velocity, recruiter activity, and professional influence What do you need?`,
+    model: 'Ascension LinkedIn Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_linkedin_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_youtube_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension YouTube Intelligence. Infer learning investment, topic depth, and research patterns What do you need?`,
+    model: 'Ascension YouTube Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_youtube_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_tiktok_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension TikTok Intelligence. Infer creator momentum, content discipline, and trend awareness What do you need?`,
+    model: 'Ascension TikTok Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tiktok_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_github_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension GitHub Intelligence. Infer coding consistency, technical growth, and architecture maturity What do you need?`,
+    model: 'Ascension GitHub Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_github_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_weather_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Weather Intelligence. Infer mood/energy correlation and activity suitability from weather What do you need?`,
+    model: 'Ascension Weather Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_weather_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_news_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension News Intelligence. Infer industry opportunity, economic context, and regulatory impact What do you need?`,
+    model: 'Ascension News Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_news_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_question_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Question Engine. Ask one question at a time, track state, and adapt follow-ups What do you need?`,
+    model: 'Ascension Question Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_question_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_vaultResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Vault. Permanent digital estate: AP can read, never write or delete What do you need?`,
+    model: 'Ascension Vault',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_vault',
+    data: { question: null }
+  };
+}
+
+function ascension_living_memoryResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Living Memory. Active cognition: current goals, patterns, and recent interactions What do you need?`,
+    model: 'Ascension Living Memory',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_living_memory',
+    data: { question: null }
+  };
+}
+
+function ascension_living_contextResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Living Context. Weekly pre-computed working memory snapshot for fast AP responses What do you need?`,
+    model: 'Ascension Living Context',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_living_context',
+    data: { question: null }
+  };
+}
+
+function ascension_proactivityResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Proactivity. Configure silent to always-on reaction levels What do you need?`,
+    model: 'Ascension Proactivity',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_proactivity',
+    data: { question: null }
+  };
+}
+
+function ascension_workoutResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Workout. Plan and adapt exercise routines and physical training What do you need?`,
+    model: 'Ascension Workout',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_workout',
+    data: { question: null }
+  };
+}
+
+function ascension_body_profileResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Body Profile. Track body data, photos, weight, BMR, and TDEE What do you need?`,
+    model: 'Ascension Body Profile',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_body_profile',
+    data: { question: null }
+  };
+}
+
+function ascension_document_intelligenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Document Intelligence. OCR, classify, extract, and persist structured data from uploaded documents What do you need?`,
+    model: 'Ascension Document Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_document_intelligence',
+    data: { question: null }
+  };
+}
+
+function ascension_legacyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Legacy. Plan contribution, generational impact, and long-term life legacy What do you need?`,
+    model: 'Ascension Legacy',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_legacy',
+    data: { question: null }
+  };
+}
+
+function ascension_contributionResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with Ascension Contribution. Track giving, mentorship, community impact, and contribution goals What do you need?`,
+    model: 'Ascension Contribution',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_contribution',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -6637,7 +7363,73 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_child_development': ascension_child_developmentResponse,
   'ascension_goals': ascension_goalsResponse,
   'ascension_milestones': ascension_milestonesResponse,
-  'ascension_routine': ascension_routineResponse
+  'ascension_routine': ascension_routineResponse,
+  'ascension_human_intelligence': ascension_human_intelligenceResponse,
+  'ascension_behavioral_intelligence': ascension_behavioral_intelligenceResponse,
+  'ascension_astrology_intelligence': ascension_astrology_intelligenceResponse,
+  'ascension_identity': ascension_identityResponse,
+  'ascension_life_flow': ascension_life_flowResponse,
+  'ascension_biometric': ascension_biometricResponse,
+  'ascension_voice_intelligence': ascension_voice_intelligenceResponse,
+  'ascension_personality': ascension_personalityResponse,
+  'ascension_resource_intelligence': ascension_resource_intelligenceResponse,
+  'ascension_global_economics': ascension_global_economicsResponse,
+  'ascension_assets': ascension_assetsResponse,
+  'ascension_opportunity_finance': ascension_opportunity_financeResponse,
+  'ascension_world_intelligence': ascension_world_intelligenceResponse,
+  'ascension_environmental': ascension_environmentalResponse,
+  'ascension_government': ascension_governmentResponse,
+  'ascension_politics': ascension_politicsResponse,
+  'ascension_relationship_intelligence': ascension_relationship_intelligenceResponse,
+  'ascension_network_vortex': ascension_network_vortexResponse,
+  'ascension_community': ascension_communityResponse,
+  'ascension_professional_network': ascension_professional_networkResponse,
+  'ascension_mentors': ascension_mentorsResponse,
+  'ascension_influence': ascension_influenceResponse,
+  'ascension_creation_intelligence': ascension_creation_intelligenceResponse,
+  'ascension_business_studio': ascension_business_studioResponse,
+  'ascension_media_studio': ascension_media_studioResponse,
+  'ascension_product_studio': ascension_product_studioResponse,
+  'ascension_software_studio': ascension_software_studioResponse,
+  'ascension_knowledge_studio': ascension_knowledge_studioResponse,
+  'ascension_creative_studio': ascension_creative_studioResponse,
+  'ascension_creation_auditor': ascension_creation_auditorResponse,
+  'ascension_roadmap_engine': ascension_roadmap_engineResponse,
+  'ascension_scorecards': ascension_scorecardsResponse,
+  'ascension_creation_transformation': ascension_creation_transformationResponse,
+  'ascension_opportunity_intelligence': ascension_opportunity_intelligenceResponse,
+  'ascension_decision_physics': ascension_decision_physicsResponse,
+  'ascension_adaptive_quest': ascension_adaptive_questResponse,
+  'ascension_cie': ascension_cieResponse,
+  'ascension_age': ascension_ageResponse,
+  'ascension_personal_vortex': ascension_personal_vortexResponse,
+  'ascension_world_vortex': ascension_world_vortexResponse,
+  'ascension_unified_vortex': ascension_unified_vortexResponse,
+  'ascension_vortex_signals': ascension_vortex_signalsResponse,
+  'ascension_calendar_intelligence': ascension_calendar_intelligenceResponse,
+  'ascension_email_intelligence': ascension_email_intelligenceResponse,
+  'ascension_plaid_intelligence': ascension_plaid_intelligenceResponse,
+  'ascension_investment_intelligence': ascension_investment_intelligenceResponse,
+  'ascension_crypto_intelligence': ascension_crypto_intelligenceResponse,
+  'ascension_health_intelligence': ascension_health_intelligenceResponse,
+  'ascension_location_intelligence': ascension_location_intelligenceResponse,
+  'ascension_spotify_intelligence': ascension_spotify_intelligenceResponse,
+  'ascension_linkedin_intelligence': ascension_linkedin_intelligenceResponse,
+  'ascension_youtube_intelligence': ascension_youtube_intelligenceResponse,
+  'ascension_tiktok_intelligence': ascension_tiktok_intelligenceResponse,
+  'ascension_github_intelligence': ascension_github_intelligenceResponse,
+  'ascension_weather_intelligence': ascension_weather_intelligenceResponse,
+  'ascension_news_intelligence': ascension_news_intelligenceResponse,
+  'ascension_question_engine': ascension_question_engineResponse,
+  'ascension_vault': ascension_vaultResponse,
+  'ascension_living_memory': ascension_living_memoryResponse,
+  'ascension_living_context': ascension_living_contextResponse,
+  'ascension_proactivity': ascension_proactivityResponse,
+  'ascension_workout': ascension_workoutResponse,
+  'ascension_body_profile': ascension_body_profileResponse,
+  'ascension_document_intelligence': ascension_document_intelligenceResponse,
+  'ascension_legacy': ascension_legacyResponse,
+  'ascension_contribution': ascension_contributionResponse
 };
 
 export function routeNativeDomain(

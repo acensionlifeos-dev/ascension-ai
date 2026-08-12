@@ -832,10 +832,9 @@ export const CAPABILITIES = [
     related_capabilities: [
     'ascension_family_sync',
     'ascension_family_abroad',
-    'ascension_parenting',
     'ascension_child_development'
   ],
-    context: 'Triggers: user asks about FamilyOS, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family_sync, ascension_family_abroad, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about FamilyOS, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family_sync, ascension_family_abroad, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_health',
@@ -1103,9 +1102,11 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'career',
     related_capabilities: [
-    'ascension_chat'
+    'ascension_professional_network',
+    'ascension_mentors',
+    'ascension_linkedin_intelligence'
   ],
-    context: 'Triggers: user asks about Career, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Career, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_professional_network, ascension_mentors, ascension_linkedin_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_relationships',
@@ -1191,9 +1192,11 @@ export const CAPABILITIES = [
     executor: 'productivity',
     related_capabilities: [
     'ascension_time',
-    'ascension_focus'
+    'ascension_focus',
+    'ascension_calendar_intelligence',
+    'ascension_email_intelligence'
   ],
-    context: 'Triggers: user asks about Meetings, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_time, ascension_focus. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Meetings, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_time, ascension_focus, ascension_calendar_intelligence, ascension_email_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_voice',
@@ -1438,9 +1441,11 @@ export const CAPABILITIES = [
     executor: 'productivity',
     related_capabilities: [
     'ascension_meetings',
-    'ascension_focus'
+    'ascension_focus',
+    'ascension_calendar_intelligence',
+    'ascension_email_intelligence'
   ],
-    context: 'Triggers: user asks about Time, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_focus. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Time, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_focus, ascension_calendar_intelligence, ascension_email_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_confidence',
@@ -1602,9 +1607,11 @@ export const CAPABILITIES = [
     executor: 'productivity',
     related_capabilities: [
     'ascension_meetings',
-    'ascension_time'
+    'ascension_time',
+    'ascension_calendar_intelligence',
+    'ascension_email_intelligence'
   ],
-    context: 'Triggers: user asks about Focus, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_time. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Focus, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_time, ascension_calendar_intelligence, ascension_email_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meditation',
@@ -10190,10 +10197,9 @@ export const CAPABILITIES = [
     related_capabilities: [
     'ascension_family',
     'ascension_family_abroad',
-    'ascension_parenting',
     'ascension_child_development'
   ],
-    context: 'Triggers: user asks about Family Sync, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_abroad, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Family Sync, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_abroad, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_family_abroad',
@@ -10208,10 +10214,9 @@ export const CAPABILITIES = [
     related_capabilities: [
     'ascension_family',
     'ascension_family_sync',
-    'ascension_parenting',
     'ascension_child_development'
   ],
-    context: 'Triggers: user asks about Family Abroad, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Family Abroad, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_household_sync',
@@ -10302,10 +10307,9 @@ export const CAPABILITIES = [
     related_capabilities: [
     'ascension_family',
     'ascension_family_sync',
-    'ascension_family_abroad',
-    'ascension_parenting'
+    'ascension_family_abroad'
   ],
-    context: 'Triggers: user asks about Child Development, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_family_abroad, ascension_parenting. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Child Development, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_family_abroad. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_goals',
@@ -10363,6 +10367,1252 @@ export const CAPABILITIES = [
     'ascension_automotive'
   ],
     context: 'Triggers: user asks about Routine, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_human_intelligence',
+    name: 'Ascension Human Intelligence',
+    category: 'intelligence',
+    description: 'Understand the human completely: identity, emotion, life flow, biometric, voice, behavior',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Human Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_behavioral_intelligence',
+    name: 'Ascension Behavioral Intelligence',
+    category: 'intelligence',
+    description: 'Model procrastination, consistency, risk tolerance, follow-through, and motivation patterns',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Behavioral Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_astrology_intelligence',
+    name: 'Ascension Astrology Intelligence',
+    category: 'intelligence',
+    description: 'Symbolic astrological context as a supplement, never a deterministic prediction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Astrology Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_identity',
+    name: 'Ascension Identity',
+    category: 'intelligence',
+    description: 'Track and evolve the user',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Identity, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_life_flow',
+    name: 'Ascension Life Flow',
+    category: 'intelligence',
+    description: 'Model energy, schedule, recovery, and optimal execution windows',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Life Flow, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_biometric',
+    name: 'Ascension Biometric',
+    category: 'intelligence',
+    description: 'Read and act on HRV, sleep, recovery, and wearable signals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Biometric, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_voice_intelligence',
+    name: 'Ascension Voice Intelligence',
+    category: 'intelligence',
+    description: 'Voice-based interaction, tone, and voiceprint identity signals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Voice Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_personality',
+    name: 'Ascension Personality',
+    category: 'intelligence',
+    description: 'Track personality layers, preferences, and decision style',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Personality, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_resource_intelligence',
+    name: 'Ascension Resource Intelligence',
+    category: 'intelligence',
+    description: 'Manage all resources: money, time, energy, skills, assets, credit, investments',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Resource Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_global_economics',
+    name: 'Ascension Global Economics',
+    category: 'finance',
+    description: 'Track macro signals: inflation, rates, employment, commodities, government incentives',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Global Economics, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_assets',
+    name: 'Ascension Assets',
+    category: 'finance',
+    description: 'Track real estate, vehicles, collectibles, and illiquid assets',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Assets, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_opportunity_finance',
+    name: 'Ascension Opportunity Finance',
+    category: 'finance',
+    description: 'Find grants, scholarships, tax credits, refinancing, and rebates',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Opportunity Finance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_world_intelligence',
+    name: 'Ascension World Intelligence',
+    category: 'knowledge',
+    description: 'Understand the external world: environment, markets, government, science, tech',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about World Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_environmental',
+    name: 'Ascension Environmental',
+    category: 'knowledge',
+    description: 'Track environmental, weather, pollen, AQI, and climate factors',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Environmental, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_government',
+    name: 'Ascension Government',
+    category: 'knowledge',
+    description: 'Track government programs, policy, and regulatory impact',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Government, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_politics',
+    name: 'Ascension Politics',
+    category: 'knowledge',
+    description: 'Track political context and civic opportunities',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Politics, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_relationship_intelligence',
+    name: 'Ascension Relationship Intelligence',
+    category: 'relationships',
+    description: 'Synthesize relationships, network, community, mentors, and influence',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Relationship Intelligence, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_network_vortex',
+    name: 'Ascension Network Vortex',
+    category: 'relationships',
+    description: 'Maintain the people graph: relationships, organizations, and community',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Network Vortex, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_community',
+    name: 'Ascension Community',
+    category: 'relationships',
+    description: 'Track communities, groups, and local/global causes',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Community, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_professional_network',
+    name: 'Ascension Professional Network',
+    category: 'career',
+    description: 'Track mentors, recruiters, collaborators, and career relationships',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'career',
+    related_capabilities: [
+    'ascension_career',
+    'ascension_mentors',
+    'ascension_linkedin_intelligence'
+  ],
+    context: 'Triggers: user asks about Professional Network, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_career, ascension_mentors, ascension_linkedin_intelligence. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_mentors',
+    name: 'Ascension Mentors',
+    category: 'career',
+    description: 'Track mentors, coaches, advisors, and guidance relationships',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'career',
+    related_capabilities: [
+    'ascension_career',
+    'ascension_professional_network',
+    'ascension_linkedin_intelligence'
+  ],
+    context: 'Triggers: user asks about Mentors, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_career, ascension_professional_network, ascension_linkedin_intelligence. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_influence',
+    name: 'Ascension Influence',
+    category: 'business',
+    description: 'Track thought leadership, audience, and influence growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Influence, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_creation_intelligence',
+    name: 'Ascension Creation Intelligence',
+    category: 'creation',
+    description: 'Accelerate creation across business, media, product, software, knowledge, and creative studios',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Creation Intelligence, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_business_studio',
+    name: 'Ascension Business Studio',
+    category: 'business',
+    description: 'Think like a founder: model, revenue, CAC, retention, operations, funding',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Business Studio, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_media_studio',
+    name: 'Ascension Media Studio',
+    category: 'creation',
+    description: 'Think like a publisher: consistency, audience, engagement, monetization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Media Studio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_product_studio',
+    name: 'Ascension Product Studio',
+    category: 'creation',
+    description: 'Think like an industrial designer and manufacturing advisor',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Product Studio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_software_studio',
+    name: 'Ascension Software Studio',
+    category: 'creation',
+    description: 'Think like a software architect: architecture, tech debt, testing, deployment, security',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Software Studio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_knowledge_studio',
+    name: 'Ascension Knowledge Studio',
+    category: 'knowledge',
+    description: 'Think like an educator, researcher, and author',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Knowledge Studio, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_creative_studio',
+    name: 'Ascension Creative Studio',
+    category: 'creation',
+    description: 'Think like an art director, creative coach, and portfolio strategist',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Creative Studio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_creation_auditor',
+    name: 'Ascension Creation Auditor',
+    category: 'creation',
+    description: 'Continuous health audit for any project or studio',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Creation Auditor, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_roadmap_engine',
+    name: 'Ascension Roadmap Engine',
+    category: 'creation',
+    description: 'Build and track project roadmaps, milestones, and dependencies',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Roadmap Engine, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_scorecards',
+    name: 'Ascension Scorecards',
+    category: 'business',
+    description: 'Idea maturity, execution momentum, validation, launch, and risk scorecards',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Scorecards, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_creation_transformation',
+    name: 'Ascension Creation Transformation',
+    category: 'creation',
+    description: 'Dream-to-reality transformation loop: observe, design, build, launch, scale',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Creation Transformation, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_opportunity_intelligence',
+    name: 'Ascension Opportunity Intelligence',
+    category: 'intelligence',
+    description: 'Synthesize all engines to find and prioritize opportunities',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Opportunity Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_decision_physics',
+    name: 'Ascension Decision Physics',
+    category: 'intelligence',
+    description: 'Observe, predict, simulate, decide, explain, and learn from outcomes',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Decision Physics, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_adaptive_quest',
+    name: 'Ascension Adaptive Quest',
+    category: 'intelligence',
+    description: 'Calibrate quest difficulty and selection based on tri-baseline, life flow, and behavior',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Adaptive Quest, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_cie',
+    name: 'Ascension CIE',
+    category: 'intelligence',
+    description: 'Conversation Intelligence Engine: score and gate all proactive AP messages',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about CIE, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_age',
+    name: 'Ascension AGE',
+    category: 'intelligence',
+    description: 'Ascension Guide Engine: onboarding, feature unlocking, and readiness scoring',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about AGE, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_personal_vortex',
+    name: 'Ascension Personal Vortex',
+    category: 'intelligence',
+    description: 'Everything about the user: identity, goals, behavior, history, preferences',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Personal Vortex, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_world_vortex',
+    name: 'Ascension World Vortex',
+    category: 'intelligence',
+    description: 'Everything external: markets, science, tech, politics, weather, news',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about World Vortex, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_unified_vortex',
+    name: 'Ascension Unified Vortex',
+    category: 'intelligence',
+    description: 'Synthesize Personal, World, and Network Vortex into composite insights',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Unified Vortex, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_vortex_signals',
+    name: 'Ascension Vortex Signals',
+    category: 'intelligence',
+    description: 'Store and reason over signals from every engine and connected API',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Vortex Signals, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_calendar_intelligence',
+    name: 'Ascension Calendar Intelligence',
+    category: 'productivity',
+    description: 'Infer productivity windows, meeting density, key relationships, and burnout from calendar',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'productivity',
+    related_capabilities: [
+    'ascension_meetings',
+    'ascension_time',
+    'ascension_focus',
+    'ascension_email_intelligence'
+  ],
+    context: 'Triggers: user asks about Calendar Intelligence, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_time, ascension_focus, ascension_email_intelligence. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_email_intelligence',
+    name: 'Ascension Email Intelligence',
+    category: 'productivity',
+    description: 'Infer communication network, opportunity signals, and subscription creep from email',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'productivity',
+    related_capabilities: [
+    'ascension_meetings',
+    'ascension_time',
+    'ascension_focus',
+    'ascension_calendar_intelligence'
+  ],
+    context: 'Triggers: user asks about Email Intelligence, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_time, ascension_focus, ascension_calendar_intelligence. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_plaid_intelligence',
+    name: 'Ascension Plaid Intelligence',
+    category: 'finance',
+    description: 'Infer financial behavior, stress spending, and cash flow patterns from Plaid',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Plaid Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_investment_intelligence',
+    name: 'Ascension Investment Intelligence',
+    category: 'finance',
+    description: 'Infer risk, diversification, contribution discipline, and retirement readiness',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Investment Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_crypto_intelligence',
+    name: 'Ascension Crypto Intelligence',
+    category: 'finance',
+    description: 'Track wallets, exchanges, staking, DeFi, and tax events',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Crypto Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_health_intelligence',
+    name: 'Ascension Health Intelligence',
+    category: 'wellness',
+    description: 'Read HRV, sleep, recovery, and burnout signals from wearables',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Health Intelligence, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_location_intelligence',
+    name: 'Ascension Location Intelligence',
+    category: 'knowledge',
+    description: 'Infer routines, gym attendance, nature exposure, and home-away ratio',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Location Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_spotify_intelligence',
+    name: 'Ascension Spotify Intelligence',
+    category: 'wellness',
+    description: 'Infer mood, energy, work style, and stress management from music',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Spotify Intelligence, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_linkedin_intelligence',
+    name: 'Ascension LinkedIn Intelligence',
+    category: 'career',
+    description: 'Infer career velocity, recruiter activity, and professional influence',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'career',
+    related_capabilities: [
+    'ascension_career',
+    'ascension_professional_network',
+    'ascension_mentors'
+  ],
+    context: 'Triggers: user asks about LinkedIn Intelligence, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_career, ascension_professional_network, ascension_mentors. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_youtube_intelligence',
+    name: 'Ascension YouTube Intelligence',
+    category: 'knowledge',
+    description: 'Infer learning investment, topic depth, and research patterns',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about YouTube Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_tiktok_intelligence',
+    name: 'Ascension TikTok Intelligence',
+    category: 'creation',
+    description: 'Infer creator momentum, content discipline, and trend awareness',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about TikTok Intelligence, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_github_intelligence',
+    name: 'Ascension GitHub Intelligence',
+    category: 'creation',
+    description: 'Infer coding consistency, technical growth, and architecture maturity',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about GitHub Intelligence, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_weather_intelligence',
+    name: 'Ascension Weather Intelligence',
+    category: 'knowledge',
+    description: 'Infer mood/energy correlation and activity suitability from weather',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Weather Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_news_intelligence',
+    name: 'Ascension News Intelligence',
+    category: 'knowledge',
+    description: 'Infer industry opportunity, economic context, and regulatory impact',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about News Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_question_engine',
+    name: 'Ascension Question Engine',
+    category: 'intelligence',
+    description: 'Ask one question at a time, track state, and adapt follow-ups',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Question Engine, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_vault',
+    name: 'Ascension Vault',
+    category: 'intelligence',
+    description: 'Permanent digital estate: AP can read, never write or delete',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Vault, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_living_memory',
+    name: 'Ascension Living Memory',
+    category: 'intelligence',
+    description: 'Active cognition: current goals, patterns, and recent interactions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Living Memory, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_living_context',
+    name: 'Ascension Living Context',
+    category: 'intelligence',
+    description: 'Weekly pre-computed working memory snapshot for fast AP responses',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Living Context, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_proactivity',
+    name: 'Ascension Proactivity',
+    category: 'intelligence',
+    description: 'Configure silent to always-on reaction levels',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Proactivity, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_workout',
+    name: 'Ascension Workout',
+    category: 'wellness',
+    description: 'Plan and adapt exercise routines and physical training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Workout, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_body_profile',
+    name: 'Ascension Body Profile',
+    category: 'wellness',
+    description: 'Track body data, photos, weight, BMR, and TDEE',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Body Profile, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_document_intelligence',
+    name: 'Ascension Document Intelligence',
+    category: 'knowledge',
+    description: 'OCR, classify, extract, and persist structured data from uploaded documents',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Document Intelligence, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_legacy',
+    name: 'Ascension Legacy',
+    category: 'intelligence',
+    description: 'Plan contribution, generational impact, and long-term life legacy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Legacy, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_contribution',
+    name: 'Ascension Contribution',
+    category: 'intelligence',
+    description: 'Track giving, mentorship, community impact, and contribution goals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Contribution, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 export function getCapabilityById(id: string) {
