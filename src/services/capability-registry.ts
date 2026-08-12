@@ -2771,6 +2771,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'style'
   },
+  {
+    id: 'ascension_camping',
+    name: 'Ascension Camping',
+    category: 'wellness',
+    description: 'Camping gear, sites, and outdoor skills',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_fishing',
+    name: 'Ascension Fishing',
+    category: 'wellness',
+    description: 'Fishing techniques, gear, and locations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_hunting',
+    name: 'Ascension Hunting',
+    category: 'wellness',
+    description: 'Hunting safety, gear, and ethics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_shooting',
+    name: 'Ascension Shooting',
+    category: 'wellness',
+    description: 'Firearm safety, range practice, and training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_archery',
+    name: 'Ascension Archery',
+    category: 'wellness',
+    description: 'Archery technique, gear, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_fencing',
+    name: 'Ascension Fencing',
+    category: 'wellness',
+    description: 'Fencing styles, gear, and training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_boxing',
+    name: 'Ascension Boxing',
+    category: 'wellness',
+    description: 'Boxing technique, training, and conditioning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_wrestling',
+    name: 'Ascension Wrestling',
+    category: 'wellness',
+    description: 'Wrestling styles, training, and technique',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_gymnastics',
+    name: 'Ascension Gymnastics',
+    category: 'wellness',
+    description: 'Gymnastics skills, training, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_skateboarding',
+    name: 'Ascension Skateboarding',
+    category: 'wellness',
+    description: 'Skateboarding tricks, gear, and spots',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_surfing',
+    name: 'Ascension Surfing',
+    category: 'wellness',
+    description: 'Surfing technique, waves, and board selection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_skiing',
+    name: 'Ascension Skiing',
+    category: 'wellness',
+    description: 'Skiing technique, gear, and resorts',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_snowboarding',
+    name: 'Ascension Snowboarding',
+    category: 'wellness',
+    description: 'Snowboarding technique, gear, and resorts',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_ice_skating',
+    name: 'Ascension Ice Skating',
+    category: 'wellness',
+    description: 'Ice skating technique, gear, and rinks',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_roller_skating',
+    name: 'Ascension Roller Skating',
+    category: 'wellness',
+    description: 'Roller skating technique, gear, and spots',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
   
   // Add 200+ more capabilities here...
 ];
