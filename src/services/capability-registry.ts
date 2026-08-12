@@ -1286,6 +1286,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'community'
   },
+  {
+    id: 'ascension_project',
+    name: 'Ascension Project',
+    category: 'work',
+    description: 'Project planning, milestones, and delivery tracking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_task',
+    name: 'Ascension Task',
+    category: 'work',
+    description: 'Task breakdown, prioritization, and execution support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_remote',
+    name: 'Ascension Remote',
+    category: 'work',
+    description: 'Remote work setup, routines, and collaboration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_interview',
+    name: 'Ascension Interview',
+    category: 'work',
+    description: 'Interview preparation and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_resume',
+    name: 'Ascension Resume',
+    category: 'work',
+    description: 'Resume and cover letter review',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_negotiation',
+    name: 'Ascension Negotiation',
+    category: 'work',
+    description: 'Salary, contract, and negotiation strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_networking',
+    name: 'Ascension Networking',
+    category: 'work',
+    description: 'Professional networking and relationship building',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_leadership',
+    name: 'Ascension Leadership',
+    category: 'work',
+    description: 'Leadership, management, and team guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_team',
+    name: 'Ascension Team',
+    category: 'work',
+    description: 'Team dynamics, conflict, and collaboration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_feedback',
+    name: 'Ascension Feedback',
+    category: 'work',
+    description: 'Giving and receiving feedback effectively',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
   
   // Add 180+ more capabilities here...
 ];

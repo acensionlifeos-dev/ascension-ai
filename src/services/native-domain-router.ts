@@ -829,6 +829,116 @@ function activismResponse(message: string): NativeResponse {
   };
 }
 
+function projectResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan projects, define milestones, and track delivery. I won't claim any tasks are done without a receipt. What is the project goal?`,
+    model: 'Ascension Project',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_project',
+    data: { milestones: [] }
+  };
+}
+
+function taskResponse(message: string): NativeResponse {
+  return {
+    content: `I can help break work into tasks, prioritize, and plan execution. I can't mark tasks complete in your system without permission. What do you need to get done?`,
+    model: 'Ascension Task',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_task',
+    data: { completed: [] }
+  };
+}
+
+function remoteResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with remote work routines, focus, and async collaboration. What is your remote-work challenge?`,
+    model: 'Ascension Remote',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_remote',
+    data: { setup: null }
+  };
+}
+
+function interviewResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you prepare and practice for interviews. What role or type of interview?`,
+    model: 'Ascension Interview',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_interview',
+    data: { role: null }
+  };
+}
+
+function resumeResponse(message: string): NativeResponse {
+  return {
+    content: `I can review resumes and cover letters and suggest improvements. I won't send anything to employers. Paste or describe what you have.`,
+    model: 'Ascension Resume',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_resume',
+    data: { submitted: [] }
+  };
+}
+
+function negotiationResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you prepare for negotiations and practice language. I won't guarantee outcomes. What are you negotiating?`,
+    model: 'Ascension Negotiation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_negotiation',
+    data: { guarantee: false }
+  };
+}
+
+function networkingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with professional networking strategy and outreach. What field or event are you focused on?`,
+    model: 'Ascension Networking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_networking',
+    data: { contacts: [] }
+  };
+}
+
+function leadershipResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss leadership, management, and team guidance. What leadership challenge are you facing?`,
+    model: 'Ascension Leadership',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_leadership',
+    data: { team_size: null }
+  };
+}
+
+function teamResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with team dynamics, collaboration, and conflict. What is happening with the team?`,
+    model: 'Ascension Team',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_team',
+    data: { members: [] }
+  };
+}
+
+function feedbackResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you give or receive feedback with clarity and respect. What feedback situation do you want to work through?`,
+    model: 'Ascension Feedback',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_feedback',
+    data: { delivered: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
