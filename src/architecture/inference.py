@@ -3,12 +3,17 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 from typing import Optional
 
 import torch
 import torch.serialization
+
+try:
+    from tokenizers import Tokenizer as HFTokenizer
+    HAS_TOKENIZERS = True
+except Exception:
+    HAS_TOKENIZERS = False
 
 from .transformer import AscensionTransformer, ModelConfig
 
@@ -20,7 +25,8 @@ class EliteInference:
         self.root = Path(checkpoint_dir)
         self.prefix = prefix
         self.meta = self._load_json(self.root / f"{prefix}_meta.json")
-        self.tokenizer = self._load_json(Path(self.meta["tokenizer_path"]))
+        self.tokenizer_path = Path(self.meta["tokenizer_path"])
+        self.tokenizer = self._load_tokenizer(self.tokenizer_path)
         self.config = ModelConfig(**self.meta["config"])
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -40,20 +46,44 @@ class EliteInference:
             raise FileNotFoundError(f"Missing file: {path}")
         return json.loads(path.read_text(encoding="utf-8"))
 
+    def _load_tokenizer(self, path: Path):
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing tokenizer: {path}")
+        if HAS_TOKENIZERS:
+            try:
+                return HFTokenizer.from_file(str(path))
+            except Exception:
+                pass
+        return self._load_json(path)
+
     def _encode(self, text: str, max_length: int = 128) -> torch.Tensor:
-        ids = [
-            self.tokenizer["char_to_idx"].get(c, self.tokenizer["char_to_idx"].get("<unk>", 0))
-            for c in text
-        ]
+        if isinstance(self.tokenizer, HFTokenizer):
+            ids = self.tokenizer.encode(text).ids
+        else:
+            ids = [
+                self.tokenizer["char_to_idx"].get(c, self.tokenizer["char_to_idx"].get("<unk>", 0))
+                for c in text
+            ]
         if len(ids) > max_length:
             ids = ids[-max_length:]
         return torch.tensor([ids], dtype=torch.long, device=self.device)
 
     def _decode(self, ids: list[int]) -> str:
+        if isinstance(self.tokenizer, HFTokenizer):
+            return self.tokenizer.decode(ids)
         return "".join(
             self.tokenizer["idx_to_char"].get(str(i), self.tokenizer["idx_to_char"].get(i, ""))
             for i in ids
         )
+
+    def _stop_token(self, token_id: int) -> bool:
+        if isinstance(self.tokenizer, HFTokenizer):
+            token = self.tokenizer.id_to_token(token_id)
+            if token is None:
+                return False
+            return token in {"</s>", ".", "!", "?", "\n"} or token.endswith(".")
+        char = self.tokenizer["idx_to_char"].get(str(token_id), self.tokenizer["idx_to_char"].get(token_id, ""))
+        return char in {".", "!", "?", "\n"}
 
     def generate(
         self,
@@ -63,11 +93,6 @@ class EliteInference:
         top_k: int = 10,
     ) -> str:
         if not prompt:
-            return ""
-
-        # Normalize tokenizer dict keys: they may be str or int
-        idx_to_char: dict = self.tokenizer["idx_to_char"]
-        if not idx_to_char:
             return ""
 
         input_ids = self._encode(prompt)
@@ -91,9 +116,7 @@ class EliteInference:
                 next_id = torch.multinomial(probs, num_samples=1).item()
                 generated.append(next_id)
 
-                # Stop on a common sentence terminator if it is a period or newline
-                char = idx_to_char.get(str(next_id), idx_to_char.get(next_id, ""))
-                if char in {".", "!", "?", "\n"} and len(generated) > len(prompt):
+                if self._stop_token(next_id) and len(generated) > len(input_ids[0]):
                     break
 
         return self._decode(generated)
