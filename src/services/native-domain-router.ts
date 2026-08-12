@@ -422,6 +422,105 @@ function mindfulnessResponse(message: string): NativeResponse {
   };
 }
 
+function timeResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you map your energy, prioritize, and reduce procrastination. Time management works best when it follows your biology and values. What is competing for your time right now?`,
+    model: 'Ascension Time',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_time',
+    data: { priorities: [] }
+  };
+}
+
+function confidenceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you build confidence through small wins, evidence, and self-compassion. Confidence grows from action and alignment, not just positive thinking. What situation is making you doubt yourself?`,
+    model: 'Ascension Confidence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_confidence',
+    data: { small_wins: [] }
+  };
+}
+
+function agingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with healthy aging, mobility, nutrition, and life-stage planning. I am not a geriatric specialist; persistent issues need a clinician. What are you planning for?`,
+    model: 'Ascension Aging',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_aging',
+    data: { clinician_referral: false }
+  };
+}
+
+function addictionResponse(message: string): NativeResponse {
+  return {
+    content: `I can offer recovery support, habit strategies, and resources. I am not an addiction counselor. If you are in crisis or need treatment, please reach out to a professional or a recovery support line. What are you working to change?`,
+    model: 'Ascension Addiction',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_addiction',
+    data: { counselor_referral: false }
+  };
+}
+
+function conflictResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you de-escalate, understand positions, and find repair paths. I cannot contact anyone for you. What is the conflict about and what do you want to achieve?`,
+    model: 'Ascension Conflict',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_conflict',
+    data: { sent_messages: [] }
+  };
+}
+
+function datingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with dating safety, boundaries, conversation, and red flags. I will not message anyone for you. What is the situation?`,
+    model: 'Ascension Dating',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_dating',
+    data: { sent_messages: [] }
+  };
+}
+
+function cookingResponse(message: string): NativeResponse {
+  return {
+    content: `I can suggest recipes, meal plans, and substitutions based on what you have and your goals. What ingredients or dietary goals do you have?`,
+    model: 'Ascension Cooking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cooking',
+    data: { ingredients: [] }
+  };
+}
+
+function socialResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with friendship, networking, social skills, and community. What kind of connection are you looking for or struggling with?`,
+    model: 'Ascension Social',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_social',
+    data: { community: [] }
+  };
+}
+
+function volunteeringResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you find ways to contribute that match your skills and values. What causes or skills do you care about?`,
+    model: 'Ascension Volunteering',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_volunteering',
+    data: { causes: [] }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

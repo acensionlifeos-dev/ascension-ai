@@ -879,6 +879,105 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'spirituality'
   },
+  {
+    id: 'ascension_time',
+    name: 'Ascension Time',
+    category: 'productivity',
+    description: 'Time management, energy mapping, priorities, and anti-procrastination',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'productivity'
+  },
+  {
+    id: 'ascension_confidence',
+    name: 'Ascension Confidence',
+    category: 'psychology',
+    description: 'Self-efficacy, confidence building, and self-doubt navigation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_aging',
+    name: 'Ascension Aging',
+    category: 'health',
+    description: 'Healthy aging, longevity, and life-stage adaptation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'health'
+  },
+  {
+    id: 'ascension_addiction',
+    name: 'Ascension Addiction',
+    category: 'psychology',
+    description: 'Substance and behavioral addiction support, recovery, and professional referrals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_conflict',
+    name: 'Ascension Conflict',
+    category: 'psychology',
+    description: 'Dispute resolution, de-escalation, and repair strategies',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_dating',
+    name: 'Ascension Dating',
+    category: 'relationships',
+    description: 'Dating strategy, safety, boundaries, and communication',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_cooking',
+    name: 'Ascension Cooking',
+    category: 'home',
+    description: 'Meal planning, recipes, and kitchen guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_social',
+    name: 'Ascension Social',
+    category: 'relationships',
+    description: 'Friendship, networking, social skills, and community',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_volunteering',
+    name: 'Ascension Volunteering',
+    category: 'community',
+    description: 'Service, volunteering, and community contribution matching',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'community'
+  },
   
   // Add 180+ more capabilities here...
 ];

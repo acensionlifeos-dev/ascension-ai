@@ -46,7 +46,16 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_stress',
   'ascension_sleep',
   'ascension_parenting',
-  'ascension_mindfulness'
+  'ascension_mindfulness',
+  'ascension_time',
+  'ascension_confidence',
+  'ascension_aging',
+  'ascension_addiction',
+  'ascension_conflict',
+  'ascension_dating',
+  'ascension_cooking',
+  'ascension_social',
+  'ascension_volunteering'
 ]);
 
 const router = Router();
