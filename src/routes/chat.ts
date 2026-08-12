@@ -133,7 +133,17 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_studyskills',
   'ascension_memorization',
   'ascension_presentation',
-  'ascension_teaching'
+  'ascension_teaching',
+  'ascension_devops',
+  'ascension_cloud',
+  'ascension_databases',
+  'ascension_security_tech',
+  'ascension_testing',
+  'ascension_cicd',
+  'ascension_monitoring',
+  'ascension_api',
+  'ascension_microservices',
+  'ascension_blockchain'
 ]);
 
 const router = Router();

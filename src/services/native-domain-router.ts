@@ -1379,6 +1379,116 @@ function teachingResponse(message: string): NativeResponse {
   };
 }
 
+function devopsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with DevOps practices, pipelines, and infrastructure. What is your stack and bottleneck?`,
+    model: 'Ascension DevOps',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_devops',
+    data: { stack: null }
+  };
+}
+
+function cloudResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with cloud architecture, services, and cost. What provider and workload?`,
+    model: 'Ascension Cloud',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cloud',
+    data: { provider: null }
+  };
+}
+
+function databasesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with database design, queries, and optimization. What schema or query problem?`,
+    model: 'Ascension Databases',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_databases',
+    data: { database: null }
+  };
+}
+
+function securityTechResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with security concepts, hardening, and threat awareness. I am not an active scanner. What system or concern?`,
+    model: 'Ascension Security Tech',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_security_tech',
+    data: { scan: false }
+  };
+}
+
+function testingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with test strategy, automation, and quality. What are you testing?`,
+    model: 'Ascension Testing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_testing',
+    data: { coverage: null }
+  };
+}
+
+function cicdResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with CI/CD pipelines and release automation. What is your current flow?`,
+    model: 'Ascension CI/CD',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cicd',
+    data: { pipeline: null }
+  };
+}
+
+function monitoringResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with observability, logging, and alerting. What do you need to watch?`,
+    model: 'Ascension Monitoring',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_monitoring',
+    data: { metrics: [] }
+  };
+}
+
+function apiResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with API design, versioning, and documentation. What is the API for?`,
+    model: 'Ascension API',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_api',
+    data: { version: null }
+  };
+}
+
+function microservicesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with microservices tradeoffs and design. What is your current architecture?`,
+    model: 'Ascension Microservices',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_microservices',
+    data: { services: [] }
+  };
+}
+
+function blockchainResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain blockchain, smart contracts, and crypto basics. I will not manage wallets or send transactions. What do you want to understand?`,
+    model: 'Ascension Blockchain',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_blockchain',
+    data: { wallet_managed: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

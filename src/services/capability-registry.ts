@@ -1836,6 +1836,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'education'
   },
+  {
+    id: 'ascension_devops',
+    name: 'Ascension DevOps',
+    category: 'engineering',
+    description: 'DevOps practices, pipelines, and infrastructure',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_cloud',
+    name: 'Ascension Cloud',
+    category: 'engineering',
+    description: 'Cloud architecture, services, and cost guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_databases',
+    name: 'Ascension Databases',
+    category: 'engineering',
+    description: 'Database design, queries, and optimization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_security_tech',
+    name: 'Ascension Security Tech',
+    category: 'engineering',
+    description: 'Application and infrastructure security guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_testing',
+    name: 'Ascension Testing',
+    category: 'engineering',
+    description: 'Test strategy, automation, and quality assurance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_cicd',
+    name: 'Ascension CI/CD',
+    category: 'engineering',
+    description: 'Continuous integration and delivery guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_monitoring',
+    name: 'Ascension Monitoring',
+    category: 'engineering',
+    description: 'Observability, logging, and alerting',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_api',
+    name: 'Ascension API',
+    category: 'engineering',
+    description: 'API design, versioning, and documentation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_microservices',
+    name: 'Ascension Microservices',
+    category: 'engineering',
+    description: 'Microservices architecture and tradeoffs',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_blockchain',
+    name: 'Ascension Blockchain',
+    category: 'engineering',
+    description: 'Blockchain concepts, smart contracts, and crypto basics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
   
   // Add 180+ more capabilities here...
 ];
