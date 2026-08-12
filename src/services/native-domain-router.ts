@@ -345,6 +345,83 @@ function griefResponse(message: string): NativeResponse {
   };
 }
 
+function mentalHealthResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you understand stress, anxiety, low mood, emotional patterns, and when to seek professional help. I am not a therapist or doctor. If you are in crisis, please reach out to a crisis line or emergency services. What are you experiencing?`,
+    model: 'Ascension Mental Health',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_mental_health',
+    data: { crisis: false }
+  };
+}
+
+function communicationResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you prepare for difficult conversations, listen actively, and reduce conflict. I cannot send messages for you. Who is the conversation with and what is the goal?`,
+    model: 'Ascension Communication',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_communication',
+    data: { sent_messages: [] }
+  };
+}
+
+function habitsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you build habits using cues, routines, rewards, and identity-based change. Tiny, consistent steps outperform heroic bursts. What habit do you want to build or break?`,
+    model: 'Ascension Habits',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_habits',
+    data: { streaks: [] }
+  };
+}
+
+function stressResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you spot stress signals, calm the nervous system, and recover before burnout. What is draining you right now and what is in your control?`,
+    model: 'Ascension Stress',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_stress',
+    data: { burnout_risk: 'unknown' }
+  };
+}
+
+function sleepResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you design a sleep routine and align with your circadian rhythm. I cannot diagnose sleep disorders; persistent insomnia may need a clinician. What is your current sleep pattern?`,
+    model: 'Ascension Sleep',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sleep',
+    data: { clinician_referral: false }
+  };
+}
+
+function parentingResponse(message: string): NativeResponse {
+  return {
+    content: `I can offer child-development guidance, discipline strategies, and co-parenting support. I am not a pediatrician or therapist. What age and situation are you navigating?`,
+    model: 'Ascension Parenting',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_parenting',
+    data: { child_age: null }
+  };
+}
+
+function mindfulnessResponse(message: string): NativeResponse {
+  return {
+    content: `I can guide breathing, presence, and attention practices. Start with a few slow breaths. What is pulling your attention right now?`,
+    model: 'Ascension Mindfulness',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_mindfulness',
+    data: { practice_seconds: 0 }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
@@ -374,7 +451,14 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_psychology': psychologyResponse,
   'ascension_human_life': humanLifeResponse,
   'ascension_spirituality': spiritualityResponse,
-  'ascension_grief': griefResponse
+  'ascension_grief': griefResponse,
+  'ascension_mental_health': mentalHealthResponse,
+  'ascension_communication': communicationResponse,
+  'ascension_habits': habitsResponse,
+  'ascension_stress': stressResponse,
+  'ascension_sleep': sleepResponse,
+  'ascension_parenting': parentingResponse,
+  'ascension_mindfulness': mindfulnessResponse
 };
 
 export function routeNativeDomain(

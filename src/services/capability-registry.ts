@@ -802,6 +802,83 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'human_life'
   },
+  {
+    id: 'ascension_mental_health',
+    name: 'Ascension Mental Health',
+    category: 'psychology',
+    description: 'Stress, anxiety, mood, therapy navigation, and emotional regulation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_communication',
+    name: 'Ascension Communication',
+    category: 'psychology',
+    description: 'Difficult conversations, feedback, listening, and conflict resolution',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_habits',
+    name: 'Ascension Habits',
+    category: 'psychology',
+    description: 'Habit formation, behavior change, cue-routine-reward loops, and identity-based change',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_stress',
+    name: 'Ascension Stress',
+    category: 'psychology',
+    description: 'Stress recognition, regulation, recovery, and burnout prevention',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_sleep',
+    name: 'Ascension Sleep',
+    category: 'health',
+    description: 'Sleep hygiene, circadian rhythm, and recovery planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'health'
+  },
+  {
+    id: 'ascension_parenting',
+    name: 'Ascension Parenting',
+    category: 'home',
+    description: 'Child development, discipline, co-parenting, and parent support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_mindfulness',
+    name: 'Ascension Mindfulness',
+    category: 'spirituality',
+    description: 'Presence, meditation, breathing, and attention training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
   
   // Add 180+ more capabilities here...
 ];
