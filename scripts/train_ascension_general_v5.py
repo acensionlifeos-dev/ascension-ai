@@ -192,6 +192,7 @@ def main():
     losses = []
     best_loss = float("inf")
     step = 0
+    window_loss = 0.0
     while step < num_steps:
         epoch_loss = 0
         for batch in dataloader:
@@ -208,10 +209,12 @@ def main():
             optimizer.step()
             scheduler.step()
             epoch_loss += loss.item()
+            window_loss += loss.item()
             step += 1
 
             if step % args.print_every == 0 or step == num_steps:
-                avg = epoch_loss / (step % args.print_every or args.print_every)
+                window_steps = step % args.print_every or args.print_every
+                avg = window_loss / window_steps
                 log(f"Step {step}/{num_steps} loss: {avg:.4f}")
                 write_status(status_path, {
                     "version": prefix,
@@ -226,6 +229,7 @@ def main():
                     "tokenizer_path": str(tokenizer_path),
                     "meta_path": str(meta_path),
                 })
+                window_loss = 0.0
 
         avg = epoch_loss / len(dataloader)
         losses.append(avg)
