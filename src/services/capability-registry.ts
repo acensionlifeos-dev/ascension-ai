@@ -2056,6 +2056,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'wellness'
   },
+  {
+    id: 'ascension_packing',
+    name: 'Ascension Packing',
+    category: 'home',
+    description: 'Packing lists and travel preparation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_commute',
+    name: 'Ascension Commute',
+    category: 'home',
+    description: 'Commute planning, routes, and optimization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_laundry',
+    name: 'Ascension Laundry',
+    category: 'home',
+    description: 'Laundry routines, stains, and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_organizing',
+    name: 'Ascension Organizing',
+    category: 'home',
+    description: 'Organization systems and decluttering',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_storage',
+    name: 'Ascension Storage',
+    category: 'home',
+    description: 'Storage solutions and space planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_decor',
+    name: 'Ascension Decor',
+    category: 'home',
+    description: 'Decor choices, themes, and styling',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_lighting',
+    name: 'Ascension Lighting',
+    category: 'home',
+    description: 'Lighting design, bulbs, and ambiance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_sound',
+    name: 'Ascension Sound',
+    category: 'home',
+    description: 'Sound, acoustics, and noise management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_smell',
+    name: 'Ascension Smell',
+    category: 'home',
+    description: 'Scent, air quality, and fragrance guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_balcony',
+    name: 'Ascension Balcony',
+    category: 'home',
+    description: 'Balcony, patio, and small outdoor space use',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
   
   // Add 180+ more capabilities here...
 ];

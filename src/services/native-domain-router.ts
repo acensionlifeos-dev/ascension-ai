@@ -1599,6 +1599,116 @@ function postpartumResponse(message: string): NativeResponse {
   };
 }
 
+function packingResponse(message: string): NativeResponse {
+  return {
+    content: `I can make packing lists and travel prep plans. Where are you going and for how long?`,
+    model: 'Ascension Packing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_packing',
+    data: { destination: null }
+  };
+}
+
+function commuteResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan commutes, routes, and schedules. Where are you going from and to?`,
+    model: 'Ascension Commute',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_commute',
+    data: { route: null }
+  };
+}
+
+function laundryResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with laundry routines, stain removal, and fabric care. What item or issue?`,
+    model: 'Ascension Laundry',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_laundry',
+    data: { fabric: null }
+  };
+}
+
+function organizingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help organize spaces and declutter. What room or category?`,
+    model: 'Ascension Organizing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_organizing',
+    data: { area: null }
+  };
+}
+
+function storageResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with storage solutions and space planning. What are you storing?`,
+    model: 'Ascension Storage',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_storage',
+    data: { items: [] }
+  };
+}
+
+function decorResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with decor choices, themes, and styling. What room and mood?`,
+    model: 'Ascension Decor',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_decor',
+    data: { room: null }
+  };
+}
+
+function lightingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with lighting design and bulb choices. What space and feeling?`,
+    model: 'Ascension Lighting',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_lighting',
+    data: { room: null }
+  };
+}
+
+function soundResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with sound, acoustics, and noise management. What space or problem?`,
+    model: 'Ascension Sound',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sound',
+    data: { room: null }
+  };
+}
+
+function smellResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with scent, air quality, and fragrance choices. What concerns or preferences?`,
+    model: 'Ascension Smell',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_smell',
+    data: { allergies: [] }
+  };
+}
+
+function balconyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with balcony, patio, and small outdoor spaces. What size and climate?`,
+    model: 'Ascension Balcony',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_balcony',
+    data: { size: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
