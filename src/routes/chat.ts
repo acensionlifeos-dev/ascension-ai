@@ -6,6 +6,7 @@ import { Router, Request, Response } from 'express';
 import { modelRouter } from '../services/model-router';
 import { requestPermissions } from '../services/permission-engine';
 import { routeNativeDomain } from '../services/native-domain-router';
+import { scanSafety } from '../services/safety-guard';
 import { logUsage } from '../services/usage-tracker';
 import { AuthRequest } from '../middleware/auth';
 
@@ -62,6 +63,15 @@ router.post('/', async (req: AuthRequest, res: Response) => {
       return res.status(400).json({ error: 'Message required' });
     }
     
+    const safety = scanSafety(message, { shell: 'ap', capability: capabilityId });
+    if (safety.action === 'escalate' || safety.action === 'block') {
+      return res.status(safety.level === 'critical' ? 200 : 400).json({
+        type: 'safety',
+        ...safety,
+        capabilityId: capabilityId || 'ascension_chat'
+      });
+    }
+    
     const startTime = Date.now();
     
     // Prefer native chat if enabled and no explicit capability requested
@@ -114,6 +124,15 @@ router.post('/capability', async (req: AuthRequest, res: Response) => {
     
     if (!capabilityId || !message) {
       return res.status(400).json({ error: 'Capability ID and message required' });
+    }
+    
+    const safety = scanSafety(message, { shell: 'ap', capability: capabilityId });
+    if (safety.action === 'escalate' || safety.action === 'block') {
+      return res.status(safety.level === 'critical' ? 200 : 400).json({
+        type: 'safety',
+        ...safety,
+        capabilityId
+      });
     }
     
     const startTime = Date.now();
