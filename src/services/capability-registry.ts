@@ -4608,6 +4608,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'travel'
   },
+  {
+    id: 'ascension_gardening',
+    name: 'Ascension Gardening',
+    category: 'home',
+    description: 'Garden planning, planting, and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_landscaping',
+    name: 'Ascension Landscaping',
+    category: 'home',
+    description: 'Landscape design, plants, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_lawn_care',
+    name: 'Ascension Lawn Care',
+    category: 'home',
+    description: 'Lawn care, mowing, and fertilization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_composting',
+    name: 'Ascension Composting',
+    category: 'home',
+    description: 'Composting methods, balance, and use',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_hydroponics',
+    name: 'Ascension Hydroponics',
+    category: 'home',
+    description: 'Hydroponic systems, nutrients, and crops',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_aquaponics',
+    name: 'Ascension Aquaponics',
+    category: 'home',
+    description: 'Aquaponics systems, fish, and plants',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_fermentation',
+    name: 'Ascension Fermentation',
+    category: 'home',
+    description: 'Fermentation, pickles, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_preserving',
+    name: 'Ascension Preserving',
+    category: 'home',
+    description: 'Food preservation, canning, and drying',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_canning',
+    name: 'Ascension Canning',
+    category: 'home',
+    description: 'Canning methods, safety, and storage',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_smoking',
+    name: 'Ascension Smoking',
+    category: 'cooking',
+    description: 'Smoking meats, woods, and temperatures',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_bbq',
+    name: 'Ascension BBQ',
+    category: 'cooking',
+    description: 'BBQ styles, rubs, and techniques',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_grilling',
+    name: 'Ascension Grilling',
+    category: 'cooking',
+    description: 'Grilling techniques, heat, and timing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_pizza',
+    name: 'Ascension Pizza',
+    category: 'cooking',
+    description: 'Pizza dough, sauce, and oven setup',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_bread_making',
+    name: 'Ascension Bread Making',
+    category: 'cooking',
+    description: 'Bread formulas, kneading, and baking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_sourdough',
+    name: 'Ascension Sourdough',
+    category: 'cooking',
+    description: 'Sourdough starter, fermentation, and baking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
   
   // Add 200+ more capabilities here...
 ];

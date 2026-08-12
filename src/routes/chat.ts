@@ -385,7 +385,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_flood_insurance',
   'ascension_earthquake_insurance',
   'ascension_pet_insurance',
-  'ascension_travel_insurance'
+  'ascension_travel_insurance',
+  'ascension_gardening',
+  'ascension_landscaping',
+  'ascension_lawn_care',
+  'ascension_composting',
+  'ascension_hydroponics',
+  'ascension_aquaponics',
+  'ascension_fermentation',
+  'ascension_preserving',
+  'ascension_canning',
+  'ascension_smoking',
+  'ascension_bbq',
+  'ascension_grilling',
+  'ascension_pizza',
+  'ascension_bread_making',
+  'ascension_sourdough'
 ]);
 
 const router = Router();
