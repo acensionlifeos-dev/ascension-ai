@@ -6,7 +6,6 @@
  */
 
 export const CAPABILITIES = [
-  // Text & Writing
   {
     id: 'chat_gpt4',
     name: 'Chat GPT-4',
@@ -16,7 +15,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'chat'
+    executor: 'chat',
+    related_capabilities: [
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document',
+    'writing_email'
+  ],
+    context: 'Triggers: user asks about Chat GPT-4, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_claude, chat_gemini, writing_marketing, writing_document, writing_email. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'chat_claude',
@@ -27,7 +34,15 @@ export const CAPABILITIES = [
     default_provider: 'anthropic',
     cost_per_1k_tokens: 15,
     requires_tier: 'individual',
-    executor: 'chat'
+    executor: 'chat',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document',
+    'writing_email'
+  ],
+    context: 'Triggers: user asks about Chat Claude, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_gemini, writing_marketing, writing_document, writing_email. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'chat_gemini',
@@ -38,7 +53,15 @@ export const CAPABILITIES = [
     default_provider: 'google',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'chat'
+    executor: 'chat',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'writing_marketing',
+    'writing_document',
+    'writing_email'
+  ],
+    context: 'Triggers: user asks about Chat Gemini, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, writing_marketing, writing_document, writing_email. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'writing_marketing',
@@ -49,7 +72,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'writing'
+    executor: 'writing',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_document',
+    'writing_email'
+  ],
+    context: 'Triggers: user asks about Marketing Copy, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_document, writing_email. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'writing_document',
@@ -60,7 +91,15 @@ export const CAPABILITIES = [
     default_provider: 'anthropic',
     cost_per_1k_tokens: 15,
     requires_tier: 'individual',
-    executor: 'writing'
+    executor: 'writing',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_email'
+  ],
+    context: 'Triggers: user asks about Document Writing, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_marketing, writing_email. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'writing_email',
@@ -71,7 +110,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 20,
     requires_tier: 'individual',
-    executor: 'writing'
+    executor: 'writing',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document'
+  ],
+    context: 'Triggers: user asks about Email Writing, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_marketing, writing_document. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'writing_script',
@@ -82,7 +129,15 @@ export const CAPABILITIES = [
     default_provider: 'anthropic',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'writing'
+    executor: 'writing',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document'
+  ],
+    context: 'Triggers: user asks about Script Writing, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_marketing, writing_document. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'translation',
@@ -93,10 +148,16 @@ export const CAPABILITIES = [
     default_provider: 'google',
     cost_per_1k_tokens: 20,
     requires_tier: 'individual',
-    executor: 'translation'
+    executor: 'translation',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document'
+  ],
+    context: 'Triggers: user asks about Translation, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_marketing, writing_document. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Code & Development
   {
     id: 'code_generation',
     name: 'Code Generation',
@@ -106,7 +167,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_review',
+    'code_debugging',
+    'code_execution',
+    'code_completion',
+    'test_generation'
+  ],
+    context: 'Triggers: user asks about Code Generation, starts a code-domain quest, or needs a decision in this area. Cross-references: code_review, code_debugging, code_execution, code_completion, test_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'code_review',
@@ -117,7 +186,15 @@ export const CAPABILITIES = [
     default_provider: 'anthropic',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_debugging',
+    'code_execution',
+    'code_completion',
+    'test_generation'
+  ],
+    context: 'Triggers: user asks about Code Review, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_debugging, code_execution, code_completion, test_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'code_debugging',
@@ -128,7 +205,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_execution',
+    'code_completion',
+    'test_generation'
+  ],
+    context: 'Triggers: user asks about Code Debugging, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_execution, code_completion, test_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'code_execution',
@@ -139,7 +224,15 @@ export const CAPABILITIES = [
     default_provider: 'local',
     cost_per_1k_tokens: 5,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_debugging',
+    'code_completion',
+    'test_generation'
+  ],
+    context: 'Triggers: user asks about Code Execution, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_debugging, code_completion, test_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'code_completion',
@@ -150,7 +243,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 20,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_debugging',
+    'code_execution',
+    'test_generation'
+  ],
+    context: 'Triggers: user asks about Code Completion, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_debugging, code_execution, test_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'test_generation',
@@ -161,7 +262,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_debugging',
+    'code_execution',
+    'code_completion'
+  ],
+    context: 'Triggers: user asks about Test Generation, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_debugging, code_execution, code_completion. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'documentation_generation',
@@ -172,10 +281,16 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 20,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_debugging',
+    'code_execution',
+    'code_completion'
+  ],
+    context: 'Triggers: user asks about Documentation Generation, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_debugging, code_execution, code_completion. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Image & Design
   {
     id: 'image_generation_dalle',
     name: 'Image Generation (DALL-E 3)',
@@ -185,7 +300,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 40,
     requires_tier: 'individual',
-    executor: 'image'
+    executor: 'image',
+    related_capabilities: [
+    'image_generation_midjourney',
+    'image_generation_stable',
+    'image_editing',
+    'image_generation_adobe',
+    'design_generation'
+  ],
+    context: 'Triggers: user asks about Image Generation (DALL-E 3), starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_midjourney, image_generation_stable, image_editing, image_generation_adobe, design_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'image_generation_midjourney',
@@ -196,7 +319,15 @@ export const CAPABILITIES = [
     default_provider: 'midjourney',
     cost_per_1k_tokens: 50,
     requires_tier: 'individual',
-    executor: 'image'
+    executor: 'image',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_stable',
+    'image_editing',
+    'image_generation_adobe',
+    'design_generation'
+  ],
+    context: 'Triggers: user asks about Image Generation (Midjourney), starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_stable, image_editing, image_generation_adobe, design_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'image_generation_stable',
@@ -207,7 +338,15 @@ export const CAPABILITIES = [
     default_provider: 'stability',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'image'
+    executor: 'image',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_midjourney',
+    'image_editing',
+    'image_generation_adobe',
+    'design_generation'
+  ],
+    context: 'Triggers: user asks about Image Generation (Stable Diffusion), starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_midjourney, image_editing, image_generation_adobe, design_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'image_editing',
@@ -218,7 +357,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 35,
     requires_tier: 'individual',
-    executor: 'image'
+    executor: 'image',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_midjourney',
+    'image_generation_stable',
+    'image_generation_adobe',
+    'design_generation'
+  ],
+    context: 'Triggers: user asks about Image Editing, starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_midjourney, image_generation_stable, image_generation_adobe, design_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'image_generation_adobe',
@@ -229,7 +376,15 @@ export const CAPABILITIES = [
     default_provider: 'adobe',
     cost_per_1k_tokens: 45,
     requires_tier: 'professional',
-    executor: 'image'
+    executor: 'image',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_midjourney',
+    'image_generation_stable',
+    'image_editing',
+    'design_generation'
+  ],
+    context: 'Triggers: user asks about Image Generation (Adobe Firefly), starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_midjourney, image_generation_stable, image_editing, design_generation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'design_generation',
@@ -240,10 +395,16 @@ export const CAPABILITIES = [
     default_provider: 'canva',
     cost_per_1k_tokens: 50,
     requires_tier: 'professional',
-    executor: 'design'
+    executor: 'design',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_midjourney',
+    'image_generation_stable',
+    'image_editing',
+    'image_generation_adobe'
+  ],
+    context: 'Triggers: user asks about Design Generation, starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_midjourney, image_generation_stable, image_editing, image_generation_adobe. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Audio & Music
   {
     id: 'text_to_speech',
     name: 'Text-to-Speech',
@@ -253,7 +414,15 @@ export const CAPABILITIES = [
     default_provider: 'elevenlabs',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'speech_to_text',
+    'music_generation_suno',
+    'music_generation_udio',
+    'audio_editing',
+    'voice_cloning'
+  ],
+    context: 'Triggers: user asks about Text-to-Speech, starts a audio-domain quest, or needs a decision in this area. Cross-references: speech_to_text, music_generation_suno, music_generation_udio, audio_editing, voice_cloning. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'speech_to_text',
@@ -264,7 +433,15 @@ export const CAPABILITIES = [
     default_provider: 'placeholder',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'text_to_speech',
+    'music_generation_suno',
+    'music_generation_udio',
+    'audio_editing',
+    'voice_cloning'
+  ],
+    context: 'Triggers: user asks about Speech-to-Text, starts a audio-domain quest, or needs a decision in this area. Cross-references: text_to_speech, music_generation_suno, music_generation_udio, audio_editing, voice_cloning. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'music_generation_suno',
@@ -275,7 +452,15 @@ export const CAPABILITIES = [
     default_provider: 'suno',
     cost_per_1k_tokens: 40,
     requires_tier: 'individual',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'text_to_speech',
+    'speech_to_text',
+    'music_generation_udio',
+    'audio_editing',
+    'voice_cloning'
+  ],
+    context: 'Triggers: user asks about Music Generation (Suno), starts a audio-domain quest, or needs a decision in this area. Cross-references: text_to_speech, speech_to_text, music_generation_udio, audio_editing, voice_cloning. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'music_generation_udio',
@@ -286,7 +471,15 @@ export const CAPABILITIES = [
     default_provider: 'udio',
     cost_per_1k_tokens: 40,
     requires_tier: 'individual',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'text_to_speech',
+    'speech_to_text',
+    'music_generation_suno',
+    'audio_editing',
+    'voice_cloning'
+  ],
+    context: 'Triggers: user asks about Music Generation (Udio), starts a audio-domain quest, or needs a decision in this area. Cross-references: text_to_speech, speech_to_text, music_generation_suno, audio_editing, voice_cloning. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'audio_editing',
@@ -297,7 +490,15 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 35,
     requires_tier: 'individual',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'text_to_speech',
+    'speech_to_text',
+    'music_generation_suno',
+    'music_generation_udio',
+    'voice_cloning'
+  ],
+    context: 'Triggers: user asks about Audio Editing, starts a audio-domain quest, or needs a decision in this area. Cross-references: text_to_speech, speech_to_text, music_generation_suno, music_generation_udio, voice_cloning. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'voice_cloning',
@@ -308,10 +509,16 @@ export const CAPABILITIES = [
     default_provider: 'elevenlabs',
     cost_per_1k_tokens: 100,
     requires_tier: 'professional',
-    executor: 'audio'
+    executor: 'audio',
+    related_capabilities: [
+    'text_to_speech',
+    'speech_to_text',
+    'music_generation_suno',
+    'music_generation_udio',
+    'audio_editing'
+  ],
+    context: 'Triggers: user asks about Voice Cloning, starts a audio-domain quest, or needs a decision in this area. Cross-references: text_to_speech, speech_to_text, music_generation_suno, music_generation_udio, audio_editing. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Video
   {
     id: 'video_generation_runway',
     name: 'Video Generation (Runway)',
@@ -321,7 +528,14 @@ export const CAPABILITIES = [
     default_provider: 'runway',
     cost_per_1k_tokens: 100,
     requires_tier: 'professional',
-    executor: 'video'
+    executor: 'video',
+    related_capabilities: [
+    'video_generation_pika',
+    'video_generation_luma',
+    'video_generation_stable',
+    'video_editing'
+  ],
+    context: 'Triggers: user asks about Video Generation (Runway), starts a video-domain quest, or needs a decision in this area. Cross-references: video_generation_pika, video_generation_luma, video_generation_stable, video_editing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'video_generation_pika',
@@ -332,7 +546,14 @@ export const CAPABILITIES = [
     default_provider: 'pika',
     cost_per_1k_tokens: 100,
     requires_tier: 'professional',
-    executor: 'video'
+    executor: 'video',
+    related_capabilities: [
+    'video_generation_runway',
+    'video_generation_luma',
+    'video_generation_stable',
+    'video_editing'
+  ],
+    context: 'Triggers: user asks about Video Generation (Pika Labs), starts a video-domain quest, or needs a decision in this area. Cross-references: video_generation_runway, video_generation_luma, video_generation_stable, video_editing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'video_generation_luma',
@@ -343,7 +564,14 @@ export const CAPABILITIES = [
     default_provider: 'luma',
     cost_per_1k_tokens: 100,
     requires_tier: 'professional',
-    executor: 'video'
+    executor: 'video',
+    related_capabilities: [
+    'video_generation_runway',
+    'video_generation_pika',
+    'video_generation_stable',
+    'video_editing'
+  ],
+    context: 'Triggers: user asks about Video Generation (Luma Dream Machine), starts a video-domain quest, or needs a decision in this area. Cross-references: video_generation_runway, video_generation_pika, video_generation_stable, video_editing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'video_generation_stable',
@@ -354,7 +582,14 @@ export const CAPABILITIES = [
     default_provider: 'stability',
     cost_per_1k_tokens: 80,
     requires_tier: 'professional',
-    executor: 'video'
+    executor: 'video',
+    related_capabilities: [
+    'video_generation_runway',
+    'video_generation_pika',
+    'video_generation_luma',
+    'video_editing'
+  ],
+    context: 'Triggers: user asks about Video Generation (Stable Video), starts a video-domain quest, or needs a decision in this area. Cross-references: video_generation_runway, video_generation_pika, video_generation_luma, video_editing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'video_editing',
@@ -365,10 +600,15 @@ export const CAPABILITIES = [
     default_provider: 'runway',
     cost_per_1k_tokens: 120,
     requires_tier: 'professional',
-    executor: 'video'
+    executor: 'video',
+    related_capabilities: [
+    'video_generation_runway',
+    'video_generation_pika',
+    'video_generation_luma',
+    'video_generation_stable'
+  ],
+    context: 'Triggers: user asks about Video Editing, starts a video-domain quest, or needs a decision in this area. Cross-references: video_generation_runway, video_generation_pika, video_generation_luma, video_generation_stable. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Web & Search
   {
     id: 'web_search',
     name: 'Web Search',
@@ -378,7 +618,11 @@ export const CAPABILITIES = [
     default_provider: 'perplexity',
     cost_per_1k_tokens: 15,
     requires_tier: 'individual',
-    executor: 'web'
+    executor: 'web',
+    related_capabilities: [
+    'web_browsing'
+  ],
+    context: 'Triggers: user asks about Web Search, starts a web-domain quest, or needs a decision in this area. Cross-references: web_browsing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'web_browsing',
@@ -389,7 +633,11 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 30,
     requires_tier: 'individual',
-    executor: 'web'
+    executor: 'web',
+    related_capabilities: [
+    'web_search'
+  ],
+    context: 'Triggers: user asks about Web Browsing, starts a web-domain quest, or needs a decision in this area. Cross-references: web_search. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'file_analysis',
@@ -400,10 +648,12 @@ export const CAPABILITIES = [
     default_provider: 'openai',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
-    executor: 'data'
+    executor: 'data',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about File Analysis, starts a data-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // AP Capabilities (Already Built, Will Integrate)
   {
     id: 'intelligence_sweep',
     name: 'Intelligence Sweep',
@@ -413,7 +663,12 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 10,
     requires_tier: 'individual',
-    executor: 'intelligence'
+    executor: 'intelligence',
+    related_capabilities: [
+    'context_memory',
+    'proactive_intelligence'
+  ],
+    context: 'Triggers: user asks about Intelligence Sweep, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: context_memory, proactive_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'context_memory',
@@ -424,7 +679,12 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 5,
     requires_tier: 'individual',
-    executor: 'intelligence'
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'proactive_intelligence'
+  ],
+    context: 'Triggers: user asks about Context Memory, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, proactive_intelligence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'proactive_intelligence',
@@ -435,7 +695,12 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 5,
     requires_tier: 'individual',
-    executor: 'intelligence'
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory'
+  ],
+    context: 'Triggers: user asks about Proactive Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'business_growth',
@@ -446,7 +711,15 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 10,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales',
+    'ascension_brand'
+  ],
+    context: 'Triggers: user asks about Business Growth, starts a business-domain quest, or needs a decision in this area. Cross-references: ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales, ascension_brand. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'relationship_graph',
@@ -457,7 +730,13 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 5,
     requires_tier: 'individual',
-    executor: 'social'
+    executor: 'social',
+    related_capabilities: [
+    'ascension_facebook',
+    'ascension_reddit',
+    'ascension_discord'
+  ],
+    context: 'Triggers: user asks about Relationship Graph, starts a social-domain quest, or needs a decision in this area. Cross-references: ascension_facebook, ascension_reddit, ascension_discord. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'emotional_intelligence',
@@ -468,10 +747,16 @@ export const CAPABILITIES = [
     default_provider: 'custom',
     cost_per_1k_tokens: 5,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'ascension_health',
+    'ascension_nutrition',
+    'ascension_fitness',
+    'ascension_sleep',
+    'ascension_aging'
+  ],
+    context: 'Triggers: user asks about Emotional Intelligence, starts a health-domain quest, or needs a decision in this area. Cross-references: ascension_health, ascension_nutrition, ascension_fitness, ascension_sleep, ascension_aging. Use with permission-scoped context and a receipt for any action.'
   },
-  
-  // Native Ascension overlay capabilities (replace outside AI)
   {
     id: 'ascension_chat',
     name: 'Ascension Native Chat',
@@ -481,7 +766,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'chat'
+    executor: 'chat',
+    related_capabilities: [
+    'chat_gpt4',
+    'chat_claude',
+    'chat_gemini',
+    'writing_marketing',
+    'writing_document'
+  ],
+    context: 'Triggers: user asks about Native Chat, starts a text-domain quest, or needs a decision in this area. Cross-references: chat_gpt4, chat_claude, chat_gemini, writing_marketing, writing_document. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_home',
@@ -492,7 +785,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive',
+    'ascension_pets'
+  ],
+    context: 'Triggers: user asks about HomeOS, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_travel, ascension_realestate, ascension_events, ascension_automotive, ascension_pets. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sprout',
@@ -503,7 +804,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sprout'
+    executor: 'sprout',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Sprout, starts a sprout-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_family',
@@ -514,7 +819,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'family'
+    executor: 'family',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about FamilyOS, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_health',
@@ -525,7 +834,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'emotional_intelligence',
+    'ascension_nutrition',
+    'ascension_fitness',
+    'ascension_sleep',
+    'ascension_aging'
+  ],
+    context: 'Triggers: user asks about Health, starts a health-domain quest, or needs a decision in this area. Cross-references: emotional_intelligence, ascension_nutrition, ascension_fitness, ascension_sleep, ascension_aging. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_finance',
@@ -536,7 +853,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance',
+    'ascension_daytrading'
+  ],
+    context: 'Triggers: user asks about Financial Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_trading, ascension_investing, ascension_taxes, ascension_insurance, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_trading',
@@ -547,7 +872,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance',
+    'ascension_daytrading'
+  ],
+    context: 'Triggers: user asks about Trading Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_investing, ascension_taxes, ascension_insurance, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_vision',
@@ -558,7 +891,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'vision'
+    executor: 'vision',
+    related_capabilities: [
+    'image_generation_dalle',
+    'image_generation_midjourney',
+    'image_generation_stable',
+    'image_editing',
+    'image_generation_adobe'
+  ],
+    context: 'Triggers: user asks about Vision, starts a vision-domain quest, or needs a decision in this area. Cross-references: image_generation_dalle, image_generation_midjourney, image_generation_stable, image_editing, image_generation_adobe. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_legal',
@@ -569,7 +910,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'documents'
+    executor: 'documents',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Legal Assistant, starts a documents-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_travel',
@@ -580,7 +925,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive',
+    'ascension_pets'
+  ],
+    context: 'Triggers: user asks about Travel, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_realestate, ascension_events, ascension_automotive, ascension_pets. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_realestate',
@@ -591,7 +944,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_events',
+    'ascension_automotive',
+    'ascension_pets'
+  ],
+    context: 'Triggers: user asks about Real Estate, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_events, ascension_automotive, ascension_pets. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_research',
@@ -602,7 +963,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'research'
+    executor: 'research',
+    related_capabilities: [
+    'ascension_news',
+    'ascension_reviews'
+  ],
+    context: 'Triggers: user asks about Research, starts a research-domain quest, or needs a decision in this area. Cross-references: ascension_news, ascension_reviews. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_events',
@@ -613,7 +979,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_automotive',
+    'ascension_pets'
+  ],
+    context: 'Triggers: user asks about Events, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_automotive, ascension_pets. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_automotive',
@@ -624,7 +998,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_pets'
+  ],
+    context: 'Triggers: user asks about Automotive, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_pets. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pets',
@@ -635,7 +1017,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Pets, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_weather',
@@ -646,7 +1036,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'environment'
+    executor: 'environment',
+    related_capabilities: [
+    'ascension_environment'
+  ],
+    context: 'Triggers: user asks about Weather, starts a environment-domain quest, or needs a decision in this area. Cross-references: ascension_environment. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_nutrition',
@@ -657,7 +1051,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'emotional_intelligence',
+    'ascension_health',
+    'ascension_fitness',
+    'ascension_sleep',
+    'ascension_aging'
+  ],
+    context: 'Triggers: user asks about Nutrition, starts a health-domain quest, or needs a decision in this area. Cross-references: emotional_intelligence, ascension_health, ascension_fitness, ascension_sleep, ascension_aging. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fitness',
@@ -668,7 +1070,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'emotional_intelligence',
+    'ascension_health',
+    'ascension_nutrition',
+    'ascension_sleep',
+    'ascension_aging'
+  ],
+    context: 'Triggers: user asks about Fitness, starts a health-domain quest, or needs a decision in this area. Cross-references: emotional_intelligence, ascension_health, ascension_nutrition, ascension_sleep, ascension_aging. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_career',
@@ -679,7 +1089,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'career'
+    executor: 'career',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Career, starts a career-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_relationships',
@@ -690,7 +1104,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy',
+    'ascension_charisma'
+  ],
+    context: 'Triggers: user asks about Relationships, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_dating, ascension_social, ascension_rapport, ascension_empathy, ascension_charisma. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_creative',
@@ -701,7 +1123,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance',
+    'ascension_photography'
+  ],
+    context: 'Triggers: user asks about Creative, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_music, ascension_art, ascension_writing, ascension_dance, ascension_photography. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_code',
@@ -712,7 +1142,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'code'
+    executor: 'code',
+    related_capabilities: [
+    'code_generation',
+    'code_review',
+    'code_debugging',
+    'code_execution',
+    'code_completion'
+  ],
+    context: 'Triggers: user asks about Code, starts a code-domain quest, or needs a decision in this area. Cross-references: code_generation, code_review, code_debugging, code_execution, code_completion. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_learning',
@@ -723,7 +1161,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'learning'
+    executor: 'learning',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Learning, starts a learning-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meetings',
@@ -734,7 +1176,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'productivity'
+    executor: 'productivity',
+    related_capabilities: [
+    'ascension_time',
+    'ascension_focus'
+  ],
+    context: 'Triggers: user asks about Meetings, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_time, ascension_focus. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_voice',
@@ -745,7 +1192,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'voice'
+    executor: 'voice',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Voice, starts a voice-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_security',
@@ -756,7 +1207,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'security'
+    executor: 'security',
+    related_capabilities: [
+    'ascension_chat'
+  ],
+    context: 'Triggers: user asks about Security, starts a security-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_psychology',
@@ -767,7 +1222,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_stress',
+    'ascension_confidence'
+  ],
+    context: 'Triggers: user asks about Psychology, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_mental_health, ascension_communication, ascension_habits, ascension_stress, ascension_confidence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_human_life',
@@ -778,7 +1241,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'human_life'
+    executor: 'human_life',
+    related_capabilities: [
+    'ascension_grief'
+  ],
+    context: 'Triggers: user asks about Human Life, starts a human_life-domain quest, or needs a decision in this area. Cross-references: ascension_grief. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_spirituality',
@@ -789,7 +1256,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism',
+    'ascension_christianity'
+  ],
+    context: 'Triggers: user asks about Spirituality, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism, ascension_christianity. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_grief',
@@ -800,7 +1275,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'human_life'
+    executor: 'human_life',
+    related_capabilities: [
+    'ascension_human_life'
+  ],
+    context: 'Triggers: user asks about Grief, starts a human_life-domain quest, or needs a decision in this area. Cross-references: ascension_human_life. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mental_health',
@@ -811,7 +1290,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_stress',
+    'ascension_confidence'
+  ],
+    context: 'Triggers: user asks about Mental Health, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_communication, ascension_habits, ascension_stress, ascension_confidence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_communication',
@@ -822,7 +1309,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_habits',
+    'ascension_stress',
+    'ascension_confidence'
+  ],
+    context: 'Triggers: user asks about Communication, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_habits, ascension_stress, ascension_confidence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_habits',
@@ -833,7 +1328,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_stress',
+    'ascension_confidence'
+  ],
+    context: 'Triggers: user asks about Habits, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_communication, ascension_stress, ascension_confidence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_stress',
@@ -844,7 +1347,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_confidence'
+  ],
+    context: 'Triggers: user asks about Stress, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_communication, ascension_habits, ascension_confidence. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sleep',
@@ -855,7 +1366,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'emotional_intelligence',
+    'ascension_health',
+    'ascension_nutrition',
+    'ascension_fitness',
+    'ascension_aging'
+  ],
+    context: 'Triggers: user asks about Sleep, starts a health-domain quest, or needs a decision in this area. Cross-references: emotional_intelligence, ascension_health, ascension_nutrition, ascension_fitness, ascension_aging. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_parenting',
@@ -866,7 +1385,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Parenting, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mindfulness',
@@ -877,7 +1404,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism',
+    'ascension_christianity'
+  ],
+    context: 'Triggers: user asks about Mindfulness, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_meditation, ascension_buddhism, ascension_hinduism, ascension_christianity. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_time',
@@ -888,7 +1423,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'productivity'
+    executor: 'productivity',
+    related_capabilities: [
+    'ascension_meetings',
+    'ascension_focus'
+  ],
+    context: 'Triggers: user asks about Time, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_focus. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_confidence',
@@ -899,7 +1439,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_stress'
+  ],
+    context: 'Triggers: user asks about Confidence, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_communication, ascension_habits, ascension_stress. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_aging',
@@ -910,7 +1458,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'health'
+    executor: 'health',
+    related_capabilities: [
+    'emotional_intelligence',
+    'ascension_health',
+    'ascension_nutrition',
+    'ascension_fitness',
+    'ascension_sleep'
+  ],
+    context: 'Triggers: user asks about Aging, starts a health-domain quest, or needs a decision in this area. Cross-references: emotional_intelligence, ascension_health, ascension_nutrition, ascension_fitness, ascension_sleep. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_addiction',
@@ -921,7 +1477,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_stress'
+  ],
+    context: 'Triggers: user asks about Addiction, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_communication, ascension_habits, ascension_stress. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_conflict',
@@ -932,7 +1496,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'psychology'
+    executor: 'psychology',
+    related_capabilities: [
+    'ascension_psychology',
+    'ascension_mental_health',
+    'ascension_communication',
+    'ascension_habits',
+    'ascension_stress'
+  ],
+    context: 'Triggers: user asks about Conflict, starts a psychology-domain quest, or needs a decision in this area. Cross-references: ascension_psychology, ascension_mental_health, ascension_communication, ascension_habits, ascension_stress. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_dating',
@@ -943,7 +1515,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy',
+    'ascension_charisma'
+  ],
+    context: 'Triggers: user asks about Dating, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_social, ascension_rapport, ascension_empathy, ascension_charisma. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cooking',
@@ -954,7 +1534,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Cooking, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_social',
@@ -965,7 +1553,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_rapport',
+    'ascension_empathy',
+    'ascension_charisma'
+  ],
+    context: 'Triggers: user asks about Social, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_rapport, ascension_empathy, ascension_charisma. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_volunteering',
@@ -976,7 +1572,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'community'
+    executor: 'community',
+    related_capabilities: [
+    'ascension_activism'
+  ],
+    context: 'Triggers: user asks about Volunteering, starts a community-domain quest, or needs a decision in this area. Cross-references: ascension_activism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_focus',
@@ -987,7 +1587,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'productivity'
+    executor: 'productivity',
+    related_capabilities: [
+    'ascension_meetings',
+    'ascension_time'
+  ],
+    context: 'Triggers: user asks about Focus, starts a productivity-domain quest, or needs a decision in this area. Cross-references: ascension_meetings, ascension_time. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meditation',
@@ -998,7 +1603,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_buddhism',
+    'ascension_hinduism',
+    'ascension_christianity'
+  ],
+    context: 'Triggers: user asks about Meditation, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_buddhism, ascension_hinduism, ascension_christianity. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_garden',
@@ -1009,7 +1622,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Garden, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fashion',
@@ -1020,7 +1641,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_antiques',
+    'ascension_stamps'
+  ],
+    context: 'Triggers: user asks about Fashion, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_shopping, ascension_auction, ascension_collector, ascension_antiques, ascension_stamps. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_repair',
@@ -1031,7 +1660,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Repair, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_music',
@@ -1042,7 +1679,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance',
+    'ascension_photography'
+  ],
+    context: 'Triggers: user asks about Music, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_art, ascension_writing, ascension_dance, ascension_photography. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_art',
@@ -1053,7 +1698,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_writing',
+    'ascension_dance',
+    'ascension_photography'
+  ],
+    context: 'Triggers: user asks about Art, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_writing, ascension_dance, ascension_photography. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_writing',
@@ -1064,7 +1717,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_dance',
+    'ascension_photography'
+  ],
+    context: 'Triggers: user asks about Writing, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_dance, ascension_photography. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_movies',
@@ -1075,7 +1736,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope',
+    'ascension_astrology'
+  ],
+    context: 'Triggers: user asks about Movies, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_books, ascension_sports, ascension_games, ascension_horoscope, ascension_astrology. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_books',
@@ -1086,7 +1755,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope',
+    'ascension_astrology'
+  ],
+    context: 'Triggers: user asks about Books, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_sports, ascension_games, ascension_horoscope, ascension_astrology. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_news',
@@ -1097,7 +1774,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'research'
+    executor: 'research',
+    related_capabilities: [
+    'ascension_research',
+    'ascension_reviews'
+  ],
+    context: 'Triggers: user asks about News, starts a research-domain quest, or needs a decision in this area. Cross-references: ascension_research, ascension_reviews. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sports',
@@ -1108,7 +1790,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_games',
+    'ascension_horoscope',
+    'ascension_astrology'
+  ],
+    context: 'Triggers: user asks about Sports, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_games, ascension_horoscope, ascension_astrology. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_games',
@@ -1119,7 +1809,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_horoscope',
+    'ascension_astrology'
+  ],
+    context: 'Triggers: user asks about Games, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_horoscope, ascension_astrology. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shopping',
@@ -1130,7 +1828,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_antiques',
+    'ascension_stamps'
+  ],
+    context: 'Triggers: user asks about Shopping, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_auction, ascension_collector, ascension_antiques, ascension_stamps. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_investing',
@@ -1141,7 +1847,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_taxes',
+    'ascension_insurance',
+    'ascension_daytrading'
+  ],
+    context: 'Triggers: user asks about Investing, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_taxes, ascension_insurance, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_taxes',
@@ -1152,7 +1866,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_insurance',
+    'ascension_daytrading'
+  ],
+    context: 'Triggers: user asks about Taxes, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_insurance, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_insurance',
@@ -1163,7 +1885,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_daytrading'
+  ],
+    context: 'Triggers: user asks about Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_moving',
@@ -1174,7 +1904,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Moving, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cleaning',
@@ -1185,7 +1923,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Cleaning, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_philosophy',
@@ -1196,7 +1942,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language',
+    'ascension_culture'
+  ],
+    context: 'Triggers: user asks about Philosophy, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_history, ascension_science, ascension_math, ascension_language, ascension_culture. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_history',
@@ -1207,7 +1961,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language',
+    'ascension_culture'
+  ],
+    context: 'Triggers: user asks about History, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_science, ascension_math, ascension_language, ascension_culture. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_science',
@@ -1218,7 +1980,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_math',
+    'ascension_language',
+    'ascension_culture'
+  ],
+    context: 'Triggers: user asks about Science, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_math, ascension_language, ascension_culture. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_math',
@@ -1229,7 +1999,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_language',
+    'ascension_culture'
+  ],
+    context: 'Triggers: user asks about Math, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_language, ascension_culture. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_language',
@@ -1240,7 +2018,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_culture'
+  ],
+    context: 'Triggers: user asks about Language, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_culture. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_culture',
@@ -1251,7 +2037,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Culture, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ethics',
@@ -1262,7 +2056,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Ethics, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_environment',
@@ -1273,7 +2075,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'environment'
+    executor: 'environment',
+    related_capabilities: [
+    'ascension_weather'
+  ],
+    context: 'Triggers: user asks about Environment, starts a environment-domain quest, or needs a decision in this area. Cross-references: ascension_weather. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_activism',
@@ -1284,7 +2090,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'community'
+    executor: 'community',
+    related_capabilities: [
+    'ascension_volunteering'
+  ],
+    context: 'Triggers: user asks about Activism, starts a community-domain quest, or needs a decision in this area. Cross-references: ascension_volunteering. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_project',
@@ -1295,7 +2105,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume',
+    'ascension_negotiation'
+  ],
+    context: 'Triggers: user asks about Project, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_task, ascension_remote, ascension_interview, ascension_resume, ascension_negotiation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_task',
@@ -1306,7 +2124,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume',
+    'ascension_negotiation'
+  ],
+    context: 'Triggers: user asks about Task, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_remote, ascension_interview, ascension_resume, ascension_negotiation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_remote',
@@ -1317,7 +2143,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_interview',
+    'ascension_resume',
+    'ascension_negotiation'
+  ],
+    context: 'Triggers: user asks about Remote, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_interview, ascension_resume, ascension_negotiation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_interview',
@@ -1328,7 +2162,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_resume',
+    'ascension_negotiation'
+  ],
+    context: 'Triggers: user asks about Interview, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_resume, ascension_negotiation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_resume',
@@ -1339,7 +2181,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_negotiation'
+  ],
+    context: 'Triggers: user asks about Resume, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_negotiation. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_negotiation',
@@ -1350,7 +2200,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Negotiation, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_networking',
@@ -1361,7 +2219,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Networking, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_leadership',
@@ -1372,7 +2238,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Leadership, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_team',
@@ -1383,7 +2257,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Team, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_feedback',
@@ -1394,7 +2276,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Feedback, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_yoga',
@@ -1405,7 +2295,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking',
+    'ascension_climbing'
+  ],
+    context: 'Triggers: user asks about Yoga, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_running, ascension_swimming, ascension_cycling, ascension_hiking, ascension_climbing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_running',
@@ -1416,7 +2314,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking',
+    'ascension_climbing'
+  ],
+    context: 'Triggers: user asks about Running, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_swimming, ascension_cycling, ascension_hiking, ascension_climbing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_swimming',
@@ -1427,7 +2333,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_cycling',
+    'ascension_hiking',
+    'ascension_climbing'
+  ],
+    context: 'Triggers: user asks about Swimming, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_cycling, ascension_hiking, ascension_climbing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cycling',
@@ -1438,7 +2352,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_hiking',
+    'ascension_climbing'
+  ],
+    context: 'Triggers: user asks about Cycling, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_hiking, ascension_climbing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hiking',
@@ -1449,7 +2371,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_climbing'
+  ],
+    context: 'Triggers: user asks about Hiking, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_climbing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_climbing',
@@ -1460,7 +2390,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Climbing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_martialarts',
@@ -1471,7 +2409,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Martial Arts, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_skincare',
@@ -1482,7 +2428,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Skincare, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ergonomics',
@@ -1493,7 +2447,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Ergonomics, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_firstaid',
@@ -1504,7 +2466,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about First Aid, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_dance',
@@ -1515,7 +2485,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_photography'
+  ],
+    context: 'Triggers: user asks about Dance, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_photography. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_photography',
@@ -1526,7 +2504,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Photography, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_filmmaking',
@@ -1537,7 +2523,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Filmmaking, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_podcast',
@@ -1548,7 +2542,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Podcast, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_design',
@@ -1559,7 +2561,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Design, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_interior_design',
@@ -1570,7 +2580,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Interior Design, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_craft',
@@ -1581,7 +2599,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Craft, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_baking',
@@ -1592,7 +2618,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Baking, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mixology',
@@ -1603,7 +2637,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Mixology, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_etiquette',
@@ -1614,7 +2656,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Etiquette, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_wedding',
@@ -1625,7 +2675,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift',
+    'ascension_funeral'
+  ],
+    context: 'Triggers: user asks about Wedding, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_birthday, ascension_party, ascension_holiday, ascension_gift, ascension_funeral. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_birthday',
@@ -1636,7 +2694,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift',
+    'ascension_funeral'
+  ],
+    context: 'Triggers: user asks about Birthday, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_party, ascension_holiday, ascension_gift, ascension_funeral. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_party',
@@ -1647,7 +2713,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_holiday',
+    'ascension_gift',
+    'ascension_funeral'
+  ],
+    context: 'Triggers: user asks about Party, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_holiday, ascension_gift, ascension_funeral. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_holiday',
@@ -1658,7 +2732,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_gift',
+    'ascension_funeral'
+  ],
+    context: 'Triggers: user asks about Holiday, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_gift, ascension_funeral. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_gift',
@@ -1669,7 +2751,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_funeral'
+  ],
+    context: 'Triggers: user asks about Gift, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_funeral. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_funeral',
@@ -1680,7 +2770,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift'
+  ],
+    context: 'Triggers: user asks about Funeral, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_gift. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_babyshower',
@@ -1691,7 +2789,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift'
+  ],
+    context: 'Triggers: user asks about Baby Shower, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_gift. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_graduation',
@@ -1702,7 +2808,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift'
+  ],
+    context: 'Triggers: user asks about Graduation, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_gift. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_retirement',
@@ -1713,7 +2827,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift'
+  ],
+    context: 'Triggers: user asks about Retirement, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_gift. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_anniversary',
@@ -1724,7 +2846,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'life_events'
+    executor: 'life_events',
+    related_capabilities: [
+    'ascension_wedding',
+    'ascension_birthday',
+    'ascension_party',
+    'ascension_holiday',
+    'ascension_gift'
+  ],
+    context: 'Triggers: user asks about Anniversary, starts a life_events-domain quest, or needs a decision in this area. Cross-references: ascension_wedding, ascension_birthday, ascension_party, ascension_holiday, ascension_gift. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_homework',
@@ -1735,7 +2865,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship',
+    'ascension_exam'
+  ],
+    context: 'Triggers: user asks about Homework, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_tutor, ascension_school, ascension_college, ascension_scholarship, ascension_exam. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tutor',
@@ -1746,7 +2884,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship',
+    'ascension_exam'
+  ],
+    context: 'Triggers: user asks about Tutor, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_school, ascension_college, ascension_scholarship, ascension_exam. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_school',
@@ -1757,7 +2903,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_college',
+    'ascension_scholarship',
+    'ascension_exam'
+  ],
+    context: 'Triggers: user asks about School, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_college, ascension_scholarship, ascension_exam. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_college',
@@ -1768,7 +2922,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_scholarship',
+    'ascension_exam'
+  ],
+    context: 'Triggers: user asks about College, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_scholarship, ascension_exam. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_scholarship',
@@ -1779,7 +2941,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_exam'
+  ],
+    context: 'Triggers: user asks about Scholarship, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_exam. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_exam',
@@ -1790,7 +2960,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship'
+  ],
+    context: 'Triggers: user asks about Exam, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_scholarship. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_studyskills',
@@ -1801,7 +2979,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship'
+  ],
+    context: 'Triggers: user asks about Study Skills, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_scholarship. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_memorization',
@@ -1812,7 +2998,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship'
+  ],
+    context: 'Triggers: user asks about Memorization, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_scholarship. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_presentation',
@@ -1823,7 +3017,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship'
+  ],
+    context: 'Triggers: user asks about Presentation, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_scholarship. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_teaching',
@@ -1834,7 +3036,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'education'
+    executor: 'education',
+    related_capabilities: [
+    'ascension_homework',
+    'ascension_tutor',
+    'ascension_school',
+    'ascension_college',
+    'ascension_scholarship'
+  ],
+    context: 'Triggers: user asks about Teaching, starts a education-domain quest, or needs a decision in this area. Cross-references: ascension_homework, ascension_tutor, ascension_school, ascension_college, ascension_scholarship. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_devops',
@@ -1845,7 +3055,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing',
+    'ascension_cicd'
+  ],
+    context: 'Triggers: user asks about DevOps, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing, ascension_cicd. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cloud',
@@ -1856,7 +3074,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing',
+    'ascension_cicd'
+  ],
+    context: 'Triggers: user asks about Cloud, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_databases, ascension_security_tech, ascension_testing, ascension_cicd. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_databases',
@@ -1867,7 +3093,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_security_tech',
+    'ascension_testing',
+    'ascension_cicd'
+  ],
+    context: 'Triggers: user asks about Databases, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_security_tech, ascension_testing, ascension_cicd. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_security_tech',
@@ -1878,7 +3112,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_testing',
+    'ascension_cicd'
+  ],
+    context: 'Triggers: user asks about Security Tech, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_testing, ascension_cicd. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_testing',
@@ -1889,7 +3131,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_cicd'
+  ],
+    context: 'Triggers: user asks about Testing, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_cicd. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cicd',
@@ -1900,7 +3150,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about CI/CD, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_monitoring',
@@ -1911,7 +3169,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about Monitoring, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_api',
@@ -1922,7 +3188,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about API, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_microservices',
@@ -1933,7 +3207,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about Microservices, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_blockchain',
@@ -1944,7 +3226,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about Blockchain, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_walking',
@@ -1955,7 +3245,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Walking, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_stretching',
@@ -1966,7 +3264,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Stretching, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_recovery',
@@ -1977,7 +3283,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Recovery, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_supplements',
@@ -1988,7 +3302,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Supplements, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_allergies',
@@ -1999,7 +3321,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Allergies, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_chronic',
@@ -2010,7 +3340,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Chronic, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_disability',
@@ -2021,7 +3359,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Disability, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pregnancy',
@@ -2032,7 +3378,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Pregnancy, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_childbirth',
@@ -2043,7 +3397,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Childbirth, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_postpartum',
@@ -2054,7 +3416,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Postpartum, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_packing',
@@ -2065,7 +3435,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Packing, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_commute',
@@ -2076,7 +3454,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Commute, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_laundry',
@@ -2087,7 +3473,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Laundry, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_organizing',
@@ -2098,7 +3492,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Organizing, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_storage',
@@ -2109,7 +3511,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Storage, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_decor',
@@ -2120,7 +3530,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Decor, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_lighting',
@@ -2131,7 +3549,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Lighting, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sound',
@@ -2142,7 +3568,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Sound, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_smell',
@@ -2153,7 +3587,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Smell, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_balcony',
@@ -2164,7 +3606,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Balcony, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_will',
@@ -2175,7 +3625,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody',
+    'ascension_adoption'
+  ],
+    context: 'Triggers: user asks about Will, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_trust, ascension_prenup, ascension_divorce, ascension_custody, ascension_adoption. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_trust',
@@ -2186,7 +3644,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody',
+    'ascension_adoption'
+  ],
+    context: 'Triggers: user asks about Trust, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_prenup, ascension_divorce, ascension_custody, ascension_adoption. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_prenup',
@@ -2197,7 +3663,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_divorce',
+    'ascension_custody',
+    'ascension_adoption'
+  ],
+    context: 'Triggers: user asks about Prenup, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_divorce, ascension_custody, ascension_adoption. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_divorce',
@@ -2208,7 +3682,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_custody',
+    'ascension_adoption'
+  ],
+    context: 'Triggers: user asks about Divorce, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_custody, ascension_adoption. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_custody',
@@ -2219,7 +3701,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_adoption'
+  ],
+    context: 'Triggers: user asks about Custody, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_adoption. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_adoption',
@@ -2230,7 +3720,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody'
+  ],
+    context: 'Triggers: user asks about Adoption, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_custody. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_immigration',
@@ -2241,7 +3739,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody'
+  ],
+    context: 'Triggers: user asks about Immigration, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_custody. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_contracts',
@@ -2252,7 +3758,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody'
+  ],
+    context: 'Triggers: user asks about Contracts, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_custody. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tenant',
@@ -2263,7 +3777,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody'
+  ],
+    context: 'Triggers: user asks about Tenant, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_custody. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_landlord',
@@ -2274,7 +3796,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'legal'
+    executor: 'legal',
+    related_capabilities: [
+    'ascension_will',
+    'ascension_trust',
+    'ascension_prenup',
+    'ascension_divorce',
+    'ascension_custody'
+  ],
+    context: 'Triggers: user asks about Landlord, starts a legal-domain quest, or needs a decision in this area. Cross-references: ascension_will, ascension_trust, ascension_prenup, ascension_divorce, ascension_custody. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_startup',
@@ -2285,7 +3815,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales',
+    'ascension_brand'
+  ],
+    context: 'Triggers: user asks about Startup, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_business_plan, ascension_marketing, ascension_sales, ascension_brand. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_business_plan',
@@ -2296,7 +3834,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_marketing',
+    'ascension_sales',
+    'ascension_brand'
+  ],
+    context: 'Triggers: user asks about Business Plan, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_marketing, ascension_sales, ascension_brand. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_marketing',
@@ -2307,7 +3853,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_sales',
+    'ascension_brand'
+  ],
+    context: 'Triggers: user asks about Marketing, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_sales, ascension_brand. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sales',
@@ -2318,7 +3872,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_brand'
+  ],
+    context: 'Triggers: user asks about Sales, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_brand. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_brand',
@@ -2329,7 +3891,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Brand, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_customer_service',
@@ -2340,7 +3910,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Customer Service, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hr',
@@ -2351,7 +3929,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about HR, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fundraising',
@@ -2362,7 +3948,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Fundraising, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pitch',
@@ -2373,7 +3967,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Pitch, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_partnerships',
@@ -2384,7 +3986,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Partnerships, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_car_buying',
@@ -2395,7 +4005,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_maintenance',
+    'ascension_motorcycle',
+    'ascension_bicycle',
+    'ascension_boat',
+    'ascension_rv'
+  ],
+    context: 'Triggers: user asks about Car Buying, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_maintenance, ascension_motorcycle, ascension_bicycle, ascension_boat, ascension_rv. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_car_maintenance',
@@ -2406,7 +4024,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_motorcycle',
+    'ascension_bicycle',
+    'ascension_boat',
+    'ascension_rv'
+  ],
+    context: 'Triggers: user asks about Car Maintenance, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_motorcycle, ascension_bicycle, ascension_boat, ascension_rv. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_motorcycle',
@@ -2417,7 +4043,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_car_maintenance',
+    'ascension_bicycle',
+    'ascension_boat',
+    'ascension_rv'
+  ],
+    context: 'Triggers: user asks about Motorcycle, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_car_maintenance, ascension_bicycle, ascension_boat, ascension_rv. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bicycle',
@@ -2428,7 +4062,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_car_maintenance',
+    'ascension_motorcycle',
+    'ascension_boat',
+    'ascension_rv'
+  ],
+    context: 'Triggers: user asks about Bicycle, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_car_maintenance, ascension_motorcycle, ascension_boat, ascension_rv. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_boat',
@@ -2439,7 +4081,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_car_maintenance',
+    'ascension_motorcycle',
+    'ascension_bicycle',
+    'ascension_rv'
+  ],
+    context: 'Triggers: user asks about Boat, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_car_maintenance, ascension_motorcycle, ascension_bicycle, ascension_rv. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_rv',
@@ -2450,7 +4100,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_car_maintenance',
+    'ascension_motorcycle',
+    'ascension_bicycle',
+    'ascension_boat'
+  ],
+    context: 'Triggers: user asks about RV, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_car_maintenance, ascension_motorcycle, ascension_bicycle, ascension_boat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_electric_vehicle',
@@ -2461,7 +4119,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'automotive'
+    executor: 'automotive',
+    related_capabilities: [
+    'ascension_car_buying',
+    'ascension_car_maintenance',
+    'ascension_motorcycle',
+    'ascension_bicycle',
+    'ascension_boat'
+  ],
+    context: 'Triggers: user asks about Electric Vehicle, starts a automotive-domain quest, or needs a decision in this area. Cross-references: ascension_car_buying, ascension_car_maintenance, ascension_motorcycle, ascension_bicycle, ascension_boat. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_public_transit',
@@ -2472,7 +4138,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'travel'
+    executor: 'travel',
+    related_capabilities: [
+    'ascension_rideshare',
+    'ascension_flight',
+    'ascension_travel_insurance'
+  ],
+    context: 'Triggers: user asks about Public Transit, starts a travel-domain quest, or needs a decision in this area. Cross-references: ascension_rideshare, ascension_flight, ascension_travel_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_rideshare',
@@ -2483,7 +4155,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'travel'
+    executor: 'travel',
+    related_capabilities: [
+    'ascension_public_transit',
+    'ascension_flight',
+    'ascension_travel_insurance'
+  ],
+    context: 'Triggers: user asks about Rideshare, starts a travel-domain quest, or needs a decision in this area. Cross-references: ascension_public_transit, ascension_flight, ascension_travel_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_flight',
@@ -2494,7 +4172,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'travel'
+    executor: 'travel',
+    related_capabilities: [
+    'ascension_public_transit',
+    'ascension_rideshare',
+    'ascension_travel_insurance'
+  ],
+    context: 'Triggers: user asks about Flight, starts a travel-domain quest, or needs a decision in this area. Cross-references: ascension_public_transit, ascension_rideshare, ascension_travel_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cricket',
@@ -2505,7 +4189,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer',
+    'ascension_tennis'
+  ],
+    context: 'Triggers: user asks about Cricket, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_basketball, ascension_football, ascension_baseball, ascension_soccer, ascension_tennis. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_basketball',
@@ -2516,7 +4208,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer',
+    'ascension_tennis'
+  ],
+    context: 'Triggers: user asks about Basketball, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_football, ascension_baseball, ascension_soccer, ascension_tennis. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_football',
@@ -2527,7 +4227,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_baseball',
+    'ascension_soccer',
+    'ascension_tennis'
+  ],
+    context: 'Triggers: user asks about Football, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_baseball, ascension_soccer, ascension_tennis. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_baseball',
@@ -2538,7 +4246,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_soccer',
+    'ascension_tennis'
+  ],
+    context: 'Triggers: user asks about Baseball, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_soccer, ascension_tennis. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_soccer',
@@ -2549,7 +4265,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_tennis'
+  ],
+    context: 'Triggers: user asks about Soccer, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_tennis. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tennis',
@@ -2560,7 +4284,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer'
+  ],
+    context: 'Triggers: user asks about Tennis, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_soccer. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_golf',
@@ -2571,7 +4303,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer'
+  ],
+    context: 'Triggers: user asks about Golf, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_soccer. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hockey',
@@ -2582,7 +4322,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer'
+  ],
+    context: 'Triggers: user asks about Hockey, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_soccer. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_esports',
@@ -2593,7 +4341,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer'
+  ],
+    context: 'Triggers: user asks about Esports, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_soccer. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fantasy',
@@ -2604,7 +4360,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'sports'
+    executor: 'sports',
+    related_capabilities: [
+    'ascension_cricket',
+    'ascension_basketball',
+    'ascension_football',
+    'ascension_baseball',
+    'ascension_soccer'
+  ],
+    context: 'Triggers: user asks about Fantasy, starts a sports-domain quest, or needs a decision in this area. Cross-references: ascension_cricket, ascension_basketball, ascension_football, ascension_baseball, ascension_soccer. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_horoscope',
@@ -2615,7 +4379,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_astrology'
+  ],
+    context: 'Triggers: user asks about Horoscope, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_astrology. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_astrology',
@@ -2626,7 +4398,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Astrology, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tarot',
@@ -2637,7 +4417,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Tarot, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tattoo',
@@ -2648,7 +4436,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch',
+    'ascension_shoes'
+  ],
+    context: 'Triggers: user asks about Tattoo, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch, ascension_shoes. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_piercing',
@@ -2659,7 +4455,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch',
+    'ascension_shoes'
+  ],
+    context: 'Triggers: user asks about Piercing, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_perfume, ascension_jewelry, ascension_watch, ascension_shoes. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_perfume',
@@ -2670,7 +4474,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_jewelry',
+    'ascension_watch',
+    'ascension_shoes'
+  ],
+    context: 'Triggers: user asks about Perfume, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_jewelry, ascension_watch, ascension_shoes. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_jewelry',
@@ -2681,7 +4493,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_watch',
+    'ascension_shoes'
+  ],
+    context: 'Triggers: user asks about Jewelry, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_watch, ascension_shoes. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_watch',
@@ -2692,7 +4512,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_shoes'
+  ],
+    context: 'Triggers: user asks about Watch, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_shoes. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shoes',
@@ -2703,7 +4531,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Shoes, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bag',
@@ -2714,7 +4550,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Bag, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_wallet',
@@ -2725,7 +4569,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Wallet, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sunglasses',
@@ -2736,7 +4588,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Sunglasses, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_haircut',
@@ -2747,7 +4607,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Haircut, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_beard',
@@ -2758,7 +4626,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Beard, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_makeup',
@@ -2769,7 +4645,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'style'
+    executor: 'style',
+    related_capabilities: [
+    'ascension_tattoo',
+    'ascension_piercing',
+    'ascension_perfume',
+    'ascension_jewelry',
+    'ascension_watch'
+  ],
+    context: 'Triggers: user asks about Makeup, starts a style-domain quest, or needs a decision in this area. Cross-references: ascension_tattoo, ascension_piercing, ascension_perfume, ascension_jewelry, ascension_watch. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_camping',
@@ -2780,7 +4664,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Camping, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fishing',
@@ -2791,7 +4683,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Fishing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hunting',
@@ -2802,7 +4702,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Hunting, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shooting',
@@ -2813,7 +4721,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Shooting, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_archery',
@@ -2824,7 +4740,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Archery, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fencing',
@@ -2835,7 +4759,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Fencing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_boxing',
@@ -2846,7 +4778,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Boxing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_wrestling',
@@ -2857,7 +4797,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Wrestling, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_gymnastics',
@@ -2868,7 +4816,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Gymnastics, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_skateboarding',
@@ -2879,7 +4835,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Skateboarding, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_surfing',
@@ -2890,7 +4854,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Surfing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_skiing',
@@ -2901,7 +4873,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Skiing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_snowboarding',
@@ -2912,7 +4892,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Snowboarding, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ice_skating',
@@ -2923,7 +4911,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Ice Skating, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_roller_skating',
@@ -2934,7 +4930,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Roller Skating, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_magic',
@@ -2945,7 +4949,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Magic, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_comedy',
@@ -2956,7 +4968,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Comedy, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_jokes',
@@ -2967,7 +4987,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Jokes, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_riddles',
@@ -2978,7 +5006,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Riddles, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_puzzles',
@@ -2989,7 +5025,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Puzzles, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_standup',
@@ -3000,7 +5044,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Standup, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_poetry',
@@ -3011,7 +5063,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Poetry, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_lyrics',
@@ -3022,7 +5082,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Lyrics, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_storytelling',
@@ -3033,7 +5101,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Storytelling, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fanfiction',
@@ -3044,7 +5120,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Fanfiction, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cosplay',
@@ -3055,7 +5139,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Cosplay, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_roleplay',
@@ -3066,7 +5158,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Roleplay, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_reviews',
@@ -3077,7 +5177,12 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'research'
+    executor: 'research',
+    related_capabilities: [
+    'ascension_research',
+    'ascension_news'
+  ],
+    context: 'Triggers: user asks about Reviews, starts a research-domain quest, or needs a decision in this area. Cross-references: ascension_research, ascension_news. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_trivia',
@@ -3088,7 +5193,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Trivia, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_boardgames',
@@ -3099,7 +5212,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Board Games, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_streaming',
@@ -3110,7 +5231,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Streaming, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_youtube',
@@ -3121,7 +5250,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about YouTube, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tiktok',
@@ -3132,7 +5269,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about TikTok, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_instagram',
@@ -3143,7 +5288,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Instagram, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_twitter',
@@ -3154,7 +5307,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Twitter, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_linkedin',
@@ -3165,7 +5326,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about LinkedIn, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_facebook',
@@ -3176,7 +5345,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'social'
+    executor: 'social',
+    related_capabilities: [
+    'relationship_graph',
+    'ascension_reddit',
+    'ascension_discord'
+  ],
+    context: 'Triggers: user asks about Facebook, starts a social-domain quest, or needs a decision in this area. Cross-references: relationship_graph, ascension_reddit, ascension_discord. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_reddit',
@@ -3187,7 +5362,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'social'
+    executor: 'social',
+    related_capabilities: [
+    'relationship_graph',
+    'ascension_facebook',
+    'ascension_discord'
+  ],
+    context: 'Triggers: user asks about Reddit, starts a social-domain quest, or needs a decision in this area. Cross-references: relationship_graph, ascension_facebook, ascension_discord. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_discord',
@@ -3198,7 +5379,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'social'
+    executor: 'social',
+    related_capabilities: [
+    'relationship_graph',
+    'ascension_facebook',
+    'ascension_reddit'
+  ],
+    context: 'Triggers: user asks about Discord, starts a social-domain quest, or needs a decision in this area. Cross-references: relationship_graph, ascension_facebook, ascension_reddit. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_slack',
@@ -3209,7 +5396,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Slack, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_teams',
@@ -3220,7 +5415,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Teams, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_zoom',
@@ -3231,7 +5434,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Zoom, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meet',
@@ -3242,7 +5453,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Meet, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_webex',
@@ -3253,7 +5472,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'work'
+    executor: 'work',
+    related_capabilities: [
+    'ascension_project',
+    'ascension_task',
+    'ascension_remote',
+    'ascension_interview',
+    'ascension_resume'
+  ],
+    context: 'Triggers: user asks about Webex, starts a work-domain quest, or needs a decision in this area. Cross-references: ascension_project, ascension_task, ascension_remote, ascension_interview, ascension_resume. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_obs',
@@ -3264,7 +5491,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about OBS, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_chess',
@@ -3275,7 +5510,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Chess, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_poker',
@@ -3286,7 +5529,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Poker, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_blackjack',
@@ -3297,7 +5548,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Blackjack, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_betting',
@@ -3308,7 +5567,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Betting, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_lottery',
@@ -3319,7 +5586,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Lottery, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_auction',
@@ -3330,7 +5605,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_collector',
+    'ascension_antiques',
+    'ascension_stamps'
+  ],
+    context: 'Triggers: user asks about Auction, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_collector, ascension_antiques, ascension_stamps. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_collector',
@@ -3341,7 +5624,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_antiques',
+    'ascension_stamps'
+  ],
+    context: 'Triggers: user asks about Collector, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_auction, ascension_antiques, ascension_stamps. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_antiques',
@@ -3352,7 +5643,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_stamps'
+  ],
+    context: 'Triggers: user asks about Antiques, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_auction, ascension_collector, ascension_stamps. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_stamps',
@@ -3363,7 +5662,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_antiques'
+  ],
+    context: 'Triggers: user asks about Stamps, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_auction, ascension_collector, ascension_antiques. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_coins',
@@ -3374,7 +5681,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_antiques'
+  ],
+    context: 'Triggers: user asks about Coins, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_auction, ascension_collector, ascension_antiques. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_comics',
@@ -3385,7 +5700,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Comics, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_trading_cards',
@@ -3396,7 +5719,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Trading Cards, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_vinyl',
@@ -3407,7 +5738,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'lifestyle'
+    executor: 'lifestyle',
+    related_capabilities: [
+    'ascension_fashion',
+    'ascension_shopping',
+    'ascension_auction',
+    'ascension_collector',
+    'ascension_antiques'
+  ],
+    context: 'Triggers: user asks about Vinyl, starts a lifestyle-domain quest, or needs a decision in this area. Cross-references: ascension_fashion, ascension_shopping, ascension_auction, ascension_collector, ascension_antiques. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_concerts',
@@ -3418,7 +5757,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Concerts, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_festivals',
@@ -3429,7 +5776,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Festivals, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_karaoke',
@@ -3440,7 +5795,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Karaoke, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_casino',
@@ -3451,7 +5814,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Casino, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sports_betting',
@@ -3462,7 +5833,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about Sports Betting, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_daytrading',
@@ -3473,7 +5852,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Day Trading, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_swingtrading',
@@ -3484,7 +5871,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Swing Trading, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_forex',
@@ -3495,7 +5890,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Forex, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_crypto',
@@ -3506,7 +5909,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Crypto, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_nfts',
@@ -3517,7 +5928,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about NFTs, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mining',
@@ -3528,7 +5947,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about Mining, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_staking',
@@ -3539,7 +5966,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Staking, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_defi',
@@ -3550,7 +5985,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about DeFi, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_dao',
@@ -3561,7 +6004,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about DAO, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_airdrop',
@@ -3572,7 +6023,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Airdrop, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_presale',
@@ -3583,7 +6042,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Presale, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_whitelist',
@@ -3594,7 +6061,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Whitelist, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_nodes',
@@ -3605,7 +6080,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'engineering'
+    executor: 'engineering',
+    related_capabilities: [
+    'ascension_devops',
+    'ascension_cloud',
+    'ascension_databases',
+    'ascension_security_tech',
+    'ascension_testing'
+  ],
+    context: 'Triggers: user asks about Nodes, starts a engineering-domain quest, or needs a decision in this area. Cross-references: ascension_devops, ascension_cloud, ascension_databases, ascension_security_tech, ascension_testing. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_3d_printing',
@@ -3616,7 +6099,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about 3D Printing, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_laser_cutting',
@@ -3627,7 +6118,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Laser Cutting, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cnc',
@@ -3638,7 +6137,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about CNC, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_woodworking',
@@ -3649,7 +6156,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Woodworking, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_metalworking',
@@ -3660,7 +6175,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Metalworking, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_welding',
@@ -3671,7 +6194,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Welding, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_soldering',
@@ -3682,7 +6213,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Soldering, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_electronics',
@@ -3693,7 +6232,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Electronics, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_arduino',
@@ -3704,7 +6251,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Arduino, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_raspberry_pi',
@@ -3715,7 +6270,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Raspberry Pi, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_robotics',
@@ -3726,7 +6289,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Robotics, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_drones',
@@ -3737,7 +6308,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Drones, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_rc',
@@ -3748,7 +6327,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'entertainment'
+    executor: 'entertainment',
+    related_capabilities: [
+    'ascension_movies',
+    'ascension_books',
+    'ascension_sports',
+    'ascension_games',
+    'ascension_horoscope'
+  ],
+    context: 'Triggers: user asks about RC, starts a entertainment-domain quest, or needs a decision in this area. Cross-references: ascension_movies, ascension_books, ascension_sports, ascension_games, ascension_horoscope. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ham_radio',
@@ -3759,7 +6346,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Ham Radio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_astronomy',
@@ -3770,7 +6365,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Astronomy, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_photography_gear',
@@ -3781,7 +6384,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Photography Gear, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_video_editing',
@@ -3792,7 +6403,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Video Editing, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_color_grading',
@@ -3803,7 +6422,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Color Grading, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sound_design',
@@ -3814,7 +6441,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Sound Design, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mixing',
@@ -3825,7 +6460,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Mixing, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mastering',
@@ -3836,7 +6479,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Mastering, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_voiceover',
@@ -3847,7 +6498,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Voiceover, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_podcast_production',
@@ -3858,7 +6517,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Podcast Production, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_youtube_seo',
@@ -3869,7 +6536,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about YouTube SEO, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_thumbnail',
@@ -3880,7 +6555,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Thumbnail, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_branding',
@@ -3891,7 +6574,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'creation'
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Branding, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_merchandise',
@@ -3902,7 +6593,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Merchandise, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_crowdfunding',
@@ -3913,7 +6612,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Crowdfunding, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_patreon',
@@ -3924,7 +6631,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Patreon, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sponsorships',
@@ -3935,7 +6650,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Sponsorships, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_affiliate',
@@ -3946,7 +6669,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Affiliate, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ecommerce',
@@ -3957,7 +6688,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Ecommerce, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shopify',
@@ -3968,7 +6707,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Shopify, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_woocommerce',
@@ -3979,7 +6726,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about WooCommerce, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_amazon',
@@ -3990,7 +6745,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Amazon, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ebay',
@@ -4001,7 +6764,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about eBay, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_etsy',
@@ -4012,7 +6783,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Etsy, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_dropshipping',
@@ -4023,7 +6802,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Dropshipping, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_print_on_demand',
@@ -4034,7 +6821,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Print On Demand, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fulfillment',
@@ -4045,7 +6840,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Fulfillment, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_inventory',
@@ -4056,7 +6859,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Inventory, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pos',
@@ -4067,7 +6878,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about POS, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_import',
@@ -4078,7 +6897,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Import, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_export',
@@ -4089,7 +6916,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Export, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_tariffs',
@@ -4100,7 +6935,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Tariffs, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shipping',
@@ -4111,7 +6954,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Shipping, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_customer_support',
@@ -4122,7 +6973,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Customer Support, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_helpdesk',
@@ -4133,7 +6992,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Helpdesk, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ticketing',
@@ -4144,7 +7011,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Ticketing, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_live_chat',
@@ -4155,7 +7030,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Live Chat, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_chatbot',
@@ -4166,7 +7049,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Chatbot, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_knowledge_base',
@@ -4177,7 +7068,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Knowledge Base, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_faq',
@@ -4188,7 +7087,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about FAQ, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_onboarding',
@@ -4199,7 +7106,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Onboarding, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_retention',
@@ -4210,7 +7125,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Retention, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_churn',
@@ -4221,7 +7144,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Churn, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_upsell',
@@ -4232,7 +7163,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Upsell, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cross_sell',
@@ -4243,7 +7182,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Cross Sell, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_loyalty',
@@ -4254,7 +7201,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Loyalty, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_referral',
@@ -4265,7 +7220,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Referral, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_reputation',
@@ -4276,7 +7239,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Reputation, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_accounting',
@@ -4287,7 +7258,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Accounting, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bookkeeping',
@@ -4298,7 +7277,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Bookkeeping, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_invoicing',
@@ -4309,7 +7296,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Invoicing, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_payroll',
@@ -4320,7 +7315,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Payroll, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_budgeting',
@@ -4331,7 +7334,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Budgeting, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_expenses',
@@ -4342,7 +7353,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Expenses, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_business_taxes',
@@ -4353,7 +7372,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Business Taxes, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_audit',
@@ -4364,7 +7391,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Audit, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_compliance',
@@ -4375,7 +7410,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Compliance, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_grants',
@@ -4386,7 +7429,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Grants, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_loans',
@@ -4397,7 +7448,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Loans, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_credit',
@@ -4408,7 +7467,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Credit, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_debt',
@@ -4419,7 +7486,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Debt, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_credit_score',
@@ -4430,7 +7505,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Credit Score, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mortgage',
@@ -4441,7 +7524,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Mortgage, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_insurance_review',
@@ -4452,7 +7543,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Insurance Review, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_policy_review',
@@ -4463,7 +7562,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Policy Review, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_deductible',
@@ -4474,7 +7581,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Deductible, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_premium',
@@ -4485,7 +7600,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Premium, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hsa',
@@ -4496,7 +7619,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about HSA, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fsa',
@@ -4507,7 +7638,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about FSA, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_benefits',
@@ -4518,7 +7657,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Benefits, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_open_enrollment',
@@ -4529,7 +7676,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Open Enrollment, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_workers_comp',
@@ -4540,7 +7695,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'business',
-    executor: 'business'
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Workers Comp, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_liability_insurance',
@@ -4551,7 +7714,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Liability Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_umbrella_insurance',
@@ -4562,7 +7733,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Umbrella Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_flood_insurance',
@@ -4573,7 +7752,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Flood Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_earthquake_insurance',
@@ -4584,7 +7771,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Earthquake Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pet_insurance',
@@ -4595,7 +7790,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'finance'
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Pet Insurance, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_travel_insurance',
@@ -4606,7 +7809,13 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'travel'
+    executor: 'travel',
+    related_capabilities: [
+    'ascension_public_transit',
+    'ascension_rideshare',
+    'ascension_flight'
+  ],
+    context: 'Triggers: user asks about Travel Insurance, starts a travel-domain quest, or needs a decision in this area. Cross-references: ascension_public_transit, ascension_rideshare, ascension_flight. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_gardening',
@@ -4617,7 +7826,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Gardening, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_landscaping',
@@ -4628,7 +7845,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Landscaping, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_lawn_care',
@@ -4639,7 +7864,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Lawn Care, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_composting',
@@ -4650,7 +7883,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Composting, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hydroponics',
@@ -4661,7 +7902,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Hydroponics, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_aquaponics',
@@ -4672,7 +7921,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Aquaponics, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fermentation',
@@ -4683,7 +7940,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Fermentation, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_preserving',
@@ -4694,7 +7959,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Preserving, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_canning',
@@ -4705,7 +7978,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Canning, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_smoking',
@@ -4716,7 +7997,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making',
+    'ascension_sourdough'
+  ],
+    context: 'Triggers: user asks about Smoking, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making, ascension_sourdough. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bbq',
@@ -4727,7 +8016,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making',
+    'ascension_sourdough'
+  ],
+    context: 'Triggers: user asks about BBQ, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_grilling, ascension_pizza, ascension_bread_making, ascension_sourdough. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_grilling',
@@ -4738,7 +8035,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_pizza',
+    'ascension_bread_making',
+    'ascension_sourdough'
+  ],
+    context: 'Triggers: user asks about Grilling, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_pizza, ascension_bread_making, ascension_sourdough. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pizza',
@@ -4749,7 +8054,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_bread_making',
+    'ascension_sourdough'
+  ],
+    context: 'Triggers: user asks about Pizza, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_bread_making, ascension_sourdough. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bread_making',
@@ -4760,7 +8073,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_sourdough'
+  ],
+    context: 'Triggers: user asks about Bread Making, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_sourdough. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sourdough',
@@ -4771,7 +8092,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Sourdough, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meal_prep',
@@ -4782,7 +8111,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_smoothies',
+    'ascension_protein'
+  ],
+    context: 'Triggers: user asks about Meal Prep, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_batch_cooking, ascension_freezer_meals, ascension_juicing, ascension_smoothies, ascension_protein. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_batch_cooking',
@@ -4793,7 +8130,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_smoothies',
+    'ascension_protein'
+  ],
+    context: 'Triggers: user asks about Batch Cooking, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_freezer_meals, ascension_juicing, ascension_smoothies, ascension_protein. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_freezer_meals',
@@ -4804,7 +8149,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_juicing',
+    'ascension_smoothies',
+    'ascension_protein'
+  ],
+    context: 'Triggers: user asks about Freezer Meals, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_juicing, ascension_smoothies, ascension_protein. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_slow_cooker',
@@ -4815,7 +8168,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Slow Cooker, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pressure_cooker',
@@ -4826,7 +8187,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Pressure Cooker, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_air_fryer',
@@ -4837,7 +8206,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Air Fryer, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sous_vide',
@@ -4848,7 +8225,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Sous Vide, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_dehydrator',
@@ -4859,7 +8244,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'cooking'
+    executor: 'cooking',
+    related_capabilities: [
+    'ascension_smoking',
+    'ascension_bbq',
+    'ascension_grilling',
+    'ascension_pizza',
+    'ascension_bread_making'
+  ],
+    context: 'Triggers: user asks about Dehydrator, starts a cooking-domain quest, or needs a decision in this area. Cross-references: ascension_smoking, ascension_bbq, ascension_grilling, ascension_pizza, ascension_bread_making. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_juicing',
@@ -4870,7 +8263,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_smoothies',
+    'ascension_protein'
+  ],
+    context: 'Triggers: user asks about Juicing, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_freezer_meals, ascension_smoothies, ascension_protein. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_smoothies',
@@ -4881,7 +8282,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_protein'
+  ],
+    context: 'Triggers: user asks about Smoothies, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_freezer_meals, ascension_juicing, ascension_protein. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_protein',
@@ -4892,7 +8301,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_smoothies'
+  ],
+    context: 'Triggers: user asks about Protein, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_freezer_meals, ascension_juicing, ascension_smoothies. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_supplements_stack',
@@ -4903,7 +8320,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_smoothies'
+  ],
+    context: 'Triggers: user asks about Supplements Stack, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_freezer_meals, ascension_juicing, ascension_smoothies. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_pre_workout',
@@ -4914,7 +8339,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'fitness'
+    executor: 'fitness',
+    related_capabilities: [
+    'ascension_post_workout'
+  ],
+    context: 'Triggers: user asks about Pre Workout, starts a fitness-domain quest, or needs a decision in this area. Cross-references: ascension_post_workout. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_post_workout',
@@ -4925,7 +8354,11 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'fitness'
+    executor: 'fitness',
+    related_capabilities: [
+    'ascension_pre_workout'
+  ],
+    context: 'Triggers: user asks about Post Workout, starts a fitness-domain quest, or needs a decision in this area. Cross-references: ascension_pre_workout. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meal_planning',
@@ -4936,7 +8369,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'nutrition'
+    executor: 'nutrition',
+    related_capabilities: [
+    'ascension_meal_prep',
+    'ascension_batch_cooking',
+    'ascension_freezer_meals',
+    'ascension_juicing',
+    'ascension_smoothies'
+  ],
+    context: 'Triggers: user asks about Meal Planning, starts a nutrition-domain quest, or needs a decision in this area. Cross-references: ascension_meal_prep, ascension_batch_cooking, ascension_freezer_meals, ascension_juicing, ascension_smoothies. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_grocery_list',
@@ -4947,7 +8388,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'home'
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Grocery List, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_meditation_guided',
@@ -4958,7 +8407,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Meditation Guided, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_breathing',
@@ -4969,7 +8426,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Breathing, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_cold_exposure',
@@ -4980,7 +8445,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Cold Exposure, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_heat_exposure',
@@ -4991,7 +8464,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Heat Exposure, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sauna',
@@ -5002,7 +8483,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Sauna, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_ice_bath',
@@ -5013,7 +8502,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Ice Bath, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sleep_hygiene',
@@ -5024,7 +8521,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Sleep Hygiene, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_nap',
@@ -5035,7 +8540,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Nap, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_circadian',
@@ -5046,7 +8559,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Circadian, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_journaling',
@@ -5057,7 +8578,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Journaling, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_gratitude',
@@ -5068,7 +8597,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Gratitude, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_affirmations',
@@ -5079,7 +8616,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Affirmations, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_visualization',
@@ -5090,7 +8635,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Visualization, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_mindset',
@@ -5101,7 +8654,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Mindset, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_resilience',
@@ -5112,7 +8673,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Resilience, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_growth_mindset',
@@ -5123,7 +8692,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Growth Mindset, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_stoicism',
@@ -5134,7 +8711,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Stoicism, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_buddhism',
@@ -5145,7 +8730,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_hinduism',
+    'ascension_christianity'
+  ],
+    context: 'Triggers: user asks about Buddhism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_hinduism, ascension_christianity. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_hinduism',
@@ -5156,7 +8749,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_christianity'
+  ],
+    context: 'Triggers: user asks about Hinduism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_christianity. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_christianity',
@@ -5167,7 +8768,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Christianity, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_islam',
@@ -5178,7 +8787,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Islam, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_judaism',
@@ -5189,7 +8806,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Judaism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_taoism',
@@ -5200,7 +8825,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Taoism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_confucianism',
@@ -5211,7 +8844,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Confucianism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shinto',
@@ -5222,7 +8863,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Shinto, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_sikhism',
@@ -5233,7 +8882,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Sikhism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_jainism',
@@ -5244,7 +8901,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Jainism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_bahai',
@@ -5255,7 +8920,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Baha i, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_paganism',
@@ -5266,7 +8939,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Paganism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_wicca',
@@ -5277,7 +8958,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Wicca, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_druidry',
@@ -5288,7 +8977,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Druidry, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_native_spirituality',
@@ -5299,7 +8996,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Native Spirituality, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_shamanism',
@@ -5310,7 +9015,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'spirituality'
+    executor: 'spirituality',
+    related_capabilities: [
+    'ascension_spirituality',
+    'ascension_mindfulness',
+    'ascension_meditation',
+    'ascension_buddhism',
+    'ascension_hinduism'
+  ],
+    context: 'Triggers: user asks about Shamanism, starts a spirituality-domain quest, or needs a decision in this area. Cross-references: ascension_spirituality, ascension_mindfulness, ascension_meditation, ascension_buddhism, ascension_hinduism. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_logic',
@@ -5321,7 +9034,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Logic, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_critical_thinking',
@@ -5332,7 +9053,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Critical Thinking, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_argumentation',
@@ -5343,7 +9072,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Argumentation, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_fallacies',
@@ -5354,7 +9091,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Fallacies, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_debate',
@@ -5365,7 +9110,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Debate, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_persuasion',
@@ -5376,7 +9129,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'knowledge'
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Persuasion, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_rapport',
@@ -5387,7 +9148,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_empathy',
+    'ascension_charisma'
+  ],
+    context: 'Triggers: user asks about Rapport, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_empathy, ascension_charisma. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_empathy',
@@ -5398,7 +9167,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_charisma'
+  ],
+    context: 'Triggers: user asks about Empathy, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_charisma. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_charisma',
@@ -5409,7 +9186,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Charisma, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_confidence_building',
@@ -5420,7 +9205,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'wellness'
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Confidence Building, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_assertiveness',
@@ -5431,7 +9224,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Assertiveness, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_boundaries',
@@ -5442,7 +9243,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Boundaries, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_conflict_resolution',
@@ -5453,7 +9262,15 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Conflict Resolution, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_active_listening',
@@ -5464,12 +9281,17 @@ export const CAPABILITIES = [
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
     requires_tier: 'individual',
-    executor: 'relationships'
-  },
-  
-  // Add 200+ more capabilities here...
+    executor: 'relationships',
+    related_capabilities: [
+    'ascension_relationships',
+    'ascension_dating',
+    'ascension_social',
+    'ascension_rapport',
+    'ascension_empathy'
+  ],
+    context: 'Triggers: user asks about Active Listening, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
+  }
 ];
-
 export function getCapabilityById(id: string) {
   return CAPABILITIES.find(c => c.id === id);
 }
