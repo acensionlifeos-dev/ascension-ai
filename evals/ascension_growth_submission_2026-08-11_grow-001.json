@@ -3,7 +3,7 @@
   "prompt_id": "ascension-growth-curriculum-v1",
   "submitted_at": "2026-08-11T19:58:22Z",
   "submission_state": "blocked_before_inference",
-  "evaluated_at": "2026-08-11T23:00:00Z",
+  "evaluated_at": "2026-08-12T00:02:24Z",
   "evaluation_attempts": [
     {
       "attempted_at": "2026-08-11T19:58:22Z",
@@ -24,6 +24,11 @@
       "attempted_at": "2026-08-11T23:00:00Z",
       "inference_attempted": false,
       "reason": "The live native endpoint was healthy (391 ms), candidate-ready, native-only, and reported both access modes configured, but no matching protected caller token was available in this automation environment or reviewed local configuration. No authenticated request was sent, guessed, or bypassed."
+    },
+    {
+      "attempted_at": "2026-08-12T00:02:24Z",
+      "inference_attempted": false,
+      "reason": "Fifth blocked run: no protected test or service token available in the automation environment or reviewed protected local configuration. No authenticated request sent, guessed, printed, or bypassed."
     }
   ],
   "lesson_packet": {
