@@ -4773,6 +4773,182 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'cooking'
   },
+  {
+    id: 'ascension_meal_prep',
+    name: 'Ascension Meal Prep',
+    category: 'nutrition',
+    description: 'Meal prep, containers, and storage',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_batch_cooking',
+    name: 'Ascension Batch Cooking',
+    category: 'nutrition',
+    description: 'Batch cooking plans and reheating',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_freezer_meals',
+    name: 'Ascension Freezer Meals',
+    category: 'nutrition',
+    description: 'Freezer meal recipes and storage',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_slow_cooker',
+    name: 'Ascension Slow Cooker',
+    category: 'cooking',
+    description: 'Slow cooker recipes and timing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_pressure_cooker',
+    name: 'Ascension Pressure Cooker',
+    category: 'cooking',
+    description: 'Pressure cooker safety and recipes',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_air_fryer',
+    name: 'Ascension Air Fryer',
+    category: 'cooking',
+    description: 'Air fryer recipes, timing, and conversions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_sous_vide',
+    name: 'Ascension Sous Vide',
+    category: 'cooking',
+    description: 'Sous vide temperatures, times, and searing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_dehydrator',
+    name: 'Ascension Dehydrator',
+    category: 'cooking',
+    description: 'Dehydrator recipes and storage',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'cooking'
+  },
+  {
+    id: 'ascension_juicing',
+    name: 'Ascension Juicing',
+    category: 'nutrition',
+    description: 'Juicing recipes, produce, and cleanup',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_smoothies',
+    name: 'Ascension Smoothies',
+    category: 'nutrition',
+    description: 'Smoothie blends, protein, and macros',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_protein',
+    name: 'Ascension Protein',
+    category: 'nutrition',
+    description: 'Protein sources, timing, and targets',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_supplements_stack',
+    name: 'Ascension Supplements Stack',
+    category: 'nutrition',
+    description: 'Supplement stacking, timing, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_pre_workout',
+    name: 'Ascension Pre Workout',
+    category: 'fitness',
+    description: 'Pre-workout nutrition, timing, and ingredients',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'fitness'
+  },
+  {
+    id: 'ascension_post_workout',
+    name: 'Ascension Post Workout',
+    category: 'fitness',
+    description: 'Post-workout nutrition and recovery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'fitness'
+  },
+  {
+    id: 'ascension_meal_planning',
+    name: 'Ascension Meal Planning',
+    category: 'nutrition',
+    description: 'Weekly meal plans, balance, and shopping',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'nutrition'
+  },
+  {
+    id: 'ascension_grocery_list',
+    name: 'Ascension Grocery List',
+    category: 'home',
+    description: 'Grocery list creation, pantry check, and budget',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
   
   // Add 200+ more capabilities here...
 ];

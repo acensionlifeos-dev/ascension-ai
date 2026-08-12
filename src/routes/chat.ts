@@ -400,7 +400,23 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_grilling',
   'ascension_pizza',
   'ascension_bread_making',
-  'ascension_sourdough'
+  'ascension_sourdough',
+  'ascension_meal_prep',
+  'ascension_batch_cooking',
+  'ascension_freezer_meals',
+  'ascension_slow_cooker',
+  'ascension_pressure_cooker',
+  'ascension_air_fryer',
+  'ascension_sous_vide',
+  'ascension_dehydrator',
+  'ascension_juicing',
+  'ascension_smoothies',
+  'ascension_protein',
+  'ascension_supplements_stack',
+  'ascension_pre_workout',
+  'ascension_post_workout',
+  'ascension_meal_planning',
+  'ascension_grocery_list'
 ]);
 
 const router = Router();
