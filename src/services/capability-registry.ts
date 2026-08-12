@@ -5313,17 +5313,6 @@ export const CAPABILITIES = [
     executor: 'spirituality'
   },
   {
-    id: 'ascension_philosophy',
-    name: 'Ascension Philosophy',
-    category: 'knowledge',
-    description: 'Philosophy, schools, and thinkers',
-    providers: ['ascension-native'],
-    default_provider: 'ascension-native',
-    cost_per_1k_tokens: 0,
-    requires_tier: 'individual',
-    executor: 'knowledge'
-  },
-  {
     id: 'ascension_logic',
     name: 'Ascension Logic',
     category: 'knowledge',
