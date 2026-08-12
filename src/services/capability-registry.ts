@@ -1396,6 +1396,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'work'
   },
+  {
+    id: 'ascension_yoga',
+    name: 'Ascension Yoga',
+    category: 'wellness',
+    description: 'Yoga poses, sequences, and practice guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_running',
+    name: 'Ascension Running',
+    category: 'wellness',
+    description: 'Running plans, form, and training progression',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_swimming',
+    name: 'Ascension Swimming',
+    category: 'wellness',
+    description: 'Swim technique, workouts, and training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_cycling',
+    name: 'Ascension Cycling',
+    category: 'wellness',
+    description: 'Cycling routes, training, and equipment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_hiking',
+    name: 'Ascension Hiking',
+    category: 'wellness',
+    description: 'Hiking preparation, trails, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_climbing',
+    name: 'Ascension Climbing',
+    category: 'wellness',
+    description: 'Climbing technique, training, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_martialarts',
+    name: 'Ascension Martial Arts',
+    category: 'wellness',
+    description: 'Martial arts style guidance, drills, and conditioning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_skincare',
+    name: 'Ascension Skincare',
+    category: 'wellness',
+    description: 'Skincare routines, ingredients, and concerns',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_ergonomics',
+    name: 'Ascension Ergonomics',
+    category: 'wellness',
+    description: 'Desk, posture, and workspace ergonomics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_firstaid',
+    name: 'Ascension First Aid',
+    category: 'wellness',
+    description: 'First aid guidance and when to seek care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
   
   // Add 180+ more capabilities here...
 ];

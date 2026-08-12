@@ -939,6 +939,116 @@ function feedbackResponse(message: string): NativeResponse {
   };
 }
 
+function yogaResponse(message: string): NativeResponse {
+  return {
+    content: `I can suggest yoga poses and sequences for your level and goals. I am not a medical provider. What do you want to focus on?`,
+    model: 'Ascension Yoga',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_yoga',
+    data: { level: null }
+  };
+}
+
+function runningResponse(message: string): NativeResponse {
+  return {
+    content: `I can help build a running plan, form, and progression. What is your current distance and goal?`,
+    model: 'Ascension Running',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_running',
+    data: { distance: null }
+  };
+}
+
+function swimmingResponse(message: string): NativeResponse {
+  return {
+    content: `I can suggest swim workouts and technique focus. What is your current ability and goal?`,
+    model: 'Ascension Swimming',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_swimming',
+    data: { stroke: null }
+  };
+}
+
+function cyclingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with cycling routes, training, and equipment. What type of cycling and distance are you training for?`,
+    model: 'Ascension Cycling',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cycling',
+    data: { route: null }
+  };
+}
+
+function hikingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan hikes, gear, and safety. Where and how far do you want to go?`,
+    model: 'Ascension Hiking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_hiking',
+    data: { trail: null }
+  };
+}
+
+function climbingResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss climbing technique, training, and safety basics. What discipline or grade are you working on?`,
+    model: 'Ascension Climbing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_climbing',
+    data: { discipline: null }
+  };
+}
+
+function martialartsResponse(message: string): NativeResponse {
+  return {
+    content: `I can talk martial arts styles, drills, and conditioning. I am not an in-person instructor. What style or goal?`,
+    model: 'Ascension Martial Arts',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_martialarts',
+    data: { style: null }
+  };
+}
+
+function skincareResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with skincare routines and ingredients. I am not a dermatologist. What is your skin type and concern?`,
+    model: 'Ascension Skincare',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_skincare',
+    data: { skin_type: null }
+  };
+}
+
+function ergonomicsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help optimize your workspace, posture, and ergonomics. What setup or pain point do you have?`,
+    model: 'Ascension Ergonomics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_ergonomics',
+    data: { workspace: null }
+  };
+}
+
+function firstaidResponse(message: string): NativeResponse {
+  return {
+    content: `I can offer basic first aid guidance and help you decide when to call emergency services. For emergencies, call your local emergency number. What happened?`,
+    model: 'Ascension First Aid',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_firstaid',
+    data: { emergency: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
