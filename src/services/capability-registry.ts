@@ -2936,6 +2936,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'wellness'
   },
+  {
+    id: 'ascension_magic',
+    name: 'Ascension Magic',
+    category: 'entertainment',
+    description: 'Magic tricks, sleight of hand, and performance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_comedy',
+    name: 'Ascension Comedy',
+    category: 'entertainment',
+    description: 'Comedy writing, timing, and performance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_jokes',
+    name: 'Ascension Jokes',
+    category: 'entertainment',
+    description: 'Joke writing, setups, and punchlines',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_riddles',
+    name: 'Ascension Riddles',
+    category: 'entertainment',
+    description: 'Riddles, brain teasers, and lateral thinking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_puzzles',
+    name: 'Ascension Puzzles',
+    category: 'entertainment',
+    description: 'Puzzles, logic, and problem-solving games',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_standup',
+    name: 'Ascension Standup',
+    category: 'entertainment',
+    description: 'Stand-up comedy writing and performance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_poetry',
+    name: 'Ascension Poetry',
+    category: 'creation',
+    description: 'Poetry forms, technique, and writing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_lyrics',
+    name: 'Ascension Lyrics',
+    category: 'creation',
+    description: 'Lyric writing, rhyme, and song structure',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_storytelling',
+    name: 'Ascension Storytelling',
+    category: 'creation',
+    description: 'Story structure, narrative, and oral telling',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_fanfiction',
+    name: 'Ascension Fanfiction',
+    category: 'creation',
+    description: 'Fanfiction writing, tropes, and platforms',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_cosplay',
+    name: 'Ascension Cosplay',
+    category: 'entertainment',
+    description: 'Cosplay design, construction, and events',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_roleplay',
+    name: 'Ascension Roleplay',
+    category: 'entertainment',
+    description: 'Roleplay genres, character creation, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_reviews',
+    name: 'Ascension Reviews',
+    category: 'research',
+    description: 'Product, media, and service review writing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'research'
+  },
+  {
+    id: 'ascension_trivia',
+    name: 'Ascension Trivia',
+    category: 'entertainment',
+    description: 'Trivia facts, hosting, and categories',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_boardgames',
+    name: 'Ascension Board Games',
+    category: 'entertainment',
+    description: 'Board game rules, strategy, and recommendations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
   
   // Add 200+ more capabilities here...
 ];

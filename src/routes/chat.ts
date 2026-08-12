@@ -233,7 +233,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_skiing',
   'ascension_snowboarding',
   'ascension_ice_skating',
-  'ascension_roller_skating'
+  'ascension_roller_skating',
+  'ascension_magic',
+  'ascension_comedy',
+  'ascension_jokes',
+  'ascension_riddles',
+  'ascension_puzzles',
+  'ascension_standup',
+  'ascension_poetry',
+  'ascension_lyrics',
+  'ascension_storytelling',
+  'ascension_fanfiction',
+  'ascension_cosplay',
+  'ascension_roleplay',
+  'ascension_reviews',
+  'ascension_trivia',
+  'ascension_boardgames'
 ]);
 
 const router = Router();
