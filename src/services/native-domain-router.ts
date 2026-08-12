@@ -191,6 +191,61 @@ function chatResponse(message: string): NativeResponse {
   };
 }
 
+function nutritionResponse(message: string): NativeResponse {
+  return {
+    content: `I can build meal plans and analyze nutrition for your goals and preferences. I am not a dietitian; for medical conditions or eating disorders, I will point you toward a qualified provider. What are your goals?`,
+    model: 'Ascension Nutrition',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_nutrition',
+    data: { dietitian_referral: false }
+  };
+}
+
+function fitnessResponse(message: string): NativeResponse {
+  return {
+    content: `I can design workouts, track progress, and suggest form cues. I will not push you past your limits or diagnose injury. What is your current routine or goal?`,
+    model: 'Ascension Fitness',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_fitness',
+    data: { injury_screen: false }
+  };
+}
+
+function careerResponse(message: string): NativeResponse {
+  return {
+    content: `I can review resumes, prepare for interviews, and map career moves. I will not apply for jobs or send messages on your behalf without explicit approval. What are you working toward?`,
+    model: 'Ascension Career',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_career',
+    data: { applications: [] }
+  };
+}
+
+function relationshipsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you think through conversations, prepare thoughtful responses, and notice relationship patterns. I will not contact anyone for you. What is the situation?`,
+    model: 'Ascension Relationships',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_relationships',
+    data: { sent_messages: [] }
+  };
+}
+
+function creativeResponse(message: string): NativeResponse {
+  return {
+    content: `I can brainstorm, draft, and iterate on creative work. I will not publish or submit anything without you reviewing it. What are you creating?`,
+    model: 'Ascension Creative',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creative',
+    data: { published: [] }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
@@ -206,7 +261,12 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_home': homeResponse,
   'ascension_sprout': sproutResponse,
   'ascension_family': familyResponse,
-  'ascension_chat': chatResponse
+  'ascension_chat': chatResponse,
+  'ascension_nutrition': nutritionResponse,
+  'ascension_fitness': fitnessResponse,
+  'ascension_career': careerResponse,
+  'ascension_relationships': relationshipsResponse,
+  'ascension_creative': creativeResponse
 };
 
 export function routeNativeDomain(

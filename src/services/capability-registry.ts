@@ -648,6 +648,61 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'environment'
   },
+  {
+    id: 'ascension_nutrition',
+    name: 'Ascension Nutrition',
+    category: 'health',
+    description: 'Meal planning, nutrition analysis, and dietary guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'health'
+  },
+  {
+    id: 'ascension_fitness',
+    name: 'Ascension Fitness',
+    category: 'health',
+    description: 'Workout plans, form guidance, and progress tracking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'health'
+  },
+  {
+    id: 'ascension_career',
+    name: 'Ascension Career',
+    category: 'career',
+    description: 'Resume review, job matching, and career planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'career'
+  },
+  {
+    id: 'ascension_relationships',
+    name: 'Ascension Relationships',
+    category: 'relationships',
+    description: 'Communication support, follow-up prep, and relationship context',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_creative',
+    name: 'Ascension Creative',
+    category: 'creation',
+    description: 'Writing, music, art, and content generation planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
   
   // Add 180+ more capabilities here...
 ];
