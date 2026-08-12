@@ -41,6 +41,11 @@ OVERRIDES = {
     'ascension_service_designer': """I can design a service offering, pricing tiers, delivery path, and first client plan around any skill or audience. What skill do you want to sell?""",
     'ascension_idea_validator': """I can validate an idea, market, and first move quickly and cheaply. What is the idea, who is it for, and what is the cheapest test?""",
     'ascension_build_path': """I can generate a step-by-step build path for any invention, project, or channel. What is the end goal and the first version?""",
+    'ascension_compound_engine': """I can build a reinvestment and compounding plan for any small starting amount and time horizon. What is the starting amount, timeline, and how much risk can you afford to lose?""",
+    'ascension_72h_sprint': """I can design a high-activity 72-hour income or growth sprint with realistic, legal targets. What amount do you need and what skills/time can you commit?""",
+    'ascension_risk_budget': """I can set a risk budget for fast-turn experiments so food, rent, and survival money are never at risk. What are your fixed survival costs?""",
+    'ascension_gig_sprint': """I can map the fastest gig and task income for a small amount in a short window. What skills, vehicle, and time do you have in the next 72 hours?""",
+    'ascension_money_flip': """I can take any amount you plug in and design a custom flip plan with a realistic target, timeline, and a clear risk warning. No guaranteed returns. How much, how fast, and what can you risk?""",
 }
 
 

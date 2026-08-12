@@ -495,7 +495,12 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_micro_launch',
   'ascension_service_designer',
   'ascension_idea_validator',
-  'ascension_build_path'
+  'ascension_build_path',
+  'ascension_compound_engine',
+  'ascension_72h_sprint',
+  'ascension_risk_budget',
+  'ascension_gig_sprint',
+  'ascension_money_flip'
 ]);
 
 const router = Router();

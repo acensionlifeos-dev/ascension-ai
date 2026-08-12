@@ -5811,6 +5811,61 @@ function ascension_build_pathResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_compound_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a reinvestment and compounding plan for any small starting amount and time horizon. What is the starting amount, timeline, and how much risk can you afford to lose?`,
+    model: 'Ascension Compound Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_compound_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_72h_sprintResponse(message: string): NativeResponse {
+  return {
+    content: `I can design a high-activity 72-hour income or growth sprint with realistic, legal targets. What amount do you need and what skills/time can you commit?`,
+    model: 'Ascension 72h Sprint',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_72h_sprint',
+    data: { question: null }
+  };
+}
+
+function ascension_risk_budgetResponse(message: string): NativeResponse {
+  return {
+    content: `I can set a risk budget for fast-turn experiments so food, rent, and survival money are never at risk. What are your fixed survival costs?`,
+    model: 'Ascension Risk Budget',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_risk_budget',
+    data: { question: null }
+  };
+}
+
+function ascension_gig_sprintResponse(message: string): NativeResponse {
+  return {
+    content: `I can map the fastest gig and task income for a small amount in a short window. What skills, vehicle, and time do you have in the next 72 hours?`,
+    model: 'Ascension Gig Sprint',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_gig_sprint',
+    data: { question: null }
+  };
+}
+
+function ascension_money_flipResponse(message: string): NativeResponse {
+  return {
+    content: `I can take any amount you plug in and design a custom flip plan with a realistic target, timeline, and a clear risk warning. No guaranteed returns. How much, how fast, and what can you risk?`,
+    model: 'Ascension Money Flip',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_money_flip',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -6337,7 +6392,12 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_micro_launch': ascension_micro_launchResponse,
   'ascension_service_designer': ascension_service_designerResponse,
   'ascension_idea_validator': ascension_idea_validatorResponse,
-  'ascension_build_path': ascension_build_pathResponse
+  'ascension_build_path': ascension_build_pathResponse,
+  'ascension_compound_engine': ascension_compound_engineResponse,
+  'ascension_72h_sprint': ascension_72h_sprintResponse,
+  'ascension_risk_budget': ascension_risk_budgetResponse,
+  'ascension_gig_sprint': ascension_gig_sprintResponse,
+  'ascension_money_flip': ascension_money_flipResponse
 };
 
 export function routeNativeDomain(
