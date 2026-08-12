@@ -604,6 +604,50 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'research'
   },
+  {
+    id: 'ascension_events',
+    name: 'Ascension Events',
+    category: 'home',
+    description: 'Event planning, coordination, and logistics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_automotive',
+    name: 'Ascension Automotive',
+    category: 'home',
+    description: 'Vehicle maintenance, diagnostics, and buying guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_pets',
+    name: 'Ascension Pets',
+    category: 'home',
+    description: 'Pet care, health, training, and nutrition guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_weather',
+    name: 'Ascension Weather',
+    category: 'environment',
+    description: 'Weather-aware planning and safety recommendations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'environment'
+  },
   
   // Add 180+ more capabilities here...
 ];
