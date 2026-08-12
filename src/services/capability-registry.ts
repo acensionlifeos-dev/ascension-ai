@@ -2166,6 +2166,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'home'
   },
+  {
+    id: 'ascension_will',
+    name: 'Ascension Will',
+    category: 'legal',
+    description: 'Will planning and estate introduction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_trust',
+    name: 'Ascension Trust',
+    category: 'legal',
+    description: 'Trust basics and estate planning guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_prenup',
+    name: 'Ascension Prenup',
+    category: 'legal',
+    description: 'Prenuptial agreement information and attorney referral',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_divorce',
+    name: 'Ascension Divorce',
+    category: 'legal',
+    description: 'Divorce information and resource guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_custody',
+    name: 'Ascension Custody',
+    category: 'legal',
+    description: 'Child custody information and co-parenting resources',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_adoption',
+    name: 'Ascension Adoption',
+    category: 'legal',
+    description: 'Adoption information, steps, and resources',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_immigration',
+    name: 'Ascension Immigration',
+    category: 'legal',
+    description: 'Immigration path overview and document organization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_contracts',
+    name: 'Ascension Contracts',
+    category: 'legal',
+    description: 'Contract review preparation and plain-language explanations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_tenant',
+    name: 'Ascension Tenant',
+    category: 'legal',
+    description: 'Tenant rights, leases, and rental issues',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
+  {
+    id: 'ascension_landlord',
+    name: 'Ascension Landlord',
+    category: 'legal',
+    description: 'Landlord responsibilities, leases, and tenant issues',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'legal'
+  },
   
   // Add 180+ more capabilities here...
 ];

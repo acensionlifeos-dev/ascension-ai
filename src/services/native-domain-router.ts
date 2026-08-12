@@ -1709,6 +1709,116 @@ function balconyResponse(message: string): NativeResponse {
   };
 }
 
+function willResponse(message: string): NativeResponse {
+  return {
+    content: `I can introduce will planning and estate basics. I am not an attorney. Do you have a specific question or want a checklist?`,
+    model: 'Ascension Will',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_will',
+    data: { attorney: false }
+  };
+}
+
+function trustResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain trust basics and estate planning. I am not an attorney or tax advisor. What type of trust or goal?`,
+    model: 'Ascension Trust',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_trust',
+    data: { advisor: false }
+  };
+}
+
+function prenupResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide general prenup information and help prepare questions for an attorney. I am not a lawyer. What do you want to understand?`,
+    model: 'Ascension Prenup',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_prenup',
+    data: { attorney: false }
+  };
+}
+
+function divorceResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide general divorce information and help you find appropriate resources. I am not an attorney. What do you need help with?`,
+    model: 'Ascension Divorce',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_divorce',
+    data: { attorney: false }
+  };
+}
+
+function custodyResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide general custody information and co-parenting resources. I am not a family lawyer. What situation are you navigating?`,
+    model: 'Ascension Custody',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_custody',
+    data: { lawyer: false }
+  };
+}
+
+function adoptionResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide general adoption information and steps. I am not an adoption agency or attorney. What do you want to know?`,
+    model: 'Ascension Adoption',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_adoption',
+    data: { agency: false }
+  };
+}
+
+function immigrationResponse(message: string): NativeResponse {
+  return {
+    content: `I can outline immigration paths and help organize documents. I am not an immigration attorney. What is your situation?`,
+    model: 'Ascension Immigration',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_immigration',
+    data: { attorney: false }
+  };
+}
+
+function contractsResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain contract terms in plain language and help prepare questions for an attorney. I am not a lawyer. What contract?`,
+    model: 'Ascension Contracts',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_contracts',
+    data: { attorney: false }
+  };
+}
+
+function tenantResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain general tenant rights and lease concepts. I am not a lawyer. What is your rental issue?`,
+    model: 'Ascension Tenant',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tenant',
+    data: { lawyer: false }
+  };
+}
+
+function landlordResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain landlord responsibilities and lease concepts. I am not an attorney. What is the situation?`,
+    model: 'Ascension Landlord',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_landlord',
+    data: { lawyer: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
