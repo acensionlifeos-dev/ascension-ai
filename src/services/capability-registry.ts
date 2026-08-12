@@ -11613,6 +11613,87 @@ export const CAPABILITIES = [
     'ascension_life_orchestrator'
   ],
     context: 'Triggers: user asks about Contribution, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_phone_os',
+    name: 'Ascension Phone OS',
+    category: 'engineering',
+    description: 'Design, scaffold, and build a custom mobile operating system for ARM or x86 phone hardware',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_phone_drivers',
+      'ascension_phone_flash',
+      'ascension_phone_recovery',
+      'ascension_build_path',
+      'ascension_solution_engine',
+      'ascension_invention_engine',
+      'ascension_second_brain'
+    ],
+    context: 'Triggers: user asks about building a phone OS, replacing Android/iOS, or creating a custom mobile operating system. Cross-references: ascension_phone_drivers, ascension_phone_flash, ascension_phone_recovery, ascension_build_path, ascension_solution_engine, ascension_invention_engine, ascension_second_brain. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_phone_drivers',
+    name: 'Ascension Phone Driver Layer',
+    category: 'engineering',
+    description: 'Generate, wire, and validate USB, fastboot, ADB, display, touch, radio, and SoC drivers for a phone OS',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_phone_os',
+      'ascension_phone_flash',
+      'ascension_phone_recovery',
+      'ascension_build_path',
+      'ascension_code_generator',
+      'ascension_hardware_interface'
+    ],
+    context: 'Triggers: user needs phone drivers, USB stack, touch/screen drivers, radio drivers, or SoC support. Cross-references: ascension_phone_os, ascension_phone_flash, ascension_phone_recovery, ascension_build_path, ascension_code_generator, ascension_hardware_interface. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_phone_flash',
+    name: 'Ascension Phone Flash',
+    category: 'engineering',
+    description: 'Prepare a flashable OS image, verify compatibility, and flash it to a phone connected over USB',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_phone_os',
+      'ascension_phone_drivers',
+      'ascension_phone_recovery',
+      'ascension_build_path',
+      'ascension_device_control',
+      'ascension_risk_budget'
+    ],
+    context: 'Triggers: user asks to flash an OS to a phone over USB, rewrite phone firmware, or install a custom ROM. Cross-references: ascension_phone_os, ascension_phone_drivers, ascension_phone_recovery, ascension_build_path, ascension_device_control, ascension_risk_budget. Requires explicit device.flash permission and a receipt before writing anything to the device.'
+  },
+  {
+    id: 'ascension_phone_recovery',
+    name: 'Ascension Phone Recovery',
+    category: 'engineering',
+    description: 'Design recovery, bootloader, and fail-safe images for phone OS updates and brick recovery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_phone_os',
+      'ascension_phone_drivers',
+      'ascension_phone_flash',
+      'ascension_build_path',
+      'ascension_experiment_design',
+      'ascension_risk_budget'
+    ],
+    context: 'Triggers: user asks about recovery mode, bootloader, brick recovery, or safe images for phone OS. Cross-references: ascension_phone_os, ascension_phone_drivers, ascension_phone_flash, ascension_build_path, ascension_experiment_design, ascension_risk_budget. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 const CAPABILITY_MAP = new Map(CAPABILITIES.map(c => [c.id, c]));

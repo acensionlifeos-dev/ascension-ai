@@ -124,6 +124,20 @@ export const PERMISSION_SCOPES: Record<string, PermissionScope> = {
     why: 'Offer age-appropriate learning and milestone suggestions under parent supervision.',
     for_capability: 'ascension_sprout',
     category: 'read'
+  },
+  'device.read': {
+    id: 'device.read',
+    name: 'Read connected device info',
+    why: 'Identify the phone, SoC, partitions, and current firmware version over USB before planning a flash.',
+    for_capability: 'ascension_phone_flash',
+    category: 'read'
+  },
+  'device.flash': {
+    id: 'device.flash',
+    name: 'Flash device firmware',
+    why: 'Write a new operating system to a phone over USB only after explicit approval and a verified receipt.',
+    for_capability: 'ascension_phone_flash',
+    category: 'high_risk'
   }
 };
 
@@ -135,7 +149,8 @@ const CAPABILITY_PERMISSIONS: Record<string, string[]> = {
   'ascension_health': ['health.read'],
   'ascension_home': ['calendar.read', 'home.control'],
   'ascension_family': ['family.read'],
-  'ascension_sprout': ['sprout.guide']
+  'ascension_sprout': ['sprout.guide'],
+  'ascension_phone_flash': ['device.read', 'device.flash']
 };
 
 export function getRequiredPermissions(capabilityId: string): PermissionScope[] {

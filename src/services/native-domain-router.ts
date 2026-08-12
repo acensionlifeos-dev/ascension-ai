@@ -6812,6 +6812,50 @@ function ascension_contributionResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_phone_osResponse(message: string): NativeResponse {
+  return {
+    content: `I can help design a custom mobile operating system from the kernel up. Tell me the target phone (SoC, storage, screen, radios) and I will produce a build plan, toolchain, driver list, and partition layout. Real flashing to a device requires explicit device.flash permission and a verified receipt.`,
+    model: 'Ascension Phone OS',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_phone_os',
+    data: { question: null }
+  };
+}
+
+function ascension_phone_driversResponse(message: string): NativeResponse {
+  return {
+    content: `I can help map the driver layer for a phone OS: USB, fastboot, ADB, display, touch, audio, modem, Wi-Fi, Bluetooth, camera, and SoC power management. I will generate the driver matrix, source locations, and build order.`,
+    model: 'Ascension Phone Driver Layer',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_phone_drivers',
+    data: { question: null }
+  };
+}
+
+function ascension_phone_flashResponse(message: string): NativeResponse {
+  return {
+    content: `I can prepare a flashable OS image and a safe flashing procedure, but I will not write to a phone over USB until I have the device.flash permission, a verified device ID, and an explicit one-time approval. I will also require a recovery image and a brick-recovery path before starting.`,
+    model: 'Ascension Phone Flash',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_phone_flash',
+    data: { question: null }
+  };
+}
+
+function ascension_phone_recoveryResponse(message: string): NativeResponse {
+  return {
+    content: `I can design the bootloader, recovery partition, and fail-safe images for a phone OS. This includes fastboot/Odin-style recovery, A/B partitions, rollback protection, and an unbrick path.`,
+    model: 'Ascension Phone Recovery',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_phone_recovery',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -7429,7 +7473,11 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_body_profile': ascension_body_profileResponse,
   'ascension_document_intelligence': ascension_document_intelligenceResponse,
   'ascension_legacy': ascension_legacyResponse,
-  'ascension_contribution': ascension_contributionResponse
+  'ascension_contribution': ascension_contributionResponse,
+  'ascension_phone_os': ascension_phone_osResponse,
+  'ascension_phone_drivers': ascension_phone_driversResponse,
+  'ascension_phone_flash': ascension_phone_flashResponse,
+  'ascension_phone_recovery': ascension_phone_recoveryResponse
 };
 
 export function routeNativeDomain(
