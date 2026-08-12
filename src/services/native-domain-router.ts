@@ -6944,6 +6944,116 @@ function code_guardianResponse(message: string): NativeResponse {
   };
 }
 
+function ar_assistantResponse(message: string): NativeResponse {
+  return {
+    content: `I can be a walking AR companion: seeing what you see, understanding where you are, and giving you glanceable answers, navigation, translations, and reminders. This requires camera.read, location.read, microphone.read, and ar.overlay permissions. I will not record or identify bystanders without their explicit consent.`,
+    model: 'AR Assistant',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_assistant',
+    data: { question: null }
+  };
+}
+
+function ar_environment_scanResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a real-time spatial map of your surroundings for safe AR: doors, walls, obstacles, surfaces, and open paths. Requires camera.read, ar.read, and location.read permissions. I will not store or transmit the mesh without your approval.`,
+    model: 'AR Environment Scan',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_environment_scan',
+    data: { question: null }
+  };
+}
+
+function ar_object_recognitionResponse(message: string): NativeResponse {
+  return {
+    content: `I can identify objects, labels, prices, ingredients, and hazards in your view and explain them. Requires camera.read and ar.read permissions. I will not use this data to profile people.`,
+    model: 'AR Object Recognition',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_object_recognition',
+    data: { question: null }
+  };
+}
+
+function ar_navigationResponse(message: string): NativeResponse {
+  return {
+    content: `I can overlay walking and indoor directions in your view: arrows, distance, and turn cues. Requires camera.read, location.read, and ar.overlay permissions. I will not record the path unless you save it.`,
+    model: 'AR Navigation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_navigation',
+    data: { question: null }
+  };
+}
+
+function ar_realtime_translateResponse(message: string): NativeResponse {
+  return {
+    content: `I can translate signs, menus, and speech you see or hear through AR and show the result as an overlay. Requires camera.read, microphone.read, and ar.overlay permissions. I will not retain audio or images unless you explicitly save them.`,
+    model: 'AR Real-Time Translate',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_realtime_translate',
+    data: { question: null }
+  };
+}
+
+function ar_people_recognitionResponse(message: string): NativeResponse {
+  return {
+    content: `I can recognize your known contacts and give you social context, but I will not identify strangers or build a face database. Requires ar.read and an explicit privacy opt-in.`,
+    model: 'AR People Recognition',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_people_recognition',
+    data: { question: null }
+  };
+}
+
+function ar_context_feedResponse(message: string): NativeResponse {
+  return {
+    content: `I can stream relevant, glanceable context to your AR view: time, place, next appointment, weather, transit, and reminders. Requires camera.read, location.read, and ar.overlay permissions. I will keep the feed minimal and non-intrusive by default.`,
+    model: 'AR Context Feed',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_context_feed',
+    data: { question: null }
+  };
+}
+
+function ar_proactive_dataResponse(message: string): NativeResponse {
+  return {
+    content: `I can anticipate what you need next in AR and feed it before you ask: the train is coming, the gate is on your left, the item you need is aisle 4. Requires camera.read, location.read, and ar.overlay permissions. I will not proactively identify bystanders and you can turn this off at any time.`,
+    model: 'AR Proactive Data',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_proactive_data',
+    data: { question: null }
+  };
+}
+
+function ar_safety_alertResponse(message: string): NativeResponse {
+  return {
+    content: `I can warn you about physical hazards in AR: traffic, obstacles, stairs, wet floors, and moving objects. Requires camera.read and ar.read permissions. Alerts are local and do not leave your device unless you choose to save them.`,
+    model: 'AR Safety Alert',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_safety_alert',
+    data: { question: null }
+  };
+}
+
+function ar_memory_anchorResponse(message: string): NativeResponse {
+  return {
+    content: `I can tag places and objects you care about so I can recall context later: "your keys are on the kitchen table," "this store has the part you need." Requires camera.read, location.read, and ar.write permissions. Anchors stay local unless you opt into sync.`,
+    model: 'AR Memory Anchor',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ar_memory_anchor',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -7573,7 +7683,17 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'device_drivers': device_driversResponse,
   'device_flash': device_flashResponse,
   'ip_guard': ip_guardResponse,
-  'code_guardian': code_guardianResponse
+  'code_guardian': code_guardianResponse,
+  'ar_assistant': ar_assistantResponse,
+  'ar_environment_scan': ar_environment_scanResponse,
+  'ar_object_recognition': ar_object_recognitionResponse,
+  'ar_navigation': ar_navigationResponse,
+  'ar_realtime_translate': ar_realtime_translateResponse,
+  'ar_people_recognition': ar_people_recognitionResponse,
+  'ar_context_feed': ar_context_feedResponse,
+  'ar_proactive_data': ar_proactive_dataResponse,
+  'ar_safety_alert': ar_safety_alertResponse,
+  'ar_memory_anchor': ar_memory_anchorResponse
 };
 
 export function routeNativeDomain(

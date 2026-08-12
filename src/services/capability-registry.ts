@@ -11859,6 +11859,211 @@ export const CAPABILITIES = [
       'ascension_knowledge_vault'
     ],
     context: 'Triggers: user asks about source code vault, code signing, encryption, or leak prevention for proprietary code. Cross-references: ip_guard, universal_os, ascension_second_brain, ascension_knowledge_vault. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ar_assistant',
+    promoted: false,
+    name: 'AR Assistant',
+    category: 'spatial',
+    description: 'A Jarvis-level AR companion that walks with the user in the real world, sees what they see, and gives context-aware guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_environment_scan',
+      'ar_object_recognition',
+      'ar_navigation',
+      'ar_realtime_translate',
+      'ar_people_recognition',
+      'ar_context_feed',
+      'ar_proactive_data',
+      'ar_safety_alert',
+      'ar_memory_anchor'
+    ],
+    context: 'Triggers: user asks about AR glasses, walking AI, real-world assistant, spatial companion, or Jarvis in public. Cross-references: ar_environment_scan, ar_object_recognition, ar_navigation, ar_realtime_translate, ar_people_recognition, ar_context_feed, ar_proactive_data, ar_safety_alert, ar_memory_anchor. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ar_environment_scan',
+    promoted: false,
+    name: 'AR Environment Scan',
+    category: 'spatial',
+    description: 'Build and maintain a real-time 3D map of the user\'s surroundings for safe AR interaction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_object_recognition',
+      'ar_safety_alert',
+      'ar_memory_anchor',
+      'ascension_vision'
+    ],
+    context: 'Triggers: user asks about scanning a room, mapping surroundings, spatial mesh, or obstacle detection. Cross-references: ar_assistant, ar_object_recognition, ar_safety_alert, ar_memory_anchor, ascension_vision. Requires camera.read, location.read, and ar.read permissions.'
+  },
+  {
+    id: 'ar_object_recognition',
+    promoted: false,
+    name: 'AR Object Recognition',
+    category: 'spatial',
+    description: 'Identify objects, labels, prices, ingredients, and hazards in the user\'s field of view',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_environment_scan',
+      'ar_context_feed',
+      'ar_proactive_data',
+      'ascension_vision'
+    ],
+    context: 'Triggers: user asks what something is, read a label, identify an object, or scan ingredients. Cross-references: ar_assistant, ar_environment_scan, ar_context_feed, ar_proactive_data, ascension_vision. Requires camera.read and ar.read permissions.'
+  },
+  {
+    id: 'ar_navigation',
+    promoted: false,
+    name: 'AR Navigation',
+    category: 'spatial',
+    description: 'Overlay walking, driving, and indoor directions directly into the user\'s view',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_environment_scan',
+      'ar_context_feed',
+      'ascension_location_intelligence',
+      'ascension_appointments'
+    ],
+    context: 'Triggers: user asks for walking directions, indoor navigation, or AR arrows to a destination. Cross-references: ar_assistant, ar_environment_scan, ar_context_feed, ascension_location_intelligence, ascension_appointments. Requires location.read, camera.read, and ar.overlay permissions.'
+  },
+  {
+    id: 'ar_realtime_translate',
+    promoted: false,
+    name: 'AR Real-Time Translate',
+    category: 'spatial',
+    description: 'Translate signs, menus, conversations, and text the user sees in real time through AR',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_object_recognition',
+      'ar_context_feed',
+      'translation',
+      'ascension_voice_intelligence'
+    ],
+    context: 'Triggers: user asks to translate a sign, menu, or conversation through AR glasses. Cross-references: ar_assistant, ar_object_recognition, ar_context_feed, translation, ascension_voice_intelligence. Requires camera.read, microphone.read, and ar.overlay permissions.'
+  },
+  {
+    id: 'ar_people_recognition',
+    promoted: false,
+    name: 'AR People Recognition',
+    category: 'spatial',
+    description: 'Recognize known contacts, read name tags, and give social context about people in view',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_context_feed',
+      'ascension_personal_vortex',
+      'ascension_network_vortex',
+      'ascension_identity'
+    ],
+    context: 'Triggers: user asks who someone is, remember a face, or get context on a contact. Cross-references: ar_assistant, ar_context_feed, ascension_personal_vortex, ascension_network_vortex, ascension_identity. Requires ar.read and an explicit privacy setting. Does not identify strangers without consent.'
+  },
+  {
+    id: 'ar_context_feed',
+    promoted: false,
+    name: 'AR Context Feed',
+    category: 'spatial',
+    description: 'Stream relevant, glanceable information to the user based on what they are looking at and where they are',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_object_recognition',
+      'ar_navigation',
+      'ar_realtime_translate',
+      'ascension_living_context',
+      'ascension_proactive_engine'
+    ],
+    context: 'Triggers: user asks for heads-up display, AR overlay info, glanceable data, or context about a place. Cross-references: ar_assistant, ar_object_recognition, ar_navigation, ar_realtime_translate, ascension_living_context, ascension_proactive_engine. Requires camera.read, location.read, and ar.overlay permissions.'
+  },
+  {
+    id: 'ar_proactive_data',
+    promoted: false,
+    name: 'AR Proactive Data',
+    category: 'spatial',
+    description: 'Anticipate what the user needs next and feed it without being asked while in AR mode',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_context_feed',
+      'ar_safety_alert',
+      'ascension_proactive_engine',
+      'ascension_living_context'
+    ],
+    context: 'Triggers: user enables proactive AR or asks AP to look ahead. Cross-references: ar_assistant, ar_context_feed, ar_safety_alert, ascension_proactive_engine, ascension_living_context. Requires explicit opt-in, camera.read, location.read, and ar.overlay permissions. Respects bystander privacy and never proactively identifies strangers.'
+  },
+  {
+    id: 'ar_safety_alert',
+    promoted: false,
+    name: 'AR Safety Alert',
+    category: 'spatial',
+    description: 'Warn the user about physical hazards, traffic, obstacles, and unsafe conditions in AR',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_environment_scan',
+      'ar_object_recognition',
+      'ascension_health_intelligence',
+      'ascension_location_intelligence'
+    ],
+    context: 'Triggers: user asks for safety warnings, obstacle detection, traffic alerts, or hazard overlay. Cross-references: ar_assistant, ar_environment_scan, ar_object_recognition, ascension_health_intelligence, ascension_location_intelligence. Requires camera.read and ar.read permissions.'
+  },
+  {
+    id: 'ar_memory_anchor',
+    promoted: false,
+    name: 'AR Memory Anchor',
+    category: 'spatial',
+    description: 'Tag places, objects, and moments in the real world so AP can recall context later',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spatial',
+    related_capabilities: [
+      'ar_assistant',
+      'ar_environment_scan',
+      'ascension_second_brain',
+      'ascension_living_memory',
+      'ascension_living_context'
+    ],
+    context: 'Triggers: user asks to remember where something is, save a location, or anchor an object. Cross-references: ar_assistant, ar_environment_scan, ascension_second_brain, ascension_living_memory, ascension_living_context. Requires camera.read, location.read, and ar.write permissions. Stores anchors locally unless user opts into cloud backup.'
   }
 ];
 const CAPABILITY_MAP = new Map(CAPABILITIES.map(c => [c.id, c]));

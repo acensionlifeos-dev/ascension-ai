@@ -145,6 +145,41 @@ export const PERMISSION_SCOPES: Record<string, PermissionScope> = {
     why: 'Sign, license, watermark, or release proprietary source, models, or binaries only after explicit approval.',
     for_capability: 'ip_guard',
     category: 'high_risk'
+  },
+  'microphone.read': {
+    id: 'microphone.read',
+    name: 'Read microphone',
+    why: 'Hear voice commands and ambient audio for translation or transcription.',
+    for_capability: 'ar_realtime_translate',
+    category: 'read'
+  },
+  'location.read': {
+    id: 'location.read',
+    name: 'Read location',
+    why: 'Know where the user is for navigation, reminders, and place-based context.',
+    for_capability: 'ar_navigation',
+    category: 'read'
+  },
+  'ar.read': {
+    id: 'ar.read',
+    name: 'Read AR sensors',
+    why: 'Access camera, depth, and spatial data for AR environment and object understanding.',
+    for_capability: 'ar_environment_scan',
+    category: 'read'
+  },
+  'ar.overlay': {
+    id: 'ar.overlay',
+    name: 'Render AR overlay',
+    why: 'Draw text, arrows, labels, and alerts on top of the user\'s real-world view.',
+    for_capability: 'ar_context_feed',
+    category: 'write'
+  },
+  'ar.write': {
+    id: 'ar.write',
+    name: 'Write AR anchors',
+    why: 'Save spatial tags, memory anchors, and persistent AR notes.',
+    for_capability: 'ar_memory_anchor',
+    category: 'write'
   }
 };
 
@@ -160,7 +195,17 @@ const CAPABILITY_PERMISSIONS: Record<string, string[]> = {
   'phone_flash': ['device.read', 'device.flash'],
   'device_flash': ['device.read', 'device.flash'],
   'ip_guard': ['ip.control'],
-  'ascension_code_guardian': ['ip.control']
+  'code_guardian': ['ip.control'],
+  'ar_assistant': ['camera.read', 'microphone.read', 'location.read', 'ar.read', 'ar.overlay'],
+  'ar_environment_scan': ['camera.read', 'location.read', 'ar.read'],
+  'ar_object_recognition': ['camera.read', 'ar.read'],
+  'ar_navigation': ['camera.read', 'location.read', 'ar.overlay'],
+  'ar_realtime_translate': ['camera.read', 'microphone.read', 'ar.overlay'],
+  'ar_people_recognition': ['ar.read'],
+  'ar_context_feed': ['camera.read', 'location.read', 'ar.overlay'],
+  'ar_proactive_data': ['camera.read', 'location.read', 'ar.overlay'],
+  'ar_safety_alert': ['camera.read', 'ar.read'],
+  'ar_memory_anchor': ['camera.read', 'location.read', 'ar.write']
 };
 
 export function getRequiredPermissions(capabilityId: string): PermissionScope[] {
