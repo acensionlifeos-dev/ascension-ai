@@ -560,6 +560,50 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'vision'
   },
+  {
+    id: 'ascension_legal',
+    name: 'Ascension Legal Assistant',
+    category: 'documents',
+    description: 'Document review, contract analysis, and legal guidance flags',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'documents'
+  },
+  {
+    id: 'ascension_travel',
+    name: 'Ascension Travel',
+    category: 'home',
+    description: 'Trip planning, flight search, and itinerary preparation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_realestate',
+    name: 'Ascension Real Estate',
+    category: 'home',
+    description: 'Housing search, lease review, and property analysis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_research',
+    name: 'Ascension Research',
+    category: 'research',
+    description: 'Deep research with source comparison and citation preparation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'research'
+  },
   
   // Add 180+ more capabilities here...
 ];
