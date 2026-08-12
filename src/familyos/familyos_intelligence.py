@@ -196,20 +196,20 @@ class FamilyOSIntelligence:
         }
 
 # For production, we will implement:
-- Family data privacy and access controls
-- Role-based permissions
-- Family business accounting
-- Estate planning integration
-- Family meeting scheduling
-- Generational wealth tracking
-- Family knowledge base
-- Decision history
-- Conflict resolution tools
-- Family values documentation
-- Succession planning
-- Family philanthropy tracking
-- Education fund management
-- Multi-generational communication
+# - Family data privacy and access controls
+# - Role-based permissions
+# - Family business accounting
+# - Estate planning integration
+# - Family meeting scheduling
+# - Generational wealth tracking
+# - Family knowledge base
+# - Decision history
+# - Conflict resolution tools
+# - Family values documentation
+# - Succession planning
+# - Family philanthropy tracking
+# - Education fund management
+# - Multi-generational communication
 
 if __name__ == '__main__':
     print("FamilyOS intelligence ready")

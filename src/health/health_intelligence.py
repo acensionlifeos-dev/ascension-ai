@@ -233,18 +233,18 @@ class HealthIntelligence:
         return insights
 
 # For production, we will implement:
-- Medical disclaimer and safety checks
-- Wearable device integrations (Oura, Fitbit, Apple Watch)
-- HIPAA compliance and privacy
-- Real-time vitals monitoring
-- Symptom-to-condition mapping (not diagnosis)
-- Telehealth integration
-- Prescription tracking
-- Appointment reminders
-- Mental health crisis detection
-- Nutrition database integration
-- Exercise form analysis
-- Sleep stage analysis
+# - Medical disclaimer and safety checks
+# - Wearable device integrations (Oura, Fitbit, Apple Watch)
+# - HIPAA compliance and privacy
+# - Real-time vitals monitoring
+# - Symptom-to-condition mapping (not diagnosis)
+# - Telehealth integration
+# - Prescription tracking
+# - Appointment reminders
+# - Mental health crisis detection
+# - Nutrition database integration
+# - Exercise form analysis
+# - Sleep stage analysis
 
 if __name__ == '__main__':
     print("Health and wellness intelligence ready")

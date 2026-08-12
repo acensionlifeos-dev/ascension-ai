@@ -233,16 +233,16 @@ class HomeOSIntelligence:
         }
 
 # For production, we will implement:
-- Smart home API integrations (Google Home, Alexa, HomeKit)
-- Real sensor data processing
-- Chore automation and gamification
-- Family calendar sync
-- Grocery and inventory management
-- Meal planning
-- Home energy optimization
-- Security system integration
-- Co-parenting legal compliance
-- Family communication
+# - Smart home API integrations (Google Home, Alexa, HomeKit)
+# - Real sensor data processing
+# - Chore automation and gamification
+# - Family calendar sync
+# - Grocery and inventory management
+# - Meal planning
+# - Home energy optimization
+# - Security system integration
+# - Co-parenting legal compliance
+# - Family communication
 
 if __name__ == '__main__':
     print("HomeOS intelligence ready")

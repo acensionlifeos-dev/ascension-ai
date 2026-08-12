@@ -285,20 +285,20 @@ class SproutIntelligence:
         }
 
 # For production, we will implement:
-- Age-appropriate content filtering
-- COPPA compliance
-- Parental consent management
-- Child safety protections
-- Integration with educational platforms
-- Progress dashboards for parents
-- Learning game generation
-- Developmental milestone tracking
-- Pediatric health integration
-- School communication
-- Homework assistance
-- Social-emotional learning
-- Special needs support
-- Parent resource library
+# - Age-appropriate content filtering
+# - COPPA compliance
+# - Parental consent management
+# - Child safety protections
+# - Integration with educational platforms
+# - Progress dashboards for parents
+# - Learning game generation
+# - Developmental milestone tracking
+# - Pediatric health integration
+# - School communication
+# - Homework assistance
+# - Social-emotional learning
+# - Special needs support
+# - Parent resource library
 
 if __name__ == '__main__':
     print("Sprout intelligence ready")
