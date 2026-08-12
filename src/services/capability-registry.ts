@@ -4278,6 +4278,171 @@ export const CAPABILITIES = [
     requires_tier: 'business',
     executor: 'business'
   },
+  {
+    id: 'ascension_accounting',
+    name: 'Ascension Accounting',
+    category: 'finance',
+    description: 'Accounting principles, bookkeeping, and reports',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_bookkeeping',
+    name: 'Ascension Bookkeeping',
+    category: 'finance',
+    description: 'Bookkeeping entries, ledgers, and reconciliation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_invoicing',
+    name: 'Ascension Invoicing',
+    category: 'finance',
+    description: 'Invoice creation, terms, and collection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_payroll',
+    name: 'Ascension Payroll',
+    category: 'finance',
+    description: 'Payroll processing, taxes, and compliance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_budgeting',
+    name: 'Ascension Budgeting',
+    category: 'finance',
+    description: 'Budget creation, tracking, and variance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_expenses',
+    name: 'Ascension Expenses',
+    category: 'finance',
+    description: 'Expense tracking, reimbursement, and policies',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_business_taxes',
+    name: 'Ascension Business Taxes',
+    category: 'finance',
+    description: 'Business tax planning, deductions, and filing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_audit',
+    name: 'Ascension Audit',
+    category: 'finance',
+    description: 'Audit preparation, documentation, and response',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_compliance',
+    name: 'Ascension Compliance',
+    category: 'business',
+    description: 'Regulatory compliance, policies, and controls',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_grants',
+    name: 'Ascension Grants',
+    category: 'business',
+    description: 'Grant research, applications, and reporting',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_loans',
+    name: 'Ascension Loans',
+    category: 'finance',
+    description: 'Loan types, terms, and applications',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_credit',
+    name: 'Ascension Credit',
+    category: 'finance',
+    description: 'Credit cards, lines, and management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_debt',
+    name: 'Ascension Debt',
+    category: 'finance',
+    description: 'Debt payoff, consolidation, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_credit_score',
+    name: 'Ascension Credit Score',
+    category: 'finance',
+    description: 'Credit score building and repair',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_mortgage',
+    name: 'Ascension Mortgage',
+    category: 'finance',
+    description: 'Mortgage types, rates, and refinancing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
   
   // Add 200+ more capabilities here...
 ];

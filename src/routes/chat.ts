@@ -355,7 +355,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_cross_sell',
   'ascension_loyalty',
   'ascension_referral',
-  'ascension_reputation'
+  'ascension_reputation',
+  'ascension_accounting',
+  'ascension_bookkeeping',
+  'ascension_invoicing',
+  'ascension_payroll',
+  'ascension_budgeting',
+  'ascension_expenses',
+  'ascension_business_taxes',
+  'ascension_audit',
+  'ascension_compliance',
+  'ascension_grants',
+  'ascension_loans',
+  'ascension_credit',
+  'ascension_debt',
+  'ascension_credit_score',
+  'ascension_mortgage'
 ]);
 
 const router = Router();
