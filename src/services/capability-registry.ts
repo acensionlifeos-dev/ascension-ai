@@ -3772,6 +3772,182 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'knowledge'
   },
+  {
+    id: 'ascension_photography_gear',
+    name: 'Ascension Photography Gear',
+    category: 'creation',
+    description: 'Cameras, lenses, and photography equipment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_video_editing',
+    name: 'Ascension Video Editing',
+    category: 'creation',
+    description: 'Video editing, software, and workflow',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_color_grading',
+    name: 'Ascension Color Grading',
+    category: 'creation',
+    description: 'Color grading, LUTs, and look development',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_sound_design',
+    name: 'Ascension Sound Design',
+    category: 'creation',
+    description: 'Sound design, Foley, and audio libraries',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_mixing',
+    name: 'Ascension Mixing',
+    category: 'creation',
+    description: 'Audio mixing, levels, and balance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_mastering',
+    name: 'Ascension Mastering',
+    category: 'creation',
+    description: 'Audio mastering, loudness, and delivery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_voiceover',
+    name: 'Ascension Voiceover',
+    category: 'creation',
+    description: 'Voiceover recording, performance, and equipment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_podcast_production',
+    name: 'Ascension Podcast Production',
+    category: 'creation',
+    description: 'Podcast production, editing, and publishing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_youtube_seo',
+    name: 'Ascension YouTube SEO',
+    category: 'creation',
+    description: 'YouTube SEO, titles, and thumbnails',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_thumbnail',
+    name: 'Ascension Thumbnail',
+    category: 'creation',
+    description: 'Thumbnail design, text, and contrast',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_branding',
+    name: 'Ascension Branding',
+    category: 'creation',
+    description: 'Brand identity, voice, and assets',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_merchandise',
+    name: 'Ascension Merchandise',
+    category: 'business',
+    description: 'Merch design, production, and sales',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_crowdfunding',
+    name: 'Ascension Crowdfunding',
+    category: 'business',
+    description: 'Crowdfunding campaigns, rewards, and promotion',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_patreon',
+    name: 'Ascension Patreon',
+    category: 'business',
+    description: 'Patreon tiers, rewards, and growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_sponsorships',
+    name: 'Ascension Sponsorships',
+    category: 'business',
+    description: 'Sponsorship outreach and deal terms',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_affiliate',
+    name: 'Ascension Affiliate',
+    category: 'business',
+    description: 'Affiliate marketing, links, and commissions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
   
   // Add 200+ more capabilities here...
 ];

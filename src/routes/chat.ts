@@ -309,7 +309,23 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_drones',
   'ascension_rc',
   'ascension_ham_radio',
-  'ascension_astronomy'
+  'ascension_astronomy',
+  'ascension_photography_gear',
+  'ascension_video_editing',
+  'ascension_color_grading',
+  'ascension_sound_design',
+  'ascension_mixing',
+  'ascension_mastering',
+  'ascension_voiceover',
+  'ascension_podcast_production',
+  'ascension_youtube_seo',
+  'ascension_thumbnail',
+  'ascension_branding',
+  'ascension_merchandise',
+  'ascension_crowdfunding',
+  'ascension_patreon',
+  'ascension_sponsorships',
+  'ascension_affiliate'
 ]);
 
 const router = Router();
