@@ -248,7 +248,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_roleplay',
   'ascension_reviews',
   'ascension_trivia',
-  'ascension_boardgames'
+  'ascension_boardgames',
+  'ascension_streaming',
+  'ascension_youtube',
+  'ascension_tiktok',
+  'ascension_instagram',
+  'ascension_twitter',
+  'ascension_linkedin',
+  'ascension_facebook',
+  'ascension_reddit',
+  'ascension_discord',
+  'ascension_slack',
+  'ascension_teams',
+  'ascension_zoom',
+  'ascension_meet',
+  'ascension_webex',
+  'ascension_obs'
 ]);
 
 const router = Router();

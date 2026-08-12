@@ -3101,6 +3101,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'entertainment'
   },
+  {
+    id: 'ascension_streaming',
+    name: 'Ascension Streaming',
+    category: 'creation',
+    description: 'Live streaming setup, platforms, and growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_youtube',
+    name: 'Ascension YouTube',
+    category: 'creation',
+    description: 'YouTube content, SEO, and channel growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_tiktok',
+    name: 'Ascension TikTok',
+    category: 'creation',
+    description: 'TikTok content, trends, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_instagram',
+    name: 'Ascension Instagram',
+    category: 'creation',
+    description: 'Instagram content, reels, and growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_twitter',
+    name: 'Ascension Twitter',
+    category: 'creation',
+    description: 'Twitter/X content, threads, and engagement',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_linkedin',
+    name: 'Ascension LinkedIn',
+    category: 'work',
+    description: 'LinkedIn profile, content, and networking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_facebook',
+    name: 'Ascension Facebook',
+    category: 'social',
+    description: 'Facebook groups, pages, and events',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'social'
+  },
+  {
+    id: 'ascension_reddit',
+    name: 'Ascension Reddit',
+    category: 'social',
+    description: 'Reddit communities, posts, and etiquette',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'social'
+  },
+  {
+    id: 'ascension_discord',
+    name: 'Ascension Discord',
+    category: 'social',
+    description: 'Discord servers, roles, and moderation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'social'
+  },
+  {
+    id: 'ascension_slack',
+    name: 'Ascension Slack',
+    category: 'work',
+    description: 'Slack workspace, channels, and bots',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_teams',
+    name: 'Ascension Teams',
+    category: 'work',
+    description: 'Microsoft Teams meetings and collaboration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_zoom',
+    name: 'Ascension Zoom',
+    category: 'work',
+    description: 'Zoom meetings, webinars, and setup',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_meet',
+    name: 'Ascension Meet',
+    category: 'work',
+    description: 'Google Meet calls and settings',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_webex',
+    name: 'Ascension Webex',
+    category: 'work',
+    description: 'Webex meetings and setup',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'work'
+  },
+  {
+    id: 'ascension_obs',
+    name: 'Ascension OBS',
+    category: 'creation',
+    description: 'OBS Studio setup, scenes, and streaming',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
   
   // Add 200+ more capabilities here...
 ];
