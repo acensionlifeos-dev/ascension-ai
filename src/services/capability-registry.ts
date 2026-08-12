@@ -5312,6 +5312,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'spirituality'
   },
+  {
+    id: 'ascension_philosophy',
+    name: 'Ascension Philosophy',
+    category: 'knowledge',
+    description: 'Philosophy, schools, and thinkers',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_logic',
+    name: 'Ascension Logic',
+    category: 'knowledge',
+    description: 'Logic, reasoning, and fallacies',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_critical_thinking',
+    name: 'Ascension Critical Thinking',
+    category: 'knowledge',
+    description: 'Critical thinking and evaluation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_argumentation',
+    name: 'Ascension Argumentation',
+    category: 'knowledge',
+    description: 'Argument structure and evidence',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_fallacies',
+    name: 'Ascension Fallacies',
+    category: 'knowledge',
+    description: 'Logical fallacies and spotting them',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_debate',
+    name: 'Ascension Debate',
+    category: 'knowledge',
+    description: 'Debate formats, prep, and rebuttal',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_persuasion',
+    name: 'Ascension Persuasion',
+    category: 'knowledge',
+    description: 'Persuasion principles and ethics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_rapport',
+    name: 'Ascension Rapport',
+    category: 'relationships',
+    description: 'Building rapport and trust',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_empathy',
+    name: 'Ascension Empathy',
+    category: 'relationships',
+    description: 'Empathy, listening, and response',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_charisma',
+    name: 'Ascension Charisma',
+    category: 'relationships',
+    description: 'Charisma, presence, and influence',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_confidence_building',
+    name: 'Ascension Confidence Building',
+    category: 'wellness',
+    description: 'Confidence building and self-efficacy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_assertiveness',
+    name: 'Ascension Assertiveness',
+    category: 'relationships',
+    description: 'Assertive communication and boundaries',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_boundaries',
+    name: 'Ascension Boundaries',
+    category: 'relationships',
+    description: 'Personal boundaries and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_conflict_resolution',
+    name: 'Ascension Conflict Resolution',
+    category: 'relationships',
+    description: 'Conflict resolution and mediation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
+  {
+    id: 'ascension_active_listening',
+    name: 'Ascension Active Listening',
+    category: 'relationships',
+    description: 'Active listening and reflective response',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'relationships'
+  },
   
   // Add 200+ more capabilities here...
 ];

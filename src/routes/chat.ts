@@ -449,7 +449,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_wicca',
   'ascension_druidry',
   'ascension_native_spirituality',
-  'ascension_shamanism'
+  'ascension_shamanism',
+  'ascension_philosophy',
+  'ascension_logic',
+  'ascension_critical_thinking',
+  'ascension_argumentation',
+  'ascension_fallacies',
+  'ascension_debate',
+  'ascension_persuasion',
+  'ascension_rapport',
+  'ascension_empathy',
+  'ascension_charisma',
+  'ascension_confidence_building',
+  'ascension_assertiveness',
+  'ascension_boundaries',
+  'ascension_conflict_resolution',
+  'ascension_active_listening'
 ]);
 
 const router = Router();
