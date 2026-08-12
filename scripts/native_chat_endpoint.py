@@ -1,8 +1,9 @@
 """Native chat endpoint for local testing.
 
 Runs a lightweight HTTP server that invokes the deterministic parts of
-the Ascension contract engine. It does not load model weights and does not
-promote the native model to primary; it is for evaluation and development only.
+the Ascension contract engine, and falls back to the loaded local model
+for open-ended generation. It does not promote the native model to primary;
+it is for evaluation and development only.
 """
 
 import json
@@ -22,20 +23,37 @@ from src.core.orchestrator import (
     prepare_inference,
 )
 from src.core.contracts import Shell, Tier
+from src.core.model_runtime import NativeModelRuntime
 
 
 HOST = os.environ.get('ASCENSION_NATIVE_HOST', '127.0.0.1')
 PORT = int(os.environ.get('ASCENSION_NATIVE_PORT', '8000'))
 
+# Lazy-load the native GGUF model once, on first request, to keep startup fast.
+_runtime: NativeModelRuntime | None = None
+
+
+def get_runtime() -> NativeModelRuntime | None:
+    global _runtime
+    if _runtime is None:
+        try:
+            _runtime = NativeModelRuntime()
+            _runtime.load()
+        except Exception:
+            _runtime = None
+    return _runtime
+
 
 def handle_chat(body: dict) -> dict:
-    """Return a deterministic native response or a stub."""
+    """Return a deterministic native response, or fall back to the loaded model."""
     messages = body.get('messages', [])
     capability = body.get('capability', 'ascension_chat')
     shell_name = body.get('shell', 'core')
     surface = body.get('surface', 'chat')
     mode = body.get('mode', 'conversation')
     context = body.get('context', {})
+    temperature = body.get('temperature', 0.7)
+    max_tokens = body.get('max_tokens', 2048)
 
     try:
         shell = Shell(shell_name)
@@ -71,13 +89,33 @@ def handle_chat(body: dict) -> dict:
             'cognition': prepared.get('cognition'),
         }
 
-    return {
-        'content': f'Ascension native response for {capability} (stub: generative model not loaded yet).',
-        'model': 'Ascension Candidate 3B (stub)',
-        'provider': 'ascension-native',
-        'tokensUsed': 0,
-        'fallback': True,
-    }
+    # Deterministic engine had no match; try the loaded local model.
+    runtime = get_runtime()
+    if runtime is None:
+        return {
+            'content': f'Ascension native response for {capability} (stub: generative model not loaded yet).',
+            'model': 'Ascension Candidate 3B (stub)',
+            'provider': 'ascension-native',
+            'tokensUsed': 0,
+            'fallback': True,
+        }
+
+    try:
+        model_output = runtime.chat(messages, temperature, max_tokens)
+        return {
+            'content': model_output['content'],
+            'model': model_output.get('model', runtime.status().get('model', 'Ascension Native')),
+            'provider': 'ascension-native',
+            'tokensUsed': model_output.get('tokensUsed', 0),
+        }
+    except Exception as error:
+        return {
+            'content': f'Ascension native response for {capability} (model error: {error}).',
+            'model': 'Ascension Native',
+            'provider': 'ascension-native',
+            'tokensUsed': 0,
+            'fallback': True,
+        }
 
 
 class NativeChatHandler(BaseHTTPRequestHandler):
@@ -117,11 +155,17 @@ class NativeChatHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
         if parsed.path == '/health':
+            runtime = get_runtime()
+            status = runtime.status() if runtime else {
+                'ready': False,
+                'error': 'Model not loaded'
+            }
             self._json_response(200, {
-                'status': 'ok',
+                'status': 'ok' if status.get('ready') else 'model_unavailable',
                 'provider': 'ascension-native',
-                'candidate_ready': True,
+                'candidate_ready': status.get('ready', False),
                 'outside_provider': False,
+                'model': status
             })
             return
         self._json_response(404, {'error': 'Not found'})
