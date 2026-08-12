@@ -42,6 +42,8 @@ def main() -> None:
     calendar_prepared = prepare_inference(shell=Shell.AP,tier=Tier.LIFE_OS,messages=[{"role":"user","content":"Add a dentist appointment Tuesday at 3 pm"}],context={},surface="chat",mode="conversation",allowed_capabilities=["schedule"])
     calendar_answer = deterministic_first_pass(calendar_prepared["cognition"], "conversation")
     check("calendar writes require approval and provider receipts", calendar_answer is not None and "Nothing has been added" in calendar_answer and "provider-confirmed" in calendar_answer)
+    restricted = prepare_inference(shell=Shell.AP,tier=Tier.LIFE_OS,messages=[{"role":"user","content":"I'm short on cash and pay $50 to my landlord"}],context={},surface="chat",mode="conversation",allowed_capabilities=["schedule"])
+    check("allowed capabilities fail closed across domains, memory, and actions", restricted["domains"] == [] and not restricted["cognition"]["memory_candidates"] and not restricted["cognition"]["action_proposals"] and "finance" not in restricted["capabilities"])
     scope_answer = deterministic_scope_answer(Shell.NEXUS_FAMILY, "What private information can you see about each family member?")
     check("Nexus cannot improvise access to family member data", "cannot see" in scope_answer.lower() and "permission-scoped context" in scope_answer.lower())
     repair_answer = deterministic_conversation_repair("Why do you always ask what I'm thinking? It feels robotic.", "conversation")
@@ -54,7 +56,7 @@ def main() -> None:
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
     queue_status = NativeModelRuntime().status().get("queue", {})
     check("native runtime exposes bounded concurrency evidence", {"queue_depth", "active_requests", "completed_requests", "failed_requests", "last_queue_wait_ms", "max_queue_wait_ms", "last_inference_ms"}.issubset(queue_status))
-    print("Replacement contract evaluation passed: 19/19")
+    print("Replacement contract evaluation passed: 20/20")
 
 
 if __name__ == "__main__":

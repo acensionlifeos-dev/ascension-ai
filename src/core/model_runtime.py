@@ -15,6 +15,10 @@ ROOT = Path(__file__).resolve().parents[2]
 PROFILES_PATH = ROOT / "config" / "model_profiles.json"
 
 
+class NativeInferenceQueueTimeout(RuntimeError):
+    """The serialized native runtime could not start within its queue budget."""
+
+
 class NativeModelRuntime:
     def __init__(self) -> None:
         self.model = None
@@ -28,9 +32,11 @@ class NativeModelRuntime:
         self.active_requests = 0
         self.completed_requests = 0
         self.failed_requests = 0
+        self.timeout_requests = 0
         self.last_queue_wait_ms = 0
         self.max_queue_wait_ms = 0
         self.last_inference_ms = 0
+        self.queue_timeout_seconds = float(os.getenv("ASCENSION_QUEUE_TIMEOUT_SECONDS", "95"))
 
     def _read_profile(self) -> dict:
         profiles = json.loads(PROFILES_PATH.read_text(encoding="utf-8"))
@@ -83,9 +89,11 @@ class NativeModelRuntime:
                 "active_requests": self.active_requests,
                 "completed_requests": self.completed_requests,
                 "failed_requests": self.failed_requests,
+                "timeout_requests": self.timeout_requests,
                 "last_queue_wait_ms": self.last_queue_wait_ms,
                 "max_queue_wait_ms": self.max_queue_wait_ms,
                 "last_inference_ms": self.last_inference_ms,
+                "queue_timeout_seconds": self.queue_timeout_seconds,
             }
         return {
             "ready": self.model is not None,
@@ -113,35 +121,38 @@ class NativeModelRuntime:
         with self.metrics_lock:
             self.queue_depth += 1
         try:
-            with self.lock:
-                inference_started = time.perf_counter()
-                queue_wait_ms = round((inference_started - queued_at) * 1000)
+            if not self.lock.acquire(timeout=self.queue_timeout_seconds):
+                raise NativeInferenceQueueTimeout("Native inference queue timeout")
+            dequeued = True
+            inference_started = time.perf_counter()
+            queue_wait_ms = round((inference_started - queued_at) * 1000)
+            with self.metrics_lock:
+                self.queue_depth = max(0, self.queue_depth - 1)
+                self.active_requests += 1
+                self.last_queue_wait_ms = queue_wait_ms
+                self.max_queue_wait_ms = max(self.max_queue_wait_ms, queue_wait_ms)
+            try:
+                result = self.model.create_chat_completion(
+                    messages=inference_messages,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    top_p=0.9,
+                    repeat_penalty=1.08,
+                    stop=["<|im_end|>", "<|endoftext|>"],
+                )
+                inference_ms = round((time.perf_counter() - inference_started) * 1000)
                 with self.metrics_lock:
-                    self.queue_depth = max(0, self.queue_depth - 1)
-                    dequeued = True
-                    self.active_requests += 1
-                    self.last_queue_wait_ms = queue_wait_ms
-                    self.max_queue_wait_ms = max(self.max_queue_wait_ms, queue_wait_ms)
-                try:
-                    result = self.model.create_chat_completion(
-                        messages=inference_messages,
-                        temperature=temperature,
-                        max_tokens=max_tokens,
-                        top_p=0.9,
-                        repeat_penalty=1.08,
-                        stop=["<|im_end|>", "<|endoftext|>"],
-                    )
-                    inference_ms = round((time.perf_counter() - inference_started) * 1000)
-                    with self.metrics_lock:
-                        self.completed_requests += 1
-                        self.last_inference_ms = inference_ms
-                finally:
-                    with self.metrics_lock:
-                        self.active_requests = max(0, self.active_requests - 1)
+                    self.completed_requests += 1
+                    self.last_inference_ms = inference_ms
+            finally:
+                self.lock.release()
+                with self.metrics_lock:
+                    self.active_requests = max(0, self.active_requests - 1)
         except Exception:
             with self.metrics_lock:
                 if not dequeued:
                     self.queue_depth = max(0, self.queue_depth - 1)
+                    self.timeout_requests += 1
                 self.failed_requests += 1
             raise
         content = self._clean_content(
@@ -163,7 +174,14 @@ class NativeModelRuntime:
         if self.model is None:
             raise RuntimeError(self.load_error or "Native model is not loaded.")
         inference_messages = self._prepare_messages(messages)
-        with self.lock:
+        if not self.lock.acquire(timeout=self.queue_timeout_seconds):
+            with self.metrics_lock:
+                self.timeout_requests += 1
+                self.failed_requests += 1
+            raise NativeInferenceQueueTimeout("Native inference queue timeout")
+        try:
+            with self.metrics_lock:
+                self.active_requests += 1
             chunks = self.model.create_chat_completion(
                 messages=inference_messages,
                 temperature=temperature,
@@ -177,6 +195,14 @@ class NativeModelRuntime:
                 token = str(chunk.get("choices", [{}])[0].get("delta", {}).get("content", ""))
                 if token:
                     yield token
+        except Exception:
+            with self.metrics_lock:
+                self.failed_requests += 1
+            raise
+        finally:
+            self.lock.release()
+            with self.metrics_lock:
+                self.active_requests = max(0, self.active_requests - 1)
 
     def _prepare_messages(self, messages: list[dict]) -> list[dict]:
         """Keep Qwen3 in fast non-thinking mode without exposing control tokens in UI."""

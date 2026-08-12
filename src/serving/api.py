@@ -21,7 +21,7 @@ from pydantic import BaseModel, Field, field_validator
 from src.core.capabilities import CAPABILITIES
 from src.core.cognition import TALENTS, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
-from src.core.model_runtime import runtime
+from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import prepare_inference, respond, surface_plan
 
 
@@ -328,6 +328,10 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             temperature=request.temperature,
             max_tokens=effective_max_tokens(request.max_tokens, request.mode),
         )
+    except NativeInferenceQueueTimeout as error:
+        raise HTTPException(status_code=504, detail=str(error)) from error
+    except RuntimeError as error:
+        raise HTTPException(status_code=502, detail=str(error)) from error
     except Exception as error:
         raise HTTPException(status_code=502, detail=str(error)) from error
 

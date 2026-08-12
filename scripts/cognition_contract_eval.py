@@ -39,6 +39,11 @@ def main() -> None:
             require(proposal["approval"] == "explicit_confirmation", "external high-risk actions must require explicit confirmation")
             require(proposal["execution_state"] == "proposal_only", "the native core must never claim execution")
 
+    schedule_only = build_cognitive_packet("I'm short on cash and pay $50 to my landlord", {}, ["schedule"])
+    require(schedule_only["domains"] == [], "restricted requests must not fall back to an unauthorized identity domain")
+    require(not schedule_only["memory_candidates"], "restricted requests must not emit memory candidates from unauthorized domains")
+    require(not schedule_only["action_proposals"], "restricted requests must not emit action proposals from unauthorized domains")
+
     evidence = {
         "documents": [
             {"text": "The family trust review happens each Sunday evening.", "id": "family-1"},

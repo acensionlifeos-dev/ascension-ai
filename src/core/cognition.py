@@ -55,6 +55,14 @@ ACTION_CATALOG: dict[str, dict[str, str]] = {
     "finance.payment": {"domain": "finance", "risk": "critical", "approval": "explicit_confirmation", "surface": "financial_profile"},
 }
 
+MEMORY_CANDIDATE_DOMAINS = {
+    "work_schedule": "schedule",
+    "preferred_name": "identity",
+    "cash_pressure": "finance",
+    "housing_search": "finance",
+    "creation_idea": "creation",
+}
+
 
 DAY_NAMES = {
     "mon": "monday", "monday": "monday", "tue": "tuesday", "tues": "tuesday", "tuesday": "tuesday",
@@ -246,13 +254,20 @@ def active_talents(domains: list[str]) -> list[dict]:
 
 def build_cognitive_packet(text: str, context: dict, allowed_capabilities: list[str], available_actions: list[str] | None = None) -> dict:
     domains = detect_domains(text, context)
+    permitted: set[str] | None = None
     if allowed_capabilities:
         permitted = set(allowed_capabilities) | {"safety"}
         domains = [domain for domain in domains if domain in permitted]
-    domains = domains or ["identity"]
     memories = extract_memory_candidates(text)
+    if permitted is not None:
+        memories = [
+            candidate for candidate in memories
+            if MEMORY_CANDIDATE_DOMAINS.get(str(candidate.get("key") or "")) in permitted
+        ]
     actions_from_context = available_actions or (context.get("available_actions", []) if isinstance(context, dict) else [])
     actions = propose_actions(text, memories, actions_from_context)
+    if permitted is not None:
+        actions = [proposal for proposal in actions if proposal.get("domain") in permitted]
     retrieval = hybrid_retrieve(text, context)
     surfaces = []
     for domain in domains:
