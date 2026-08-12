@@ -1,12 +1,18 @@
 """
 Ascension AI - General English v5 Training
 
-BPE tokenizer on WikiText-103, 200,000 steps, 85M parameters.
-Expected runtime: ~8-12 hours on RTX 3060.
+BPE tokenizer on WikiText-103 with configurable steps and vocab size.
+Run with default 200,000 steps for the biggest model yet,
+or pass --steps for a shorter overnight session.
+
+Examples:
+    python -u scripts/train_ascension_general_v5.py
+    python -u scripts/train_ascension_general_v5.py --version ascension_elite_general_v5_4h --steps 120000
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import random
 import re
@@ -32,6 +38,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Train Ascension Elite v5")
+    parser.add_argument("--version", default="ascension_elite_general_v5", help="checkpoint prefix")
+    parser.add_argument("--steps", type=int, default=200000, help="total training steps")
+    parser.add_argument("--vocab_size", type=int, default=8192, help="BPE vocab size")
+    parser.add_argument("--print_every", type=int, default=5000, help="log interval")
+    parser.add_argument("--batch_size", type=int, default=16, help="batch size")
+    return parser.parse_args()
+
+
 def load_corpus() -> str:
     corpus_path = Path("data/general_corpus_v5.txt")
     if corpus_path.is_file():
@@ -49,8 +65,8 @@ def load_corpus() -> str:
     return cleaned
 
 
-def build_bpe_tokenizer(corpus: str, vocab_size: int = 8000) -> Tokenizer:
-    tokenizer_path = Path("checkpoints/ascension_elite_general_v5_tokenizer.json")
+def build_bpe_tokenizer(corpus: str, vocab_size: int, prefix: str) -> Tokenizer:
+    tokenizer_path = Path(f"checkpoints/{prefix}_tokenizer.json")
     if tokenizer_path.is_file():
         print(f"Loading existing BPE tokenizer: {tokenizer_path}")
         return Tokenizer.from_file(str(tokenizer_path))
@@ -91,6 +107,7 @@ def get_cosine_schedule_with_warmup(optimizer, warmup_steps: int, total_steps: i
 
 
 def main():
+    args = parse_args()
     random.seed(42)
     torch.manual_seed(42)
 
@@ -99,7 +116,7 @@ def main():
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    prefix = "ascension_elite_general_v5"
+    prefix = args.version
     model_path = out_dir / f"{prefix}.pt"
     tokenizer_path = out_dir / f"{prefix}_tokenizer.json"
     meta_path = out_dir / f"{prefix}_meta.json"
@@ -109,7 +126,7 @@ def main():
         raise SystemExit("No training text found. Check internet or place data/general_corpus_v5.txt.")
     print(f"Corpus size: {len(corpus):,} characters")
 
-    tokenizer = build_bpe_tokenizer(corpus)
+    tokenizer = build_bpe_tokenizer(corpus, args.vocab_size, prefix)
     vocab_size = tokenizer.get_vocab_size()
     print(f"BPE vocab size: {vocab_size}")
 
@@ -119,7 +136,7 @@ def main():
     print(f"Tokenized corpus: {len(token_ids):,} tokens")
 
     dataset = TokenizedDataset(token_ids, length=256)
-    dataloader = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=0)
+    dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=0)
     print(f"Dataset sequences: {len(dataset):,}")
 
     config = ModelConfig(
@@ -139,8 +156,8 @@ def main():
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=0.01, betas=(0.9, 0.95))
     criterion = nn.CrossEntropyLoss()
 
-    num_steps = 200000
-    warmup_steps = 10000
+    num_steps = args.steps
+    warmup_steps = min(10000, num_steps // 10)
     scheduler = get_cosine_schedule_with_warmup(optimizer, warmup_steps, num_steps)
 
     model.train()
@@ -166,12 +183,14 @@ def main():
             epoch_loss += loss.item()
             step += 1
 
+            if step % args.print_every == 0 or step == num_steps:
+                avg = epoch_loss / (step % args.print_every or args.print_every)
+                print(f"Step {step}/{num_steps} loss: {avg:.4f}")
+
         avg = epoch_loss / len(dataloader)
         losses.append(avg)
         if avg < best_loss:
             best_loss = avg
-        if (step - 1) % 5000 == 0 or step == num_steps:
-            print(f"Step {step}/{num_steps} loss: {avg:.4f}")
 
     elapsed = time.perf_counter() - start
     print(f"Training complete in {elapsed:.2f}s best loss: {best_loss:.4f} final loss: {losses[-1]:.4f}")
