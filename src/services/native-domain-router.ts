@@ -1819,6 +1819,116 @@ function landlordResponse(message: string): NativeResponse {
   };
 }
 
+function startupResponse(message: string): NativeResponse {
+  return {
+    content: `I can help validate startup ideas, plan early operations, and avoid common mistakes. What is the idea or challenge?`,
+    model: 'Ascension Startup',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_startup',
+    data: { validated: false }
+  };
+}
+
+function businessPlanResponse(message: string): NativeResponse {
+  return {
+    content: `I can help draft and review business plan sections. I won't file or submit anything. What part do you want to work on?`,
+    model: 'Ascension Business Plan',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_business_plan',
+    data: { submitted: false }
+  };
+}
+
+function marketingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with marketing strategy, channels, and campaigns. What product or audience?`,
+    model: 'Ascension Marketing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_marketing',
+    data: { audience: null }
+  };
+}
+
+function salesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with sales process, outreach, and closing. What are you selling and to whom?`,
+    model: 'Ascension Sales',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sales',
+    data: { pipeline: [] }
+  };
+}
+
+function brandResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with brand positioning, voice, and identity. What is the business and audience?`,
+    model: 'Ascension Brand',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_brand',
+    data: { audience: null }
+  };
+}
+
+function customerServiceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with customer service, support scripts, and retention. What is the issue or goal?`,
+    model: 'Ascension Customer Service',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_customer_service',
+    data: { issue: null }
+  };
+}
+
+function hrResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with hiring, onboarding, and employee relations. I am not a lawyer. What is the HR situation?`,
+    model: 'Ascension HR',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_hr',
+    data: { lawyer: false }
+  };
+}
+
+function fundraisingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with fundraising strategy, investor prep, and grant research. I won't send materials. What stage are you at?`,
+    model: 'Ascension Fundraising',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_fundraising',
+    data: { sent: [] }
+  };
+}
+
+function pitchResponse(message: string): NativeResponse {
+  return {
+    content: `I can help build and practice pitches. What is the business and audience?`,
+    model: 'Ascension Pitch',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_pitch',
+    data: { delivered: false }
+  };
+}
+
+function partnershipsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with partnership strategy, outreach, and deal structure. I won't sign anything. What is the opportunity?`,
+    model: 'Ascension Partnerships',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_partnerships',
+    data: { signed: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

@@ -2276,6 +2276,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'legal'
   },
+  {
+    id: 'ascension_startup',
+    name: 'Ascension Startup',
+    category: 'business',
+    description: 'Startup ideation, validation, and early operations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_business_plan',
+    name: 'Ascension Business Plan',
+    category: 'business',
+    description: 'Business plan drafting and review',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_marketing',
+    name: 'Ascension Marketing',
+    category: 'business',
+    description: 'Marketing strategy, channels, and campaigns',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_sales',
+    name: 'Ascension Sales',
+    category: 'business',
+    description: 'Sales process, outreach, and closing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_brand',
+    name: 'Ascension Brand',
+    category: 'business',
+    description: 'Brand positioning, voice, and identity',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_customer_service',
+    name: 'Ascension Customer Service',
+    category: 'business',
+    description: 'Customer service, support, and retention',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_hr',
+    name: 'Ascension HR',
+    category: 'business',
+    description: 'Hiring, onboarding, and employee relations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_fundraising',
+    name: 'Ascension Fundraising',
+    category: 'business',
+    description: 'Fundraising, investors, and grant seeking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_pitch',
+    name: 'Ascension Pitch',
+    category: 'business',
+    description: 'Pitch deck and investor presentation practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_partnerships',
+    name: 'Ascension Partnerships',
+    category: 'business',
+    description: 'Partnership, alliance, and deal strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
   
   // Add 180+ more capabilities here...
 ];
