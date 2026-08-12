@@ -32,6 +32,7 @@ describe('Ascension AI API integration', () => {
         PORT: String(port),
         DEV_AUTH_BYPASS: 'true',
         ASCENSION_NATIVE_ENABLED: 'true',
+        ASCENSION_NATIVE_URL: 'http://localhost:19999/chat',
         PATH: process.env.PATH
       },
       stdio: 'pipe'

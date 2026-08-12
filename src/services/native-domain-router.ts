@@ -114,6 +114,83 @@ function weatherResponse(message: string): NativeResponse {
   };
 }
 
+function financeResponse(message: string): NativeResponse {
+  return {
+    content: `I can analyze cash flow, income, debt, and spending, and build a step-by-step plan. I need your real balances, income dates, and upcoming bills to do it safely. Nothing has been budgeted or moved yet.`,
+    model: 'Ascension Financial Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_finance',
+    data: { planning_started: false }
+  };
+}
+
+function tradingResponse(message: string): NativeResponse {
+  return {
+    content: `I can analyze markets, backtest strategies, and run paper trades. I will not place live orders without your explicit approval and a verified broker receipt. What market or strategy do you want to explore?`,
+    model: 'Ascension Trading Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_trading',
+    data: { paper_only: true }
+  };
+}
+
+function healthResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with wellness planning and symptom guidance, but I cannot diagnose or replace a healthcare provider. Please describe what you are experiencing or share any vitals you are comfortable with.`,
+    model: 'Ascension Health',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_health',
+    data: { medical_disclaimer: true }
+  };
+}
+
+function homeResponse(message: string): NativeResponse {
+  return {
+    content: `I can coordinate schedules, chores, and smart home devices for your household. Nothing has been changed yet. Tell me who is in the household and what you want to organize.`,
+    model: 'Ascension HomeOS',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_home',
+    data: { household_known: false }
+  };
+}
+
+function sproutResponse(message: string): NativeResponse {
+  return {
+    content: `I can create age-appropriate learning paths and milestone guidance under parent supervision. Tell me the child\'s age, interests, and what you want to focus on.`,
+    model: 'Ascension Sprout',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sprout',
+    data: { parent_supervision: true }
+  };
+}
+
+function familyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with family enterprise planning, governance, and shared records using only explicitly shared family data. What is the family decision or record you want to work on?`,
+    model: 'Ascension FamilyOS',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_family',
+    data: { shared_only: true }
+  };
+}
+
+function chatResponse(message: string): NativeResponse {
+  return {
+    content: `I am AP, your Ascension Partner. I can help across every domain of your life, but I will not pretend to see data you have not shared and I will not act without your approval. What is on your mind?`,
+    model: 'Ascension AP',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_chat',
+    data: { shell: 'ap' }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
@@ -122,7 +199,14 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_events': eventsResponse,
   'ascension_automotive': automotiveResponse,
   'ascension_pets': petsResponse,
-  'ascension_weather': weatherResponse
+  'ascension_weather': weatherResponse,
+  'ascension_finance': financeResponse,
+  'ascension_trading': tradingResponse,
+  'ascension_health': healthResponse,
+  'ascension_home': homeResponse,
+  'ascension_sprout': sproutResponse,
+  'ascension_family': familyResponse,
+  'ascension_chat': chatResponse
 };
 
 export function routeNativeDomain(
