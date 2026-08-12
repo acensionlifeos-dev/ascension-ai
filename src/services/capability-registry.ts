@@ -2421,6 +2421,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_martialarts',
+    promoted: false,
     name: 'Ascension Martial Arts',
     category: 'wellness',
     description: 'Martial arts style guidance, drills, and conditioning',
@@ -4714,6 +4715,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hunting',
+    promoted: false,
     name: 'Ascension Hunting',
     category: 'wellness',
     description: 'Hunting safety, gear, and ethics',
@@ -4733,6 +4735,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shooting',
+    promoted: false,
     name: 'Ascension Shooting',
     category: 'wellness',
     description: 'Firearm safety, range practice, and training',
@@ -4752,6 +4755,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_archery',
+    promoted: false,
     name: 'Ascension Archery',
     category: 'wellness',
     description: 'Archery technique, gear, and practice',
@@ -4771,6 +4775,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fencing',
+    promoted: false,
     name: 'Ascension Fencing',
     category: 'wellness',
     description: 'Fencing styles, gear, and training',
@@ -4790,6 +4795,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_boxing',
+    promoted: false,
     name: 'Ascension Boxing',
     category: 'wellness',
     description: 'Boxing technique, training, and conditioning',
@@ -4809,6 +4815,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_wrestling',
+    promoted: false,
     name: 'Ascension Wrestling',
     category: 'wellness',
     description: 'Wrestling styles, training, and technique',

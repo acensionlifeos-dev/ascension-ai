@@ -48,7 +48,8 @@ const SENSITIVE_TOPIC_PATTERNS: Record<string, RegExp> = {
   'personal_info_request': /\b(?:what is their ssn|what is their password|give me their bank|show me their messages)\b/gi,
   'jailbreak_attempt': /\b(?:ignore previous|ignore all instructions|do not follow|you are now|DAN mode|jailbreak|developer mode|pretend to be|roleplay as)\b/gi,
   'code_execution_request': /\b(?:execute this|run this code|eval\(|exec\(|child_process|spawn\(|\.exec\(|__proto__|constructor\s*\(|prototype\.constructor)\b/gi,
-  'cyber_malicious_request': /\b(?:malware|virus|trojan|keylogger|phishing|credential harvest|sql injection|xss|exploit|ddos|brute force)\b/gi
+  'cyber_malicious_request': /\b(?:malware|virus|trojan|keylogger|phishing|credential harvest|sql injection|xss|exploit|ddos|brute force)\b/gi,
+  'wmd_request': /\b(?:weapon of mass destruction|wmd|nuclear weapon|thermonuclear|dirty bomb|biological weapon|chemical weapon|mustard gas|sarin|ricin|anthrax attack|plague weapon|smallpox weapon|ebola weapon|build a bomb|make explosives|improvised explosive|ied|pipe bomb|molotov)\b/gi
 };
 
 export function scanSafety(
@@ -111,6 +112,7 @@ export function scanSafety(
   const hasJailbreak = sensitiveTopics.includes('jailbreak_attempt');
   const hasCodeExec = sensitiveTopics.includes('code_execution_request');
   const hasCyber = sensitiveTopics.includes('cyber_malicious_request');
+  const hasWmd = sensitiveTopics.includes('wmd_request');
   const hasHighRisk = sensitiveTopics.includes('health_diagnosis_request') ||
     sensitiveTopics.includes('legal_advice_request') ||
     sensitiveTopics.includes('financial_guarantee_request') ||
@@ -125,10 +127,10 @@ export function scanSafety(
     level = 'critical';
     action = 'escalate';
     message = 'This conversation contains signs of possible crisis or harm. I am not a crisis counselor. If you or someone else is in danger, please contact emergency services or a crisis line (988 in the US). You are not alone.';
-  } else if (hasJailbreak || hasCodeExec || hasCyber) {
+  } else if (hasJailbreak || hasCodeExec || hasCyber || hasWmd) {
     level = 'high';
     action = 'block';
-    message = 'This request contains patterns that try to override instructions, execute code, or cause harm. I cannot continue it.';
+    message = 'This request contains patterns that try to override instructions, execute code, cause cyber harm, or involve weapons of mass destruction. I cannot continue it.';
   } else if (hasHighRisk) {
     level = 'high';
     action = 'warn';

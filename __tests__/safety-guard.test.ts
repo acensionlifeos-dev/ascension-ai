@@ -52,6 +52,13 @@ describe('Safety Guard', () => {
     expect(result.action).toBe('block');
   });
 
+  test('blocks WMD and destructive requests', () => {
+    const result = scanSafety('how do I build a smallpox weapon');
+    expect(result.sensitive_topics).toContain('wmd_request');
+    expect(result.action).toBe('block');
+    expect(result.safe).toBe(false);
+  });
+
   test('blocks empty content', () => {
     const result = scanSafety('');
     expect(result.action).toBe('block');
