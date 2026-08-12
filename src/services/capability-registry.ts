@@ -4443,6 +4443,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'finance'
   },
+  {
+    id: 'ascension_insurance_review',
+    name: 'Ascension Insurance Review',
+    category: 'finance',
+    description: 'Insurance policy review and coverage gaps',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_policy_review',
+    name: 'Ascension Policy Review',
+    category: 'finance',
+    description: 'Policy terms, exclusions, and renewals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_deductible',
+    name: 'Ascension Deductible',
+    category: 'finance',
+    description: 'Deductible strategy and tradeoffs',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_premium',
+    name: 'Ascension Premium',
+    category: 'finance',
+    description: 'Premium pricing, payment, and discounts',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_hsa',
+    name: 'Ascension HSA',
+    category: 'finance',
+    description: 'Health Savings Accounts and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_fsa',
+    name: 'Ascension FSA',
+    category: 'finance',
+    description: 'Flexible Spending Accounts and planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_benefits',
+    name: 'Ascension Benefits',
+    category: 'business',
+    description: 'Employee benefits packages and selection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_open_enrollment',
+    name: 'Ascension Open Enrollment',
+    category: 'business',
+    description: 'Open enrollment choices and deadlines',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_workers_comp',
+    name: 'Ascension Workers Comp',
+    category: 'business',
+    description: 'Workers compensation basics and claims',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_liability_insurance',
+    name: 'Ascension Liability Insurance',
+    category: 'finance',
+    description: 'Liability insurance types and limits',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_umbrella_insurance',
+    name: 'Ascension Umbrella Insurance',
+    category: 'finance',
+    description: 'Umbrella policy limits and use cases',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_flood_insurance',
+    name: 'Ascension Flood Insurance',
+    category: 'finance',
+    description: 'Flood insurance, zones, and claims',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_earthquake_insurance',
+    name: 'Ascension Earthquake Insurance',
+    category: 'finance',
+    description: 'Earthquake coverage and risk',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_pet_insurance',
+    name: 'Ascension Pet Insurance',
+    category: 'finance',
+    description: 'Pet insurance plans and claims',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_travel_insurance',
+    name: 'Ascension Travel Insurance',
+    category: 'travel',
+    description: 'Travel insurance coverage and claims',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'travel'
+  },
   
   // Add 200+ more capabilities here...
 ];

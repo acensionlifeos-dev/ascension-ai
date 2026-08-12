@@ -370,7 +370,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_credit',
   'ascension_debt',
   'ascension_credit_score',
-  'ascension_mortgage'
+  'ascension_mortgage',
+  'ascension_insurance_review',
+  'ascension_policy_review',
+  'ascension_deductible',
+  'ascension_premium',
+  'ascension_hsa',
+  'ascension_fsa',
+  'ascension_benefits',
+  'ascension_open_enrollment',
+  'ascension_workers_comp',
+  'ascension_liability_insurance',
+  'ascension_umbrella_insurance',
+  'ascension_flood_insurance',
+  'ascension_earthquake_insurance',
+  'ascension_pet_insurance',
+  'ascension_travel_insurance'
 ]);
 
 const router = Router();
