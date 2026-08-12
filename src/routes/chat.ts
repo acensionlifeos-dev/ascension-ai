@@ -183,7 +183,17 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_hr',
   'ascension_fundraising',
   'ascension_pitch',
-  'ascension_partnerships'
+  'ascension_partnerships',
+  'ascension_car_buying',
+  'ascension_car_maintenance',
+  'ascension_motorcycle',
+  'ascension_bicycle',
+  'ascension_boat',
+  'ascension_rv',
+  'ascension_electric_vehicle',
+  'ascension_public_transit',
+  'ascension_rideshare',
+  'ascension_flight'
 ]);
 
 const router = Router();

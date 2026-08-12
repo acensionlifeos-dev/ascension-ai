@@ -2386,8 +2386,118 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'business'
   },
+  {
+    id: 'ascension_car_buying',
+    name: 'Ascension Car Buying',
+    category: 'automotive',
+    description: 'Car buying, negotiation, and research',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_car_maintenance',
+    name: 'Ascension Car Maintenance',
+    category: 'automotive',
+    description: 'Car maintenance, service schedules, and troubleshooting',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_motorcycle',
+    name: 'Ascension Motorcycle',
+    category: 'automotive',
+    description: 'Motorcycle riding, gear, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_bicycle',
+    name: 'Ascension Bicycle',
+    category: 'automotive',
+    description: 'Bicycle selection, maintenance, and riding',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_boat',
+    name: 'Ascension Boat',
+    category: 'automotive',
+    description: 'Boating basics, safety, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_rv',
+    name: 'Ascension RV',
+    category: 'automotive',
+    description: 'RV travel, maintenance, and trip planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_electric_vehicle',
+    name: 'Ascension Electric Vehicle',
+    category: 'automotive',
+    description: 'EV selection, charging, and ownership',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'automotive'
+  },
+  {
+    id: 'ascension_public_transit',
+    name: 'Ascension Public Transit',
+    category: 'travel',
+    description: 'Public transit navigation, schedules, and tips',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'travel'
+  },
+  {
+    id: 'ascension_rideshare',
+    name: 'Ascension Rideshare',
+    category: 'travel',
+    description: 'Rideshare, taxi, and driver guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'travel'
+  },
+  {
+    id: 'ascension_flight',
+    name: 'Ascension Flight',
+    category: 'travel',
+    description: 'Flight booking, airports, and travel strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'travel'
+  },
   
-  // Add 180+ more capabilities here...
+  // Add 200+ more capabilities here...
 ];
 
 export function getCapabilityById(id: string) {

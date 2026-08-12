@@ -1929,6 +1929,116 @@ function partnershipsResponse(message: string): NativeResponse {
   };
 }
 
+function carBuyingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with car buying, research, and negotiation prep. I won't make a purchase. What is your budget and needs?`,
+    model: 'Ascension Car Buying',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_car_buying',
+    data: { purchased: false }
+  };
+}
+
+function carMaintenanceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with car maintenance schedules and troubleshooting. I won't schedule service. What issue or mileage?`,
+    model: 'Ascension Car Maintenance',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_car_maintenance',
+    data: { scheduled: false }
+  };
+}
+
+function motorcycleResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with motorcycle gear, riding, and maintenance. What bike or question?`,
+    model: 'Ascension Motorcycle',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_motorcycle',
+    data: { bike: null }
+  };
+}
+
+function bicycleResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with bicycle selection, maintenance, and riding. What type and use?`,
+    model: 'Ascension Bicycle',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_bicycle',
+    data: { type: null }
+  };
+}
+
+function boatResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with boating basics, safety, and maintenance. I won't rent or book. What kind of boat?`,
+    model: 'Ascension Boat',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_boat',
+    data: { rented: false }
+  };
+}
+
+function rvResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with RV travel, maintenance, and trip planning. What RV and route?`,
+    model: 'Ascension RV',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_rv',
+    data: { rv: null }
+  };
+}
+
+function electricVehicleResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with EV selection, charging, and ownership. What range and charging situation?`,
+    model: 'Ascension Electric Vehicle',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_electric_vehicle',
+    data: { charging: null }
+  };
+}
+
+function publicTransitResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with public transit navigation and schedules. What city and route?`,
+    model: 'Ascension Public Transit',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_public_transit',
+    data: { city: null }
+  };
+}
+
+function rideshareResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with rideshare, taxi, and driver guidance. I won't book a ride. What is your question?`,
+    model: 'Ascension Rideshare',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_rideshare',
+    data: { booked: false }
+  };
+}
+
+function flightResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with flight strategy, airports, and booking considerations. I won't book. What is your route?`,
+    model: 'Ascension Flight',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_flight',
+    data: { booked: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
