@@ -301,6 +301,50 @@ function securityResponse(message: string): NativeResponse {
   };
 }
 
+function psychologyResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain human behavior, emotion, motivation, cognition, and mental patterns. I am not a therapist or psychiatrist. If you are in crisis or need diagnosis, I will point you to a qualified professional. What are you trying to understand about yourself or someone else?`,
+    model: 'Ascension Psychology',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_psychology',
+    data: { therapist_referral: false }
+  };
+}
+
+function humanLifeResponse(message: string): NativeResponse {
+  return {
+    content: `I can help across every domain of human life: identity, health, money, work, relationships, home, time, learning, creativity, meaning, and transitions. Which area are you working on right now?`,
+    model: 'Ascension Human Life',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_human_life',
+    data: { domains: ['identity', 'health', 'money', 'work', 'relationships', 'home', 'time', 'learning', 'creativity', 'meaning', 'transitions'] }
+  };
+}
+
+function spiritualityResponse(message: string): NativeResponse {
+  return {
+    content: `I can explore faith, meditation, ritual, nature, legacy, and existential questions with you. I will not impose a framework; I can work with yours. What are you reflecting on?`,
+    model: 'Ascension Spirituality',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_spirituality',
+    data: { imposed_framework: false }
+  };
+}
+
+function griefResponse(message: string): NativeResponse {
+  return {
+    content: `I am sorry you are going through this. I can hold space, help you organize practical tasks, and point you toward support. I am not a grief counselor. If the pain is overwhelming or persistent, please consider a professional or support group. What do you need most right now?`,
+    model: 'Ascension Grief',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_grief',
+    data: { counselor_referral: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
@@ -326,7 +370,11 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_learning': learningResponse,
   'ascension_meetings': meetingsResponse,
   'ascension_voice': voiceResponse,
-  'ascension_security': securityResponse
+  'ascension_security': securityResponse,
+  'ascension_psychology': psychologyResponse,
+  'ascension_human_life': humanLifeResponse,
+  'ascension_spirituality': spiritualityResponse,
+  'ascension_grief': griefResponse
 };
 
 export function routeNativeDomain(

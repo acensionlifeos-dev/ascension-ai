@@ -758,6 +758,50 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'security'
   },
+  {
+    id: 'ascension_psychology',
+    name: 'Ascension Psychology',
+    category: 'psychology',
+    description: 'Human behavior, emotion, motivation, cognition, and mental health guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'psychology'
+  },
+  {
+    id: 'ascension_human_life',
+    name: 'Ascension Human Life',
+    category: 'human_life',
+    description: 'Comprehensive guidance across identity, health, money, relationships, home, time, learning, creativity, meaning, and transitions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'human_life'
+  },
+  {
+    id: 'ascension_spirituality',
+    name: 'Ascension Spirituality',
+    category: 'spirituality',
+    description: 'Faith, meaning, meditation, ritual, nature, legacy, and existential exploration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_grief',
+    name: 'Ascension Grief',
+    category: 'human_life',
+    description: 'Loss, bereavement, transition, and emotional support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'human_life'
+  },
   
   // Add 180+ more capabilities here...
 ];

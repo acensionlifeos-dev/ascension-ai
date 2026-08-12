@@ -39,6 +39,16 @@ SEED_CORPUS = [
 ]
 
 
+def load_docs() -> list[str]:
+    docs_dir = Path(__file__).resolve().parents[1] / "docs"
+    if not docs_dir.exists():
+        return []
+    texts = []
+    for path in docs_dir.glob("*.md"):
+        texts.append(path.read_text(encoding="utf-8"))
+    return texts
+
+
 def augment(text: str) -> str:
     # Keep it simple: repeat to make a longer training example
     return text + " " + text
@@ -70,6 +80,8 @@ def main():
     meta_path = out_dir / "ascension_seed_meta.json"
 
     texts = [augment(t) for t in SEED_CORPUS]
+    docs = load_docs()
+    texts.extend(docs)
     tokenizer = CharTokenizer(texts)
 
     # Save tokenizer

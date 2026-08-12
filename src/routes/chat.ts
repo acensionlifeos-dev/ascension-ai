@@ -34,7 +34,11 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_learning',
   'ascension_meetings',
   'ascension_voice',
-  'ascension_security'
+  'ascension_security',
+  'ascension_psychology',
+  'ascension_human_life',
+  'ascension_spirituality',
+  'ascension_grief'
 ]);
 
 const router = Router();
