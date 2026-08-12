@@ -106,6 +106,11 @@ def get_cosine_schedule_with_warmup(optimizer, warmup_steps: int, total_steps: i
     return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
 
+def write_status(status_path: Path, payload: dict):
+    with open(status_path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
 def main():
     args = parse_args()
     random.seed(42)
@@ -120,24 +125,46 @@ def main():
     model_path = out_dir / f"{prefix}.pt"
     tokenizer_path = out_dir / f"{prefix}_tokenizer.json"
     meta_path = out_dir / f"{prefix}_meta.json"
+    log_path = out_dir / f"{prefix}_train.log"
+    status_path = out_dir / f"{prefix}_status.json"
+
+    log_file = open(log_path, "a", encoding="utf-8", buffering=1)
+
+    def log(msg: str):
+        print(msg)
+        print(msg, file=log_file)
+
+    write_status(status_path, {
+        "version": prefix,
+        "status": "starting",
+        "step": 0,
+        "total_steps": args.steps,
+        "loss": None,
+        "best_loss": None,
+        "elapsed_seconds": 0,
+        "log_path": str(log_path),
+        "model_path": str(model_path),
+        "tokenizer_path": str(tokenizer_path),
+        "meta_path": str(meta_path),
+    })
 
     corpus = load_corpus()
     if not corpus:
         raise SystemExit("No training text found. Check internet or place data/general_corpus_v5.txt.")
-    print(f"Corpus size: {len(corpus):,} characters")
+    log(f"Corpus size: {len(corpus):,} characters")
 
     tokenizer = build_bpe_tokenizer(corpus, args.vocab_size, prefix)
     vocab_size = tokenizer.get_vocab_size()
-    print(f"BPE vocab size: {vocab_size}")
+    log(f"BPE vocab size: {vocab_size}")
 
-    print("Tokenizing corpus...")
+    log("Tokenizing corpus...")
     encoding = tokenizer.encode(corpus)
     token_ids = encoding.ids
-    print(f"Tokenized corpus: {len(token_ids):,} tokens")
+    log(f"Tokenized corpus: {len(token_ids):,} tokens")
 
     dataset = TokenizedDataset(token_ids, length=256)
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    print(f"Dataset sequences: {len(dataset):,}")
+    log(f"Dataset sequences: {len(dataset):,}")
 
     config = ModelConfig(
         vocab_size=vocab_size,
@@ -151,7 +178,7 @@ def main():
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = AscensionTransformer(config).to(device)
-    print(f"Model parameters: {sum(p.numel() for p in model.parameters()):,}")
+    log(f"Model parameters: {sum(p.numel() for p in model.parameters()):,}")
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=0.01, betas=(0.9, 0.95))
     criterion = nn.CrossEntropyLoss()
@@ -185,7 +212,20 @@ def main():
 
             if step % args.print_every == 0 or step == num_steps:
                 avg = epoch_loss / (step % args.print_every or args.print_every)
-                print(f"Step {step}/{num_steps} loss: {avg:.4f}")
+                log(f"Step {step}/{num_steps} loss: {avg:.4f}")
+                write_status(status_path, {
+                    "version": prefix,
+                    "status": "training",
+                    "step": step,
+                    "total_steps": num_steps,
+                    "loss": round(avg, 4),
+                    "best_loss": round(best_loss, 4) if best_loss != float("inf") else None,
+                    "elapsed_seconds": round(time.perf_counter() - start, 2),
+                    "log_path": str(log_path),
+                    "model_path": str(model_path),
+                    "tokenizer_path": str(tokenizer_path),
+                    "meta_path": str(meta_path),
+                })
 
         avg = epoch_loss / len(dataloader)
         losses.append(avg)
@@ -193,7 +233,7 @@ def main():
             best_loss = avg
 
     elapsed = time.perf_counter() - start
-    print(f"Training complete in {elapsed:.2f}s best loss: {best_loss:.4f} final loss: {losses[-1]:.4f}")
+    log(f"Training complete in {elapsed:.2f}s best loss: {best_loss:.4f} final loss: {losses[-1]:.4f}")
 
     with torch.serialization.safe_globals([ModelConfig]):
         torch.save({
@@ -217,9 +257,24 @@ def main():
             "corpus_tokens": len(token_ids),
         }, f, ensure_ascii=False, indent=2)
 
-    print(f"Checkpoint saved to {model_path}")
-    print(f"Tokenizer saved to {tokenizer_path}")
-    print(f"Metadata saved to {meta_path}")
+    write_status(status_path, {
+        "version": prefix,
+        "status": "complete",
+        "step": num_steps,
+        "total_steps": num_steps,
+        "loss": round(losses[-1], 4),
+        "best_loss": round(best_loss, 4),
+        "elapsed_seconds": round(elapsed, 2),
+        "log_path": str(log_path),
+        "model_path": str(model_path),
+        "tokenizer_path": str(tokenizer_path),
+        "meta_path": str(meta_path),
+    })
+
+    log(f"Checkpoint saved to {model_path}")
+    log(f"Tokenizer saved to {tokenizer_path}")
+    log(f"Metadata saved to {meta_path}")
+    log_file.close()
 
 
 if __name__ == "__main__":

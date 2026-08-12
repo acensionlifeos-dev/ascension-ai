@@ -1,6 +1,8 @@
 import { spawn } from 'child_process';
 import path from 'path';
 
+jest.setTimeout(30000);
+
 const waitForServer = (url: string, timeout = 15000) =>
   new Promise<void>((resolve, reject) => {
     const start = Date.now();

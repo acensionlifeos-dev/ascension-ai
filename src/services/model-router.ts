@@ -27,29 +27,21 @@ export interface RoutingDecision {
 class ModelRouter {
   private openai: OpenAI | null = null;
   private anthropic: Anthropic | null = null;
-  // private google: GoogleGenerativeAI | null = null;
-  
-  constructor() {
-    this.initializeProviders();
-  }
-  
-  private initializeProviders() {
-    // Initialize OpenAI
-    if (process.env.OPENAI_API_KEY) {
+
+  private getOpenAI(): OpenAI | null {
+    if (!this.openai && process.env.OPENAI_API_KEY) {
       this.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     }
-    
-    // Initialize Anthropic
-    if (process.env.ANTHROPIC_API_KEY) {
+    return this.openai;
+  }
+
+  private getAnthropic(): Anthropic | null {
+    if (!this.anthropic && process.env.ANTHROPIC_API_KEY) {
       this.anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     }
-    
-    // Initialize Google
-    // if (process.env.GOOGLE_API_KEY) {
-    //   this.google = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-    // }
+    return this.anthropic;
   }
-  
+
   /**
    * Route to best provider for a capability
    */
@@ -99,9 +91,9 @@ class ModelRouter {
   private isProviderAvailable(provider: string): boolean {
     switch (provider) {
       case 'openai':
-        return this.openai !== null;
+        return this.getOpenAI() !== null;
       case 'anthropic':
-        return this.anthropic !== null;
+        return this.getAnthropic() !== null;
       // case 'google':
       //   return this.google !== null;
       case 'midjourney':
@@ -217,9 +209,10 @@ class ModelRouter {
   }
   
   private async executeOpenAI(routingDecision: RoutingDecision, request: any): Promise<any> {
-    if (!this.openai) throw new Error('OpenAI not initialized');
+    const openai = this.getOpenAI();
+    if (!openai) throw new Error('OpenAI not initialized');
     
-    const response = await this.openai.chat.completions.create({
+    const response = await openai.chat.completions.create({
       model: routingDecision.model,
       messages: request.messages || [],
       max_tokens: request.max_tokens || 2048,
@@ -235,9 +228,10 @@ class ModelRouter {
   }
   
   private async executeAnthropic(routingDecision: RoutingDecision, request: any): Promise<any> {
-    if (!this.anthropic) throw new Error('Anthropic not initialized');
+    const anthropic = this.getAnthropic();
+    if (!anthropic) throw new Error('Anthropic not initialized');
     
-    const response = await this.anthropic.messages.create({
+    const response = await anthropic.messages.create({
       model: routingDecision.model,
       max_tokens: request.max_tokens || 2048,
       messages: request.messages || []

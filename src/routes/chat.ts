@@ -5,7 +5,6 @@
 import { Router, Request, Response } from 'express';
 import { modelRouter } from '../services/model-router';
 import { requestPermissions } from '../services/permission-engine';
-import { routeNativeDomain } from '../services/native-domain-router';
 import { scanSafety } from '../services/safety-guard';
 import { logUsage } from '../services/usage-tracker';
 import { getAllCapabilities, getCapabilityById } from '../services/capability-registry';
@@ -152,6 +151,7 @@ router.post('/capability', async (req: AuthRequest, res: Response) => {
     // Fast, structured native domain response for specialized overlays
     if (capabilityId.startsWith('ascension_') && process.env.ASCENSION_NATIVE_ENABLED === 'true') {
       if (DOMAIN_ROUTED_CAPABILITIES.has(capabilityId)) {
+        const { routeNativeDomain } = await import('../services/native-domain-router');
         const nativeResponse = routeNativeDomain(capabilityId, message, permissions as any);
         return res.json({
           ...nativeResponse,

@@ -11615,8 +11615,10 @@ export const CAPABILITIES = [
     context: 'Triggers: user asks about Contribution, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
   }
 ];
+const CAPABILITY_MAP = new Map(CAPABILITIES.map(c => [c.id, c]));
+
 export function getCapabilityById(id: string) {
-  return CAPABILITIES.find(c => c.id === id);
+  return CAPABILITY_MAP.get(id);
 }
 
 export function getCapabilitiesByCategory(category: string) {
