@@ -4,3 +4,4 @@ uvicorn>=0.30.0,<1.0.0
 pydantic>=2.8.0,<3.0.0
 huggingface-hub>=0.34.0,<1.0.0
 llama-cpp-python==0.3.34
+torch>=2.0.0
