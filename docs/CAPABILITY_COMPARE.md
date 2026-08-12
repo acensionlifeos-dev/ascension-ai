@@ -52,6 +52,8 @@ Direct capability comparison against the leading outside AI providers. ✅ means
 | Safety Guard (built-in) | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ✓ |
 | Verified Action Receipts | ❌ | ❌ | ❌ | ❌ | ✓ |
 
+|| **Total Registered Native Capabilities** | — | — | — | — | **393** |
+
 **Key takeaways**
 - OpenAI, Anthropic, Google, and Meta each cover the basic text/code/image/voice areas.
 - No outside provider has native product integration with LifeOS, HomeOS, Sprout, FamilyOS, AP, and Nexus.

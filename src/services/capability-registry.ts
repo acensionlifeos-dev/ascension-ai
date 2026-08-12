@@ -4113,6 +4113,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'business'
   },
+  {
+    id: 'ascension_customer_support',
+    name: 'Ascension Customer Support',
+    category: 'business',
+    description: 'Customer support, tickets, and responses',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_helpdesk',
+    name: 'Ascension Helpdesk',
+    category: 'business',
+    description: 'Helpdesk organization, priorities, and SLAs',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_ticketing',
+    name: 'Ascension Ticketing',
+    category: 'business',
+    description: 'Ticket creation, routing, and resolution',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_live_chat',
+    name: 'Ascension Live Chat',
+    category: 'business',
+    description: 'Live chat scripts, routing, and handoff',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_chatbot',
+    name: 'Ascension Chatbot',
+    category: 'business',
+    description: 'Chatbot design, flows, and fallback',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_knowledge_base',
+    name: 'Ascension Knowledge Base',
+    category: 'business',
+    description: 'Knowledge base articles, search, and updates',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_faq',
+    name: 'Ascension FAQ',
+    category: 'business',
+    description: 'FAQ generation, maintenance, and answers',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_onboarding',
+    name: 'Ascension Onboarding',
+    category: 'business',
+    description: 'Customer and employee onboarding flows',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_retention',
+    name: 'Ascension Retention',
+    category: 'business',
+    description: 'Customer retention strategies and signals',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_churn',
+    name: 'Ascension Churn',
+    category: 'business',
+    description: 'Churn analysis and prevention',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_upsell',
+    name: 'Ascension Upsell',
+    category: 'business',
+    description: 'Upsell recommendations and timing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_cross_sell',
+    name: 'Ascension Cross Sell',
+    category: 'business',
+    description: 'Cross-sell pairing and messaging',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_loyalty',
+    name: 'Ascension Loyalty',
+    category: 'business',
+    description: 'Loyalty programs, points, and rewards',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_referral',
+    name: 'Ascension Referral',
+    category: 'business',
+    description: 'Referral program design and tracking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_reputation',
+    name: 'Ascension Reputation',
+    category: 'business',
+    description: 'Online reputation monitoring and response',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business'
+  },
   
   // Add 200+ more capabilities here...
 ];
