@@ -18,12 +18,13 @@ from src.architecture.inference import EliteInference
 def main():
     parser = argparse.ArgumentParser(description="Generate from Ascension Elite")
     parser.add_argument("--checkpoint", default="checkpoints", help="checkpoint directory")
+    parser.add_argument("--version", default="ascension_elite", help="checkpoint name prefix (ascension_elite, ascension_elite_v2, etc.)")
     parser.add_argument("--prompt", default="Ascension AI is", help="prompt")
-    parser.add_argument("--tokens", type=int, default=40, help="max new tokens")
-    parser.add_argument("--temperature", type=float, default=0.8, help="sampling temperature")
+    parser.add_argument("--tokens", type=int, default=80, help="max new tokens")
+    parser.add_argument("--temperature", type=float, default=0.9, help="sampling temperature")
     args = parser.parse_args()
 
-    inference = EliteInference(args.checkpoint)
+    inference = EliteInference(args.checkpoint, prefix=args.version)
     print("Elite model status:", inference.status())
     print("Prompt:", args.prompt)
     print("Generated:", inference.generate(args.prompt, max_new_tokens=args.tokens, temperature=args.temperature))

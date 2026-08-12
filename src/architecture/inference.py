@@ -16,9 +16,10 @@ from .transformer import AscensionTransformer, ModelConfig
 class EliteInference:
     """Load and generate from an Ascension-native .pt checkpoint."""
 
-    def __init__(self, checkpoint_dir: str | Path) -> None:
+    def __init__(self, checkpoint_dir: str | Path, prefix: str = "ascension_elite") -> None:
         self.root = Path(checkpoint_dir)
-        self.meta = self._load_json(self.root / "ascension_elite_meta.json")
+        self.prefix = prefix
+        self.meta = self._load_json(self.root / f"{prefix}_meta.json")
         self.tokenizer = self._load_json(Path(self.meta["tokenizer_path"]))
         self.config = ModelConfig(**self.meta["config"])
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -26,7 +27,7 @@ class EliteInference:
         self.model = AscensionTransformer(self.config).to(self.device)
         with torch.serialization.safe_globals([ModelConfig]):
             checkpoint = torch.load(
-                self.root / "ascension_elite.pt",
+                self.root / f"{prefix}.pt",
                 map_location=self.device,
                 weights_only=True,
             )
