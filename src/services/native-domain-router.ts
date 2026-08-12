@@ -730,6 +730,105 @@ function cleaningResponse(message: string): NativeResponse {
   };
 }
 
+function philosophyResponse(message: string): NativeResponse {
+  return {
+    content: `I can explore philosophical questions, schools, and arguments with you. What question or thinker do you want to examine?`,
+    model: 'Ascension Philosophy',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_philosophy',
+    data: { school: null }
+  };
+}
+
+function historyResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide historical context and discuss events and lessons. What period, event, or figure are you interested in?`,
+    model: 'Ascension History',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_history',
+    data: { period: null }
+  };
+}
+
+function scienceResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain scientific concepts and help with scientific thinking. What topic or question do you have?`,
+    model: 'Ascension Science',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_science',
+    data: { field: null }
+  };
+}
+
+function mathResponse(message: string): NativeResponse {
+  return {
+    content: `I can walk through math problems and concepts step by step. What problem or topic are you working on?`,
+    model: 'Ascension Math',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_math',
+    data: { solved: false }
+  };
+}
+
+function languageResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you learn a language, practice phrases, or translate. Which language and what is your level?`,
+    model: 'Ascension Language',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_language',
+    data: { language: null }
+  };
+}
+
+function cultureResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss cultural context, etiquette, and traditions. What culture or situation do you want to understand?`,
+    model: 'Ascension Culture',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_culture',
+    data: { context: null }
+  };
+}
+
+function ethicsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you reason through ethical questions and clarify values. What dilemma or principle are you considering?`,
+    model: 'Ascension Ethics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_ethics',
+    data: { dilemma: null }
+  };
+}
+
+function environmentResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with sustainability choices, climate understanding, and ecological action. What are you trying to reduce or improve?`,
+    model: 'Ascension Environment',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_environment',
+    data: { action_plan: [] }
+  };
+}
+
+function activismResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with advocacy, civic action, and community organizing. What cause or change are you working toward?`,
+    model: 'Ascension Activism',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_activism',
+    data: { campaign: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

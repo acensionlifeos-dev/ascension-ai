@@ -1187,6 +1187,105 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'home'
   },
+  {
+    id: 'ascension_philosophy',
+    name: 'Ascension Philosophy',
+    category: 'knowledge',
+    description: 'Philosophical questions, schools of thought, and ethical reasoning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_history',
+    name: 'Ascension History',
+    category: 'knowledge',
+    description: 'Historical context, events, and lessons',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_science',
+    name: 'Ascension Science',
+    category: 'knowledge',
+    description: 'Scientific concepts, literacy, and exploration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_math',
+    name: 'Ascension Math',
+    category: 'knowledge',
+    description: 'Math explanation, problem-solving, and tutoring',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_language',
+    name: 'Ascension Language',
+    category: 'knowledge',
+    description: 'Language learning, translation, and conversation practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_culture',
+    name: 'Ascension Culture',
+    category: 'knowledge',
+    description: 'Cultural understanding, etiquette, and context',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_ethics',
+    name: 'Ascension Ethics',
+    category: 'knowledge',
+    description: 'Moral reasoning, dilemma navigation, and values clarification',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
+  {
+    id: 'ascension_environment',
+    name: 'Ascension Environment',
+    category: 'environment',
+    description: 'Sustainability, climate, and ecological action planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'environment'
+  },
+  {
+    id: 'ascension_activism',
+    name: 'Ascension Activism',
+    category: 'community',
+    description: 'Civic action, advocacy, and community organizing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'community'
+  },
   
   // Add 180+ more capabilities here...
 ];
