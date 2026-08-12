@@ -143,7 +143,17 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_monitoring',
   'ascension_api',
   'ascension_microservices',
-  'ascension_blockchain'
+  'ascension_blockchain',
+  'ascension_walking',
+  'ascension_stretching',
+  'ascension_recovery',
+  'ascension_supplements',
+  'ascension_allergies',
+  'ascension_chronic',
+  'ascension_disability',
+  'ascension_pregnancy',
+  'ascension_childbirth',
+  'ascension_postpartum'
 ]);
 
 const router = Router();

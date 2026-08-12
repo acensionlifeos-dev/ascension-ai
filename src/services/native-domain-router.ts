@@ -1489,6 +1489,116 @@ function blockchainResponse(message: string): NativeResponse {
   };
 }
 
+function walkingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with walking plans, routes, and fitness goals. What distance or time do you want?`,
+    model: 'Ascension Walking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_walking',
+    data: { distance: null }
+  };
+}
+
+function stretchingResponse(message: string): NativeResponse {
+  return {
+    content: `I can guide stretching and mobility routines. What area feels tight?`,
+    model: 'Ascension Stretching',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_stretching',
+    data: { area: null }
+  };
+}
+
+function recoveryResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan rest, recovery, and regeneration. What activity are you recovering from?`,
+    model: 'Ascension Recovery',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_recovery',
+    data: { soreness: null }
+  };
+}
+
+function supplementsResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide general supplement information. I am not a clinician. What are you considering?`,
+    model: 'Ascension Supplements',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_supplements',
+    data: { clinician: false }
+  };
+}
+
+function allergiesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with allergy awareness and management. For severe reactions, seek emergency care. What are your triggers?`,
+    model: 'Ascension Allergies',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_allergies',
+    data: { emergency: false }
+  };
+}
+
+function chronicResponse(message: string): NativeResponse {
+  return {
+    content: `I can support chronic condition self-management and education. I am not a doctor. What condition do you want to manage?`,
+    model: 'Ascension Chronic',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_chronic',
+    data: { diagnosis: null }
+  };
+}
+
+function disabilityResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with disability information, accommodations, and resources. What is your situation or need?`,
+    model: 'Ascension Disability',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_disability',
+    data: { accommodations: [] }
+  };
+}
+
+function pregnancyResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide pregnancy information and resource guidance. I am not a medical provider. What stage or question?`,
+    model: 'Ascension Pregnancy',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_pregnancy',
+    data: { stage: null }
+  };
+}
+
+function childbirthResponse(message: string): NativeResponse {
+  return {
+    content: `I can help prepare for childbirth and birth plans. I am not a midwife or doctor. What questions do you have?`,
+    model: 'Ascension Childbirth',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_childbirth',
+    data: { birth_plan: null }
+  };
+}
+
+function postpartumResponse(message: string): NativeResponse {
+  return {
+    content: `I can provide postpartum support and newborn adjustment guidance. For medical concerns, contact a provider. What do you need?`,
+    model: 'Ascension Postpartum',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_postpartum',
+    data: { provider_contacted: false }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

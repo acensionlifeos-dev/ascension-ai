@@ -1946,6 +1946,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'engineering'
   },
+  {
+    id: 'ascension_walking',
+    name: 'Ascension Walking',
+    category: 'wellness',
+    description: 'Walking plans, routes, and fitness integration',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_stretching',
+    name: 'Ascension Stretching',
+    category: 'wellness',
+    description: 'Stretching routines, mobility, and flexibility',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_recovery',
+    name: 'Ascension Recovery',
+    category: 'wellness',
+    description: 'Rest, recovery, and regeneration planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_supplements',
+    name: 'Ascension Supplements',
+    category: 'wellness',
+    description: 'Supplement information and when to consult a clinician',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_allergies',
+    name: 'Ascension Allergies',
+    category: 'wellness',
+    description: 'Allergy awareness, triggers, and management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_chronic',
+    name: 'Ascension Chronic',
+    category: 'wellness',
+    description: 'Chronic condition support and self-management guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_disability',
+    name: 'Ascension Disability',
+    category: 'wellness',
+    description: 'Disability support, accommodations, and resources',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_pregnancy',
+    name: 'Ascension Pregnancy',
+    category: 'wellness',
+    description: 'Pregnancy planning, questions, and resource guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_childbirth',
+    name: 'Ascension Childbirth',
+    category: 'wellness',
+    description: 'Childbirth preparation and birth plan support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_postpartum',
+    name: 'Ascension Postpartum',
+    category: 'wellness',
+    description: 'Postpartum support, recovery, and newborn adjustment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
   
   // Add 180+ more capabilities here...
 ];
