@@ -1726,6 +1726,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'life_events'
   },
+  {
+    id: 'ascension_homework',
+    name: 'Ascension Homework',
+    category: 'education',
+    description: 'Homework help, explanation, and study guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_tutor',
+    name: 'Ascension Tutor',
+    category: 'education',
+    description: 'One-on-one tutoring across subjects',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_school',
+    name: 'Ascension School',
+    category: 'education',
+    description: 'School selection, applications, and planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_college',
+    name: 'Ascension College',
+    category: 'education',
+    description: 'College search, applications, and planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_scholarship',
+    name: 'Ascension Scholarship',
+    category: 'education',
+    description: 'Scholarship search and application support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_exam',
+    name: 'Ascension Exam',
+    category: 'education',
+    description: 'Exam preparation, strategy, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_studyskills',
+    name: 'Ascension Study Skills',
+    category: 'education',
+    description: 'Study habits, note-taking, and retention',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_memorization',
+    name: 'Ascension Memorization',
+    category: 'education',
+    description: 'Memory techniques and spaced repetition',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_presentation',
+    name: 'Ascension Presentation',
+    category: 'education',
+    description: 'Presentations, slides, and public speaking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
+  {
+    id: 'ascension_teaching',
+    name: 'Ascension Teaching',
+    category: 'education',
+    description: 'Teaching methods, lesson planning, and assessment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'education'
+  },
   
   // Add 180+ more capabilities here...
 ];

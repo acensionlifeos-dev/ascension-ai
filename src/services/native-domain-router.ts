@@ -1269,6 +1269,116 @@ function anniversaryResponse(message: string): NativeResponse {
   };
 }
 
+function homeworkResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you understand homework and learn the concept. I won't do the assignment for you. What subject and problem?`,
+    model: 'Ascension Homework',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_homework',
+    data: { completed_by_model: false }
+  };
+}
+
+function tutorResponse(message: string): NativeResponse {
+  return {
+    content: `I can tutor step by step in many subjects. What topic are you stuck on?`,
+    model: 'Ascension Tutor',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tutor',
+    data: { subject: null }
+  };
+}
+
+function schoolResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with school selection and application planning. I won't submit applications. What level and priorities?`,
+    model: 'Ascension School',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_school',
+    data: { applications_submitted: [] }
+  };
+}
+
+function collegeResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with college search, essays, and planning. I won't submit anything for you. What are your goals?`,
+    model: 'Ascension College',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_college',
+    data: { submitted: [] }
+  };
+}
+
+function scholarshipResponse(message: string): NativeResponse {
+  return {
+    content: `I can help find scholarships and draft applications. I won't submit applications. What is your profile?`,
+    model: 'Ascension Scholarship',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_scholarship',
+    data: { submitted: [] }
+  };
+}
+
+function examResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you prepare for exams with strategy and practice. What exam and how much time?`,
+    model: 'Ascension Exam',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_exam',
+    data: { exam: null }
+  };
+}
+
+function studyskillsResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with study habits, note-taking, and retention. What do you want to improve?`,
+    model: 'Ascension Study Skills',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_studyskills',
+    data: { skill: null }
+  };
+}
+
+function memorizationResponse(message: string): NativeResponse {
+  return {
+    content: `I can teach memory techniques and spaced repetition. What do you need to remember?`,
+    model: 'Ascension Memorization',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_memorization',
+    data: { items: [] }
+  };
+}
+
+function presentationResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with presentations, slides, and speaking. What is the topic and audience?`,
+    model: 'Ascension Presentation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_presentation',
+    data: { slides: [] }
+  };
+}
+
+function teachingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with teaching methods, lesson planning, and assessment. What subject and audience?`,
+    model: 'Ascension Teaching',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_teaching',
+    data: { lesson: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

@@ -123,7 +123,17 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_babyshower',
   'ascension_graduation',
   'ascension_retirement',
-  'ascension_anniversary'
+  'ascension_anniversary',
+  'ascension_homework',
+  'ascension_tutor',
+  'ascension_school',
+  'ascension_college',
+  'ascension_scholarship',
+  'ascension_exam',
+  'ascension_studyskills',
+  'ascension_memorization',
+  'ascension_presentation',
+  'ascension_teaching'
 ]);
 
 const router = Router();
