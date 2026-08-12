@@ -3442,6 +3442,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'entertainment'
   },
+  {
+    id: 'ascension_casino',
+    name: 'Ascension Casino',
+    category: 'entertainment',
+    description: 'Casino game odds, strategy, and risk awareness',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_sports_betting',
+    name: 'Ascension Sports Betting',
+    category: 'entertainment',
+    description: 'Sports betting strategy and risk management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_daytrading',
+    name: 'Ascension Day Trading',
+    category: 'finance',
+    description: 'Day trading strategy, risk, and psychology',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_swingtrading',
+    name: 'Ascension Swing Trading',
+    category: 'finance',
+    description: 'Swing trading setups and position management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_forex',
+    name: 'Ascension Forex',
+    category: 'finance',
+    description: 'Forex basics, pairs, and risk',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_crypto',
+    name: 'Ascension Crypto',
+    category: 'finance',
+    description: 'Cryptocurrency basics, custody, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_nfts',
+    name: 'Ascension NFTs',
+    category: 'finance',
+    description: 'NFTs, marketplaces, and valuation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_mining',
+    name: 'Ascension Mining',
+    category: 'engineering',
+    description: 'Crypto mining hardware and profitability',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
+  {
+    id: 'ascension_staking',
+    name: 'Ascension Staking',
+    category: 'finance',
+    description: 'Staking, yields, and validator selection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_defi',
+    name: 'Ascension DeFi',
+    category: 'finance',
+    description: 'DeFi protocols, yields, and risks',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_dao',
+    name: 'Ascension DAO',
+    category: 'finance',
+    description: 'DAO governance and participation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_airdrop',
+    name: 'Ascension Airdrop',
+    category: 'finance',
+    description: 'Airdrop farming, safety, and taxes',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_presale',
+    name: 'Ascension Presale',
+    category: 'finance',
+    description: 'Presale research, red flags, and allocation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_whitelist',
+    name: 'Ascension Whitelist',
+    category: 'finance',
+    description: 'Whitelist registration and security',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_nodes',
+    name: 'Ascension Nodes',
+    category: 'engineering',
+    description: 'Blockchain nodes, setup, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering'
+  },
   
   // Add 200+ more capabilities here...
 ];

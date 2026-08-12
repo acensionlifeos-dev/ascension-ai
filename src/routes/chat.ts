@@ -279,7 +279,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_vinyl',
   'ascension_concerts',
   'ascension_festivals',
-  'ascension_karaoke'
+  'ascension_karaoke',
+  'ascension_casino',
+  'ascension_sports_betting',
+  'ascension_daytrading',
+  'ascension_swingtrading',
+  'ascension_forex',
+  'ascension_crypto',
+  'ascension_nfts',
+  'ascension_mining',
+  'ascension_staking',
+  'ascension_defi',
+  'ascension_dao',
+  'ascension_airdrop',
+  'ascension_presale',
+  'ascension_whitelist',
+  'ascension_nodes'
 ]);
 
 const router = Router();
