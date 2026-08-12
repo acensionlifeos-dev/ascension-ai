@@ -65,7 +65,16 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_art',
   'ascension_writing',
   'ascension_movies',
-  'ascension_books'
+  'ascension_books',
+  'ascension_news',
+  'ascension_sports',
+  'ascension_games',
+  'ascension_shopping',
+  'ascension_investing',
+  'ascension_taxes',
+  'ascension_insurance',
+  'ascension_moving',
+  'ascension_cleaning'
 ]);
 
 const router = Router();

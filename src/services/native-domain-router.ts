@@ -631,6 +631,105 @@ function booksResponse(message: string): NativeResponse {
   };
 }
 
+function newsResponse(message: string): NativeResponse {
+  return {
+    content: `I can summarize and contextualize news, and help you spot bias. I will not invent current events. What topic or headline do you want to understand?`,
+    model: 'Ascension News',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_news',
+    data: { sources: [] }
+  };
+}
+
+function sportsResponse(message: string): NativeResponse {
+  return {
+    content: `I can analyze sports, training, and fan questions. What sport, team, or training goal are you focused on?`,
+    model: 'Ascension Sports',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sports',
+    data: { sport: null }
+  };
+}
+
+function gamesResponse(message: string): NativeResponse {
+  return {
+    content: `I can recommend games, discuss strategy, and talk game design. What genre or game are you into?`,
+    model: 'Ascension Games',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_games',
+    data: { genre: null }
+  };
+}
+
+function shoppingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you compare products and find the best value for your needs. What are you shopping for?`,
+    model: 'Ascension Shopping',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_shopping',
+    data: { budget: null }
+  };
+}
+
+function investingResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain portfolio thinking, asset allocation, and long-term strategies. I will not promise returns. What are your goals and time horizon?`,
+    model: 'Ascension Investing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_investing',
+    data: { returns_promised: false }
+  };
+}
+
+function taxesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help organize tax documents, find deductions to review, and prepare for a tax professional. I am not a tax preparer. What is your tax situation?`,
+    model: 'Ascension Taxes',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_taxes',
+    data: { preparer: false }
+  };
+}
+
+function insuranceResponse(message: string): NativeResponse {
+  return {
+    content: `I can help review coverage types, gaps, and comparisons. I am not an insurance agent. What coverage are you reviewing?`,
+    model: 'Ascension Insurance',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_insurance',
+    data: { agent: false }
+  };
+}
+
+function movingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with moving checklists, timelines, and logistics. Where are you moving from and to, and when?`,
+    model: 'Ascension Moving',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_moving',
+    data: { moved: false }
+  };
+}
+
+function cleaningResponse(message: string): NativeResponse {
+  return {
+    content: `I can help build cleaning routines and choose products. What spaces or schedules do you want to tackle?`,
+    model: 'Ascension Cleaning',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cleaning',
+    data: { schedule: [] }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

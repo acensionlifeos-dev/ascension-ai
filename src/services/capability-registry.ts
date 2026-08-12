@@ -1088,6 +1088,105 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'entertainment'
   },
+  {
+    id: 'ascension_news',
+    name: 'Ascension News',
+    category: 'research',
+    description: 'News curation, bias awareness, and summary synthesis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'research'
+  },
+  {
+    id: 'ascension_sports',
+    name: 'Ascension Sports',
+    category: 'entertainment',
+    description: 'Sports analysis, training, and fan engagement',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_games',
+    name: 'Ascension Games',
+    category: 'entertainment',
+    description: 'Game recommendations, strategy, and design discussion',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_shopping',
+    name: 'Ascension Shopping',
+    category: 'lifestyle',
+    description: 'Product research, comparison, and value-based buying',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_investing',
+    name: 'Ascension Investing',
+    category: 'finance',
+    description: 'Portfolio thinking, asset allocation, and long-term investing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_taxes',
+    name: 'Ascension Taxes',
+    category: 'finance',
+    description: 'Tax organization, deduction discovery, and preparer coordination',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_insurance',
+    name: 'Ascension Insurance',
+    category: 'finance',
+    description: 'Insurance review, comparison, and gap analysis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance'
+  },
+  {
+    id: 'ascension_moving',
+    name: 'Ascension Moving',
+    category: 'home',
+    description: 'Relocation planning, checklists, and logistics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_cleaning',
+    name: 'Ascension Cleaning',
+    category: 'home',
+    description: 'Cleaning routines, schedules, and product guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
   
   // Add 180+ more capabilities here...
 ];
