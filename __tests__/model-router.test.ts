@@ -52,6 +52,7 @@ describe('Ascension Native Provider Routing', () => {
 
   test('executeAscensionNative returns a fallback response when runtime is unavailable', async () => {
     process.env.ASCENSION_NATIVE_ENABLED = 'true';
+    process.env.ASCENSION_NATIVE_URL = 'http://localhost:19999/chat'; // no server here
 
     const result = await modelRouter.execute(
       { provider: 'ascension-native', model: 'Ascension Candidate 3B', reason: 'test', estimatedCost: 0 },
