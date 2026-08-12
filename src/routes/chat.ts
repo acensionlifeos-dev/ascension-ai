@@ -480,7 +480,12 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_research_assistant',
   'ascension_design_assistant',
   'ascension_crowdfunding_product',
-  'ascension_dream_fund'
+  'ascension_dream_fund',
+  'ascension_content_workspace',
+  'ascension_content_analytics',
+  'ascension_growth_tracker',
+  'ascension_revenue_tracker',
+  'ascension_content_calendar'
 ]);
 
 const router = Router();

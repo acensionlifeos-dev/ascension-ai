@@ -9594,6 +9594,101 @@ export const CAPABILITIES = [
     'ascension_insurance'
   ],
     context: 'Triggers: user asks about Dream Fund, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_content_workspace',
+    name: 'Ascension Content Workspace',
+    category: 'business',
+    description: 'Create and organize workspaces for content projects, channels, and campaigns',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Content Workspace, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_content_analytics',
+    name: 'Ascension Content Analytics',
+    category: 'business',
+    description: 'Wire analytics for content, streams, and social accounts to track performance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Content Analytics, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_growth_tracker',
+    name: 'Ascension Growth Tracker',
+    category: 'business',
+    description: 'Track followers, views, subscribers, and growth metrics across platforms',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Growth Tracker, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_revenue_tracker',
+    name: 'Ascension Revenue Tracker',
+    category: 'finance',
+    description: 'Track ad, affiliate, sponsorship, and product revenue from content and streams',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Revenue Tracker, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_content_calendar',
+    name: 'Ascension Content Calendar',
+    category: 'business',
+    description: 'Plan and schedule content releases, streams, and campaigns across platforms',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Content Calendar, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 export function getCapabilityById(id: string) {

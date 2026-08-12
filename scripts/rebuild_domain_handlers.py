@@ -26,6 +26,11 @@ OVERRIDES = {
     'ascension_design_assistant': """I can help design products, interfaces, and experiences, from sketch to spec, with user flow and cost-aware decisions. What are you designing?""",
     'ascension_crowdfunding_product': """I can plan a crowdfunding campaign for an invention, set reward tiers, write the story, and list launch tasks. What is the product and target?""",
     'ascension_dream_fund': """I can connect dream-board goals to automated savings buckets and milestone plans. What is the dream, the cost, and the deadline?""",
+    'ascension_content_workspace': """I can create a content workspace with folders, briefs, brand kit, and project boards for any channel or campaign. What project or channel is this for?""",
+    'ascension_content_analytics': """I can wire analytics from YouTube, TikTok, Twitch, and social accounts into one dashboard and explain what is working. What platforms do you want connected?""",
+    'ascension_growth_tracker': """I can track followers, views, subscribers, watch time, and growth rate across platforms and flag trends. Which accounts do you want to monitor?""",
+    'ascension_revenue_tracker': """I can track ad, affiliate, sponsorship, and product revenue from content and streams and map it to goals. What income sources do you have?""",
+    'ascension_content_calendar': """I can build a cross-platform content calendar with release dates, themes, and best-traffic time slots. What channels and posting cadence do you want?""",
 }
 
 

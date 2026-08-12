@@ -5646,6 +5646,61 @@ function ascension_dream_fundResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_content_workspaceResponse(message: string): NativeResponse {
+  return {
+    content: `I can create a content workspace with folders, briefs, brand kit, and project boards for any channel or campaign. What project or channel is this for?`,
+    model: 'Ascension Content Workspace',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_content_workspace',
+    data: { question: null }
+  };
+}
+
+function ascension_content_analyticsResponse(message: string): NativeResponse {
+  return {
+    content: `I can wire analytics from YouTube, TikTok, Twitch, and social accounts into one dashboard and explain what is working. What platforms do you want connected?`,
+    model: 'Ascension Content Analytics',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_content_analytics',
+    data: { question: null }
+  };
+}
+
+function ascension_growth_trackerResponse(message: string): NativeResponse {
+  return {
+    content: `I can track followers, views, subscribers, watch time, and growth rate across platforms and flag trends. Which accounts do you want to monitor?`,
+    model: 'Ascension Growth Tracker',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_growth_tracker',
+    data: { question: null }
+  };
+}
+
+function ascension_revenue_trackerResponse(message: string): NativeResponse {
+  return {
+    content: `I can track ad, affiliate, sponsorship, and product revenue from content and streams and map it to goals. What income sources do you have?`,
+    model: 'Ascension Revenue Tracker',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_revenue_tracker',
+    data: { question: null }
+  };
+}
+
+function ascension_content_calendarResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a cross-platform content calendar with release dates, themes, and best-traffic time slots. What channels and posting cadence do you want?`,
+    model: 'Ascension Content Calendar',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_content_calendar',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -6157,7 +6212,12 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_research_assistant': ascension_research_assistantResponse,
   'ascension_design_assistant': ascension_design_assistantResponse,
   'ascension_crowdfunding_product': ascension_crowdfunding_productResponse,
-  'ascension_dream_fund': ascension_dream_fundResponse
+  'ascension_dream_fund': ascension_dream_fundResponse,
+  'ascension_content_workspace': ascension_content_workspaceResponse,
+  'ascension_content_analytics': ascension_content_analyticsResponse,
+  'ascension_growth_tracker': ascension_growth_trackerResponse,
+  'ascension_revenue_tracker': ascension_revenue_trackerResponse,
+  'ascension_content_calendar': ascension_content_calendarResponse
 };
 
 export function routeNativeDomain(
