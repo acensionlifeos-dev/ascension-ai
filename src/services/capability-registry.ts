@@ -5136,6 +5136,182 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'wellness'
   },
+  {
+    id: 'ascension_buddhism',
+    name: 'Ascension Buddhism',
+    category: 'spirituality',
+    description: 'Buddhist concepts, practice, and meditation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_hinduism',
+    name: 'Ascension Hinduism',
+    category: 'spirituality',
+    description: 'Hindu philosophy, texts, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_christianity',
+    name: 'Ascension Christianity',
+    category: 'spirituality',
+    description: 'Christian beliefs, practice, and study',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_islam',
+    name: 'Ascension Islam',
+    category: 'spirituality',
+    description: 'Islamic beliefs, practice, and study',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_judaism',
+    name: 'Ascension Judaism',
+    category: 'spirituality',
+    description: 'Jewish beliefs, practice, and study',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_taoism',
+    name: 'Ascension Taoism',
+    category: 'spirituality',
+    description: 'Taoist philosophy and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_confucianism',
+    name: 'Ascension Confucianism',
+    category: 'spirituality',
+    description: 'Confucian values and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_shinto',
+    name: 'Ascension Shinto',
+    category: 'spirituality',
+    description: 'Shinto practice, kami, and shrines',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_sikhism',
+    name: 'Ascension Sikhism',
+    category: 'spirituality',
+    description: 'Sikh beliefs, practice, and study',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_jainism',
+    name: 'Ascension Jainism',
+    category: 'spirituality',
+    description: 'Jain beliefs and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_bahai',
+    name: 'Ascension Baha i',
+    category: 'spirituality',
+    description: 'Baha i principles and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_paganism',
+    name: 'Ascension Paganism',
+    category: 'spirituality',
+    description: 'Pagan paths, seasons, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_wicca',
+    name: 'Ascension Wicca',
+    category: 'spirituality',
+    description: 'Wiccan practice, sabbats, and ethics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_druidry',
+    name: 'Ascension Druidry',
+    category: 'spirituality',
+    description: 'Druidry, nature, and ritual',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_native_spirituality',
+    name: 'Ascension Native Spirituality',
+    category: 'spirituality',
+    description: 'Indigenous spiritual practices and respect',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_shamanism',
+    name: 'Ascension Shamanism',
+    category: 'spirituality',
+    description: 'Shamanic journeying and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
   
   // Add 200+ more capabilities here...
 ];

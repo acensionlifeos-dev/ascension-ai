@@ -433,7 +433,23 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_mindset',
   'ascension_resilience',
   'ascension_growth_mindset',
-  'ascension_stoicism'
+  'ascension_stoicism',
+  'ascension_buddhism',
+  'ascension_hinduism',
+  'ascension_christianity',
+  'ascension_islam',
+  'ascension_judaism',
+  'ascension_taoism',
+  'ascension_confucianism',
+  'ascension_shinto',
+  'ascension_sikhism',
+  'ascension_jainism',
+  'ascension_bahai',
+  'ascension_paganism',
+  'ascension_wicca',
+  'ascension_druidry',
+  'ascension_native_spirituality',
+  'ascension_shamanism'
 ]);
 
 const router = Router();
