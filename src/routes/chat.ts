@@ -294,7 +294,22 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_airdrop',
   'ascension_presale',
   'ascension_whitelist',
-  'ascension_nodes'
+  'ascension_nodes',
+  'ascension_3d_printing',
+  'ascension_laser_cutting',
+  'ascension_cnc',
+  'ascension_woodworking',
+  'ascension_metalworking',
+  'ascension_welding',
+  'ascension_soldering',
+  'ascension_electronics',
+  'ascension_arduino',
+  'ascension_raspberry_pi',
+  'ascension_robotics',
+  'ascension_drones',
+  'ascension_rc',
+  'ascension_ham_radio',
+  'ascension_astronomy'
 ]);
 
 const router = Router();

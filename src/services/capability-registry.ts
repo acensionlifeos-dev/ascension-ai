@@ -3607,6 +3607,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'engineering'
   },
+  {
+    id: 'ascension_3d_printing',
+    name: 'Ascension 3D Printing',
+    category: 'creation',
+    description: '3D printing, slicing, and materials',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_laser_cutting',
+    name: 'Ascension Laser Cutting',
+    category: 'creation',
+    description: 'Laser cutting, engraving, and design',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_cnc',
+    name: 'Ascension CNC',
+    category: 'creation',
+    description: 'CNC machining, tooling, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_woodworking',
+    name: 'Ascension Woodworking',
+    category: 'creation',
+    description: 'Woodworking projects, tools, and joinery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_metalworking',
+    name: 'Ascension Metalworking',
+    category: 'creation',
+    description: 'Metalworking tools, forging, and finishing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_welding',
+    name: 'Ascension Welding',
+    category: 'creation',
+    description: 'Welding processes, safety, and certification',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_soldering',
+    name: 'Ascension Soldering',
+    category: 'creation',
+    description: 'Soldering, desoldering, and circuit repair',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_electronics',
+    name: 'Ascension Electronics',
+    category: 'creation',
+    description: 'Electronics basics, circuits, and components',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_arduino',
+    name: 'Ascension Arduino',
+    category: 'creation',
+    description: 'Arduino projects, sensors, and code',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_raspberry_pi',
+    name: 'Ascension Raspberry Pi',
+    category: 'creation',
+    description: 'Raspberry Pi projects, OS, and hardware',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_robotics',
+    name: 'Ascension Robotics',
+    category: 'creation',
+    description: 'Robotics kits, programming, and projects',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_drones',
+    name: 'Ascension Drones',
+    category: 'creation',
+    description: 'Drones, flying, regulations, and repairs',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_rc',
+    name: 'Ascension RC',
+    category: 'entertainment',
+    description: 'RC cars, planes, boats, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_ham_radio',
+    name: 'Ascension Ham Radio',
+    category: 'creation',
+    description: 'Ham radio, licensing, and operation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_astronomy',
+    name: 'Ascension Astronomy',
+    category: 'knowledge',
+    description: 'Astronomy, stargazing, and equipment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
   
   // Add 200+ more capabilities here...
 ];
