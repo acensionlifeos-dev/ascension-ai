@@ -6812,134 +6812,134 @@ function ascension_contributionResponse(message: string): NativeResponse {
   };
 }
 
-function ascension_phone_osResponse(message: string): NativeResponse {
+function phone_osResponse(message: string): NativeResponse {
   return {
     content: `I can help design a custom mobile operating system from the kernel up. Tell me the target phone (SoC, storage, screen, radios) and I will produce a build plan, toolchain, driver list, and partition layout. Real flashing to a device requires explicit device.flash permission and a verified receipt.`,
-    model: 'Ascension Phone OS',
+    model: 'Phone OS',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_phone_os',
+    capability: 'phone_os',
     data: { question: null }
   };
 }
 
-function ascension_phone_driversResponse(message: string): NativeResponse {
+function phone_driversResponse(message: string): NativeResponse {
   return {
     content: `I can help map the driver layer for a phone OS: USB, fastboot, ADB, display, touch, audio, modem, Wi-Fi, Bluetooth, camera, and SoC power management. I will generate the driver matrix, source locations, and build order.`,
-    model: 'Ascension Phone Driver Layer',
+    model: 'Phone Driver Layer',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_phone_drivers',
+    capability: 'phone_drivers',
     data: { question: null }
   };
 }
 
-function ascension_phone_flashResponse(message: string): NativeResponse {
+function phone_flashResponse(message: string): NativeResponse {
   return {
     content: `I can prepare a flashable OS image and a safe flashing procedure, but I will not write to a phone over USB until I have the device.flash permission, a verified device ID, and an explicit one-time approval. I will also require a recovery image and a brick-recovery path before starting.`,
-    model: 'Ascension Phone Flash',
+    model: 'Phone Flash',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_phone_flash',
+    capability: 'phone_flash',
     data: { question: null }
   };
 }
 
-function ascension_phone_recoveryResponse(message: string): NativeResponse {
+function phone_recoveryResponse(message: string): NativeResponse {
   return {
     content: `I can design the bootloader, recovery partition, and fail-safe images for a phone OS. This includes fastboot/Odin-style recovery, A/B partitions, rollback protection, and an unbrick path.`,
-    model: 'Ascension Phone Recovery',
+    model: 'Phone Recovery',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_phone_recovery',
+    capability: 'phone_recovery',
     data: { question: null }
   };
 }
 
-function ascension_universal_osResponse(message: string): NativeResponse {
+function universal_osResponse(message: string): NativeResponse {
   return {
-    content: `I can architect Ascension Universal OS: one kernel and userspace design that targets phones, laptops, desktops, and smart devices. Tell me the device classes and I will produce a common HAL, build matrix, and IP-safe source layout.`,
-    model: 'Ascension Universal OS',
+    content: `I can architect Universal OS: one kernel and userspace design that targets phones, laptops, desktops, and smart devices. Tell me the device classes and I will produce a common HAL, build matrix, and IP-safe source layout.`,
+    model: 'Universal OS',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_universal_os',
+    capability: 'universal_os',
     data: { question: null }
   };
 }
 
-function ascension_laptop_osResponse(message: string): NativeResponse {
+function laptop_osResponse(message: string): NativeResponse {
   return {
     content: `I can adapt Ascension OS for laptops: x86/ARM64 SoC selection, power management, keyboard/trackpad, display, sleep states, and docking. I will produce a port plan and driver list.`,
-    model: 'Ascension Laptop OS',
+    model: 'Laptop OS',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_laptop_os',
+    capability: 'laptop_os',
     data: { question: null }
   };
 }
 
-function ascension_desktop_osResponse(message: string): NativeResponse {
+function desktop_osResponse(message: string): NativeResponse {
   return {
     content: `I can adapt Ascension OS for desktops: multi-monitor, discrete GPU, fast storage, expansion slots, peripherals, and networking. I will produce a port plan and driver list.`,
-    model: 'Ascension Desktop OS',
+    model: 'Desktop OS',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_desktop_os',
+    capability: 'desktop_os',
     data: { question: null }
   };
 }
 
-function ascension_smart_device_osResponse(message: string): NativeResponse {
+function smart_device_osResponse(message: string): NativeResponse {
   return {
     content: `I can adapt Ascension OS for smart home, wearables, and embedded IoT devices: low-power ARM/RISC-V, sensors, BLE, Thread, and Matter. I will produce a board port plan and minimal image spec.`,
-    model: 'Ascension Smart Device OS',
+    model: 'Smart Device OS',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_smart_device_os',
+    capability: 'smart_device_os',
     data: { question: null }
   };
 }
 
-function ascension_device_driversResponse(message: string): NativeResponse {
+function device_driversResponse(message: string): NativeResponse {
   return {
-    content: `I can design the unified HAL and device-driver catalog for Ascension Universal OS. I will generate a device-class matrix, driver source mapping, and a build order that works across phones, laptops, desktops, and smart devices.`,
-    model: 'Ascension Universal Device Drivers',
+    content: `I can design the unified HAL and device-driver catalog for Universal OS. I will generate a device-class matrix, driver source mapping, and a build order that works across phones, laptops, desktops, and smart devices.`,
+    model: 'Universal Device Drivers',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_device_drivers',
+    capability: 'device_drivers',
     data: { question: null }
   };
 }
 
-function ascension_device_flashResponse(message: string): NativeResponse {
+function device_flashResponse(message: string): NativeResponse {
   return {
     content: `I can prepare a flashable image for any connected phone, laptop, desktop, or smart device, but I will not write to the device until I have device.read and device.flash permissions, a verified device ID, an explicit one-time approval, and a brick-recovery image.`,
-    model: 'Ascension Universal Device Flash',
+    model: 'Universal Device Flash',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_device_flash',
+    capability: 'device_flash',
     data: { question: null }
   };
 }
 
-function ascension_ip_guardResponse(message: string): NativeResponse {
+function ip_guardResponse(message: string): NativeResponse {
   return {
     content: `I can design the IP protection layer for Ascension: license files, watermarking, signed binaries, source access tiers, audit logging, and enforcement. I will not emit or sign any protected material without ip.control approval and a verified receipt.`,
-    model: 'Ascension IP Guard',
+    model: 'IP Guard',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_ip_guard',
+    capability: 'ip_guard',
     data: { question: null }
   };
 }
 
-function ascension_code_guardianResponse(message: string): NativeResponse {
+function code_guardianResponse(message: string): NativeResponse {
   return {
     content: `I can design the source vault and code-guardian pipeline for Ascension: encryption at rest, commit signing, artifact hashes, exfiltration checks, and release attestation. I will not package or release any code without ip.control approval and a verified receipt.`,
-    model: 'Ascension Code Guardian',
+    model: 'Code Guardian',
     provider: 'ascension-native',
     tokensUsed: 0,
-    capability: 'ascension_code_guardian',
+    capability: 'code_guardian',
     data: { question: null }
   };
 }
@@ -7562,18 +7562,18 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_document_intelligence': ascension_document_intelligenceResponse,
   'ascension_legacy': ascension_legacyResponse,
   'ascension_contribution': ascension_contributionResponse,
-  'ascension_phone_os': ascension_phone_osResponse,
-  'ascension_phone_drivers': ascension_phone_driversResponse,
-  'ascension_phone_flash': ascension_phone_flashResponse,
-  'ascension_phone_recovery': ascension_phone_recoveryResponse,
-  'ascension_universal_os': ascension_universal_osResponse,
-  'ascension_laptop_os': ascension_laptop_osResponse,
-  'ascension_desktop_os': ascension_desktop_osResponse,
-  'ascension_smart_device_os': ascension_smart_device_osResponse,
-  'ascension_device_drivers': ascension_device_driversResponse,
-  'ascension_device_flash': ascension_device_flashResponse,
-  'ascension_ip_guard': ascension_ip_guardResponse,
-  'ascension_code_guardian': ascension_code_guardianResponse
+  'phone_os': phone_osResponse,
+  'phone_drivers': phone_driversResponse,
+  'phone_flash': phone_flashResponse,
+  'phone_recovery': phone_recoveryResponse,
+  'universal_os': universal_osResponse,
+  'laptop_os': laptop_osResponse,
+  'desktop_os': desktop_osResponse,
+  'smart_device_os': smart_device_osResponse,
+  'device_drivers': device_driversResponse,
+  'device_flash': device_flashResponse,
+  'ip_guard': ip_guardResponse,
+  'code_guardian': code_guardianResponse
 };
 
 export function routeNativeDomain(

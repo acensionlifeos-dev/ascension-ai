@@ -13,7 +13,7 @@ import { AuthRequest } from '../middleware/auth';
 const MAX_MESSAGE_LENGTH = 4000;
 
 const ALLOWED_CAPABILITY_IDS = new Set(getAllCapabilities().map(c => c.id));
-const DOMAIN_ROUTED_CAPABILITIES = new Set(getAllCapabilities().filter(c => c.id.startsWith('ascension_')).map(c => c.id));
+const DOMAIN_ROUTED_CAPABILITIES = new Set(getAllCapabilities().filter(c => c.default_provider === 'ascension-native').map(c => c.id));
 
 function isValidCapabilityId(capabilityId: any): boolean {
   return typeof capabilityId === 'string' && ALLOWED_CAPABILITY_IDS.has(capabilityId);

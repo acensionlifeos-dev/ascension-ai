@@ -129,21 +129,21 @@ export const PERMISSION_SCOPES: Record<string, PermissionScope> = {
     id: 'device.read',
     name: 'Read connected device info',
     why: 'Identify the phone, SoC, partitions, and current firmware version over USB before planning a flash.',
-    for_capability: 'ascension_phone_flash',
+    for_capability: 'phone_flash',
     category: 'read'
   },
   'device.flash': {
     id: 'device.flash',
     name: 'Flash device firmware',
     why: 'Write a new operating system to a phone over USB only after explicit approval and a verified receipt.',
-    for_capability: 'ascension_phone_flash',
+    for_capability: 'phone_flash',
     category: 'high_risk'
   },
   'ip.control': {
     id: 'ip.control',
     name: 'Control Ascension intellectual property',
     why: 'Sign, license, watermark, or release proprietary source, models, or binaries only after explicit approval.',
-    for_capability: 'ascension_ip_guard',
+    for_capability: 'ip_guard',
     category: 'high_risk'
   }
 };
@@ -157,9 +157,9 @@ const CAPABILITY_PERMISSIONS: Record<string, string[]> = {
   'ascension_home': ['calendar.read', 'home.control'],
   'ascension_family': ['family.read'],
   'ascension_sprout': ['sprout.guide'],
-  'ascension_phone_flash': ['device.read', 'device.flash'],
-  'ascension_device_flash': ['device.read', 'device.flash'],
-  'ascension_ip_guard': ['ip.control'],
+  'phone_flash': ['device.read', 'device.flash'],
+  'device_flash': ['device.read', 'device.flash'],
+  'ip_guard': ['ip.control'],
   'ascension_code_guardian': ['ip.control']
 };
 
