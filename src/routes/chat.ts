@@ -263,7 +263,23 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_zoom',
   'ascension_meet',
   'ascension_webex',
-  'ascension_obs'
+  'ascension_obs',
+  'ascension_chess',
+  'ascension_poker',
+  'ascension_blackjack',
+  'ascension_betting',
+  'ascension_lottery',
+  'ascension_auction',
+  'ascension_collector',
+  'ascension_antiques',
+  'ascension_stamps',
+  'ascension_coins',
+  'ascension_comics',
+  'ascension_trading_cards',
+  'ascension_vinyl',
+  'ascension_concerts',
+  'ascension_festivals',
+  'ascension_karaoke'
 ]);
 
 const router = Router();

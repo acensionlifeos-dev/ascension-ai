@@ -3266,6 +3266,182 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'creation'
   },
+  {
+    id: 'ascension_chess',
+    name: 'Ascension Chess',
+    category: 'entertainment',
+    description: 'Chess openings, tactics, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_poker',
+    name: 'Ascension Poker',
+    category: 'entertainment',
+    description: 'Poker strategy, odds, and bankroll',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_blackjack',
+    name: 'Ascension Blackjack',
+    category: 'entertainment',
+    description: 'Blackjack strategy and odds',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_betting',
+    name: 'Ascension Betting',
+    category: 'entertainment',
+    description: 'Sports betting, odds, and risk management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_lottery',
+    name: 'Ascension Lottery',
+    category: 'entertainment',
+    description: 'Lottery odds and expectation guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_auction',
+    name: 'Ascension Auction',
+    category: 'lifestyle',
+    description: 'Auction bidding, valuation, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_collector',
+    name: 'Ascension Collector',
+    category: 'lifestyle',
+    description: 'Collecting strategy, valuation, and curation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_antiques',
+    name: 'Ascension Antiques',
+    category: 'lifestyle',
+    description: 'Antique identification, value, and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_stamps',
+    name: 'Ascension Stamps',
+    category: 'lifestyle',
+    description: 'Stamp collecting and valuation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_coins',
+    name: 'Ascension Coins',
+    category: 'lifestyle',
+    description: 'Coin collecting and numismatics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_comics',
+    name: 'Ascension Comics',
+    category: 'entertainment',
+    description: 'Comic books, grading, and collecting',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_trading_cards',
+    name: 'Ascension Trading Cards',
+    category: 'entertainment',
+    description: 'Trading cards, value, and protection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_vinyl',
+    name: 'Ascension Vinyl',
+    category: 'lifestyle',
+    description: 'Vinyl records, collecting, and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_concerts',
+    name: 'Ascension Concerts',
+    category: 'entertainment',
+    description: 'Concert planning, tickets, and etiquette',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_festivals',
+    name: 'Ascension Festivals',
+    category: 'entertainment',
+    description: 'Festival planning, packing, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_karaoke',
+    name: 'Ascension Karaoke',
+    category: 'entertainment',
+    description: 'Karaoke song choice, setup, and fun',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
   
   // Add 200+ more capabilities here...
 ];
