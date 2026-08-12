@@ -1616,6 +1616,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'knowledge'
   },
+  {
+    id: 'ascension_wedding',
+    name: 'Ascension Wedding',
+    category: 'life_events',
+    description: 'Wedding planning, timeline, and etiquette',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_birthday',
+    name: 'Ascension Birthday',
+    category: 'life_events',
+    description: 'Birthday planning, themes, and gift ideas',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_party',
+    name: 'Ascension Party',
+    category: 'life_events',
+    description: 'Party planning, guest lists, and logistics',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_holiday',
+    name: 'Ascension Holiday',
+    category: 'life_events',
+    description: 'Holiday planning, traditions, and travel',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_gift',
+    name: 'Ascension Gift',
+    category: 'life_events',
+    description: 'Gift ideas, wrapping, and giving guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_funeral',
+    name: 'Ascension Funeral',
+    category: 'life_events',
+    description: 'Funeral planning, grief, and memorial support',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_babyshower',
+    name: 'Ascension Baby Shower',
+    category: 'life_events',
+    description: 'Baby shower planning and registry guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_graduation',
+    name: 'Ascension Graduation',
+    category: 'life_events',
+    description: 'Graduation planning, gifts, and next steps',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_retirement',
+    name: 'Ascension Retirement',
+    category: 'life_events',
+    description: 'Retirement planning, lifestyle, and transitions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
+  {
+    id: 'ascension_anniversary',
+    name: 'Ascension Anniversary',
+    category: 'life_events',
+    description: 'Anniversary celebration and gift ideas',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'life_events'
+  },
   
   // Add 180+ more capabilities here...
 ];

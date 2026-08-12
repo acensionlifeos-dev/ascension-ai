@@ -1159,6 +1159,116 @@ function etiquetteResponse(message: string): NativeResponse {
   };
 }
 
+function weddingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with wedding planning, timeline, and etiquette. I won't contact vendors for you. What is your biggest question?`,
+    model: 'Ascension Wedding',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_wedding',
+    data: { vendors_contacted: [] }
+  };
+}
+
+function birthdayResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan a birthday, themes, and gift ideas. What age and interests should I consider?`,
+    model: 'Ascension Birthday',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_birthday',
+    data: { age: null }
+  };
+}
+
+function partyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan a party, guest list, and logistics. I won't send invites. What kind of party?`,
+    model: 'Ascension Party',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_party',
+    data: { invites_sent: [] }
+  };
+}
+
+function holidayResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan holidays, traditions, and travel. Which holiday and who is it with?`,
+    model: 'Ascension Holiday',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_holiday',
+    data: { holiday: null }
+  };
+}
+
+function giftResponse(message: string): NativeResponse {
+  return {
+    content: `I can suggest gift ideas and wrapping. Who is it for, what do they like, and what is the occasion?`,
+    model: 'Ascension Gift',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_gift',
+    data: { recipient: null }
+  };
+}
+
+function funeralResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with funeral planning, memorial ideas, and grief support. I am sorry for your loss. What do you need right now?`,
+    model: 'Ascension Funeral',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_funeral',
+    data: { support: [] }
+  };
+}
+
+function babyshowerResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan a baby shower, themes, and registry. What are the parents' needs and style?`,
+    model: 'Ascension Baby Shower',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_babyshower',
+    data: { registry: [] }
+  };
+}
+
+function graduationResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with graduation planning, gifts, and next steps. What level and interests?`,
+    model: 'Ascension Graduation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_graduation',
+    data: { level: null }
+  };
+}
+
+function retirementResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with retirement lifestyle, planning, and transitions. What is your timeline and goals?`,
+    model: 'Ascension Retirement',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_retirement',
+    data: { timeline: null }
+  };
+}
+
+function anniversaryResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with anniversary celebration and gift ideas. How many years and what does your partner enjoy?`,
+    model: 'Ascension Anniversary',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_anniversary',
+    data: { years: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
