@@ -29,7 +29,12 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_fitness',
   'ascension_career',
   'ascension_relationships',
-  'ascension_creative'
+  'ascension_creative',
+  'ascension_code',
+  'ascension_learning',
+  'ascension_meetings',
+  'ascension_voice',
+  'ascension_security'
 ]);
 
 const router = Router();

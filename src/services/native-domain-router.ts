@@ -246,6 +246,61 @@ function creativeResponse(message: string): NativeResponse {
   };
 }
 
+function codeResponse(message: string): NativeResponse {
+  return {
+    content: `I can write, review, debug, and explain code. I will not execute code on your production systems or push changes without approval. What language and problem are you working in?`,
+    model: 'Ascension Code',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_code',
+    data: { executed: false }
+  };
+}
+
+function learningResponse(message: string): NativeResponse {
+  return {
+    content: `I can build an adaptive learning path, assess gaps, and create practice problems. I will not lock you into a course you hate. What skill or topic do you want to learn?`,
+    model: 'Ascension Learning',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_learning',
+    data: { enrolled: [] }
+  };
+}
+
+function meetingsResponse(message: string): NativeResponse {
+  return {
+    content: `I can summarize meetings, extract action items, and draft follow-ups. I need the transcript or recording to work from. Please paste the meeting text or upload the recording.`,
+    model: 'Ascension Meetings',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_meetings',
+    data: { transcript_received: false }
+  };
+}
+
+function voiceResponse(message: string): NativeResponse {
+  return {
+    content: `I can process voice commands and transcribe speech. Microphone permission is required. Nothing has been recorded yet. Please enable voice when you are ready.`,
+    model: 'Ascension Voice',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_voice',
+    data: { microphone_required: true, recorded: false }
+  };
+}
+
+function securityResponse(message: string): NativeResponse {
+  return {
+    content: `I can review security settings, flag suspicious behavior, and give privacy guidance. I will not change firewall, access, or authentication rules without explicit approval. What are you worried about?`,
+    model: 'Ascension Security',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_security',
+    data: { rules_changed: [] }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
@@ -266,7 +321,12 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_fitness': fitnessResponse,
   'ascension_career': careerResponse,
   'ascension_relationships': relationshipsResponse,
-  'ascension_creative': creativeResponse
+  'ascension_creative': creativeResponse,
+  'ascension_code': codeResponse,
+  'ascension_learning': learningResponse,
+  'ascension_meetings': meetingsResponse,
+  'ascension_voice': voiceResponse,
+  'ascension_security': securityResponse
 };
 
 export function routeNativeDomain(

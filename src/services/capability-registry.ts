@@ -703,6 +703,61 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'creation'
   },
+  {
+    id: 'ascension_code',
+    name: 'Ascension Code',
+    category: 'code',
+    description: 'Code generation, review, debugging, and architecture planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'code'
+  },
+  {
+    id: 'ascension_learning',
+    name: 'Ascension Learning',
+    category: 'learning',
+    description: 'Adaptive skill paths, practice generation, and concept explanation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'learning'
+  },
+  {
+    id: 'ascension_meetings',
+    name: 'Ascension Meetings',
+    category: 'productivity',
+    description: 'Meeting transcription, summaries, and action-item extraction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'productivity'
+  },
+  {
+    id: 'ascension_voice',
+    name: 'Ascension Voice',
+    category: 'voice',
+    description: 'Voice commands, transcription, and speech-driven control',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'voice'
+  },
+  {
+    id: 'ascension_security',
+    name: 'Ascension Security',
+    category: 'security',
+    description: 'Security analysis, threat flags, and privacy guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'security'
+  },
   
   // Add 180+ more capabilities here...
 ];
