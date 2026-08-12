@@ -74,7 +74,14 @@ describe('Ascension AI API integration', () => {
         'Content-Type': 'application/json',
         'x-api-key': 'dev-key'
       },
-      body: JSON.stringify({ capabilityId: 'ascension_home', message: 'assign chores' })
+      body: JSON.stringify({
+        capabilityId: 'ascension_home',
+        message: 'assign chores',
+        permissions: {
+          'calendar.read': { granted: true },
+          'home.control': { granted: true }
+        }
+      })
     });
     const data = await res.json();
     expect(res.status).toBe(200);

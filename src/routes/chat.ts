@@ -4,6 +4,7 @@
 
 import { Router, Request, Response } from 'express';
 import { modelRouter } from '../services/model-router';
+import { requestPermissions } from '../services/permission-engine';
 import { logUsage } from '../services/usage-tracker';
 import { AuthRequest } from '../middleware/auth';
 
@@ -69,13 +70,25 @@ router.post('/', async (req: AuthRequest, res: Response) => {
  */
 router.post('/capability', async (req: AuthRequest, res: Response) => {
   try {
-    const { capabilityId, message } = req.body;
+    const { capabilityId, message, permissions = {} } = req.body;
     
     if (!capabilityId || !message) {
       return res.status(400).json({ error: 'Capability ID and message required' });
     }
     
     const startTime = Date.now();
+    
+    // AP asks for the permissions it knows it needs before acting
+    const permissionRequest = requestPermissions(capabilityId, permissions as any);
+    
+    if (!permissionRequest.can_execute) {
+      return res.json({
+        type: 'permission_request',
+        capabilityId,
+        ...permissionRequest,
+        durationMs: Date.now() - startTime
+      });
+    }
     
     // Route to best provider for capability
     const routingDecision = await modelRouter.route(capabilityId, req.user?.tier || 'individual');
