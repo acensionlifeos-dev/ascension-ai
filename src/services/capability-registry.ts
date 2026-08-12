@@ -1506,6 +1506,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'wellness'
   },
+  {
+    id: 'ascension_dance',
+    name: 'Ascension Dance',
+    category: 'creation',
+    description: 'Dance styles, choreography, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_photography',
+    name: 'Ascension Photography',
+    category: 'creation',
+    description: 'Photography technique, composition, and editing guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_filmmaking',
+    name: 'Ascension Filmmaking',
+    category: 'creation',
+    description: 'Film, video, and content production guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_podcast',
+    name: 'Ascension Podcast',
+    category: 'creation',
+    description: 'Podcast planning, production, and distribution guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_design',
+    name: 'Ascension Design',
+    category: 'creation',
+    description: 'Graphic, UX, and visual design guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_interior_design',
+    name: 'Ascension Interior Design',
+    category: 'home',
+    description: 'Interior layout, color, and decor planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_craft',
+    name: 'Ascension Craft',
+    category: 'creation',
+    description: 'Crafts, DIY, and maker project guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_baking',
+    name: 'Ascension Baking',
+    category: 'home',
+    description: 'Baking recipes, technique, and troubleshooting',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_mixology',
+    name: 'Ascension Mixology',
+    category: 'home',
+    description: 'Cocktail, mocktail, and beverage guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_etiquette',
+    name: 'Ascension Etiquette',
+    category: 'knowledge',
+    description: 'Etiquette, manners, and social situation guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge'
+  },
   
   // Add 180+ more capabilities here...
 ];

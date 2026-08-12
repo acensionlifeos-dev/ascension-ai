@@ -1049,6 +1049,116 @@ function firstaidResponse(message: string): NativeResponse {
   };
 }
 
+function danceResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss dance styles, choreography, and practice. What style or move are you learning?`,
+    model: 'Ascension Dance',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_dance',
+    data: { style: null }
+  };
+}
+
+function photographyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with photography composition, settings, and editing. What do you want to shoot?`,
+    model: 'Ascension Photography',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_photography',
+    data: { subject: null }
+  };
+}
+
+function filmmakingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with film, video, and content production. What kind of video are you making?`,
+    model: 'Ascension Filmmaking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_filmmaking',
+    data: { format: null }
+  };
+}
+
+function podcastResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan, produce, and distribute a podcast. I won't submit anything to platforms for you. What is your topic?`,
+    model: 'Ascension Podcast',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_podcast',
+    data: { published: false }
+  };
+}
+
+function designResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with graphic, UX, and visual design. What are you designing?`,
+    model: 'Ascension Design',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_design',
+    data: { medium: null }
+  };
+}
+
+function interiorDesignResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with interior layout, color, and decor for a space. What room or style are you working on?`,
+    model: 'Ascension Interior Design',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_interior_design',
+    data: { room: null }
+  };
+}
+
+function craftResponse(message: string): NativeResponse {
+  return {
+    content: `I can guide craft, maker, and DIY projects. What are you making?`,
+    model: 'Ascension Craft',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_craft',
+    data: { project: null }
+  };
+}
+
+function bakingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with baking recipes, technique, and troubleshooting. What do you want to bake?`,
+    model: 'Ascension Baking',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_baking',
+    data: { recipe: null }
+  };
+}
+
+function mixologyResponse(message: string): NativeResponse {
+  return {
+    content: `I can suggest cocktail and mocktail recipes and technique. I won't serve alcohol. What flavors or occasion?`,
+    model: 'Ascension Mixology',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_mixology',
+    data: { alcohol: false }
+  };
+}
+
+function etiquetteResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with etiquette and social situation navigation. What situation do you want to handle gracefully?`,
+    model: 'Ascension Etiquette',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_etiquette',
+    data: { situation: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
