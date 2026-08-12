@@ -2606,6 +2606,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'sports'
   },
+  {
+    id: 'ascension_horoscope',
+    name: 'Ascension Horoscope',
+    category: 'entertainment',
+    description: 'Horoscope, astrology, and personal sign guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_astrology',
+    name: 'Ascension Astrology',
+    category: 'entertainment',
+    description: 'Astrology chart basics and sign compatibility',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_tarot',
+    name: 'Ascension Tarot',
+    category: 'entertainment',
+    description: 'Tarot card meanings and reflective readings',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_tattoo',
+    name: 'Ascension Tattoo',
+    category: 'style',
+    description: 'Tattoo ideas, styles, and aftercare',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_piercing',
+    name: 'Ascension Piercing',
+    category: 'style',
+    description: 'Piercing types, care, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_perfume',
+    name: 'Ascension Perfume',
+    category: 'style',
+    description: 'Fragrance, perfume, and scent guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_jewelry',
+    name: 'Ascension Jewelry',
+    category: 'style',
+    description: 'Jewelry selection, care, and occasion matching',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_watch',
+    name: 'Ascension Watch',
+    category: 'style',
+    description: 'Watch selection, care, and collection guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_shoes',
+    name: 'Ascension Shoes',
+    category: 'style',
+    description: 'Shoe selection, fit, and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_bag',
+    name: 'Ascension Bag',
+    category: 'style',
+    description: 'Bag and luggage selection and care',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_wallet',
+    name: 'Ascension Wallet',
+    category: 'style',
+    description: 'Wallet selection and organization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_sunglasses',
+    name: 'Ascension Sunglasses',
+    category: 'style',
+    description: 'Sunglasses, UV protection, and style',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_haircut',
+    name: 'Ascension Haircut',
+    category: 'style',
+    description: 'Haircut styles, face shape, and maintenance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_beard',
+    name: 'Ascension Beard',
+    category: 'style',
+    description: 'Beard styles, growth, and grooming',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
+  {
+    id: 'ascension_makeup',
+    name: 'Ascension Makeup',
+    category: 'style',
+    description: 'Makeup techniques, products, and looks',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'style'
+  },
   
   // Add 200+ more capabilities here...
 ];

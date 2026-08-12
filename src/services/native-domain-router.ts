@@ -2149,6 +2149,171 @@ function fantasyResponse(message: string): NativeResponse {
   };
 }
 
+function horoscopeResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss horoscope, astrology, and sign themes reflectively. I won't predict the future. What is your sign or question?`,
+    model: 'Ascension Horoscope',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_horoscope',
+    data: { sign: null }
+  };
+}
+
+function astrologyResponse(message: string): NativeResponse {
+  return {
+    content: `I can explain astrology basics and sign compatibility. I won't make life decisions. What do you want to understand?`,
+    model: 'Ascension Astrology',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_astrology',
+    data: { chart: null }
+  };
+}
+
+function tarotResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss tarot card meanings for reflection. I won't predict the future. What card or question?`,
+    model: 'Ascension Tarot',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tarot',
+    data: { card: null }
+  };
+}
+
+function tattooResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with tattoo ideas, styles, and aftercare. What style or placement are you considering?`,
+    model: 'Ascension Tattoo',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tattoo',
+    data: { style: null }
+  };
+}
+
+function piercingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with piercing types and care. For medical concerns, see a professional. What are you considering?`,
+    model: 'Ascension Piercing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_piercing',
+    data: { location: null }
+  };
+}
+
+function perfumeResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with fragrance, perfume, and scent guidance. What occasion or notes do you like?`,
+    model: 'Ascension Perfume',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_perfume',
+    data: { notes: null }
+  };
+}
+
+function jewelryResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with jewelry selection, care, and occasion matching. What are you shopping for?`,
+    model: 'Ascension Jewelry',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_jewelry',
+    data: { occasion: null }
+  };
+}
+
+function watchResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with watch selection, care, and collection. What style or budget?`,
+    model: 'Ascension Watch',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_watch',
+    data: { budget: null }
+  };
+}
+
+function shoesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with shoe selection, fit, and care. What occasion or activity?`,
+    model: 'Ascension Shoes',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_shoes',
+    data: { activity: null }
+  };
+}
+
+function bagResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with bags, luggage, and organization. What do you need to carry?`,
+    model: 'Ascension Bag',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_bag',
+    data: { need: null }
+  };
+}
+
+function walletResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with wallet selection and organization. What style or features?`,
+    model: 'Ascension Wallet',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_wallet',
+    data: { features: null }
+  };
+}
+
+function sunglassesResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with sunglasses, UV protection, and style. What face shape or activity?`,
+    model: 'Ascension Sunglasses',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_sunglasses',
+    data: { face_shape: null }
+  };
+}
+
+function haircutResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with haircut styles, face shape, and maintenance. What is your hair type and desired look?`,
+    model: 'Ascension Haircut',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_haircut',
+    data: { hair_type: null }
+  };
+}
+
+function beardResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with beard styles, growth, and grooming. What is your beard situation and goal?`,
+    model: 'Ascension Beard',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_beard',
+    data: { growth: null }
+  };
+}
+
+function makeupResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with makeup techniques, products, and looks. What is your skin type and the occasion?`,
+    model: 'Ascension Makeup',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_makeup',
+    data: { skin_type: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,
