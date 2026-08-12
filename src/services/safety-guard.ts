@@ -34,7 +34,10 @@ const PII_PATTERNS: Record<string, RegExp> = {
   'email': /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/,
   'phone_usa': /\b\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b/,
   'credit_card': /\b(?:\d{4}[-\s]?){3}\d{4}\b/,
-  'api_key_like': /\b(?:api[_-]?key|token|secret)\s*[:=]\s*['"]?[a-zA-Z0-9]{16,}['"]?/i
+  'api_key_like': /\b(?:api[_-]?key|token|secret)\s*[:=]\s*['"]?[a-zA-Z0-9]{16,}['"]?/i,
+  'ip_address': /\b(?:\d{1,3}\.){3}\d{1,3}\b/,
+  'bank_account_like': /\b(?:routing|account)\s*(?:number|#)?\s*[:=]\s*\d{4,}/i,
+  'address_like': /\b\d+\s+[A-Za-z]+\s+(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Drive|Dr|Lane|Ln|Court|Ct)\b/gi
 };
 
 const SENSITIVE_TOPIC_PATTERNS: Record<string, RegExp> = {
@@ -42,7 +45,10 @@ const SENSITIVE_TOPIC_PATTERNS: Record<string, RegExp> = {
   'legal_advice_request': /\b(?:should I sue|can I get custody|will I go to jail|am I liable|is this legal for me to)\b/gi,
   'financial_guarantee_request': /\b(?:guarantee returns|guaranteed profit|risk-free investment|make me rich fast|double my money)\b/gi,
   'password_or_secret_request': /\b(?:give me your password|what is the admin password|send me the key|what is the secret)\b/gi,
-  'personal_info_request': /\b(?:what is their ssn|what is their password|give me their bank|show me their messages)\b/gi
+  'personal_info_request': /\b(?:what is their ssn|what is their password|give me their bank|show me their messages)\b/gi,
+  'jailbreak_attempt': /\b(?:ignore previous|ignore all instructions|do not follow|you are now|DAN mode|jailbreak|developer mode|pretend to be|roleplay as)\b/gi,
+  'code_execution_request': /\b(?:execute this|run this code|eval\(|exec\(|child_process|spawn\(|\.exec\(|__proto__|constructor\s*\(|prototype\.constructor)\b/gi,
+  'cyber_malicious_request': /\b(?:malware|virus|trojan|keylogger|phishing|credential harvest|sql injection|xss|exploit|ddos|brute force)\b/gi
 };
 
 export function scanSafety(
@@ -53,6 +59,19 @@ export function scanSafety(
   const piiDetected: string[] = [];
   const crisisDetected: string[] = [];
   const sensitiveTopics: string[] = [];
+
+  if (typeof content !== 'string' || content.length === 0) {
+    return {
+      safe: false,
+      level: 'low',
+      flags: ['validation:empty_content'],
+      action: 'block',
+      message: 'No message content was provided.',
+      pii_detected: [],
+      crisis_detected: [],
+      sensitive_topics: []
+    };
+  }
 
   // PII detection
   for (const [name, pattern] of Object.entries(PII_PATTERNS)) {
@@ -89,6 +108,9 @@ export function scanSafety(
 
   // Determine level and action
   const hasCrisis = crisisDetected.length > 0;
+  const hasJailbreak = sensitiveTopics.includes('jailbreak_attempt');
+  const hasCodeExec = sensitiveTopics.includes('code_execution_request');
+  const hasCyber = sensitiveTopics.includes('cyber_malicious_request');
   const hasHighRisk = sensitiveTopics.includes('health_diagnosis_request') ||
     sensitiveTopics.includes('legal_advice_request') ||
     sensitiveTopics.includes('financial_guarantee_request') ||
@@ -103,6 +125,10 @@ export function scanSafety(
     level = 'critical';
     action = 'escalate';
     message = 'This conversation contains signs of possible crisis or harm. I am not a crisis counselor. If you or someone else is in danger, please contact emergency services or a crisis line (988 in the US). You are not alone.';
+  } else if (hasJailbreak || hasCodeExec || hasCyber) {
+    level = 'high';
+    action = 'block';
+    message = 'This request contains patterns that try to override instructions, execute code, or cause harm. I cannot continue it.';
   } else if (hasHighRisk) {
     level = 'high';
     action = 'warn';
