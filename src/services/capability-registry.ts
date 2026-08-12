@@ -4949,6 +4949,193 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'home'
   },
+  {
+    id: 'ascension_meditation_guided',
+    name: 'Ascension Meditation Guided',
+    category: 'wellness',
+    description: 'Guided meditation and relaxation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_breathing',
+    name: 'Ascension Breathing',
+    category: 'wellness',
+    description: 'Breathing exercises and techniques',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_cold_exposure',
+    name: 'Ascension Cold Exposure',
+    category: 'wellness',
+    description: 'Cold exposure, showers, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_heat_exposure',
+    name: 'Ascension Heat Exposure',
+    category: 'wellness',
+    description: 'Sauna, hot bath, and heat safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_sauna',
+    name: 'Ascension Sauna',
+    category: 'wellness',
+    description: 'Sauna protocols, hydration, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_ice_bath',
+    name: 'Ascension Ice Bath',
+    category: 'wellness',
+    description: 'Ice bath setup, duration, and safety',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_sleep_hygiene',
+    name: 'Ascension Sleep Hygiene',
+    category: 'wellness',
+    description: 'Sleep routines, environment, and habits',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_nap',
+    name: 'Ascension Nap',
+    category: 'wellness',
+    description: 'Nap length, timing, and recovery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_circadian',
+    name: 'Ascension Circadian',
+    category: 'wellness',
+    description: 'Circadian rhythm, light, and schedule',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_journaling',
+    name: 'Ascension Journaling',
+    category: 'wellness',
+    description: 'Journaling prompts, habits, and review',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_gratitude',
+    name: 'Ascension Gratitude',
+    category: 'wellness',
+    description: 'Gratitude practice and reflection',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_affirmations',
+    name: 'Ascension Affirmations',
+    category: 'wellness',
+    description: 'Affirmations, wording, and practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_visualization',
+    name: 'Ascension Visualization',
+    category: 'wellness',
+    description: 'Visualization techniques and mental rehearsal',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_mindset',
+    name: 'Ascension Mindset',
+    category: 'wellness',
+    description: 'Mindset coaching and reframes',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_resilience',
+    name: 'Ascension Resilience',
+    category: 'wellness',
+    description: 'Resilience building and stress recovery',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_growth_mindset',
+    name: 'Ascension Growth Mindset',
+    category: 'wellness',
+    description: 'Growth mindset and learning attitude',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
+  {
+    id: 'ascension_stoicism',
+    name: 'Ascension Stoicism',
+    category: 'wellness',
+    description: 'Stoic principles and daily practice',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness'
+  },
   
   // Add 200+ more capabilities here...
 ];

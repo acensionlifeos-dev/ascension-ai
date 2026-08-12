@@ -416,7 +416,24 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_pre_workout',
   'ascension_post_workout',
   'ascension_meal_planning',
-  'ascension_grocery_list'
+  'ascension_grocery_list',
+  'ascension_meditation_guided',
+  'ascension_breathing',
+  'ascension_cold_exposure',
+  'ascension_heat_exposure',
+  'ascension_sauna',
+  'ascension_ice_bath',
+  'ascension_sleep_hygiene',
+  'ascension_nap',
+  'ascension_circadian',
+  'ascension_journaling',
+  'ascension_gratitude',
+  'ascension_affirmations',
+  'ascension_visualization',
+  'ascension_mindset',
+  'ascension_resilience',
+  'ascension_growth_mindset',
+  'ascension_stoicism'
 ]);
 
 const router = Router();
