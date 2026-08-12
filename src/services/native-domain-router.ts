@@ -25,2823 +25,6 @@ function permissionMessage(capability: string, permissions: Record<string, Permi
   return null;
 }
 
-function travelResponse(message: string): NativeResponse {
-  const days = /\d+\s*(?:day|week|nights?)/i.test(message) ? 'detected' : 'not specified';
-  return {
-    content: `I can build a complete travel plan once you share destination, dates, and budget. Nothing has been booked. So far I noted: ${days === 'detected' ? 'you mentioned a duration' : 'no duration yet'}. Please confirm where you want to go and your preferred travel window.`,
-    model: 'Ascension Travel',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_travel',
-    data: { days_detected: days === 'detected' }
-  };
-}
-
-function legalResponse(message: string): NativeResponse {
-  return {
-    content: `I can review and explain documents, point out clauses to watch, and flag areas where a licensed attorney should review. I am not a lawyer and cannot guarantee outcomes. Please paste the document or describe the issue.`,
-    model: 'Ascension Legal',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_legal',
-    data: { review_type: 'preliminary', disclaimer: true }
-  };
-}
-
-function realEstateResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with housing search, lease review, and cash-flow-based affordability. The key variables that change the answer are location, move-in date, household needs, verified monthly housing limit, and total move-in cash. Nothing has been searched or applied for yet.`,
-    model: 'Ascension Real Estate',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_realestate',
-    data: { search_started: false }
-  };
-}
-
-function researchResponse(message: string): NativeResponse {
-  return {
-    content: `I can research a topic, compare sources, and prepare citations. I will separate verified facts from inference and note uncertainty. What topic or question do you want me to investigate?`,
-    model: 'Ascension Research',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_research',
-    data: { sources: [], status: 'awaiting_query' }
-  };
-}
-
-function eventsResponse(message: string): NativeResponse {
-  return {
-    content: `I can plan an event from guest list to venue and timeline. The biggest variables that shape the plan are date, guest count, location, and budget. Nothing has been booked or scheduled yet.`,
-    model: 'Ascension Events',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_events',
-    data: { planned: false }
-  };
-}
-
-function automotiveResponse(message: string): NativeResponse {
-  return {
-    content: `I can track maintenance schedules, diagnose common symptoms from descriptions, and help compare vehicles. For repairs, I will flag when a mechanic should inspect it. Please describe the symptom or maintenance item.`,
-    model: 'Ascension Automotive',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_automotive',
-    data: { mechanic_referral: false }
-  };
-}
-
-function petsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with training routines, nutrition, and when to call a vet. I cannot diagnose animals. Please describe your pet, the symptom, or the behavior.`,
-    model: 'Ascension Pets',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_pets',
-    data: { vet_referral: false }
-  };
-}
-
-function weatherResponse(message: string): NativeResponse {
-  return {
-    content: `I can make weather-aware plans once you tell me the location and the day. I will not invent forecast data. Please share where and when.`,
-    model: 'Ascension Weather',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_weather',
-    data: { location: null, date: null }
-  };
-}
-
-function financeResponse(message: string): NativeResponse {
-  return {
-    content: `I can analyze cash flow, income, debt, and spending, and build a step-by-step plan. I need your real balances, income dates, and upcoming bills to do it safely. Nothing has been budgeted or moved yet.`,
-    model: 'Ascension Financial Intelligence',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_finance',
-    data: { planning_started: false }
-  };
-}
-
-function tradingResponse(message: string): NativeResponse {
-  return {
-    content: `I can analyze markets, backtest strategies, and run paper trades. I will not place live orders without your explicit approval and a verified broker receipt. What market or strategy do you want to explore?`,
-    model: 'Ascension Trading Intelligence',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_trading',
-    data: { paper_only: true }
-  };
-}
-
-function healthResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with wellness planning and symptom guidance, but I cannot diagnose or replace a healthcare provider. Please describe what you are experiencing or share any vitals you are comfortable with.`,
-    model: 'Ascension Health',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_health',
-    data: { medical_disclaimer: true }
-  };
-}
-
-function homeResponse(message: string): NativeResponse {
-  return {
-    content: `I can coordinate schedules, chores, and smart home devices for your household. Nothing has been changed yet. Tell me who is in the household and what you want to organize.`,
-    model: 'Ascension HomeOS',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_home',
-    data: { household_known: false }
-  };
-}
-
-function sproutResponse(message: string): NativeResponse {
-  return {
-    content: `I can create age-appropriate learning paths and milestone guidance under parent supervision. Tell me the child\'s age, interests, and what you want to focus on.`,
-    model: 'Ascension Sprout',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sprout',
-    data: { parent_supervision: true }
-  };
-}
-
-function familyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with family enterprise planning, governance, and shared records using only explicitly shared family data. What is the family decision or record you want to work on?`,
-    model: 'Ascension FamilyOS',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_family',
-    data: { shared_only: true }
-  };
-}
-
-function chatResponse(message: string): NativeResponse {
-  return {
-    content: `I am AP, your Ascension Partner. I can help across every domain of your life, but I will not pretend to see data you have not shared and I will not act without your approval. What is on your mind?`,
-    model: 'Ascension AP',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_chat',
-    data: { shell: 'ap' }
-  };
-}
-
-function nutritionResponse(message: string): NativeResponse {
-  return {
-    content: `I can build meal plans and analyze nutrition for your goals and preferences. I am not a dietitian; for medical conditions or eating disorders, I will point you toward a qualified provider. What are your goals?`,
-    model: 'Ascension Nutrition',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_nutrition',
-    data: { dietitian_referral: false }
-  };
-}
-
-function fitnessResponse(message: string): NativeResponse {
-  return {
-    content: `I can design workouts, track progress, and suggest form cues. I will not push you past your limits or diagnose injury. What is your current routine or goal?`,
-    model: 'Ascension Fitness',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_fitness',
-    data: { injury_screen: false }
-  };
-}
-
-function careerResponse(message: string): NativeResponse {
-  return {
-    content: `I can review resumes, prepare for interviews, and map career moves. I will not apply for jobs or send messages on your behalf without explicit approval. What are you working toward?`,
-    model: 'Ascension Career',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_career',
-    data: { applications: [] }
-  };
-}
-
-function relationshipsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you think through conversations, prepare thoughtful responses, and notice relationship patterns. I will not contact anyone for you. What is the situation?`,
-    model: 'Ascension Relationships',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_relationships',
-    data: { sent_messages: [] }
-  };
-}
-
-function creativeResponse(message: string): NativeResponse {
-  return {
-    content: `I can brainstorm, draft, and iterate on creative work. I will not publish or submit anything without you reviewing it. What are you creating?`,
-    model: 'Ascension Creative',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_creative',
-    data: { published: [] }
-  };
-}
-
-function codeResponse(message: string): NativeResponse {
-  return {
-    content: `I can write, review, debug, and explain code. I will not execute code on your production systems or push changes without approval. What language and problem are you working in?`,
-    model: 'Ascension Code',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_code',
-    data: { executed: false }
-  };
-}
-
-function learningResponse(message: string): NativeResponse {
-  return {
-    content: `I can build an adaptive learning path, assess gaps, and create practice problems. I will not lock you into a course you hate. What skill or topic do you want to learn?`,
-    model: 'Ascension Learning',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_learning',
-    data: { enrolled: [] }
-  };
-}
-
-function meetingsResponse(message: string): NativeResponse {
-  return {
-    content: `I can summarize meetings, extract action items, and draft follow-ups. I need the transcript or recording to work from. Please paste the meeting text or upload the recording.`,
-    model: 'Ascension Meetings',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_meetings',
-    data: { transcript_received: false }
-  };
-}
-
-function voiceResponse(message: string): NativeResponse {
-  return {
-    content: `I can process voice commands and transcribe speech. Microphone permission is required. Nothing has been recorded yet. Please enable voice when you are ready.`,
-    model: 'Ascension Voice',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_voice',
-    data: { microphone_required: true, recorded: false }
-  };
-}
-
-function securityResponse(message: string): NativeResponse {
-  return {
-    content: `I can review security settings, flag suspicious behavior, and give privacy guidance. I will not change firewall, access, or authentication rules without explicit approval. What are you worried about?`,
-    model: 'Ascension Security',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_security',
-    data: { rules_changed: [] }
-  };
-}
-
-function psychologyResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain human behavior, emotion, motivation, cognition, and mental patterns. I am not a therapist or psychiatrist. If you are in crisis or need diagnosis, I will point you to a qualified professional. What are you trying to understand about yourself or someone else?`,
-    model: 'Ascension Psychology',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_psychology',
-    data: { therapist_referral: false }
-  };
-}
-
-function humanLifeResponse(message: string): NativeResponse {
-  return {
-    content: `I can help across every domain of human life: identity, health, money, work, relationships, home, time, learning, creativity, meaning, and transitions. Which area are you working on right now?`,
-    model: 'Ascension Human Life',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_human_life',
-    data: { domains: ['identity', 'health', 'money', 'work', 'relationships', 'home', 'time', 'learning', 'creativity', 'meaning', 'transitions'] }
-  };
-}
-
-function spiritualityResponse(message: string): NativeResponse {
-  return {
-    content: `I can explore faith, meditation, ritual, nature, legacy, and existential questions with you. I will not impose a framework; I can work with yours. What are you reflecting on?`,
-    model: 'Ascension Spirituality',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_spirituality',
-    data: { imposed_framework: false }
-  };
-}
-
-function griefResponse(message: string): NativeResponse {
-  return {
-    content: `I am sorry you are going through this. I can hold space, help you organize practical tasks, and point you toward support. I am not a grief counselor. If the pain is overwhelming or persistent, please consider a professional or support group. What do you need most right now?`,
-    model: 'Ascension Grief',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_grief',
-    data: { counselor_referral: false }
-  };
-}
-
-function mentalHealthResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you understand stress, anxiety, low mood, emotional patterns, and when to seek professional help. I am not a therapist or doctor. If you are in crisis, please reach out to a crisis line or emergency services. What are you experiencing?`,
-    model: 'Ascension Mental Health',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_mental_health',
-    data: { crisis: false }
-  };
-}
-
-function communicationResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you prepare for difficult conversations, listen actively, and reduce conflict. I cannot send messages for you. Who is the conversation with and what is the goal?`,
-    model: 'Ascension Communication',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_communication',
-    data: { sent_messages: [] }
-  };
-}
-
-function habitsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you build habits using cues, routines, rewards, and identity-based change. Tiny, consistent steps outperform heroic bursts. What habit do you want to build or break?`,
-    model: 'Ascension Habits',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_habits',
-    data: { streaks: [] }
-  };
-}
-
-function stressResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you spot stress signals, calm the nervous system, and recover before burnout. What is draining you right now and what is in your control?`,
-    model: 'Ascension Stress',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_stress',
-    data: { burnout_risk: 'unknown' }
-  };
-}
-
-function sleepResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you design a sleep routine and align with your circadian rhythm. I cannot diagnose sleep disorders; persistent insomnia may need a clinician. What is your current sleep pattern?`,
-    model: 'Ascension Sleep',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sleep',
-    data: { clinician_referral: false }
-  };
-}
-
-function parentingResponse(message: string): NativeResponse {
-  return {
-    content: `I can offer child-development guidance, discipline strategies, and co-parenting support. I am not a pediatrician or therapist. What age and situation are you navigating?`,
-    model: 'Ascension Parenting',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_parenting',
-    data: { child_age: null }
-  };
-}
-
-function mindfulnessResponse(message: string): NativeResponse {
-  return {
-    content: `I can guide breathing, presence, and attention practices. Start with a few slow breaths. What is pulling your attention right now?`,
-    model: 'Ascension Mindfulness',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_mindfulness',
-    data: { practice_seconds: 0 }
-  };
-}
-
-function timeResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you map your energy, prioritize, and reduce procrastination. Time management works best when it follows your biology and values. What is competing for your time right now?`,
-    model: 'Ascension Time',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_time',
-    data: { priorities: [] }
-  };
-}
-
-function confidenceResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you build confidence through small wins, evidence, and self-compassion. Confidence grows from action and alignment, not just positive thinking. What situation is making you doubt yourself?`,
-    model: 'Ascension Confidence',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_confidence',
-    data: { small_wins: [] }
-  };
-}
-
-function agingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with healthy aging, mobility, nutrition, and life-stage planning. I am not a geriatric specialist; persistent issues need a clinician. What are you planning for?`,
-    model: 'Ascension Aging',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_aging',
-    data: { clinician_referral: false }
-  };
-}
-
-function addictionResponse(message: string): NativeResponse {
-  return {
-    content: `I can offer recovery support, habit strategies, and resources. I am not an addiction counselor. If you are in crisis or need treatment, please reach out to a professional or a recovery support line. What are you working to change?`,
-    model: 'Ascension Addiction',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_addiction',
-    data: { counselor_referral: false }
-  };
-}
-
-function conflictResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you de-escalate, understand positions, and find repair paths. I cannot contact anyone for you. What is the conflict about and what do you want to achieve?`,
-    model: 'Ascension Conflict',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_conflict',
-    data: { sent_messages: [] }
-  };
-}
-
-function datingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with dating safety, boundaries, conversation, and red flags. I will not message anyone for you. What is the situation?`,
-    model: 'Ascension Dating',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_dating',
-    data: { sent_messages: [] }
-  };
-}
-
-function cookingResponse(message: string): NativeResponse {
-  return {
-    content: `I can suggest recipes, meal plans, and substitutions based on what you have and your goals. What ingredients or dietary goals do you have?`,
-    model: 'Ascension Cooking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cooking',
-    data: { ingredients: [] }
-  };
-}
-
-function socialResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with friendship, networking, social skills, and community. What kind of connection are you looking for or struggling with?`,
-    model: 'Ascension Social',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_social',
-    data: { community: [] }
-  };
-}
-
-function volunteeringResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you find ways to contribute that match your skills and values. What causes or skills do you care about?`,
-    model: 'Ascension Volunteering',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_volunteering',
-    data: { causes: [] }
-  };
-}
-
-function focusResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you enter and protect deep work, manage attention, and reduce distraction. What is pulling you away from focus right now?`,
-    model: 'Ascension Focus',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_focus',
-    data: { pomodoro_minutes: 0 }
-  };
-}
-
-function meditationResponse(message: string): NativeResponse {
-  return {
-    content: `I can guide simple meditations: breath focus, body scan, or open awareness. What sounds most useful right now?`,
-    model: 'Ascension Meditation',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_meditation',
-    data: { minutes: 0 }
-  };
-}
-
-function gardenResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan a garden, choose plants for your climate, and troubleshoot care. What are you growing or want to grow?`,
-    model: 'Ascension Garden',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_garden',
-    data: { plants: [] }
-  };
-}
-
-function fashionResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with style, wardrobe building, and occasion dressing. What is the event or goal?`,
-    model: 'Ascension Fashion',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_fashion',
-    data: { occasion: null }
-  };
-}
-
-function repairResponse(message: string): NativeResponse {
-  return {
-    content: `I can guide DIY repairs and help you decide when a professional is safer. What is broken and what tools do you have?`,
-    model: 'Ascension Repair',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_repair',
-    data: { call_pro: false }
-  };
-}
-
-function musicResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with music theory, composition, practice routines, and listening. What instrument or genre are you working in?`,
-    model: 'Ascension Music',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_music',
-    data: { instrument: null }
-  };
-}
-
-function artResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss art techniques, composition, and creative direction. What medium or piece are you working on?`,
-    model: 'Ascension Art',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_art',
-    data: { medium: null }
-  };
-}
-
-function writingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with writing craft, structure, voice, and editing. I will not publish anything for you. What are you writing?`,
-    model: 'Ascension Writing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_writing',
-    data: { published: [] }
-  };
-}
-
-function moviesResponse(message: string): NativeResponse {
-  return {
-    content: `I can recommend films and shows based on your mood, taste, and time. What do you like and how much time do you have?`,
-    model: 'Ascension Movies',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_movies',
-    data: { watchlist: [] }
-  };
-}
-
-function booksResponse(message: string): NativeResponse {
-  return {
-    content: `I can recommend books, discuss themes, and help with reading lists. What do you enjoy or want to learn?`,
-    model: 'Ascension Books',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_books',
-    data: { reading_list: [] }
-  };
-}
-
-function newsResponse(message: string): NativeResponse {
-  return {
-    content: `I can summarize and contextualize news, and help you spot bias. I will not invent current events. What topic or headline do you want to understand?`,
-    model: 'Ascension News',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_news',
-    data: { sources: [] }
-  };
-}
-
-function sportsResponse(message: string): NativeResponse {
-  return {
-    content: `I can analyze sports, training, and fan questions. What sport, team, or training goal are you focused on?`,
-    model: 'Ascension Sports',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sports',
-    data: { sport: null }
-  };
-}
-
-function gamesResponse(message: string): NativeResponse {
-  return {
-    content: `I can recommend games, discuss strategy, and talk game design. What genre or game are you into?`,
-    model: 'Ascension Games',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_games',
-    data: { genre: null }
-  };
-}
-
-function shoppingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you compare products and find the best value for your needs. What are you shopping for?`,
-    model: 'Ascension Shopping',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_shopping',
-    data: { budget: null }
-  };
-}
-
-function investingResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain portfolio thinking, asset allocation, and long-term strategies. I will not promise returns. What are your goals and time horizon?`,
-    model: 'Ascension Investing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_investing',
-    data: { returns_promised: false }
-  };
-}
-
-function taxesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help organize tax documents, find deductions to review, and prepare for a tax professional. I am not a tax preparer. What is your tax situation?`,
-    model: 'Ascension Taxes',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_taxes',
-    data: { preparer: false }
-  };
-}
-
-function insuranceResponse(message: string): NativeResponse {
-  return {
-    content: `I can help review coverage types, gaps, and comparisons. I am not an insurance agent. What coverage are you reviewing?`,
-    model: 'Ascension Insurance',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_insurance',
-    data: { agent: false }
-  };
-}
-
-function movingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with moving checklists, timelines, and logistics. Where are you moving from and to, and when?`,
-    model: 'Ascension Moving',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_moving',
-    data: { moved: false }
-  };
-}
-
-function cleaningResponse(message: string): NativeResponse {
-  return {
-    content: `I can help build cleaning routines and choose products. What spaces or schedules do you want to tackle?`,
-    model: 'Ascension Cleaning',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cleaning',
-    data: { schedule: [] }
-  };
-}
-
-function philosophyResponse(message: string): NativeResponse {
-  return {
-    content: `I can explore philosophical questions, schools, and arguments with you. What question or thinker do you want to examine?`,
-    model: 'Ascension Philosophy',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_philosophy',
-    data: { school: null }
-  };
-}
-
-function historyResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide historical context and discuss events and lessons. What period, event, or figure are you interested in?`,
-    model: 'Ascension History',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_history',
-    data: { period: null }
-  };
-}
-
-function scienceResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain scientific concepts and help with scientific thinking. What topic or question do you have?`,
-    model: 'Ascension Science',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_science',
-    data: { field: null }
-  };
-}
-
-function mathResponse(message: string): NativeResponse {
-  return {
-    content: `I can walk through math problems and concepts step by step. What problem or topic are you working on?`,
-    model: 'Ascension Math',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_math',
-    data: { solved: false }
-  };
-}
-
-function languageResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you learn a language, practice phrases, or translate. Which language and what is your level?`,
-    model: 'Ascension Language',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_language',
-    data: { language: null }
-  };
-}
-
-function cultureResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss cultural context, etiquette, and traditions. What culture or situation do you want to understand?`,
-    model: 'Ascension Culture',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_culture',
-    data: { context: null }
-  };
-}
-
-function ethicsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you reason through ethical questions and clarify values. What dilemma or principle are you considering?`,
-    model: 'Ascension Ethics',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_ethics',
-    data: { dilemma: null }
-  };
-}
-
-function environmentResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with sustainability choices, climate understanding, and ecological action. What are you trying to reduce or improve?`,
-    model: 'Ascension Environment',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_environment',
-    data: { action_plan: [] }
-  };
-}
-
-function activismResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with advocacy, civic action, and community organizing. What cause or change are you working toward?`,
-    model: 'Ascension Activism',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_activism',
-    data: { campaign: null }
-  };
-}
-
-function projectResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan projects, define milestones, and track delivery. I won't claim any tasks are done without a receipt. What is the project goal?`,
-    model: 'Ascension Project',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_project',
-    data: { milestones: [] }
-  };
-}
-
-function taskResponse(message: string): NativeResponse {
-  return {
-    content: `I can help break work into tasks, prioritize, and plan execution. I can't mark tasks complete in your system without permission. What do you need to get done?`,
-    model: 'Ascension Task',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_task',
-    data: { completed: [] }
-  };
-}
-
-function remoteResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with remote work routines, focus, and async collaboration. What is your remote-work challenge?`,
-    model: 'Ascension Remote',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_remote',
-    data: { setup: null }
-  };
-}
-
-function interviewResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you prepare and practice for interviews. What role or type of interview?`,
-    model: 'Ascension Interview',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_interview',
-    data: { role: null }
-  };
-}
-
-function resumeResponse(message: string): NativeResponse {
-  return {
-    content: `I can review resumes and cover letters and suggest improvements. I won't send anything to employers. Paste or describe what you have.`,
-    model: 'Ascension Resume',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_resume',
-    data: { submitted: [] }
-  };
-}
-
-function negotiationResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you prepare for negotiations and practice language. I won't guarantee outcomes. What are you negotiating?`,
-    model: 'Ascension Negotiation',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_negotiation',
-    data: { guarantee: false }
-  };
-}
-
-function networkingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with professional networking strategy and outreach. What field or event are you focused on?`,
-    model: 'Ascension Networking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_networking',
-    data: { contacts: [] }
-  };
-}
-
-function leadershipResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss leadership, management, and team guidance. What leadership challenge are you facing?`,
-    model: 'Ascension Leadership',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_leadership',
-    data: { team_size: null }
-  };
-}
-
-function teamResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with team dynamics, collaboration, and conflict. What is happening with the team?`,
-    model: 'Ascension Team',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_team',
-    data: { members: [] }
-  };
-}
-
-function feedbackResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you give or receive feedback with clarity and respect. What feedback situation do you want to work through?`,
-    model: 'Ascension Feedback',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_feedback',
-    data: { delivered: false }
-  };
-}
-
-function yogaResponse(message: string): NativeResponse {
-  return {
-    content: `I can suggest yoga poses and sequences for your level and goals. I am not a medical provider. What do you want to focus on?`,
-    model: 'Ascension Yoga',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_yoga',
-    data: { level: null }
-  };
-}
-
-function runningResponse(message: string): NativeResponse {
-  return {
-    content: `I can help build a running plan, form, and progression. What is your current distance and goal?`,
-    model: 'Ascension Running',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_running',
-    data: { distance: null }
-  };
-}
-
-function swimmingResponse(message: string): NativeResponse {
-  return {
-    content: `I can suggest swim workouts and technique focus. What is your current ability and goal?`,
-    model: 'Ascension Swimming',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_swimming',
-    data: { stroke: null }
-  };
-}
-
-function cyclingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with cycling routes, training, and equipment. What type of cycling and distance are you training for?`,
-    model: 'Ascension Cycling',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cycling',
-    data: { route: null }
-  };
-}
-
-function hikingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan hikes, gear, and safety. Where and how far do you want to go?`,
-    model: 'Ascension Hiking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_hiking',
-    data: { trail: null }
-  };
-}
-
-function climbingResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss climbing technique, training, and safety basics. What discipline or grade are you working on?`,
-    model: 'Ascension Climbing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_climbing',
-    data: { discipline: null }
-  };
-}
-
-function martialartsResponse(message: string): NativeResponse {
-  return {
-    content: `I can talk martial arts styles, drills, and conditioning. I am not an in-person instructor. What style or goal?`,
-    model: 'Ascension Martial Arts',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_martialarts',
-    data: { style: null }
-  };
-}
-
-function skincareResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with skincare routines and ingredients. I am not a dermatologist. What is your skin type and concern?`,
-    model: 'Ascension Skincare',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_skincare',
-    data: { skin_type: null }
-  };
-}
-
-function ergonomicsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help optimize your workspace, posture, and ergonomics. What setup or pain point do you have?`,
-    model: 'Ascension Ergonomics',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_ergonomics',
-    data: { workspace: null }
-  };
-}
-
-function firstaidResponse(message: string): NativeResponse {
-  return {
-    content: `I can offer basic first aid guidance and help you decide when to call emergency services. For emergencies, call your local emergency number. What happened?`,
-    model: 'Ascension First Aid',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_firstaid',
-    data: { emergency: false }
-  };
-}
-
-function danceResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss dance styles, choreography, and practice. What style or move are you learning?`,
-    model: 'Ascension Dance',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_dance',
-    data: { style: null }
-  };
-}
-
-function photographyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with photography composition, settings, and editing. What do you want to shoot?`,
-    model: 'Ascension Photography',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_photography',
-    data: { subject: null }
-  };
-}
-
-function filmmakingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with film, video, and content production. What kind of video are you making?`,
-    model: 'Ascension Filmmaking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_filmmaking',
-    data: { format: null }
-  };
-}
-
-function podcastResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan, produce, and distribute a podcast. I won't submit anything to platforms for you. What is your topic?`,
-    model: 'Ascension Podcast',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_podcast',
-    data: { published: false }
-  };
-}
-
-function designResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with graphic, UX, and visual design. What are you designing?`,
-    model: 'Ascension Design',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_design',
-    data: { medium: null }
-  };
-}
-
-function interiorDesignResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with interior layout, color, and decor for a space. What room or style are you working on?`,
-    model: 'Ascension Interior Design',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_interior_design',
-    data: { room: null }
-  };
-}
-
-function craftResponse(message: string): NativeResponse {
-  return {
-    content: `I can guide craft, maker, and DIY projects. What are you making?`,
-    model: 'Ascension Craft',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_craft',
-    data: { project: null }
-  };
-}
-
-function bakingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with baking recipes, technique, and troubleshooting. What do you want to bake?`,
-    model: 'Ascension Baking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_baking',
-    data: { recipe: null }
-  };
-}
-
-function mixologyResponse(message: string): NativeResponse {
-  return {
-    content: `I can suggest cocktail and mocktail recipes and technique. I won't serve alcohol. What flavors or occasion?`,
-    model: 'Ascension Mixology',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_mixology',
-    data: { alcohol: false }
-  };
-}
-
-function etiquetteResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with etiquette and social situation navigation. What situation do you want to handle gracefully?`,
-    model: 'Ascension Etiquette',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_etiquette',
-    data: { situation: null }
-  };
-}
-
-function weddingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with wedding planning, timeline, and etiquette. I won't contact vendors for you. What is your biggest question?`,
-    model: 'Ascension Wedding',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_wedding',
-    data: { vendors_contacted: [] }
-  };
-}
-
-function birthdayResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan a birthday, themes, and gift ideas. What age and interests should I consider?`,
-    model: 'Ascension Birthday',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_birthday',
-    data: { age: null }
-  };
-}
-
-function partyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan a party, guest list, and logistics. I won't send invites. What kind of party?`,
-    model: 'Ascension Party',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_party',
-    data: { invites_sent: [] }
-  };
-}
-
-function holidayResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan holidays, traditions, and travel. Which holiday and who is it with?`,
-    model: 'Ascension Holiday',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_holiday',
-    data: { holiday: null }
-  };
-}
-
-function giftResponse(message: string): NativeResponse {
-  return {
-    content: `I can suggest gift ideas and wrapping. Who is it for, what do they like, and what is the occasion?`,
-    model: 'Ascension Gift',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_gift',
-    data: { recipient: null }
-  };
-}
-
-function funeralResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with funeral planning, memorial ideas, and grief support. I am sorry for your loss. What do you need right now?`,
-    model: 'Ascension Funeral',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_funeral',
-    data: { support: [] }
-  };
-}
-
-function babyshowerResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan a baby shower, themes, and registry. What are the parents' needs and style?`,
-    model: 'Ascension Baby Shower',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_babyshower',
-    data: { registry: [] }
-  };
-}
-
-function graduationResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with graduation planning, gifts, and next steps. What level and interests?`,
-    model: 'Ascension Graduation',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_graduation',
-    data: { level: null }
-  };
-}
-
-function retirementResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with retirement lifestyle, planning, and transitions. What is your timeline and goals?`,
-    model: 'Ascension Retirement',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_retirement',
-    data: { timeline: null }
-  };
-}
-
-function anniversaryResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with anniversary celebration and gift ideas. How many years and what does your partner enjoy?`,
-    model: 'Ascension Anniversary',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_anniversary',
-    data: { years: null }
-  };
-}
-
-function homeworkResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you understand homework and learn the concept. I won't do the assignment for you. What subject and problem?`,
-    model: 'Ascension Homework',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_homework',
-    data: { completed_by_model: false }
-  };
-}
-
-function tutorResponse(message: string): NativeResponse {
-  return {
-    content: `I can tutor step by step in many subjects. What topic are you stuck on?`,
-    model: 'Ascension Tutor',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_tutor',
-    data: { subject: null }
-  };
-}
-
-function schoolResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with school selection and application planning. I won't submit applications. What level and priorities?`,
-    model: 'Ascension School',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_school',
-    data: { applications_submitted: [] }
-  };
-}
-
-function collegeResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with college search, essays, and planning. I won't submit anything for you. What are your goals?`,
-    model: 'Ascension College',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_college',
-    data: { submitted: [] }
-  };
-}
-
-function scholarshipResponse(message: string): NativeResponse {
-  return {
-    content: `I can help find scholarships and draft applications. I won't submit applications. What is your profile?`,
-    model: 'Ascension Scholarship',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_scholarship',
-    data: { submitted: [] }
-  };
-}
-
-function examResponse(message: string): NativeResponse {
-  return {
-    content: `I can help you prepare for exams with strategy and practice. What exam and how much time?`,
-    model: 'Ascension Exam',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_exam',
-    data: { exam: null }
-  };
-}
-
-function studyskillsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with study habits, note-taking, and retention. What do you want to improve?`,
-    model: 'Ascension Study Skills',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_studyskills',
-    data: { skill: null }
-  };
-}
-
-function memorizationResponse(message: string): NativeResponse {
-  return {
-    content: `I can teach memory techniques and spaced repetition. What do you need to remember?`,
-    model: 'Ascension Memorization',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_memorization',
-    data: { items: [] }
-  };
-}
-
-function presentationResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with presentations, slides, and speaking. What is the topic and audience?`,
-    model: 'Ascension Presentation',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_presentation',
-    data: { slides: [] }
-  };
-}
-
-function teachingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with teaching methods, lesson planning, and assessment. What subject and audience?`,
-    model: 'Ascension Teaching',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_teaching',
-    data: { lesson: null }
-  };
-}
-
-function devopsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with DevOps practices, pipelines, and infrastructure. What is your stack and bottleneck?`,
-    model: 'Ascension DevOps',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_devops',
-    data: { stack: null }
-  };
-}
-
-function cloudResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with cloud architecture, services, and cost. What provider and workload?`,
-    model: 'Ascension Cloud',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cloud',
-    data: { provider: null }
-  };
-}
-
-function databasesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with database design, queries, and optimization. What schema or query problem?`,
-    model: 'Ascension Databases',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_databases',
-    data: { database: null }
-  };
-}
-
-function securityTechResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with security concepts, hardening, and threat awareness. I am not an active scanner. What system or concern?`,
-    model: 'Ascension Security Tech',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_security_tech',
-    data: { scan: false }
-  };
-}
-
-function testingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with test strategy, automation, and quality. What are you testing?`,
-    model: 'Ascension Testing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_testing',
-    data: { coverage: null }
-  };
-}
-
-function cicdResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with CI/CD pipelines and release automation. What is your current flow?`,
-    model: 'Ascension CI/CD',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cicd',
-    data: { pipeline: null }
-  };
-}
-
-function monitoringResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with observability, logging, and alerting. What do you need to watch?`,
-    model: 'Ascension Monitoring',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_monitoring',
-    data: { metrics: [] }
-  };
-}
-
-function apiResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with API design, versioning, and documentation. What is the API for?`,
-    model: 'Ascension API',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_api',
-    data: { version: null }
-  };
-}
-
-function microservicesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with microservices tradeoffs and design. What is your current architecture?`,
-    model: 'Ascension Microservices',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_microservices',
-    data: { services: [] }
-  };
-}
-
-function blockchainResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain blockchain, smart contracts, and crypto basics. I will not manage wallets or send transactions. What do you want to understand?`,
-    model: 'Ascension Blockchain',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_blockchain',
-    data: { wallet_managed: false }
-  };
-}
-
-function walkingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with walking plans, routes, and fitness goals. What distance or time do you want?`,
-    model: 'Ascension Walking',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_walking',
-    data: { distance: null }
-  };
-}
-
-function stretchingResponse(message: string): NativeResponse {
-  return {
-    content: `I can guide stretching and mobility routines. What area feels tight?`,
-    model: 'Ascension Stretching',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_stretching',
-    data: { area: null }
-  };
-}
-
-function recoveryResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan rest, recovery, and regeneration. What activity are you recovering from?`,
-    model: 'Ascension Recovery',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_recovery',
-    data: { soreness: null }
-  };
-}
-
-function supplementsResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide general supplement information. I am not a clinician. What are you considering?`,
-    model: 'Ascension Supplements',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_supplements',
-    data: { clinician: false }
-  };
-}
-
-function allergiesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with allergy awareness and management. For severe reactions, seek emergency care. What are your triggers?`,
-    model: 'Ascension Allergies',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_allergies',
-    data: { emergency: false }
-  };
-}
-
-function chronicResponse(message: string): NativeResponse {
-  return {
-    content: `I can support chronic condition self-management and education. I am not a doctor. What condition do you want to manage?`,
-    model: 'Ascension Chronic',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_chronic',
-    data: { diagnosis: null }
-  };
-}
-
-function disabilityResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with disability information, accommodations, and resources. What is your situation or need?`,
-    model: 'Ascension Disability',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_disability',
-    data: { accommodations: [] }
-  };
-}
-
-function pregnancyResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide pregnancy information and resource guidance. I am not a medical provider. What stage or question?`,
-    model: 'Ascension Pregnancy',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_pregnancy',
-    data: { stage: null }
-  };
-}
-
-function childbirthResponse(message: string): NativeResponse {
-  return {
-    content: `I can help prepare for childbirth and birth plans. I am not a midwife or doctor. What questions do you have?`,
-    model: 'Ascension Childbirth',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_childbirth',
-    data: { birth_plan: null }
-  };
-}
-
-function postpartumResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide postpartum support and newborn adjustment guidance. For medical concerns, contact a provider. What do you need?`,
-    model: 'Ascension Postpartum',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_postpartum',
-    data: { provider_contacted: false }
-  };
-}
-
-function packingResponse(message: string): NativeResponse {
-  return {
-    content: `I can make packing lists and travel prep plans. Where are you going and for how long?`,
-    model: 'Ascension Packing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_packing',
-    data: { destination: null }
-  };
-}
-
-function commuteResponse(message: string): NativeResponse {
-  return {
-    content: `I can help plan commutes, routes, and schedules. Where are you going from and to?`,
-    model: 'Ascension Commute',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_commute',
-    data: { route: null }
-  };
-}
-
-function laundryResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with laundry routines, stain removal, and fabric care. What item or issue?`,
-    model: 'Ascension Laundry',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_laundry',
-    data: { fabric: null }
-  };
-}
-
-function organizingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help organize spaces and declutter. What room or category?`,
-    model: 'Ascension Organizing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_organizing',
-    data: { area: null }
-  };
-}
-
-function storageResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with storage solutions and space planning. What are you storing?`,
-    model: 'Ascension Storage',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_storage',
-    data: { items: [] }
-  };
-}
-
-function decorResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with decor choices, themes, and styling. What room and mood?`,
-    model: 'Ascension Decor',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_decor',
-    data: { room: null }
-  };
-}
-
-function lightingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with lighting design and bulb choices. What space and feeling?`,
-    model: 'Ascension Lighting',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_lighting',
-    data: { room: null }
-  };
-}
-
-function soundResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with sound, acoustics, and noise management. What space or problem?`,
-    model: 'Ascension Sound',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sound',
-    data: { room: null }
-  };
-}
-
-function smellResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with scent, air quality, and fragrance choices. What concerns or preferences?`,
-    model: 'Ascension Smell',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_smell',
-    data: { allergies: [] }
-  };
-}
-
-function balconyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with balcony, patio, and small outdoor spaces. What size and climate?`,
-    model: 'Ascension Balcony',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_balcony',
-    data: { size: null }
-  };
-}
-
-function willResponse(message: string): NativeResponse {
-  return {
-    content: `I can introduce will planning and estate basics. I am not an attorney. Do you have a specific question or want a checklist?`,
-    model: 'Ascension Will',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_will',
-    data: { attorney: false }
-  };
-}
-
-function trustResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain trust basics and estate planning. I am not an attorney or tax advisor. What type of trust or goal?`,
-    model: 'Ascension Trust',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_trust',
-    data: { advisor: false }
-  };
-}
-
-function prenupResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide general prenup information and help prepare questions for an attorney. I am not a lawyer. What do you want to understand?`,
-    model: 'Ascension Prenup',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_prenup',
-    data: { attorney: false }
-  };
-}
-
-function divorceResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide general divorce information and help you find appropriate resources. I am not an attorney. What do you need help with?`,
-    model: 'Ascension Divorce',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_divorce',
-    data: { attorney: false }
-  };
-}
-
-function custodyResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide general custody information and co-parenting resources. I am not a family lawyer. What situation are you navigating?`,
-    model: 'Ascension Custody',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_custody',
-    data: { lawyer: false }
-  };
-}
-
-function adoptionResponse(message: string): NativeResponse {
-  return {
-    content: `I can provide general adoption information and steps. I am not an adoption agency or attorney. What do you want to know?`,
-    model: 'Ascension Adoption',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_adoption',
-    data: { agency: false }
-  };
-}
-
-function immigrationResponse(message: string): NativeResponse {
-  return {
-    content: `I can outline immigration paths and help organize documents. I am not an immigration attorney. What is your situation?`,
-    model: 'Ascension Immigration',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_immigration',
-    data: { attorney: false }
-  };
-}
-
-function contractsResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain contract terms in plain language and help prepare questions for an attorney. I am not a lawyer. What contract?`,
-    model: 'Ascension Contracts',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_contracts',
-    data: { attorney: false }
-  };
-}
-
-function tenantResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain general tenant rights and lease concepts. I am not a lawyer. What is your rental issue?`,
-    model: 'Ascension Tenant',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_tenant',
-    data: { lawyer: false }
-  };
-}
-
-function landlordResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain landlord responsibilities and lease concepts. I am not an attorney. What is the situation?`,
-    model: 'Ascension Landlord',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_landlord',
-    data: { lawyer: false }
-  };
-}
-
-function startupResponse(message: string): NativeResponse {
-  return {
-    content: `I can help validate startup ideas, plan early operations, and avoid common mistakes. What is the idea or challenge?`,
-    model: 'Ascension Startup',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_startup',
-    data: { validated: false }
-  };
-}
-
-function businessPlanResponse(message: string): NativeResponse {
-  return {
-    content: `I can help draft and review business plan sections. I won't file or submit anything. What part do you want to work on?`,
-    model: 'Ascension Business Plan',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_business_plan',
-    data: { submitted: false }
-  };
-}
-
-function marketingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with marketing strategy, channels, and campaigns. What product or audience?`,
-    model: 'Ascension Marketing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_marketing',
-    data: { audience: null }
-  };
-}
-
-function salesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with sales process, outreach, and closing. What are you selling and to whom?`,
-    model: 'Ascension Sales',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sales',
-    data: { pipeline: [] }
-  };
-}
-
-function brandResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with brand positioning, voice, and identity. What is the business and audience?`,
-    model: 'Ascension Brand',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_brand',
-    data: { audience: null }
-  };
-}
-
-function customerServiceResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with customer service, support scripts, and retention. What is the issue or goal?`,
-    model: 'Ascension Customer Service',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_customer_service',
-    data: { issue: null }
-  };
-}
-
-function hrResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with hiring, onboarding, and employee relations. I am not a lawyer. What is the HR situation?`,
-    model: 'Ascension HR',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_hr',
-    data: { lawyer: false }
-  };
-}
-
-function fundraisingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with fundraising strategy, investor prep, and grant research. I won't send materials. What stage are you at?`,
-    model: 'Ascension Fundraising',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_fundraising',
-    data: { sent: [] }
-  };
-}
-
-function pitchResponse(message: string): NativeResponse {
-  return {
-    content: `I can help build and practice pitches. What is the business and audience?`,
-    model: 'Ascension Pitch',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_pitch',
-    data: { delivered: false }
-  };
-}
-
-function partnershipsResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with partnership strategy, outreach, and deal structure. I won't sign anything. What is the opportunity?`,
-    model: 'Ascension Partnerships',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_partnerships',
-    data: { signed: false }
-  };
-}
-
-function carBuyingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with car buying, research, and negotiation prep. I won't make a purchase. What is your budget and needs?`,
-    model: 'Ascension Car Buying',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_car_buying',
-    data: { purchased: false }
-  };
-}
-
-function carMaintenanceResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with car maintenance schedules and troubleshooting. I won't schedule service. What issue or mileage?`,
-    model: 'Ascension Car Maintenance',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_car_maintenance',
-    data: { scheduled: false }
-  };
-}
-
-function motorcycleResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with motorcycle gear, riding, and maintenance. What bike or question?`,
-    model: 'Ascension Motorcycle',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_motorcycle',
-    data: { bike: null }
-  };
-}
-
-function bicycleResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with bicycle selection, maintenance, and riding. What type and use?`,
-    model: 'Ascension Bicycle',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_bicycle',
-    data: { type: null }
-  };
-}
-
-function boatResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with boating basics, safety, and maintenance. I won't rent or book. What kind of boat?`,
-    model: 'Ascension Boat',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_boat',
-    data: { rented: false }
-  };
-}
-
-function rvResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with RV travel, maintenance, and trip planning. What RV and route?`,
-    model: 'Ascension RV',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_rv',
-    data: { rv: null }
-  };
-}
-
-function electricVehicleResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with EV selection, charging, and ownership. What range and charging situation?`,
-    model: 'Ascension Electric Vehicle',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_electric_vehicle',
-    data: { charging: null }
-  };
-}
-
-function publicTransitResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with public transit navigation and schedules. What city and route?`,
-    model: 'Ascension Public Transit',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_public_transit',
-    data: { city: null }
-  };
-}
-
-function rideshareResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with rideshare, taxi, and driver guidance. I won't book a ride. What is your question?`,
-    model: 'Ascension Rideshare',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_rideshare',
-    data: { booked: false }
-  };
-}
-
-function flightResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with flight strategy, airports, and booking considerations. I won't book. What is your route?`,
-    model: 'Ascension Flight',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_flight',
-    data: { booked: false }
-  };
-}
-
-function cricketResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss cricket rules, strategy, and matches. What format or question?`,
-    model: 'Ascension Cricket',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_cricket',
-    data: { format: null }
-  };
-}
-
-function basketballResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with basketball strategy, training, and analysis. What team or skill?`,
-    model: 'Ascension Basketball',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_basketball',
-    data: { team: null }
-  };
-}
-
-function footballResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with football strategy, training, and analysis. What team or position?`,
-    model: 'Ascension Football',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_football',
-    data: { position: null }
-  };
-}
-
-function baseballResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with baseball rules, strategy, and analysis. What team or question?`,
-    model: 'Ascension Baseball',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_baseball',
-    data: { team: null }
-  };
-}
-
-function soccerResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with soccer tactics, training, and fan questions. What team or league?`,
-    model: 'Ascension Soccer',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_soccer',
-    data: { league: null }
-  };
-}
-
-function tennisResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with tennis technique, training, and matches. What level or question?`,
-    model: 'Ascension Tennis',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_tennis',
-    data: { level: null }
-  };
-}
-
-function golfResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with golf swing, course strategy, and equipment. What is your question?`,
-    model: 'Ascension Golf',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_golf',
-    data: { handicap: null }
-  };
-}
-
-function hockeyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with hockey rules, strategy, and training. What level or team?`,
-    model: 'Ascension Hockey',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_hockey',
-    data: { team: null }
-  };
-}
-
-function esportsResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss esports games, teams, and strategy. What game or scene?`,
-    model: 'Ascension Esports',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_esports',
-    data: { game: null }
-  };
-}
-
-function fantasyResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with fantasy draft, lineup, and strategy. What sport and format?`,
-    model: 'Ascension Fantasy',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_fantasy',
-    data: { sport: null }
-  };
-}
-
-function horoscopeResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss horoscope, astrology, and sign themes reflectively. I won't predict the future. What is your sign or question?`,
-    model: 'Ascension Horoscope',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_horoscope',
-    data: { sign: null }
-  };
-}
-
-function astrologyResponse(message: string): NativeResponse {
-  return {
-    content: `I can explain astrology basics and sign compatibility. I won't make life decisions. What do you want to understand?`,
-    model: 'Ascension Astrology',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_astrology',
-    data: { chart: null }
-  };
-}
-
-function tarotResponse(message: string): NativeResponse {
-  return {
-    content: `I can discuss tarot card meanings for reflection. I won't predict the future. What card or question?`,
-    model: 'Ascension Tarot',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_tarot',
-    data: { card: null }
-  };
-}
-
-function tattooResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with tattoo ideas, styles, and aftercare. What style or placement are you considering?`,
-    model: 'Ascension Tattoo',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_tattoo',
-    data: { style: null }
-  };
-}
-
-function piercingResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with piercing types and care. For medical concerns, see a professional. What are you considering?`,
-    model: 'Ascension Piercing',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_piercing',
-    data: { location: null }
-  };
-}
-
-function perfumeResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with fragrance, perfume, and scent guidance. What occasion or notes do you like?`,
-    model: 'Ascension Perfume',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_perfume',
-    data: { notes: null }
-  };
-}
-
-function jewelryResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with jewelry selection, care, and occasion matching. What are you shopping for?`,
-    model: 'Ascension Jewelry',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_jewelry',
-    data: { occasion: null }
-  };
-}
-
-function watchResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with watch selection, care, and collection. What style or budget?`,
-    model: 'Ascension Watch',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_watch',
-    data: { budget: null }
-  };
-}
-
-function shoesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with shoe selection, fit, and care. What occasion or activity?`,
-    model: 'Ascension Shoes',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_shoes',
-    data: { activity: null }
-  };
-}
-
-function bagResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with bags, luggage, and organization. What do you need to carry?`,
-    model: 'Ascension Bag',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_bag',
-    data: { need: null }
-  };
-}
-
-function walletResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with wallet selection and organization. What style or features?`,
-    model: 'Ascension Wallet',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_wallet',
-    data: { features: null }
-  };
-}
-
-function sunglassesResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with sunglasses, UV protection, and style. What face shape or activity?`,
-    model: 'Ascension Sunglasses',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_sunglasses',
-    data: { face_shape: null }
-  };
-}
-
-function haircutResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with haircut styles, face shape, and maintenance. What is your hair type and desired look?`,
-    model: 'Ascension Haircut',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_haircut',
-    data: { hair_type: null }
-  };
-}
-
-function beardResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with beard styles, growth, and grooming. What is your beard situation and goal?`,
-    model: 'Ascension Beard',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_beard',
-    data: { growth: null }
-  };
-}
-
-function makeupResponse(message: string): NativeResponse {
-  return {
-    content: `I can help with makeup techniques, products, and looks. What is your skin type and the occasion?`,
-    model: 'Ascension Makeup',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: 'ascension_makeup',
-    data: { skin_type: null }
-  };
-}
-
-const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
-  'chat_gpt4': chat_gpt4Response,
-  'chat_claude': chat_claudeResponse,
-  'chat_gemini': chat_geminiResponse,
-  'writing_marketing': writing_marketingResponse,
-  'writing_document': writing_documentResponse,
-  'writing_email': writing_emailResponse,
-  'writing_script': writing_scriptResponse,
-  'translation': translationResponse,
-  'code_generation': code_generationResponse,
-  'code_review': code_reviewResponse,
-  'code_debugging': code_debuggingResponse,
-  'code_execution': code_executionResponse,
-  'code_completion': code_completionResponse,
-  'test_generation': test_generationResponse,
-  'documentation_generation': documentation_generationResponse,
-  'image_generation_dalle': image_generation_dalleResponse,
-  'image_generation_midjourney': image_generation_midjourneyResponse,
-  'image_generation_stable': image_generation_stableResponse,
-  'image_editing': image_editingResponse,
-  'image_generation_adobe': image_generation_adobeResponse,
-  'design_generation': design_generationResponse,
-  'text_to_speech': text_to_speechResponse,
-  'speech_to_text': speech_to_textResponse,
-  'music_generation_suno': music_generation_sunoResponse,
-  'music_generation_udio': music_generation_udioResponse,
-  'audio_editing': audio_editingResponse,
-  'voice_cloning': voice_cloningResponse,
-  'video_generation_runway': video_generation_runwayResponse,
-  'video_generation_pika': video_generation_pikaResponse,
-  'video_generation_luma': video_generation_lumaResponse,
-  'video_generation_stable': video_generation_stableResponse,
-  'video_editing': video_editingResponse,
-  'web_search': web_searchResponse,
-  'web_browsing': web_browsingResponse,
-  'file_analysis': file_analysisResponse,
-  'intelligence_sweep': intelligence_sweepResponse,
-  'context_memory': context_memoryResponse,
-  'proactive_intelligence': proactive_intelligenceResponse,
-  'business_growth': business_growthResponse,
-  'relationship_graph': relationship_graphResponse,
-  'emotional_intelligence': emotional_intelligenceResponse,
-  'ascension_chat': ascension_chatResponse,
-  'ascension_home': ascension_homeResponse,
-  'ascension_sprout': ascension_sproutResponse,
-  'ascension_family': ascension_familyResponse,
-  'ascension_health': ascension_healthResponse,
-  'ascension_finance': ascension_financeResponse,
-  'ascension_trading': ascension_tradingResponse,
-  'ascension_vision': ascension_visionResponse,
-  'ascension_legal': ascension_legalResponse,
-  'ascension_travel': ascension_travelResponse,
-  'ascension_realestate': ascension_realestateResponse,
-  'ascension_research': ascension_researchResponse,
-  'ascension_events': ascension_eventsResponse,
-  'ascension_automotive': ascension_automotiveResponse,
-  'ascension_pets': ascension_petsResponse,
-  'ascension_weather': ascension_weatherResponse,
-  'ascension_nutrition': ascension_nutritionResponse,
-  'ascension_fitness': ascension_fitnessResponse,
-  'ascension_career': ascension_careerResponse,
-  'ascension_relationships': ascension_relationshipsResponse,
-  'ascension_creative': ascension_creativeResponse,
-  'ascension_code': ascension_codeResponse,
-  'ascension_learning': ascension_learningResponse,
-  'ascension_meetings': ascension_meetingsResponse,
-  'ascension_voice': ascension_voiceResponse,
-  'ascension_security': ascension_securityResponse,
-  'ascension_psychology': ascension_psychologyResponse,
-  'ascension_human_life': ascension_human_lifeResponse,
-  'ascension_spirituality': ascension_spiritualityResponse,
-  'ascension_grief': ascension_griefResponse,
-  'ascension_mental_health': ascension_mental_healthResponse,
-  'ascension_communication': ascension_communicationResponse,
-  'ascension_habits': ascension_habitsResponse,
-  'ascension_stress': ascension_stressResponse,
-  'ascension_sleep': ascension_sleepResponse,
-  'ascension_parenting': ascension_parentingResponse,
-  'ascension_mindfulness': ascension_mindfulnessResponse,
-  'ascension_time': ascension_timeResponse,
-  'ascension_confidence': ascension_confidenceResponse,
-  'ascension_aging': ascension_agingResponse,
-  'ascension_addiction': ascension_addictionResponse,
-  'ascension_conflict': ascension_conflictResponse,
-  'ascension_dating': ascension_datingResponse,
-  'ascension_cooking': ascension_cookingResponse,
-  'ascension_social': ascension_socialResponse,
-  'ascension_volunteering': ascension_volunteeringResponse,
-  'ascension_focus': ascension_focusResponse,
-  'ascension_meditation': ascension_meditationResponse,
-  'ascension_garden': ascension_gardenResponse,
-  'ascension_fashion': ascension_fashionResponse,
-  'ascension_repair': ascension_repairResponse,
-  'ascension_music': ascension_musicResponse,
-  'ascension_art': ascension_artResponse,
-  'ascension_writing': ascension_writingResponse,
-  'ascension_movies': ascension_moviesResponse,
-  'ascension_books': ascension_booksResponse,
-  'ascension_news': ascension_newsResponse,
-  'ascension_sports': ascension_sportsResponse,
-  'ascension_games': ascension_gamesResponse,
-  'ascension_shopping': ascension_shoppingResponse,
-  'ascension_investing': ascension_investingResponse,
-  'ascension_taxes': ascension_taxesResponse,
-  'ascension_insurance': ascension_insuranceResponse,
-  'ascension_moving': ascension_movingResponse,
-  'ascension_cleaning': ascension_cleaningResponse,
-  'ascension_philosophy': ascension_philosophyResponse,
-  'ascension_history': ascension_historyResponse,
-  'ascension_science': ascension_scienceResponse,
-  'ascension_math': ascension_mathResponse,
-  'ascension_language': ascension_languageResponse,
-  'ascension_culture': ascension_cultureResponse,
-  'ascension_ethics': ascension_ethicsResponse,
-  'ascension_environment': ascension_environmentResponse,
-  'ascension_activism': ascension_activismResponse,
-  'ascension_project': ascension_projectResponse,
-  'ascension_task': ascension_taskResponse,
-  'ascension_remote': ascension_remoteResponse,
-  'ascension_interview': ascension_interviewResponse,
-  'ascension_resume': ascension_resumeResponse,
-  'ascension_negotiation': ascension_negotiationResponse,
-  'ascension_networking': ascension_networkingResponse,
-  'ascension_leadership': ascension_leadershipResponse,
-  'ascension_team': ascension_teamResponse,
-  'ascension_feedback': ascension_feedbackResponse,
-  'ascension_yoga': ascension_yogaResponse,
-  'ascension_running': ascension_runningResponse,
-  'ascension_swimming': ascension_swimmingResponse,
-  'ascension_cycling': ascension_cyclingResponse,
-  'ascension_hiking': ascension_hikingResponse,
-  'ascension_climbing': ascension_climbingResponse,
-  'ascension_martialarts': ascension_martialartsResponse,
-  'ascension_skincare': ascension_skincareResponse,
-  'ascension_ergonomics': ascension_ergonomicsResponse,
-  'ascension_firstaid': ascension_firstaidResponse,
-  'ascension_dance': ascension_danceResponse,
-  'ascension_photography': ascension_photographyResponse,
-  'ascension_filmmaking': ascension_filmmakingResponse,
-  'ascension_podcast': ascension_podcastResponse,
-  'ascension_design': ascension_designResponse,
-  'ascension_interior_design': ascension_interior_designResponse,
-  'ascension_craft': ascension_craftResponse,
-  'ascension_baking': ascension_bakingResponse,
-  'ascension_mixology': ascension_mixologyResponse,
-  'ascension_etiquette': ascension_etiquetteResponse,
-  'ascension_wedding': ascension_weddingResponse,
-  'ascension_birthday': ascension_birthdayResponse,
-  'ascension_party': ascension_partyResponse,
-  'ascension_holiday': ascension_holidayResponse,
-  'ascension_gift': ascension_giftResponse,
-  'ascension_funeral': ascension_funeralResponse,
-  'ascension_babyshower': ascension_babyshowerResponse,
-  'ascension_graduation': ascension_graduationResponse,
-  'ascension_retirement': ascension_retirementResponse,
-  'ascension_anniversary': ascension_anniversaryResponse,
-  'ascension_homework': ascension_homeworkResponse,
-  'ascension_tutor': ascension_tutorResponse,
-  'ascension_school': ascension_schoolResponse,
-  'ascension_college': ascension_collegeResponse,
-  'ascension_scholarship': ascension_scholarshipResponse,
-  'ascension_exam': ascension_examResponse,
-  'ascension_studyskills': ascension_studyskillsResponse,
-  'ascension_memorization': ascension_memorizationResponse,
-  'ascension_presentation': ascension_presentationResponse,
-  'ascension_teaching': ascension_teachingResponse,
-  'ascension_devops': ascension_devopsResponse,
-  'ascension_cloud': ascension_cloudResponse,
-  'ascension_databases': ascension_databasesResponse,
-  'ascension_security_tech': ascension_security_techResponse,
-  'ascension_testing': ascension_testingResponse,
-  'ascension_cicd': ascension_cicdResponse,
-  'ascension_monitoring': ascension_monitoringResponse,
-  'ascension_api': ascension_apiResponse,
-  'ascension_microservices': ascension_microservicesResponse,
-  'ascension_blockchain': ascension_blockchainResponse,
-  'ascension_walking': ascension_walkingResponse,
-  'ascension_stretching': ascension_stretchingResponse,
-  'ascension_recovery': ascension_recoveryResponse,
-  'ascension_supplements': ascension_supplementsResponse,
-  'ascension_allergies': ascension_allergiesResponse,
-  'ascension_chronic': ascension_chronicResponse,
-  'ascension_disability': ascension_disabilityResponse,
-  'ascension_pregnancy': ascension_pregnancyResponse,
-  'ascension_childbirth': ascension_childbirthResponse,
-  'ascension_postpartum': ascension_postpartumResponse,
-  'ascension_packing': ascension_packingResponse,
-  'ascension_commute': ascension_commuteResponse,
-  'ascension_laundry': ascension_laundryResponse,
-  'ascension_organizing': ascension_organizingResponse,
-  'ascension_storage': ascension_storageResponse,
-  'ascension_decor': ascension_decorResponse,
-  'ascension_lighting': ascension_lightingResponse,
-  'ascension_sound': ascension_soundResponse,
-  'ascension_smell': ascension_smellResponse,
-  'ascension_balcony': ascension_balconyResponse,
-  'ascension_will': ascension_willResponse,
-  'ascension_trust': ascension_trustResponse,
-  'ascension_prenup': ascension_prenupResponse,
-  'ascension_divorce': ascension_divorceResponse,
-  'ascension_custody': ascension_custodyResponse,
-  'ascension_adoption': ascension_adoptionResponse,
-  'ascension_immigration': ascension_immigrationResponse,
-  'ascension_contracts': ascension_contractsResponse,
-  'ascension_tenant': ascension_tenantResponse,
-  'ascension_landlord': ascension_landlordResponse,
-  'ascension_startup': ascension_startupResponse,
-  'ascension_business_plan': ascension_business_planResponse,
-  'ascension_marketing': ascension_marketingResponse,
-  'ascension_sales': ascension_salesResponse,
-  'ascension_brand': ascension_brandResponse,
-  'ascension_customer_service': ascension_customer_serviceResponse,
-  'ascension_hr': ascension_hrResponse,
-  'ascension_fundraising': ascension_fundraisingResponse,
-  'ascension_pitch': ascension_pitchResponse,
-  'ascension_partnerships': ascension_partnershipsResponse,
-  'ascension_car_buying': ascension_car_buyingResponse,
-  'ascension_car_maintenance': ascension_car_maintenanceResponse,
-  'ascension_motorcycle': ascension_motorcycleResponse,
-  'ascension_bicycle': ascension_bicycleResponse,
-  'ascension_boat': ascension_boatResponse,
-  'ascension_rv': ascension_rvResponse,
-  'ascension_electric_vehicle': ascension_electric_vehicleResponse,
-  'ascension_public_transit': ascension_public_transitResponse,
-  'ascension_rideshare': ascension_rideshareResponse,
-  'ascension_flight': ascension_flightResponse,
-  'ascension_cricket': ascension_cricketResponse,
-  'ascension_basketball': ascension_basketballResponse,
-  'ascension_football': ascension_footballResponse,
-  'ascension_baseball': ascension_baseballResponse,
-  'ascension_soccer': ascension_soccerResponse,
-  'ascension_tennis': ascension_tennisResponse,
-  'ascension_golf': ascension_golfResponse,
-  'ascension_hockey': ascension_hockeyResponse,
-  'ascension_esports': ascension_esportsResponse,
-  'ascension_fantasy': ascension_fantasyResponse,
-  'ascension_horoscope': ascension_horoscopeResponse,
-  'ascension_astrology': ascension_astrologyResponse,
-  'ascension_tarot': ascension_tarotResponse,
-  'ascension_tattoo': ascension_tattooResponse,
-  'ascension_piercing': ascension_piercingResponse,
-  'ascension_perfume': ascension_perfumeResponse,
-  'ascension_jewelry': ascension_jewelryResponse,
-  'ascension_watch': ascension_watchResponse,
-  'ascension_shoes': ascension_shoesResponse,
-  'ascension_bag': ascension_bagResponse,
-  'ascension_wallet': ascension_walletResponse,
-  'ascension_sunglasses': ascension_sunglassesResponse,
-  'ascension_haircut': ascension_haircutResponse,
-  'ascension_beard': ascension_beardResponse,
-  'ascension_makeup': ascension_makeupResponse,
-  'ascension_camping': ascension_campingResponse,
-  'ascension_fishing': ascension_fishingResponse,
-  'ascension_hunting': ascension_huntingResponse,
-  'ascension_shooting': ascension_shootingResponse,
-  'ascension_archery': ascension_archeryResponse,
-  'ascension_fencing': ascension_fencingResponse,
-  'ascension_boxing': ascension_boxingResponse,
-  'ascension_wrestling': ascension_wrestlingResponse,
-  'ascension_gymnastics': ascension_gymnasticsResponse,
-  'ascension_skateboarding': ascension_skateboardingResponse,
-  'ascension_surfing': ascension_surfingResponse,
-  'ascension_skiing': ascension_skiingResponse,
-  'ascension_snowboarding': ascension_snowboardingResponse,
-  'ascension_ice_skating': ascension_ice_skatingResponse,
-  'ascension_roller_skating': ascension_roller_skatingResponse,
-  'ascension_magic': ascension_magicResponse,
-  'ascension_comedy': ascension_comedyResponse,
-  'ascension_jokes': ascension_jokesResponse,
-  'ascension_riddles': ascension_riddlesResponse,
-  'ascension_puzzles': ascension_puzzlesResponse,
-  'ascension_standup': ascension_standupResponse,
-  'ascension_poetry': ascension_poetryResponse,
-  'ascension_lyrics': ascension_lyricsResponse,
-  'ascension_storytelling': ascension_storytellingResponse,
-  'ascension_fanfiction': ascension_fanfictionResponse,
-  'ascension_cosplay': ascension_cosplayResponse,
-  'ascension_roleplay': ascension_roleplayResponse,
-  'ascension_reviews': ascension_reviewsResponse,
-  'ascension_trivia': ascension_triviaResponse,
-  'ascension_boardgames': ascension_boardgamesResponse,
-  'ascension_streaming': ascension_streamingResponse,
-  'ascension_youtube': ascension_youtubeResponse,
-  'ascension_tiktok': ascension_tiktokResponse,
-  'ascension_instagram': ascension_instagramResponse,
-  'ascension_twitter': ascension_twitterResponse,
-  'ascension_linkedin': ascension_linkedinResponse,
-  'ascension_facebook': ascension_facebookResponse,
-  'ascension_reddit': ascension_redditResponse,
-  'ascension_discord': ascension_discordResponse,
-  'ascension_slack': ascension_slackResponse,
-  'ascension_teams': ascension_teamsResponse,
-  'ascension_zoom': ascension_zoomResponse,
-  'ascension_meet': ascension_meetResponse,
-  'ascension_webex': ascension_webexResponse,
-  'ascension_obs': ascension_obsResponse,
-  'ascension_chess': ascension_chessResponse,
-  'ascension_poker': ascension_pokerResponse,
-  'ascension_blackjack': ascension_blackjackResponse,
-  'ascension_betting': ascension_bettingResponse,
-  'ascension_lottery': ascension_lotteryResponse,
-  'ascension_auction': ascension_auctionResponse,
-  'ascension_collector': ascension_collectorResponse,
-  'ascension_antiques': ascension_antiquesResponse,
-  'ascension_stamps': ascension_stampsResponse,
-  'ascension_coins': ascension_coinsResponse,
-  'ascension_comics': ascension_comicsResponse,
-  'ascension_trading_cards': ascension_trading_cardsResponse,
-  'ascension_vinyl': ascension_vinylResponse,
-  'ascension_concerts': ascension_concertsResponse,
-  'ascension_festivals': ascension_festivalsResponse,
-  'ascension_karaoke': ascension_karaokeResponse,
-  'ascension_casino': ascension_casinoResponse,
-  'ascension_sports_betting': ascension_sports_bettingResponse,
-  'ascension_daytrading': ascension_daytradingResponse,
-  'ascension_swingtrading': ascension_swingtradingResponse,
-  'ascension_forex': ascension_forexResponse,
-  'ascension_crypto': ascension_cryptoResponse,
-  'ascension_nfts': ascension_nftsResponse,
-  'ascension_mining': ascension_miningResponse,
-  'ascension_staking': ascension_stakingResponse,
-  'ascension_defi': ascension_defiResponse,
-  'ascension_dao': ascension_daoResponse,
-  'ascension_airdrop': ascension_airdropResponse,
-  'ascension_presale': ascension_presaleResponse,
-  'ascension_whitelist': ascension_whitelistResponse,
-  'ascension_nodes': ascension_nodesResponse,
-  'ascension_3d_printing': ascension_3d_printingResponse,
-  'ascension_laser_cutting': ascension_laser_cuttingResponse,
-  'ascension_cnc': ascension_cncResponse,
-  'ascension_woodworking': ascension_woodworkingResponse,
-  'ascension_metalworking': ascension_metalworkingResponse,
-  'ascension_welding': ascension_weldingResponse,
-  'ascension_soldering': ascension_solderingResponse,
-  'ascension_electronics': ascension_electronicsResponse,
-  'ascension_arduino': ascension_arduinoResponse,
-  'ascension_raspberry_pi': ascension_raspberry_piResponse,
-  'ascension_robotics': ascension_roboticsResponse,
-  'ascension_drones': ascension_dronesResponse,
-  'ascension_rc': ascension_rcResponse,
-  'ascension_ham_radio': ascension_ham_radioResponse,
-  'ascension_astronomy': ascension_astronomyResponse,
-  'ascension_photography_gear': ascension_photography_gearResponse,
-  'ascension_video_editing': ascension_video_editingResponse,
-  'ascension_color_grading': ascension_color_gradingResponse,
-  'ascension_sound_design': ascension_sound_designResponse,
-  'ascension_mixing': ascension_mixingResponse,
-  'ascension_mastering': ascension_masteringResponse,
-  'ascension_voiceover': ascension_voiceoverResponse,
-  'ascension_podcast_production': ascension_podcast_productionResponse,
-  'ascension_youtube_seo': ascension_youtube_seoResponse,
-  'ascension_thumbnail': ascension_thumbnailResponse,
-  'ascension_branding': ascension_brandingResponse,
-  'ascension_merchandise': ascension_merchandiseResponse,
-  'ascension_crowdfunding': ascension_crowdfundingResponse,
-  'ascension_patreon': ascension_patreonResponse,
-  'ascension_sponsorships': ascension_sponsorshipsResponse,
-  'ascension_affiliate': ascension_affiliateResponse,
-  'ascension_ecommerce': ascension_ecommerceResponse,
-  'ascension_shopify': ascension_shopifyResponse,
-  'ascension_woocommerce': ascension_woocommerceResponse,
-  'ascension_amazon': ascension_amazonResponse,
-  'ascension_ebay': ascension_ebayResponse,
-  'ascension_etsy': ascension_etsyResponse,
-  'ascension_dropshipping': ascension_dropshippingResponse,
-  'ascension_print_on_demand': ascension_print_on_demandResponse,
-  'ascension_fulfillment': ascension_fulfillmentResponse,
-  'ascension_inventory': ascension_inventoryResponse,
-  'ascension_pos': ascension_posResponse,
-  'ascension_import': ascension_importResponse,
-  'ascension_export': ascension_exportResponse,
-  'ascension_tariffs': ascension_tariffsResponse,
-  'ascension_shipping': ascension_shippingResponse,
-  'ascension_customer_support': ascension_customer_supportResponse,
-  'ascension_helpdesk': ascension_helpdeskResponse,
-  'ascension_ticketing': ascension_ticketingResponse,
-  'ascension_live_chat': ascension_live_chatResponse,
-  'ascension_chatbot': ascension_chatbotResponse,
-  'ascension_knowledge_base': ascension_knowledge_baseResponse,
-  'ascension_faq': ascension_faqResponse,
-  'ascension_onboarding': ascension_onboardingResponse,
-  'ascension_retention': ascension_retentionResponse,
-  'ascension_churn': ascension_churnResponse,
-  'ascension_upsell': ascension_upsellResponse,
-  'ascension_cross_sell': ascension_cross_sellResponse,
-  'ascension_loyalty': ascension_loyaltyResponse,
-  'ascension_referral': ascension_referralResponse,
-  'ascension_reputation': ascension_reputationResponse,
-  'ascension_accounting': ascension_accountingResponse,
-  'ascension_bookkeeping': ascension_bookkeepingResponse,
-  'ascension_invoicing': ascension_invoicingResponse,
-  'ascension_payroll': ascension_payrollResponse,
-  'ascension_budgeting': ascension_budgetingResponse,
-  'ascension_expenses': ascension_expensesResponse,
-  'ascension_business_taxes': ascension_business_taxesResponse,
-  'ascension_audit': ascension_auditResponse,
-  'ascension_compliance': ascension_complianceResponse,
-  'ascension_grants': ascension_grantsResponse,
-  'ascension_loans': ascension_loansResponse,
-  'ascension_credit': ascension_creditResponse,
-  'ascension_debt': ascension_debtResponse,
-  'ascension_credit_score': ascension_credit_scoreResponse,
-  'ascension_mortgage': ascension_mortgageResponse,
-  'ascension_insurance_review': ascension_insurance_reviewResponse,
-  'ascension_policy_review': ascension_policy_reviewResponse,
-  'ascension_deductible': ascension_deductibleResponse,
-  'ascension_premium': ascension_premiumResponse,
-  'ascension_hsa': ascension_hsaResponse,
-  'ascension_fsa': ascension_fsaResponse,
-  'ascension_benefits': ascension_benefitsResponse,
-  'ascension_open_enrollment': ascension_open_enrollmentResponse,
-  'ascension_workers_comp': ascension_workers_compResponse,
-  'ascension_liability_insurance': ascension_liability_insuranceResponse,
-  'ascension_umbrella_insurance': ascension_umbrella_insuranceResponse,
-  'ascension_flood_insurance': ascension_flood_insuranceResponse,
-  'ascension_earthquake_insurance': ascension_earthquake_insuranceResponse,
-  'ascension_pet_insurance': ascension_pet_insuranceResponse,
-  'ascension_travel_insurance': ascension_travel_insuranceResponse,
-  'ascension_gardening': ascension_gardeningResponse,
-  'ascension_landscaping': ascension_landscapingResponse,
-  'ascension_lawn_care': ascension_lawn_careResponse,
-  'ascension_composting': ascension_compostingResponse,
-  'ascension_hydroponics': ascension_hydroponicsResponse,
-  'ascension_aquaponics': ascension_aquaponicsResponse,
-  'ascension_fermentation': ascension_fermentationResponse,
-  'ascension_preserving': ascension_preservingResponse,
-  'ascension_canning': ascension_canningResponse,
-  'ascension_smoking': ascension_smokingResponse,
-  'ascension_bbq': ascension_bbqResponse,
-  'ascension_grilling': ascension_grillingResponse,
-  'ascension_pizza': ascension_pizzaResponse,
-  'ascension_bread_making': ascension_bread_makingResponse,
-  'ascension_sourdough': ascension_sourdoughResponse,
-  'ascension_meal_prep': ascension_meal_prepResponse,
-  'ascension_batch_cooking': ascension_batch_cookingResponse,
-  'ascension_freezer_meals': ascension_freezer_mealsResponse,
-  'ascension_slow_cooker': ascension_slow_cookerResponse,
-  'ascension_pressure_cooker': ascension_pressure_cookerResponse,
-  'ascension_air_fryer': ascension_air_fryerResponse,
-  'ascension_sous_vide': ascension_sous_videResponse,
-  'ascension_dehydrator': ascension_dehydratorResponse,
-  'ascension_juicing': ascension_juicingResponse,
-  'ascension_smoothies': ascension_smoothiesResponse,
-  'ascension_protein': ascension_proteinResponse,
-  'ascension_supplements_stack': ascension_supplements_stackResponse,
-  'ascension_pre_workout': ascension_pre_workoutResponse,
-  'ascension_post_workout': ascension_post_workoutResponse,
-  'ascension_meal_planning': ascension_meal_planningResponse,
-  'ascension_grocery_list': ascension_grocery_listResponse,
-  'ascension_meditation_guided': ascension_meditation_guidedResponse,
-  'ascension_breathing': ascension_breathingResponse,
-  'ascension_cold_exposure': ascension_cold_exposureResponse,
-  'ascension_heat_exposure': ascension_heat_exposureResponse,
-  'ascension_sauna': ascension_saunaResponse,
-  'ascension_ice_bath': ascension_ice_bathResponse,
-  'ascension_sleep_hygiene': ascension_sleep_hygieneResponse,
-  'ascension_nap': ascension_napResponse,
-  'ascension_circadian': ascension_circadianResponse,
-  'ascension_journaling': ascension_journalingResponse,
-  'ascension_gratitude': ascension_gratitudeResponse,
-  'ascension_affirmations': ascension_affirmationsResponse,
-  'ascension_visualization': ascension_visualizationResponse,
-  'ascension_mindset': ascension_mindsetResponse,
-  'ascension_resilience': ascension_resilienceResponse,
-  'ascension_growth_mindset': ascension_growth_mindsetResponse,
-  'ascension_stoicism': ascension_stoicismResponse,
-  'ascension_buddhism': ascension_buddhismResponse,
-  'ascension_hinduism': ascension_hinduismResponse,
-  'ascension_christianity': ascension_christianityResponse,
-  'ascension_islam': ascension_islamResponse,
-  'ascension_judaism': ascension_judaismResponse,
-  'ascension_taoism': ascension_taoismResponse,
-  'ascension_confucianism': ascension_confucianismResponse,
-  'ascension_shinto': ascension_shintoResponse,
-  'ascension_sikhism': ascension_sikhismResponse,
-  'ascension_jainism': ascension_jainismResponse,
-  'ascension_bahai': ascension_bahaiResponse,
-  'ascension_paganism': ascension_paganismResponse,
-  'ascension_wicca': ascension_wiccaResponse,
-  'ascension_druidry': ascension_druidryResponse,
-  'ascension_native_spirituality': ascension_native_spiritualityResponse,
-  'ascension_shamanism': ascension_shamanismResponse,
-  'ascension_logic': ascension_logicResponse,
-  'ascension_critical_thinking': ascension_critical_thinkingResponse,
-  'ascension_argumentation': ascension_argumentationResponse,
-  'ascension_fallacies': ascension_fallaciesResponse,
-  'ascension_debate': ascension_debateResponse,
-  'ascension_persuasion': ascension_persuasionResponse,
-  'ascension_rapport': ascension_rapportResponse,
-  'ascension_empathy': ascension_empathyResponse,
-  'ascension_charisma': ascension_charismaResponse,
-  'ascension_confidence_building': ascension_confidence_buildingResponse,
-  'ascension_assertiveness': ascension_assertivenessResponse,
-  'ascension_boundaries': ascension_boundariesResponse,
-  'ascension_conflict_resolution': ascension_conflict_resolutionResponse,
-  'ascension_active_listening': ascension_active_listeningResponse
-};
-
-export function routeNativeDomain(
-  capabilityId: string,
-  message: string,
-  permissions: Record<string, PermissionStatus>
-): NativeResponse {
-  const permissionMsg = permissionMessage(capabilityId, permissions);
-  if (permissionMsg) {
-    return {
-      content: permissionMsg.content,
-      model: 'Ascension Permission Gate',
-      provider: 'ascension-native',
-      tokensUsed: 0,
-      capability: capabilityId
-    };
-  }
-
-  const handler = DOMAIN_HANDLERS[capabilityId];
-  if (handler) {
-    return handler(message);
-  }
-
-  return {
-    content: `Ascension native response for ${capabilityId} (stub: domain handler not yet specialized).`,
-    model: 'Ascension Candidate 3B',
-    provider: 'ascension-native',
-    tokensUsed: 0,
-    capability: capabilityId
-  };
-}
-
 function chat_gpt4Response(message: string): NativeResponse {
   return {
     content: `I can help with Chat GPT-4. Advanced AI chat with GPT-4 What do you need?`,
@@ -8284,5 +5467,725 @@ function ascension_active_listeningResponse(message: string): NativeResponse {
     tokensUsed: 0,
     capability: 'ascension_active_listening',
     data: { question: null }
+  };
+}
+
+function ascension_wallet_automationResponse(message: string): NativeResponse {
+  return {
+    content: `I can connect to a wallet and run rule-based automation. Tell me your balance, income dates, bills, and risk tolerance, and I will build a permissioned automation plan.`,
+    model: 'Ascension Wallet Automation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_wallet_automation',
+    data: { question: null }
+  };
+}
+
+function ascension_fast_turnResponse(message: string): NativeResponse {
+  return {
+    content: `I can map fast, legal, survival-first cash strategies (sell unused items, gig work, micro-flipping, paid tasks, food banks, emergency aid) but I will not recommend risking money needed for food or rent. How much time, skills, and items do you have right now?`,
+    model: 'Ascension Fast Turn',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_fast_turn',
+    data: { question: null }
+  };
+}
+
+function ascension_income_splitResponse(message: string): NativeResponse {
+  return {
+    content: `I can split deposits into spending, bill savings, emergency savings, quick investment, long-term investment, aspiration/dream board, and giving buckets. Share the deposit amount and due dates to set percentages.`,
+    model: 'Ascension Income Split',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_income_split',
+    data: { question: null }
+  };
+}
+
+function ascension_inventor_labResponse(message: string): NativeResponse {
+  return {
+    content: `I am your co-inventor and lab partner. I can model designs, list materials, find cost-efficient suppliers, build a step-by-step prototype path, and help run experiments. What are you building?`,
+    model: 'Ascension Inventor Lab',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_inventor_lab',
+    data: { question: null }
+  };
+}
+
+function ascension_hardware_prototypingResponse(message: string): NativeResponse {
+  return {
+    content: `I can design a build path for hardware like AP Frames, recommend materials, estimate costs, and suggest the cheapest/fastest prototyping order. What is the device and the first version goal?`,
+    model: 'Ascension Hardware Prototyping',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_hardware_prototyping',
+    data: { question: null }
+  };
+}
+
+function ascension_youtube_automationResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a YouTube channel plan: niche, 3 AI-generated videos per day, titles/thumbnails, upload schedule, comment interaction, and a path to monetization/affiliates. What niche and budget?`,
+    model: 'Ascension YouTube Automation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_youtube_automation',
+    data: { question: null }
+  };
+}
+
+function ascension_tiktok_automationResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a TikTok growth engine: 3 short videos per day, trend riding, hashtag strategy, comment engagement, and a path to paid partnerships. What niche and budget?`,
+    model: 'Ascension TikTok Automation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tiktok_automation',
+    data: { question: null }
+  };
+}
+
+function ascension_amsr_studioResponse(message: string): NativeResponse {
+  return {
+    content: `I can set up an ASMR channel, script/audio prompts, generate video ideas, schedule daily uploads, and plan monetization. What ASMR themes and equipment do you have?`,
+    model: 'Ascension AMSR Studio',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_amsr_studio',
+    data: { question: null }
+  };
+}
+
+function ascension_affiliate_automationResponse(message: string): NativeResponse {
+  return {
+    content: `I can find affiliate programs, track links, suggest products to promote, and plan content that converts. What niche and audience size?`,
+    model: 'Ascension Affiliate Automation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_affiliate_automation',
+    data: { question: null }
+  };
+}
+
+function ascension_streaming_channelResponse(message: string): NativeResponse {
+  return {
+    content: `I can build a live gaming channel: overlays, alerts, schedule, best-traffic time slots, and growth strategy. What game, time zone, and streaming platform?`,
+    model: 'Ascension Streaming Channel',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_streaming_channel',
+    data: { question: null }
+  };
+}
+
+function ascension_streaming_moderatorResponse(message: string): NativeResponse {
+  return {
+    content: `I can act as a live moderator, manage chat rules, answer common questions, flag problems, and keep the stream safe. What rules and platform?`,
+    model: 'Ascension Streaming Moderator',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_streaming_moderator',
+    data: { question: null }
+  };
+}
+
+function ascension_overlay_designResponse(message: string): NativeResponse {
+  return {
+    content: `I can design stream overlays, scenes, alerts, and panels that fit your brand. What game, colors, and layout do you want?`,
+    model: 'Ascension Overlay Design',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_overlay_design',
+    data: { question: null }
+  };
+}
+
+function ascension_research_assistantResponse(message: string): NativeResponse {
+  return {
+    content: `I can research patents, papers, competitors, and materials, then organize everything into a decision-ready report with citations. What do you need to know?`,
+    model: 'Ascension Research Assistant',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_research_assistant',
+    data: { question: null }
+  };
+}
+
+function ascension_design_assistantResponse(message: string): NativeResponse {
+  return {
+    content: `I can help design products, interfaces, and experiences, from sketch to spec, with user flow and cost-aware decisions. What are you designing?`,
+    model: 'Ascension Design Assistant',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_design_assistant',
+    data: { question: null }
+  };
+}
+
+function ascension_crowdfunding_productResponse(message: string): NativeResponse {
+  return {
+    content: `I can plan a crowdfunding campaign for an invention, set reward tiers, write the story, and list launch tasks. What is the product and target?`,
+    model: 'Ascension Crowdfunding Product',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_crowdfunding_product',
+    data: { question: null }
+  };
+}
+
+function ascension_dream_fundResponse(message: string): NativeResponse {
+  return {
+    content: `I can connect dream-board goals to automated savings buckets and milestone plans. What is the dream, the cost, and the deadline?`,
+    model: 'Ascension Dream Fund',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_dream_fund',
+    data: { question: null }
+  };
+}
+
+const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
+  'chat_gpt4': chat_gpt4Response,
+  'chat_claude': chat_claudeResponse,
+  'chat_gemini': chat_geminiResponse,
+  'writing_marketing': writing_marketingResponse,
+  'writing_document': writing_documentResponse,
+  'writing_email': writing_emailResponse,
+  'writing_script': writing_scriptResponse,
+  'translation': translationResponse,
+  'code_generation': code_generationResponse,
+  'code_review': code_reviewResponse,
+  'code_debugging': code_debuggingResponse,
+  'code_execution': code_executionResponse,
+  'code_completion': code_completionResponse,
+  'test_generation': test_generationResponse,
+  'documentation_generation': documentation_generationResponse,
+  'image_generation_dalle': image_generation_dalleResponse,
+  'image_generation_midjourney': image_generation_midjourneyResponse,
+  'image_generation_stable': image_generation_stableResponse,
+  'image_editing': image_editingResponse,
+  'image_generation_adobe': image_generation_adobeResponse,
+  'design_generation': design_generationResponse,
+  'text_to_speech': text_to_speechResponse,
+  'speech_to_text': speech_to_textResponse,
+  'music_generation_suno': music_generation_sunoResponse,
+  'music_generation_udio': music_generation_udioResponse,
+  'audio_editing': audio_editingResponse,
+  'voice_cloning': voice_cloningResponse,
+  'video_generation_runway': video_generation_runwayResponse,
+  'video_generation_pika': video_generation_pikaResponse,
+  'video_generation_luma': video_generation_lumaResponse,
+  'video_generation_stable': video_generation_stableResponse,
+  'video_editing': video_editingResponse,
+  'web_search': web_searchResponse,
+  'web_browsing': web_browsingResponse,
+  'file_analysis': file_analysisResponse,
+  'intelligence_sweep': intelligence_sweepResponse,
+  'context_memory': context_memoryResponse,
+  'proactive_intelligence': proactive_intelligenceResponse,
+  'business_growth': business_growthResponse,
+  'relationship_graph': relationship_graphResponse,
+  'emotional_intelligence': emotional_intelligenceResponse,
+  'ascension_chat': ascension_chatResponse,
+  'ascension_home': ascension_homeResponse,
+  'ascension_sprout': ascension_sproutResponse,
+  'ascension_family': ascension_familyResponse,
+  'ascension_health': ascension_healthResponse,
+  'ascension_finance': ascension_financeResponse,
+  'ascension_trading': ascension_tradingResponse,
+  'ascension_vision': ascension_visionResponse,
+  'ascension_legal': ascension_legalResponse,
+  'ascension_travel': ascension_travelResponse,
+  'ascension_realestate': ascension_realestateResponse,
+  'ascension_research': ascension_researchResponse,
+  'ascension_events': ascension_eventsResponse,
+  'ascension_automotive': ascension_automotiveResponse,
+  'ascension_pets': ascension_petsResponse,
+  'ascension_weather': ascension_weatherResponse,
+  'ascension_nutrition': ascension_nutritionResponse,
+  'ascension_fitness': ascension_fitnessResponse,
+  'ascension_career': ascension_careerResponse,
+  'ascension_relationships': ascension_relationshipsResponse,
+  'ascension_creative': ascension_creativeResponse,
+  'ascension_code': ascension_codeResponse,
+  'ascension_learning': ascension_learningResponse,
+  'ascension_meetings': ascension_meetingsResponse,
+  'ascension_voice': ascension_voiceResponse,
+  'ascension_security': ascension_securityResponse,
+  'ascension_psychology': ascension_psychologyResponse,
+  'ascension_human_life': ascension_human_lifeResponse,
+  'ascension_spirituality': ascension_spiritualityResponse,
+  'ascension_grief': ascension_griefResponse,
+  'ascension_mental_health': ascension_mental_healthResponse,
+  'ascension_communication': ascension_communicationResponse,
+  'ascension_habits': ascension_habitsResponse,
+  'ascension_stress': ascension_stressResponse,
+  'ascension_sleep': ascension_sleepResponse,
+  'ascension_parenting': ascension_parentingResponse,
+  'ascension_mindfulness': ascension_mindfulnessResponse,
+  'ascension_time': ascension_timeResponse,
+  'ascension_confidence': ascension_confidenceResponse,
+  'ascension_aging': ascension_agingResponse,
+  'ascension_addiction': ascension_addictionResponse,
+  'ascension_conflict': ascension_conflictResponse,
+  'ascension_dating': ascension_datingResponse,
+  'ascension_cooking': ascension_cookingResponse,
+  'ascension_social': ascension_socialResponse,
+  'ascension_volunteering': ascension_volunteeringResponse,
+  'ascension_focus': ascension_focusResponse,
+  'ascension_meditation': ascension_meditationResponse,
+  'ascension_garden': ascension_gardenResponse,
+  'ascension_fashion': ascension_fashionResponse,
+  'ascension_repair': ascension_repairResponse,
+  'ascension_music': ascension_musicResponse,
+  'ascension_art': ascension_artResponse,
+  'ascension_writing': ascension_writingResponse,
+  'ascension_movies': ascension_moviesResponse,
+  'ascension_books': ascension_booksResponse,
+  'ascension_news': ascension_newsResponse,
+  'ascension_sports': ascension_sportsResponse,
+  'ascension_games': ascension_gamesResponse,
+  'ascension_shopping': ascension_shoppingResponse,
+  'ascension_investing': ascension_investingResponse,
+  'ascension_taxes': ascension_taxesResponse,
+  'ascension_insurance': ascension_insuranceResponse,
+  'ascension_moving': ascension_movingResponse,
+  'ascension_cleaning': ascension_cleaningResponse,
+  'ascension_philosophy': ascension_philosophyResponse,
+  'ascension_history': ascension_historyResponse,
+  'ascension_science': ascension_scienceResponse,
+  'ascension_math': ascension_mathResponse,
+  'ascension_language': ascension_languageResponse,
+  'ascension_culture': ascension_cultureResponse,
+  'ascension_ethics': ascension_ethicsResponse,
+  'ascension_environment': ascension_environmentResponse,
+  'ascension_activism': ascension_activismResponse,
+  'ascension_project': ascension_projectResponse,
+  'ascension_task': ascension_taskResponse,
+  'ascension_remote': ascension_remoteResponse,
+  'ascension_interview': ascension_interviewResponse,
+  'ascension_resume': ascension_resumeResponse,
+  'ascension_negotiation': ascension_negotiationResponse,
+  'ascension_networking': ascension_networkingResponse,
+  'ascension_leadership': ascension_leadershipResponse,
+  'ascension_team': ascension_teamResponse,
+  'ascension_feedback': ascension_feedbackResponse,
+  'ascension_yoga': ascension_yogaResponse,
+  'ascension_running': ascension_runningResponse,
+  'ascension_swimming': ascension_swimmingResponse,
+  'ascension_cycling': ascension_cyclingResponse,
+  'ascension_hiking': ascension_hikingResponse,
+  'ascension_climbing': ascension_climbingResponse,
+  'ascension_martialarts': ascension_martialartsResponse,
+  'ascension_skincare': ascension_skincareResponse,
+  'ascension_ergonomics': ascension_ergonomicsResponse,
+  'ascension_firstaid': ascension_firstaidResponse,
+  'ascension_dance': ascension_danceResponse,
+  'ascension_photography': ascension_photographyResponse,
+  'ascension_filmmaking': ascension_filmmakingResponse,
+  'ascension_podcast': ascension_podcastResponse,
+  'ascension_design': ascension_designResponse,
+  'ascension_interior_design': ascension_interior_designResponse,
+  'ascension_craft': ascension_craftResponse,
+  'ascension_baking': ascension_bakingResponse,
+  'ascension_mixology': ascension_mixologyResponse,
+  'ascension_etiquette': ascension_etiquetteResponse,
+  'ascension_wedding': ascension_weddingResponse,
+  'ascension_birthday': ascension_birthdayResponse,
+  'ascension_party': ascension_partyResponse,
+  'ascension_holiday': ascension_holidayResponse,
+  'ascension_gift': ascension_giftResponse,
+  'ascension_funeral': ascension_funeralResponse,
+  'ascension_babyshower': ascension_babyshowerResponse,
+  'ascension_graduation': ascension_graduationResponse,
+  'ascension_retirement': ascension_retirementResponse,
+  'ascension_anniversary': ascension_anniversaryResponse,
+  'ascension_homework': ascension_homeworkResponse,
+  'ascension_tutor': ascension_tutorResponse,
+  'ascension_school': ascension_schoolResponse,
+  'ascension_college': ascension_collegeResponse,
+  'ascension_scholarship': ascension_scholarshipResponse,
+  'ascension_exam': ascension_examResponse,
+  'ascension_studyskills': ascension_studyskillsResponse,
+  'ascension_memorization': ascension_memorizationResponse,
+  'ascension_presentation': ascension_presentationResponse,
+  'ascension_teaching': ascension_teachingResponse,
+  'ascension_devops': ascension_devopsResponse,
+  'ascension_cloud': ascension_cloudResponse,
+  'ascension_databases': ascension_databasesResponse,
+  'ascension_security_tech': ascension_security_techResponse,
+  'ascension_testing': ascension_testingResponse,
+  'ascension_cicd': ascension_cicdResponse,
+  'ascension_monitoring': ascension_monitoringResponse,
+  'ascension_api': ascension_apiResponse,
+  'ascension_microservices': ascension_microservicesResponse,
+  'ascension_blockchain': ascension_blockchainResponse,
+  'ascension_walking': ascension_walkingResponse,
+  'ascension_stretching': ascension_stretchingResponse,
+  'ascension_recovery': ascension_recoveryResponse,
+  'ascension_supplements': ascension_supplementsResponse,
+  'ascension_allergies': ascension_allergiesResponse,
+  'ascension_chronic': ascension_chronicResponse,
+  'ascension_disability': ascension_disabilityResponse,
+  'ascension_pregnancy': ascension_pregnancyResponse,
+  'ascension_childbirth': ascension_childbirthResponse,
+  'ascension_postpartum': ascension_postpartumResponse,
+  'ascension_packing': ascension_packingResponse,
+  'ascension_commute': ascension_commuteResponse,
+  'ascension_laundry': ascension_laundryResponse,
+  'ascension_organizing': ascension_organizingResponse,
+  'ascension_storage': ascension_storageResponse,
+  'ascension_decor': ascension_decorResponse,
+  'ascension_lighting': ascension_lightingResponse,
+  'ascension_sound': ascension_soundResponse,
+  'ascension_smell': ascension_smellResponse,
+  'ascension_balcony': ascension_balconyResponse,
+  'ascension_will': ascension_willResponse,
+  'ascension_trust': ascension_trustResponse,
+  'ascension_prenup': ascension_prenupResponse,
+  'ascension_divorce': ascension_divorceResponse,
+  'ascension_custody': ascension_custodyResponse,
+  'ascension_adoption': ascension_adoptionResponse,
+  'ascension_immigration': ascension_immigrationResponse,
+  'ascension_contracts': ascension_contractsResponse,
+  'ascension_tenant': ascension_tenantResponse,
+  'ascension_landlord': ascension_landlordResponse,
+  'ascension_startup': ascension_startupResponse,
+  'ascension_business_plan': ascension_business_planResponse,
+  'ascension_marketing': ascension_marketingResponse,
+  'ascension_sales': ascension_salesResponse,
+  'ascension_brand': ascension_brandResponse,
+  'ascension_customer_service': ascension_customer_serviceResponse,
+  'ascension_hr': ascension_hrResponse,
+  'ascension_fundraising': ascension_fundraisingResponse,
+  'ascension_pitch': ascension_pitchResponse,
+  'ascension_partnerships': ascension_partnershipsResponse,
+  'ascension_car_buying': ascension_car_buyingResponse,
+  'ascension_car_maintenance': ascension_car_maintenanceResponse,
+  'ascension_motorcycle': ascension_motorcycleResponse,
+  'ascension_bicycle': ascension_bicycleResponse,
+  'ascension_boat': ascension_boatResponse,
+  'ascension_rv': ascension_rvResponse,
+  'ascension_electric_vehicle': ascension_electric_vehicleResponse,
+  'ascension_public_transit': ascension_public_transitResponse,
+  'ascension_rideshare': ascension_rideshareResponse,
+  'ascension_flight': ascension_flightResponse,
+  'ascension_cricket': ascension_cricketResponse,
+  'ascension_basketball': ascension_basketballResponse,
+  'ascension_football': ascension_footballResponse,
+  'ascension_baseball': ascension_baseballResponse,
+  'ascension_soccer': ascension_soccerResponse,
+  'ascension_tennis': ascension_tennisResponse,
+  'ascension_golf': ascension_golfResponse,
+  'ascension_hockey': ascension_hockeyResponse,
+  'ascension_esports': ascension_esportsResponse,
+  'ascension_fantasy': ascension_fantasyResponse,
+  'ascension_horoscope': ascension_horoscopeResponse,
+  'ascension_astrology': ascension_astrologyResponse,
+  'ascension_tarot': ascension_tarotResponse,
+  'ascension_tattoo': ascension_tattooResponse,
+  'ascension_piercing': ascension_piercingResponse,
+  'ascension_perfume': ascension_perfumeResponse,
+  'ascension_jewelry': ascension_jewelryResponse,
+  'ascension_watch': ascension_watchResponse,
+  'ascension_shoes': ascension_shoesResponse,
+  'ascension_bag': ascension_bagResponse,
+  'ascension_wallet': ascension_walletResponse,
+  'ascension_sunglasses': ascension_sunglassesResponse,
+  'ascension_haircut': ascension_haircutResponse,
+  'ascension_beard': ascension_beardResponse,
+  'ascension_makeup': ascension_makeupResponse,
+  'ascension_camping': ascension_campingResponse,
+  'ascension_fishing': ascension_fishingResponse,
+  'ascension_hunting': ascension_huntingResponse,
+  'ascension_shooting': ascension_shootingResponse,
+  'ascension_archery': ascension_archeryResponse,
+  'ascension_fencing': ascension_fencingResponse,
+  'ascension_boxing': ascension_boxingResponse,
+  'ascension_wrestling': ascension_wrestlingResponse,
+  'ascension_gymnastics': ascension_gymnasticsResponse,
+  'ascension_skateboarding': ascension_skateboardingResponse,
+  'ascension_surfing': ascension_surfingResponse,
+  'ascension_skiing': ascension_skiingResponse,
+  'ascension_snowboarding': ascension_snowboardingResponse,
+  'ascension_ice_skating': ascension_ice_skatingResponse,
+  'ascension_roller_skating': ascension_roller_skatingResponse,
+  'ascension_magic': ascension_magicResponse,
+  'ascension_comedy': ascension_comedyResponse,
+  'ascension_jokes': ascension_jokesResponse,
+  'ascension_riddles': ascension_riddlesResponse,
+  'ascension_puzzles': ascension_puzzlesResponse,
+  'ascension_standup': ascension_standupResponse,
+  'ascension_poetry': ascension_poetryResponse,
+  'ascension_lyrics': ascension_lyricsResponse,
+  'ascension_storytelling': ascension_storytellingResponse,
+  'ascension_fanfiction': ascension_fanfictionResponse,
+  'ascension_cosplay': ascension_cosplayResponse,
+  'ascension_roleplay': ascension_roleplayResponse,
+  'ascension_reviews': ascension_reviewsResponse,
+  'ascension_trivia': ascension_triviaResponse,
+  'ascension_boardgames': ascension_boardgamesResponse,
+  'ascension_streaming': ascension_streamingResponse,
+  'ascension_youtube': ascension_youtubeResponse,
+  'ascension_tiktok': ascension_tiktokResponse,
+  'ascension_instagram': ascension_instagramResponse,
+  'ascension_twitter': ascension_twitterResponse,
+  'ascension_linkedin': ascension_linkedinResponse,
+  'ascension_facebook': ascension_facebookResponse,
+  'ascension_reddit': ascension_redditResponse,
+  'ascension_discord': ascension_discordResponse,
+  'ascension_slack': ascension_slackResponse,
+  'ascension_teams': ascension_teamsResponse,
+  'ascension_zoom': ascension_zoomResponse,
+  'ascension_meet': ascension_meetResponse,
+  'ascension_webex': ascension_webexResponse,
+  'ascension_obs': ascension_obsResponse,
+  'ascension_chess': ascension_chessResponse,
+  'ascension_poker': ascension_pokerResponse,
+  'ascension_blackjack': ascension_blackjackResponse,
+  'ascension_betting': ascension_bettingResponse,
+  'ascension_lottery': ascension_lotteryResponse,
+  'ascension_auction': ascension_auctionResponse,
+  'ascension_collector': ascension_collectorResponse,
+  'ascension_antiques': ascension_antiquesResponse,
+  'ascension_stamps': ascension_stampsResponse,
+  'ascension_coins': ascension_coinsResponse,
+  'ascension_comics': ascension_comicsResponse,
+  'ascension_trading_cards': ascension_trading_cardsResponse,
+  'ascension_vinyl': ascension_vinylResponse,
+  'ascension_concerts': ascension_concertsResponse,
+  'ascension_festivals': ascension_festivalsResponse,
+  'ascension_karaoke': ascension_karaokeResponse,
+  'ascension_casino': ascension_casinoResponse,
+  'ascension_sports_betting': ascension_sports_bettingResponse,
+  'ascension_daytrading': ascension_daytradingResponse,
+  'ascension_swingtrading': ascension_swingtradingResponse,
+  'ascension_forex': ascension_forexResponse,
+  'ascension_crypto': ascension_cryptoResponse,
+  'ascension_nfts': ascension_nftsResponse,
+  'ascension_mining': ascension_miningResponse,
+  'ascension_staking': ascension_stakingResponse,
+  'ascension_defi': ascension_defiResponse,
+  'ascension_dao': ascension_daoResponse,
+  'ascension_airdrop': ascension_airdropResponse,
+  'ascension_presale': ascension_presaleResponse,
+  'ascension_whitelist': ascension_whitelistResponse,
+  'ascension_nodes': ascension_nodesResponse,
+  'ascension_3d_printing': ascension_3d_printingResponse,
+  'ascension_laser_cutting': ascension_laser_cuttingResponse,
+  'ascension_cnc': ascension_cncResponse,
+  'ascension_woodworking': ascension_woodworkingResponse,
+  'ascension_metalworking': ascension_metalworkingResponse,
+  'ascension_welding': ascension_weldingResponse,
+  'ascension_soldering': ascension_solderingResponse,
+  'ascension_electronics': ascension_electronicsResponse,
+  'ascension_arduino': ascension_arduinoResponse,
+  'ascension_raspberry_pi': ascension_raspberry_piResponse,
+  'ascension_robotics': ascension_roboticsResponse,
+  'ascension_drones': ascension_dronesResponse,
+  'ascension_rc': ascension_rcResponse,
+  'ascension_ham_radio': ascension_ham_radioResponse,
+  'ascension_astronomy': ascension_astronomyResponse,
+  'ascension_photography_gear': ascension_photography_gearResponse,
+  'ascension_video_editing': ascension_video_editingResponse,
+  'ascension_color_grading': ascension_color_gradingResponse,
+  'ascension_sound_design': ascension_sound_designResponse,
+  'ascension_mixing': ascension_mixingResponse,
+  'ascension_mastering': ascension_masteringResponse,
+  'ascension_voiceover': ascension_voiceoverResponse,
+  'ascension_podcast_production': ascension_podcast_productionResponse,
+  'ascension_youtube_seo': ascension_youtube_seoResponse,
+  'ascension_thumbnail': ascension_thumbnailResponse,
+  'ascension_branding': ascension_brandingResponse,
+  'ascension_merchandise': ascension_merchandiseResponse,
+  'ascension_crowdfunding': ascension_crowdfundingResponse,
+  'ascension_patreon': ascension_patreonResponse,
+  'ascension_sponsorships': ascension_sponsorshipsResponse,
+  'ascension_affiliate': ascension_affiliateResponse,
+  'ascension_ecommerce': ascension_ecommerceResponse,
+  'ascension_shopify': ascension_shopifyResponse,
+  'ascension_woocommerce': ascension_woocommerceResponse,
+  'ascension_amazon': ascension_amazonResponse,
+  'ascension_ebay': ascension_ebayResponse,
+  'ascension_etsy': ascension_etsyResponse,
+  'ascension_dropshipping': ascension_dropshippingResponse,
+  'ascension_print_on_demand': ascension_print_on_demandResponse,
+  'ascension_fulfillment': ascension_fulfillmentResponse,
+  'ascension_inventory': ascension_inventoryResponse,
+  'ascension_pos': ascension_posResponse,
+  'ascension_import': ascension_importResponse,
+  'ascension_export': ascension_exportResponse,
+  'ascension_tariffs': ascension_tariffsResponse,
+  'ascension_shipping': ascension_shippingResponse,
+  'ascension_customer_support': ascension_customer_supportResponse,
+  'ascension_helpdesk': ascension_helpdeskResponse,
+  'ascension_ticketing': ascension_ticketingResponse,
+  'ascension_live_chat': ascension_live_chatResponse,
+  'ascension_chatbot': ascension_chatbotResponse,
+  'ascension_knowledge_base': ascension_knowledge_baseResponse,
+  'ascension_faq': ascension_faqResponse,
+  'ascension_onboarding': ascension_onboardingResponse,
+  'ascension_retention': ascension_retentionResponse,
+  'ascension_churn': ascension_churnResponse,
+  'ascension_upsell': ascension_upsellResponse,
+  'ascension_cross_sell': ascension_cross_sellResponse,
+  'ascension_loyalty': ascension_loyaltyResponse,
+  'ascension_referral': ascension_referralResponse,
+  'ascension_reputation': ascension_reputationResponse,
+  'ascension_accounting': ascension_accountingResponse,
+  'ascension_bookkeeping': ascension_bookkeepingResponse,
+  'ascension_invoicing': ascension_invoicingResponse,
+  'ascension_payroll': ascension_payrollResponse,
+  'ascension_budgeting': ascension_budgetingResponse,
+  'ascension_expenses': ascension_expensesResponse,
+  'ascension_business_taxes': ascension_business_taxesResponse,
+  'ascension_audit': ascension_auditResponse,
+  'ascension_compliance': ascension_complianceResponse,
+  'ascension_grants': ascension_grantsResponse,
+  'ascension_loans': ascension_loansResponse,
+  'ascension_credit': ascension_creditResponse,
+  'ascension_debt': ascension_debtResponse,
+  'ascension_credit_score': ascension_credit_scoreResponse,
+  'ascension_mortgage': ascension_mortgageResponse,
+  'ascension_insurance_review': ascension_insurance_reviewResponse,
+  'ascension_policy_review': ascension_policy_reviewResponse,
+  'ascension_deductible': ascension_deductibleResponse,
+  'ascension_premium': ascension_premiumResponse,
+  'ascension_hsa': ascension_hsaResponse,
+  'ascension_fsa': ascension_fsaResponse,
+  'ascension_benefits': ascension_benefitsResponse,
+  'ascension_open_enrollment': ascension_open_enrollmentResponse,
+  'ascension_workers_comp': ascension_workers_compResponse,
+  'ascension_liability_insurance': ascension_liability_insuranceResponse,
+  'ascension_umbrella_insurance': ascension_umbrella_insuranceResponse,
+  'ascension_flood_insurance': ascension_flood_insuranceResponse,
+  'ascension_earthquake_insurance': ascension_earthquake_insuranceResponse,
+  'ascension_pet_insurance': ascension_pet_insuranceResponse,
+  'ascension_travel_insurance': ascension_travel_insuranceResponse,
+  'ascension_gardening': ascension_gardeningResponse,
+  'ascension_landscaping': ascension_landscapingResponse,
+  'ascension_lawn_care': ascension_lawn_careResponse,
+  'ascension_composting': ascension_compostingResponse,
+  'ascension_hydroponics': ascension_hydroponicsResponse,
+  'ascension_aquaponics': ascension_aquaponicsResponse,
+  'ascension_fermentation': ascension_fermentationResponse,
+  'ascension_preserving': ascension_preservingResponse,
+  'ascension_canning': ascension_canningResponse,
+  'ascension_smoking': ascension_smokingResponse,
+  'ascension_bbq': ascension_bbqResponse,
+  'ascension_grilling': ascension_grillingResponse,
+  'ascension_pizza': ascension_pizzaResponse,
+  'ascension_bread_making': ascension_bread_makingResponse,
+  'ascension_sourdough': ascension_sourdoughResponse,
+  'ascension_meal_prep': ascension_meal_prepResponse,
+  'ascension_batch_cooking': ascension_batch_cookingResponse,
+  'ascension_freezer_meals': ascension_freezer_mealsResponse,
+  'ascension_slow_cooker': ascension_slow_cookerResponse,
+  'ascension_pressure_cooker': ascension_pressure_cookerResponse,
+  'ascension_air_fryer': ascension_air_fryerResponse,
+  'ascension_sous_vide': ascension_sous_videResponse,
+  'ascension_dehydrator': ascension_dehydratorResponse,
+  'ascension_juicing': ascension_juicingResponse,
+  'ascension_smoothies': ascension_smoothiesResponse,
+  'ascension_protein': ascension_proteinResponse,
+  'ascension_supplements_stack': ascension_supplements_stackResponse,
+  'ascension_pre_workout': ascension_pre_workoutResponse,
+  'ascension_post_workout': ascension_post_workoutResponse,
+  'ascension_meal_planning': ascension_meal_planningResponse,
+  'ascension_grocery_list': ascension_grocery_listResponse,
+  'ascension_meditation_guided': ascension_meditation_guidedResponse,
+  'ascension_breathing': ascension_breathingResponse,
+  'ascension_cold_exposure': ascension_cold_exposureResponse,
+  'ascension_heat_exposure': ascension_heat_exposureResponse,
+  'ascension_sauna': ascension_saunaResponse,
+  'ascension_ice_bath': ascension_ice_bathResponse,
+  'ascension_sleep_hygiene': ascension_sleep_hygieneResponse,
+  'ascension_nap': ascension_napResponse,
+  'ascension_circadian': ascension_circadianResponse,
+  'ascension_journaling': ascension_journalingResponse,
+  'ascension_gratitude': ascension_gratitudeResponse,
+  'ascension_affirmations': ascension_affirmationsResponse,
+  'ascension_visualization': ascension_visualizationResponse,
+  'ascension_mindset': ascension_mindsetResponse,
+  'ascension_resilience': ascension_resilienceResponse,
+  'ascension_growth_mindset': ascension_growth_mindsetResponse,
+  'ascension_stoicism': ascension_stoicismResponse,
+  'ascension_buddhism': ascension_buddhismResponse,
+  'ascension_hinduism': ascension_hinduismResponse,
+  'ascension_christianity': ascension_christianityResponse,
+  'ascension_islam': ascension_islamResponse,
+  'ascension_judaism': ascension_judaismResponse,
+  'ascension_taoism': ascension_taoismResponse,
+  'ascension_confucianism': ascension_confucianismResponse,
+  'ascension_shinto': ascension_shintoResponse,
+  'ascension_sikhism': ascension_sikhismResponse,
+  'ascension_jainism': ascension_jainismResponse,
+  'ascension_bahai': ascension_bahaiResponse,
+  'ascension_paganism': ascension_paganismResponse,
+  'ascension_wicca': ascension_wiccaResponse,
+  'ascension_druidry': ascension_druidryResponse,
+  'ascension_native_spirituality': ascension_native_spiritualityResponse,
+  'ascension_shamanism': ascension_shamanismResponse,
+  'ascension_logic': ascension_logicResponse,
+  'ascension_critical_thinking': ascension_critical_thinkingResponse,
+  'ascension_argumentation': ascension_argumentationResponse,
+  'ascension_fallacies': ascension_fallaciesResponse,
+  'ascension_debate': ascension_debateResponse,
+  'ascension_persuasion': ascension_persuasionResponse,
+  'ascension_rapport': ascension_rapportResponse,
+  'ascension_empathy': ascension_empathyResponse,
+  'ascension_charisma': ascension_charismaResponse,
+  'ascension_confidence_building': ascension_confidence_buildingResponse,
+  'ascension_assertiveness': ascension_assertivenessResponse,
+  'ascension_boundaries': ascension_boundariesResponse,
+  'ascension_conflict_resolution': ascension_conflict_resolutionResponse,
+  'ascension_active_listening': ascension_active_listeningResponse,
+  'ascension_wallet_automation': ascension_wallet_automationResponse,
+  'ascension_fast_turn': ascension_fast_turnResponse,
+  'ascension_income_split': ascension_income_splitResponse,
+  'ascension_inventor_lab': ascension_inventor_labResponse,
+  'ascension_hardware_prototyping': ascension_hardware_prototypingResponse,
+  'ascension_youtube_automation': ascension_youtube_automationResponse,
+  'ascension_tiktok_automation': ascension_tiktok_automationResponse,
+  'ascension_amsr_studio': ascension_amsr_studioResponse,
+  'ascension_affiliate_automation': ascension_affiliate_automationResponse,
+  'ascension_streaming_channel': ascension_streaming_channelResponse,
+  'ascension_streaming_moderator': ascension_streaming_moderatorResponse,
+  'ascension_overlay_design': ascension_overlay_designResponse,
+  'ascension_research_assistant': ascension_research_assistantResponse,
+  'ascension_design_assistant': ascension_design_assistantResponse,
+  'ascension_crowdfunding_product': ascension_crowdfunding_productResponse,
+  'ascension_dream_fund': ascension_dream_fundResponse
+};
+
+export function routeNativeDomain(
+  capabilityId: string,
+  message: string,
+  permissions: Record<string, PermissionStatus>
+): NativeResponse {
+  const permissionMsg = permissionMessage(capabilityId, permissions);
+  if (permissionMsg) {
+    return {
+      content: permissionMsg.content,
+      model: 'Ascension Permission Gate',
+      provider: 'ascension-native',
+      tokensUsed: 0,
+      capability: capabilityId
+    };
+  }
+
+  const handler = DOMAIN_HANDLERS[capabilityId];
+  if (handler) {
+    return handler(message);
+  }
+
+  return {
+    content: `Ascension native response for ${capabilityId} (stub: domain handler not yet specialized).`,
+    model: 'Ascension Candidate 3B',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: capabilityId
   };
 }

@@ -9290,6 +9290,310 @@ export const CAPABILITIES = [
     'ascension_empathy'
   ],
     context: 'Triggers: user asks about Active Listening, starts a relationships-domain quest, or needs a decision in this area. Cross-references: ascension_relationships, ascension_dating, ascension_social, ascension_rapport, ascension_empathy. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_wallet_automation',
+    name: 'Ascension Wallet Automation',
+    category: 'finance',
+    description: 'Connect a wallet and run automated financial strategies',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Wallet Automation, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_fast_turn',
+    name: 'Ascension Fast Turn',
+    category: 'finance',
+    description: 'Fast capital multiplication strategies with explicit risk warnings',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Fast Turn, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_income_split',
+    name: 'Ascension Income Split',
+    category: 'finance',
+    description: 'Split direct deposits into spending, savings, bills, quick investment, long-term investment, and dream board buckets',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Income Split, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_inventor_lab',
+    name: 'Ascension Inventor Lab',
+    category: 'creation',
+    description: 'Co-inventor and lab partner for product design, prototyping, and experiments',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Inventor Lab, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_hardware_prototyping',
+    name: 'Ascension Hardware Prototyping',
+    category: 'creation',
+    description: 'Step-by-step hardware build plans, materials, models, and cost-efficient methods',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Hardware Prototyping, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_youtube_automation',
+    name: 'Ascension YouTube Automation',
+    category: 'creation',
+    description: 'Build and automate a YouTube channel including uploads, SEO, and monetization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about YouTube Automation, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_tiktok_automation',
+    name: 'Ascension TikTok Automation',
+    category: 'creation',
+    description: 'Build and automate a TikTok account including uploads, trends, and monetization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about TikTok Automation, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_amsr_studio',
+    name: 'Ascension AMSR Studio',
+    category: 'creation',
+    description: 'Create and automate AMSR content, videos, and channel growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about AMSR Studio, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_affiliate_automation',
+    name: 'Ascension Affiliate Automation',
+    category: 'business',
+    description: 'Automate affiliate program discovery, application, and revenue tracking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Affiliate Automation, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_streaming_channel',
+    name: 'Ascension Streaming Channel',
+    category: 'creation',
+    description: 'Build a live streaming channel, schedule, overlays, and audience growth',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Streaming Channel, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_streaming_moderator',
+    name: 'Ascension Streaming Moderator',
+    category: 'creation',
+    description: 'Live moderation, chat engagement, and safety for streaming sessions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Streaming Moderator, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_overlay_design',
+    name: 'Ascension Overlay Design',
+    category: 'creation',
+    description: 'Design cool overlays, alerts, and scenes for live streams',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Overlay Design, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_research_assistant',
+    name: 'Ascension Research Assistant',
+    category: 'knowledge',
+    description: 'Best research and design assistant on the planet for facts, patents, and experiments',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Research Assistant, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_design_assistant',
+    name: 'Ascension Design Assistant',
+    category: 'creation',
+    description: 'Best design assistant for products, experiences, and interfaces',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Design Assistant, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_crowdfunding_product',
+    name: 'Ascension Crowdfunding Product',
+    category: 'business',
+    description: 'Plan and run crowdfunding campaigns for inventions and products',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Crowdfunding Product, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_dream_fund',
+    name: 'Ascension Dream Fund',
+    category: 'finance',
+    description: 'Track aspirations and dream board goals with automated savings and milestone planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Dream Fund, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 export function getCapabilityById(id: string) {
