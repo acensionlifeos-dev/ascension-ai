@@ -9,6 +9,7 @@ import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
 // import { GoogleGenerativeAI } from '@google/generative-ai';
 import { getCapabilityById } from './capability-registry';
+import { responseCache } from './response-cache';
 
 export interface ModelConfig {
   provider: 'openai' | 'anthropic' | 'google' | 'midjourney' | 'elevenlabs' | 'suno' | 'runway' | 'luma' | 'stability' | 'ascension-native' | 'custom';
@@ -253,6 +254,16 @@ class ModelRouter {
   private async executeAscensionNative(routingDecision: RoutingDecision, request: any): Promise<any> {
     // Route to the native Python core via internal endpoint or local model
     const nativeEndpoint = process.env.ASCENSION_NATIVE_URL || 'http://localhost:8000/chat';
+    const capability = request.capability || 'ascension_chat';
+    const lastMessage = (request.messages || []).slice(-1)[0]?.content || '';
+    
+    // Fast-path: in-memory cache for identical, short, non-sensitive prompts
+    if (lastMessage && lastMessage.length < 500) {
+      const cached = responseCache.get(capability, lastMessage);
+      if (cached) {
+        return { ...cached, cached: true };
+      }
+    }
     
     try {
       const response = await fetch(nativeEndpoint, {
@@ -271,13 +282,18 @@ class ModelRouter {
       }
       
       const data: any = await response.json();
-      
-      return {
+      const result = {
         content: data.content,
         model: routingDecision.model,
         provider: 'ascension-native',
         tokensUsed: data.tokensUsed || 0
       };
+      
+      if (lastMessage && lastMessage.length < 500) {
+        responseCache.set(capability, lastMessage, result);
+      }
+      
+      return result;
     } catch (error) {
       // Fallback to first-pass deterministic response if native runtime is unavailable
       return {
