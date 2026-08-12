@@ -3948,6 +3948,171 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'business'
   },
+  {
+    id: 'ascension_ecommerce',
+    name: 'Ascension Ecommerce',
+    category: 'business',
+    description: 'Ecommerce strategy, platforms, and operations',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_shopify',
+    name: 'Ascension Shopify',
+    category: 'business',
+    description: 'Shopify store setup, apps, and optimization',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_woocommerce',
+    name: 'Ascension WooCommerce',
+    category: 'business',
+    description: 'WooCommerce setup, plugins, and payments',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_amazon',
+    name: 'Ascension Amazon',
+    category: 'business',
+    description: 'Amazon selling, FBA, and listings',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_ebay',
+    name: 'Ascension eBay',
+    category: 'business',
+    description: 'eBay selling, auctions, and shipping',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_etsy',
+    name: 'Ascension Etsy',
+    category: 'business',
+    description: 'Etsy listings, SEO, and shop management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_dropshipping',
+    name: 'Ascension Dropshipping',
+    category: 'business',
+    description: 'Dropshipping suppliers, products, and risks',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_print_on_demand',
+    name: 'Ascension Print On Demand',
+    category: 'business',
+    description: 'Print on demand products and suppliers',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_fulfillment',
+    name: 'Ascension Fulfillment',
+    category: 'business',
+    description: 'Order fulfillment, 3PL, and warehousing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_inventory',
+    name: 'Ascension Inventory',
+    category: 'business',
+    description: 'Inventory tracking, forecasting, and management',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_pos',
+    name: 'Ascension POS',
+    category: 'business',
+    description: 'Point of sale systems and setup',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_import',
+    name: 'Ascension Import',
+    category: 'business',
+    description: 'Importing goods, suppliers, and customs',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_export',
+    name: 'Ascension Export',
+    category: 'business',
+    description: 'Exporting goods, compliance, and markets',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_tariffs',
+    name: 'Ascension Tariffs',
+    category: 'business',
+    description: 'Tariffs, duties, and trade compliance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
+  {
+    id: 'ascension_shipping',
+    name: 'Ascension Shipping',
+    category: 'business',
+    description: 'Shipping carriers, rates, and packaging',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business'
+  },
   
   // Add 200+ more capabilities here...
 ];
