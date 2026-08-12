@@ -38,7 +38,7 @@ def load_corpus() -> str:
         return corpus_path.read_text(encoding="utf-8")
 
     print("Downloading wikitext-2-raw-v1 for general English training...")
-    dataset = load_dataset("wikitext", "wikitext-2-raw-v1", split="train")
+    dataset = load_dataset("Salesforce/wikitext", "wikitext-2-raw-v1", split="train")
     texts = [item["text"] for item in dataset if item["text"].strip()]
     return "\n\n".join(texts)
 
