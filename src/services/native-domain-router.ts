@@ -2039,6 +2039,116 @@ function flightResponse(message: string): NativeResponse {
   };
 }
 
+function cricketResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss cricket rules, strategy, and matches. What format or question?`,
+    model: 'Ascension Cricket',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cricket',
+    data: { format: null }
+  };
+}
+
+function basketballResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with basketball strategy, training, and analysis. What team or skill?`,
+    model: 'Ascension Basketball',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_basketball',
+    data: { team: null }
+  };
+}
+
+function footballResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with football strategy, training, and analysis. What team or position?`,
+    model: 'Ascension Football',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_football',
+    data: { position: null }
+  };
+}
+
+function baseballResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with baseball rules, strategy, and analysis. What team or question?`,
+    model: 'Ascension Baseball',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_baseball',
+    data: { team: null }
+  };
+}
+
+function soccerResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with soccer tactics, training, and fan questions. What team or league?`,
+    model: 'Ascension Soccer',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_soccer',
+    data: { league: null }
+  };
+}
+
+function tennisResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with tennis technique, training, and matches. What level or question?`,
+    model: 'Ascension Tennis',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_tennis',
+    data: { level: null }
+  };
+}
+
+function golfResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with golf swing, course strategy, and equipment. What is your question?`,
+    model: 'Ascension Golf',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_golf',
+    data: { handicap: null }
+  };
+}
+
+function hockeyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with hockey rules, strategy, and training. What level or team?`,
+    model: 'Ascension Hockey',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_hockey',
+    data: { team: null }
+  };
+}
+
+function esportsResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss esports games, teams, and strategy. What game or scene?`,
+    model: 'Ascension Esports',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_esports',
+    data: { game: null }
+  };
+}
+
+function fantasyResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with fantasy draft, lineup, and strategy. What sport and format?`,
+    model: 'Ascension Fantasy',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_fantasy',
+    data: { sport: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

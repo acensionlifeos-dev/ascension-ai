@@ -2496,6 +2496,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'travel'
   },
+  {
+    id: 'ascension_cricket',
+    name: 'Ascension Cricket',
+    category: 'sports',
+    description: 'Cricket rules, strategy, and fan questions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_basketball',
+    name: 'Ascension Basketball',
+    category: 'sports',
+    description: 'Basketball strategy, training, and analysis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_football',
+    name: 'Ascension Football',
+    category: 'sports',
+    description: 'Football strategy, training, and analysis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_baseball',
+    name: 'Ascension Baseball',
+    category: 'sports',
+    description: 'Baseball rules, strategy, and analysis',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_soccer',
+    name: 'Ascension Soccer',
+    category: 'sports',
+    description: 'Soccer tactics, training, and fan questions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_tennis',
+    name: 'Ascension Tennis',
+    category: 'sports',
+    description: 'Tennis technique, training, and matches',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_golf',
+    name: 'Ascension Golf',
+    category: 'sports',
+    description: 'Golf swing, course strategy, and equipment',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_hockey',
+    name: 'Ascension Hockey',
+    category: 'sports',
+    description: 'Hockey rules, strategy, and training',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_esports',
+    name: 'Ascension Esports',
+    category: 'sports',
+    description: 'Esports games, teams, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
+  {
+    id: 'ascension_fantasy',
+    name: 'Ascension Fantasy',
+    category: 'sports',
+    description: 'Fantasy sports draft, lineup, and strategy',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'sports'
+  },
   
   // Add 200+ more capabilities here...
 ];
