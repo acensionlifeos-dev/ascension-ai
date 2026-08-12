@@ -11694,6 +11694,159 @@ export const CAPABILITIES = [
       'ascension_risk_budget'
     ],
     context: 'Triggers: user asks about recovery mode, bootloader, brick recovery, or safe images for phone OS. Cross-references: ascension_phone_os, ascension_phone_drivers, ascension_phone_flash, ascension_build_path, ascension_experiment_design, ascension_risk_budget. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_universal_os',
+    name: 'Ascension Universal OS',
+    category: 'engineering',
+    description: 'Design a unified operating system that can target phones, laptops, desktops, and smart devices from one code base',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_phone_os',
+      'ascension_laptop_os',
+      'ascension_desktop_os',
+      'ascension_smart_device_os',
+      'ascension_device_drivers',
+      'ascension_device_flash',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks about a universal OS, one OS for every device, or building an operating system for laptops, desktops, phones, and smart devices. Cross-references: ascension_phone_os, ascension_laptop_os, ascension_desktop_os, ascension_smart_device_os, ascension_device_drivers, ascension_device_flash, ascension_ip_guard. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_laptop_os',
+    name: 'Ascension Laptop OS',
+    category: 'engineering',
+    description: 'Port or build the universal OS for laptop form factors: x86/ARM64, power management, keyboard, trackpad, display, and docking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_device_drivers',
+      'ascension_device_flash',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks about a laptop OS, notebook OS, or running Ascension OS on a laptop. Cross-references: ascension_universal_os, ascension_device_drivers, ascension_device_flash, ascension_ip_guard. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_desktop_os',
+    name: 'Ascension Desktop OS',
+    category: 'engineering',
+    description: 'Port or build the universal OS for desktop towers and all-in-ones: multi-monitor, GPU, peripherals, storage, and networking',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_laptop_os',
+      'ascension_device_drivers',
+      'ascension_device_flash',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks about a desktop OS, tower OS, or running Ascension OS on a desktop. Cross-references: ascension_universal_os, ascension_laptop_os, ascension_device_drivers, ascension_device_flash, ascension_ip_guard. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_smart_device_os',
+    name: 'Ascension Smart Device OS',
+    category: 'engineering',
+    description: 'Port or build the universal OS for smart home, wearables, IoT, and embedded devices',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_device_drivers',
+      'ascension_device_flash',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks about smart home OS, wearable OS, IoT OS, or embedded device OS. Cross-references: ascension_universal_os, ascension_device_drivers, ascension_device_flash, ascension_ip_guard. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_device_drivers',
+    name: 'Ascension Universal Device Drivers',
+    category: 'engineering',
+    description: 'Generate and organize a shared driver layer that works across phones, laptops, desktops, and smart devices',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_phone_drivers',
+      'ascension_phone_os',
+      'ascension_laptop_os',
+      'ascension_desktop_os',
+      'ascension_smart_device_os',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks about drivers for multiple device types, shared HAL, or universal device support. Cross-references: ascension_universal_os, ascension_phone_drivers, ascension_phone_os, ascension_laptop_os, ascension_desktop_os, ascension_smart_device_os, ascension_ip_guard. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_device_flash',
+    name: 'Ascension Universal Device Flash',
+    category: 'engineering',
+    description: 'Prepare and flash the universal OS onto any connected phone, laptop, desktop, or smart device over USB or network',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_laptop_os',
+      'ascension_desktop_os',
+      'ascension_smart_device_os',
+      'ascension_phone_flash',
+      'ascension_ip_guard'
+    ],
+    context: 'Triggers: user asks to flash an OS to a laptop, desktop, smart device, or any hardware. Cross-references: ascension_universal_os, ascension_laptop_os, ascension_desktop_os, ascension_smart_device_os, ascension_phone_flash, ascension_ip_guard. Requires explicit device.flash permission and a verified receipt before writing to any device.'
+  },
+  {
+    id: 'ascension_ip_guard',
+    name: 'Ascension IP Guard',
+    category: 'engineering',
+    description: 'Protect Ascension intellectual property in source code, models, designs, and binaries through licensing, watermarking, and access control',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_universal_os',
+      'ascension_device_drivers',
+      'ascension_device_flash',
+      'ascension_code_guardian'
+    ],
+    context: 'Triggers: user asks about protecting IP, licensing an OS, watermarking binaries, or access control for proprietary source. Cross-references: ascension_universal_os, ascension_device_drivers, ascension_device_flash, ascension_code_guardian. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_code_guardian',
+    name: 'Ascension Code Guardian',
+    category: 'engineering',
+    description: 'Audit, sign, encrypt, and vault Ascension source code and artifacts to prevent unauthorized exfiltration or tampering',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'engineering',
+    related_capabilities: [
+      'ascension_ip_guard',
+      'ascension_universal_os',
+      'ascension_second_brain',
+      'ascension_knowledge_vault'
+    ],
+    context: 'Triggers: user asks about source code vault, code signing, encryption, or leak prevention for proprietary code. Cross-references: ascension_ip_guard, ascension_universal_os, ascension_second_brain, ascension_knowledge_vault. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 const CAPABILITY_MAP = new Map(CAPABILITIES.map(c => [c.id, c]));

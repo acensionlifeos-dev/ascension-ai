@@ -138,6 +138,13 @@ export const PERMISSION_SCOPES: Record<string, PermissionScope> = {
     why: 'Write a new operating system to a phone over USB only after explicit approval and a verified receipt.',
     for_capability: 'ascension_phone_flash',
     category: 'high_risk'
+  },
+  'ip.control': {
+    id: 'ip.control',
+    name: 'Control Ascension intellectual property',
+    why: 'Sign, license, watermark, or release proprietary source, models, or binaries only after explicit approval.',
+    for_capability: 'ascension_ip_guard',
+    category: 'high_risk'
   }
 };
 
@@ -150,7 +157,10 @@ const CAPABILITY_PERMISSIONS: Record<string, string[]> = {
   'ascension_home': ['calendar.read', 'home.control'],
   'ascension_family': ['family.read'],
   'ascension_sprout': ['sprout.guide'],
-  'ascension_phone_flash': ['device.read', 'device.flash']
+  'ascension_phone_flash': ['device.read', 'device.flash'],
+  'ascension_device_flash': ['device.read', 'device.flash'],
+  'ascension_ip_guard': ['ip.control'],
+  'ascension_code_guardian': ['ip.control']
 };
 
 export function getRequiredPermissions(capabilityId: string): PermissionScope[] {
