@@ -11,6 +11,7 @@ import { authMiddleware } from './middleware/auth';
 import chatRoutes from './routes/chat';
 import capabilityRoutes from './routes/capabilities';
 import usageRoutes from './routes/usage';
+import permissionsRoutes from './routes/permissions';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/api/v1/chat', authMiddleware, chatRoutes);
 app.use('/api/v1/capabilities', authMiddleware, capabilityRoutes);
 app.use('/api/v1/usage', authMiddleware, usageRoutes);
+app.use('/api/v1/permissions', authMiddleware, permissionsRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
