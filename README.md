@@ -45,6 +45,17 @@ uvicorn src.serving.api:app --host 0.0.0.0 --port 8000
 
 Open `http://localhost:8000` and enter the private test code. The standalone page provides real token streaming, shell selection, and tier selection.
 
+## Training environment
+
+Model training is intentionally separated from the production web service so Render does not install the CUDA, Torch, Transformers, and dataset toolchain during every deploy.
+
+```bash
+pip install -r requirements-training.txt
+python -u scripts/train_ascension_general_v5.py
+```
+
+Install both requirement files only on a machine that is meant to train models. The Render service uses `requirements.txt` exclusively for FastAPI and pinned GGUF inference.
+
 ## API
 
 - `GET /health` — public readiness without secrets.
