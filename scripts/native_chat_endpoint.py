@@ -24,6 +24,7 @@ from src.core.orchestrator import (
 )
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import NativeModelRuntime
+from src.core.safety import scan_safety
 
 
 HOST = os.environ.get('ASCENSION_NATIVE_HOST', '127.0.0.1')
@@ -55,6 +56,21 @@ def handle_chat(body: dict) -> dict:
     temperature = body.get('temperature', 0.7)
     max_tokens = body.get('max_tokens', 2048)
 
+    latest = messages[-1].get('content', '') if messages else ''
+    safety = scan_safety(latest)
+    if safety.action in ('escalate', 'block'):
+        return {
+            'content': safety.message,
+            'model': 'Ascension Safety Guard',
+            'provider': 'ascension-native',
+            'tokensUsed': 0,
+            'safety': safety.__dict__,
+        }
+
+    warn_prefix = ''
+    if safety.action == 'warn':
+        warn_prefix = safety.message + '\n\n'
+
     try:
         shell = Shell(shell_name)
     except ValueError:
@@ -73,7 +89,6 @@ def handle_chat(body: dict) -> dict:
         allowed_capabilities=allowed
     )
 
-    latest = messages[-1].get('content', '') if messages else ''
     first_pass = (
         deterministic_scope_answer(shell, latest)
         or deterministic_conversation_repair(latest, mode)
@@ -82,39 +97,43 @@ def handle_chat(body: dict) -> dict:
 
     if first_pass:
         return {
-            'content': first_pass,
+            'content': warn_prefix + first_pass,
             'model': 'Ascension Contract Engine',
             'provider': 'ascension-native',
             'tokensUsed': 0,
             'cognition': prepared.get('cognition'),
+            'safety_level': safety.level,
         }
 
     # Deterministic engine had no match; try the loaded local model.
     runtime = get_runtime()
     if runtime is None:
         return {
-            'content': f'Ascension native response for {capability} (stub: generative model not loaded yet).',
+            'content': warn_prefix + f'Ascension native response for {capability} (stub: generative model not loaded yet).',
             'model': 'Ascension Candidate 3B (stub)',
             'provider': 'ascension-native',
             'tokensUsed': 0,
             'fallback': True,
+            'safety_level': safety.level,
         }
 
     try:
         model_output = runtime.chat(messages, temperature, max_tokens)
         return {
-            'content': model_output['content'],
+            'content': warn_prefix + model_output['content'],
             'model': model_output.get('model', runtime.status().get('model', 'Ascension Native')),
             'provider': 'ascension-native',
             'tokensUsed': model_output.get('tokensUsed', 0),
+            'safety_level': safety.level,
         }
     except Exception as error:
         return {
-            'content': f'Ascension native response for {capability} (model error: {error}).',
+            'content': warn_prefix + f'Ascension native response for {capability} (model error: {error}).',
             'model': 'Ascension Native',
             'provider': 'ascension-native',
             'tokensUsed': 0,
             'fallback': True,
+            'safety_level': safety.level,
         }
 
 
