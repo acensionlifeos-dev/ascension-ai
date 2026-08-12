@@ -11616,6 +11616,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'phone_os',
+    promoted: false,
     name: 'Phone OS',
     category: 'engineering',
     description: 'Design, scaffold, and build a custom mobile operating system for ARM or x86 phone hardware',
@@ -11637,6 +11638,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'phone_drivers',
+    promoted: false,
     name: 'Phone Driver Layer',
     category: 'engineering',
     description: 'Generate, wire, and validate USB, fastboot, ADB, display, touch, radio, and SoC drivers for a phone OS',
@@ -11657,6 +11659,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'phone_flash',
+    promoted: false,
     name: 'Phone Flash',
     category: 'engineering',
     description: 'Prepare a flashable OS image, verify compatibility, and flash it to a phone connected over USB',
@@ -11677,6 +11680,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'phone_recovery',
+    promoted: false,
     name: 'Phone Recovery',
     category: 'engineering',
     description: 'Design recovery, bootloader, and fail-safe images for phone OS updates and brick recovery',
@@ -11697,6 +11701,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'universal_os',
+    promoted: false,
     name: 'Universal OS',
     category: 'engineering',
     description: 'Design a unified operating system that can target phones, laptops, desktops, and smart devices from one code base',
@@ -11718,6 +11723,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'laptop_os',
+    promoted: false,
     name: 'Laptop OS',
     category: 'engineering',
     description: 'Port or build the universal OS for laptop form factors: x86/ARM64, power management, keyboard, trackpad, display, and docking',
@@ -11736,6 +11742,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'desktop_os',
+    promoted: false,
     name: 'Desktop OS',
     category: 'engineering',
     description: 'Port or build the universal OS for desktop towers and all-in-ones: multi-monitor, GPU, peripherals, storage, and networking',
@@ -11755,6 +11762,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'smart_device_os',
+    promoted: false,
     name: 'Smart Device OS',
     category: 'engineering',
     description: 'Port or build the universal OS for smart home, wearables, IoT, and embedded devices',
@@ -11773,6 +11781,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'device_drivers',
+    promoted: false,
     name: 'Universal Device Drivers',
     category: 'engineering',
     description: 'Generate and organize a shared driver layer that works across phones, laptops, desktops, and smart devices',
@@ -11794,6 +11803,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'device_flash',
+    promoted: false,
     name: 'Universal Device Flash',
     category: 'engineering',
     description: 'Prepare and flash the universal OS onto any connected phone, laptop, desktop, or smart device over USB or network',
@@ -11814,6 +11824,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ip_guard',
+    promoted: false,
     name: 'IP Guard',
     category: 'engineering',
     description: 'Protect Ascension intellectual property in source code, models, designs, and binaries through licensing, watermarking, and access control',
@@ -11832,6 +11843,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'code_guardian',
+    promoted: false,
     name: 'Code Guardian',
     category: 'engineering',
     description: 'Audit, sign, encrypt, and vault Ascension source code and artifacts to prevent unauthorized exfiltration or tampering',
@@ -11865,4 +11877,8 @@ export function getCapabilitiesByTier(tier: string) {
 
 export function getAllCapabilities() {
   return CAPABILITIES;
+}
+
+export function getPromotedCapabilities() {
+  return CAPABILITIES.filter(c => c.promoted !== false);
 }
