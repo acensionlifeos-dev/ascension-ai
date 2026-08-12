@@ -31,6 +31,16 @@ OVERRIDES = {
     'ascension_growth_tracker': """I can track followers, views, subscribers, watch time, and growth rate across platforms and flag trends. Which accounts do you want to monitor?""",
     'ascension_revenue_tracker': """I can track ad, affiliate, sponsorship, and product revenue from content and streams and map it to goals. What income sources do you have?""",
     'ascension_content_calendar': """I can build a cross-platform content calendar with release dates, themes, and best-traffic time slots. What channels and posting cadence do you want?""",
+    'ascension_solution_engine': """I can invent a solution path for any goal, constraint, and cash situation. Tell me what you want to achieve, what you have, and what you can risk, and I will design a permissioned plan.""",
+    'ascension_invention_engine': """I can invent a product, service, or experience from scratch: concept, materials, cost, build order, and tests. What do you want to create?""",
+    'ascension_video_types': """I can recommend the right video formats for any niche, platform, and budget. What channel, audience, and equipment do you have?""",
+    'ascension_channel_types': """I can recommend the best channel or service type for any audience, cash situation, and income goal. What skills, time, and budget do you have?""",
+    'ascension_cash_strategy': """I can design a cash strategy for any amount, timeline, and risk level. Tell me your balance, bills, skills, and how fast you need the money.""",
+    'ascension_zero_capital': """I can build an income or solution plan starting from zero capital: service flipping, gig matching, barter, grants, and free tools. What skills and time do you have?""",
+    'ascension_micro_launch': """I can design a tiny-budget launch with a fast feedback loop: pre-sell, waitlist, MVP, and first paying users. What is the product or service?""",
+    'ascension_service_designer': """I can design a service offering, pricing tiers, delivery path, and first client plan around any skill or audience. What skill do you want to sell?""",
+    'ascension_idea_validator': """I can validate an idea, market, and first move quickly and cheaply. What is the idea, who is it for, and what is the cheapest test?""",
+    'ascension_build_path': """I can generate a step-by-step build path for any invention, project, or channel. What is the end goal and the first version?""",
 }
 
 

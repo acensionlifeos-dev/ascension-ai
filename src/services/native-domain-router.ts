@@ -5701,6 +5701,116 @@ function ascension_content_calendarResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_solution_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can invent a solution path for any goal, constraint, and cash situation. Tell me what you want to achieve, what you have, and what you can risk, and I will design a permissioned plan.`,
+    model: 'Ascension Solution Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_solution_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_invention_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can invent a product, service, or experience from scratch: concept, materials, cost, build order, and tests. What do you want to create?`,
+    model: 'Ascension Invention Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_invention_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_video_typesResponse(message: string): NativeResponse {
+  return {
+    content: `I can recommend the right video formats for any niche, platform, and budget. What channel, audience, and equipment do you have?`,
+    model: 'Ascension Video Types',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_video_types',
+    data: { question: null }
+  };
+}
+
+function ascension_channel_typesResponse(message: string): NativeResponse {
+  return {
+    content: `I can recommend the best channel or service type for any audience, cash situation, and income goal. What skills, time, and budget do you have?`,
+    model: 'Ascension Channel Types',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_channel_types',
+    data: { question: null }
+  };
+}
+
+function ascension_cash_strategyResponse(message: string): NativeResponse {
+  return {
+    content: `I can design a cash strategy for any amount, timeline, and risk level. Tell me your balance, bills, skills, and how fast you need the money.`,
+    model: 'Ascension Cash Strategy',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_cash_strategy',
+    data: { question: null }
+  };
+}
+
+function ascension_zero_capitalResponse(message: string): NativeResponse {
+  return {
+    content: `I can build an income or solution plan starting from zero capital: service flipping, gig matching, barter, grants, and free tools. What skills and time do you have?`,
+    model: 'Ascension Zero Capital',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_zero_capital',
+    data: { question: null }
+  };
+}
+
+function ascension_micro_launchResponse(message: string): NativeResponse {
+  return {
+    content: `I can design a tiny-budget launch with a fast feedback loop: pre-sell, waitlist, MVP, and first paying users. What is the product or service?`,
+    model: 'Ascension Micro Launch',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_micro_launch',
+    data: { question: null }
+  };
+}
+
+function ascension_service_designerResponse(message: string): NativeResponse {
+  return {
+    content: `I can design a service offering, pricing tiers, delivery path, and first client plan around any skill or audience. What skill do you want to sell?`,
+    model: 'Ascension Service Designer',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_service_designer',
+    data: { question: null }
+  };
+}
+
+function ascension_idea_validatorResponse(message: string): NativeResponse {
+  return {
+    content: `I can validate an idea, market, and first move quickly and cheaply. What is the idea, who is it for, and what is the cheapest test?`,
+    model: 'Ascension Idea Validator',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_idea_validator',
+    data: { question: null }
+  };
+}
+
+function ascension_build_pathResponse(message: string): NativeResponse {
+  return {
+    content: `I can generate a step-by-step build path for any invention, project, or channel. What is the end goal and the first version?`,
+    model: 'Ascension Build Path',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_build_path',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -6217,7 +6327,17 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_content_analytics': ascension_content_analyticsResponse,
   'ascension_growth_tracker': ascension_growth_trackerResponse,
   'ascension_revenue_tracker': ascension_revenue_trackerResponse,
-  'ascension_content_calendar': ascension_content_calendarResponse
+  'ascension_content_calendar': ascension_content_calendarResponse,
+  'ascension_solution_engine': ascension_solution_engineResponse,
+  'ascension_invention_engine': ascension_invention_engineResponse,
+  'ascension_video_types': ascension_video_typesResponse,
+  'ascension_channel_types': ascension_channel_typesResponse,
+  'ascension_cash_strategy': ascension_cash_strategyResponse,
+  'ascension_zero_capital': ascension_zero_capitalResponse,
+  'ascension_micro_launch': ascension_micro_launchResponse,
+  'ascension_service_designer': ascension_service_designerResponse,
+  'ascension_idea_validator': ascension_idea_validatorResponse,
+  'ascension_build_path': ascension_build_pathResponse
 };
 
 export function routeNativeDomain(

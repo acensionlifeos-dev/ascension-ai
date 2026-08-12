@@ -9689,6 +9689,196 @@ export const CAPABILITIES = [
     'ascension_sales'
   ],
     context: 'Triggers: user asks about Content Calendar, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_solution_engine',
+    name: 'Ascension Solution Engine',
+    category: 'knowledge',
+    description: 'Invent custom solutions for any goal with constraints, permissions, and a build path',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Solution Engine, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_invention_engine',
+    name: 'Ascension Invention Engine',
+    category: 'creation',
+    description: 'Invent products, services, and experiences from scratch with materials, cost, and steps',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Invention Engine, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_video_types',
+    name: 'Ascension Video Types',
+    category: 'creation',
+    description: 'Recommend the right video formats for any channel, niche, and monetization goal',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Video Types, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_channel_types',
+    name: 'Ascension Channel Types',
+    category: 'business',
+    description: 'Recommend channel types and services for any audience, income, and cash situation',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Channel Types, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_cash_strategy',
+    name: 'Ascension Cash Strategy',
+    category: 'finance',
+    description: 'Invent cash solutions for any budget, timeline, and risk level',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Cash Strategy, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_zero_capital',
+    name: 'Ascension Zero Capital',
+    category: 'finance',
+    description: 'Build income and solutions when starting with no money',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_finance',
+    'ascension_trading',
+    'ascension_investing',
+    'ascension_taxes',
+    'ascension_insurance'
+  ],
+    context: 'Triggers: user asks about Zero Capital, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_micro_launch',
+    name: 'Ascension Micro Launch',
+    category: 'business',
+    description: 'Launch a product, channel, or service with a tiny budget and fast feedback loop',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Micro Launch, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_service_designer',
+    name: 'Ascension Service Designer',
+    category: 'business',
+    description: 'Design a service offering, pricing, and delivery path for any skill or audience',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Service Designer, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_idea_validator',
+    name: 'Ascension Idea Validator',
+    category: 'knowledge',
+    description: 'Quickly validate an idea, market, and first move before building',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'knowledge',
+    related_capabilities: [
+    'ascension_philosophy',
+    'ascension_history',
+    'ascension_science',
+    'ascension_math',
+    'ascension_language'
+  ],
+    context: 'Triggers: user asks about Idea Validator, starts a knowledge-domain quest, or needs a decision in this area. Cross-references: ascension_philosophy, ascension_history, ascension_science, ascension_math, ascension_language. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_build_path',
+    name: 'Ascension Build Path',
+    category: 'creation',
+    description: 'Generate a step-by-step build path for any invention, project, or channel',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Build Path, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 export function getCapabilityById(id: string) {
