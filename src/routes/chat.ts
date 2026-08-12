@@ -500,7 +500,28 @@ const DOMAIN_ROUTED_CAPABILITIES = new Set([
   'ascension_72h_sprint',
   'ascension_risk_budget',
   'ascension_gig_sprint',
-  'ascension_money_flip'
+  'ascension_money_flip',
+  'ascension_second_brain',
+  'ascension_life_orchestrator',
+  'ascension_user_profile',
+  'ascension_family_profile',
+  'ascension_context_engine',
+  'ascension_shell_orchestrator',
+  'ascension_knowledge_graph',
+  'ascension_proactive_engine',
+  'ascension_appointments',
+  'ascension_maintenance',
+  'ascension_family_sync',
+  'ascension_family_abroad',
+  'ascension_household_sync',
+  'ascension_life_admin',
+  'ascension_creative_manager',
+  'ascension_business_manager',
+  'ascension_parenting',
+  'ascension_child_development',
+  'ascension_goals',
+  'ascension_milestones',
+  'ascension_routine'
 ]);
 
 const router = Router();

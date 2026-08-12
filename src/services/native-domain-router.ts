@@ -863,7 +863,7 @@ function ascension_sleepResponse(message: string): NativeResponse {
 
 function ascension_parentingResponse(message: string): NativeResponse {
   return {
-    content: `I can help with Ascension Parenting. Child development, discipline, co-parenting, and parent support What do you need?`,
+    content: `I can support child routines, milestones, and education with parent supervision. Which child and what do you need?`,
     model: 'Ascension Parenting',
     provider: 'ascension-native',
     tokensUsed: 0,
@@ -5866,6 +5866,226 @@ function ascension_money_flipResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_second_brainResponse(message: string): NativeResponse {
+  return {
+    content: `I can become your second brain: capture, connect, and surface everything you share, across every domain of your life. What do you want me to remember and connect?`,
+    model: 'Ascension Second Brain',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_second_brain',
+    data: { question: null }
+  };
+}
+
+function ascension_life_orchestratorResponse(message: string): NativeResponse {
+  return {
+    content: `I can orchestrate your whole life: work, family, health, home, finance, and creativity, and route tasks to the right shell. What is the current priority?`,
+    model: 'Ascension Life Orchestrator',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_life_orchestrator',
+    data: { question: null }
+  };
+}
+
+function ascension_user_profileResponse(message: string): NativeResponse {
+  return {
+    content: `I can build and update a living profile of you: goals, skills, schedule, people, and preferences. I only use what you explicitly share. What should I add?`,
+    model: 'Ascension User Profile',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_user_profile',
+    data: { question: null }
+  };
+}
+
+function ascension_family_profileResponse(message: string): NativeResponse {
+  return {
+    content: `I can maintain a permissioned family profile for Nexus: household members, schedules, and needs, with strict privacy boundaries. Who should I know about?`,
+    model: 'Ascension Family Profile',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_family_profile',
+    data: { question: null }
+  };
+}
+
+function ascension_context_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can share permissioned context between AP, Nexus, HomeOS, and Sprout so each shell knows what it needs and nothing more. Which shells should connect?`,
+    model: 'Ascension Context Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_context_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_shell_orchestratorResponse(message: string): NativeResponse {
+  return {
+    content: `I can route insights and tasks between your shells: AP, Nexus, HomeOS, Sprout, and any product overlay. What is the source and destination?`,
+    model: 'Ascension Shell Orchestrator',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_shell_orchestrator',
+    data: { question: null }
+  };
+}
+
+function ascension_knowledge_graphResponse(message: string): NativeResponse {
+  return {
+    content: `I can connect your people, places, projects, and events into a knowledge graph you can query. What relationship should I map?`,
+    model: 'Ascension Knowledge Graph',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_knowledge_graph',
+    data: { question: null }
+  };
+}
+
+function ascension_proactive_engineResponse(message: string): NativeResponse {
+  return {
+    content: `I can surface reminders, opportunities, and next steps before you ask, based on your goals and calendar. What areas should I watch?`,
+    model: 'Ascension Proactive Engine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_proactive_engine',
+    data: { question: null }
+  };
+}
+
+function ascension_appointmentsResponse(message: string): NativeResponse {
+  return {
+    content: `I can track and prepare you for appointments across health, work, family, and services. What appointment is next?`,
+    model: 'Ascension Appointments',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_appointments',
+    data: { question: null }
+  };
+}
+
+function ascension_maintenanceResponse(message: string): NativeResponse {
+  return {
+    content: `I can track home, vehicle, health, and device maintenance with reminders. What needs maintenance?`,
+    model: 'Ascension Maintenance',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_maintenance',
+    data: { question: null }
+  };
+}
+
+function ascension_family_syncResponse(message: string): NativeResponse {
+  return {
+    content: `I can sync schedules, tasks, and updates across your household and extended family. Who needs to be in sync?`,
+    model: 'Ascension Family Sync',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_family_sync',
+    data: { question: null }
+  };
+}
+
+function ascension_family_abroadResponse(message: string): NativeResponse {
+  return {
+    content: `I can help coordinate calls, gifts, visits, and updates for family abroad. Which family member and country?`,
+    model: 'Ascension Family Abroad',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_family_abroad',
+    data: { question: null }
+  };
+}
+
+function ascension_household_syncResponse(message: string): NativeResponse {
+  return {
+    content: `I can sync chores, shopping, meals, and routines across the household. What is the household priority today?`,
+    model: 'Ascension Household Sync',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_household_sync',
+    data: { question: null }
+  };
+}
+
+function ascension_life_adminResponse(message: string): NativeResponse {
+  return {
+    content: `I can track paperwork, renewals, deadlines, and bureaucratic tasks for you and your family. What is due?`,
+    model: 'Ascension Life Admin',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_life_admin',
+    data: { question: null }
+  };
+}
+
+function ascension_creative_managerResponse(message: string): NativeResponse {
+  return {
+    content: `I can track your creative projects, ideas, assets, and release plans. What project should we organize?`,
+    model: 'Ascension Creative Manager',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_creative_manager',
+    data: { question: null }
+  };
+}
+
+function ascension_business_managerResponse(message: string): NativeResponse {
+  return {
+    content: `I can track leads, revenue, tasks, and operations across your business or side project. What is the current focus?`,
+    model: 'Ascension Business Manager',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_business_manager',
+    data: { question: null }
+  };
+}
+
+function ascension_child_developmentResponse(message: string): NativeResponse {
+  return {
+    content: `I can track developmental milestones, learning, and activities for each child. What child and age?`,
+    model: 'Ascension Child Development',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_child_development',
+    data: { question: null }
+  };
+}
+
+function ascension_goalsResponse(message: string): NativeResponse {
+  return {
+    content: `I can set, track, and break down goals across every domain of your life. What is the goal and deadline?`,
+    model: 'Ascension Goals',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_goals',
+    data: { question: null }
+  };
+}
+
+function ascension_milestonesResponse(message: string): NativeResponse {
+  return {
+    content: `I can track milestones and celebrations across personal and family life. What milestone should we record?`,
+    model: 'Ascension Milestones',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_milestones',
+    data: { question: null }
+  };
+}
+
+function ascension_routineResponse(message: string): NativeResponse {
+  return {
+    content: `I can design, sync, and adapt routines for you and the household. What routine should we build or adjust?`,
+    model: 'Ascension Routine',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_routine',
+    data: { question: null }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'chat_gpt4': chat_gpt4Response,
   'chat_claude': chat_claudeResponse,
@@ -6397,7 +6617,27 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_72h_sprint': ascension_72h_sprintResponse,
   'ascension_risk_budget': ascension_risk_budgetResponse,
   'ascension_gig_sprint': ascension_gig_sprintResponse,
-  'ascension_money_flip': ascension_money_flipResponse
+  'ascension_money_flip': ascension_money_flipResponse,
+  'ascension_second_brain': ascension_second_brainResponse,
+  'ascension_life_orchestrator': ascension_life_orchestratorResponse,
+  'ascension_user_profile': ascension_user_profileResponse,
+  'ascension_family_profile': ascension_family_profileResponse,
+  'ascension_context_engine': ascension_context_engineResponse,
+  'ascension_shell_orchestrator': ascension_shell_orchestratorResponse,
+  'ascension_knowledge_graph': ascension_knowledge_graphResponse,
+  'ascension_proactive_engine': ascension_proactive_engineResponse,
+  'ascension_appointments': ascension_appointmentsResponse,
+  'ascension_maintenance': ascension_maintenanceResponse,
+  'ascension_family_sync': ascension_family_syncResponse,
+  'ascension_family_abroad': ascension_family_abroadResponse,
+  'ascension_household_sync': ascension_household_syncResponse,
+  'ascension_life_admin': ascension_life_adminResponse,
+  'ascension_creative_manager': ascension_creative_managerResponse,
+  'ascension_business_manager': ascension_business_managerResponse,
+  'ascension_child_development': ascension_child_developmentResponse,
+  'ascension_goals': ascension_goalsResponse,
+  'ascension_milestones': ascension_milestonesResponse,
+  'ascension_routine': ascension_routineResponse
 };
 
 export function routeNativeDomain(

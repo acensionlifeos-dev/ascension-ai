@@ -666,9 +666,12 @@ export const CAPABILITIES = [
     executor: 'intelligence',
     related_capabilities: [
     'context_memory',
-    'proactive_intelligence'
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator',
+    'ascension_user_profile'
   ],
-    context: 'Triggers: user asks about Intelligence Sweep, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: context_memory, proactive_intelligence. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Intelligence Sweep, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator, ascension_user_profile. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'context_memory',
@@ -682,9 +685,12 @@ export const CAPABILITIES = [
     executor: 'intelligence',
     related_capabilities: [
     'intelligence_sweep',
-    'proactive_intelligence'
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator',
+    'ascension_user_profile'
   ],
-    context: 'Triggers: user asks about Context Memory, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, proactive_intelligence. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Context Memory, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator, ascension_user_profile. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'proactive_intelligence',
@@ -698,9 +704,12 @@ export const CAPABILITIES = [
     executor: 'intelligence',
     related_capabilities: [
     'intelligence_sweep',
-    'context_memory'
+    'context_memory',
+    'ascension_second_brain',
+    'ascension_life_orchestrator',
+    'ascension_user_profile'
   ],
-    context: 'Triggers: user asks about Proactive Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about Proactive Intelligence, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, ascension_second_brain, ascension_life_orchestrator, ascension_user_profile. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'business_growth',
@@ -821,9 +830,12 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'family',
     related_capabilities: [
-    'ascension_chat'
+    'ascension_family_sync',
+    'ascension_family_abroad',
+    'ascension_parenting',
+    'ascension_child_development'
   ],
-    context: 'Triggers: user asks about FamilyOS, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_chat. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about FamilyOS, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family_sync, ascension_family_abroad, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'ascension_health',
@@ -9974,6 +9986,383 @@ export const CAPABILITIES = [
     'ascension_insurance'
   ],
     context: 'Triggers: user asks about Money Flip, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_trading, ascension_investing, ascension_taxes, ascension_insurance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_second_brain',
+    name: 'Ascension Second Brain',
+    category: 'intelligence',
+    description: 'Personal knowledge engine that captures, connects, and retrieves everything the user shares',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_life_orchestrator',
+    'ascension_user_profile'
+  ],
+    context: 'Triggers: user asks about Second Brain, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_life_orchestrator, ascension_user_profile. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_life_orchestrator',
+    name: 'Ascension Life Orchestrator',
+    category: 'intelligence',
+    description: 'Coordinate the full stack of life domains: work, family, health, home, finance, and creativity',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_user_profile'
+  ],
+    context: 'Triggers: user asks about Life Orchestrator, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_user_profile. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_user_profile',
+    name: 'Ascension User Profile',
+    category: 'intelligence',
+    description: 'Maintain a living profile of the user: goals, skills, schedule, people, and preferences',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about User Profile, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_family_profile',
+    name: 'Ascension Family Profile',
+    category: 'intelligence',
+    description: 'Maintain a living profile of the household and extended family with permission boundaries',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'family',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Family Profile, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_context_engine',
+    name: 'Ascension Context Engine',
+    category: 'intelligence',
+    description: 'Share permissioned context across AP, Nexus, HomeOS, and Sprout shells',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Context Engine, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_shell_orchestrator',
+    name: 'Ascension Shell Orchestrator',
+    category: 'intelligence',
+    description: 'Route tasks and insights between AP, Nexus, HomeOS, Sprout, and product shells',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Shell Orchestrator, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_knowledge_graph',
+    name: 'Ascension Knowledge Graph',
+    category: 'intelligence',
+    description: 'Connect people, places, projects, goals, and events into a queryable knowledge graph',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Knowledge Graph, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_proactive_engine',
+    name: 'Ascension Proactive Engine',
+    category: 'intelligence',
+    description: 'Surface reminders, opportunities, and next steps before the user asks',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'intelligence',
+    related_capabilities: [
+    'intelligence_sweep',
+    'context_memory',
+    'proactive_intelligence',
+    'ascension_second_brain',
+    'ascension_life_orchestrator'
+  ],
+    context: 'Triggers: user asks about Proactive Engine, starts a intelligence-domain quest, or needs a decision in this area. Cross-references: intelligence_sweep, context_memory, proactive_intelligence, ascension_second_brain, ascension_life_orchestrator. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_appointments',
+    name: 'Ascension Appointments',
+    category: 'home',
+    description: 'Track, schedule, and prepare for appointments across health, work, family, and services',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Appointments, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_maintenance',
+    name: 'Ascension Maintenance',
+    category: 'home',
+    description: 'Track home, vehicle, health, and device maintenance schedules with reminders',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Maintenance, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_family_sync',
+    name: 'Ascension Family Sync',
+    category: 'family',
+    description: 'Sync schedules, tasks, and updates across household and extended family members',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'family',
+    executor: 'family',
+    related_capabilities: [
+    'ascension_family',
+    'ascension_family_abroad',
+    'ascension_parenting',
+    'ascension_child_development'
+  ],
+    context: 'Triggers: user asks about Family Sync, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_abroad, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_family_abroad',
+    name: 'Ascension Family Abroad',
+    category: 'family',
+    description: 'Support coordination, calls, gifts, visits, and updates for family living abroad',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'family',
+    executor: 'family',
+    related_capabilities: [
+    'ascension_family',
+    'ascension_family_sync',
+    'ascension_parenting',
+    'ascension_child_development'
+  ],
+    context: 'Triggers: user asks about Family Abroad, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_parenting, ascension_child_development. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_household_sync',
+    name: 'Ascension Household Sync',
+    category: 'home',
+    description: 'Sync chores, shopping, meals, and routines across the household',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Household Sync, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_life_admin',
+    name: 'Ascension Life Admin',
+    category: 'home',
+    description: 'Manage paperwork, renewals, deadlines, and bureaucratic tasks for the user and family',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Life Admin, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_creative_manager',
+    name: 'Ascension Creative Manager',
+    category: 'creation',
+    description: 'Track projects, ideas, assets, and releases across all creative pursuits',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation',
+    related_capabilities: [
+    'ascension_creative',
+    'ascension_music',
+    'ascension_art',
+    'ascension_writing',
+    'ascension_dance'
+  ],
+    context: 'Triggers: user asks about Creative Manager, starts a creation-domain quest, or needs a decision in this area. Cross-references: ascension_creative, ascension_music, ascension_art, ascension_writing, ascension_dance. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_business_manager',
+    name: 'Ascension Business Manager',
+    category: 'business',
+    description: 'Track leads, revenue, tasks, and operations across businesses and side projects',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'business',
+    executor: 'business',
+    related_capabilities: [
+    'business_growth',
+    'ascension_startup',
+    'ascension_business_plan',
+    'ascension_marketing',
+    'ascension_sales'
+  ],
+    context: 'Triggers: user asks about Business Manager, starts a business-domain quest, or needs a decision in this area. Cross-references: business_growth, ascension_startup, ascension_business_plan, ascension_marketing, ascension_sales. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_child_development',
+    name: 'Ascension Child Development',
+    category: 'family',
+    description: 'Track developmental milestones, learning, and activities for each child',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'family',
+    executor: 'family',
+    related_capabilities: [
+    'ascension_family',
+    'ascension_family_sync',
+    'ascension_family_abroad',
+    'ascension_parenting'
+  ],
+    context: 'Triggers: user asks about Child Development, starts a family-domain quest, or needs a decision in this area. Cross-references: ascension_family, ascension_family_sync, ascension_family_abroad, ascension_parenting. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_goals',
+    name: 'Ascension Goals',
+    category: 'wellness',
+    description: 'Set, track, and break down goals across every life domain with milestones and reviews',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Goals, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_milestones',
+    name: 'Ascension Milestones',
+    category: 'wellness',
+    description: 'Track milestones, celebrations, and progress across personal and family life',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'wellness',
+    related_capabilities: [
+    'ascension_yoga',
+    'ascension_running',
+    'ascension_swimming',
+    'ascension_cycling',
+    'ascension_hiking'
+  ],
+    context: 'Triggers: user asks about Milestones, starts a wellness-domain quest, or needs a decision in this area. Cross-references: ascension_yoga, ascension_running, ascension_swimming, ascension_cycling, ascension_hiking. Use with permission-scoped context and a receipt for any action.'
+  },
+  {
+    id: 'ascension_routine',
+    name: 'Ascension Routine',
+    category: 'home',
+    description: 'Design, sync, and adapt daily, weekly, and seasonal routines for the user and household',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home',
+    related_capabilities: [
+    'ascension_home',
+    'ascension_travel',
+    'ascension_realestate',
+    'ascension_events',
+    'ascension_automotive'
+  ],
+    context: 'Triggers: user asks about Routine, starts a home-domain quest, or needs a decision in this area. Cross-references: ascension_home, ascension_travel, ascension_realestate, ascension_events, ascension_automotive. Use with permission-scoped context and a receipt for any action.'
   }
 ];
 export function getCapabilityById(id: string) {
