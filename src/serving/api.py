@@ -171,6 +171,23 @@ def effective_max_tokens(requested: int, mode: str = "conversation") -> int:
     return min(requested, profile_limits.get(runtime.profile_name, requested), mode_limits.get(mode, 240))
 
 
+def stream_error_payload(error: Exception) -> dict:
+    """Return a stable public SSE error contract after response headers are sent."""
+    if isinstance(error, NativeInferenceQueueTimeout):
+        return {
+            "code": "native_inference_queue_timeout",
+            "message": "Ascension AI is busy. Retry this request shortly.",
+            "retryable": True,
+            "http_equivalent": 504,
+        }
+    return {
+        "code": "native_inference_failed",
+        "message": "Ascension AI could not complete this stream.",
+        "retryable": True,
+        "http_equivalent": 502,
+    }
+
+
 @app.get("/")
 async def root() -> FileResponse:
     return FileResponse(PUBLIC / "index.html")
@@ -376,7 +393,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
             done = {"latency_ms": round((time.perf_counter() - started) * 1000), "production_replacement_enabled": False}
             yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
         except Exception as error:
-            yield f"event: error\ndata: {json.dumps({'message': str(error)})}\n\n"
+            yield f"event: error\ndata: {json.dumps(stream_error_payload(error), separators=(',', ':'))}\n\n"
 
     return StreamingResponse(events(), media_type="text/event-stream", headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"})
 
