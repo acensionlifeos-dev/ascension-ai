@@ -521,6 +521,116 @@ function volunteeringResponse(message: string): NativeResponse {
   };
 }
 
+function focusResponse(message: string): NativeResponse {
+  return {
+    content: `I can help you enter and protect deep work, manage attention, and reduce distraction. What is pulling you away from focus right now?`,
+    model: 'Ascension Focus',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_focus',
+    data: { pomodoro_minutes: 0 }
+  };
+}
+
+function meditationResponse(message: string): NativeResponse {
+  return {
+    content: `I can guide simple meditations: breath focus, body scan, or open awareness. What sounds most useful right now?`,
+    model: 'Ascension Meditation',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_meditation',
+    data: { minutes: 0 }
+  };
+}
+
+function gardenResponse(message: string): NativeResponse {
+  return {
+    content: `I can help plan a garden, choose plants for your climate, and troubleshoot care. What are you growing or want to grow?`,
+    model: 'Ascension Garden',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_garden',
+    data: { plants: [] }
+  };
+}
+
+function fashionResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with style, wardrobe building, and occasion dressing. What is the event or goal?`,
+    model: 'Ascension Fashion',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_fashion',
+    data: { occasion: null }
+  };
+}
+
+function repairResponse(message: string): NativeResponse {
+  return {
+    content: `I can guide DIY repairs and help you decide when a professional is safer. What is broken and what tools do you have?`,
+    model: 'Ascension Repair',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_repair',
+    data: { call_pro: false }
+  };
+}
+
+function musicResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with music theory, composition, practice routines, and listening. What instrument or genre are you working in?`,
+    model: 'Ascension Music',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_music',
+    data: { instrument: null }
+  };
+}
+
+function artResponse(message: string): NativeResponse {
+  return {
+    content: `I can discuss art techniques, composition, and creative direction. What medium or piece are you working on?`,
+    model: 'Ascension Art',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_art',
+    data: { medium: null }
+  };
+}
+
+function writingResponse(message: string): NativeResponse {
+  return {
+    content: `I can help with writing craft, structure, voice, and editing. I will not publish anything for you. What are you writing?`,
+    model: 'Ascension Writing',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_writing',
+    data: { published: [] }
+  };
+}
+
+function moviesResponse(message: string): NativeResponse {
+  return {
+    content: `I can recommend films and shows based on your mood, taste, and time. What do you like and how much time do you have?`,
+    model: 'Ascension Movies',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_movies',
+    data: { watchlist: [] }
+  };
+}
+
+function booksResponse(message: string): NativeResponse {
+  return {
+    content: `I can recommend books, discuss themes, and help with reading lists. What do you enjoy or want to learn?`,
+    model: 'Ascension Books',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_books',
+    data: { reading_list: [] }
+  };
+}
+
 const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_travel': travelResponse,
   'ascension_legal': legalResponse,

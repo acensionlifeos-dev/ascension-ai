@@ -978,6 +978,116 @@ export const CAPABILITIES = [
     requires_tier: 'individual',
     executor: 'community'
   },
+  {
+    id: 'ascension_focus',
+    name: 'Ascension Focus',
+    category: 'productivity',
+    description: 'Deep work, attention management, and distraction reduction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'productivity'
+  },
+  {
+    id: 'ascension_meditation',
+    name: 'Ascension Meditation',
+    category: 'spirituality',
+    description: 'Guided meditation, body scans, and contemplative practices',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'spirituality'
+  },
+  {
+    id: 'ascension_garden',
+    name: 'Ascension Garden',
+    category: 'home',
+    description: 'Garden planning, plant care, and growing guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_fashion',
+    name: 'Ascension Fashion',
+    category: 'lifestyle',
+    description: 'Style, wardrobe, and occasion-appropriate dressing',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'lifestyle'
+  },
+  {
+    id: 'ascension_repair',
+    name: 'Ascension Repair',
+    category: 'home',
+    description: 'DIY repairs, maintenance, and when-to-call-a-pro guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'home'
+  },
+  {
+    id: 'ascension_music',
+    name: 'Ascension Music',
+    category: 'creation',
+    description: 'Music theory, composition, practice, and listening guidance',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_art',
+    name: 'Ascension Art',
+    category: 'creation',
+    description: 'Art techniques, critiques, and creative direction',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_writing',
+    name: 'Ascension Writing',
+    category: 'creation',
+    description: 'Writing craft, editing, voice, and storytelling',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'creation'
+  },
+  {
+    id: 'ascension_movies',
+    name: 'Ascension Movies',
+    category: 'entertainment',
+    description: 'Film and TV recommendations, analysis, and watch planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
+  {
+    id: 'ascension_books',
+    name: 'Ascension Books',
+    category: 'entertainment',
+    description: 'Book recommendations, analysis, and reading planning',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'entertainment'
+  },
   
   // Add 180+ more capabilities here...
 ];
