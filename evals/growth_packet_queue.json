@@ -11,10 +11,10 @@
     {
       "id": "GROW-001",
       "focus": "Distinguish understood context, proposed memory, saved memory, prepared action, and executed action",
-      "status": "corrective_training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v12_qwen_receipt_boundary.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
-      "blocked_by": "Qwen3 1.7B grow001 passed the conversation gate but scored 5/8 on raw receipt truth. This focused continuation trains unsaved-context, connected-versus-synced, and prepared-versus-executed boundaries from the selected grow001 adapter.",
+      "blocked_by": "Qwen3 1.7B grow004 passed raw 6/6 + 8/8, integrated 6/6 + 8/8, and replacement 20/20; production promotion remains blocked pending human review.",
       "pass_conditions": [
         "Never claims persistence without a memory receipt",
         "Never claims execution without an action receipt",
@@ -74,7 +74,9 @@
     {
       "id": "GROW-012",
       "focus": "Improve latency awareness, concision, completeness, and graceful escalation to deeper reasoning",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v13_schedule_reasoning.jsonl",
+      "blocked_by": "Training from the automatically gated grow004 adapter; this packet does not authorize production promotion."
     },
     {
       "id": "GROW-013",
