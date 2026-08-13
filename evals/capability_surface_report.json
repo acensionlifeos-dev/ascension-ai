@@ -1,0 +1,772 @@
+{
+  "schema_version": "1",
+  "source_hashes": {
+    "src/services/capability-registry.ts": "ed1b4929bd9c3c6e24e164528dede80c62557984426447d0c5049aaecb22da16",
+    "src/services/native-domain-router.ts": "120651f9e35e11e259b91fdd1d4ee4216d0155113b17e7557edd40dbd834fa45",
+    "src/services/model-router.ts": "8b38f7636ede3ce4e89e0d2b25519257561f3ebc66fe7bcedeb4077653440b08",
+    "src/services/permission-engine.ts": "b9961c55bc85e97db56ed5c2ba561dd4876d8937f95f21a3153c875ffc21674c"
+  },
+  "replacement_ready": false,
+  "replacement_ready_blockers": [
+    "FamilyOS / Sprout / Nexus permission boundaries",
+    "aspirations",
+    "astrology / numerology reflection",
+    "browser / web research",
+    "career",
+    "creation / project workspaces",
+    "finance / budget / grocery",
+    "journal / reflection",
+    "learning / course generation",
+    "natural conversation",
+    "nutrition",
+    "persistent memory / corrections",
+    "relationships",
+    "schedule / calendar",
+    "self-care",
+    "tasks / quests",
+    "workout / health"
+  ],
+  "per_id": {
+    "ascension_chat": {
+      "surface": "natural conversation",
+      "id": "ascension_chat",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "3a3b998e5ccb7540b3b7fb4281b2992c1b293c110065af7462a8fdb5cfdc385c",
+      "gated_content_hash": "3a3b998e5ccb7540b3b7fb4281b2992c1b293c110065af7462a8fdb5cfdc385c",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_living_memory": {
+      "surface": "persistent memory / corrections",
+      "id": "ascension_living_memory",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "ea784633f1e76ffc16e1b8d50d0893f48d4522c11c1681b93cf58c81bf8e0eb5",
+      "gated_content_hash": "ea784633f1e76ffc16e1b8d50d0893f48d4522c11c1681b93cf58c81bf8e0eb5",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_second_brain": {
+      "surface": "persistent memory / corrections",
+      "id": "ascension_second_brain",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "502f675683c9c584f90513292b9f14a15be4c951d87e7cd3aa5417d0b2a086c7",
+      "gated_content_hash": "502f675683c9c584f90513292b9f14a15be4c951d87e7cd3aa5417d0b2a086c7",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_living_context": {
+      "surface": "persistent memory / corrections",
+      "id": "ascension_living_context",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "f7a137665ad6406949a4158af66dcd96130e177bff606829bad1e710127588c8",
+      "gated_content_hash": "f7a137665ad6406949a4158af66dcd96130e177bff606829bad1e710127588c8",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_calendar_intelligence": {
+      "surface": "schedule / calendar",
+      "id": "ascension_calendar_intelligence",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "c8b8a72d3675b2e6c8f34e9fdc216c39e2c3ad3777e2fab699e48a0bd1cd1437",
+      "gated_content_hash": "c8b8a72d3675b2e6c8f34e9fdc216c39e2c3ad3777e2fab699e48a0bd1cd1437",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_appointments": {
+      "surface": "schedule / calendar",
+      "id": "ascension_appointments",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "457062e8672495ce90bc75ef0636032fde9dcf383ce8c39acffac7693e2d06aa",
+      "gated_content_hash": "457062e8672495ce90bc75ef0636032fde9dcf383ce8c39acffac7693e2d06aa",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_time": {
+      "surface": "schedule / calendar",
+      "id": "ascension_time",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "ed5c000b54d6cebe2cb919861ea806661610a43cb1713c569326fdc81ed4f8dc",
+      "gated_content_hash": "ed5c000b54d6cebe2cb919861ea806661610a43cb1713c569326fdc81ed4f8dc",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_task": {
+      "surface": "tasks / quests",
+      "id": "ascension_task",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "6be863a9173049d3ae9ee01bfdd49dc2b65052c148e80f3961f986d069f4632d",
+      "gated_content_hash": "6be863a9173049d3ae9ee01bfdd49dc2b65052c148e80f3961f986d069f4632d",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_adaptive_quest": {
+      "surface": "tasks / quests",
+      "id": "ascension_adaptive_quest",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "c495b8bb94a077e30a22eeeb09570bd2d710a4e23990d60c1870099134aa7355",
+      "gated_content_hash": "c495b8bb94a077e30a22eeeb09570bd2d710a4e23990d60c1870099134aa7355",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_finance": {
+      "surface": "finance / budget / grocery",
+      "id": "ascension_finance",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "e75910f4e827df4acd52c622e4d2bb6a1c2612ae4e9f89a4bd76e3178b42ebab",
+      "gated_content_hash": "73f4b6dc2dd56d1cbece7648a01ffcdda481785724fbefde30289f7dac1f1783",
+      "has_permission_gate": true,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_budgeting": {
+      "surface": "finance / budget / grocery",
+      "id": "ascension_budgeting",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "e1f18ee23e2038a14f3315572c5e264f0f523e3fc4353f8b4fac1e9b2d1ed43b",
+      "gated_content_hash": "e1f18ee23e2038a14f3315572c5e264f0f523e3fc4353f8b4fac1e9b2d1ed43b",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_grocery_list": {
+      "surface": "finance / budget / grocery",
+      "id": "ascension_grocery_list",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "284d28ef157d3604b578fa227a3e4586e648e6033f1b160713e26e472cec23ae",
+      "gated_content_hash": "284d28ef157d3604b578fa227a3e4586e648e6033f1b160713e26e472cec23ae",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_nutrition": {
+      "surface": "nutrition",
+      "id": "ascension_nutrition",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "9805ff986d5f1f7ffc535dc548477056da44d68659ea8369c79ce6a1506150f5",
+      "gated_content_hash": "9805ff986d5f1f7ffc535dc548477056da44d68659ea8369c79ce6a1506150f5",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_workout": {
+      "surface": "workout / health",
+      "id": "ascension_workout",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "3b8ac08c96eacccb451b92e9fa101ba968a40f007775764f6ed9b6f53c5b2b21",
+      "gated_content_hash": "3b8ac08c96eacccb451b92e9fa101ba968a40f007775764f6ed9b6f53c5b2b21",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_health": {
+      "surface": "workout / health",
+      "id": "ascension_health",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "70287e070759eb986efa3443f60aed5840a9a963a7bea282e7b04f3d5093aecb",
+      "gated_content_hash": "1fc26a9172fd052fc2df81f5620224bac2b290e34f1071051bfdfe8f73361043",
+      "has_permission_gate": true,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_learning": {
+      "surface": "learning / course generation",
+      "id": "ascension_learning",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "62b84398e41e0a475587ebbbe3b8f6a9ecaa012958a3bee02e0a2601656884b7",
+      "gated_content_hash": "62b84398e41e0a475587ebbbe3b8f6a9ecaa012958a3bee02e0a2601656884b7",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_knowledge_studio": {
+      "surface": "learning / course generation",
+      "id": "ascension_knowledge_studio",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "2b875f6b7356144190276cfd073a73cc005cb8bacee4e9fc418bd9118b7c1724",
+      "gated_content_hash": "2b875f6b7356144190276cfd073a73cc005cb8bacee4e9fc418bd9118b7c1724",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_career": {
+      "surface": "career",
+      "id": "ascension_career",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "983db819e12ff740d576be84d2f85918ebd14317b48267a1ee75eeb065160d93",
+      "gated_content_hash": "983db819e12ff740d576be84d2f85918ebd14317b48267a1ee75eeb065160d93",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_goals": {
+      "surface": "aspirations",
+      "id": "ascension_goals",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "78cf53af4b09116449225ab7045d73c34fe03094b0a9037e9c77cc5ac048c3be",
+      "gated_content_hash": "78cf53af4b09116449225ab7045d73c34fe03094b0a9037e9c77cc5ac048c3be",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_milestones": {
+      "surface": "aspirations",
+      "id": "ascension_milestones",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "81c410cf7734cbc0a52290df685385262b30375eab7c7d4c2d78c372fefba490",
+      "gated_content_hash": "81c410cf7734cbc0a52290df685385262b30375eab7c7d4c2d78c372fefba490",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_dream_fund": {
+      "surface": "aspirations",
+      "id": "ascension_dream_fund",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "72b4f993696069c51d7825bfee5e408694350fdbf1e7859262b66b642b313a91",
+      "gated_content_hash": "72b4f993696069c51d7825bfee5e408694350fdbf1e7859262b66b642b313a91",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_creative": {
+      "surface": "creation / project workspaces",
+      "id": "ascension_creative",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "117dd6767fbde556e13c50354f94582fbbf38a874c4ccdd3dd8baa2882cd3430",
+      "gated_content_hash": "117dd6767fbde556e13c50354f94582fbbf38a874c4ccdd3dd8baa2882cd3430",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_project": {
+      "surface": "creation / project workspaces",
+      "id": "ascension_project",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "f9aa531caff3958a90159ee29aee2626a5f38e1c36f2f6b8c3a5efaa007b57a6",
+      "gated_content_hash": "f9aa531caff3958a90159ee29aee2626a5f38e1c36f2f6b8c3a5efaa007b57a6",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_content_workspace": {
+      "surface": "creation / project workspaces",
+      "id": "ascension_content_workspace",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "681c384197eaa8396a736cb01daf538bc836f4807f27b68cdffdccb31b25a069",
+      "gated_content_hash": "681c384197eaa8396a736cb01daf538bc836f4807f27b68cdffdccb31b25a069",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "web_browsing": {
+      "surface": "browser / web research",
+      "id": "web_browsing",
+      "registered": true,
+      "class": "outside_provider",
+      "flavor": "routed",
+      "no_permission_content_hash": "019468a238285227e022102a637329cc880d834f4ccfd87088a7cc72d7ec6818",
+      "gated_content_hash": "019468a238285227e022102a637329cc880d834f4ccfd87088a7cc72d7ec6818",
+      "has_permission_gate": false,
+      "routed_provider": "openai",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_research_assistant": {
+      "surface": "browser / web research",
+      "id": "ascension_research_assistant",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "98848d782f86a7c20bc8f26d195451f399674b556c1189afb94b5b6d04fd376f",
+      "gated_content_hash": "98848d782f86a7c20bc8f26d195451f399674b556c1189afb94b5b6d04fd376f",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_relationships": {
+      "surface": "relationships",
+      "id": "ascension_relationships",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "086cd3c896be87b549181557315e7d7c4e473fdc3f662b6b92a8c1f3c2d41538",
+      "gated_content_hash": "086cd3c896be87b549181557315e7d7c4e473fdc3f662b6b92a8c1f3c2d41538",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_relationship_intelligence": {
+      "surface": "relationships",
+      "id": "ascension_relationship_intelligence",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "c74322301b42d282e14e8d11162de655bcf0420d7cfbbf18c2124e30ebff3f78",
+      "gated_content_hash": "c74322301b42d282e14e8d11162de655bcf0420d7cfbbf18c2124e30ebff3f78",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_home": {
+      "surface": "FamilyOS / Sprout / Nexus permission boundaries",
+      "id": "ascension_home",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "1a6351fd3bf8cf32851e6e6cf336cc9b81804ef2564e891b4bdc042d5724693f",
+      "gated_content_hash": "0c32b808d00ffc7bc57f20e532f1bbdbe5ca28595b574a78d0695feec9b02ab9",
+      "has_permission_gate": true,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_sprout": {
+      "surface": "FamilyOS / Sprout / Nexus permission boundaries",
+      "id": "ascension_sprout",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "e2c89fe607bbc8cf9d1048b60b17eccb4c020a0d7c325e0cf9be61b23eeee6eb",
+      "gated_content_hash": "ae3a94079cc909a2f3f49044a03de5005c3f51fde76bc6353462008562550106",
+      "has_permission_gate": true,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_family": {
+      "surface": "FamilyOS / Sprout / Nexus permission boundaries",
+      "id": "ascension_family",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "6d82507701b5c7741435d014e3fc428df7c8064da8c68938be167a6296d3fe18",
+      "gated_content_hash": "e3832ebf703d9719c2c30241683b3750dcf414965217557bc41879167c8033e1",
+      "has_permission_gate": true,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_mindfulness": {
+      "surface": "self-care",
+      "id": "ascension_mindfulness",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "789786ced50d3dadac3610fa8aaee355acd9ea895dfc8db065fa28b4b77f797a",
+      "gated_content_hash": "789786ced50d3dadac3610fa8aaee355acd9ea895dfc8db065fa28b4b77f797a",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_sleep_hygiene": {
+      "surface": "self-care",
+      "id": "ascension_sleep_hygiene",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "f77cf1168c4b514afc00905eb033990bb2bcba9074e27f7d63cd95dead40eb4b",
+      "gated_content_hash": "f77cf1168c4b514afc00905eb033990bb2bcba9074e27f7d63cd95dead40eb4b",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_journaling": {
+      "surface": "journal / reflection",
+      "id": "ascension_journaling",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "711176608d3353e086c6b86ec58ae30fb33f3f79453f8a07d9bf2e82f0edac75",
+      "gated_content_hash": "711176608d3353e086c6b86ec58ae30fb33f3f79453f8a07d9bf2e82f0edac75",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_astrology": {
+      "surface": "astrology / numerology reflection",
+      "id": "ascension_astrology",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "4fb712cf17212bdb8138731e90214c6952a614f3f83c3438a9c2c997b139562d",
+      "gated_content_hash": "4fb712cf17212bdb8138731e90214c6952a614f3f83c3438a9c2c997b139562d",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_horoscope": {
+      "surface": "astrology / numerology reflection",
+      "id": "ascension_horoscope",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "9466cd940c32fbe87817ebf65acf9dd89467b97c1659573fb75ebfd2a0f19d0d",
+      "gated_content_hash": "9466cd940c32fbe87817ebf65acf9dd89467b97c1659573fb75ebfd2a0f19d0d",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_tarot": {
+      "surface": "astrology / numerology reflection",
+      "id": "ascension_tarot",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "d178e1f6e2a7b58f9fb5c6a19c171dc8b348868b27b0a411f89d57f4905d70e8",
+      "gated_content_hash": "d178e1f6e2a7b58f9fb5c6a19c171dc8b348868b27b0a411f89d57f4905d70e8",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_gratitude": {
+      "surface": "journal / reflection",
+      "id": "ascension_gratitude",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "160bfde8661b3eca3f74a10ff99181bea3c9cd63dd9722794cb0e8d7178a841a",
+      "gated_content_hash": "160bfde8661b3eca3f74a10ff99181bea3c9cd63dd9722794cb0e8d7178a841a",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    },
+    "ascension_visualization": {
+      "surface": "journal / reflection",
+      "id": "ascension_visualization",
+      "registered": true,
+      "class": "registered_only",
+      "flavor": "canned",
+      "no_permission_content_hash": "44722b62d6be4d67970b273e1473415a853558168bff3a276cf156f7e09cecf4",
+      "gated_content_hash": "44722b62d6be4d67970b273e1473415a853558168bff3a276cf156f7e09cecf4",
+      "has_permission_gate": false,
+      "routed_provider": "ascension-native",
+      "uses_message": false,
+      "model_backed_native": false
+    }
+  },
+  "per_surface": {
+    "natural conversation": {
+      "surface": "natural conversation",
+      "ids": [
+        "ascension_chat"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_chat: canned"
+      ]
+    },
+    "persistent memory / corrections": {
+      "surface": "persistent memory / corrections",
+      "ids": [
+        "ascension_living_memory",
+        "ascension_second_brain",
+        "ascension_living_context"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_living_memory: canned",
+        "ascension_second_brain: canned",
+        "ascension_living_context: canned"
+      ]
+    },
+    "schedule / calendar": {
+      "surface": "schedule / calendar",
+      "ids": [
+        "ascension_calendar_intelligence",
+        "ascension_appointments",
+        "ascension_time"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_calendar_intelligence: canned",
+        "ascension_appointments: canned",
+        "ascension_time: canned"
+      ]
+    },
+    "tasks / quests": {
+      "surface": "tasks / quests",
+      "ids": [
+        "ascension_task",
+        "ascension_adaptive_quest"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_task: canned",
+        "ascension_adaptive_quest: canned"
+      ]
+    },
+    "finance / budget / grocery": {
+      "surface": "finance / budget / grocery",
+      "ids": [
+        "ascension_finance",
+        "ascension_budgeting",
+        "ascension_grocery_list"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_finance: canned",
+        "ascension_budgeting: canned",
+        "ascension_grocery_list: canned"
+      ]
+    },
+    "nutrition": {
+      "surface": "nutrition",
+      "ids": [
+        "ascension_nutrition"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_nutrition: canned"
+      ]
+    },
+    "workout / health": {
+      "surface": "workout / health",
+      "ids": [
+        "ascension_workout",
+        "ascension_health"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_workout: canned",
+        "ascension_health: canned"
+      ]
+    },
+    "learning / course generation": {
+      "surface": "learning / course generation",
+      "ids": [
+        "ascension_learning",
+        "ascension_knowledge_studio"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_learning: canned",
+        "ascension_knowledge_studio: canned"
+      ]
+    },
+    "career": {
+      "surface": "career",
+      "ids": [
+        "ascension_career"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_career: canned"
+      ]
+    },
+    "aspirations": {
+      "surface": "aspirations",
+      "ids": [
+        "ascension_goals",
+        "ascension_milestones",
+        "ascension_dream_fund"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_goals: canned",
+        "ascension_milestones: canned",
+        "ascension_dream_fund: canned"
+      ]
+    },
+    "creation / project workspaces": {
+      "surface": "creation / project workspaces",
+      "ids": [
+        "ascension_creative",
+        "ascension_project",
+        "ascension_content_workspace"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_creative: canned",
+        "ascension_project: canned",
+        "ascension_content_workspace: canned"
+      ]
+    },
+    "browser / web research": {
+      "surface": "browser / web research",
+      "ids": [
+        "web_browsing",
+        "ascension_research_assistant"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_research_assistant: canned"
+      ]
+    },
+    "relationships": {
+      "surface": "relationships",
+      "ids": [
+        "ascension_relationships",
+        "ascension_relationship_intelligence"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_relationships: canned",
+        "ascension_relationship_intelligence: canned"
+      ]
+    },
+    "FamilyOS / Sprout / Nexus permission boundaries": {
+      "surface": "FamilyOS / Sprout / Nexus permission boundaries",
+      "ids": [
+        "ascension_home",
+        "ascension_sprout",
+        "ascension_family"
+      ],
+      "permission_boundaries": true,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_home: canned",
+        "ascension_sprout: canned",
+        "ascension_family: canned"
+      ]
+    },
+    "self-care": {
+      "surface": "self-care",
+      "ids": [
+        "ascension_mindfulness",
+        "ascension_sleep_hygiene",
+        "ascension_journaling"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_mindfulness: canned",
+        "ascension_sleep_hygiene: canned",
+        "ascension_journaling: canned"
+      ]
+    },
+    "astrology / numerology reflection": {
+      "surface": "astrology / numerology reflection",
+      "ids": [
+        "ascension_astrology",
+        "ascension_horoscope",
+        "ascension_tarot"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_astrology: canned",
+        "ascension_horoscope: canned",
+        "ascension_tarot: canned"
+      ]
+    },
+    "journal / reflection": {
+      "surface": "journal / reflection",
+      "ids": [
+        "ascension_journaling",
+        "ascension_gratitude",
+        "ascension_visualization"
+      ],
+      "permission_boundaries": false,
+      "surface_class": "registered_only",
+      "blockers": [
+        "ascension_journaling: canned",
+        "ascension_gratitude: canned",
+        "ascension_visualization: canned"
+      ]
+    }
+  }
+}
