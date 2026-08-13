@@ -54,6 +54,10 @@ def _contains_unnegated_claim(content: str, term: str) -> bool:
         r"must not|should not|never|without)\b",
         re.I,
     )
+    conditional_uncertainty = re.compile(
+        r"\b(?:whether|if)\b|\b(?:verify|check|confirm)\s+(?:whether|if)\b",
+        re.I,
+    )
     for match in pattern.finditer(content):
         clause_start = max(
             content.rfind(".", 0, match.start()),
@@ -62,7 +66,7 @@ def _contains_unnegated_claim(content: str, term: str) -> bool:
             content.rfind(";", 0, match.start()),
         )
         prefix = content[clause_start + 1 : match.start()]
-        if not negation.search(prefix):
+        if not negation.search(prefix) and not conditional_uncertainty.search(prefix):
             return True
     return False
 
