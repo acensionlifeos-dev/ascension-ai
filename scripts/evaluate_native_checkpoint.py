@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_ARCHITECTURE = "causal_attention_v2"
+RUNTIME_TOKENIZER_CONTRACT = "byte_level_bpe_roundtrip_v1"
 MIN_WORDS = 4
 MIN_UNIQUE_WORD_RATIO = 0.35
 MIN_PRINTABLE_RATIO = 0.98
@@ -206,6 +207,41 @@ def held_out_loss(inference) -> float:
     return float(loss.item())
 
 
+def checkpoint_metadata_compatible(meta: dict, tokenizer) -> dict:
+    """Derive architecture and tokenizer compatibility from checkpoint metadata; fail closed when missing."""
+    from tokenizers import Tokenizer as HFTokenizer
+    from tokenizers.models import BPE
+
+    architecture = meta.get("architecture")
+    architecture_missing = "architecture" not in meta
+    architecture_pass = not architecture_missing and architecture == RUNTIME_ARCHITECTURE
+
+    tokenizer_path = meta.get("tokenizer_path")
+    tokenizer_path_missing = "tokenizer_path" not in meta or not tokenizer_path
+    tokenizer_contract = meta.get("tokenizer_contract")
+    tokenizer_contract_missing = not tokenizer_contract
+    tokenizer_contract_compatible = tokenizer_contract == RUNTIME_TOKENIZER_CONTRACT
+    tokenizer_is_hfbpe = isinstance(tokenizer, HFTokenizer)
+    tokenizer_model_is_bpe = tokenizer_is_hfbpe and isinstance(tokenizer.model, BPE)
+    tokenizer_pass = (
+        not tokenizer_path_missing
+        and tokenizer_contract_compatible
+        and tokenizer_model_is_bpe
+    )
+
+    return {
+        "architecture_pass": architecture_pass,
+        "architecture_missing": architecture_missing,
+        "checkpoint_architecture": architecture,
+        "tokenizer_pass": tokenizer_pass,
+        "tokenizer_path_missing": tokenizer_path_missing,
+        "tokenizer_contract_missing": tokenizer_contract_missing,
+        "tokenizer_contract": tokenizer_contract,
+        "tokenizer_is_hfbpe": tokenizer_is_hfbpe,
+        "tokenizer_model_is_bpe": tokenizer_model_is_bpe,
+    }
+
+
 def _recommended_initialization(
     architecture_pass: bool,
     tokenizer_roundtrip_pass: bool,
@@ -224,43 +260,56 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--version", default="ascension_elite_general_v5_4h")
     parser.add_argument("--tokens", type=int, default=64)
     parser.add_argument("--output", default="evals/results/native_checkpoint_gate.json")
-    parser.add_argument("--checkpoint-architecture", default="legacy_noncausal_attention_v1")
+    # Kept for backwards compatibility, but the gate now derives from checkpoint metadata.
+    parser.add_argument("--checkpoint-architecture", default=None)
     args = parser.parse_args(argv)
 
     from src.architecture.inference import EliteInference
 
     inference = EliteInference(ROOT / "checkpoints", prefix=args.version)
 
-    architecture_pass = args.checkpoint_architecture == RUNTIME_ARCHITECTURE
+    meta_compat = checkpoint_metadata_compatible(inference.meta, inference.tokenizer)
+    architecture_pass = meta_compat["architecture_pass"]
+    tokenizer_metadata_pass = meta_compat["tokenizer_pass"]
 
-    roundtrip = tokenizer_roundtrip(inference)
-
-    try:
-        loss = held_out_loss(inference)
-        held_out_gate = held_out_loss_gate(loss)
-    except Exception as error:
+    if tokenizer_metadata_pass:
+        roundtrip = tokenizer_roundtrip(inference)
+        try:
+            loss = held_out_loss(inference)
+            held_out_gate = held_out_loss_gate(loss)
+        except Exception as error:
+            loss = float("nan")
+            held_out_gate = held_out_loss_gate(float("nan"))
+            held_out_gate["error"] = f"{type(error).__name__}: {error}"
+    else:
+        roundtrip = {
+            "roundtrip_pass": False,
+            "roundtrip_exact": False,
+            "roundtrip_distance": None,
+        }
         loss = float("nan")
         held_out_gate = held_out_loss_gate(float("nan"))
-        held_out_gate["error"] = f"{type(error).__name__}: {error}"
-
-    import torch
+        held_out_gate["error"] = "tokenizer metadata incompatible or missing"
 
     samples = []
-    for index, prompt in enumerate(DEFAULT_PROMPTS):
-        torch.manual_seed(100 + index)
-        generated = inference.generate(
-            prompt,
-            max_new_tokens=args.tokens,
-            temperature=0.35,
-            top_k=5,
-        )
-        samples.append(evaluate_text(prompt, generated))
+    if tokenizer_metadata_pass and architecture_pass:
+        import torch
+        for index, prompt in enumerate(DEFAULT_PROMPTS):
+            torch.manual_seed(100 + index)
+            generated = inference.generate(
+                prompt,
+                max_new_tokens=args.tokens,
+                temperature=0.35,
+                top_k=5,
+            )
+            samples.append(evaluate_text(prompt, generated))
 
     structural_passes = sum(sample["structural_pass"] for sample in samples)
     semantic_passes = sum(sample["semantic_pass"] for sample in samples)
 
     automatic_gate_passed = (
         architecture_pass
+        and tokenizer_metadata_pass
         and roundtrip["roundtrip_pass"]
         and structural_passes == len(samples)
         and semantic_passes == len(samples)
@@ -276,9 +325,19 @@ def main(argv: list[str] | None = None) -> int:
     result = {
         "version": args.version,
         "evaluation_prompt_provenance": "held_out_paraphrases_v2",
-        "checkpoint_training_architecture": args.checkpoint_architecture,
+        "checkpoint_metadata": {
+            "architecture": meta_compat["checkpoint_architecture"],
+            "architecture_missing": meta_compat["architecture_missing"],
+            "tokenizer_contract": meta_compat["tokenizer_contract"],
+            "tokenizer_contract_missing": meta_compat["tokenizer_contract_missing"],
+            "tokenizer_path_missing": meta_compat["tokenizer_path_missing"],
+            "tokenizer_is_hfbpe": meta_compat["tokenizer_is_hfbpe"],
+            "tokenizer_model_is_bpe": meta_compat["tokenizer_model_is_bpe"],
+        },
         "runtime_architecture": RUNTIME_ARCHITECTURE,
+        "runtime_tokenizer_contract": RUNTIME_TOKENIZER_CONTRACT,
         "architecture_pass": architecture_pass,
+        "tokenizer_metadata_pass": tokenizer_metadata_pass,
         "tokenizer_roundtrip_pass": roundtrip["roundtrip_pass"],
         "tokenizer_roundtrip_exact": roundtrip["roundtrip_exact"],
         "tokenizer_roundtrip_distance": roundtrip["roundtrip_distance"],

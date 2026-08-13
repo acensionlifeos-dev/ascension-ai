@@ -9,12 +9,67 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.evaluate_native_checkpoint import (
+    RUNTIME_ARCHITECTURE,
+    RUNTIME_TOKENIZER_CONTRACT,
+    checkpoint_metadata_compatible,
     evaluate_response,
     held_out_loss_gate,
     quality_signals,
     _recommended_initialization,
 )
 from scripts.evaluate_v5_checkpoint import _v5_argv
+
+
+def _bpe_tokenizer():
+    from tokenizers import Tokenizer
+    from tokenizers.models import BPE
+
+    return Tokenizer(BPE(unk_token="<unk>"))
+
+
+def _valid_v7_metadata():
+    return {
+        "architecture": RUNTIME_ARCHITECTURE,
+        "tokenizer_path": "checkpoints/ascension_causal_general_v7_tokenizer.json",
+        "tokenizer_contract": RUNTIME_TOKENIZER_CONTRACT,
+    }
+
+
+def test_valid_v7_checkpoint_metadata():
+    result = checkpoint_metadata_compatible(_valid_v7_metadata(), _bpe_tokenizer())
+    assert result["architecture_pass"] is True
+    assert result["tokenizer_pass"] is True
+
+
+def test_checkpoint_metadata_missing_contract_fails_closed():
+    meta = _valid_v7_metadata()
+    del meta["tokenizer_contract"]
+    result = checkpoint_metadata_compatible(meta, _bpe_tokenizer())
+    assert result["tokenizer_contract_missing"] is True
+    assert result["tokenizer_pass"] is False
+
+
+def test_checkpoint_metadata_wrong_contract_fails_closed():
+    meta = _valid_v7_metadata()
+    meta["tokenizer_contract"] = "character_map_v1"
+    result = checkpoint_metadata_compatible(meta, _bpe_tokenizer())
+    assert result["tokenizer_contract_missing"] is False
+    assert result["tokenizer_pass"] is False
+
+
+def test_checkpoint_metadata_missing_architecture_fails_closed():
+    meta = _valid_v7_metadata()
+    del meta["architecture"]
+    result = checkpoint_metadata_compatible(meta, _bpe_tokenizer())
+    assert result["architecture_missing"] is True
+    assert result["architecture_pass"] is False
+
+
+def test_checkpoint_metadata_incompatible_loaded_tokenizer_fails_closed():
+    result = checkpoint_metadata_compatible(_valid_v7_metadata(), {"char_to_idx": {}})
+    assert result["tokenizer_is_hfbpe"] is False
+    assert result["tokenizer_model_is_bpe"] is False
+    assert result["tokenizer_pass"] is False
 
 
 def test_spaced_assistant_letters():
