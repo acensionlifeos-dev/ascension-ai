@@ -19,6 +19,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.build_ascension_product_corpus import (
     build_corpus,
     curriculum_paths,
+    format_example,
+    format_inference_prompt,
     read_curriculum,
 )
 from scripts.train_ascension_product_v6 import (
@@ -91,6 +93,25 @@ def _test_empty_curriculum_rejection() -> None:
         raise AssertionError("empty curriculum was not rejected")
 
 
+def _test_runtime_prompt_envelope() -> None:
+    record = {
+        "id": "envelope_probe",
+        "shell": "ap",
+        "user": "Remember this preference.",
+        "assistant": "I can propose it, but it is not saved yet.",
+        "tags": ["private_training_metadata", "must_not_leak"],
+    }
+    example = format_example(record)
+    prompt = format_inference_prompt(record["shell"], record["user"])
+    expected_prefix = "<s>\nASCENSION SHELL: ap\nUSER: Remember this preference.\nASSISTANT:"
+    if not example.startswith(expected_prefix):
+        raise AssertionError("training example and inference prompt prefixes diverged")
+    if prompt != expected_prefix:
+        raise AssertionError("inference prompt does not match the product training envelope")
+    if "LESSON TAGS" in example or "private_training_metadata" in example:
+        raise AssertionError("training-only metadata leaked into the model-facing corpus")
+
+
 def _test_continuation_gate() -> None:
     with tempfile.TemporaryDirectory() as directory:
         checkpoint_dir = Path(directory)
@@ -157,6 +178,7 @@ def main() -> int:
     _test_corpus_unicity()
     _test_curriculum_quality()
     _test_empty_curriculum_rejection()
+    _test_runtime_prompt_envelope()
     _test_continuation_gate()
     with tempfile.TemporaryDirectory(prefix="ascension-product-smoke-") as directory:
         root = Path(directory)

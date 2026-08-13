@@ -41,15 +41,13 @@ def evaluate_response(case: dict, text: str) -> dict:
 
 def run_checkpoint(version: str, tokens: int) -> dict:
     from src.architecture.inference import EliteInference
+    from scripts.build_ascension_product_corpus import format_inference_prompt
 
     cases = json.loads((ROOT / "evals" / "receipt_truth_prompts.json").read_text(encoding="utf-8"))
     inference = EliteInference(ROOT / "checkpoints", prefix=version)
     results = []
     for case in cases:
-        prompt = (
-            f"ASCENSION SHELL: {case['shell']}\n"
-            f"USER: {case['prompt']}\nASSISTANT:"
-        )
+        prompt = format_inference_prompt(case["shell"], case["prompt"])
         try:
             text = inference.generate(prompt, max_new_tokens=tokens, temperature=0.25, top_k=5)
             results.append(evaluate_response(case, text))

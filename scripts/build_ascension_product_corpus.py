@@ -66,14 +66,28 @@ def assert_no_secrets(text: str, source: str) -> None:
 
 
 def format_example(record: dict) -> str:
-    tags = ", ".join(str(tag) for tag in record["tags"])
+    """Render only fields that the native inference envelope supplies.
+
+    Lesson tags remain provenance metadata in JSONL. Putting them into the
+    model-facing text taught earlier checkpoints to depend on and sometimes
+    emit a control field that does not exist at runtime.
+    """
     return (
         "<s>\n"
         f"ASCENSION SHELL: {record['shell']}\n"
-        f"LESSON TAGS: {tags}\n"
         f"USER: {record['user'].strip()}\n"
         f"ASSISTANT: {record['assistant'].strip()}\n"
         "</s>"
+    )
+
+
+def format_inference_prompt(shell: str, user: str) -> str:
+    """Build the exact prefix used to evaluate a product checkpoint."""
+    return (
+        "<s>\n"
+        f"ASCENSION SHELL: {shell}\n"
+        f"USER: {user.strip()}\n"
+        "ASSISTANT:"
     )
 
 
