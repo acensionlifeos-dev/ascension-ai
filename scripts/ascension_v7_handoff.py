@@ -70,7 +70,8 @@ def run_canonical_evaluation(version: str, gate_output: Path) -> int:
     completed = subprocess.run(
         [
             sys.executable,
-            str(ROOT / "scripts" / "evaluate_native_checkpoint.py"),
+            "-m",
+            "scripts.evaluate_native_checkpoint",
             "--version",
             version,
             "--output",
@@ -79,6 +80,7 @@ def run_canonical_evaluation(version: str, gate_output: Path) -> int:
         check=False,
         text=True,
         capture_output=True,
+        cwd=ROOT,
     )
     if completed.returncode not in (0, 2):
         raise RuntimeError(f"evaluator failed with code {completed.returncode}: {completed.stderr}")

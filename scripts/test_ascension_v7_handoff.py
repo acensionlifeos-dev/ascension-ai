@@ -16,6 +16,7 @@ from scripts.ascension_v7_handoff import (
     build_handoff_packet,
     load_status,
     main,
+    run_canonical_evaluation,
 )
 
 
@@ -62,6 +63,30 @@ def _gate_json(version: str = "test_v7", automatic: bool = True) -> dict:
         "recommended_next_initialization": "resume",
         "samples": [{"structural_pass": True, "semantic_pass": True, "text": "ok"}] * 6,
     }
+
+
+def _output_arg(args: list[str]) -> Path:
+    """Return the evaluator receipt path without coupling tests to argv offsets."""
+    return Path(args[args.index("--output") + 1])
+
+
+def test_run_canonical_evaluation_uses_project_module_from_root():
+    with tempfile.TemporaryDirectory() as tmp:
+        output = Path(tmp) / "gate.json"
+
+        class Completed:
+            returncode = 0
+            stderr = ""
+
+        with patch("subprocess.run", return_value=Completed()) as mocked:
+            result = run_canonical_evaluation("test_v7", output)
+
+        assert result == 0
+        args = mocked.call_args.args[0]
+        kwargs = mocked.call_args.kwargs
+        assert args[:3] == [sys.executable, "-m", "scripts.evaluate_native_checkpoint"]
+        assert _output_arg(args) == output
+        assert kwargs["cwd"] == handoff.ROOT
 
 
 def test_load_status_requires_complete():
@@ -229,8 +254,7 @@ def test_main_end_to_end():
         _touch(cp / "test_v7_tokenizer.json")
 
         def fake_run(args, **kwargs):
-            # The mock receives the argument list; the evaluator output path is at index 5.
-            output = Path(args[5])
+            output = _output_arg(args)
             output.parent.mkdir(parents=True, exist_ok=True)
             gate = _gate_json("test_v7", automatic=True)
             output.write_text(json.dumps(gate, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -274,7 +298,7 @@ def test_main_returns_fail_when_gate_fails():
         _touch(cp / "test_v7_tokenizer.json")
 
         def fake_run(args, **kwargs):
-            output = Path(args[5])
+            output = _output_arg(args)
             output.parent.mkdir(parents=True, exist_ok=True)
             gate = _gate_json("test_v7", automatic=False)
             output.write_text(json.dumps(gate, ensure_ascii=False, indent=2), encoding="utf-8")

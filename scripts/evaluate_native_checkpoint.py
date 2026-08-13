@@ -7,10 +7,13 @@ import hashlib
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 RUNTIME_ARCHITECTURE = "causal_attention_v2"
 RUNTIME_TOKENIZER_CONTRACT = "byte_level_bpe_roundtrip_v1"
 MIN_WORDS = 4
