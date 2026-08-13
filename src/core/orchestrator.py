@@ -165,6 +165,18 @@ def enforce_response_contract(content: str, cognitive: dict, context: dict, mode
     ):
         answer = f"I understand the request, but it has not been saved. {answer}".strip()
 
+    parenting_candidate = any(
+        item.get("key") == "parenting_schedule"
+        for item in cognitive.get("memory_candidates", [])
+    )
+    if (
+        not receipts
+        and parenting_candidate
+        and "not saved" not in answer.casefold()
+        and "not been saved" not in answer.casefold()
+    ):
+        answer = f"I understand the parenting schedule, but it is not saved yet. {answer}".strip()
+
     schedule = next(
         (item for item in cognitive.get("memory_candidates", []) if item.get("type") == "recurring_schedule"),
         None,

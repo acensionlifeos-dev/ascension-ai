@@ -66,6 +66,8 @@ MEMORY_CANDIDATE_DOMAINS = {
     "cash_pressure": "finance",
     "housing_search": "finance",
     "creation_idea": "creation",
+    "explicit_memory_request": "identity",
+    "parenting_schedule": "relationships",
 }
 
 
@@ -189,6 +191,15 @@ def extract_memory_candidates(text: str) -> list[dict]:
         candidates.append({"type": "active_intent", "key": "housing_search", "value": source, "confidence": 0.94, "source": "explicit_user_statement", "operation": "upsert"})
     if re.search(r"\b(?:i want to create|i have an idea|idea for|build an?\s+)\b", lowered):
         candidates.append({"type": "creation_seed", "key": "creation_idea", "value": source, "confidence": 0.90, "source": "explicit_user_statement", "operation": "append"})
+    parenting = re.search(
+        r"\b(?:i\s+have|the)\s+(?:my\s+)?(?:kids?|children|son|daughter)\s+(?:are\s+with\s+me\s+)?(?:for\s+)?(?:all\s+)?next\s+week\b",
+        lowered,
+    )
+    if parenting:
+        candidates.append({"type": "time_bound_context", "key": "parenting_schedule", "value": source, "confidence": 0.95, "source": "explicit_user_statement", "operation": "upsert", "requires_dates": True})
+    remembered = re.search(r"\b(?:remember|save|store|record)\s+(?:that\s+)?(.{3,240})", source, re.I)
+    if remembered and not any(candidate.get("key") == "explicit_memory_request" for candidate in candidates):
+        candidates.append({"type": "explicit_memory", "key": "explicit_memory_request", "value": remembered.group(1).strip(), "confidence": 0.97, "source": "explicit_user_request", "operation": "upsert"})
     return candidates[:8]
 
 

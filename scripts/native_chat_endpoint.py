@@ -78,7 +78,13 @@ def handle_chat(body: dict) -> dict:
         shell = Shell.CORE
 
     tier = Tier.LIFE_OS if shell in (Shell.AP, Shell.LIFE_OS, Shell.NEXUS_HOME) else Tier.FOUNDER_OS
-    allowed = [capability.replace('ascension_', '')] if capability.startswith('ascension_') else []
+    # General AP chat must retain cross-domain cognition. Specific capability
+    # invocations remain tightly scoped to the requested domain.
+    allowed = (
+        []
+        if capability in ('ascension_chat', 'chat', '')
+        else [capability.replace('ascension_', '')] if capability.startswith('ascension_') else []
+    )
 
     prepared = prepare_inference(
         shell=shell,

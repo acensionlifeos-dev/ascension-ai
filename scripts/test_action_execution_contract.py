@@ -139,6 +139,15 @@ def test_memory_update_signal_includes_persistence_gate() -> None:
     assert signal["operation"] == "upsert"
 
 
+def test_general_memory_and_parenting_context_become_candidates() -> None:
+    preference = build_cognitive_packet(
+        "Remember that I prefer workouts after I wake up", {}, [], []
+    )
+    assert any(item["key"] == "explicit_memory_request" for item in preference["memory_candidates"])
+    parenting = build_cognitive_packet("I have my kids next week", {}, [], [])
+    assert any(item["key"] == "parenting_schedule" for item in parenting["memory_candidates"])
+
+
 def main() -> None:
     for name, fn in globals().items():
         if name.startswith("test_") and callable(fn):
