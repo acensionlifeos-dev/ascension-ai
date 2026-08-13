@@ -12,9 +12,14 @@ from .model_runtime import runtime
 
 
 UNRECEIPTED_CLAIM = re.compile(
-    r"\bI(?:'ve| have)?\s+(?:saved|added|updated|scheduled|connected|sent|paid|booked|deleted|removed|completed|created)\b",
+    r"\bI(?:'ve| have|'ll| will)?\s+(?:saved|save|store|stored|add|added|update|updated|schedule|scheduled|connect|connected|send|sent|pay|paid|book|booked|delete|deleted|remove|removed|complete|completed|create|created)\b",
     re.I,
 )
+EXPLICIT_PERSISTENCE_REQUEST = re.compile(
+    r"\b(?:remember|save|store|record|add\s+(?:it|this|that)|put\s+(?:it|this|that)\s+(?:on|in))\b",
+    re.I,
+)
+TIMEOUT_RESULT = re.compile(r"\b(?:timed?\s*out|timeout|did(?:\s+not|n't)\s+(?:answer|respond|return))\b", re.I)
 ACCESS_SCOPE_QUESTION = re.compile(
     r"\b(?:what|which)\s+(?:private\s+|personal\s+)?(?:information|data|details)|\bwhat\s+(?:can|do)\s+you\s+(?:see|know|access)|\bcan\s+you\s+(?:see|access)\b",
     re.I,
@@ -114,16 +119,51 @@ def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
     return None
 
 
-def enforce_response_contract(content: str, cognitive: dict, context: dict, mode: str) -> str:
+def _verified_receipts(context: dict) -> list[dict]:
+    """Accept only explicit successful receipts as execution evidence."""
+    if not isinstance(context, dict):
+        return []
+    candidates = list(context.get("action_receipts") or []) + list(context.get("memory_receipts") or [])
+    verified = []
+    for receipt in candidates:
+        if not isinstance(receipt, dict):
+            continue
+        status = str(receipt.get("status", "")).casefold()
+        if status not in {"completed", "confirmed", "success", "succeeded"}:
+            continue
+        if receipt.get("verified") is False:
+            continue
+        if not (receipt.get("id") or receipt.get("reference") or receipt.get("provider_receipt_id")):
+            continue
+        verified.append(receipt)
+    return verified
+
+
+def enforce_response_contract(content: str, cognitive: dict, context: dict, mode: str, latest: str = "") -> str:
     """Apply deterministic integrity checks where a small model must not improvise."""
     answer = str(content or "").strip()
-    receipts = []
-    if isinstance(context, dict):
-        receipts = list(context.get("action_receipts") or []) + list(context.get("memory_receipts") or [])
+    receipts = _verified_receipts(context)
     if not receipts and UNRECEIPTED_CLAIM.search(answer):
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
         answer = " ".join(kept).strip()
         answer = f"Nothing is confirmed as saved or executed yet. {answer}".strip()
+
+    if not receipts and TIMEOUT_RESULT.search(latest):
+        kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
+        answer = " ".join(kept).strip()
+        answer = (
+            "I cannot confirm or claim success after a timeout; the result is unknown until the destination or a verified receipt confirms it. "
+            + answer
+        ).strip()
+
+    if (
+        not receipts
+        and EXPLICIT_PERSISTENCE_REQUEST.search(latest)
+        and cognitive.get("memory_candidates")
+        and "not saved" not in answer.casefold()
+        and "not been saved" not in answer.casefold()
+    ):
+        answer = f"I understand the request, but it has not been saved. {answer}".strip()
 
     schedule = next(
         (item for item in cognitive.get("memory_candidates", []) if item.get("type") == "recurring_schedule"),
@@ -234,7 +274,7 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
         temperature=temperature,
         max_tokens=max_tokens,
     ))
-    result["content"] = enforce_response_contract(result.get("content", ""), prepared["cognition"], context, mode)
+    result["content"] = enforce_response_contract(result.get("content", ""), prepared["cognition"], context, mode, latest)
     return {
         **result,
         **{key: value for key, value in prepared.items() if key != "messages"},

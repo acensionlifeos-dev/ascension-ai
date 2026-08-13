@@ -41,7 +41,14 @@ const router = Router();
  */
 router.post('/', async (req: AuthRequest, res: Response) => {
   try {
-    const { message, capabilityId } = req.body;
+    const {
+      message,
+      capabilityId,
+      context = {},
+      shell = 'ap',
+      surface = 'chat',
+      mode = 'conversation'
+    } = req.body;
 
     const messageCheck = isValidMessage(message);
     if (!messageCheck.valid) {
@@ -73,7 +80,12 @@ router.post('/', async (req: AuthRequest, res: Response) => {
 
     // Execute request
     const response = await modelRouter.execute(routingDecision, {
-      messages: [{ role: 'user', content: message }]
+      messages: [{ role: 'user', content: message }],
+      capability: defaultCapability,
+      context,
+      shell,
+      surface,
+      mode
     });
 
     const durationMs = Date.now() - startTime;
@@ -109,7 +121,15 @@ router.post('/', async (req: AuthRequest, res: Response) => {
  */
 router.post('/capability', async (req: AuthRequest, res: Response) => {
   try {
-    const { capabilityId, message, permissions = {} } = req.body;
+    const {
+      capabilityId,
+      message,
+      permissions = {},
+      context = {},
+      shell = 'ap',
+      surface = 'chat',
+      mode = 'conversation'
+    } = req.body;
 
     if (!isValidCapabilityId(capabilityId)) {
       return res.status(400).json({ error: 'Invalid or missing capability ID' });
@@ -167,7 +187,12 @@ router.post('/capability', async (req: AuthRequest, res: Response) => {
 
     // Execute request
     const response = await modelRouter.execute(routingDecision, {
-      messages: [{ role: 'user', content: message }]
+      messages: [{ role: 'user', content: message }],
+      capability: capabilityId,
+      context,
+      shell,
+      surface,
+      mode
     });
 
     const durationMs = Date.now() - startTime;

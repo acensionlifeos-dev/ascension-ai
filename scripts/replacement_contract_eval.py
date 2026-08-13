@@ -52,11 +52,18 @@ def main() -> None:
     check("presence requests do not become tasks or coaching", presence_answer is not None and "No advice" in presence_answer and "?" not in presence_answer)
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
+    future_claim = enforce_response_contract("I will store this preference now.", {"memory_candidates": [{"type":"preference"}]}, {}, "conversation", "Remember that I train after waking")
+    check("future memory claims are blocked without a receipt", "will store" not in future_claim.lower() and "not been saved" in future_claim.lower())
+    timeout_answer = enforce_response_contract("I cannot confirm whether it worked.", {"memory_candidates": []}, {}, "conversation", "The calendar call timed out")
+    check("timeouts remain unknown until verified", "result is unknown" in timeout_answer.lower() and "verified receipt" in timeout_answer.lower())
+    unverified_context = {"action_receipts":[{"status":"prepared","id":"draft-1"}]}
+    prepared_claim = enforce_response_contract("I've paid the bill.", {"memory_candidates": []}, unverified_context, "conversation")
+    check("prepared receipts cannot authorize completion claims", "I've paid" not in prepared_claim and "Nothing is confirmed" in prepared_claim)
     check("unterminated hidden reasoning is suppressed", NativeModelRuntime._clean_content("<think>private reasoning") == "")
     check("control tokens are stripped", "<|" not in NativeModelRuntime._clean_content("Hello <|im_end|>"))
     queue_status = NativeModelRuntime().status().get("queue", {})
     check("native runtime exposes bounded concurrency evidence", {"queue_depth", "active_requests", "completed_requests", "failed_requests", "last_queue_wait_ms", "max_queue_wait_ms", "last_inference_ms"}.issubset(queue_status))
-    print("Replacement contract evaluation passed: 20/20")
+    print("Replacement contract evaluation passed.")
 
 
 if __name__ == "__main__":

@@ -252,7 +252,8 @@ class ModelRouter {
     const lastMessage = (request.messages || []).slice(-1)[0]?.content || '';
     
     // Fast-path: in-memory cache for identical, short, non-sensitive prompts
-    if (lastMessage && lastMessage.length < 500) {
+    const cacheSafe = request.cacheSafe === true && !request.context;
+    if (cacheSafe && lastMessage && lastMessage.length < 500) {
       const cached = responseCache.get(capability, lastMessage);
       if (cached) {
         return { ...cached, cached: true };
@@ -267,7 +268,11 @@ class ModelRouter {
           messages: request.messages || [],
           temperature: request.temperature ?? 0.7,
           max_tokens: request.max_tokens || 2048,
-          capability: request.capability
+          capability: request.capability,
+          context: request.context || {},
+          shell: request.shell || 'ap',
+          surface: request.surface || 'chat',
+          mode: request.mode || 'conversation'
         })
       });
       
@@ -283,7 +288,7 @@ class ModelRouter {
         tokensUsed: data.tokensUsed || 0
       };
       
-      if (lastMessage && lastMessage.length < 500) {
+      if (cacheSafe && lastMessage && lastMessage.length < 500) {
         responseCache.set(capability, lastMessage, result);
       }
       

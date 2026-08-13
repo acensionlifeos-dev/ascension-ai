@@ -20,6 +20,7 @@ from src.core.orchestrator import (
     deterministic_conversation_repair,
     deterministic_first_pass,
     deterministic_scope_answer,
+    enforce_response_contract,
     prepare_inference,
 )
 from src.core.contracts import Shell, Tier
@@ -118,13 +119,17 @@ def handle_chat(body: dict) -> dict:
         }
 
     try:
-        model_output = runtime.chat(messages, temperature, max_tokens)
+        model_output = runtime.chat(prepared['messages'], temperature, max_tokens)
+        guarded_content = enforce_response_contract(
+            model_output['content'], prepared['cognition'], context, mode, latest
+        )
         return {
-            'content': warn_prefix + model_output['content'],
+            'content': warn_prefix + guarded_content,
             'model': model_output.get('model', runtime.status().get('model', 'Ascension Native')),
             'provider': 'ascension-native',
             'tokensUsed': model_output.get('tokensUsed', 0),
             'safety_level': safety.level,
+            'cognition': prepared.get('cognition'),
         }
     except Exception as error:
         return {
