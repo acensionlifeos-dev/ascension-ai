@@ -51,6 +51,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--print_every", type=int, default=5000, help="log interval")
     parser.add_argument("--batch_size", type=int, default=16, help="batch size")
     parser.add_argument("--save_every", type=int, default=10000, help="recovery checkpoint interval")
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="resume from checkpoints/<version>_recovery.pt; fail if it is absent or incompatible",
+    )
     return parser.parse_args()
 
 
@@ -213,13 +218,44 @@ def main():
     warmup_steps = min(10000, num_steps // 10)
     scheduler = get_cosine_schedule_with_warmup(optimizer, warmup_steps, num_steps)
 
-    model.train()
-    start = time.perf_counter()
     losses = []
     best_loss = float("inf")
     step = 0
     window_loss = 0.0
     total_loss = 0.0
+    recovery_path = out_dir / f"{prefix}_recovery.pt"
+
+    if args.resume:
+        if not recovery_path.is_file():
+            raise FileNotFoundError(f"Resume requested but recovery checkpoint is missing: {recovery_path}")
+        with torch.serialization.safe_globals([ModelConfig]):
+            recovery = torch.load(recovery_path, map_location=device, weights_only=True)
+        saved_config = recovery.get("config")
+        saved_config_values = saved_config.__dict__ if isinstance(saved_config, ModelConfig) else saved_config
+        if saved_config_values != config.__dict__:
+            raise ValueError("Recovery checkpoint model configuration does not match the requested v7 run")
+        saved_step = int(recovery.get("step", 0))
+        if saved_step <= 0 or saved_step >= num_steps:
+            raise ValueError(f"Recovery step {saved_step} is outside the resumable range 1..{num_steps - 1}")
+        model.load_state_dict(recovery["model_state_dict"])
+        optimizer.load_state_dict(recovery["optimizer_state_dict"])
+        if recovery.get("scheduler_state_dict"):
+            scheduler.load_state_dict(recovery["scheduler_state_dict"])
+        else:
+            # Older recovery files retain the optimizer LR but predate scheduler
+            # serialization. Continue from the recorded step without silently
+            # restarting warmup.
+            scheduler.last_epoch = saved_step
+            scheduler._step_count = saved_step + 1
+        losses = list(recovery.get("losses") or [])
+        best_loss = float(recovery.get("best_loss", min(losses) if losses else float("inf")))
+        total_loss = float(recovery.get("total_loss", 0.0))
+        window_loss = float(recovery.get("window_loss", 0.0))
+        step = saved_step
+        log(f"Resumed recovery checkpoint at step {step}/{num_steps}")
+
+    model.train()
+    start = time.perf_counter()
     while step < num_steps:
         epoch_loss = 0
         for batch in dataloader:
@@ -262,13 +298,16 @@ def main():
                 window_loss = 0.0
 
             if args.save_every > 0 and step % args.save_every == 0 and step < num_steps:
-                recovery_path = out_dir / f"{prefix}_recovery.pt"
                 with torch.serialization.safe_globals([ModelConfig]):
                     torch.save({
                         "model_state_dict": model.state_dict(),
                         "optimizer_state_dict": optimizer.state_dict(),
+                        "scheduler_state_dict": scheduler.state_dict(),
                         "config": config,
                         "losses": losses,
+                        "best_loss": best_loss,
+                        "total_loss": total_loss,
+                        "window_loss": window_loss,
                         "step": step,
                     }, recovery_path)
                 log(f"Recovery checkpoint saved at step {step}")
@@ -288,6 +327,7 @@ def main():
             "optimizer_state_dict": optimizer.state_dict(),
             "config": config,
             "losses": losses,
+            "step": step,
         }, model_path)
 
     with open(meta_path, "w", encoding="utf-8") as f:
