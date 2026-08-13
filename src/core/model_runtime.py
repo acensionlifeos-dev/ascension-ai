@@ -20,7 +20,7 @@ class NativeInferenceQueueTimeout(RuntimeError):
 
 
 class NativeModelRuntime:
-    def __init__(self) -> None:
+    def __init__(self, exit_callback=None) -> None:
         self.model = None
         self.profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "starter").strip().lower()
         self.profile: dict = {}
@@ -37,6 +37,20 @@ class NativeModelRuntime:
         self.max_queue_wait_ms = 0
         self.last_inference_ms = 0
         self.queue_timeout_seconds = float(os.getenv("ASCENSION_QUEUE_TIMEOUT_SECONDS", "95"))
+        self.inference_timeout_seconds = float(os.getenv("ASCENSION_INFERENCE_TIMEOUT_SECONDS", "180"))
+        self.inference_started_at: float | None = None
+        self.watchdog_enabled = os.getenv("ASCENSION_INFERENCE_WATCHDOG_EXIT", "0") == "1"
+        self._exit_callback = exit_callback or (self._default_exit if self.watchdog_enabled else lambda: None)
+        self._watchdog_thread: threading.Thread | None = None
+        self._watchdog_running = False
+
+    def _default_exit(self) -> None:
+        """Last-resort process exit when the only worker is stuck.
+
+        Render or the container runtime will restart the service.
+        No prompt, context, or token data is ever written here.
+        """
+        os._exit(1)
 
     def _read_profile(self) -> dict:
         profiles = json.loads(PROFILES_PATH.read_text(encoding="utf-8"))
@@ -77,6 +91,10 @@ class NativeModelRuntime:
             )
             self.loaded_at = time.time()
             self.load_error = None
+            if not self._watchdog_running:
+                self._watchdog_running = True
+                self._watchdog_thread = threading.Thread(target=self._watchdog_loop, daemon=True)
+                self._watchdog_thread.start()
         except Exception as error:
             self.model = None
             self.load_error = str(error)
@@ -94,6 +112,13 @@ class NativeModelRuntime:
                 "max_queue_wait_ms": self.max_queue_wait_ms,
                 "last_inference_ms": self.last_inference_ms,
                 "queue_timeout_seconds": self.queue_timeout_seconds,
+                "inference_timeout_seconds": self.inference_timeout_seconds,
+                "inference_started_at": self.inference_started_at,
+                "inference_hung": (
+                    self.inference_started_at is not None
+                    and (time.perf_counter() - self.inference_started_at) > self.inference_timeout_seconds
+                ),
+                "watchdog_enabled": self.watchdog_enabled,
             }
         return {
             "ready": self.model is not None,
@@ -131,6 +156,7 @@ class NativeModelRuntime:
                 self.active_requests += 1
                 self.last_queue_wait_ms = queue_wait_ms
                 self.max_queue_wait_ms = max(self.max_queue_wait_ms, queue_wait_ms)
+                self.inference_started_at = inference_started
             try:
                 result = self.model.create_chat_completion(
                     messages=inference_messages,
@@ -148,6 +174,7 @@ class NativeModelRuntime:
                 self.lock.release()
                 with self.metrics_lock:
                     self.active_requests = max(0, self.active_requests - 1)
+                    self.inference_started_at = None
         except Exception:
             with self.metrics_lock:
                 if not dequeued:
@@ -182,6 +209,7 @@ class NativeModelRuntime:
         try:
             with self.metrics_lock:
                 self.active_requests += 1
+                self.inference_started_at = time.perf_counter()
             chunks = self.model.create_chat_completion(
                 messages=inference_messages,
                 temperature=temperature,
@@ -203,6 +231,7 @@ class NativeModelRuntime:
             self.lock.release()
             with self.metrics_lock:
                 self.active_requests = max(0, self.active_requests - 1)
+                self.inference_started_at = None
 
     def _prepare_messages(self, messages: list[dict]) -> list[dict]:
         """Keep Qwen3 in fast non-thinking mode without exposing control tokens in UI."""
@@ -228,6 +257,27 @@ class NativeModelRuntime:
         cleaned = re.sub(r"<\|[^>]+\|>", "", cleaned).strip()
         cleaned = re.sub(r"^\s*(?:analysis|reasoning)\s*:\s*", "", cleaned, flags=re.I)
         return cleaned
+
+
+    def _watchdog_tick(self) -> None:
+        """Check for a hung active inference and trigger the configured exit.
+
+        The callback is mocked in tests; in production it exits the process.
+        No prompt, token, or context data is logged or exposed.
+        """
+        with self.metrics_lock:
+            should_exit = (
+                self.watchdog_enabled
+                and self.inference_started_at is not None
+                and (time.perf_counter() - self.inference_started_at) > self.inference_timeout_seconds
+            )
+        if should_exit:
+            self._exit_callback()
+
+    def _watchdog_loop(self) -> None:
+        while self._watchdog_running:
+            time.sleep(1.0)
+            self._watchdog_tick()
 
 
 runtime = NativeModelRuntime()

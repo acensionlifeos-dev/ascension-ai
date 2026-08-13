@@ -19,6 +19,8 @@ from src.architecture.inference import EliteInference
 
 
 ROOT = Path(__file__).resolve().parents[1]
+RUNTIME_ARCHITECTURE = "causal_attention_v2"
+DEFAULT_CHECKPOINT_ARCHITECTURE = "legacy_noncausal_attention_v1"
 PROMPTS = (
     "Hi AP.",
     "I had a rough day. Just talk with me.",
@@ -66,6 +68,7 @@ def main() -> int:
     parser.add_argument("--version", default="ascension_elite_general_v5_4h")
     parser.add_argument("--tokens", type=int, default=64)
     parser.add_argument("--output", default="evals/results/v5_checkpoint_gate.json")
+    parser.add_argument("--checkpoint-architecture", default=DEFAULT_CHECKPOINT_ARCHITECTURE)
     args = parser.parse_args()
     inference = EliteInference(ROOT / "checkpoints", prefix=args.version)
     samples = []
@@ -75,14 +78,19 @@ def main() -> int:
         samples.append({"prompt": prompt, "generated": generated, **quality_signals(generated)})
     loss = held_out_loss(inference)
     structural_passes = sum(bool(sample["structural_pass"]) for sample in samples)
-    gate_passed = structural_passes == len(samples) and math.isfinite(loss) and loss <= 6.5
+    quality_gate_passed = structural_passes == len(samples) and math.isfinite(loss) and loss <= 6.5
+    architecture_compatible = args.checkpoint_architecture == RUNTIME_ARCHITECTURE
+    gate_passed = quality_gate_passed and architecture_compatible
     result = {
         "version": args.version,
-        "architecture_under_evaluation": "causal_attention_v2",
+        "checkpoint_training_architecture": args.checkpoint_architecture,
+        "runtime_architecture": RUNTIME_ARCHITECTURE,
+        "architecture_compatible_for_resume": architecture_compatible,
         "held_out_loss": round(loss, 4),
         "structural_passes": structural_passes,
         "sample_count": len(samples),
         "automatic_gate_passed": gate_passed,
+        "quality_gate_passed": quality_gate_passed,
         "human_review_required": True,
         "next_initialization": "resume" if gate_passed else "transplant",
         "samples": samples,
