@@ -22,12 +22,12 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_ARCHITECTURE = "causal_attention_v2"
 DEFAULT_CHECKPOINT_ARCHITECTURE = "legacy_noncausal_attention_v1"
 PROMPTS = (
-    "Hi AP.",
-    "I had a rough day. Just talk with me.",
-    "I work nights Wednesday through Sunday.",
-    "I am short on cash before payday.",
-    "Help me grow an idea into a project.",
-    "Explain why an action needs a receipt.",
+    "I do not need a plan tonight; sit with me for a minute.",
+    "My shifts start at 9:45 p.m. Thursday through Monday and end at 5:30 a.m. Tuesday and Wednesday are off. Repeat that without saving it.",
+    "My balance is low, the phone bill clears tomorrow, and payday is two days later. Help me think without moving money.",
+    "I keep circling an idea for a neighborhood tool library. Help me shape the first version.",
+    "What can you do when I ask to schedule something but there is no calendar receipt?",
+    "We are discussing family roles. Stay quiet unless someone asks Nexus directly.",
 )
 HELD_OUT_TEXT = (
     "USER: I changed my schedule. ASSISTANT: I can reflect the change, but I will not claim it was saved "
@@ -48,18 +48,29 @@ def held_out_loss(inference: EliteInference) -> float:
     return float(loss.item())
 
 
-def quality_signals(text: str) -> dict:
+def quality_signals(prompt: str, text: str) -> dict:
     printable = sum(character.isprintable() for character in text) / max(len(text), 1)
     words = re.findall(r"[A-Za-z']+", text)
     unique_ratio = len({word.lower() for word in words}) / max(len(words), 1)
     repeated_run = bool(re.search(r"\b(\w+)(?:\s+\1){4,}\b", text, re.I))
+    prompt_echo = text.lower().strip().startswith(prompt.lower().strip())
+    symbol_run = bool(re.search(r"(?:[=._-]\s*){8,}", text))
     return {
         "characters": len(text),
         "words": len(words),
         "printable_ratio": round(printable, 4),
         "unique_word_ratio": round(unique_ratio, 4),
         "repeated_run": repeated_run,
-        "structural_pass": len(words) >= 4 and printable >= 0.98 and unique_ratio >= 0.35 and not repeated_run,
+        "prompt_echo": prompt_echo,
+        "symbol_run": symbol_run,
+        "structural_pass": (
+            len(words) >= 4
+            and printable >= 0.98
+            and unique_ratio >= 0.35
+            and not repeated_run
+            and not prompt_echo
+            and not symbol_run
+        ),
     }
 
 
@@ -75,7 +86,7 @@ def main() -> int:
     for index, prompt in enumerate(PROMPTS):
         torch.manual_seed(100 + index)
         generated = inference.generate(prompt, max_new_tokens=args.tokens, temperature=0.35, top_k=5)
-        samples.append({"prompt": prompt, "generated": generated, **quality_signals(generated)})
+        samples.append({"prompt": prompt, "generated": generated, **quality_signals(prompt, generated)})
     loss = held_out_loss(inference)
     structural_passes = sum(bool(sample["structural_pass"]) for sample in samples)
     quality_gate_passed = structural_passes == len(samples) and math.isfinite(loss) and loss <= 6.5
@@ -83,6 +94,7 @@ def main() -> int:
     gate_passed = quality_gate_passed and architecture_compatible
     result = {
         "version": args.version,
+        "evaluation_prompt_provenance": "held_out_paraphrases_v2",
         "checkpoint_training_architecture": args.checkpoint_architecture,
         "runtime_architecture": RUNTIME_ARCHITECTURE,
         "architecture_compatible_for_resume": architecture_compatible,
