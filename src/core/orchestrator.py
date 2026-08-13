@@ -284,7 +284,7 @@ def compact_context(context: dict, limit: int = 8_000) -> str:
     if not isinstance(context, dict):
         return "{}"
     priority = (
-        "action_receipts", "memory_receipts", "verified_evidence", "evidence",
+        "action_receipts", "memory_receipts", "human_thesis", "home_thesis", "family_thesis", "verified_evidence", "evidence",
         "memories", "documents", "knowledge", "profile", "schedule", "finance",
         "health", "relationships", "goals", "available_actions",
     )

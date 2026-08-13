@@ -23,6 +23,7 @@ from src.core.cognition import TALENTS, build_action_execution_contract, build_c
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import prepare_inference, respond, surface_plan
+from src.core.thesis import build_member_thesis_contribution, build_thesis
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -133,6 +134,29 @@ class RetrievalRequest(BaseModel):
 
 class MemoryCandidateRequest(BaseModel):
     text: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+
+
+class ThesisRequest(BaseModel):
+    scope: Literal["human", "sprout", "home", "family"]
+    subject_id: str = Field(min_length=1, max_length=200)
+    shell: Shell
+    context: dict = Field(default_factory=dict)
+
+    @field_validator("context")
+    @classmethod
+    def bound_thesis_context(cls, value: dict) -> dict:
+        if len(json.dumps(value, default=str)) > 200_000:
+            raise ValueError("thesis context packet is too large")
+        return value
+
+
+class ThesisContributionRequest(BaseModel):
+    member_id: str = Field(min_length=1, max_length=200)
+    target_scope: Literal["nexus_home", "nexus_family"]
+    shell: Shell
+    human_thesis: dict
+    selections: list[dict] = Field(min_length=1, max_length=100)
+    consent_receipt_id: str = Field(min_length=1, max_length=300)
 
 
 class LegacyGenerationRequest(BaseModel):
@@ -315,6 +339,44 @@ async def memory_candidates(request: MemoryCandidateRequest, _: None = Depends(r
     return {
         "candidates": extract_memory_candidates(request.text),
         "persistence": "calling_shell_validates_and_persists",
+        "outside_provider": False,
+    }
+
+
+@app.post("/v1/thesis")
+async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> dict:
+    required_shell = {
+        "human": {Shell.AP, Shell.LIFE_OS},
+        "sprout": {Shell.AP, Shell.LIFE_OS},
+        "home": {Shell.NEXUS_HOME},
+        "family": {Shell.NEXUS_FAMILY},
+    }
+
+
+@app.post("/v1/thesis/contribution")
+async def thesis_contribution(request: ThesisContributionRequest, _: None = Depends(require_access)) -> dict:
+    if request.shell not in {Shell.AP, Shell.LIFE_OS}:
+        raise HTTPException(status_code=403, detail="only the member's AP or LifeOS shell can prepare a thesis contribution")
+    try:
+        contribution = build_member_thesis_contribution(
+            request.member_id,
+            request.target_scope,
+            request.human_thesis,
+            request.selections,
+            request.consent_receipt_id,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {**contribution, "shell": request.shell.value, "outside_provider": False}
+    if request.shell not in required_shell[request.scope]:
+        raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot build the {request.scope} thesis")
+    try:
+        result = build_thesis(request.scope, request.subject_id, request.context)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {
+        **result,
+        "shell": request.shell.value,
         "outside_provider": False,
     }
 
