@@ -4,6 +4,8 @@ __pycache__/
 *.py[cod]
 models/
 checkpoints/
+data/*.txt
+data/*.manifest.json
 dist/
 .env
 *.log

@@ -10,7 +10,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRICULUM_PATH = ROOT / "evals" / "training" / "ascension_product_v1.jsonl"
+CURRICULUM_DIR = ROOT / "evals" / "training"
+CURRICULUM_GLOB = "ascension_product_v*.jsonl"
 SAFE_DOCS = (
     ROOT / "AGENTS.md",
     ROOT / "README.md",
@@ -27,23 +28,34 @@ SECRET_PATTERNS = {
 }
 
 
-def read_curriculum(path: Path = CURRICULUM_PATH) -> list[dict]:
+def curriculum_paths() -> list[Path]:
+    return sorted(CURRICULUM_DIR.glob(CURRICULUM_GLOB))
+
+
+def read_curriculum(paths: list[Path] | None = None) -> list[dict]:
     records = []
-    for line_number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-        if not raw.strip():
-            continue
-        record = json.loads(raw)
-        required = {"id", "shell", "user", "assistant", "tags"}
-        missing = required - record.keys()
-        if missing:
-            raise ValueError(f"{path}:{line_number} missing {sorted(missing)}")
-        if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core"}:
-            raise ValueError(f"{path}:{line_number} has unsupported shell")
-        records.append(record)
+    seen_ids: dict[str, tuple[str, int]] = {}
+    for path in paths if paths is not None else curriculum_paths():
+        for line_number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if not raw.strip():
+                continue
+            record = json.loads(raw)
+            required = {"id", "shell", "user", "assistant", "tags"}
+            missing = required - record.keys()
+            if missing:
+                raise ValueError(f"{path}:{line_number} missing {sorted(missing)}")
+            if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core"}:
+                raise ValueError(f"{path}:{line_number} has unsupported shell")
+            if record["id"] in seen_ids:
+                first_path, first_line = seen_ids[record["id"]]
+                raise ValueError(
+                    f"{path}:{line_number} duplicate id {record['id']!r} "
+                    f"(first seen in {first_path}:{first_line})"
+                )
+            seen_ids[record["id"]] = (str(path), line_number)
+            records.append(record)
     if len(records) < 30:
         raise ValueError("Ascension product curriculum must contain at least 30 reviewed examples")
-    if len({record["id"] for record in records}) != len(records):
-        raise ValueError("Ascension product curriculum IDs must be unique")
     return records
 
 
@@ -96,7 +108,7 @@ def build_corpus(
 ) -> dict:
     if not 0 <= general_replay_ratio < 0.5:
         raise ValueError("general replay ratio must be between 0 and 0.5")
-    records = read_curriculum()
+    records = read_curriculum(curriculum_paths())
     product_sections = [format_example(record) for record in records]
     for path in SAFE_DOCS:
         text = path.read_text(encoding="utf-8")
@@ -117,7 +129,7 @@ def build_corpus(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(final_text, encoding="utf-8")
     manifest = {
-        "curriculum": str(CURRICULUM_PATH.relative_to(ROOT)),
+        "curriculum": [str(path.relative_to(ROOT)) for path in curriculum_paths()],
         "example_count": len(records),
         "shells": sorted({record["shell"] for record in records}),
         "safe_docs": [str(path.relative_to(ROOT)) for path in SAFE_DOCS],

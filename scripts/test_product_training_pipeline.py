@@ -16,7 +16,11 @@ from tokenizers.trainers import BpeTrainer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from scripts.build_ascension_product_corpus import build_corpus
+from scripts.build_ascension_product_corpus import (
+    build_corpus,
+    curriculum_paths,
+    read_curriculum,
+)
 from scripts.train_ascension_product_v6 import (
     TokenizedDataset,
     initialize_model,
@@ -26,14 +30,77 @@ from scripts.train_ascension_product_v6 import (
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
+def _test_corpus_unicity() -> None:
+    """Verify multi-file curriculum loading and duplicate-ID rejection."""
+    paths = curriculum_paths()
+    if len(paths) < 2:
+        raise AssertionError("expected multiple ascension_product curriculum files")
+    records = read_curriculum(paths)
+    if len(records) < 30:
+        raise AssertionError("product curriculum must contain at least 30 reviewed examples")
+    ids = [record["id"] for record in records]
+    if len(set(ids)) != len(ids):
+        raise AssertionError("product curriculum IDs must be unique across files")
+
+    with tempfile.TemporaryDirectory() as directory:
+        dup_path = Path(directory) / "ascension_product_v99.jsonl"
+        first_raw = paths[0].read_text(encoding="utf-8").splitlines()[0]
+        first_record = json.loads(first_raw)
+        dup_path.write_text(json.dumps(first_record) + "\n", encoding="utf-8")
+        try:
+            read_curriculum([paths[0], dup_path])
+        except ValueError as error:
+            message = str(error)
+            if "duplicate id" not in message.lower():
+                raise AssertionError("duplicate ID was rejected but not with a duplicate-id message")
+            if "first seen in" not in message.lower():
+                raise AssertionError("duplicate ID error must report the first file and line")
+            if paths[0].name not in message:
+                raise AssertionError("duplicate ID error must name the original curriculum file")
+        else:
+            raise AssertionError("duplicate curriculum id was not rejected")
+
+
+def _test_curriculum_quality() -> None:
+    """Validate every record has non-empty string fields and a non-empty tag list."""
+    records = read_curriculum(curriculum_paths())
+    for record in records:
+        for field in ("id", "shell", "user", "assistant"):
+            value = record.get(field)
+            if not isinstance(value, str) or not value.strip():
+                raise AssertionError(f"record {record.get('id')!r} has empty or invalid {field}")
+        tags = record.get("tags")
+        if not isinstance(tags, list) or not tags or not all(isinstance(tag, str) and tag.strip() for tag in tags):
+            raise AssertionError(f"record {record.get('id')!r} has missing or invalid tags")
+
+
+def _test_empty_curriculum_rejection() -> None:
+    """Confirm empty curriculum discovery is rejected before any training can begin."""
+    try:
+        read_curriculum([])
+    except ValueError as error:
+        if "at least 30" not in str(error).lower():
+            raise AssertionError("empty curriculum was rejected for the wrong reason")
+    else:
+        raise AssertionError("empty curriculum was not rejected")
+
+
 def main() -> int:
     torch.manual_seed(11)
+    _test_corpus_unicity()
+    _test_curriculum_quality()
+    _test_empty_curriculum_rejection()
     with tempfile.TemporaryDirectory(prefix="ascension-product-smoke-") as directory:
         root = Path(directory)
         prefix = "tiny_base"
         corpus_path = root / "product.txt"
         manifest = build_corpus(corpus_path, product_repeats=1, general_replay_ratio=0)
-        if manifest["example_count"] < 30 or manifest["contains_private_user_data"]:
+        if (
+            not isinstance(manifest["curriculum"], list)
+            or len(manifest["curriculum"]) < 2
+            or manifest["example_count"] < 30
+            or manifest["contains_private_user_data"]
+        ):
             raise AssertionError("product corpus provenance contract failed")
 
         tokenizer = Tokenizer(BPE(unk_token="<unk>"))
