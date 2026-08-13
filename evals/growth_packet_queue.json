@@ -38,14 +38,16 @@
     {
       "id": "GROW-004",
       "focus": "Choose relevant connected context and suppress robotic context inventories",
-      "status": "training",
+      "status": "runtime_layer_required",
       "curriculum": "evals/training/ascension_product_v15_scoped_context.jsonl",
-      "blocked_by": "Two candidates will train from the last proven 6/6 + 8/8 parent; automatic gates and human review remain mandatory."
+      "blocked_by": "Both scoped-context candidates and both full-corpus rehearsal candidates retained 6/6 canonical conversation but regressed receipt truth to 4/8. Failed adapters were rejected; scoped-context improvements remain governed by the runtime layer until a non-regressing method is proven."
     },
     {
       "id": "GROW-005",
       "focus": "Ask only missing questions that materially change a plan",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v16_missing_variables.jsonl",
+      "blocked_by": "Training is paired with the proven receipt-boundary curriculum and remains subject to automatic canonical and receipt gates plus human review."
     },
     {
       "id": "GROW-006",
