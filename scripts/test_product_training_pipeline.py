@@ -26,7 +26,9 @@ from scripts.train_ascension_product_v6 import (
     initialize_model,
     load_base,
     save_checkpoint,
+    validate_continuation_gate,
 )
+from scripts.evaluate_native_checkpoint import RUNTIME_ARCHITECTURE, RUNTIME_TOKENIZER_CONTRACT
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
@@ -85,11 +87,46 @@ def _test_empty_curriculum_rejection() -> None:
         raise AssertionError("empty curriculum was not rejected")
 
 
+def _test_continuation_gate() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        gate_path = Path(directory) / "gate.json"
+        gate_path.write_text(json.dumps({
+            "version": "causal_v7",
+            "automatic_gate_passed": True,
+            "recommended_next_initialization": "resume",
+        }), encoding="utf-8")
+        initialization, receipt = validate_continuation_gate(gate_path, "causal_v7", True, None)
+        if initialization != "resume" or len(receipt["sha256"]) != 64:
+            raise AssertionError("valid continuation gate did not produce a bound receipt")
+        for label, base, reviewed, requested in (
+            ("wrong base", "other", True, None),
+            ("missing human review", "causal_v7", False, None),
+            ("conflicting initialization", "causal_v7", True, "transplant"),
+        ):
+            try:
+                validate_continuation_gate(gate_path, base, reviewed, requested)
+            except ValueError:
+                continue
+            raise AssertionError(f"continuation gate failed open for {label}")
+        gate_path.write_text(json.dumps({
+            "version": "causal_v7",
+            "automatic_gate_passed": False,
+            "recommended_next_initialization": "continue_or_retrain",
+        }), encoding="utf-8")
+        try:
+            validate_continuation_gate(gate_path, "causal_v7", True, None)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("continuation gate accepted a base that failed automatic evaluation")
+
+
 def main() -> int:
     torch.manual_seed(11)
     _test_corpus_unicity()
     _test_curriculum_quality()
     _test_empty_curriculum_rejection()
+    _test_continuation_gate()
     with tempfile.TemporaryDirectory(prefix="ascension-product-smoke-") as directory:
         root = Path(directory)
         prefix = "tiny_base"
@@ -131,6 +168,8 @@ def main() -> int:
             "tokenizer_path": str(tokenizer_path),
             "config": config.__dict__,
             "final_loss": None,
+            "architecture": RUNTIME_ARCHITECTURE,
+            "tokenizer_contract": RUNTIME_TOKENIZER_CONTRACT,
         }), encoding="utf-8")
 
         checkpoint, meta, loaded_tokenizer = load_base(root, prefix)

@@ -60,20 +60,23 @@ Before continuing a completed v5 checkpoint, run its gate. The gate records
 held-out loss and reviewable samples; it never promotes a model by itself.
 
 ```bash
-python -u scripts/evaluate_v5_checkpoint.py --version ascension_elite_general_v5_4h
+python -u scripts/evaluate_native_checkpoint.py \
+  --version ascension_causal_general_v7 \
+  --output evals/results/v7_checkpoint_gate.json
 ```
 
 Then build the reviewed, de-identified Ascension product corpus and continue
-with the initialization selected by the gate. `transplant` preserves learned
-token, feed-forward, normalization, and output weights while reinitializing the
-attention layers that were trained before causal-attention v2.
+with the initialization selected by that exact gate receipt. A causal v2 base
+that passes the gate normally resumes all learned weights. `transplant` is only
+valid when the receipt explicitly recommends replacing incompatible attention.
 
 ```bash
 python -u scripts/build_ascension_product_corpus.py
 python -u scripts/train_ascension_product_v6.py \
-  --base-version ascension_elite_general_v5_4h \
-  --version ascension_product_v6 \
-  --initialization transplant \
+  --base-version ascension_causal_general_v7 \
+  --version ascension_product_v8 \
+  --gate-result evals/results/v7_checkpoint_gate.json \
+  --human-review-approved \
   --steps 20000
 ```
 

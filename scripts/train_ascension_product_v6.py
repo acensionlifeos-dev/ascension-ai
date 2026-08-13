@@ -8,6 +8,7 @@ promotion separate from training.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import random
 import shutil
@@ -23,6 +24,7 @@ from tokenizers import Tokenizer
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.build_ascension_product_corpus import ROOT, build_corpus
+from scripts.evaluate_native_checkpoint import RUNTIME_ARCHITECTURE, RUNTIME_TOKENIZER_CONTRACT
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
@@ -44,7 +46,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train Ascension Product v6")
     parser.add_argument("--base-version", default="ascension_elite_general_v5_4h")
     parser.add_argument("--version", default="ascension_product_v6")
-    parser.add_argument("--initialization", choices=("resume", "transplant", "fresh"), default="transplant")
+    parser.add_argument("--initialization", choices=("resume", "transplant", "fresh"))
+    parser.add_argument("--gate-result", help="JSON receipt produced by evaluate_native_checkpoint.py")
+    parser.add_argument(
+        "--human-review-approved",
+        action="store_true",
+        help="confirm that the held-out generations in the gate receipt were reviewed",
+    )
     parser.add_argument("--steps", type=int, default=20000)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--learning-rate", type=float, default=2e-5)
@@ -78,9 +86,48 @@ def load_base(checkpoint_dir: Path, version: str) -> tuple[dict, dict, Path]:
         if not path.is_file():
             raise FileNotFoundError(f"required base artifact is missing: {path}")
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    if meta.get("architecture") != RUNTIME_ARCHITECTURE:
+        raise ValueError("base checkpoint does not declare the causal attention v2 architecture")
+    if meta.get("tokenizer_contract") != RUNTIME_TOKENIZER_CONTRACT:
+        raise ValueError("base checkpoint does not declare the reversible byte-level BPE tokenizer contract")
     with torch.serialization.safe_globals([ModelConfig]):
         checkpoint = torch.load(model_path, map_location="cpu", weights_only=True)
     return checkpoint, meta, tokenizer_path
+
+
+def validate_continuation_gate(
+    gate_path: Path,
+    base_version: str,
+    human_review_approved: bool,
+    requested_initialization: str | None,
+) -> tuple[str, dict]:
+    """Bind product continuation to the reviewed evaluator evidence for its exact base."""
+    if not gate_path.is_file():
+        raise FileNotFoundError(f"continuation gate receipt is missing: {gate_path}")
+    raw = gate_path.read_bytes()
+    gate = json.loads(raw.decode("utf-8"))
+    if gate.get("version") != base_version:
+        raise ValueError("continuation gate version does not match the requested base checkpoint")
+    if not gate.get("automatic_gate_passed"):
+        raise ValueError("base checkpoint has not passed the automatic continuation gate")
+    if not human_review_approved:
+        raise ValueError("held-out generations require human review before product continuation")
+    recommended = gate.get("recommended_next_initialization")
+    if recommended not in {"resume", "transplant", "fresh"}:
+        raise ValueError(f"continuation gate returned an unsupported initialization: {recommended!r}")
+    if requested_initialization and requested_initialization != recommended:
+        raise ValueError(
+            f"requested initialization {requested_initialization!r} conflicts with gate recommendation {recommended!r}"
+        )
+    receipt = {
+        "path": str(gate_path),
+        "sha256": hashlib.sha256(raw).hexdigest(),
+        "base_version": base_version,
+        "automatic_gate_passed": True,
+        "human_review_approved": True,
+        "recommended_initialization": recommended,
+    }
+    return recommended, receipt
 
 
 def initialize_model(config: ModelConfig, checkpoint: dict, strategy: str) -> tuple[AscensionTransformer, dict]:
@@ -118,6 +165,23 @@ def main() -> int:
         args.product_repeats = 1
         args.general_replay_ratio = 0.0
 
+    if args.smoke:
+        args.initialization = args.initialization or "transplant"
+        continuation_gate = {
+            "mode": "smoke_test_only",
+            "automatic_gate_passed": False,
+            "human_review_approved": False,
+        }
+    else:
+        if not args.gate_result:
+            raise ValueError("--gate-result is required for a non-smoke product continuation")
+        args.initialization, continuation_gate = validate_continuation_gate(
+            ROOT / args.gate_result,
+            args.base_version,
+            args.human_review_approved,
+            args.initialization,
+        )
+
     base_checkpoint, base_meta, base_tokenizer_path = load_base(checkpoint_dir, args.base_version)
     config = ModelConfig(**base_meta["config"])
     if config.max_length < 64:
@@ -131,6 +195,9 @@ def main() -> int:
         general_path=ROOT / "data" / "general_corpus_v5.txt",
     )
     tokenizer = Tokenizer.from_file(str(base_tokenizer_path))
+    roundtrip_probe = "AP understands night-shift context, punctuation, and natural spacing."
+    if tokenizer.decode(tokenizer.encode(roundtrip_probe).ids) != roundtrip_probe:
+        raise ValueError("base tokenizer failed the exact reversible-text contract")
     token_ids = tokenizer.encode(corpus_path.read_text(encoding="utf-8")).ids
     if tokenizer.get_vocab_size() != config.vocab_size:
         raise ValueError("base tokenizer vocabulary does not match the model checkpoint")
@@ -156,13 +223,24 @@ def main() -> int:
     total_loss = 0.0
     best_window_loss = float("inf")
     windows: list[float] = []
+    window_loss = 0.0
     if args.resume_latest:
         if not latest_path.is_file():
             raise FileNotFoundError(f"resume requested but recovery checkpoint is missing: {latest_path}")
         with torch.serialization.safe_globals([ModelConfig]):
             recovery = torch.load(latest_path, map_location=device, weights_only=True)
+        if recovery.get("version") != args.version:
+            raise ValueError("recovery checkpoint output version does not match this run")
         if recovery.get("base_version") != args.base_version:
             raise ValueError("recovery checkpoint base version does not match this run")
+        if int(recovery.get("total_steps", 0)) != args.steps:
+            raise ValueError("recovery checkpoint step budget does not match this run")
+        if recovery.get("initialization") != initialization:
+            raise ValueError("recovery checkpoint initialization does not match the reviewed gate")
+        if recovery.get("continuation_gate", {}).get("sha256") != continuation_gate.get("sha256"):
+            raise ValueError("recovery checkpoint continuation gate does not match this run")
+        if recovery.get("corpus_manifest") != manifest:
+            raise ValueError("recovery checkpoint corpus manifest does not match this run")
         model.load_state_dict(recovery["model_state_dict"], strict=True)
         optimizer.load_state_dict(recovery["optimizer_state_dict"])
         scheduler.load_state_dict(recovery["scheduler_state_dict"])
@@ -170,6 +248,7 @@ def main() -> int:
         total_loss = float(recovery.get("total_loss", 0.0))
         best_window_loss = float(recovery.get("best_window_loss", float("inf")))
         windows = list(recovery.get("window_losses", []))
+        window_loss = float(recovery.get("window_loss", 0.0))
 
     log_file = log_path.open("a", encoding="utf-8", buffering=1)
 
@@ -190,12 +269,12 @@ def main() -> int:
         "total_steps": args.steps,
         "initialization": initialization,
         "corpus_manifest": manifest,
+        "continuation_gate": continuation_gate,
         "promotion_status": "not_evaluated",
     })
 
     model.train()
     step = start_step
-    window_loss = 0.0
     iterator = iter(dataloader)
     while step < args.steps:
         try:
@@ -236,21 +315,27 @@ def main() -> int:
                 "elapsed_seconds": round(time.perf_counter() - started, 2),
                 "initialization": initialization,
                 "corpus_manifest": manifest,
+                "continuation_gate": continuation_gate,
                 "promotion_status": "not_evaluated",
             })
 
         if step % args.save_every == 0 and step < args.steps:
             save_checkpoint(latest_path, {
+                "version": args.version,
                 "model_state_dict": model.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
                 "scheduler_state_dict": scheduler.state_dict(),
                 "config": config,
                 "step": step,
+                "total_steps": args.steps,
                 "total_loss": total_loss,
+                "window_loss": window_loss,
                 "best_window_loss": best_window_loss,
                 "window_losses": windows,
                 "base_version": args.base_version,
                 "initialization": initialization,
+                "continuation_gate": continuation_gate,
+                "corpus_manifest": manifest,
             })
             log(f"Recovery checkpoint saved at step {step}")
 
@@ -261,8 +346,11 @@ def main() -> int:
         "optimizer_state_dict": optimizer.state_dict(),
         "config": config,
         "losses": windows,
+        "step": step,
         "base_version": args.base_version,
         "initialization": initialization,
+        "continuation_gate": continuation_gate,
+        "corpus_manifest": manifest,
     })
     write_json(meta_path, {
         "model_path": str(model_path),
@@ -270,13 +358,15 @@ def main() -> int:
         "config": config.__dict__,
         "base_version": args.base_version,
         "initialization": initialization,
-        "architecture": "causal_attention_v2",
+        "architecture": RUNTIME_ARCHITECTURE,
+        "tokenizer_contract": RUNTIME_TOKENIZER_CONTRACT,
         "final_loss": final_loss,
         "best_loss": best_window_loss,
         "train_seconds": elapsed,
         "device": device,
         "num_steps": args.steps,
         "corpus_manifest": manifest,
+        "continuation_gate": continuation_gate,
         "promotion_status": "not_evaluated",
     })
     write_json(status_path, {
@@ -289,6 +379,7 @@ def main() -> int:
         "best_loss": round(best_window_loss, 4),
         "elapsed_seconds": round(elapsed, 2),
         "initialization": initialization,
+        "continuation_gate": continuation_gate,
         "promotion_status": "not_evaluated",
     })
     latest_path.unlink(missing_ok=True)
