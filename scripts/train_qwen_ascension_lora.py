@@ -103,21 +103,19 @@ def encode_record(tokenizer: Any, record: dict[str, Any], max_length: int) -> di
         {"role": "system", "content": SYSTEM_PROMPTS[record["shell"]]},
         {"role": "user", "content": str(record["user"])},
     ]
-    full_messages = prefix_messages + [{"role": "assistant", "content": str(record["assistant"])}]
-    prefix_ids = apply_chat_template(
-        tokenizer, prefix_messages, tokenize=True, add_generation_prompt=True
+    # Build the exact inference prefix first.  Some Qwen templates render the
+    # assistant header/thinking marker differently once an assistant message is
+    # already present, so separately templating a completed conversation can
+    # make the intended loss boundary ambiguous.
+    prompt_text = apply_chat_template(
+        tokenizer, prefix_messages, tokenize=False, add_generation_prompt=True
     )
-    full_ids = apply_chat_template(
-        tokenizer, full_messages, tokenize=True, add_generation_prompt=False
-    )
+    answer_text = str(record["assistant"]).strip() + (tokenizer.eos_token or "")
+    prefix_ids = tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
+    full_ids = tokenizer(prompt_text + answer_text, add_special_tokens=False)["input_ids"]
     prefix_length = len(prefix_ids)
     if full_ids[:prefix_length] != prefix_ids:
-        common = 0
-        for left, right in zip(prefix_ids, full_ids):
-            if left != right:
-                break
-            common += 1
-        prefix_length = common
+        raise ValueError(f"tokenizer changed the verified prompt prefix for {record['id']}")
     if prefix_length == 0 or prefix_length >= len(full_ids):
         raise ValueError(f"could not isolate assistant target for {record['id']}")
     if len(full_ids) > max_length:
