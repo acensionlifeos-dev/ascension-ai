@@ -49,9 +49,10 @@ def test_high_risk_payment_requires_explicit_confirmation_and_receipts() -> None
     assert "amount" in payment["receipt_fields"]
     assert "destination" in payment["receipt_fields"]
     missing = {q["variable"] for q in contract["missing_variable_questions"]}
-    assert "amount" in missing
-    assert "destination" in missing
+    assert "amount" not in missing
+    assert "destination" not in missing
     assert "funding source" in missing
+    assert "explicit final confirmation" in missing
     assert contract["execution_receipt"]["receipt_rule"].startswith("No save")
 
 
@@ -93,7 +94,20 @@ def test_abstention_with_safe_next_step_for_chat() -> None:
     contract = build_action_execution_contract(cognitive, Shell.AP)
     assert contract["explicit_abstention"]["abstain"] is True
     assert contract["explicit_abstention"]["reason"] is not None
-    assert "clarification" in (contract["explicit_abstention"]["safe_next_step"] or "").lower()
+    assert "conversation naturally" in (contract["explicit_abstention"]["safe_next_step"] or "").lower()
+
+
+def test_nexus_home_adult_action_does_not_invent_guardian_authority() -> None:
+    cognitive = build_cognitive_packet(
+        "Pay my landlord $50 from checking",
+        {},
+        ["finance"],
+        ["finance.payment"],
+    )
+    contract = build_action_execution_contract(cognitive, Shell.NEXUS_HOME)
+    assert contract["permission_approval_gate"]["gate"] == "explicit_confirmation"
+    assert contract["permission_approval_gate"]["requires_guardian"] is False
+    assert contract["child_safe_guardian_boundaries"]["guardian_approval_required"] is False
 
 
 def test_surface_plan_includes_execution_contract() -> None:

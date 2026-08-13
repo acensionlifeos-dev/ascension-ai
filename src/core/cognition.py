@@ -208,7 +208,8 @@ def _proposal(action: str, reason: str, arguments: dict | None = None, missing: 
 
 
 def propose_actions(text: str, memory_candidates: list[dict], available_actions: list[str] | None = None) -> list[dict]:
-    lowered = str(text or "").lower()
+    source = str(text or "")
+    lowered = source.lower()
     proposals: list[dict] = []
     schedule = next((item for item in memory_candidates if item.get("type") == "recurring_schedule"), None)
     if schedule:
@@ -242,7 +243,15 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
         proposals.append(_proposal("messages.send", "External communication requires the user to approve the exact recipient and content.", missing=["recipient", "final content", "connected provider"]))
     if re.search(r"\b(?:pay|purchase|buy|transfer money)\b", lowered):
-        proposals.append(_proposal("finance.payment", "A financial transaction is high consequence and cannot execute silently.", missing=["amount", "destination", "funding source", "explicit final confirmation"]))
+        payment_missing = []
+        if not re.search(r"(?:\$|usd\s*)\s*\d+(?:[,.]\d{1,2})?\b", source, re.I):
+            payment_missing.append("amount")
+        if not re.search(r"\b(?:pay|send|transfer(?:\s+money)?)\s+(?:my\s+)?[A-Za-z][A-Za-z0-9&'. -]{1,60}?(?=\s+(?:\$|usd\s*\d)|\s+from\b|\s+using\b|$)", source, re.I):
+            payment_missing.append("destination")
+        if not re.search(r"\b(?:checking|savings|card|account|wallet|cash balance)\b", lowered):
+            payment_missing.append("funding source")
+        payment_missing.append("explicit final confirmation")
+        proposals.append(_proposal("finance.payment", "A financial transaction is high consequence and cannot execute silently.", missing=payment_missing))
 
     allowed = set(available_actions or [])
     if allowed:
@@ -287,6 +296,11 @@ def build_cognitive_packet(text: str, context: dict, allowed_capabilities: list[
     surfaces.extend(proposal["surface"] for proposal in actions)
     return {
         "domains": domains,
+        "subject_scope": (
+            "child"
+            if re.search(r"\b(?:child|children|kid|kids|toddler|minor|son|daughter|sprout)\b", str(text or ""), re.I)
+            else "adult_or_unspecified"
+        ),
         "talents": active_talents(domains),
         "retrieval": retrieval,
         "memory_candidates": memories,
@@ -361,24 +375,19 @@ def _missing_question(variable: str) -> str:
     return MISSING_QUESTIONS.get(variable, f"Please provide the {variable}.")
 
 
-def _guardian_required(action: dict, shell: Shell | None, domains: list[str]) -> bool:
+def _guardian_required(action: dict, shell: Shell | None, domains: list[str], subject_scope: str) -> bool:
     if shell is None:
         return False
-    if action.get("domain") == "sprout" or "sprout" in domains:
-        return True
-    if shell in {Shell.NEXUS_HOME, Shell.NEXUS_FAMILY}:
-        if action.get("domain") in {"home", "family"} or action.get("risk") in {"high", "critical"}:
-            return True
-    return False
+    return subject_scope == "child" or action.get("domain") == "sprout" or "sprout" in domains
 
 
-def _action_contract(action: dict, shell: Shell | None, domains: list[str]) -> dict:
+def _action_contract(action: dict, shell: Shell | None, domains: list[str], subject_scope: str) -> dict:
     action_id = str(action.get("action", ""))
     missing = list(action.get("missing_variables") or [])
     return {
         **action,
         "receipt_fields": RECEIPT_FIELDS.get(action_id, ["memory_receipt"]),
-        "guardian_required": _guardian_required(action, shell, domains),
+        "guardian_required": _guardian_required(action, shell, domains, subject_scope),
         "missing_questions": [
             {"variable": variable, "question": _missing_question(variable), "present_in_context": False}
             for variable in missing
@@ -411,8 +420,9 @@ def build_action_execution_contract(cognitive: dict, shell: Shell | None = None)
     actions = list(cognitive.get("action_proposals") or [])
     memories = list(cognitive.get("memory_candidates") or [])
     domains = list(cognitive.get("domains") or [])
+    subject_scope = str(cognitive.get("subject_scope") or "adult_or_unspecified")
 
-    contracted_actions = [_action_contract(action, shell, domains) for action in actions]
+    contracted_actions = [_action_contract(action, shell, domains, subject_scope) for action in actions]
     memory_signals = [_memory_signal(candidate, shell, domains) for candidate in memories]
 
     risk_tier = _risk_tier(actions)
@@ -424,6 +434,10 @@ def build_action_execution_contract(cognitive: dict, shell: Shell | None = None)
         permission_gate = "guardian_confirmation"
     elif any_explicit:
         permission_gate = "explicit_confirmation"
+    elif any(action.get("approval") == "safe_read" for action in actions):
+        permission_gate = "safe_read"
+    elif any(action.get("approval") == "safe_research" for action in actions):
+        permission_gate = "safe_research"
     elif actions:
         permission_gate = "safe_internal_auto"
     else:
@@ -495,7 +509,11 @@ def build_action_execution_contract(cognitive: dict, shell: Shell | None = None)
         "explicit_abstention": {
             "abstain": abstain,
             "reason": abstention_reason,
-            "safe_next_step": "Ask the user for clarification or the missing variables, and never pretend an action was executed." if abstain else None,
+            "safe_next_step": (
+                "Continue the conversation naturally without inventing an action."
+                if abstain and set(domains) & {"emotional", "identity"}
+                else "Ask only for a material missing variable, and never pretend an action was executed."
+            ) if abstain else None,
         },
         "authority": cognitive.get("authority", {}),
     }
