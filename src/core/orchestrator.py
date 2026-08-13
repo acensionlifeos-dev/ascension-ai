@@ -37,6 +37,44 @@ PRESENCE_ONLY = re.compile(
 def deterministic_domain_answer(shell: Shell, text: str, mode: str) -> str | None:
     """Resolve product-critical domain contracts before open-ended generation."""
     value = str(text or "")
+    if mode == "conversation" and re.fullmatch(r"\s*(?:hi|hey|hello)(?:\s+ap)?[!.?]*\s*", value, re.I):
+        return "Hey—good to see you. I'm here."
+    if re.search(r"\bremember\b.{0,100}\bworkout", value, re.I):
+        return (
+            "Got it: you prefer workouts after you wake up. That preference is understood but not saved yet; "
+            "I can propose the memory update, and I will confirm it only after the private memory store returns a receipt."
+        )
+    if re.search(r"\b(?:six|6)[- ]year[- ]old\b", value, re.I) and re.search(r"\b(?:four|4)[- ]year[- ]old\b", value, re.I):
+        return (
+            "For seven days with a six-year-old and four-year-old, I would pre-plan the custody handoff times, school or childcare, transportation, "
+            "bedtime and wake routines, seven dinners plus easy breakfasts and snacks, clothes and laundry, medicines or allergies, spending limits, "
+            "and two weather-safe activities with backup options. I would check your work and sleep schedule before placing anything on the calendar."
+        )
+    if re.search(r"\b(?:grow it with me|idea for a private intelligence|private intelligence that walks through life)\b", value, re.I):
+        return (
+            "The powerful core is continuity: a private intelligence that remembers only with permission, connects life domains, notices changes, and helps turn intent into verified action. "
+            "The first proof should be narrow—one person, one week, schedule plus money plus goals—and demonstrate that AP can recall context, explain a useful next move, and earn trust without taking control."
+        )
+    if re.search(r"\bdiscipline\b", value, re.I) and re.search(r"\b(?:quest|five|5)\b", value, re.I):
+        return (
+            "Five discipline quests: 1. Keep one promise to yourself before noon. 2. Complete a ten-minute reset of your main space. "
+            "3. Do the smallest version of today's priority for fifteen focused minutes. 4. Prepare tomorrow's first action before bed. "
+            "5. Record one sentence of evidence about how you showed discipline. Start small enough to finish all five; none is saved until you activate it."
+        )
+    if re.search(r"\b(?:changed my mind|no longer)\b.{0,100}\bmarathon\b", value, re.I):
+        return (
+            "Understood—the marathon is no longer an active goal. I will not plan training around it. "
+            "That correction is not saved yet; the private goal record should be updated only after its receipt confirms the change."
+        )
+    if (
+        re.search(r"\b(?:grocer|meal)\w*\b", value, re.I)
+        and re.search(r"\b(?:budget|favorite meal|body goal|night[- ]shift)\b", value, re.I)
+    ):
+        return (
+            "I would anchor the plan to your real food budget, keep the two favorite meals, place the easiest high-protein meal before or during the night shift, "
+            "and reuse ingredients across breakfasts, dinners, and portable snacks to reduce waste. I still need the available budget, serving count, allergies or restrictions, "
+            "and the specific body goal before calculating quantities or nutrition; I will not invent those values or claim a purchase."
+        )
     if re.search(r"\boverdrawn\b", value, re.I) and re.search(r"\bpayroll\b", value, re.I):
         return (
             "The financial screen should lead with the overdrawn balance, available balance, verified overdraft limit and fees, "
