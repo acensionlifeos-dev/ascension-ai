@@ -178,6 +178,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--model", default="Qwen/Qwen3-0.6B")
     parser.add_argument("--output-dir", default="checkpoints/qwen3_0_6b_grow001_adapter")
     parser.add_argument("--curriculum", default="evals/training/ascension_product_v*.jsonl")
+    parser.add_argument("--resume-adapter", default=None)
     parser.add_argument("--max-length", type=int, default=768)
     parser.add_argument("--epochs", type=float, default=4.0)
     parser.add_argument("--learning-rate", type=float, default=1.0e-4)
@@ -191,7 +192,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     import torch
-    from peft import LoraConfig, get_peft_model
+    from peft import LoraConfig, PeftModel, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, set_seed
 
     set_seed(args.seed)
@@ -214,20 +215,25 @@ def main(argv: list[str] | None = None) -> int:
         model.gradient_checkpointing_enable()
     if hasattr(model, "enable_input_require_grads"):
         model.enable_input_require_grads()
-    model = get_peft_model(
-        model,
-        LoraConfig(
-            r=16,
-            lora_alpha=32,
-            lora_dropout=0.05,
-            bias="none",
-            task_type="CAUSAL_LM",
-            target_modules=[
-                "q_proj", "k_proj", "v_proj", "o_proj",
-                "gate_proj", "up_proj", "down_proj",
-            ],
-        ),
-    )
+    if args.resume_adapter:
+        model = PeftModel.from_pretrained(
+            model, ROOT / args.resume_adapter, is_trainable=True
+        )
+    else:
+        model = get_peft_model(
+            model,
+            LoraConfig(
+                r=16,
+                lora_alpha=32,
+                lora_dropout=0.05,
+                bias="none",
+                task_type="CAUSAL_LM",
+                target_modules=[
+                    "q_proj", "k_proj", "v_proj", "o_proj",
+                    "gate_proj", "up_proj", "down_proj",
+                ],
+            ),
+        )
 
     output_dir = ROOT / args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -268,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
             "status": "trained_not_promoted",
             "base_model": args.model,
             "adapter_dir": output_dir.relative_to(ROOT).as_posix(),
+            "resumed_from_adapter": args.resume_adapter,
             "curriculum": curriculum,
             "train_records": len(train_rows),
             "eval_records": len(eval_rows),
