@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -11,9 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.evaluate_native_checkpoint import (
     RUNTIME_ARCHITECTURE,
     RUNTIME_TOKENIZER_CONTRACT,
+    checkpoint_artifact_evidence,
     checkpoint_metadata_compatible,
     evaluate_response,
     held_out_loss_gate,
+    generate_evaluation_samples,
     quality_signals,
     _recommended_initialization,
 )
@@ -70,6 +73,43 @@ def test_checkpoint_metadata_incompatible_loaded_tokenizer_fails_closed():
     assert result["tokenizer_is_hfbpe"] is False
     assert result["tokenizer_model_is_bpe"] is False
     assert result["tokenizer_pass"] is False
+
+
+def test_checkpoint_artifact_evidence_hashes_exact_bytes():
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        version = "causal_v7"
+        model = root / f"{version}.pt"
+        metadata = root / f"{version}_meta.json"
+        tokenizer = root / f"{version}_tokenizer.json"
+        model.write_bytes(b"model-bytes")
+        metadata.write_bytes(b"metadata-bytes")
+        tokenizer.write_bytes(b"tokenizer-bytes")
+        evidence = checkpoint_artifact_evidence(root, version, tokenizer)
+        assert evidence["model"]["filename"] == model.name
+        assert evidence["model"]["bytes"] == len(b"model-bytes")
+        assert len(evidence["model"]["sha256"]) == 64
+        original = evidence["model"]["sha256"]
+        model.write_bytes(b"changed-model-bytes")
+        changed = checkpoint_artifact_evidence(root, version, tokenizer)
+        assert changed["model"]["sha256"] != original
+
+
+def test_generation_failures_preserve_expected_sample_count():
+    class SometimesFailingInference:
+        def generate(self, prompt, **_kwargs):
+            if prompt == "second":
+                raise RuntimeError("synthetic generation failure")
+            return "A natural response with enough distinct words."
+
+    samples, errors = generate_evaluation_samples(
+        SometimesFailingInference(), ("first", "second", "third"), 16
+    )
+    assert len(samples) == 3
+    assert len(errors) == 1
+    assert errors[0]["prompt_index"] == 1
+    assert samples[1]["structural_pass"] is False
+    assert "RuntimeError" in samples[1]["generation_error"]
 
 
 def test_spaced_assistant_letters():

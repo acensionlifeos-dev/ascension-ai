@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -242,6 +243,45 @@ def checkpoint_metadata_compatible(meta: dict, tokenizer) -> dict:
     }
 
 
+def _artifact_record(path: Path) -> dict:
+    """Return stable evidence for the exact local artifact bytes."""
+    if not path.is_file():
+        raise FileNotFoundError(f"checkpoint artifact is missing: {path}")
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return {"filename": path.name, "bytes": path.stat().st_size, "sha256": digest.hexdigest()}
+
+
+def checkpoint_artifact_evidence(checkpoint_root: Path, version: str, tokenizer_path: Path) -> dict:
+    """Bind an evaluation receipt to its model, metadata, and loaded tokenizer bytes."""
+    return {
+        "model": _artifact_record(checkpoint_root / f"{version}.pt"),
+        "metadata": _artifact_record(checkpoint_root / f"{version}_meta.json"),
+        "tokenizer": _artifact_record(tokenizer_path),
+    }
+
+
+def generate_evaluation_samples(inference, prompts: tuple[str, ...], tokens: int) -> tuple[list[dict], list[dict]]:
+    """Generate every required sample and retain explicit evidence for individual failures."""
+    import torch
+
+    samples = []
+    errors = []
+    for index, prompt in enumerate(prompts):
+        torch.manual_seed(100 + index)
+        try:
+            generated = inference.generate(prompt, max_new_tokens=tokens, temperature=0.35, top_k=5)
+            samples.append(evaluate_text(prompt, generated))
+        except Exception as error:
+            failure = evaluate_text(prompt, "")
+            failure["generation_error"] = f"{type(error).__name__}: {error}"
+            samples.append(failure)
+            errors.append({"prompt_index": index, "error": failure["generation_error"]})
+    return samples, errors
+
+
 def _recommended_initialization(
     architecture_pass: bool,
     tokenizer_roundtrip_pass: bool,
@@ -267,6 +307,9 @@ def main(argv: list[str] | None = None) -> int:
     from src.architecture.inference import EliteInference
 
     inference = EliteInference(ROOT / "checkpoints", prefix=args.version)
+    artifact_evidence = checkpoint_artifact_evidence(
+        ROOT / "checkpoints", args.version, inference.tokenizer_path
+    )
 
     meta_compat = checkpoint_metadata_compatible(inference.meta, inference.tokenizer)
     architecture_pass = meta_compat["architecture_pass"]
@@ -292,27 +335,23 @@ def main(argv: list[str] | None = None) -> int:
         held_out_gate["error"] = "tokenizer metadata incompatible or missing"
 
     samples = []
+    generation_errors = []
     if tokenizer_metadata_pass and architecture_pass:
-        import torch
-        for index, prompt in enumerate(DEFAULT_PROMPTS):
-            torch.manual_seed(100 + index)
-            generated = inference.generate(
-                prompt,
-                max_new_tokens=args.tokens,
-                temperature=0.35,
-                top_k=5,
-            )
-            samples.append(evaluate_text(prompt, generated))
+        samples, generation_errors = generate_evaluation_samples(inference, DEFAULT_PROMPTS, args.tokens)
 
     structural_passes = sum(sample["structural_pass"] for sample in samples)
     semantic_passes = sum(sample["semantic_pass"] for sample in samples)
+    expected_sample_count = len(DEFAULT_PROMPTS)
+    sample_count_pass = len(samples) == expected_sample_count
 
     automatic_gate_passed = (
         architecture_pass
         and tokenizer_metadata_pass
         and roundtrip["roundtrip_pass"]
-        and structural_passes == len(samples)
-        and semantic_passes == len(samples)
+        and sample_count_pass
+        and not generation_errors
+        and structural_passes == expected_sample_count
+        and semantic_passes == expected_sample_count
         and held_out_gate["pass"]
     )
 
@@ -325,6 +364,7 @@ def main(argv: list[str] | None = None) -> int:
     result = {
         "version": args.version,
         "evaluation_prompt_provenance": "held_out_paraphrases_v2",
+        "checkpoint_artifacts": artifact_evidence,
         "checkpoint_metadata": {
             "architecture": meta_compat["checkpoint_architecture"],
             "architecture_missing": meta_compat["architecture_missing"],
@@ -348,6 +388,9 @@ def main(argv: list[str] | None = None) -> int:
         "structural_passes": structural_passes,
         "semantic_passes": semantic_passes,
         "sample_count": len(samples),
+        "expected_sample_count": expected_sample_count,
+        "sample_count_pass": sample_count_pass,
+        "generation_errors": generation_errors,
         "automatic_gate_passed": automatic_gate_passed,
         "recommended_next_initialization": recommended_initialization,
         "human_review_required": True,
