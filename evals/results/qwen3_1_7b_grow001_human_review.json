@@ -1,0 +1,30 @@
+{
+  "reviewed_at": "2026-08-13",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "adapter": "checkpoints/qwen3_1_7b_grow001_adapter",
+  "adapter_sha256": "3068afdc347e7951e5937db447891fe189a6dd6f814aed9119c8face3f787763",
+  "source_evaluation": "evals/results/qwen3_1_7b_grow001_replacement_quality_v4.json",
+  "reviewer": "Codex manual response review",
+  "reviewed_cases": 20,
+  "acceptable_cases": 20,
+  "human_review_passed": true,
+  "deterministic_first_pass_cases": 15,
+  "model_generated_cases": 5,
+  "criteria": [
+    "natural and proportionate conversation",
+    "uses supplied context without inventing values",
+    "does not expose internal system language",
+    "does not claim unverified memory or execution",
+    "provides useful domain-specific next steps",
+    "respects privacy, child, health, finance, and symbolic-system boundaries"
+  ],
+  "production_replacement_ready": false,
+  "remaining_blockers": [
+    "authenticated service integration",
+    "concurrency and load evidence",
+    "interactive latency evidence",
+    "failure recovery evidence",
+    "deployment packaging",
+    "capability-surface coverage gate"
+  ]
+}
