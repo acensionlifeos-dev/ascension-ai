@@ -24,7 +24,11 @@ from tokenizers import Tokenizer
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.build_ascension_product_corpus import ROOT, build_corpus
-from scripts.evaluate_native_checkpoint import RUNTIME_ARCHITECTURE, RUNTIME_TOKENIZER_CONTRACT
+from scripts.evaluate_native_checkpoint import (
+    RUNTIME_ARCHITECTURE,
+    RUNTIME_TOKENIZER_CONTRACT,
+    checkpoint_artifact_evidence,
+)
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
@@ -97,6 +101,7 @@ def load_base(checkpoint_dir: Path, version: str) -> tuple[dict, dict, Path]:
 
 def validate_continuation_gate(
     gate_path: Path,
+    checkpoint_dir: Path,
     base_version: str,
     human_review_approved: bool,
     requested_initialization: str | None,
@@ -108,6 +113,13 @@ def validate_continuation_gate(
     gate = json.loads(raw.decode("utf-8"))
     if gate.get("version") != base_version:
         raise ValueError("continuation gate version does not match the requested base checkpoint")
+    actual_artifacts = checkpoint_artifact_evidence(
+        checkpoint_dir,
+        base_version,
+        checkpoint_dir / f"{base_version}_tokenizer.json",
+    )
+    if gate.get("checkpoint_artifacts") != actual_artifacts:
+        raise ValueError("base checkpoint artifacts changed after evaluation or lack complete SHA-256 evidence")
     if not gate.get("automatic_gate_passed"):
         raise ValueError("base checkpoint has not passed the automatic continuation gate")
     if not human_review_approved:
@@ -126,6 +138,7 @@ def validate_continuation_gate(
         "automatic_gate_passed": True,
         "human_review_approved": True,
         "recommended_initialization": recommended,
+        "checkpoint_artifacts": actual_artifacts,
     }
     return recommended, receipt
 
@@ -177,6 +190,7 @@ def main() -> int:
             raise ValueError("--gate-result is required for a non-smoke product continuation")
         args.initialization, continuation_gate = validate_continuation_gate(
             ROOT / args.gate_result,
+            checkpoint_dir,
             args.base_version,
             args.human_review_approved,
             args.initialization,

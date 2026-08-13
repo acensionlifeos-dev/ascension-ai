@@ -28,7 +28,11 @@ from scripts.train_ascension_product_v6 import (
     save_checkpoint,
     validate_continuation_gate,
 )
-from scripts.evaluate_native_checkpoint import RUNTIME_ARCHITECTURE, RUNTIME_TOKENIZER_CONTRACT
+from scripts.evaluate_native_checkpoint import (
+    RUNTIME_ARCHITECTURE,
+    RUNTIME_TOKENIZER_CONTRACT,
+    checkpoint_artifact_evidence,
+)
 from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
@@ -89,13 +93,26 @@ def _test_empty_curriculum_rejection() -> None:
 
 def _test_continuation_gate() -> None:
     with tempfile.TemporaryDirectory() as directory:
-        gate_path = Path(directory) / "gate.json"
+        checkpoint_dir = Path(directory)
+        gate_path = checkpoint_dir / "gate.json"
+        for name, content in (
+            ("causal_v7.pt", b"model"),
+            ("causal_v7_meta.json", b"metadata"),
+            ("causal_v7_tokenizer.json", b"tokenizer"),
+        ):
+            (checkpoint_dir / name).write_bytes(content)
+        artifacts = checkpoint_artifact_evidence(
+            checkpoint_dir, "causal_v7", checkpoint_dir / "causal_v7_tokenizer.json"
+        )
         gate_path.write_text(json.dumps({
             "version": "causal_v7",
             "automatic_gate_passed": True,
             "recommended_next_initialization": "resume",
+            "checkpoint_artifacts": artifacts,
         }), encoding="utf-8")
-        initialization, receipt = validate_continuation_gate(gate_path, "causal_v7", True, None)
+        initialization, receipt = validate_continuation_gate(
+            gate_path, checkpoint_dir, "causal_v7", True, None
+        )
         if initialization != "resume" or len(receipt["sha256"]) != 64:
             raise AssertionError("valid continuation gate did not produce a bound receipt")
         for label, base, reviewed, requested in (
@@ -104,7 +121,7 @@ def _test_continuation_gate() -> None:
             ("conflicting initialization", "causal_v7", True, "transplant"),
         ):
             try:
-                validate_continuation_gate(gate_path, base, reviewed, requested)
+                validate_continuation_gate(gate_path, checkpoint_dir, base, reviewed, requested)
             except ValueError:
                 continue
             raise AssertionError(f"continuation gate failed open for {label}")
@@ -112,13 +129,27 @@ def _test_continuation_gate() -> None:
             "version": "causal_v7",
             "automatic_gate_passed": False,
             "recommended_next_initialization": "continue_or_retrain",
+            "checkpoint_artifacts": artifacts,
         }), encoding="utf-8")
         try:
-            validate_continuation_gate(gate_path, "causal_v7", True, None)
+            validate_continuation_gate(gate_path, checkpoint_dir, "causal_v7", True, None)
         except ValueError:
             pass
         else:
             raise AssertionError("continuation gate accepted a base that failed automatic evaluation")
+        gate_path.write_text(json.dumps({
+            "version": "causal_v7",
+            "automatic_gate_passed": True,
+            "recommended_next_initialization": "resume",
+            "checkpoint_artifacts": artifacts,
+        }), encoding="utf-8")
+        (checkpoint_dir / "causal_v7.pt").write_bytes(b"mutated-model")
+        try:
+            validate_continuation_gate(gate_path, checkpoint_dir, "causal_v7", True, None)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("continuation gate accepted artifacts changed after evaluation")
 
 
 def main() -> int:
