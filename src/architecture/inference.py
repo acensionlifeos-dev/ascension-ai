@@ -119,7 +119,10 @@ class EliteInference:
                 if self._stop_token(next_id) and len(generated) > len(input_ids[0]):
                     break
 
-        return self._decode(generated)
+        # Return only the continuation. Re-decoding the input alongside newly
+        # sampled tokens made evaluation and chat surfaces falsely look like
+        # the model was echoing the user's entire prompt.
+        return self._decode(generated[len(input_ids[0]):])
 
     def status(self) -> dict:
         return {

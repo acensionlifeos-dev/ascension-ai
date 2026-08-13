@@ -25,13 +25,18 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 
 try:
-    from datasets import load_dataset
     from tokenizers import Tokenizer
     from tokenizers.models import BPE
-    from tokenizers.pre_tokenizers import Whitespace
+    from tokenizers.decoders import ByteLevel as ByteLevelDecoder
+    from tokenizers.pre_tokenizers import ByteLevel
     from tokenizers.trainers import BpeTrainer
 except ImportError as exc:
-    raise SystemExit("Missing 'datasets' or 'tokenizers' library. Run: pip install datasets tokenizers") from exc
+    raise SystemExit("Missing 'tokenizers' library. Run: pip install tokenizers") from exc
+
+try:
+    from datasets import load_dataset
+except ImportError:
+    load_dataset = None
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -45,6 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--vocab_size", type=int, default=8192, help="BPE vocab size")
     parser.add_argument("--print_every", type=int, default=5000, help="log interval")
     parser.add_argument("--batch_size", type=int, default=16, help="batch size")
+    parser.add_argument("--save_every", type=int, default=10000, help="recovery checkpoint interval")
     return parser.parse_args()
 
 
@@ -53,6 +59,9 @@ def load_corpus() -> str:
     if corpus_path.is_file():
         print(f"Loading local general corpus: {corpus_path}")
         return corpus_path.read_text(encoding="utf-8")
+
+    if load_dataset is None:
+        raise RuntimeError("Missing 'datasets' library and no local general corpus is available")
 
     print("Downloading wikitext-103-raw-v1 for general English training...")
     dataset = load_dataset("Salesforce/wikitext", "wikitext-103-raw-v1", split="train")
@@ -65,20 +74,37 @@ def load_corpus() -> str:
     return cleaned
 
 
-def build_bpe_tokenizer(corpus: str, vocab_size: int, prefix: str) -> Tokenizer:
-    tokenizer_path = Path(f"checkpoints/{prefix}_tokenizer.json")
+def validate_tokenizer_roundtrip(tokenizer: Tokenizer) -> None:
+    probe = "AP understands night-shift context, punctuation, and natural spacing."
+    decoded = tokenizer.decode(tokenizer.encode(probe).ids)
+    if decoded != probe:
+        raise ValueError(f"tokenizer round-trip failed: {decoded!r}")
+
+
+def build_bpe_tokenizer(
+    corpus: str,
+    vocab_size: int,
+    prefix: str,
+    output_dir: Path = Path("checkpoints"),
+) -> Tokenizer:
+    tokenizer_path = output_dir / f"{prefix}_tokenizer.json"
     if tokenizer_path.is_file():
         print(f"Loading existing BPE tokenizer: {tokenizer_path}")
-        return Tokenizer.from_file(str(tokenizer_path))
+        tokenizer = Tokenizer.from_file(str(tokenizer_path))
+        validate_tokenizer_roundtrip(tokenizer)
+        return tokenizer
 
     print(f"Training BPE tokenizer with vocab size {vocab_size}...")
     tokenizer = Tokenizer(BPE(unk_token="<unk>"))
-    tokenizer.pre_tokenizer = Whitespace()
+    tokenizer.pre_tokenizer = ByteLevel(add_prefix_space=False)
+    tokenizer.decoder = ByteLevelDecoder()
     trainer = BpeTrainer(
         vocab_size=vocab_size,
         special_tokens=["<pad>", "<unk>", "<s>", "</s>"],
+        initial_alphabet=ByteLevel.alphabet(),
     )
     tokenizer.train_from_iterator([corpus], trainer=trainer)
+    validate_tokenizer_roundtrip(tokenizer)
     tokenizer_path.parent.mkdir(parents=True, exist_ok=True)
     tokenizer.save(str(tokenizer_path))
     print(f"Saved BPE tokenizer: {tokenizer_path}")
@@ -235,6 +261,18 @@ def main():
                 })
                 window_loss = 0.0
 
+            if args.save_every > 0 and step % args.save_every == 0 and step < num_steps:
+                recovery_path = out_dir / f"{prefix}_recovery.pt"
+                with torch.serialization.safe_globals([ModelConfig]):
+                    torch.save({
+                        "model_state_dict": model.state_dict(),
+                        "optimizer_state_dict": optimizer.state_dict(),
+                        "config": config,
+                        "losses": losses,
+                        "step": step,
+                    }, recovery_path)
+                log(f"Recovery checkpoint saved at step {step}")
+
         # The configured step budget can end in the middle of a very large
         # dataloader epoch. Never divide that partial work by the full loader.
         if step >= num_steps:
@@ -264,6 +302,8 @@ def main():
             "num_steps": num_steps,
             "corpus_chars": len(corpus),
             "corpus_tokens": len(token_ids),
+            "architecture": "causal_attention_v2",
+            "tokenizer_contract": "byte_level_bpe_roundtrip_v1",
         }, f, ensure_ascii=False, indent=2)
 
     write_status(status_path, {
