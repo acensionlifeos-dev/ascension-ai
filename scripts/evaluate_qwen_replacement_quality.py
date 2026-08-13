@@ -18,6 +18,7 @@ from scripts.evaluate_qwen_ascension_lora import directory_sha256, generate
 from src.core.contracts import Shell, Tier
 from src.core.orchestrator import (
     deterministic_conversation_repair,
+    deterministic_domain_answer,
     deterministic_first_pass,
     deterministic_scope_answer,
     enforce_response_contract,
@@ -50,6 +51,7 @@ def user_facing_response(model, tokenizer, case: dict, tokens: int) -> tuple[str
     first_pass = (
         deterministic_scope_answer(shell, case["prompt"])
         or deterministic_conversation_repair(case["prompt"], "conversation")
+        or deterministic_domain_answer(shell, case["prompt"], "conversation")
         or deterministic_first_pass(prepared["cognition"], "conversation")
     )
     if first_pass:

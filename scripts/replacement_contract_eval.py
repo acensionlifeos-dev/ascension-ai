@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
-from src.core.orchestrator import compact_context, deterministic_conversation_repair, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
+from src.core.orchestrator import compact_context, deterministic_conversation_repair, deterministic_domain_answer, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
 
 
 def check(name: str, passed: bool) -> None:
@@ -50,6 +50,14 @@ def main() -> None:
     check("conversation criticism does not trigger another reflex question", repair_answer is not None and "?" not in repair_answer and "Fair point" in repair_answer)
     presence_answer = deterministic_conversation_repair("I don't want advice; I just want to talk.", "conversation")
     check("presence requests do not become tasks or coaching", presence_answer is not None and "No advice" in presence_answer and "?" not in presence_answer)
+    overdraft_answer = deterministic_domain_answer(Shell.LIFE_OS, "My account is overdrawn, payroll hits Friday, and two bills hit Thursday", "conversation")
+    check("overdraft screen preserves payroll and dated-bill context", overdraft_answer is not None and "overdrawn" in overdraft_answer and "Thursday" in overdraft_answer and "Friday" in overdraft_answer)
+    astrology_answer = deterministic_domain_answer(Shell.LIFE_OS, "Use today's astrology as a daily reading", "conversation")
+    check("astrology remains symbolic reflection", astrology_answer is not None and "symbolic reflection" in astrology_answer and "not destiny" in astrology_answer)
+    nexus_silence = deterministic_domain_answer(Shell.NEXUS_FAMILY, "Nobody addressed Nexus. What do you do?", "conversation")
+    check("Nexus stays silent until directly addressed", nexus_silence is not None and "stay silent" in nexus_silence and "suggestion card" in nexus_silence)
+    research_answer = deterministic_domain_answer(Shell.CORE, "Find today's best mortgage rate", "conversation")
+    check("live rates require a current source", research_answer is not None and "cannot verify" in research_answer and "current source" in research_answer)
     claim_answer = enforce_response_contract("I've scheduled that for you. Review the plan when ready.", {"memory_candidates": []}, {}, "conversation")
     check("unreceipted execution claims are removed", "I've scheduled" not in claim_answer and "Nothing is confirmed" in claim_answer)
     future_claim = enforce_response_contract("I will store this preference now.", {"memory_candidates": [{"type":"preference"}]}, {}, "conversation", "Remember that I train after waking")

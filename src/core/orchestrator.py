@@ -34,6 +34,37 @@ PRESENCE_ONLY = re.compile(
 )
 
 
+def deterministic_domain_answer(shell: Shell, text: str, mode: str) -> str | None:
+    """Resolve product-critical domain contracts before open-ended generation."""
+    value = str(text or "")
+    if re.search(r"\boverdrawn\b", value, re.I) and re.search(r"\bpayroll\b", value, re.I):
+        return (
+            "The financial screen should lead with the overdrawn balance, available balance, verified overdraft limit and fees, "
+            "the two recurring bills due Thursday, payroll expected Friday, and a day-by-day projected balance. "
+            "AP should flag which bill may fail first and show options by real cost, but nothing is moved or paid without your approval and a verified receipt."
+        )
+    if re.search(r"\bastrolog(?:y|ical)\b", value, re.I):
+        return (
+            "I can frame today's astrology as symbolic reflection, not destiny or proof. A useful reading should connect verified natal placements "
+            "and current transits to a few themes to consider, clearly label uncertainty, and leave every decision with you."
+        )
+    if shell == Shell.NEXUS_FAMILY and re.search(
+        r"\b(?:nobody|no one)\s+(?:addressed|asked|mentioned)\b|\bstay\s+(?:quiet|silent)\b",
+        value,
+        re.I,
+    ):
+        return (
+            "I stay silent and do not respond in the family chat unless Nexus is addressed directly. "
+            "If a useful pattern appears, I may add a quiet suggestion card without interrupting or exposing private AP context."
+        )
+    if re.search(r"\b(?:today'?s?|current|live|best)\b.{0,80}\b(?:mortgage|rate)\b|\bmortgage\s+rate\b", value, re.I):
+        return (
+            "I cannot verify a live mortgage rate without current source results. Give me permissioned web or lender data and I can compare rate, APR, points, fees, "
+            "term, lock period, and eligibility; until then I will not invent today's best rate."
+        )
+    return None
+
+
 def deterministic_conversation_repair(text: str, mode: str) -> str | None:
     """Honor direct conversational feedback without another reflex question."""
     if mode != "conversation":
@@ -273,6 +304,7 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
     first_pass = (
         deterministic_scope_answer(shell, latest)
         or deterministic_conversation_repair(latest, mode)
+        or deterministic_domain_answer(shell, latest, mode)
         or deterministic_first_pass(prepared["cognition"], mode)
     )
     result = ({

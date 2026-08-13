@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.core.orchestrator import (
     deterministic_conversation_repair,
+    deterministic_domain_answer,
     deterministic_first_pass,
     deterministic_scope_answer,
     enforce_response_contract,
@@ -99,6 +100,7 @@ def handle_chat(body: dict) -> dict:
     first_pass = (
         deterministic_scope_answer(shell, latest)
         or deterministic_conversation_repair(latest, mode)
+        or deterministic_domain_answer(shell, latest, mode)
         or deterministic_first_pass(prepared['cognition'], mode)
     )
 
