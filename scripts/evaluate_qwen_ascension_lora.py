@@ -37,13 +37,20 @@ def generate(model: Any, tokenizer: Any, shell: str, prompt: str, max_new_tokens
         {"role": "system", "content": SYSTEM_PROMPTS[shell]},
         {"role": "user", "content": prompt},
     ]
-    input_ids = apply_chat_template(
+    encoded = apply_chat_template(
         tokenizer,
         messages,
         tokenize=True,
         add_generation_prompt=True,
         return_tensors="pt",
-    ).to(model.device)
+    )
+    if hasattr(encoded, "input_ids"):
+        input_ids = encoded.input_ids
+    elif isinstance(encoded, dict):
+        input_ids = encoded["input_ids"]
+    else:
+        input_ids = encoded
+    input_ids = input_ids.to(next(model.parameters()).device)
     with torch.inference_mode():
         output = model.generate(
             input_ids,
@@ -88,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
             canonical_results.append(evaluate_text(prompt, text))
         except Exception as error:
             result = evaluate_text(prompt, "")
-            result["generation_error"] = f"{type(error).__name__}: {error}"
+            result["generation_error"] = f"{type(error).__name__}: {error!r}"
             canonical_results.append(result)
 
     receipt_cases = json.loads((ROOT / "evals" / "receipt_truth_prompts.json").read_text("utf-8"))
@@ -99,7 +106,7 @@ def main(argv: list[str] | None = None) -> int:
             receipt_results.append(evaluate_response(case, text))
         except Exception as error:
             result = evaluate_response(case, "")
-            result["generation_error"] = f"{type(error).__name__}: {error}"
+            result["generation_error"] = f"{type(error).__name__}: {error!r}"
             receipt_results.append(result)
 
     canonical_passed = all(
