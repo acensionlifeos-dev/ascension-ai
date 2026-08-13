@@ -6,7 +6,7 @@ import json
 import re
 
 from .capabilities import capability_packet, detect_domains
-from .cognition import build_cognitive_packet
+from .cognition import build_action_execution_contract, build_cognitive_packet
 from .contracts import Shell, Tier, response_contract, system_contract
 from .model_runtime import runtime
 
@@ -250,6 +250,7 @@ def surface_plan(*, shell: Shell, tier: Tier, trigger: str, context: dict, avail
     surfaces = []
     for domain in domains:
         surfaces.extend(capabilities.get(domain, {}).get("surfaces", []))
+    execution_contract = build_action_execution_contract(cognitive, shell)
     return {
         "shell": shell.value,
         "tier": tier.value,
@@ -257,6 +258,7 @@ def surface_plan(*, shell: Shell, tier: Tier, trigger: str, context: dict, avail
         "target_surfaces": list(dict.fromkeys(surfaces)),
         "capabilities": capabilities,
         "cognition": cognitive,
+        "execution_contract": execution_contract,
         "available_actions": available_actions,
         "tier_scope": "request_scoped",
         "entitlement_enforced_by": "calling_shell",

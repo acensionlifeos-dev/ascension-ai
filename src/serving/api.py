@@ -19,7 +19,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
 from src.core.capabilities import CAPABILITIES
-from src.core.cognition import TALENTS, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
+from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import prepare_inference, respond, surface_plan
@@ -283,11 +283,13 @@ async def cognition(request: CognitionRequest, _: None = Depends(require_access)
         request.allowed_capabilities,
         request.available_actions,
     )
+    execution_contract = build_action_execution_contract(packet, request.shell)
     return {
         "shell": request.shell.value,
         "tier": request.tier.value,
         "surface": request.context.get("surface", "chat"),
         **packet,
+        "execution_contract": execution_contract,
         "outside_provider": False,
     }
 

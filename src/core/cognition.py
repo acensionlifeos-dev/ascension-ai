@@ -14,6 +14,7 @@ from collections import Counter
 from typing import Any
 
 from .capabilities import CAPABILITIES, detect_domains
+from .contracts import Shell
 
 
 TALENTS: dict[str, dict[str, Any]] = {
@@ -296,4 +297,205 @@ def build_cognitive_packet(text: str, context: dict, allowed_capabilities: list[
             "authenticated_shell": "validate_permissions_execute_persist_and_return_receipts",
             "external_high_risk_actions": "explicit_confirmation_required",
         },
+    }
+
+
+RECEIPT_FIELDS: dict[str, list[str]] = {
+    "schedule.upsert_recurring_work": ["memory_receipt", "saved_schedule_id"],
+    "schedule.prepare_week": ["memory_receipt", "weekly_map_reference"],
+    "finance.refresh_cashflow": ["provider", "fetched_at", "balances", "bills", "income"],
+    "finance.prepare_budget": ["prepared_at", "budget_id"],
+    "housing.search_options": ["prepared_at", "search_id"],
+    "creation.save_seed": ["saved_at", "seed_id"],
+    "creation.prepare_project": ["prepared_at", "project_id"],
+    "nutrition.research_recipes": ["prepared_at", "recipe_ids", "source"],
+    "nutrition.prepare_meal_plan": ["prepared_at", "plan_id"],
+    "learning.prepare_course": ["prepared_at", "course_id"],
+    "career.research_jobs": ["prepared_at", "search_id", "source"],
+    "documents.prepare_draft": ["prepared_at", "draft_id"],
+    "messages.send": ["message_id", "recipient", "channel", "sent_at", "provider"],
+    "calendar.external_write": ["event_id", "calendar", "updated_at", "provider"],
+    "finance.payment": ["transaction_id", "amount", "destination", "funding_source", "confirmed_at", "provider"],
+}
+
+
+MISSING_QUESTIONS: dict[str, str] = {
+    "verified balances": "What are your current available balances?",
+    "dated bills": "What bills are due before your next income, and when?",
+    "income timing": "When is your next income expected, and how much?",
+    "amount": "What is the exact amount?",
+    "destination": "Who or what is the destination?",
+    "funding source": "Which account or funding source should be used?",
+    "resolved date and timezone": "What is the exact date, time, and timezone?",
+    "target calendar": "Which calendar should it go on?",
+    "recipient": "Who is the recipient?",
+    "final content": "What is the exact message to send?",
+    "connected provider": "Which connected provider will be used?",
+    "location": "What location are you considering?",
+    "move-in date": "When do you need to move in?",
+    "household needs": "What household or accessibility needs matter?",
+    "verified monthly housing limit": "What is your verified monthly housing limit?",
+    "total move-in cash available": "How much cash do you have available for move-in?",
+    "dietary restrictions": "What dietary restrictions or allergies should I consider?",
+    "planning mode": "Is this a one-time meal plan or a repeating grocery list?",
+    "servings": "How many servings?",
+    "available budget": "What is the available food budget?",
+    "current skill level": "What is your current skill level?",
+    "time available": "How much time can you commit?",
+    "desired outcome": "What outcome do you want from this learning?",
+    "explicit final confirmation": "Please confirm this action before it runs.",
+}
+
+
+_RISK_ORDER = {"low": 0, "high": 1, "critical": 2}
+
+
+def _risk_tier(actions: list[dict]) -> str:
+    if not actions:
+        return "none"
+    ranked = sorted(actions, key=lambda a: _RISK_ORDER.get(a.get("risk"), 0), reverse=True)
+    return str(ranked[0].get("risk") or "low")
+
+
+def _missing_question(variable: str) -> str:
+    return MISSING_QUESTIONS.get(variable, f"Please provide the {variable}.")
+
+
+def _guardian_required(action: dict, shell: Shell | None, domains: list[str]) -> bool:
+    if shell is None:
+        return False
+    if action.get("domain") == "sprout" or "sprout" in domains:
+        return True
+    if shell in {Shell.NEXUS_HOME, Shell.NEXUS_FAMILY}:
+        if action.get("domain") in {"home", "family"} or action.get("risk") in {"high", "critical"}:
+            return True
+    return False
+
+
+def _action_contract(action: dict, shell: Shell | None, domains: list[str]) -> dict:
+    action_id = str(action.get("action", ""))
+    missing = list(action.get("missing_variables") or [])
+    return {
+        **action,
+        "receipt_fields": RECEIPT_FIELDS.get(action_id, ["memory_receipt"]),
+        "guardian_required": _guardian_required(action, shell, domains),
+        "missing_questions": [
+            {"variable": variable, "question": _missing_question(variable), "present_in_context": False}
+            for variable in missing
+        ],
+    }
+
+
+def _memory_signal(candidate: dict, shell: Shell | None, domains: list[str]) -> dict:
+    domain = MEMORY_CANDIDATE_DOMAINS.get(str(candidate.get("key") or ""), "identity")
+    child_scope = domain in {"sprout"} or shell in {Shell.NEXUS_HOME, Shell.NEXUS_FAMILY}
+    return {
+        "type": candidate.get("type"),
+        "key": candidate.get("key"),
+        "operation": candidate.get("operation"),
+        "domain": domain,
+        "persistence_condition": "shell_authority_and_guardian_when_minor",
+        "guardian_required": child_scope,
+        "value_preview": str(candidate.get("value"))[:120],
+    }
+
+
+def build_action_execution_contract(cognitive: dict, shell: Shell | None = None) -> dict:
+    """Assemble a fail-closed, policy-aware action execution contract.
+
+    The contract is deterministic and does not execute.  It tells the
+    authenticated shell exactly what is being proposed, what is missing, what
+    permission and guardian gates apply, and what execution receipts must be
+    returned for any claim to be valid.
+    """
+    actions = list(cognitive.get("action_proposals") or [])
+    memories = list(cognitive.get("memory_candidates") or [])
+    domains = list(cognitive.get("domains") or [])
+
+    contracted_actions = [_action_contract(action, shell, domains) for action in actions]
+    memory_signals = [_memory_signal(candidate, shell, domains) for candidate in memories]
+
+    risk_tier = _risk_tier(actions)
+    any_explicit = any(action.get("approval") == "explicit_confirmation" for action in actions)
+    any_guardian = any(action.get("guardian_required") for action in contracted_actions)
+    child_domain = "sprout" in domains or "home" in domains or "family" in domains
+
+    if any_guardian:
+        permission_gate = "guardian_confirmation"
+    elif any_explicit:
+        permission_gate = "explicit_confirmation"
+    elif actions:
+        permission_gate = "safe_internal_auto"
+    else:
+        permission_gate = "none"
+
+    missing_questions: list[dict] = []
+    receipt_fields: set[str] = set()
+    context_requirements: dict[str, dict] = {}
+    for action in contracted_actions:
+        for question in action["missing_questions"]:
+            if question["variable"] not in context_requirements:
+                context_requirements[question["variable"]] = {
+                    "variable": question["variable"],
+                    "question": question["question"],
+                    "present_in_context": False,
+                    "required_for_actions": [],
+                }
+            context_requirements[question["variable"]]["required_for_actions"].append(action["action"])
+            if question not in missing_questions:
+                missing_questions.append(question)
+        for field in action.get("receipt_fields", []):
+            receipt_fields.add(field)
+
+    abstain = not actions and not memories
+    abstention_reason = (
+        "No permissioned, executable action or memory proposal could be prepared from the supplied packet."
+        if abstain
+        else None
+    )
+    if abstain and not domains:
+        abstention_reason = "No recognized product domain or capability was identified in the supplied packet."
+
+    return {
+        "structured_intent": {
+            "domains": domains,
+            "talents": [talent.get("key") for talent in cognitive.get("talents", [])],
+            "surface_recommendations": cognitive.get("surface_recommendations", []),
+            "action_categories": [action["action"] for action in contracted_actions],
+        },
+        "context_requirements": list(context_requirements.values()),
+        "missing_variable_questions": missing_questions,
+        "proposed_actions": contracted_actions,
+        "risk_tier": risk_tier,
+        "permission_approval_gate": {
+            "gate": permission_gate,
+            "approval_required": any_explicit or any_guardian,
+            "requires_guardian": any_guardian,
+            "child_or_household_scope": child_domain,
+        },
+        "execution_receipt": {
+            "required_fields": sorted(receipt_fields),
+            "per_action_receipts": [
+                {
+                    "action": action["action"],
+                    "receipt_fields": action["receipt_fields"],
+                    "guardian_required": action["guardian_required"],
+                }
+                for action in contracted_actions
+            ],
+            "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell.",
+        },
+        "memory_update_signals": memory_signals,
+        "child_safe_guardian_boundaries": {
+            "guardian_approval_required": any_guardian,
+            "affected_actions": [action["action"] for action in contracted_actions if action["guardian_required"]],
+            "affected_domains": [domain for domain in domains if domain in {"sprout", "home", "family"}],
+            "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go.",
+        },
+        "explicit_abstention": {
+            "abstain": abstain,
+            "reason": abstention_reason,
+            "safe_next_step": "Ask the user for clarification or the missing variables, and never pretend an action was executed." if abstain else None,
+        },
+        "authority": cognitive.get("authority", {}),
     }
