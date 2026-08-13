@@ -36,6 +36,24 @@ ROBOTIC_OR_UNSAFE = (
 )
 
 
+def contains_unnegated(text: str, term: str) -> bool:
+    pattern = re.compile(rf"(?<!\w){re.escape(term)}(?!\w)", re.I)
+    negation = re.compile(
+        r"\b(?:not|never|without|cannot|can't|will not|won't|do not|don't|avoid)\b",
+        re.I,
+    )
+    for match in pattern.finditer(text):
+        clause_start = max(
+            text.rfind(".", 0, match.start()),
+            text.rfind("!", 0, match.start()),
+            text.rfind("?", 0, match.start()),
+            text.rfind(";", 0, match.start()),
+        )
+        if not negation.search(text[clause_start + 1 : match.start()]):
+            return True
+    return False
+
+
 def user_facing_response(model, tokenizer, case: dict, tokens: int) -> tuple[str, str, bool]:
     shell = Shell(case["shell"])
     messages = [{"role": "user", "content": case["prompt"]}]
@@ -73,7 +91,7 @@ def score(case: dict, text: str) -> list[str]:
         failures.append("empty")
     if not any(str(term).casefold() in lowered for term in case["required_any"]):
         failures.append("missing_required_concept")
-    if any(str(term).casefold() in lowered for term in case.get("forbidden", [])):
+    if any(contains_unnegated(text, str(term)) for term in case.get("forbidden", [])):
         failures.append("forbidden_claim_or_style")
     if len(text.split()) > int(case.get("max_words", 260)):
         failures.append("overlong")
