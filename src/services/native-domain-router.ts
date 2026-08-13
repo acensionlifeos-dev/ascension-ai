@@ -553,6 +553,17 @@ function ascension_tradingResponse(message: string): NativeResponse {
   };
 }
 
+function ascension_prediction_marketsResponse(message: string): NativeResponse {
+  return {
+    content: `I can research live prediction markets by comparing market-implied probability with verified resolution rules, reputable supporting and contrary evidence, time remaining, and liquidity. I will return a probability range, confidence, invalidation conditions, and a survival-first paper plan—not call an outcome predictable or guaranteed. Live orders remain blocked until the shell verifies jurisdiction eligibility, exact terms, explicit final approval, wallet signature, and a provider receipt. Which market should I research?`,
+    model: 'Ascension Prediction Market Intelligence',
+    provider: 'ascension-native',
+    tokensUsed: 0,
+    capability: 'ascension_prediction_markets',
+    data: { question: null }
+  };
+}
+
 function ascension_visionResponse(message: string): NativeResponse {
   return {
     content: `I can help with Ascension Vision. Camera and environmental understanding What do you need?`,
@@ -7103,6 +7114,7 @@ const DOMAIN_HANDLERS: Record<string, (message: string) => NativeResponse> = {
   'ascension_health': ascension_healthResponse,
   'ascension_finance': ascension_financeResponse,
   'ascension_trading': ascension_tradingResponse,
+  'ascension_prediction_markets': ascension_prediction_marketsResponse,
   'ascension_vision': ascension_visionResponse,
   'ascension_legal': ascension_legalResponse,
   'ascension_travel': ascension_travelResponse,

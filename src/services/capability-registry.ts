@@ -894,6 +894,25 @@ export const CAPABILITIES = [
     context: 'Triggers: user asks about Trading Intelligence, starts a finance-domain quest, or needs a decision in this area. Cross-references: ascension_finance, ascension_investing, ascension_taxes, ascension_insurance, ascension_daytrading. Use with permission-scoped context and a receipt for any action.'
   },
   {
+    id: 'ascension_prediction_markets',
+    name: 'Ascension Prediction Market Intelligence',
+    category: 'finance',
+    description: 'Research live prediction markets, compare implied odds with sourced evidence, and prepare risk-bounded paper positions',
+    providers: ['ascension-native'],
+    default_provider: 'ascension-native',
+    cost_per_1k_tokens: 0,
+    requires_tier: 'individual',
+    executor: 'finance',
+    related_capabilities: [
+    'ascension_trading',
+    'ascension_finance',
+    'ascension_risk_budget',
+    'ascension_money_flip',
+    'ascension_research_assistant'
+  ],
+    context: 'Triggers: user asks about Polymarket, prediction markets, market odds, or event probabilities. Compare current market-implied probability with reputable supporting and contrary evidence, resolution rules, time, and liquidity. Express a probability range and uncertainty. Research and paper planning are allowed; no guarantee or real order without jurisdiction checks, explicit approval, wallet signature, and a provider receipt.'
+  },
+  {
     id: 'ascension_vision',
     name: 'Ascension Vision',
     category: 'vision',

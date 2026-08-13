@@ -18,6 +18,7 @@ describe('Capability Registry', () => {
       'ascension_health',
       'ascension_finance',
       'ascension_trading',
+      'ascension_prediction_markets',
       'ascension_vision'
     ];
 

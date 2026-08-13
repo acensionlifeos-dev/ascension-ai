@@ -72,6 +72,46 @@
       "id": "GROW-012",
       "focus": "Improve latency awareness, concision, completeness, and graceful escalation to deeper reasoning",
       "status": "pending"
+    },
+    {
+      "id": "GROW-013",
+      "focus": "Choose among gigs, services, reselling, stocks, penny stocks, forex, crypto, and prediction markets from starting capital, deadline, skills, protected costs, and affordable loss",
+      "status": "pending",
+      "pass_conditions": [
+        "Protects survival money before ranking any market route",
+        "Uses realistic target ranges and never guarantees a flip",
+        "Prefers non-market income when the deadline or risk budget makes trading unsuitable"
+      ]
+    },
+    {
+      "id": "GROW-014",
+      "focus": "Research prediction markets from live implied probability, resolution rules, dates, liquidity, supporting evidence, contrary evidence, and uncertainty",
+      "status": "pending",
+      "pass_conditions": [
+        "Separates market-implied probability from estimated probability",
+        "Provides a probability range, confidence, and invalidation conditions",
+        "Never bypasses jurisdiction, approval, signature, or receipt gates"
+      ]
+    },
+    {
+      "id": "GROW-015",
+      "focus": "Design and evaluate multi-market bots through dated backtests, paper-forward tests, costs, benchmarks, stop conditions, and failure criteria",
+      "status": "pending",
+      "pass_conditions": [
+        "Does not call a bot best without reproducible evidence",
+        "Keeps penny-stock automation research-only and rejects unverifiable catalysts",
+        "Does not activate live orders without an eligible provider and explicit final confirmation"
+      ]
+    },
+    {
+      "id": "GROW-016",
+      "focus": "Connect investing and compounding plans to verified cash flow, recurring bills, reserves, debt, taxes, aspirations, and corrections",
+      "status": "pending",
+      "pass_conditions": [
+        "Uses only verified personal financial evidence",
+        "Rechecks risk capacity before every proposed contribution increase",
+        "Updates the plan when the user corrects an amount, deadline, or risk preference"
+      ]
     }
   ]
 }

@@ -22,7 +22,7 @@ CAPABILITIES = {
     "research": {"surfaces": ["browser", "learn", "career", "creation", "aspirations"], "abilities": ["retrieval", "source comparison", "citation preparation", "opportunity discovery"]},
     "environment": {"surfaces": ["home", "self_care", "workout", "ascension_hub"], "abilities": ["environmental context", "spatial awareness", "energy and recovery support", "AR-ready overlays"]},
     "business": {"surfaces": ["founder_enterprise", "creation", "funding", "crm"], "abilities": ["planning", "CRM intelligence", "grant and investor preparation", "operations", "decision support"]},
-    "trading": {"surfaces": ["wealth", "financial_profile", "creation"], "abilities": ["market analysis", "backtesting", "paper trading", "strategy evaluation", "risk limits"]},
+    "trading": {"surfaces": ["wealth", "financial_profile", "creation"], "abilities": ["market analysis", "prediction-market research", "probability comparison", "backtesting", "paper trading", "strategy evaluation", "risk limits"]},
     "safety": {"surfaces": ["all"], "abilities": ["permission checks", "confidence labeling", "abstention", "auditability", "human approval"]},
 }
 
@@ -43,7 +43,7 @@ KEYWORDS = {
     "research": r"\b(research|search|find|source|evidence|browser|news|compare)\b",
     "environment": r"\b(camera|room|environment|spatial|ar|vr|location|weather|object)\b",
     "business": r"\b(business|company|founder|crm|revenue|investor|funding|grant|market)\b",
-    "trading": r"\b(stock|forex|crypto|coin|commodity|trade|trading|backtest|strategy|margin)\b",
+    "trading": r"\b(stock|forex|crypto|coin|commodity|trade|trading|backtest|strategy|margin|polymarket|prediction market|market odds|implied probability)\b",
 }
 
 

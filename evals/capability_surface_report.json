@@ -1,10 +1,10 @@
 {
   "schema_version": "1",
   "source_hashes": {
-    "src/services/capability-registry.ts": "ed1b4929bd9c3c6e24e164528dede80c62557984426447d0c5049aaecb22da16",
-    "src/services/native-domain-router.ts": "120651f9e35e11e259b91fdd1d4ee4216d0155113b17e7557edd40dbd834fa45",
+    "src/services/capability-registry.ts": "c1431c65d5f0d7c94fde63f9f3f56653ae58a5182b86e8124f9fdbcf9a70c1ec",
+    "src/services/native-domain-router.ts": "c7ac65fce22d756fd6d4d3b63381e120c3ecb4a5f53a0b00d4b51ea7e446aa46",
     "src/services/model-router.ts": "8b38f7636ede3ce4e89e0d2b25519257561f3ebc66fe7bcedeb4077653440b08",
-    "src/services/permission-engine.ts": "b9961c55bc85e97db56ed5c2ba561dd4876d8937f95f21a3153c875ffc21674c"
+    "src/services/permission-engine.ts": "1b67c035760f788d03dfb9da93593bdf900ded93f641e5ed7cb0d32d53e8142a"
   },
   "replacement_ready": false,
   "replacement_ready_blockers": [

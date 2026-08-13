@@ -39,6 +39,17 @@ def main() -> None:
             require(proposal["approval"] == "explicit_confirmation", "external high-risk actions must require explicit confirmation")
             require(proposal["execution_state"] == "proposal_only", "the native core must never claim execution")
 
+    prediction = build_cognitive_packet("Research this Polymarket question and prepare a prediction market paper plan", {}, [], [])
+    require("trading" in prediction["domains"], "Polymarket language must route to prediction-market intelligence")
+    require({"trading.refresh_prediction_markets", "trading.prepare_prediction_position"} <= action_names(prediction), "prediction markets must refresh live evidence and prepare a paper position")
+    paper = next(item for item in prediction["action_proposals"] if item["action"] == "trading.prepare_prediction_position")
+    require({"verified resolution rules", "jurisdiction eligibility", "disposable risk budget", "maximum acceptable loss"} <= set(paper["missing_variables"]), "prediction planning must name the material unknowns")
+
+    live_prediction = build_cognitive_packet("Buy this Polymarket position", {}, [], [])
+    submit = next(item for item in live_prediction["action_proposals"] if item["action"] == "trading.submit_prediction_order")
+    require(submit["approval"] == "explicit_confirmation" and submit["risk"] == "critical", "real prediction orders must be critical and explicitly confirmed")
+    require({"verified jurisdiction eligibility", "wallet signature", "provider receipt"} <= set(submit["missing_variables"]), "real prediction orders must remain gated on eligibility, signature, and receipt")
+
     schedule_only = build_cognitive_packet("I'm short on cash and pay $50 to my landlord", {}, ["schedule"])
     require(schedule_only["domains"] == [], "restricted requests must not fall back to an unauthorized identity domain")
     require(not schedule_only["memory_candidates"], "restricted requests must not emit memory candidates from unauthorized domains")

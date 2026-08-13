@@ -23,6 +23,7 @@ TALENTS: dict[str, dict[str, Any]] = {
     "agent_planning": {"domains": ["schedule", "finance", "creation", "business", "research"], "surfaces": ["chat", "ap", "creation"], "state": "active", "abilities": ["tool selection", "action proposals", "approval classification"]},
     "schedule_intelligence": {"domains": ["schedule"], "surfaces": ["calendar", "weekly_map", "quests"], "state": "active", "abilities": ["shorthand schedule parsing", "recurrence understanding", "conflict questions"]},
     "financial_intelligence": {"domains": ["finance"], "surfaces": ["financial_profile", "wealth", "aspirations"], "state": "active", "abilities": ["cash-flow reasoning", "budget preparation", "missing-context questions"]},
+    "prediction_market_intelligence": {"domains": ["trading", "research", "finance"], "surfaces": ["wealth", "chat"], "state": "shell_required", "abilities": ["live-odds interpretation", "resolution-rule research", "contrary-evidence review", "probability ranges", "paper-position planning"]},
     "creation_intelligence": {"domains": ["creation", "business"], "surfaces": ["creation", "creator_tools"], "state": "active", "abilities": ["seed capture", "project development", "artifact planning"]},
     "learning_intelligence": {"domains": ["learning"], "surfaces": ["learn", "academy", "books"], "state": "active", "abilities": ["course planning", "adaptive practice", "resource routing"]},
     "health_wellness": {"domains": ["health"], "surfaces": ["health", "workout", "nutrition", "self_care"], "state": "active", "abilities": ["contextual coaching", "plan preparation", "risk-aware escalation"]},
@@ -42,6 +43,9 @@ ACTION_CATALOG: dict[str, dict[str, str]] = {
     "schedule.prepare_week": {"domain": "schedule", "risk": "low", "approval": "safe_internal_auto", "surface": "weekly_map"},
     "finance.refresh_cashflow": {"domain": "finance", "risk": "low", "approval": "safe_read", "surface": "financial_profile"},
     "finance.prepare_budget": {"domain": "finance", "risk": "low", "approval": "safe_internal_auto", "surface": "wealth"},
+    "trading.refresh_prediction_markets": {"domain": "trading", "risk": "low", "approval": "safe_read", "surface": "wealth"},
+    "trading.prepare_prediction_position": {"domain": "trading", "risk": "low", "approval": "safe_internal_auto", "surface": "wealth"},
+    "trading.submit_prediction_order": {"domain": "trading", "risk": "critical", "approval": "explicit_confirmation", "surface": "wealth"},
     "housing.search_options": {"domain": "finance", "risk": "low", "approval": "safe_research", "surface": "aspirations"},
     "creation.save_seed": {"domain": "creation", "risk": "low", "approval": "safe_internal_auto", "surface": "creation"},
     "creation.prepare_project": {"domain": "creation", "risk": "low", "approval": "safe_internal_auto", "surface": "creation"},
@@ -215,6 +219,13 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         ])
     if re.search(r"\b(place to stay|apartment hunting|house hunting|find (?:an? )?(?:apartment|house|home))\b", lowered):
         proposals.append(_proposal("housing.search_options", "The user has expressed an active housing need.", missing=["location", "move-in date", "household needs", "verified monthly housing limit", "total move-in cash available"]))
+    if re.search(r"\b(polymarket|prediction market|market odds|implied probability)\b", lowered):
+        proposals.extend([
+            _proposal("trading.refresh_prediction_markets", "Live odds, deadlines, liquidity, and resolution rules are required before analyzing a prediction market."),
+            _proposal("trading.prepare_prediction_position", "Prepare a paper-only thesis that compares market-implied probability with sourced supporting and contrary evidence.", missing=["verified resolution rules", "jurisdiction eligibility", "disposable risk budget", "time horizon", "maximum acceptable loss"]),
+        ])
+    if re.search(r"\b(place|submit|execute|buy|sell|enter)\b.{0,40}\b(polymarket|prediction market|prediction position|market order)\b", lowered):
+        proposals.append(_proposal("trading.submit_prediction_order", "A real prediction-market order is high consequence and must remain blocked until the shell verifies eligibility, exact terms, explicit final approval, wallet signature, and a provider receipt.", missing=["verified jurisdiction eligibility", "connected eligible provider account", "exact market and outcome", "limit price", "maximum loss", "explicit final confirmation", "wallet signature", "provider receipt"] ))
     if re.search(r"\b(recipe|what can i cook|meal ideas?)\b", lowered):
         proposals.append(_proposal("nutrition.research_recipes", "Return specific recipes with evidence and save controls.", missing=["dietary restrictions"] if "allerg" not in lowered else []))
     if re.search(r"\b(meal plan|grocery budget|shopping list)\b", lowered):

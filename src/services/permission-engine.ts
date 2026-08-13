@@ -188,6 +188,7 @@ const CAPABILITY_PERMISSIONS: Record<string, string[]> = {
   'ascension_vision': ['camera.read'],
   'ascension_finance': ['finance.read'],
   'ascension_trading': ['trading.paper'],
+  'ascension_prediction_markets': ['trading.paper'],
   'ascension_health': ['health.read'],
   'ascension_home': ['calendar.read', 'home.control'],
   'ascension_family': ['family.read'],
