@@ -10,6 +10,7 @@ Ascension theses are living, inspectable syntheses of permissioned evidence. The
 | Sprout Growth Thesis | AP / Sprout | Child-centered evidence under a valid guardian authorization | The child, with authorized guardian controls |
 | Home Thesis | NexusHome | Household facts and exact AP claims consented for NexusHome | Authorized household members |
 | Family Thesis | NexusFamily / FamilyOS | FamilyOS facts and exact AP claims consented for NexusFamily | Authorized family governance |
+| Global Product Thesis | Core / Founder controls | Minimum-size aggregate product analytics and cited public evidence | The B.E.I.N.G Group LLC authorized founder controls |
 
 ## AP-to-Nexus flow
 
@@ -22,6 +23,8 @@ Ascension theses are living, inspectable syntheses of permissioned evidence. The
 
 The Family Thesis is comprehensive only when every expected member has contributed, all expected sections have evidence, and no contradictions remain. Otherwise the API reports a partial thesis and identifies missing contributors or unresolved facts.
 
+The Global Product Thesis never consumes any personal thesis or raw user row. Aggregate cohorts below the configured privacy threshold (never less than 20) are rejected. It may guide product improvements, partnerships, market research, funding, and company strategy, but every material decision requires founder review and the aggregate analytics use must be disclosed to users.
+
 ## Persistence and correction
 
 Ascension AI is stateless at this boundary. The authenticated shell owns storage, consent, revocation, corrections, and audit receipts. Thesis IDs and claim IDs are stable hashes of the evidence packet so changed evidence produces a traceable revision. A thesis has no execution authority.
@@ -30,4 +33,3 @@ Ascension AI is stateless at this boundary. The authenticated shell owns storage
 
 - `POST /v1/thesis`: build `human`, `sprout`, `home`, or `family` thesis under its authorized shell.
 - `POST /v1/thesis/contribution`: export exact Human Thesis claims to `nexus_home` or `nexus_family` after a validated consent receipt.
-

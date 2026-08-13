@@ -137,7 +137,7 @@ class MemoryCandidateRequest(BaseModel):
 
 
 class ThesisRequest(BaseModel):
-    scope: Literal["human", "sprout", "home", "family"]
+    scope: Literal["human", "sprout", "home", "family", "product"]
     subject_id: str = Field(min_length=1, max_length=200)
     shell: Shell
     context: dict = Field(default_factory=dict)
@@ -350,6 +350,7 @@ async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> d
         "sprout": {Shell.AP, Shell.LIFE_OS},
         "home": {Shell.NEXUS_HOME},
         "family": {Shell.NEXUS_FAMILY},
+        "product": {Shell.CORE},
     }
 
 

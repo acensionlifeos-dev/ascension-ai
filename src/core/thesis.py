@@ -11,7 +11,7 @@ import json
 from typing import Any, Literal
 
 
-ThesisScope = Literal["human", "sprout", "home", "family"]
+ThesisScope = Literal["human", "sprout", "home", "family", "product"]
 
 HUMAN_SECTIONS = (
     "profile", "preferences", "identity", "goals", "aspirations", "schedule",
@@ -32,6 +32,17 @@ FAMILY_SECTIONS = {
     "family_identity", "legacy", "members", "branches", "roles", "governance",
     "trust", "economy", "enterprises", "resources", "support", "education",
     "goals", "opportunities", "risks", "agreements",
+}
+PRODUCT_SECTIONS = {
+    "adoption", "activation", "retention", "engagement", "outcomes", "reliability",
+    "accessibility", "trust", "market", "partnerships", "funding", "research",
+    "product_direction", "company_strategy", "risks", "opportunities",
+}
+PROHIBITED_PRODUCT_KEYS = {
+    "user", "user_id", "member_id", "child_id", "name", "preferred_name", "email",
+    "phone", "address", "location", "latitude", "longitude", "ip", "device_id",
+    "conversation", "message", "journal", "human_thesis", "sprout_thesis", "memory",
+    "account", "transaction", "health_record", "calendar_event",
 }
 
 
@@ -247,7 +258,7 @@ def build_sprout_thesis(subject_id: str, context: dict) -> dict:
         "owner": subject_id,
         "authorized_guardian_ids": guardian_ids,
         "guardian_consent_receipt_id": consent_receipt_id,
-        "experience_mode": "teen" if numeric_age is not None and numeric_age >= 11 else "sprout",
+        "experience_mode": "teen" if numeric_age is not None and numeric_age >= 12 else "sprout",
         "continuity_rule": "the thesis continues across Sprout-to-Teen presentation changes without freezing the child's identity",
         "privacy_boundary": "child-centered Sprout evidence only; adult finance, dating, household, and FamilyOS theses are excluded",
         "child_voice_right": "the child can view and correct age-appropriate claims; the guardian shell validates persistence and safety boundaries",
@@ -340,6 +351,81 @@ def build_family_thesis(subject_id: str, context: dict) -> dict:
     return thesis
 
 
+def _contains_prohibited_product_key(value: Any) -> bool:
+    if isinstance(value, dict):
+        for key, item in value.items():
+            normalized = str(key).strip().lower()
+            if normalized in PROHIBITED_PRODUCT_KEYS or any(token in normalized for token in ("email", "phone", "address", "user_id", "member_id", "child_id", "conversation", "message")):
+                return True
+            if _contains_prohibited_product_key(item):
+                return True
+    elif isinstance(value, list):
+        return any(_contains_prohibited_product_key(item) for item in value)
+    return False
+
+
+def build_product_thesis(subject_id: str, context: dict) -> dict:
+    """Build founder strategy from aggregates and public evidence only."""
+    minimum_cohort = max(20, int(context.get("minimum_cohort_size", 20) or 20))
+    claims, rejected = [], []
+    metrics = context.get("aggregate_metrics", [])
+    if not isinstance(metrics, list):
+        metrics = []
+    for index, metric in enumerate(metrics[:500]):
+        if not isinstance(metric, dict) or _contains_prohibited_product_key(metric):
+            rejected.append({"index": index, "source": "aggregate_metrics", "reason": "personal_or_row_level_field_rejected"})
+            continue
+        cohort_size = int(metric.get("cohort_size", 0) or 0)
+        section = str(metric.get("section") or "product_direction")
+        value = metric.get("value")
+        if cohort_size < minimum_cohort:
+            rejected.append({"index": index, "source": "aggregate_metrics", "reason": "cohort_below_privacy_threshold"})
+            continue
+        if section not in PRODUCT_SECTIONS or not isinstance(value, (int, float, bool)):
+            rejected.append({"index": index, "source": "aggregate_metrics", "reason": "invalid_aggregate_metric"})
+            continue
+        claims.append(_claim(
+            section=section,
+            key=str(metric.get("key") or f"aggregate_{index}"),
+            value={"value": value, "cohort_size": cohort_size, "period": _bounded(metric.get("period"))},
+            source=str(metric.get("source") or "privacy_thresholded_product_analytics"),
+            confidence=float(metric.get("confidence", 0.9)),
+            visibility="founder_strategy",
+        ))
+
+    public_rows = context.get("public_evidence", [])
+    if not isinstance(public_rows, list):
+        public_rows = []
+    for index, item in enumerate(public_rows[:200]):
+        if not isinstance(item, dict) or _contains_prohibited_product_key(item):
+            rejected.append({"index": index, "source": "public_evidence", "reason": "invalid_or_personal_field_rejected"})
+            continue
+        section = str(item.get("section") or "market")
+        if section not in PRODUCT_SECTIONS or not item.get("source_url"):
+            rejected.append({"index": index, "source": "public_evidence", "reason": "unverifiable_public_evidence"})
+            continue
+        claims.append(_claim(
+            section=section,
+            key=str(item.get("key") or item.get("title") or f"public_{index}"),
+            value={"finding": _bounded(item.get("finding")), "source_url": _bounded(item.get("source_url")), "published_at": _bounded(item.get("published_at"))},
+            source="public_evidence",
+            confidence=float(item.get("confidence", 0.75)),
+            visibility="founder_strategy",
+        ))
+
+    thesis = _finalize("product", subject_id, claims, [], rejected, PRODUCT_SECTIONS)
+    thesis.update({
+        "owner": "The B.E.I.N.G Group LLC authorized founder controls",
+        "privacy_boundary": "privacy-thresholded aggregate analytics and cited public evidence only; no personal thesis, raw conversation, user row, or identifiable small cohort",
+        "minimum_cohort_size": minimum_cohort,
+        "silent_operation_rule": "may compute in the background only when aggregate analytics use is disclosed; material product or company decisions remain human-reviewed",
+        "allowed_uses": ["product improvement", "partnership discovery", "market research", "funding strategy", "research priorities", "company planning"],
+        "prohibited_uses": ["individual profiling", "vulnerability targeting", "reidentification", "personalized pricing", "silent policy changes", "automated consequential decisions"],
+        "founder_review_required": True,
+    })
+    return thesis
+
+
 def build_thesis(scope: ThesisScope, subject_id: str, context: dict) -> dict:
     if scope == "human":
         return build_human_thesis(subject_id, context)
@@ -349,4 +435,6 @@ def build_thesis(scope: ThesisScope, subject_id: str, context: dict) -> dict:
         return build_home_thesis(subject_id, context)
     if scope == "family":
         return build_family_thesis(subject_id, context)
+    if scope == "product":
+        return build_product_thesis(subject_id, context)
     raise ValueError(f"unsupported thesis scope: {scope}")

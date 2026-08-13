@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.core.thesis import build_family_thesis, build_home_thesis, build_human_thesis, build_member_thesis_contribution, build_sprout_thesis
+from src.core.thesis import build_family_thesis, build_home_thesis, build_human_thesis, build_member_thesis_contribution, build_product_thesis, build_sprout_thesis
 
 
 def test_human_thesis_is_private_and_correctable() -> None:
@@ -145,6 +145,26 @@ def test_conflicts_remain_visible_instead_of_being_silently_merged() -> None:
         ],
     })
     assert thesis["contradictions"] and thesis["contradictions"][0]["status"] == "unresolved"
+
+
+def test_product_thesis_uses_only_large_aggregate_cohorts_and_public_evidence() -> None:
+    thesis = build_product_thesis("being-group", {
+        "minimum_cohort_size": 20,
+        "aggregate_metrics": [
+            {"section": "activation", "key": "onboarding_complete_rate", "value": 0.64, "cohort_size": 240, "period": "30d"},
+            {"section": "retention", "key": "small_group", "value": 0.9, "cohort_size": 3},
+            {"section": "trust", "key": "bad_row", "value": 1, "cohort_size": 100, "email": "private@example.com"},
+        ],
+        "public_evidence": [
+            {"section": "partnerships", "title": "Public program", "finding": "Possible aligned program", "source_url": "https://example.org/program"},
+        ],
+        "human_thesis": {"private": "never included"},
+    })
+    encoded = json.dumps(thesis["claims"], sort_keys=True)
+    assert "onboarding_complete_rate" in encoded and "Public program" in encoded
+    assert "small_group" not in encoded and "private@example.com" not in encoded and "never included" not in encoded
+    assert len(thesis["rejected_contributions"]) == 2
+    assert thesis["founder_review_required"] is True and thesis["execution_authority"] == "none"
 
 
 def main() -> None:
