@@ -23,7 +23,12 @@ from tokenizers import Tokenizer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from scripts.build_ascension_product_corpus import ROOT, build_corpus
+from scripts.build_ascension_product_corpus import (
+    ROOT,
+    build_corpus,
+    format_inference_prompt,
+    read_curriculum,
+)
 from scripts.evaluate_native_checkpoint import (
     RUNTIME_ARCHITECTURE,
     RUNTIME_TOKENIZER_CONTRACT,
@@ -46,6 +51,44 @@ class TokenizedDataset(Dataset):
         return torch.tensor(self.token_ids[index:index + self.length + 1], dtype=torch.long)
 
 
+class AssistantResponseDataset(Dataset):
+    """Fixed-size supervised examples whose loss covers only assistant tokens."""
+
+    def __init__(self, tokenizer: Tokenizer, records: list[dict], length: int, repeats: int = 1):
+        if not records:
+            raise ValueError("assistant-response training requires reviewed records")
+        self.examples = []
+        self.length = length
+        pad_id = tokenizer.token_to_id("<pad>")
+        if pad_id is None:
+            raise ValueError("assistant-response training requires the <pad> token")
+        for record in records * max(1, repeats):
+            prefix = format_inference_prompt(record["shell"], record["user"])
+            full = f"{prefix} {record['assistant'].strip()}\n</s>"
+            prefix_ids = tokenizer.encode(prefix).ids
+            full_ids = tokenizer.encode(full).ids[: length + 1]
+            if len(full_ids) <= len(prefix_ids):
+                raise ValueError(f"record {record['id']!r} has no assistant target tokens")
+            padded = full_ids + [pad_id] * (length + 1 - len(full_ids))
+            inputs = padded[:-1]
+            targets = padded[1:]
+            first_assistant_target = max(0, len(prefix_ids) - 1)
+            masked_targets = [
+                token if first_assistant_target <= index < len(full_ids) - 1 else -100
+                for index, token in enumerate(targets)
+            ]
+            if all(token == -100 for token in masked_targets):
+                raise ValueError(f"record {record['id']!r} produced an empty assistant loss mask")
+            self.examples.append((inputs, masked_targets))
+
+    def __len__(self) -> int:
+        return len(self.examples)
+
+    def __getitem__(self, index: int) -> tuple[torch.Tensor, torch.Tensor]:
+        inputs, targets = self.examples[index]
+        return torch.tensor(inputs, dtype=torch.long), torch.tensor(targets, dtype=torch.long)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train Ascension Product v6")
     parser.add_argument("--base-version", default="ascension_elite_general_v5_4h")
@@ -65,6 +108,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--product-repeats", type=int, default=12)
     parser.add_argument("--general-replay-ratio", type=float, default=0.2)
     parser.add_argument("--resume-latest", action="store_true")
+    parser.add_argument(
+        "--assistant-only-loss",
+        action="store_true",
+        help="mask prompt, control, reference, and padding tokens so only reviewed assistant continuations affect loss",
+    )
     parser.add_argument("--smoke", action="store_true", help="run a two-step CPU pipeline test")
     return parser.parse_args()
 
@@ -219,11 +267,24 @@ def main() -> int:
     model, initialization = initialize_model(config, base_checkpoint, args.initialization)
     device = "cuda" if torch.cuda.is_available() and not args.smoke else "cpu"
     model = model.to(device)
-    dataset = TokenizedDataset(token_ids, min(config.max_length, 256))
+    sequence_length = min(config.max_length - 1, 255)
+    if args.assistant_only_loss:
+        if args.general_replay_ratio:
+            raise ValueError("assistant-only loss does not accept unlabelled general replay")
+        dataset = AssistantResponseDataset(
+            tokenizer,
+            read_curriculum(),
+            sequence_length,
+            repeats=args.product_repeats,
+        )
+        manifest["training_objective"] = "assistant_response_only_v1"
+    else:
+        dataset = TokenizedDataset(token_ids, sequence_length)
+        manifest["training_objective"] = "continuous_language_model_v1"
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True, num_workers=0)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=0.01, betas=(0.9, 0.95))
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(args.steps, 1))
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss(ignore_index=-100)
 
     latest_path = checkpoint_dir / f"{args.version}_latest.pt"
     model_path = checkpoint_dir / f"{args.version}.pt"
@@ -296,9 +357,12 @@ def main() -> int:
         except StopIteration:
             iterator = iter(dataloader)
             batch = next(iterator)
-        batch = batch.to(device)
-        input_ids = batch[:, :-1]
-        targets = batch[:, 1:]
+        if args.assistant_only_loss:
+            input_ids, targets = (part.to(device) for part in batch)
+        else:
+            batch = batch.to(device)
+            input_ids = batch[:, :-1]
+            targets = batch[:, 1:]
         logits = model(input_ids)
         loss = criterion(logits.reshape(-1, logits.size(-1)), targets.reshape(-1))
         optimizer.zero_grad(set_to_none=True)

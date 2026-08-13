@@ -24,6 +24,7 @@ from scripts.build_ascension_product_corpus import (
     read_curriculum,
 )
 from scripts.train_ascension_product_v6 import (
+    AssistantResponseDataset,
     TokenizedDataset,
     initialize_model,
     load_base,
@@ -201,6 +202,22 @@ def main() -> int:
         )
         tokenizer_path = root / f"{prefix}_tokenizer.json"
         tokenizer.save(str(tokenizer_path))
+        supervised = AssistantResponseDataset(
+            tokenizer,
+            read_curriculum(curriculum_paths())[:2],
+            length=63,
+            repeats=1,
+        )
+        supervised_inputs, supervised_targets = supervised[0]
+        if supervised_inputs.shape != supervised_targets.shape or supervised_inputs.shape[0] != 63:
+            raise AssertionError("assistant-response examples must be fixed-size input/target pairs")
+        learned = torch.nonzero(supervised_targets != -100, as_tuple=False).flatten()
+        if not len(learned) or int(learned[0]) <= 0:
+            raise AssertionError("assistant-response loss mask did not protect prompt tokens")
+        if torch.any(supervised_targets[: int(learned[0])] != -100):
+            raise AssertionError("prompt or control tokens leaked into assistant-response loss")
+        if torch.any(supervised_targets[int(learned[-1]) + 1 :] != -100):
+            raise AssertionError("padding tokens leaked into assistant-response loss")
         config = ModelConfig(
             vocab_size=tokenizer.get_vocab_size(),
             max_length=64,
@@ -245,6 +262,7 @@ def main() -> int:
     print("PASS base checkpoint and tokenizer loading")
     print("PASS attention-safe weight transplant")
     print("PASS causal product training step")
+    print("PASS assistant-only response loss mask")
     return 0
 
 
