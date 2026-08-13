@@ -31,14 +31,16 @@
     {
       "id": "GROW-003",
       "focus": "Sustain natural casual conversation while quietly noticing durable user facts",
-      "status": "training",
+      "status": "runtime_layer_required",
       "curriculum": "evals/training/ascension_product_v14_natural_context.jsonl",
-      "blocked_by": "Training from the latest automatically gated adapter; this packet does not authorize production promotion."
+      "blocked_by": "Multiple weight-level natural-tone variants retained 6/6 conversation but regressed receipt truth below 8/8. Failed adapters are rejected; natural tone must remain in the governed runtime layer until a non-regressing training method is proven."
     },
     {
       "id": "GROW-004",
       "focus": "Choose relevant connected context and suppress robotic context inventories",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v15_scoped_context.jsonl",
+      "blocked_by": "Two candidates will train from the last proven 6/6 + 8/8 parent; automatic gates and human review remain mandatory."
     },
     {
       "id": "GROW-005",
