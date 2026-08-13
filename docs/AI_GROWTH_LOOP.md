@@ -12,3 +12,19 @@ Each run processes at most one packet from `evals/growth_packet_queue.json`:
 6. Load the next packet only after the current packet reaches a terminal evaluated state.
 
 Personal memories and sensitive values never enter this repository. Weight training and production-model promotion require separate reviewed workflows.
+
+## Weight-training gate
+
+1. A completed checkpoint is evaluated before another GPU package is chosen.
+2. General-language checkpoints that fail coherence or held-out loss do not
+   receive blind continuation. Compatible non-attention weights may be
+   transplanted into the corrected causal architecture instead.
+3. Product training uses only reviewed, de-identified curriculum records and
+   an explicit allowlist of repository references. Raw production
+   conversations, credentials, personal memories, and provider payloads are
+   excluded.
+4. Ascension product material is primary. A bounded general-language replay
+   sample may be mixed in to reduce catastrophic forgetting.
+5. Recovery checkpoints are operational artifacts, not promoted models.
+6. Promotion remains blocked until held-out conversational, truthfulness,
+   privacy, action-integrity, shell-isolation, latency, and canary gates pass.

@@ -193,6 +193,7 @@ def main():
     best_loss = float("inf")
     step = 0
     window_loss = 0.0
+    total_loss = 0.0
     while step < num_steps:
         epoch_loss = 0
         for batch in dataloader:
@@ -210,11 +211,14 @@ def main():
             scheduler.step()
             epoch_loss += loss.item()
             window_loss += loss.item()
+            total_loss += loss.item()
             step += 1
 
             if step % args.print_every == 0 or step == num_steps:
                 window_steps = step % args.print_every or args.print_every
                 avg = window_loss / window_steps
+                losses.append(avg)
+                best_loss = min(best_loss, avg)
                 log(f"Step {step}/{num_steps} loss: {avg:.4f}")
                 write_status(status_path, {
                     "version": prefix,
@@ -231,13 +235,14 @@ def main():
                 })
                 window_loss = 0.0
 
-        avg = epoch_loss / len(dataloader)
-        losses.append(avg)
-        if avg < best_loss:
-            best_loss = avg
+        # The configured step budget can end in the middle of a very large
+        # dataloader epoch. Never divide that partial work by the full loader.
+        if step >= num_steps:
+            break
 
     elapsed = time.perf_counter() - start
-    log(f"Training complete in {elapsed:.2f}s best loss: {best_loss:.4f} final loss: {losses[-1]:.4f}")
+    final_loss = losses[-1] if losses else total_loss / max(step, 1)
+    log(f"Training complete in {elapsed:.2f}s best loss: {best_loss:.4f} final loss: {final_loss:.4f}")
 
     with torch.serialization.safe_globals([ModelConfig]):
         torch.save({
@@ -252,7 +257,7 @@ def main():
             "model_path": str(model_path),
             "tokenizer_path": str(tokenizer_path),
             "config": config.__dict__,
-            "final_loss": losses[-1],
+            "final_loss": final_loss,
             "best_loss": best_loss,
             "train_seconds": elapsed,
             "device": device,

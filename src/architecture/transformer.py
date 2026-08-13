@@ -32,30 +32,55 @@ class MultiHeadAttention(nn.Module):
         super().__init__()
         self.num_heads = config.num_heads
         self.head_dim = config.hidden_size // config.num_heads
+        if config.hidden_size % config.num_heads != 0:
+            raise ValueError("hidden_size must be divisible by num_heads")
         
         self.qkv = nn.Linear(config.hidden_size, config.hidden_size * 3)
         self.out = nn.Linear(config.hidden_size, config.hidden_size)
         self.dropout = nn.Dropout(config.dropout)
-        self.scale = math.sqrt(self.head_dim)
+        self.scale = self.head_dim ** -0.5
+        self.register_buffer(
+            "causal_mask",
+            torch.tril(torch.ones(config.max_length, config.max_length, dtype=torch.bool))
+            .view(1, 1, config.max_length, config.max_length),
+            persistent=False,
+        )
     
     def forward(self, x, mask=None):
         B, T, C = x.shape
+        if T > self.causal_mask.size(-1):
+            raise ValueError(
+                f"sequence length {T} exceeds configured maximum {self.causal_mask.size(-1)}"
+            )
         
         # Generate Q, K, V
         qkv = self.qkv(x).reshape(B, T, 3, self.num_heads, self.head_dim)
         q, k, v = qkv.unbind(2)
+        q = q.transpose(1, 2)
+        k = k.transpose(1, 2)
+        v = v.transpose(1, 2)
         
         # Attention
         attn = (q @ k.transpose(-2, -1)) * self.scale
-        
+        allowed = self.causal_mask[:, :, :T, :T]
         if mask is not None:
-            attn = attn.masked_fill(mask == 0, float('-inf'))
+            external = mask.to(device=x.device, dtype=torch.bool)
+            if external.ndim == 2 and external.shape == (B, T):
+                external = external[:, None, None, :]
+            elif external.ndim == 2 and external.shape == (T, T):
+                external = external[None, None, :, :]
+            elif external.ndim == 3:
+                external = external[:, None, :, :]
+            if external.ndim != 4:
+                raise ValueError("attention mask must be [batch, sequence], [sequence, sequence], or broadcastable 4D")
+            allowed = allowed & external
+        attn = attn.masked_fill(~allowed, torch.finfo(attn.dtype).min)
         
         attn = F.softmax(attn, dim=-1)
         attn = self.dropout(attn)
         
         # Output
-        out = (attn @ v).transpose(1, 2).reshape(B, T, C)
+        out = (attn @ v).transpose(1, 2).contiguous().reshape(B, T, C)
         return self.out(out)
 
 class FeedForward(nn.Module):

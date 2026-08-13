@@ -56,6 +56,32 @@ python -u scripts/train_ascension_general_v5.py
 
 Install both requirement files only on a machine that is meant to train models. The Render service uses `requirements.txt` exclusively for FastAPI and pinned GGUF inference.
 
+Before continuing a completed v5 checkpoint, run its gate. The gate records
+held-out loss and reviewable samples; it never promotes a model by itself.
+
+```bash
+python -u scripts/evaluate_v5_checkpoint.py --version ascension_elite_general_v5_4h
+```
+
+Then build the reviewed, de-identified Ascension product corpus and continue
+with the initialization selected by the gate. `transplant` preserves learned
+token, feed-forward, normalization, and output weights while reinitializing the
+attention layers that were trained before causal-attention v2.
+
+```bash
+python -u scripts/build_ascension_product_corpus.py
+python -u scripts/train_ascension_product_v6.py \
+  --base-version ascension_elite_general_v5_4h \
+  --version ascension_product_v6 \
+  --initialization transplant \
+  --steps 20000
+```
+
+The product trainer writes a rotating recovery checkpoint every 2,500 steps.
+Resume an interrupted run with `--resume-latest`. Training completion is not a
+production-replacement receipt; held-out conversation, privacy, shell, action,
+latency, and canary evaluations remain required.
+
 ## API
 
 - `GET /health` — public readiness without secrets.
