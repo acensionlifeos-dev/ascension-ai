@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT))
 
 from src.core.cognition import build_action_execution_contract, build_cognitive_packet
 from src.core.contracts import Shell, Tier
-from src.core.orchestrator import surface_plan
+from src.core.orchestrator import enforce_response_contract, surface_plan
 
 
 def test_low_risk_schedule_contract_has_safe_gate_and_receipt() -> None:
@@ -54,6 +54,27 @@ def test_high_risk_payment_requires_explicit_confirmation_and_receipts() -> None
     assert "funding source" in missing
     assert "explicit final confirmation" in missing
     assert contract["execution_receipt"]["receipt_rule"].startswith("No save")
+
+
+def test_prepared_payment_gets_user_facing_approval_and_receipt_boundary() -> None:
+    cognitive = build_cognitive_packet(
+        "Prepare a payment for my phone bill.",
+        {},
+        [],
+        [],
+    )
+    assert any(item["action"] == "finance.payment" for item in cognitive["action_proposals"])
+    answer = enforce_response_contract(
+        "I can prepare the payment details for you.",
+        cognitive,
+        {},
+        "conversation",
+        "Prepare a payment for my phone bill.",
+    )
+    lowered = answer.casefold()
+    assert "not been submitted" in lowered
+    assert "approval" in lowered
+    assert "provider receipt" in lowered
 
 
 def test_sprout_calendar_action_requires_guardian_confirmation() -> None:

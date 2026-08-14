@@ -212,6 +212,23 @@ def enforce_response_contract(content: str, cognitive: dict, context: dict, mode
     """Apply deterministic integrity checks where a small model must not improvise."""
     answer = str(content or "").strip()
     receipts = _verified_receipts(context)
+    actions = {item.get("action") for item in cognitive.get("action_proposals", [])}
+
+    # "Prepare a payment" is a proposal, never evidence that money moved.  A
+    # small model may safely discuss preparation without using a forbidden
+    # completion verb, so the generic false-claim filter below would otherwise
+    # miss the required approval and provider-receipt boundary.
+    if (
+        not receipts
+        and "finance.payment" in actions
+        and not re.search(r"\b(?:approval|review|receipt|not submitted|not executed)\b", answer, re.I)
+    ):
+        answer = (
+            "The payment has not been submitted. I can prepare the exact amount, destination, "
+            "funding source, and timing for your review; execution requires your explicit "
+            "final approval and a verified provider receipt. " + answer
+        ).strip()
+
     if not receipts and UNRECEIPTED_CLAIM.search(answer):
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
         answer = " ".join(kept).strip()

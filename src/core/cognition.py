@@ -254,7 +254,7 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("creation.save_seed", "Preserve the idea without interrupting the conversation."))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
         proposals.append(_proposal("messages.send", "External communication requires the user to approve the exact recipient and content.", missing=["recipient", "final content", "connected provider"]))
-    if re.search(r"\b(?:pay|purchase|buy|transfer money)\b", lowered):
+    if re.search(r"\b(?:pay|payment|purchase|buy|transfer money)\b", lowered):
         payment_missing = []
         if not re.search(r"(?:\$|usd\s*)\s*\d+(?:[,.]\d{1,2})?\b", source, re.I):
             payment_missing.append("amount")
