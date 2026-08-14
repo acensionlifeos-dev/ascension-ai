@@ -143,7 +143,9 @@
     {
       "id": "GROW-016",
       "focus": "Connect investing and compounding plans to verified cash flow, recurring bills, reserves, debt, taxes, aspirations, and corrections",
-      "status": "pending",
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v28_investing_compounding.jsonl",
+      "blocked_by": "Training must use only verified personal financial evidence, recheck risk capacity before every proposed contribution increase, and update the plan when the user corrects an amount, deadline, or risk preference. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion is allowed.",
       "pass_conditions": [
         "Uses only verified personal financial evidence",
         "Rechecks risk capacity before every proposed contribution increase",
