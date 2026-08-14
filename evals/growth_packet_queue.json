@@ -94,9 +94,9 @@
     {
       "id": "GROW-012",
       "focus": "Improve latency awareness, concision, completeness, and graceful escalation to deeper reasoning",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v24_latency_concision.jsonl",
-      "blocked_by": "Training must improve measured latency and concision while preserving canonical, receipt-truth, and replacement gates. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion is allowed.",
+      "blocked_by": "GROW-012 v1 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
       "pass_conditions": [
         "Answers are concise but complete; no missing required receipt or permission field",
         "Escalates to deeper reasoning only when the user asks or when the task requires more information",
