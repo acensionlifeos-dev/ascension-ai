@@ -1,0 +1,1103 @@
+{
+  "schema_version": "1.1",
+  "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
+  "unix_timestamp": 1786665914.8906257,
+  "source_hashes": {
+    "src/core/cognition.py": "91c50fdf1daf639305dce30666fc7f99c7af8faa57514dae0337bac994e3626a",
+    "src/core/orchestrator.py": "2d264791b507c23e428ea05841b2ad48882a5dbb7091d6aa136107679cc9a3a8",
+    "src/core/model_runtime.py": "6d0ef1e7d00fed89ec07e8397fb9af5b531aceae2686d1b5dee844843dc34f17",
+    "src/serving/api.py": "cdf02bcceae3acfa5ac6eb398b94d8abfffc304403f398f894a022c8499b21d5"
+  },
+  "runtime_identity": {
+    "ready": false,
+    "model": null,
+    "profile": "starter",
+    "repo_id": null,
+    "inference": "local_gguf_llama_cpp",
+    "outside_provider": false,
+    "replacement_ready": false
+  },
+  "per_surface": {
+    "natural conversation": {
+      "surface": "natural conversation",
+      "ids": [
+        "ascension_chat"
+      ],
+      "class": "unavailable",
+      "timestamp_utc": "2026-08-14T00:05:14.810501+00:00",
+      "unix_timestamp": 1786665914.8105018,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "Native model is not loaded; no runtime inference evidence available.",
+      "permission_receipt_evidence": {
+        "model": null,
+        "content_preview": null,
+        "usage": null
+      },
+      "provenance": "native_model"
+    },
+    "persistent memory / corrections": {
+      "surface": "persistent memory / corrections",
+      "ids": [
+        "ascension_living_memory",
+        "ascension_second_brain",
+        "ascension_living_context"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.810501+00:00",
+      "unix_timestamp": 1786665914.880476,
+      "latency_ms": 69,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "memory_signal": {
+          "type": "preference",
+          "key": "preferred_name",
+          "operation": "upsert",
+          "domain": "identity",
+          "persistence_condition": "shell_authority_and_guardian_when_minor",
+          "guardian_required": false,
+          "value_preview": "Brandon"
+        },
+        "permission_approval_gate": {
+          "gate": "none",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "schedule / calendar": {
+      "surface": "schedule / calendar",
+      "ids": [
+        "ascension_calendar_intelligence",
+        "ascension_appointments",
+        "ascension_time"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.880475+00:00",
+      "unix_timestamp": 1786665914.8809855,
+      "latency_ms": 1,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "schedule.upsert_recurring_work",
+          "domain": "schedule",
+          "surface": "calendar",
+          "risk": "low",
+          "approval": "safe_internal_auto",
+          "reason": "The user explicitly supplied a complete recurring work pattern.",
+          "arguments": {
+            "start_time": "10 pm",
+            "end_time": "6 am",
+            "days": [
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+              "sunday"
+            ],
+            "crosses_midnight": true
+          },
+          "missing_variables": [],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "memory_receipt",
+            "saved_schedule_id"
+          ],
+          "guardian_required": false,
+          "missing_questions": []
+        },
+        "permission_approval_gate": {
+          "gate": "safe_internal_auto",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "memory_receipt",
+            "saved_schedule_id"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "schedule.upsert_recurring_work",
+              "receipt_fields": [
+                "memory_receipt",
+                "saved_schedule_id"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "tasks / quests": {
+      "surface": "tasks / quests",
+      "ids": [
+        "ascension_task",
+        "ascension_adaptive_quest"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.880985+00:00",
+      "unix_timestamp": 1786665914.8809855,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    },
+    "finance / budget / grocery": {
+      "surface": "finance / budget / grocery",
+      "ids": [
+        "ascension_finance",
+        "ascension_budgeting",
+        "ascension_grocery_list"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.880985+00:00",
+      "unix_timestamp": 1786665914.8829982,
+      "latency_ms": 3,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "finance.payment",
+          "domain": "finance",
+          "surface": "financial_profile",
+          "risk": "critical",
+          "approval": "explicit_confirmation",
+          "reason": "A financial transaction is high consequence and cannot execute silently.",
+          "arguments": {},
+          "missing_variables": [
+            "amount",
+            "funding source",
+            "explicit final confirmation"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "transaction_id",
+            "amount",
+            "destination",
+            "funding_source",
+            "confirmed_at",
+            "provider"
+          ],
+          "guardian_required": false,
+          "missing_questions": [
+            {
+              "variable": "amount",
+              "question": "What is the exact amount?",
+              "present_in_context": false
+            },
+            {
+              "variable": "funding source",
+              "question": "Which account or funding source should be used?",
+              "present_in_context": false
+            },
+            {
+              "variable": "explicit final confirmation",
+              "question": "Please confirm this action before it runs.",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "explicit_confirmation",
+          "approval_required": true,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "amount",
+            "budget_id",
+            "confirmed_at",
+            "destination",
+            "funding_source",
+            "prepared_at",
+            "provider",
+            "transaction_id"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "finance.prepare_budget",
+              "receipt_fields": [
+                "prepared_at",
+                "budget_id"
+              ],
+              "guardian_required": false
+            },
+            {
+              "action": "finance.payment",
+              "receipt_fields": [
+                "transaction_id",
+                "amount",
+                "destination",
+                "funding_source",
+                "confirmed_at",
+                "provider"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "nutrition": {
+      "surface": "nutrition",
+      "ids": [
+        "ascension_nutrition"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.882998+00:00",
+      "unix_timestamp": 1786665914.8850112,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "nutrition.prepare_meal_plan",
+          "domain": "health",
+          "surface": "nutrition",
+          "risk": "low",
+          "approval": "safe_internal_auto",
+          "reason": "Coordinate nutrition, favorites, schedule, household size, and cash flow.",
+          "arguments": {},
+          "missing_variables": [
+            "planning mode",
+            "servings",
+            "available budget"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "prepared_at",
+            "plan_id"
+          ],
+          "guardian_required": false,
+          "missing_questions": [
+            {
+              "variable": "planning mode",
+              "question": "Is this a one-time meal plan or a repeating grocery list?",
+              "present_in_context": false
+            },
+            {
+              "variable": "servings",
+              "question": "How many servings?",
+              "present_in_context": false
+            },
+            {
+              "variable": "available budget",
+              "question": "What is the available food budget?",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "safe_internal_auto",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "plan_id",
+            "prepared_at"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "nutrition.prepare_meal_plan",
+              "receipt_fields": [
+                "prepared_at",
+                "plan_id"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "workout / health": {
+      "surface": "workout / health",
+      "ids": [
+        "ascension_workout",
+        "ascension_health"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
+      "unix_timestamp": 1786665914.8850112,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    },
+    "learning / course generation": {
+      "surface": "learning / course generation",
+      "ids": [
+        "ascension_learning",
+        "ascension_knowledge_studio"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
+      "unix_timestamp": 1786665914.8850112,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "learning.prepare_course",
+          "domain": "learning",
+          "surface": "academy",
+          "risk": "low",
+          "approval": "safe_internal_auto",
+          "reason": "The user requested learning; prepare an optional adaptive Academy course.",
+          "arguments": {},
+          "missing_variables": [
+            "current skill level",
+            "time available",
+            "desired outcome"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "prepared_at",
+            "course_id"
+          ],
+          "guardian_required": false,
+          "missing_questions": [
+            {
+              "variable": "current skill level",
+              "question": "What is your current skill level?",
+              "present_in_context": false
+            },
+            {
+              "variable": "time available",
+              "question": "How much time can you commit?",
+              "present_in_context": false
+            },
+            {
+              "variable": "desired outcome",
+              "question": "What outcome do you want from this learning?",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "safe_internal_auto",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "course_id",
+            "prepared_at"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "learning.prepare_course",
+              "receipt_fields": [
+                "prepared_at",
+                "course_id"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "career": {
+      "surface": "career",
+      "ids": [
+        "ascension_career"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
+      "unix_timestamp": 1786665914.888602,
+      "latency_ms": 4,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "career.research_jobs",
+          "domain": "career",
+          "surface": "career_hub",
+          "risk": "low",
+          "approval": "safe_research",
+          "reason": "Research and enrich relevant opportunities without inventing missing facts.",
+          "arguments": {},
+          "missing_variables": [],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "prepared_at",
+            "search_id",
+            "source"
+          ],
+          "guardian_required": false,
+          "missing_questions": []
+        },
+        "permission_approval_gate": {
+          "gate": "safe_research",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "prepared_at",
+            "search_id",
+            "source"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "career.research_jobs",
+              "receipt_fields": [
+                "prepared_at",
+                "search_id",
+                "source"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "aspirations": {
+      "surface": "aspirations",
+      "ids": [
+        "ascension_goals",
+        "ascension_milestones",
+        "ascension_dream_fund"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
+      "unix_timestamp": 1786665914.888602,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    },
+    "creation / project workspaces": {
+      "surface": "creation / project workspaces",
+      "ids": [
+        "ascension_creative",
+        "ascension_project",
+        "ascension_content_workspace"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
+      "unix_timestamp": 1786665914.888602,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "creation.save_seed",
+          "domain": "creation",
+          "surface": "creation",
+          "risk": "low",
+          "approval": "safe_internal_auto",
+          "reason": "Preserve the idea without interrupting the conversation.",
+          "arguments": {},
+          "missing_variables": [],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "saved_at",
+            "seed_id"
+          ],
+          "guardian_required": false,
+          "missing_questions": []
+        },
+        "permission_approval_gate": {
+          "gate": "safe_internal_auto",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "saved_at",
+            "seed_id"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "creation.save_seed",
+              "receipt_fields": [
+                "saved_at",
+                "seed_id"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "browser / web research": {
+      "surface": "browser / web research",
+      "ids": [
+        "web_browsing",
+        "ascension_research_assistant"
+      ],
+      "class": "unavailable",
+      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
+      "unix_timestamp": 1786665914.888602,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "Native runtime has no handler for this surface; outside-provider fallback remains the active route.",
+      "permission_receipt_evidence": {
+        "routed_provider": "outside-provider-fallback"
+      },
+      "provenance": "outside_fallback"
+    },
+    "relationships": {
+      "surface": "relationships",
+      "ids": [
+        "ascension_relationships",
+        "ascension_relationship_intelligence"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
+      "unix_timestamp": 1786665914.8906257,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "messages.send",
+          "domain": "relationships",
+          "surface": "messages",
+          "risk": "high",
+          "approval": "explicit_confirmation",
+          "reason": "External communication requires the user to approve the exact recipient and content.",
+          "arguments": {},
+          "missing_variables": [
+            "recipient",
+            "final content",
+            "connected provider"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "message_id",
+            "recipient",
+            "channel",
+            "sent_at",
+            "provider"
+          ],
+          "guardian_required": false,
+          "missing_questions": [
+            {
+              "variable": "recipient",
+              "question": "Who is the recipient?",
+              "present_in_context": false
+            },
+            {
+              "variable": "final content",
+              "question": "What is the exact message to send?",
+              "present_in_context": false
+            },
+            {
+              "variable": "connected provider",
+              "question": "Which connected provider will be used?",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "explicit_confirmation",
+          "approval_required": true,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "channel",
+            "message_id",
+            "provider",
+            "recipient",
+            "sent_at"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "messages.send",
+              "receipt_fields": [
+                "message_id",
+                "recipient",
+                "channel",
+                "sent_at",
+                "provider"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "FamilyOS / Sprout / Nexus permission boundaries": {
+      "surface": "FamilyOS / Sprout / Nexus permission boundaries",
+      "ids": [
+        "ascension_home",
+        "ascension_sprout",
+        "ascension_family"
+      ],
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
+      "unix_timestamp": 1786665914.8906257,
+      "latency_ms": 1,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "calendar.external_write",
+          "domain": "schedule",
+          "surface": "calendar",
+          "risk": "high",
+          "approval": "explicit_confirmation",
+          "reason": "A calendar change must be resolved to a specific event and confirmed by the connected calendar provider.",
+          "arguments": {
+            "request": "Schedule a dentist appointment for my toddler on Tuesday at 3 pm"
+          },
+          "missing_variables": [
+            "resolved date and timezone",
+            "target calendar",
+            "explicit final confirmation"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "event_id",
+            "calendar",
+            "updated_at",
+            "provider"
+          ],
+          "guardian_required": true,
+          "missing_questions": [
+            {
+              "variable": "resolved date and timezone",
+              "question": "What is the exact date, time, and timezone?",
+              "present_in_context": false
+            },
+            {
+              "variable": "target calendar",
+              "question": "Which calendar should it go on?",
+              "present_in_context": false
+            },
+            {
+              "variable": "explicit final confirmation",
+              "question": "Please confirm this action before it runs.",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "guardian_confirmation",
+          "approval_required": true,
+          "requires_guardian": true,
+          "child_or_household_scope": true
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": true,
+          "affected_actions": [
+            "calendar.external_write"
+          ],
+          "affected_domains": [
+            "sprout"
+          ],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "calendar",
+            "event_id",
+            "provider",
+            "updated_at"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "calendar.external_write",
+              "receipt_fields": [
+                "event_id",
+                "calendar",
+                "updated_at",
+                "provider"
+              ],
+              "guardian_required": true
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
+    },
+    "self-care": {
+      "surface": "self-care",
+      "ids": [
+        "ascension_mindfulness",
+        "ascension_sleep_hygiene",
+        "ascension_journaling"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
+      "unix_timestamp": 1786665914.8906257,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    },
+    "astrology / numerology reflection": {
+      "surface": "astrology / numerology reflection",
+      "ids": [
+        "ascension_astrology",
+        "ascension_horoscope",
+        "ascension_tarot"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
+      "unix_timestamp": 1786665914.8906257,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    },
+    "journal / reflection": {
+      "surface": "journal / reflection",
+      "ids": [
+        "ascension_journaling",
+        "ascension_gratitude",
+        "ascension_visualization"
+      ],
+      "class": "unimplemented",
+      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
+      "unix_timestamp": 1786665914.8906257,
+      "latency_ms": 0,
+      "queue": {
+        "queue_depth": 0,
+        "active_requests": 0,
+        "completed_requests": 0,
+        "failed_requests": 0,
+        "timeout_requests": 0,
+        "last_queue_wait_ms": 0,
+        "max_queue_wait_ms": 0,
+        "last_inference_ms": 0,
+        "queue_timeout_seconds": 95.0,
+        "inference_timeout_seconds": 180.0,
+        "inference_started_at": null,
+        "inference_hung": false,
+        "watchdog_enabled": false
+      },
+      "reason": "No runtime test case is defined for this surface in the native core.",
+      "permission_receipt_evidence": null,
+      "provenance": "no_handler"
+    }
+  },
+  "proven_surfaces": [
+    "FamilyOS / Sprout / Nexus permission boundaries",
+    "career",
+    "creation / project workspaces",
+    "finance / budget / grocery",
+    "learning / course generation",
+    "nutrition",
+    "persistent memory / corrections",
+    "relationships",
+    "schedule / calendar"
+  ],
+  "failed_surfaces": [],
+  "unavailable_surfaces": [
+    "browser / web research",
+    "natural conversation"
+  ],
+  "unimplemented_surfaces": [
+    "aspirations",
+    "astrology / numerology reflection",
+    "journal / reflection",
+    "self-care",
+    "tasks / quests",
+    "workout / health"
+  ],
+  "replacement_ready": false,
+  "outside_provider": false,
+  "report_rule": "A surface is proven only when a real native handler produced a canary-driven, permission-aware, receipt-gated output. Registration, static declarations, HTTP 200, and mocks do not count."
+}
