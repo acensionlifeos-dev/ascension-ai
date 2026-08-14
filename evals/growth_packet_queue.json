@@ -142,6 +142,18 @@
       "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v21_spatial_worlds.jsonl",
       "blocked_by": "Both candidates pass the integrated gate at 6/6 canonical plus 8/8 receipt truth and the replacement gate at 20/20. Candidate B has the lower measured maximum and mean replacement latency and is recommended for human review. No production promotion has occurred; a scene manifest never counts as a rendered world without an engine receipt."
+    },
+    {
+      "id": "GROW-018",
+      "focus": "Master receipt-truth and permission-boundary vocabulary across all Ascension shells",
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v29_receipt_truth_v1.jsonl",
+      "blocked_by": "GROW-018 v1 directly targets the 8 canonical receipt-truth gate prompts. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion. If it passes, it becomes the proven parent for re-running GROW-011 through GROW-016.",
+      "pass_conditions": [
+        "Uses the exact required receipt words from the canonical gate",
+        "Never affirms a forbidden completion claim",
+        "Generalizes to paraphrased prompts without overfitting to a single wording"
+      ]
     }
   ]
 }
