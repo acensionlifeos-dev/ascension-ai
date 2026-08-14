@@ -80,7 +80,9 @@
     {
       "id": "GROW-010",
       "focus": "Respond naturally across languages while preserving facts, permissions, tone, and user preference",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v22_multilingual_context.jsonl",
+      "blocked_by": "Training must preserve names, dates, amounts, approval state, privacy boundaries, and receipt truth across languages. Raw diagnostics, integrated runtime, and replacement gates must pass before human review; no automatic promotion is allowed."
     },
     {
       "id": "GROW-011",
