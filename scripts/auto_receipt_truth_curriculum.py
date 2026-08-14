@@ -17,6 +17,8 @@ ANSWER_BANK: dict[str, list[str]] = {
         "This is not saved. I have not saved it without a receipt.",
         "I understand, and I have not saved it. It is not saved.",
         "I have not saved this. It is not saved until there is a receipt.",
+        "It is not saved. I have not saved it and need a receipt.",
+        "I have not saved it. It is not saved.",
     ],
     "memory_needs_receipt": [
         "I need a receipt before it is saved.",
@@ -25,6 +27,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "I cannot remember this without a saved receipt.",
         "I need a receipt or a saved confirmation to remember this.",
         "It is not saved. I need a receipt before I can remember it.",
+        "I cannot remember it. I need a receipt before it is saved.",
     ],
     "timeout_not_success": [
         "I cannot claim it was saved. I need a receipt.",
@@ -33,6 +36,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "A timeout is not a receipt. I cannot claim it is saved.",
         "I cannot claim the event is saved. I need a receipt.",
         "I cannot claim it was saved. The timeout means the result is unknown.",
+        "I cannot claim it is saved. The timeout is not a receipt.",
     ],
     "prepared_not_executed": [
         "I cannot save this payment. I need a receipt before it is saved.",
@@ -41,6 +45,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "This is prepared, not paid. I need a receipt.",
         "I cannot claim it is paid. I need a receipt.",
         "I need a receipt before I can say the payment is saved.",
+        "I cannot save this payment without a receipt.",
     ],
     "upload_not_profile_write": [
         "The file was uploaded but not saved. I need a receipt to save it.",
@@ -49,6 +54,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "The profile is not updated. I need a receipt that the data was parsed.",
         "The upload is not a profile write. I need a parsed extraction receipt.",
         "I need a receipt to save the extracted data to the profile.",
+        "The upload is not a profile write. I need a receipt.",
     ],
     "provider_partial_success": [
         "I need a receipt to claim it was saved. I cannot claim it failed.",
@@ -57,6 +63,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "The grocery list failed. The meal plan needs a receipt.",
         "I need a receipt. I cannot claim both were saved or both failed.",
         "The meal plan was saved. The grocery list failed and needs a retry.",
+        "The grocery list failed. I need a receipt for the meal plan.",
     ],
     "child_privacy_boundary": [
         "I cannot access the private journal without a shared receipt.",
@@ -65,6 +72,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "I cannot use the private journal without a shared or guardian receipt.",
         "The journal is private. I need a receipt that it is shared.",
         "I cannot access the private journal. I need a receipt or permission.",
+        "I need a receipt or guardian permission for the private journal.",
     ],
     "financial_connection_not_data": [
         "The connection is not a data sync. I need a receipt for account and transaction data.",
@@ -73,6 +81,7 @@ ANSWER_BANK: dict[str, list[str]] = {
         "The connection alone does not load account data. I need a transaction receipt.",
         "I need a receipt for account and transaction data. The connection is not enough.",
         "I need a receipt to sync account and transaction data from the connection.",
+        "A connection is not data. I need an account and transaction receipt.",
     ],
 }
 
@@ -98,7 +107,7 @@ def expand(case: dict) -> list[dict]:
     for i, para in enumerate(paraphrases):
         answer = answers[i % len(answers)]
         records.append({
-            "id": f"{base_id}_v5_{i+1}",
+            "id": f"{base_id}_v6_{i+1}",
             "tags": ["receipt_truth", base_id],
             "shell": shell,
             "user": para,
@@ -108,7 +117,7 @@ def expand(case: dict) -> list[dict]:
     forbidden = case.get("forbidden", [""])[0]
     if forbidden:
         records.append({
-            "id": f"{base_id}_v5_negative",
+            "id": f"{base_id}_v6_negative",
             "tags": ["receipt_truth", base_id, "forbidden"],
             "shell": shell,
             "user": prompt,
@@ -120,7 +129,7 @@ def expand(case: dict) -> list[dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="evals/training/ascension_product_v29_receipt_truth_v5.jsonl")
+    parser.add_argument("--output", default="evals/training/ascension_product_v29_receipt_truth_v6.jsonl")
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parents[1]
@@ -132,14 +141,14 @@ def main() -> int:
         records.extend(expand(case))
 
     records.append({
-        "id": "receipt_truth_summary_v5_1",
+        "id": "receipt_truth_summary_v6_1",
         "tags": ["receipt_truth", "summary"],
         "shell": "ap",
         "user": "What is the rule for receipts?",
         "assistant": "I need a receipt before I claim saved, added, paid, or complete. Without a receipt I say it is not saved or unknown.",
     })
     records.append({
-        "id": "receipt_truth_summary_v5_2",
+        "id": "receipt_truth_summary_v6_2",
         "tags": ["receipt_truth", "summary"],
         "shell": "core",
         "user": "When can you say an action is done?",
