@@ -164,7 +164,7 @@ def main() -> int:
             "id": packet_id,
             "focus": f"Category: {category} ({len(cat_caps)} capabilities)",
             "status": "pending",
-            "curriculum": str(curriculum_path.relative_to(ROOT)),
+            "curriculum": str(curriculum_path.relative_to(ROOT).as_posix()),
             "evaluation": "scripts/receipt_truth_training_eval.py",
             "pass_conditions": [
                 "Preserves permission-scoped context and receipt discipline",
