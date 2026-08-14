@@ -236,14 +236,15 @@
     {
       "id": "GROW-071",
       "focus": "Category: cooking (11 capabilities)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals\\training\\ascension_product_v71_cooking.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow071_cooking_v1 completed; human review required."
     },
     {
       "id": "GROW-072",
