@@ -95,8 +95,8 @@
       "id": "GROW-012",
       "focus": "Improve latency awareness, concision, completeness, and graceful escalation to deeper reasoning",
       "status": "training",
-      "curriculum": "evals/training/ascension_product_v24_latency_concision_v3.jsonl",
-      "blocked_by": "GROW-012 v3 drill-down in progress. v3 targets the remaining overclaim/verbosity failure pattern directly. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
+      "curriculum": "evals/training/ascension_product_v24_latency_concision_v4.jsonl",
+      "blocked_by": "GROW-012 v4 drill-down in progress. v4 directly targets the financial-access overclaim and reinforces concise, receipt-aware answers. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
       "pass_conditions": [
         "Answers are concise but complete; no missing required receipt or permission field",
         "Escalates to deeper reasoning only when the user asks or when the task requires more information",
