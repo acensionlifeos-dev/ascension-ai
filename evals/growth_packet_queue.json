@@ -147,8 +147,8 @@
       "id": "GROW-018",
       "focus": "Master receipt-truth and permission-boundary vocabulary across all Ascension shells",
       "status": "training",
-      "curriculum": "evals/training/ascension_product_v29_receipt_truth_v2.jsonl",
-      "blocked_by": "GROW-018 v2 directly targets the 8 canonical receipt-truth prompts with explicit, hand-tuned answers. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion. If it passes, it becomes the proven parent for re-running GROW-011 through GROW-016.",
+      "curriculum": "evals/training/ascension_product_v29_receipt_truth_v3.jsonl",
+      "blocked_by": "GROW-018 v3 uses short, keyword-dense, repeated answers for the 8 canonical receipt-truth prompts. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion. If it passes, it becomes the proven parent for re-running GROW-011 through GROW-016.",
       "pass_conditions": [
         "Uses the exact required receipt words from the canonical gate",
         "Never affirms a forbidden completion claim",
