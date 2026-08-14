@@ -131,6 +131,13 @@
         "Rechecks risk capacity before every proposed contribution increase",
         "Updates the plan when the user corrects an amount, deadline, or risk preference"
       ]
+    },
+    {
+      "id": "GROW-017",
+      "focus": "Compile detailed native Ascension Hub, dream-home, FamilyOS compound, neighborhood, AR, and VR worlds without false render claims or privacy crossover",
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v21_spatial_worlds.jsonl",
+      "blocked_by": "Training must use the preserved reviewed parent and pass raw diagnostic, integrated runtime, and replacement gates before human review. A scene manifest never counts as a rendered world without an engine receipt."
     }
   ]
 }
