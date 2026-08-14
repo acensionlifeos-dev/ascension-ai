@@ -73,7 +73,9 @@
     {
       "id": "GROW-009",
       "focus": "Create adaptive learning paths without forcing courses or overwhelming the user",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v20_adaptive_learning.jsonl",
+      "blocked_by": "Training must use the preserved reviewed parent, pair adaptive learning with receipt-boundary rehearsal, and pass raw diagnostic, integrated runtime, and replacement gates before human review."
     },
     {
       "id": "GROW-010",
