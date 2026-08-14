@@ -51,11 +51,11 @@ def _contains_unnegated_claim(content: str, term: str) -> bool:
     pattern = re.compile(rf"(?<!\w){re.escape(term)}(?!\w)", re.I)
     negation = re.compile(
         r"\b(?:cannot|can't|can not|will not|won't|did not|didn't|do not|don't|"
-        r"must not|should not|never|without)\b",
+        r"must not|should not|never|without|not)\b",
         re.I,
     )
     conditional_uncertainty = re.compile(
-        r"\b(?:whether|if)\b|\b(?:verify|check|confirm)\s+(?:whether|if)\b",
+        r"\b(?:whether|if|before|until)\b|\b(?:verify|check|confirm)\s+(?:whether|if)\b",
         re.I,
     )
     for match in pattern.finditer(content):
