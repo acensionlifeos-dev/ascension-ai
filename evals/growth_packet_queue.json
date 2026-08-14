@@ -52,14 +52,16 @@
     {
       "id": "GROW-006",
       "focus": "Reason about cash flow, recurring obligations, overdraft risk, and aspirations without inventing financial evidence",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v17_financial_cashflow.jsonl",
-      "blocked_by": "Training must start from the preserved reviewed parent, pair financial examples with receipt-boundary rehearsal, and pass integrated plus replacement gates before human review."
+      "blocked_by": "Both candidates pass the integrated gate at 6/6 canonical plus 8/8 receipt truth and the corrected replacement gate at 20/20. Candidate B has the lower measured maximum and mean latency and is recommended for human review; no production promotion has occurred."
     },
     {
       "id": "GROW-007",
       "focus": "Respect AP, NexusHome, NexusFamily, parent, child, household, and family-enterprise privacy boundaries",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v18_privacy_boundaries.jsonl",
+      "blocked_by": "Training must start from the preserved reviewed parent, pair privacy examples with receipt-boundary rehearsal, and pass integrated plus replacement gates before human review."
     },
     {
       "id": "GROW-008",
