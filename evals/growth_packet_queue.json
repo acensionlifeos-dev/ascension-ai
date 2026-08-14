@@ -119,9 +119,9 @@
     {
       "id": "GROW-014",
       "focus": "Research prediction markets from live implied probability, resolution rules, dates, liquidity, supporting evidence, contrary evidence, and uncertainty",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v26_prediction_markets.jsonl",
-      "blocked_by": "Training must separate implied from estimated probability, provide a probability range with confidence and invalidation conditions, and never bypass jurisdiction, approval, signature, or receipt gates. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion is allowed.",
+      "blocked_by": "GROW-014 v1 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
       "pass_conditions": [
         "Separates market-implied probability from estimated probability",
         "Provides a probability range, confidence, and invalidation conditions",
