@@ -146,9 +146,9 @@
     {
       "id": "GROW-018",
       "focus": "Master receipt-truth and permission-boundary vocabulary across all Ascension shells",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v29_receipt_truth_v6.jsonl",
-      "blocked_by": "GROW-018 v6 isolates the remaining 'understood_not_saved' failure and repeats the exact 'not saved' / 'have not saved' phrase. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion. If it passes, it becomes the proven parent for re-running GROW-011 through GROW-016.",
+      "blocked_by": "GROW-018 v6 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
       "pass_conditions": [
         "Uses the exact required receipt words from the canonical gate",
         "Never affirms a forbidden completion claim",
