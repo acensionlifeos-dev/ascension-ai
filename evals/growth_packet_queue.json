@@ -131,9 +131,9 @@
     {
       "id": "GROW-015",
       "focus": "Design and evaluate multi-market bots through dated backtests, paper-forward tests, costs, benchmarks, stop conditions, and failure criteria",
-      "status": "awaiting_human_review",
-      "curriculum": "evals/training/ascension_product_v27_bot_evaluation.jsonl",
-      "blocked_by": "GROW-015 v1 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v27_bot_evaluation_v2.jsonl",
+      "blocked_by": "GROW-015 v2 iteration in progress. v2 drills reproducible backtests, paper-forward tests, cost models, benchmarks, and failure criteria. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
       "pass_conditions": [
         "Does not call a bot best without reproducible evidence",
         "Keeps penny-stock automation research-only and rejects unverifiable catalysts",
