@@ -14,7 +14,7 @@
       "adapter": "checkpoints/grow066_automotive_v1_a",
       "training": {
         "return_code": 0,
-        "wall_seconds": 14.621
+        "wall_seconds": 13.843
       },
       "training_receipt": {
         "status": "trained_not_promoted",
@@ -37,9 +37,9 @@
         "seed": 9066,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 7.0961,
-          "train_samples_per_second": 5.355,
-          "train_steps_per_second": 0.846,
+          "train_runtime": 6.3343,
+          "train_samples_per_second": 5.999,
+          "train_steps_per_second": 0.947,
           "total_flos": 30973899681792.0,
           "train_loss": 2.959938128789266,
           "epoch": 2.0
@@ -49,12 +49,12 @@
       },
       "gate_execution": {
         "return_code": 0,
-        "wall_seconds": 9.362
+        "wall_seconds": 10.929
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
         "adapter": "checkpoints/grow066_automotive_v1_a",
-        "adapter_sha256": "b38fc1ecc951a6bae4d3f0ddc442a8910e66affbbe02276c6a32ac6a3a9da674",
+        "adapter_sha256": "e7703ae58cd54a3e351f70723162f603698da2ebcd34a52b91bcfb5cee2789b6",
         "gate": "qwen_ascension_adapter_v1",
         "canonical_passed": true,
         "canonical_pass_count": 6,
@@ -256,7 +256,7 @@
       "adapter": "checkpoints/grow066_automotive_v1_b",
       "training": {
         "return_code": 0,
-        "wall_seconds": 14.621
+        "wall_seconds": 13.843
       },
       "training_receipt": {
         "status": "trained_not_promoted",
@@ -279,9 +279,9 @@
         "seed": 9067,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 7.2839,
-          "train_samples_per_second": 5.217,
-          "train_steps_per_second": 0.824,
+          "train_runtime": 7.1934,
+          "train_samples_per_second": 5.283,
+          "train_steps_per_second": 0.834,
           "total_flos": 30991021793280.0,
           "train_loss": 3.0489632288614907,
           "epoch": 2.0
@@ -291,12 +291,12 @@
       },
       "gate_execution": {
         "return_code": 0,
-        "wall_seconds": 9.361
+        "wall_seconds": 10.929
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
         "adapter": "checkpoints/grow066_automotive_v1_b",
-        "adapter_sha256": "22b2d9a24ec1874d1ea1fb7b3bac6dd461db931351fe68360d742cffc0255c5b",
+        "adapter_sha256": "b60bebc521ff7a0e5928d0b3434fcc67d4c802c206b71c916b8cc329cc868ea0",
         "gate": "qwen_ascension_adapter_v1",
         "canonical_passed": true,
         "canonical_pass_count": 6,
