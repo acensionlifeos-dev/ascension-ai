@@ -132,7 +132,16 @@ def main() -> int:
     # load existing queue
     queue = json.loads(QUEUE.read_text("utf-8"))
     existing = queue["packets"]
+    # pick the next curriculum version number that does not collide with existing files
+    version_re = re.compile(r"ascension_product_v(\d+)_.*\.jsonl")
+    used_versions = {
+        int(m.group(1))
+        for p in TRAIN_DIR.glob("ascension_product_v*.jsonl")
+        if (m := version_re.match(p.name))
+    }
     start_num = max(int(p["id"].split("-")[1]) for p in existing) + 1
+    if used_versions:
+        start_num = max(start_num, max(used_versions) + 1)
 
     TRAIN_DIR.mkdir(parents=True, exist_ok=True)
 

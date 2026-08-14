@@ -156,10 +156,10 @@
       ]
     },
     {
-      "id": "GROW-019",
+      "id": "GROW-065",
       "focus": "Category: audio (6 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v19_audio.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v65_audio.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -168,10 +168,10 @@
       ]
     },
     {
-      "id": "GROW-020",
+      "id": "GROW-066",
       "focus": "Category: automotive (7 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v20_automotive.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v66_automotive.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -180,10 +180,10 @@
       ]
     },
     {
-      "id": "GROW-021",
+      "id": "GROW-067",
       "focus": "Category: business (64 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v21_business.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v67_business.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -192,10 +192,10 @@
       ]
     },
     {
-      "id": "GROW-022",
+      "id": "GROW-068",
       "focus": "Category: career (4 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v22_career.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v68_career.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -204,10 +204,10 @@
       ]
     },
     {
-      "id": "GROW-023",
+      "id": "GROW-069",
       "focus": "Category: code (8 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v23_code.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v69_code.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -216,10 +216,10 @@
       ]
     },
     {
-      "id": "GROW-024",
+      "id": "GROW-070",
       "focus": "Category: community (2 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v24_community.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v70_community.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -228,10 +228,10 @@
       ]
     },
     {
-      "id": "GROW-025",
+      "id": "GROW-071",
       "focus": "Category: cooking (11 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v25_cooking.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v71_cooking.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -240,10 +240,10 @@
       ]
     },
     {
-      "id": "GROW-026",
+      "id": "GROW-072",
       "focus": "Category: creation (67 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v26_creation.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v72_creation.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -252,10 +252,10 @@
       ]
     },
     {
-      "id": "GROW-027",
+      "id": "GROW-073",
       "focus": "Category: data (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v27_data.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v73_data.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -264,10 +264,10 @@
       ]
     },
     {
-      "id": "GROW-028",
+      "id": "GROW-074",
       "focus": "Category: documents (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v28_documents.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v74_documents.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -276,10 +276,10 @@
       ]
     },
     {
-      "id": "GROW-029",
+      "id": "GROW-075",
       "focus": "Category: education (10 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v29_education.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v75_education.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -288,10 +288,10 @@
       ]
     },
     {
-      "id": "GROW-030",
+      "id": "GROW-076",
       "focus": "Category: engineering (24 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v30_engineering.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v76_engineering.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -300,10 +300,10 @@
       ]
     },
     {
-      "id": "GROW-031",
+      "id": "GROW-077",
       "focus": "Category: entertainment (30 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v31_entertainment.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v77_entertainment.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -312,10 +312,10 @@
       ]
     },
     {
-      "id": "GROW-032",
+      "id": "GROW-078",
       "focus": "Category: environment (2 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v32_environment.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v78_environment.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -324,10 +324,10 @@
       ]
     },
     {
-      "id": "GROW-033",
+      "id": "GROW-079",
       "focus": "Category: family (4 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v33_family.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v79_family.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -336,10 +336,10 @@
       ]
     },
     {
-      "id": "GROW-034",
+      "id": "GROW-080",
       "focus": "Category: finance (59 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v34_finance.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v80_finance.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -348,10 +348,10 @@
       ]
     },
     {
-      "id": "GROW-035",
+      "id": "GROW-081",
       "focus": "Category: fitness (2 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v35_fitness.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v81_fitness.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -360,10 +360,10 @@
       ]
     },
     {
-      "id": "GROW-036",
+      "id": "GROW-082",
       "focus": "Category: health (6 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v36_health.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v82_health.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -372,10 +372,10 @@
       ]
     },
     {
-      "id": "GROW-037",
+      "id": "GROW-083",
       "focus": "Category: home (40 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v37_home.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v83_home.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -384,10 +384,10 @@
       ]
     },
     {
-      "id": "GROW-038",
+      "id": "GROW-084",
       "focus": "Category: human_life (2 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v38_human_life.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v84_human_life.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -396,10 +396,10 @@
       ]
     },
     {
-      "id": "GROW-039",
+      "id": "GROW-085",
       "focus": "Category: intelligence (36 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v39_intelligence.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v85_intelligence.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -408,10 +408,10 @@
       ]
     },
     {
-      "id": "GROW-040",
+      "id": "GROW-086",
       "focus": "Category: knowledge (28 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v40_knowledge.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v86_knowledge.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -420,10 +420,10 @@
       ]
     },
     {
-      "id": "GROW-041",
+      "id": "GROW-087",
       "focus": "Category: learning (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v41_learning.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v87_learning.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -432,10 +432,10 @@
       ]
     },
     {
-      "id": "GROW-042",
+      "id": "GROW-088",
       "focus": "Category: legal (10 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v42_legal.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v88_legal.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -444,10 +444,10 @@
       ]
     },
     {
-      "id": "GROW-043",
+      "id": "GROW-089",
       "focus": "Category: life_events (10 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v43_life_events.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v89_life_events.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -456,10 +456,10 @@
       ]
     },
     {
-      "id": "GROW-044",
+      "id": "GROW-090",
       "focus": "Category: lifestyle (8 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v44_lifestyle.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v90_lifestyle.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -468,10 +468,10 @@
       ]
     },
     {
-      "id": "GROW-045",
+      "id": "GROW-091",
       "focus": "Category: nutrition (8 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v45_nutrition.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v91_nutrition.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -480,10 +480,10 @@
       ]
     },
     {
-      "id": "GROW-046",
+      "id": "GROW-092",
       "focus": "Category: productivity (5 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v46_productivity.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v92_productivity.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -492,10 +492,10 @@
       ]
     },
     {
-      "id": "GROW-047",
+      "id": "GROW-093",
       "focus": "Category: psychology (8 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v47_psychology.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v93_psychology.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -504,10 +504,10 @@
       ]
     },
     {
-      "id": "GROW-048",
+      "id": "GROW-094",
       "focus": "Category: relationships (13 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v48_relationships.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v94_relationships.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -516,10 +516,10 @@
       ]
     },
     {
-      "id": "GROW-049",
+      "id": "GROW-095",
       "focus": "Category: research (3 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v49_research.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v95_research.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -528,10 +528,10 @@
       ]
     },
     {
-      "id": "GROW-050",
+      "id": "GROW-096",
       "focus": "Category: security (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v50_security.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v96_security.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -540,10 +540,10 @@
       ]
     },
     {
-      "id": "GROW-051",
+      "id": "GROW-097",
       "focus": "Category: social (4 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v51_social.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v97_social.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -552,10 +552,10 @@
       ]
     },
     {
-      "id": "GROW-052",
+      "id": "GROW-098",
       "focus": "Category: spatial (10 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v52_spatial.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v98_spatial.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -564,10 +564,10 @@
       ]
     },
     {
-      "id": "GROW-053",
+      "id": "GROW-099",
       "focus": "Category: spirituality (19 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v53_spirituality.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v99_spirituality.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -576,10 +576,10 @@
       ]
     },
     {
-      "id": "GROW-054",
+      "id": "GROW-100",
       "focus": "Category: sports (10 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v54_sports.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v100_sports.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -588,10 +588,10 @@
       ]
     },
     {
-      "id": "GROW-055",
+      "id": "GROW-101",
       "focus": "Category: sprout (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v55_sprout.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v101_sprout.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -600,10 +600,10 @@
       ]
     },
     {
-      "id": "GROW-056",
+      "id": "GROW-102",
       "focus": "Category: style (12 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v56_style.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v102_style.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -612,10 +612,10 @@
       ]
     },
     {
-      "id": "GROW-057",
+      "id": "GROW-103",
       "focus": "Category: text (9 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v57_text.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v103_text.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -624,10 +624,10 @@
       ]
     },
     {
-      "id": "GROW-058",
+      "id": "GROW-104",
       "focus": "Category: travel (4 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v58_travel.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v104_travel.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -636,10 +636,10 @@
       ]
     },
     {
-      "id": "GROW-059",
+      "id": "GROW-105",
       "focus": "Category: video (5 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v59_video.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v105_video.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -648,10 +648,10 @@
       ]
     },
     {
-      "id": "GROW-060",
+      "id": "GROW-106",
       "focus": "Category: vision (7 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v60_vision.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v106_vision.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -660,10 +660,10 @@
       ]
     },
     {
-      "id": "GROW-061",
+      "id": "GROW-107",
       "focus": "Category: voice (1 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v61_voice.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v107_voice.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -672,10 +672,10 @@
       ]
     },
     {
-      "id": "GROW-062",
+      "id": "GROW-108",
       "focus": "Category: web (2 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v62_web.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v108_web.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -684,10 +684,10 @@
       ]
     },
     {
-      "id": "GROW-063",
+      "id": "GROW-109",
       "focus": "Category: wellness (59 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v63_wellness.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v109_wellness.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
@@ -696,10 +696,10 @@
       ]
     },
     {
-      "id": "GROW-064",
+      "id": "GROW-110",
       "focus": "Category: work (16 capabilities)",
       "status": "pending",
-      "curriculum": "evals\\training\\ascension_product_v64_work.jsonl",
+      "curriculum": "evals\\training\\ascension_product_v110_work.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
