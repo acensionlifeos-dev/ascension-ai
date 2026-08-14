@@ -301,14 +301,15 @@
     {
       "id": "GROW-076",
       "focus": "Category: engineering (24 capabilities, 72 records)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v76_engineering.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow076_engineering_v1 completed; human review required."
     },
     {
       "id": "GROW-077",
