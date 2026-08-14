@@ -23,5 +23,7 @@ services:
         value: "2"
       - key: WEB_CONCURRENCY
         value: "1"
+      - key: ASCENSION_AI_ALLOWED_EMAILS
+        value: alleyne.brandon@gmail.com
       - key: ASCENSION_AI_ALLOWED_ORIGINS
         value: https://ascensionlifeos.onrender.com

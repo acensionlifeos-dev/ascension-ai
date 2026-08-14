@@ -169,18 +169,25 @@ def _authorized_token(authorization: str | None) -> bool:
     supplied = ""
     if authorization and authorization.lower().startswith("bearer "):
         supplied = authorization[7:].strip()
+    if not supplied:
+        return False
     expected = [
         os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip(),
         os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip(),
     ]
-    return bool(supplied) and any(token and hmac.compare_digest(supplied, token) for token in expected)
+    if any(token and hmac.compare_digest(supplied, token) for token in expected):
+        return True
+    allowed_emails = {e.strip().lower() for e in os.getenv("ASCENSION_AI_ALLOWED_EMAILS", "").split(",") if e.strip()}
+    return supplied.lower() in allowed_emails
 
 
 def require_access(authorization: str | None = Header(default=None)) -> None:
-    if not any(os.getenv(name, "").strip() for name in ("ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")):
+    tokens = [os.getenv(name, "").strip() for name in ("ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")]
+    emails = [e.strip() for e in os.getenv("ASCENSION_AI_ALLOWED_EMAILS", "").split(",") if e.strip()]
+    if not any(tokens) and not any(emails):
         raise HTTPException(status_code=503, detail="Private Ascension AI access is not configured.")
     if not _authorized_token(authorization):
-        raise HTTPException(status_code=401, detail="Invalid Ascension AI access code.")
+        raise HTTPException(status_code=401, detail="Invalid Ascension AI access code or email.")
 
 
 def require_native_ready() -> None:
@@ -231,6 +238,7 @@ async def health() -> dict:
         "outside_provider": False,
         "test_access_configured": bool(os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()),
         "service_access_configured": bool(os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip()),
+        "allowed_emails_configured": bool(os.getenv("ASCENSION_AI_ALLOWED_EMAILS", "").strip()),
         "runtime": model,
     }
 
