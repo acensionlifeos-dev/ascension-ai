@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 from src.core.contracts import MODE_CONTRACTS, Shell, Tier, response_contract, system_contract
 from src.core.model_runtime import NativeModelRuntime
 from src.core.orchestrator import compact_context, deterministic_conversation_repair, deterministic_domain_answer, deterministic_first_pass, deterministic_scope_answer, enforce_response_contract, prepare_inference
+from scripts.evaluate_qwen_replacement_quality import contains_unnegated
 
 
 def check(name: str, passed: bool) -> None:
@@ -56,6 +57,9 @@ def main() -> None:
     check("astrology remains symbolic reflection", astrology_answer is not None and "symbolic reflection" in astrology_answer and "not destiny" in astrology_answer)
     nexus_silence = deterministic_domain_answer(Shell.NEXUS_FAMILY, "Nobody addressed Nexus. What do you do?", "conversation")
     check("Nexus stays silent until directly addressed", nexus_silence is not None and "stay silent" in nexus_silence and "suggestion card" in nexus_silence)
+    coparenting = deterministic_domain_answer(Shell.NEXUS_HOME, "Coordinate a co-parenting pickup conflict without exposing either parent's private LifeOS data.", "conversation")
+    check("NexusHome coordinates pickup from shared availability without private crossover", coparenting is not None and "availability" in coparenting and "pickup" in coparenting and "private LifeOS" in coparenting)
+    check("replacement scorer recognizes an explicitly absent salary as negated", not contains_unnegated("If no salary is given, it remains unknown.", "salary is"))
     research_answer = deterministic_domain_answer(Shell.CORE, "Find today's best mortgage rate", "conversation")
     check("live rates require a current source", research_answer is not None and "cannot verify" in research_answer and "current source" in research_answer)
     greeting = deterministic_domain_answer(Shell.AP, "Hi AP", "conversation")

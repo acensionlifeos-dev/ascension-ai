@@ -39,7 +39,7 @@ ROBOTIC_OR_UNSAFE = (
 def contains_unnegated(text: str, term: str) -> bool:
     pattern = re.compile(rf"(?<!\w){re.escape(term)}(?!\w)", re.I)
     negation = re.compile(
-        r"\b(?:not|never|without|cannot|can't|will not|won't|do not|don't|avoid)\b",
+        r"\b(?:no|not|never|without|cannot|can't|will not|won't|do not|don't|avoid)\b",
         re.I,
     )
     for match in pattern.finditer(text):

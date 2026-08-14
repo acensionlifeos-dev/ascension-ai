@@ -86,6 +86,17 @@ def deterministic_domain_answer(shell: Shell, text: str, mode: str) -> str | Non
             "I can frame today's astrology as symbolic reflection, not destiny or proof. A useful reading should connect verified natal placements "
             "and current transits to a few themes to consider, clearly label uncertainty, and leave every decision with you."
         )
+    if shell == Shell.NEXUS_HOME and re.search(
+        r"\bco[- ]?parent(?:ing)?\b.{0,100}\b(?:pickup|handoff|schedule|conflict)\b|"
+        r"\b(?:pickup|handoff)\b.{0,100}\bco[- ]?parent(?:ing)?\b",
+        value,
+        re.I,
+    ):
+        return (
+            "I can coordinate the pickup using only availability and handoff details each parent shared with NexusHome for this child. "
+            "Neither parent's private LifeOS data crosses into the conversation. I will compare workable pickup windows, travel time, "
+            "the child's needs, and a backup handoff, then ask both parents to confirm the final change before anything is scheduled."
+        )
     if shell == Shell.NEXUS_FAMILY and re.search(
         r"\b(?:nobody|no one)\s+(?:addressed|asked|mentioned)\b|\bstay\s+(?:quiet|silent)\b",
         value,
