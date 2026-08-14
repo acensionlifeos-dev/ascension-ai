@@ -496,14 +496,15 @@
     {
       "id": "GROW-091",
       "focus": "Category: nutrition (8 capabilities)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals\\training\\ascension_product_v91_nutrition.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow091_nutrition_v1 completed; human review required."
     },
     {
       "id": "GROW-092",
