@@ -704,14 +704,15 @@
     {
       "id": "GROW-107",
       "focus": "Category: voice (1 capabilities)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals\\training\\ascension_product_v107_voice.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow107_voice_v1 completed; human review required."
     },
     {
       "id": "GROW-108",
