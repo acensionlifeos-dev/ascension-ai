@@ -135,9 +135,9 @@
     {
       "id": "GROW-017",
       "focus": "Compile detailed native Ascension Hub, dream-home, FamilyOS compound, neighborhood, AR, and VR worlds without false render claims or privacy crossover",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v21_spatial_worlds.jsonl",
-      "blocked_by": "Training must use the preserved reviewed parent and pass raw diagnostic, integrated runtime, and replacement gates before human review. A scene manifest never counts as a rendered world without an engine receipt."
+      "blocked_by": "Both candidates pass the integrated gate at 6/6 canonical plus 8/8 receipt truth and the replacement gate at 20/20. Candidate B has the lower measured maximum and mean replacement latency and is recommended for human review. No production promotion has occurred; a scene manifest never counts as a rendered world without an engine receipt."
     }
   ]
 }
