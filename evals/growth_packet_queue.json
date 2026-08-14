@@ -587,14 +587,15 @@
     {
       "id": "GROW-098",
       "focus": "Category: spatial (10 capabilities)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals\\training\\ascension_product_v98_spatial.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow098_spatial_v1 completed; human review required."
     },
     {
       "id": "GROW-099",
