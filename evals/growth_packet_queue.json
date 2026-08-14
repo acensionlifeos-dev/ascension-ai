@@ -45,14 +45,16 @@
     {
       "id": "GROW-005",
       "focus": "Ask only missing questions that materially change a plan",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v16_missing_variables.jsonl",
-      "blocked_by": "Training is paired with the proven receipt-boundary curriculum and remains subject to automatic canonical and receipt gates plus human review."
+      "blocked_by": "Two low-dose candidates pass the corrected integrated gate at 6/6 canonical plus 8/8 receipt truth and the replacement gate at 20/20. Candidate B has the lower maximum measured replacement latency and is recommended for human review; no production promotion has occurred."
     },
     {
       "id": "GROW-006",
       "focus": "Reason about cash flow, recurring obligations, overdraft risk, and aspirations without inventing financial evidence",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v17_financial_cashflow.jsonl",
+      "blocked_by": "Training must start from the preserved reviewed parent, pair financial examples with receipt-boundary rehearsal, and pass integrated plus replacement gates before human review."
     },
     {
       "id": "GROW-007",
