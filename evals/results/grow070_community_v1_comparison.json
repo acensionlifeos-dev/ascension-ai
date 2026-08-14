@@ -2,7 +2,7 @@
   "run_id": "grow070_community_v1",
   "model": "Qwen/Qwen3-1.7B",
   "parent_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
-  "curriculum": "evals\\training\\ascension_product_v70_community.jsonl",
+  "curriculum": "evals/training/ascension_product_v70_community.jsonl",
   "candidates": [
     {
       "candidate": {
@@ -14,7 +14,7 @@
       "adapter": "checkpoints/grow070_community_v1_a",
       "training": {
         "return_code": 1,
-        "wall_seconds": 0.031
+        "wall_seconds": 0.029
       },
       "training_receipt": null,
       "gate_execution": null,

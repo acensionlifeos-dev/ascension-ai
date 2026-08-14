@@ -2,7 +2,7 @@
   "run_id": "grow065_audio_v1",
   "model": "Qwen/Qwen3-1.7B",
   "parent_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
-  "curriculum": "evals\\training\\ascension_product_v65_audio.jsonl",
+  "curriculum": "evals/training/ascension_product_v65_audio.jsonl",
   "candidates": [
     {
       "candidate": {
@@ -14,7 +14,7 @@
       "adapter": "checkpoints/grow065_audio_v1_a",
       "training": {
         "return_code": 1,
-        "wall_seconds": 0.029
+        "wall_seconds": 0.03
       },
       "training_receipt": null,
       "gate_execution": null,
@@ -34,7 +34,7 @@
       "adapter": "checkpoints/grow065_audio_v1_b",
       "training": {
         "return_code": 1,
-        "wall_seconds": 0.028
+        "wall_seconds": 0.03
       },
       "training_receipt": null,
       "gate_execution": null,
