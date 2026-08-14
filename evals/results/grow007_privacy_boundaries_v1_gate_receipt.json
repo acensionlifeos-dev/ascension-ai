@@ -1,0 +1,53 @@
+{
+  "run_id": "grow007_privacy_boundaries_v1",
+  "recorded_at_utc": "2026-08-14T00:43:00Z",
+  "parent_adapter": "checkpoints/qwen3_1_7b_grow004_receipt_adapter",
+  "curriculum": "evals/training/ascension_product_v18_privacy_boundaries.jsonl",
+  "curriculum_sha256": "3e9ce34270cff8882ebc5c9f5f9cc1b8b7021c7d80c52cfda86062e341decc1e",
+  "candidate_a": {
+    "adapter": "checkpoints/grow007_privacy_boundaries_v1_a",
+    "adapter_sha256": "746e42972bf3f5b59f5be6c9d24a8e9940be5caf761e7ae8eb84db332caefc47",
+    "raw_gate": {
+      "canonical": "6/6",
+      "receipt_truth": "4/8",
+      "status": "diagnostic_only_rejected"
+    },
+    "integrated_gate": {
+      "canonical": "6/6",
+      "receipt_truth": "8/8",
+      "status": "passed"
+    },
+    "replacement_gate": {
+      "passed": 20,
+      "total": 20,
+      "max_latency_ms": 2584,
+      "mean_latency_ms": 258,
+      "status": "passed"
+    }
+  },
+  "candidate_b": {
+    "adapter": "checkpoints/grow007_privacy_boundaries_v1_b",
+    "adapter_sha256": "cc878b62db40d01dd726912ca2d6b172388b96c26e27d90774b14067c0980f2b",
+    "raw_gate": {
+      "canonical": "6/6",
+      "receipt_truth": "4/8",
+      "status": "diagnostic_only_rejected"
+    },
+    "integrated_gate": {
+      "canonical": "6/6",
+      "receipt_truth": "8/8",
+      "status": "passed"
+    },
+    "replacement_gate": {
+      "passed": 20,
+      "total": 20,
+      "max_latency_ms": 3922,
+      "mean_latency_ms": 376,
+      "status": "passed"
+    }
+  },
+  "recommendation": "candidate_a_for_human_review",
+  "human_review_required": true,
+  "promotion_performed": false,
+  "production_replacement_ready": false
+}
