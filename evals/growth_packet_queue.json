@@ -73,9 +73,9 @@
     {
       "id": "GROW-009",
       "focus": "Create adaptive learning paths without forcing courses or overwhelming the user",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v20_adaptive_learning.jsonl",
-      "blocked_by": "Training must use the preserved reviewed parent, pair adaptive learning with receipt-boundary rehearsal, and pass raw diagnostic, integrated runtime, and replacement gates before human review."
+      "blocked_by": "Both candidates pass the integrated gate at 6/6 canonical plus 8/8 receipt truth. Candidate A passes replacement at 20/20 and is recommended for human review. Candidate B is rejected at 19/20 for missing the required job-enrichment concept. No production promotion has occurred."
     },
     {
       "id": "GROW-010",
