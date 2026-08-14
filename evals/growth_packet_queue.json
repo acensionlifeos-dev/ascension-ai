@@ -108,8 +108,8 @@
       "id": "GROW-013",
       "focus": "Choose among gigs, services, reselling, stocks, penny stocks, forex, crypto, and prediction markets from starting capital, deadline, skills, protected costs, and affordable loss",
       "status": "training",
-      "curriculum": "evals/training/ascension_product_v25_market_routes_v2.jsonl",
-      "blocked_by": "GROW-013 v2 iteration in progress. v2 strengthens survival-money, realistic-target, and non-market-income examples. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
+      "curriculum": "evals/training/ascension_product_v25_market_routes_v3.jsonl",
+      "blocked_by": "GROW-013 v3 iteration in progress. v3 directly targets the financial-access overclaim and reinforces survival-money, realistic ranges, and non-market income. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
       "pass_conditions": [
         "Protects survival money before ranking any market route",
         "Uses realistic target ranges and never guarantees a flip",
