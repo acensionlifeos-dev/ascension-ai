@@ -157,7 +157,7 @@
     },
     {
       "id": "GROW-065",
-      "focus": "Category: audio (6 capabilities)",
+      "focus": "Category: audio (6 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v65_audio.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -169,7 +169,7 @@
     },
     {
       "id": "GROW-066",
-      "focus": "Category: automotive (7 capabilities)",
+      "focus": "Category: automotive (7 capabilities, 21 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v66_automotive.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -181,7 +181,7 @@
     },
     {
       "id": "GROW-067",
-      "focus": "Category: business (64 capabilities)",
+      "focus": "Category: business (64 capabilities, 192 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v67_business.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -193,7 +193,7 @@
     },
     {
       "id": "GROW-068",
-      "focus": "Category: career (4 capabilities)",
+      "focus": "Category: career (4 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v68_career.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -205,7 +205,7 @@
     },
     {
       "id": "GROW-069",
-      "focus": "Category: code (8 capabilities)",
+      "focus": "Category: code (8 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v69_code.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -217,7 +217,7 @@
     },
     {
       "id": "GROW-070",
-      "focus": "Category: community (2 capabilities)",
+      "focus": "Category: community (2 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v70_community.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -229,7 +229,7 @@
     },
     {
       "id": "GROW-071",
-      "focus": "Category: cooking (11 capabilities)",
+      "focus": "Category: cooking (11 capabilities, 33 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v71_cooking.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -241,7 +241,7 @@
     },
     {
       "id": "GROW-072",
-      "focus": "Category: creation (67 capabilities)",
+      "focus": "Category: creation (67 capabilities, 201 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v72_creation.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -253,7 +253,7 @@
     },
     {
       "id": "GROW-073",
-      "focus": "Category: data (1 capabilities)",
+      "focus": "Category: data (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v73_data.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -265,7 +265,7 @@
     },
     {
       "id": "GROW-074",
-      "focus": "Category: documents (1 capabilities)",
+      "focus": "Category: documents (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v74_documents.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -277,7 +277,7 @@
     },
     {
       "id": "GROW-075",
-      "focus": "Category: education (10 capabilities)",
+      "focus": "Category: education (10 capabilities, 30 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v75_education.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -289,7 +289,7 @@
     },
     {
       "id": "GROW-076",
-      "focus": "Category: engineering (24 capabilities)",
+      "focus": "Category: engineering (24 capabilities, 72 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v76_engineering.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -301,7 +301,7 @@
     },
     {
       "id": "GROW-077",
-      "focus": "Category: entertainment (30 capabilities)",
+      "focus": "Category: entertainment (30 capabilities, 90 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v77_entertainment.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -313,7 +313,7 @@
     },
     {
       "id": "GROW-078",
-      "focus": "Category: environment (2 capabilities)",
+      "focus": "Category: environment (2 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v78_environment.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -325,7 +325,7 @@
     },
     {
       "id": "GROW-079",
-      "focus": "Category: family (4 capabilities)",
+      "focus": "Category: family (4 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v79_family.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -337,7 +337,7 @@
     },
     {
       "id": "GROW-080",
-      "focus": "Category: finance (59 capabilities)",
+      "focus": "Category: finance (59 capabilities, 177 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v80_finance.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -349,7 +349,7 @@
     },
     {
       "id": "GROW-081",
-      "focus": "Category: fitness (2 capabilities)",
+      "focus": "Category: fitness (2 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v81_fitness.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -361,7 +361,7 @@
     },
     {
       "id": "GROW-082",
-      "focus": "Category: health (6 capabilities)",
+      "focus": "Category: health (6 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v82_health.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -373,7 +373,7 @@
     },
     {
       "id": "GROW-083",
-      "focus": "Category: home (40 capabilities)",
+      "focus": "Category: home (40 capabilities, 120 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v83_home.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -385,7 +385,7 @@
     },
     {
       "id": "GROW-084",
-      "focus": "Category: human_life (2 capabilities)",
+      "focus": "Category: human_life (2 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v84_human_life.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -397,7 +397,7 @@
     },
     {
       "id": "GROW-085",
-      "focus": "Category: intelligence (36 capabilities)",
+      "focus": "Category: intelligence (36 capabilities, 108 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v85_intelligence.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -409,7 +409,7 @@
     },
     {
       "id": "GROW-086",
-      "focus": "Category: knowledge (28 capabilities)",
+      "focus": "Category: knowledge (28 capabilities, 84 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v86_knowledge.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -421,7 +421,7 @@
     },
     {
       "id": "GROW-087",
-      "focus": "Category: learning (1 capabilities)",
+      "focus": "Category: learning (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v87_learning.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -433,7 +433,7 @@
     },
     {
       "id": "GROW-088",
-      "focus": "Category: legal (10 capabilities)",
+      "focus": "Category: legal (10 capabilities, 30 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v88_legal.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -445,7 +445,7 @@
     },
     {
       "id": "GROW-089",
-      "focus": "Category: life_events (10 capabilities)",
+      "focus": "Category: life_events (10 capabilities, 30 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v89_life_events.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -457,7 +457,7 @@
     },
     {
       "id": "GROW-090",
-      "focus": "Category: lifestyle (8 capabilities)",
+      "focus": "Category: lifestyle (8 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v90_lifestyle.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -469,7 +469,7 @@
     },
     {
       "id": "GROW-091",
-      "focus": "Category: nutrition (8 capabilities)",
+      "focus": "Category: nutrition (8 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v91_nutrition.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -481,7 +481,7 @@
     },
     {
       "id": "GROW-092",
-      "focus": "Category: productivity (5 capabilities)",
+      "focus": "Category: productivity (5 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v92_productivity.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -493,7 +493,7 @@
     },
     {
       "id": "GROW-093",
-      "focus": "Category: psychology (8 capabilities)",
+      "focus": "Category: psychology (8 capabilities, 24 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v93_psychology.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -505,7 +505,7 @@
     },
     {
       "id": "GROW-094",
-      "focus": "Category: relationships (13 capabilities)",
+      "focus": "Category: relationships (13 capabilities, 39 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v94_relationships.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -517,7 +517,7 @@
     },
     {
       "id": "GROW-095",
-      "focus": "Category: research (3 capabilities)",
+      "focus": "Category: research (3 capabilities, 21 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v95_research.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -529,7 +529,7 @@
     },
     {
       "id": "GROW-096",
-      "focus": "Category: security (1 capabilities)",
+      "focus": "Category: security (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v96_security.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -541,7 +541,7 @@
     },
     {
       "id": "GROW-097",
-      "focus": "Category: social (4 capabilities)",
+      "focus": "Category: social (4 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v97_social.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -553,7 +553,7 @@
     },
     {
       "id": "GROW-098",
-      "focus": "Category: spatial (10 capabilities)",
+      "focus": "Category: spatial (10 capabilities, 30 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v98_spatial.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -565,7 +565,7 @@
     },
     {
       "id": "GROW-099",
-      "focus": "Category: spirituality (19 capabilities)",
+      "focus": "Category: spirituality (19 capabilities, 57 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v99_spirituality.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -577,7 +577,7 @@
     },
     {
       "id": "GROW-100",
-      "focus": "Category: sports (10 capabilities)",
+      "focus": "Category: sports (10 capabilities, 30 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v100_sports.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -589,7 +589,7 @@
     },
     {
       "id": "GROW-101",
-      "focus": "Category: sprout (1 capabilities)",
+      "focus": "Category: sprout (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v101_sprout.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -601,7 +601,7 @@
     },
     {
       "id": "GROW-102",
-      "focus": "Category: style (12 capabilities)",
+      "focus": "Category: style (12 capabilities, 36 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v102_style.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -613,7 +613,7 @@
     },
     {
       "id": "GROW-103",
-      "focus": "Category: text (9 capabilities)",
+      "focus": "Category: text (9 capabilities, 27 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v103_text.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -625,7 +625,7 @@
     },
     {
       "id": "GROW-104",
-      "focus": "Category: travel (4 capabilities)",
+      "focus": "Category: travel (4 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v104_travel.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -637,7 +637,7 @@
     },
     {
       "id": "GROW-105",
-      "focus": "Category: video (5 capabilities)",
+      "focus": "Category: video (5 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v105_video.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -649,7 +649,7 @@
     },
     {
       "id": "GROW-106",
-      "focus": "Category: vision (7 capabilities)",
+      "focus": "Category: vision (7 capabilities, 21 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v106_vision.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -661,7 +661,7 @@
     },
     {
       "id": "GROW-107",
-      "focus": "Category: voice (1 capabilities)",
+      "focus": "Category: voice (1 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v107_voice.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -673,7 +673,7 @@
     },
     {
       "id": "GROW-108",
-      "focus": "Category: web (2 capabilities)",
+      "focus": "Category: web (2 capabilities, 20 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v108_web.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -685,7 +685,7 @@
     },
     {
       "id": "GROW-109",
-      "focus": "Category: wellness (59 capabilities)",
+      "focus": "Category: wellness (59 capabilities, 177 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v109_wellness.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
@@ -697,7 +697,7 @@
     },
     {
       "id": "GROW-110",
-      "focus": "Category: work (16 capabilities)",
+      "focus": "Category: work (16 capabilities, 48 records)",
       "status": "pending",
       "curriculum": "evals/training/ascension_product_v110_work.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
