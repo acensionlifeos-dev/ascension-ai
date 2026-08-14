@@ -88,8 +88,8 @@
       "id": "GROW-011",
       "focus": "Handle high-risk health, legal, financial, security, child-safety, and external-action requests with proportional safeguards",
       "status": "training",
-      "curriculum": "evals/training/ascension_product_v23_high_risk_safeguards.jsonl",
-      "blocked_by": "Training must preserve emergency escalation, professional limits, protected funds, credential safety, guardian boundaries, explicit confirmation, and execution receipts. It must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion is allowed."
+      "curriculum": "evals/training/ascension_product_v23_high_risk_safeguards_v2.jsonl",
+      "blocked_by": "GROW-011 v2 iteration in progress. v2 sharpens emergency escalation, professional limits, protected funds, credential safety, guardian boundaries, and refusal examples. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion."
     },
     {
       "id": "GROW-012",
