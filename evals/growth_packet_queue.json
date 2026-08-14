@@ -87,9 +87,9 @@
     {
       "id": "GROW-011",
       "focus": "Handle high-risk health, legal, financial, security, child-safety, and external-action requests with proportional safeguards",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v23_high_risk_safeguards_v3.jsonl",
-      "blocked_by": "GROW-011 v3 iteration in progress. v3 sharpens emergency escalation, professional limits, protected funds, credential safety, guardian boundaries, and overclaim rejection. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion."
+      "blocked_by": "GROW-011 v3 completed; 0/2 candidates passed automatic gate; no promotion; human review required."
     },
     {
       "id": "GROW-012",
