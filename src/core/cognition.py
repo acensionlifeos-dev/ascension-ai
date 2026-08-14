@@ -34,6 +34,7 @@ TALENTS: dict[str, dict[str, Any]] = {
     "document_intelligence": {"domains": ["documents", "business"], "surfaces": ["documents", "founder_enterprise"], "state": "active", "abilities": ["analysis", "structured drafting", "evidence-aware extraction"]},
     "multilingual": {"domains": ["identity"], "surfaces": ["all"], "state": "active", "abilities": ["multilingual conversation", "translation reasoning", "cultural tone adaptation"]},
     "vision": {"domains": ["environment"], "surfaces": ["camera", "ascension_hub"], "state": "shell_required", "abilities": ["image-context reasoning when the shell supplies observations"]},
+    "immersive_world_intelligence": {"domains": ["environment", "creation"], "surfaces": ["ascension_hub", "creation", "ar", "vr"], "state": "engine_required", "abilities": ["engine-neutral 3D scene compilation", "AR/VR spatial manifests", "asset provenance", "performance and comfort budgets", "WebXR/OpenXR/ARKit/ARCore routing", "render-receipt verification"]},
     "voice": {"domains": ["emotional"], "surfaces": ["voice", "chat"], "state": "shell_required", "abilities": ["voice conversation when the shell supplies transcription and playback"]},
     "web_research": {"domains": ["research"], "surfaces": ["browser", "chat", "learn"], "state": "shell_required", "abilities": ["research planning and synthesis from shell-provided results"]},
     "external_execution": {"domains": ["safety"], "surfaces": ["all"], "state": "shell_required", "abilities": ["permission-aware execution proposals; authenticated shell executes"]},
@@ -51,6 +52,7 @@ ACTION_CATALOG: dict[str, dict[str, str]] = {
     "housing.search_options": {"domain": "finance", "risk": "low", "approval": "safe_research", "surface": "aspirations"},
     "creation.save_seed": {"domain": "creation", "risk": "low", "approval": "safe_internal_auto", "surface": "creation"},
     "creation.prepare_project": {"domain": "creation", "risk": "low", "approval": "safe_internal_auto", "surface": "creation"},
+    "immersive.prepare_world": {"domain": "creation", "risk": "low", "approval": "safe_internal_auto", "surface": "ascension_hub"},
     "nutrition.research_recipes": {"domain": "health", "risk": "low", "approval": "safe_research", "surface": "nutrition"},
     "nutrition.prepare_meal_plan": {"domain": "health", "risk": "low", "approval": "safe_internal_auto", "surface": "nutrition"},
     "learning.prepare_course": {"domain": "learning", "risk": "low", "approval": "safe_internal_auto", "surface": "academy"},
@@ -255,6 +257,8 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("calendar.external_write", "A calendar change must be resolved to a specific event and confirmed by the connected calendar provider.", {"request": str(text or "")[:1000]}, missing=["resolved date and timezone", "target calendar", "explicit final confirmation"]))
     if re.search(r"\b(?:i have an idea|idea for|create|build|make)\b", lowered):
         proposals.append(_proposal("creation.save_seed", "Preserve the idea without interrupting the conversation."))
+    if re.search(r"\b(?:3d world|virtual world|vr experience|ar experience|augmented reality|virtual reality|spatial scene)\b", lowered):
+        proposals.append(_proposal("immersive.prepare_world", "Compile an Ascension-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
         proposals.append(_proposal("messages.send", "External communication requires the user to approve the exact recipient and content.", missing=["recipient", "final content", "connected provider"]))
     if re.search(r"\b(?:pay|payment|purchase|buy|transfer money)\b", lowered):
@@ -337,6 +341,7 @@ RECEIPT_FIELDS: dict[str, list[str]] = {
     "housing.search_options": ["prepared_at", "search_id"],
     "creation.save_seed": ["saved_at", "seed_id"],
     "creation.prepare_project": ["prepared_at", "project_id"],
+    "immersive.prepare_world": ["world_id", "manifest_sha256", "prepared_at", "engine_target"],
     "nutrition.research_recipes": ["prepared_at", "recipe_ids", "source"],
     "nutrition.prepare_meal_plan": ["prepared_at", "plan_id"],
     "learning.prepare_course": ["prepared_at", "course_id"],
@@ -376,6 +381,9 @@ MISSING_QUESTIONS: dict[str, str] = {
     "title": "What should this quest be called?",
     "target outcome": "What result will show this quest is complete?",
     "target completion": "When do you want to complete it?",
+    "target device": "Which device or headset should run this world?",
+    "experience mode": "Should this be 3D, augmented reality, virtual reality, or mixed reality?",
+    "authorized assets": "Which owned or licensed images and 3D assets may this world use?",
     "explicit final confirmation": "Please confirm this action before it runs.",
 }
 
