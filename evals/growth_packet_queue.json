@@ -66,7 +66,9 @@
     {
       "id": "GROW-008",
       "focus": "Grow a conversational seed into a concrete Creation workspace and executable project path",
-      "status": "pending"
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v19_creation_workspace.jsonl",
+      "blocked_by": "Training must use the preserved reviewed parent, pair Creation behavior with receipt-boundary rehearsal, and pass raw diagnostic, integrated runtime, and replacement gates before human review."
     },
     {
       "id": "GROW-009",
