@@ -1,0 +1,53 @@
+{
+  "run_id": "grow012_latency_concision_v2",
+  "model": "Qwen/Qwen3-1.7B",
+  "parent_adapter": "checkpoints/qwen3_1_7b_grow004_receipt_adapter",
+  "curriculum": "evals/training/ascension_product_v24_latency_concision_v2.jsonl",
+  "candidates": [
+    {
+      "candidate": {
+        "name": "a",
+        "gpu": "0",
+        "learning_rate": 2e-05,
+        "seed": 3407
+      },
+      "adapter": "checkpoints/grow012_latency_concision_v2_a",
+      "training": {
+        "return_code": 1,
+        "wall_seconds": 0.027
+      },
+      "training_receipt": null,
+      "gate_execution": null,
+      "gate_report": null,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
+      "human_review_required": true,
+      "production_replacement_ready": false
+    },
+    {
+      "candidate": {
+        "name": "b",
+        "gpu": "1",
+        "learning_rate": 1e-05,
+        "seed": 3411
+      },
+      "adapter": "checkpoints/grow012_latency_concision_v2_b",
+      "training": {
+        "return_code": 1,
+        "wall_seconds": 0.03
+      },
+      "training_receipt": null,
+      "gate_execution": null,
+      "gate_report": null,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
+      "human_review_required": true,
+      "production_replacement_ready": false
+    }
+  ],
+  "automatic_gate_pass_count": 0,
+  "recommended_for_human_review": null,
+  "promotion_performed": false,
+  "human_review_required": true,
+  "production_replacement_ready": false
+}
