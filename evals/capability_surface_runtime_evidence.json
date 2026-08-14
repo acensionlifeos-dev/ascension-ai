@@ -1,9 +1,9 @@
 {
   "schema_version": "1.1",
-  "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
-  "unix_timestamp": 1786665914.8906257,
+  "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+  "unix_timestamp": 1786668369.4348724,
   "source_hashes": {
-    "src/core/cognition.py": "91c50fdf1daf639305dce30666fc7f99c7af8faa57514dae0337bac994e3626a",
+    "src/core/cognition.py": "f5ce2bb320774f5cf5ff3e4f42b3b8b743ad744238ec34ef99c73bc92103cead",
     "src/core/orchestrator.py": "2d264791b507c23e428ea05841b2ad48882a5dbb7091d6aa136107679cc9a3a8",
     "src/core/model_runtime.py": "6d0ef1e7d00fed89ec07e8397fb9af5b531aceae2686d1b5dee844843dc34f17",
     "src/serving/api.py": "cdf02bcceae3acfa5ac6eb398b94d8abfffc304403f398f894a022c8499b21d5"
@@ -24,8 +24,8 @@
         "ascension_chat"
       ],
       "class": "unavailable",
-      "timestamp_utc": "2026-08-14T00:05:14.810501+00:00",
-      "unix_timestamp": 1786665914.8105018,
+      "timestamp_utc": "2026-08-14T00:46:09.395370+00:00",
+      "unix_timestamp": 1786668369.3953702,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -58,9 +58,9 @@
         "ascension_living_context"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.810501+00:00",
-      "unix_timestamp": 1786665914.880476,
-      "latency_ms": 69,
+      "timestamp_utc": "2026-08-14T00:46:09.395370+00:00",
+      "unix_timestamp": 1786668369.4273396,
+      "latency_ms": 33,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -104,9 +104,9 @@
         "ascension_time"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.880475+00:00",
-      "unix_timestamp": 1786665914.8809855,
-      "latency_ms": 1,
+      "timestamp_utc": "2026-08-14T00:46:09.427339+00:00",
+      "unix_timestamp": 1786668369.4293501,
+      "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -190,9 +190,9 @@
         "ascension_task",
         "ascension_adaptive_quest"
       ],
-      "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.880985+00:00",
-      "unix_timestamp": 1786665914.8809855,
+      "class": "proven",
+      "timestamp_utc": "2026-08-14T00:46:09.429350+00:00",
+      "unix_timestamp": 1786668369.4293501,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -209,9 +209,73 @@
         "inference_hung": false,
         "watchdog_enabled": false
       },
-      "reason": "No runtime test case is defined for this surface in the native core.",
-      "permission_receipt_evidence": null,
-      "provenance": "no_handler"
+      "reason": null,
+      "permission_receipt_evidence": {
+        "proposed_action": {
+          "action": "task.create_quest",
+          "domain": "identity",
+          "surface": "quests",
+          "risk": "low",
+          "approval": "safe_internal_auto",
+          "reason": "Create a tracked quest from the user's explicit goal.",
+          "arguments": {},
+          "missing_variables": [
+            "title",
+            "target outcome",
+            "target completion"
+          ],
+          "execution_state": "proposal_only",
+          "receipt_fields": [
+            "memory_receipt"
+          ],
+          "guardian_required": false,
+          "missing_questions": [
+            {
+              "variable": "title",
+              "question": "Please provide the title.",
+              "present_in_context": false
+            },
+            {
+              "variable": "target outcome",
+              "question": "Please provide the target outcome.",
+              "present_in_context": false
+            },
+            {
+              "variable": "target completion",
+              "question": "Please provide the target completion.",
+              "present_in_context": false
+            }
+          ]
+        },
+        "permission_approval_gate": {
+          "gate": "safe_internal_auto",
+          "approval_required": false,
+          "requires_guardian": false,
+          "child_or_household_scope": false
+        },
+        "child_safe_guardian_boundaries": {
+          "guardian_approval_required": false,
+          "affected_actions": [],
+          "affected_domains": [],
+          "rule": "Sprout, household, and high-consequence family actions require guardian or shell authority before execution, and the authenticated shell owns the final go/no-go."
+        },
+        "execution_receipt": {
+          "required_fields": [
+            "memory_receipt"
+          ],
+          "per_action_receipts": [
+            {
+              "action": "task.create_quest",
+              "receipt_fields": [
+                "memory_receipt"
+              ],
+              "guardian_required": false
+            }
+          ],
+          "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell."
+        }
+      },
+      "provenance": "runtime_handler"
     },
     "finance / budget / grocery": {
       "surface": "finance / budget / grocery",
@@ -221,9 +285,9 @@
         "ascension_grocery_list"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.880985+00:00",
-      "unix_timestamp": 1786665914.8829982,
-      "latency_ms": 3,
+      "timestamp_utc": "2026-08-14T00:46:09.429350+00:00",
+      "unix_timestamp": 1786668369.4313612,
+      "latency_ms": 2,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -338,9 +402,9 @@
         "ascension_nutrition"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.882998+00:00",
-      "unix_timestamp": 1786665914.8850112,
-      "latency_ms": 0,
+      "timestamp_utc": "2026-08-14T00:46:09.431361+00:00",
+      "unix_timestamp": 1786668369.432793,
+      "latency_ms": 1,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -434,8 +498,8 @@
         "ascension_health"
       ],
       "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
-      "unix_timestamp": 1786665914.8850112,
+      "timestamp_utc": "2026-08-14T00:46:09.432792+00:00",
+      "unix_timestamp": 1786668369.432793,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -463,9 +527,9 @@
         "ascension_knowledge_studio"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
-      "unix_timestamp": 1786665914.8850112,
-      "latency_ms": 0,
+      "timestamp_utc": "2026-08-14T00:46:09.432792+00:00",
+      "unix_timestamp": 1786668369.432793,
+      "latency_ms": 1,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -558,9 +622,9 @@
         "ascension_career"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.885011+00:00",
-      "unix_timestamp": 1786665914.888602,
-      "latency_ms": 4,
+      "timestamp_utc": "2026-08-14T00:46:09.432792+00:00",
+      "unix_timestamp": 1786668369.432793,
+      "latency_ms": 1,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -638,8 +702,8 @@
         "ascension_dream_fund"
       ],
       "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
-      "unix_timestamp": 1786665914.888602,
+      "timestamp_utc": "2026-08-14T00:46:09.432792+00:00",
+      "unix_timestamp": 1786668369.432793,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -668,9 +732,9 @@
         "ascension_content_workspace"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
-      "unix_timestamp": 1786665914.888602,
-      "latency_ms": 0,
+      "timestamp_utc": "2026-08-14T00:46:09.432792+00:00",
+      "unix_timestamp": 1786668369.4348724,
+      "latency_ms": 1,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -744,8 +808,8 @@
         "ascension_research_assistant"
       ],
       "class": "unavailable",
-      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
-      "unix_timestamp": 1786665914.888602,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -775,8 +839,8 @@
         "ascension_relationship_intelligence"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.888602+00:00",
-      "unix_timestamp": 1786665914.8906257,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -881,9 +945,9 @@
         "ascension_family"
       ],
       "class": "proven",
-      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
-      "unix_timestamp": 1786665914.8906257,
-      "latency_ms": 1,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
+      "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
         "active_requests": 0,
@@ -990,8 +1054,8 @@
         "ascension_journaling"
       ],
       "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
-      "unix_timestamp": 1786665914.8906257,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -1020,8 +1084,8 @@
         "ascension_tarot"
       ],
       "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
-      "unix_timestamp": 1786665914.8906257,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -1050,8 +1114,8 @@
         "ascension_visualization"
       ],
       "class": "unimplemented",
-      "timestamp_utc": "2026-08-14T00:05:14.890625+00:00",
-      "unix_timestamp": 1786665914.8906257,
+      "timestamp_utc": "2026-08-14T00:46:09.434872+00:00",
+      "unix_timestamp": 1786668369.4348724,
       "latency_ms": 0,
       "queue": {
         "queue_depth": 0,
@@ -1082,7 +1146,8 @@
     "nutrition",
     "persistent memory / corrections",
     "relationships",
-    "schedule / calendar"
+    "schedule / calendar",
+    "tasks / quests"
   ],
   "failed_surfaces": [],
   "unavailable_surfaces": [
@@ -1094,7 +1159,6 @@
     "astrology / numerology reflection",
     "journal / reflection",
     "self-care",
-    "tasks / quests",
     "workout / health"
   ],
   "replacement_ready": false,

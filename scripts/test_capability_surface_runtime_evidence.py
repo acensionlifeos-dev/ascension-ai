@@ -24,6 +24,16 @@ def _runtime_not_ready() -> bool:
     return False
 
 
+def test_tasks_quests_surface_is_proven() -> None:
+    record = csre._evidence_for_surface("tasks / quests", ["ascension_task"])
+    assert record["class"] == "proven", record.get("reason")
+    action = record["permission_receipt_evidence"]["proposed_action"]
+    assert action["action"] == "task.create_quest"
+    assert action["risk"] == "low"
+    assert action["approval"] == "safe_internal_auto"
+    assert "title" in {q["variable"] for q in action["missing_questions"]}
+
+
 def test_schedule_surface_is_proven_with_receipt_and_permission() -> None:
     record = csre._evidence_for_surface("schedule / calendar", ["ascension_calendar_intelligence"])
     assert record["class"] == "proven", f"expected proven, got {record['class']}: {record.get('reason')}"

@@ -156,6 +156,16 @@ SURFACE_CASES: dict[str, dict] = {
         "expect_memory": "preferred_name",
         "expect_persistence_condition": "shell_authority_and_guardian_when_minor",
     },
+    "tasks / quests": {
+        "handler": "surface_plan",
+        "trigger": "I want to start a quest to run a 5k",
+        "shell": Shell.AP,
+        "allowed_capabilities": ["identity"],
+        "available_actions": ["task.create_quest"],
+        "expect_action": "task.create_quest",
+        "expect_risk": "low",
+        "expect_approval": "safe_internal_auto",
+    },
     "schedule / calendar": {
         "handler": "surface_plan",
         "trigger": "I work 10 pm-6 am Wed-Sun",
