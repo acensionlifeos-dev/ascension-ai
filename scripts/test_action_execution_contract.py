@@ -56,6 +56,25 @@ def test_high_risk_payment_requires_explicit_confirmation_and_receipts() -> None
     assert contract["execution_receipt"]["receipt_rule"].startswith("No save")
 
 
+def test_quest_creation_is_one_deduplicated_proposal_until_shell_receipt() -> None:
+    cognitive = build_cognitive_packet(
+        "Create a quest task quest for running a 5k",
+        {},
+        ["identity"],
+        ["task.create_quest"],
+    )
+    contract = build_action_execution_contract(cognitive, Shell.AP)
+    quests = [action for action in contract["proposed_actions"] if action["action"] == "task.create_quest"]
+    assert len(quests) == 1
+    quest = quests[0]
+    assert quest["execution_state"] == "proposal_only"
+    assert quest["approval"] == "safe_internal_auto"
+    assert {"quest_id", "created_at", "status", "semantic_key"} <= set(quest["receipt_fields"])
+    assert {"title", "target outcome", "target completion"} == {
+        question["variable"] for question in quest["missing_questions"]
+    }
+
+
 def test_prepared_payment_gets_user_facing_approval_and_receipt_boundary() -> None:
     cognitive = build_cognitive_packet(
         "Prepare a payment for my phone bill.",

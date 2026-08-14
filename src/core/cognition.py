@@ -59,6 +59,7 @@ ACTION_CATALOG: dict[str, dict[str, str]] = {
     "messages.send": {"domain": "relationships", "risk": "high", "approval": "explicit_confirmation", "surface": "messages"},
     "calendar.external_write": {"domain": "schedule", "risk": "high", "approval": "explicit_confirmation", "surface": "calendar"},
     "finance.payment": {"domain": "finance", "risk": "critical", "approval": "explicit_confirmation", "surface": "financial_profile"},
+    "task.create_quest": {"domain": "identity", "risk": "low", "approval": "safe_internal_auto", "surface": "quests"},
 }
 
 MEMORY_CANDIDATE_DOMAINS = {
@@ -248,6 +249,8 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("learning.prepare_course", "The user requested learning; prepare an optional adaptive Academy course.", missing=["current skill level", "time available", "desired outcome"]))
     if re.search(r"\b(?:job|career|resume|apply)\b", lowered):
         proposals.append(_proposal("career.research_jobs", "Research and enrich relevant opportunities without inventing missing facts."))
+    if re.search(r"\b(?:quest|task)\b", lowered):
+        proposals.append(_proposal("task.create_quest", "Create a tracked quest from the user's explicit goal.", missing=["title", "target outcome", "target completion"]))
     if re.search(r"\b(?:add|schedule|book|put|create|remove|delete|cancel)\b.{0,50}\b(?:appointment|event|calendar|meeting)\b", lowered):
         proposals.append(_proposal("calendar.external_write", "A calendar change must be resolved to a specific event and confirmed by the connected calendar provider.", {"request": str(text or "")[:1000]}, missing=["resolved date and timezone", "target calendar", "explicit final confirmation"]))
     if re.search(r"\b(?:i have an idea|idea for|create|build|make)\b", lowered):
@@ -337,6 +340,7 @@ RECEIPT_FIELDS: dict[str, list[str]] = {
     "nutrition.research_recipes": ["prepared_at", "recipe_ids", "source"],
     "nutrition.prepare_meal_plan": ["prepared_at", "plan_id"],
     "learning.prepare_course": ["prepared_at", "course_id"],
+    "task.create_quest": ["quest_id", "created_at", "status", "semantic_key"],
     "career.research_jobs": ["prepared_at", "search_id", "source"],
     "documents.prepare_draft": ["prepared_at", "draft_id"],
     "messages.send": ["message_id", "recipient", "channel", "sent_at", "provider"],
@@ -369,6 +373,9 @@ MISSING_QUESTIONS: dict[str, str] = {
     "current skill level": "What is your current skill level?",
     "time available": "How much time can you commit?",
     "desired outcome": "What outcome do you want from this learning?",
+    "title": "What should this quest be called?",
+    "target outcome": "What result will show this quest is complete?",
+    "target completion": "When do you want to complete it?",
     "explicit final confirmation": "Please confirm this action before it runs.",
 }
 
