@@ -143,9 +143,9 @@
     {
       "id": "GROW-016",
       "focus": "Connect investing and compounding plans to verified cash flow, recurring bills, reserves, debt, taxes, aspirations, and corrections",
-      "status": "training",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v28_investing_compounding_v4.jsonl",
-      "blocked_by": "GROW-016 v4 iteration in progress. v4 drills verified cash flow, recurring bills, reserves, debt, taxes, aspirations, corrections, and overclaim rejection. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
+      "blocked_by": "GROW-016 v4 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
       "pass_conditions": [
         "Uses only verified personal financial evidence",
         "Rechecks risk capacity before every proposed contribution increase",
