@@ -119,9 +119,9 @@
     {
       "id": "GROW-014",
       "focus": "Research prediction markets from live implied probability, resolution rules, dates, liquidity, supporting evidence, contrary evidence, and uncertainty",
-      "status": "awaiting_human_review",
-      "curriculum": "evals/training/ascension_product_v26_prediction_markets.jsonl",
-      "blocked_by": "GROW-014 v1 completed; 0/2 candidates passed automatic gate; no promotion; human review required.",
+      "status": "training",
+      "curriculum": "evals/training/ascension_product_v26_prediction_markets_v2.jsonl",
+      "blocked_by": "GROW-014 v2 iteration in progress. v2 drills live sources, resolution rules, liquidity, probability ranges, and contrary evidence. Must pass raw diagnostic, integrated runtime, and replacement gates before human review; no automatic promotion.",
       "pass_conditions": [
         "Separates market-implied probability from estimated probability",
         "Provides a probability range, confidence, and invalidation conditions",
