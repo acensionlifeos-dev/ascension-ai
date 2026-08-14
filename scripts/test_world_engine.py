@@ -8,7 +8,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.immersive.world_engine import compile_hub_compound, compile_world, validate_render_receipt
+from src.immersive.world_engine import (
+    compile_hub_compound,
+    compile_world,
+    export_webxr_threejs_manifest,
+    validate_render_receipt,
+    validate_webxr_threejs_manifest,
+)
 
 
 def test_ar_world_fails_closed_without_permissions_and_assets() -> None:
@@ -78,6 +84,77 @@ def test_compound_assets_require_rights_and_share_receipts() -> None:
     )
     assert compound["ready_for_engine"] is False
     assert compound["shared_assets"][0]["usable"] is False
+
+
+def test_webxr_exporter_preserves_dream_home_placement() -> None:
+    world = compile_world("My dream home with a meditation room")
+    exported = export_webxr_threejs_manifest(world)
+    assert exported["schema"] == "ascension.webxr.threejs.manifest.v1"
+    assert exported["render_state"] == "prepared_not_rendered"
+    assert exported["engine_target"] == "webxr_threejs"
+    room_nodes = [n for n in exported["scene_graph"]["nodes"] if n["role"] == "room_shell"]
+    assert room_nodes
+    assert room_nodes[0]["position"][2] < 0
+
+
+def test_webxr_validator_catches_missing_assets() -> None:
+    world = compile_world("My dream home", mode="3d")
+    exported = export_webxr_threejs_manifest(world)
+    report = validate_webxr_threejs_manifest(exported)
+    assert report["valid"] is False
+    assert any("missing assets" in f for f in report["failures"])
+
+
+def test_webxr_validator_catches_checksum_mismatch() -> None:
+    world = compile_world(
+        "My dream car in the driveway",
+        mode="3d",
+        user_assets=[
+            {"role": "aspiration_vehicle", "asset_id": "car-1", "source": "user_vault", "license": "user_owned", "checksum": "abc123"},
+        ],
+    )
+    exported = export_webxr_threejs_manifest(world)
+    report = validate_webxr_threejs_manifest(exported, asset_inventory={"car-1": {"checksum": "wrong"}})
+    assert report["valid"] is False
+    assert any("checksum mismatch" in f for f in report["failures"])
+
+
+def test_webxr_validator_rejects_unauthorized_compound_sharing() -> None:
+    compound = compile_hub_compound(
+        family_id="family-3",
+        neighborhood_id="n-1",
+        members=[],
+        shared_assets=[
+            {"asset_id": "tree", "source": "vault", "license": "family_owned", "checksum": "abc", "share_receipt": "receipt-1"},
+        ],
+    )
+    exported = export_webxr_threejs_manifest(compound)
+    assert exported["privacy_partitions"]["interior_visible_to_neighbors"] is False
+    assert exported["privacy_partitions"]["shared_event_requires_family_approval"] is True
+    assert validate_webxr_threejs_manifest(exported)["valid"] is True
+
+    exported["privacy_partitions"]["interior_visible_to_neighbors"] = True
+    exported["privacy_partitions"]["cross_family_authority"] = "neighborhood"
+    report = validate_webxr_threejs_manifest(exported)
+    assert report["valid"] is False
+    assert any("unauthorized compound interior sharing" in f for f in report["failures"])
+
+
+def test_webxr_export_preserves_asset_provenance_and_permission_gaps() -> None:
+    world = compile_world(
+        "Show my watch beside my desk",
+        mode="web_ar",
+        permissions=["camera.read_session"],
+        user_assets=[
+            {"role": "aspiration_display", "asset_id": "watch-1", "source": "user_vault", "license": "user_owned", "checksum": "w"},
+            {"role": "furniture", "asset_id": "desk-1", "source": "user_vault", "license": "user_owned", "checksum": "d"},
+        ],
+    )
+    exported = export_webxr_threejs_manifest(world)
+    assert exported["permission_gaps"] == ["spatial_map.local"]
+    by_role = {a["role"]: a for a in exported["assets"]}
+    assert by_role["aspiration_display"]["checksum"] == "w"
+    assert by_role["furniture"]["source"] == "user_vault"
 
 
 def main() -> None:

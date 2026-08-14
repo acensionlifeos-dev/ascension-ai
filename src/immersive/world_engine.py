@@ -242,3 +242,147 @@ def validate_render_receipt(manifest: dict[str, Any], receipt: dict[str, Any]) -
     if receipt.get("validation_passed") is not True:
         failures.append("engine validation did not pass")
     return {"rendered": not failures, "failures": failures, "receipt": receipt if not failures else None}
+
+
+WEBXR_THREEJS_SCHEMA = "ascension.webxr.threejs.manifest.v1"
+
+
+def _threejs_node(entity: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "name": entity["id"],
+        "role": entity.get("role"),
+        "type": "Object3D",
+        "visible": True,
+        "position": entity["transform"]["position_m"],
+        "rotation_deg": entity["transform"]["rotation_deg"],
+        "scale": entity["transform"]["scale"],
+        "children": [],
+    }
+
+
+def _collect_asset_provenance(manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    assets: list[dict[str, Any]] = []
+    for entity in manifest.get("entities", []):
+        asset = entity.get("asset", {})
+        assets.append({
+            "node": entity["id"],
+            "role": entity.get("role"),
+            "state": asset.get("state"),
+            "asset_id": asset.get("asset_id"),
+            "source": asset.get("source"),
+            "license": asset.get("license"),
+            "checksum": asset.get("checksum"),
+        })
+    for item in manifest.get("shared_assets", []):
+        assets.append({
+            "node": "shared",
+            "role": "compound_asset",
+            "state": "supplied_unverified" if item.get("usable") else "required",
+            "asset_id": item.get("asset_id"),
+            "source": item.get("source"),
+            "license": item.get("license"),
+            "checksum": item.get("checksum"),
+        })
+    return assets
+
+
+def _collect_anchors(manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    return list(manifest.get("spatial", {}).get("anchors", []))
+
+
+def _collect_privacy_partitions(manifest: dict[str, Any]) -> dict[str, Any]:
+    if "privacy" in manifest:
+        return {
+            "individual_authority": manifest["privacy"].get("individual_authority"),
+            "household_authority": manifest["privacy"].get("household_authority"),
+            "family_authority": manifest["privacy"].get("family_authority"),
+            "cross_family_authority": manifest["privacy"].get("cross_family_authority", "none"),
+            "lifeos_profiles_copied": manifest["privacy"].get("lifeos_profiles_copied", False),
+            "private_household_context_copied": manifest["privacy"].get("private_household_context_copied", False),
+            "interior_visible_to_neighbors": manifest.get("neighborhood_contract", {}).get("compound_interior_visible_to_neighbors", False),
+            "shared_event_requires_family_approval": manifest.get("neighborhood_contract", {}).get("shared_event_requires_family_approval", True),
+        }
+    return {"permission_gaps": manifest.get("permissions", {}).get("missing", [])}
+
+
+def export_webxr_threejs_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
+    """Export a bounded, provider-independent WebXR/Three.js manifest.
+
+    The output is a prepared scene manifest, not a rendered artifact. It preserves
+    asset provenance, permission gaps, performance and accessibility budgets,
+    spatial anchors, and privacy partitions. A real engine must still produce a
+    receipt before the render state may advance.
+    """
+    source_schema = manifest.get("schema")
+    if source_schema not in {SCHEMA_VERSION, "ascension.spatial.compound.v1"}:
+        raise ValueError("Input is not a recognized Ascension spatial manifest")
+
+    is_world = source_schema == SCHEMA_VERSION
+    object_id = manifest.get("world_id") or manifest.get("compound_id")
+    exported: dict[str, Any] = {
+        "schema": WEBXR_THREEJS_SCHEMA,
+        "source_schema": source_schema,
+        "object_id": object_id,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "render_state": "prepared_not_rendered",
+        "engine_target": "webxr_threejs",
+        "coordinate_system": manifest.get("coordinate_system", {"handedness": "right", "up_axis": "y", "unit": "meter"}),
+        "scene_graph": {"root": "scene", "nodes": [_threejs_node(e) for e in manifest.get("entities", [])]},
+        "assets": _collect_asset_provenance(manifest),
+        "spatial_anchors": _collect_anchors(manifest),
+        "permission_gaps": manifest.get("permissions", {}).get("missing", []) if is_world else [],
+        "performance_budget": manifest.get("performance_budget", {}),
+        "accessibility_budget": manifest.get("accessibility", {}),
+        "safety_budget": manifest.get("safety", {}),
+        "privacy_partitions": _collect_privacy_partitions(manifest),
+        "receipt_required_from_engine": manifest.get("render_contract", {}).get("required_receipt_fields", []),
+    }
+    canonical = json.dumps(exported, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    exported["manifest_sha256"] = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+    return exported
+
+
+def validate_webxr_threejs_manifest(
+    manifest: dict[str, Any],
+    *,
+    asset_inventory: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Validate a WebXR/Three.js prepared manifest and optional asset inventory.
+
+    Returns a validation report. A valid report does not claim the manifest was
+    rendered; it only certifies the prepared manifest is internally consistent
+    and its asset provenance is intact.
+    """
+    failures: list[str] = []
+    if manifest.get("schema") != WEBXR_THREEJS_SCHEMA:
+        failures.append("unknown manifest schema")
+        return {"valid": False, "failures": failures}
+
+    stripped = {k: v for k, v in manifest.items() if k != "manifest_sha256"}
+    canonical = json.dumps(stripped, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    expected = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+    if manifest.get("manifest_sha256") != expected:
+        failures.append("manifest checksum mismatch")
+
+    if manifest.get("render_state") != "prepared_not_rendered":
+        failures.append("render_state must be prepared_not_rendered before engine receipt")
+
+    missing_assets = [a for a in manifest.get("assets", []) if a.get("state") == "required"]
+    if missing_assets:
+        failures.append(f"missing assets: {', '.join(a.get('role') or 'unknown' for a in missing_assets)}")
+
+    for asset in manifest.get("assets", []):
+        if asset.get("state") == "supplied_unverified":
+            if not (asset.get("asset_id") and asset.get("source") and asset.get("license") and asset.get("checksum")):
+                failures.append(f"asset {asset.get('asset_id') or asset.get('role')} missing provenance")
+            elif asset_inventory and asset.get("asset_id") in asset_inventory:
+                if asset_inventory[asset["asset_id"]].get("checksum") != asset["checksum"]:
+                    failures.append(f"asset {asset['asset_id']} checksum mismatch against inventory")
+
+    privacy = manifest.get("privacy_partitions", {})
+    if privacy.get("interior_visible_to_neighbors") is True and privacy.get("cross_family_authority") != "none":
+        failures.append("unauthorized compound interior sharing")
+    if privacy.get("shared_event_requires_family_approval") is False:
+        failures.append("unauthorized neighborhood shared events")
+
+    return {"valid": not failures, "failures": failures}
