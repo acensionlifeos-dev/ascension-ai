@@ -613,14 +613,15 @@
     {
       "id": "GROW-100",
       "focus": "Category: sports (10 capabilities, 30 records)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v100_sports.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow100_sports_v1 completed; human review required."
     },
     {
       "id": "GROW-101",
