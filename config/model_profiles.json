@@ -65,8 +65,9 @@
   },
   "pro_v19": {
     "label": "Ascension v19 1.7B merged",
-    "repo_id": "local",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
     "filename": "v19_merged.gguf",
+    "download_url": "https://github.com/acensionlifeos-dev/ascension-ai/releases/download/v19-merged/v19_merged.gguf",
     "sha256": "a0ba2346e600bdb123fa652ba4bde894a727f6478a8fa3a949b85d979638dafa",
     "size_bytes": 1834426048,
     "minimum_render_plan": "pro_4gb",
