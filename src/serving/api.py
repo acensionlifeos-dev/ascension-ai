@@ -66,7 +66,7 @@ async def security_headers(request, call_next):
 
 
 class ChatMessage(BaseModel):
-    role: Literal["user", "assistant"]
+    role: Literal["user", "assistant", "system"]
     content: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
 
     @field_validator("content")
