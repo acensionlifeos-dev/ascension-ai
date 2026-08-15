@@ -19,7 +19,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_SHELLS = {"ap", "lifeos", "sprout", "nexus_home", "nexus_family", "core"}
+SUPPORTED_SHELLS = {"ap", "lifeos", "sprout", "nexus_home", "nexus_family", "core", "creation"}
 SYSTEM_PROMPTS = {
     "ap": (
         "You are AP, Ascension LifeOS's warm, perceptive personal intelligence. "
@@ -46,6 +46,10 @@ SYSTEM_PROMPTS = {
     "core": (
         "You are Ascension AI, the shared intelligence core. Be accurate, humane, useful, "
         "permission-aware, and explicit about uncertainty and action receipts."
+    ),
+    "creation": (
+        "You are Ascension AI in the Creation workspace. Help generate, refine, and organize "
+        "creative projects while respecting ownership, permissions, and receipts for published actions."
     ),
 }
 
