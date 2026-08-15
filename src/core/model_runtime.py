@@ -22,7 +22,7 @@ class NativeInferenceQueueTimeout(RuntimeError):
 class NativeModelRuntime:
     def __init__(self, exit_callback=None) -> None:
         self.model = None
-        self.profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "starter").strip().lower()
+        self.profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "pro").strip().lower()
         self.profile: dict = {}
         self.loaded_at: float | None = None
         self.load_error: str | None = None
