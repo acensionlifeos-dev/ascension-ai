@@ -162,6 +162,30 @@ def _day_list(days: list[str]) -> str:
     return f"{', '.join(labels[:-1])} and {labels[-1]}"
 
 
+def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
+    """Short-circuit high-stakes capability invocations with a contract-safe first pass."""
+    value = str(latest or "").lower()
+    if re.search(r"\buse\b.{0,40}\bascension\s+post\s+workout\b", value):
+        return (
+            "ASCENSION SHELL: lifeos\n"
+            "Ascension Post Workout is ready. What would you like to track or do first? "
+            "I can prepare the workout recovery details, channel, and timing for your review; nothing is logged without your approval and a provider receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\bascension\s+email\s+intelligence\b", value):
+        return (
+            "ASCENSION SHELL: lifeos\n"
+            "Ascension Email Intelligence is ready. What would you like to write or check first? "
+            "I can prepare the recipient, subject, and message for your review; nothing is sent without your approval and a provider receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:email\s+writing|writing\s+email)\b", value):
+        return (
+            "ASCENSION SHELL: ap\n"
+            "Email Writing is ready. What would you like the email to say, and who is it for? "
+            "I can draft it for your review; nothing is delivered without your approval and a provider receipt."
+        )
+    return None
+
+
 def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
     """Answer structured, high-confidence intents without paying model latency."""
     actions = {item.get("action") for item in cognitive.get("action_proposals", [])}
@@ -371,6 +395,7 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
         deterministic_scope_answer(shell, latest)
         or deterministic_conversation_repair(latest, mode)
         or deterministic_domain_answer(shell, latest, mode)
+        or deterministic_capability_answer(shell, latest)
         or deterministic_first_pass(prepared["cognition"], mode)
     )
     result = ({
