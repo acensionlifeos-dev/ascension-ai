@@ -53,6 +53,7 @@
   },
   "pro_v16": {
     "label": "Ascension v16 1.7B merged",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
     "filename": "v16_merged_70_30.gguf",
     "download_url": "https://github.com/acensionlifeos-dev/ascension-ai/releases/download/v16-merged-70-30/v16_merged_70_30.gguf",
     "sha256": "02cd588d8408b88df4e500595d7524d5caf5e56aa009d41f82115742d4e5f69c",
