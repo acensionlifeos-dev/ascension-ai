@@ -25,7 +25,7 @@ def ensure_llama_cpp() -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Convert a PEFT LoRA to a llama.cpp GGUF LoRA")
     parser.add_argument("--adapter", required=True, help="Path to PEFT adapter directory")
-    parser.add_argument("--base", default="Qwen/Qwen3-1.7B", help="Base model for LoRA")
+    parser.add_argument("--base-model-id", default="Qwen/Qwen3-1.7B", help="Base Hugging Face model for LoRA")
     parser.add_argument("--outtype", default="f16", help="Output type for LoRA")
     parser.add_argument("--output", default="models/ascension_lora.gguf", help="Output GGUF LoRA path")
     args = parser.parse_args(argv)
@@ -40,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
             sys.executable,
             str(LLAMA_CPP / "convert_lora_to_gguf.py"),
             "--outtype", args.outtype,
-            "--base", args.base,
+            "--base-model-id", args.base_model_id,
             "--outfile", str(output),
             args.adapter,
         ],
