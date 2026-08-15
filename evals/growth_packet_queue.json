@@ -677,14 +677,15 @@
     {
       "id": "GROW-105",
       "focus": "Category: video (5 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v105_video_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow105_video_v3 completed; human review required."
     },
     {
       "id": "GROW-106",
