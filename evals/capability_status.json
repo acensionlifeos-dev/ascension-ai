@@ -1,0 +1,4482 @@
+[
+  {
+    "id": "audio_editing",
+    "shell": "core",
+    "user": "Use Audio Editing.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "music_generation_suno",
+    "shell": "core",
+    "user": "Use Music Generation (Suno).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "music_generation_udio",
+    "shell": "core",
+    "user": "Use Music Generation (Udio).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "speech_to_text",
+    "shell": "core",
+    "user": "Use Speech-to-Text.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "text_to_speech",
+    "shell": "core",
+    "user": "Use Text-to-Speech.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "voice_cloning",
+    "shell": "core",
+    "user": "Use Voice Cloning.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "ascension_bicycle",
+    "shell": "core",
+    "user": "Use Ascension Bicycle.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_boat",
+    "shell": "core",
+    "user": "Use Ascension Boat.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_car_buying",
+    "shell": "core",
+    "user": "Use Ascension Car Buying.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_car_maintenance",
+    "shell": "core",
+    "user": "Use Ascension Car Maintenance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_electric_vehicle",
+    "shell": "core",
+    "user": "Use Ascension Electric Vehicle.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_motorcycle",
+    "shell": "core",
+    "user": "Use Ascension Motorcycle.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_rv",
+    "shell": "core",
+    "user": "Use Ascension RV.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_affiliate",
+    "shell": "lifeos",
+    "user": "Use Ascension Affiliate.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_affiliate_automation",
+    "shell": "lifeos",
+    "user": "Use Ascension Affiliate Automation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_amazon",
+    "shell": "lifeos",
+    "user": "Use Ascension Amazon.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_benefits",
+    "shell": "lifeos",
+    "user": "Use Ascension Benefits.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_brand",
+    "shell": "lifeos",
+    "user": "Use Ascension Brand.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_business_manager",
+    "shell": "lifeos",
+    "user": "Use Ascension Business Manager.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_business_plan",
+    "shell": "lifeos",
+    "user": "Use Ascension Business Plan.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_business_studio",
+    "shell": "lifeos",
+    "user": "Use Ascension Business Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_channel_types",
+    "shell": "lifeos",
+    "user": "Use Ascension Channel Types.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_chatbot",
+    "shell": "lifeos",
+    "user": "Use Ascension Chatbot.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_churn",
+    "shell": "lifeos",
+    "user": "Use Ascension Churn.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_compliance",
+    "shell": "lifeos",
+    "user": "Use Ascension Compliance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_content_analytics",
+    "shell": "lifeos",
+    "user": "Use Ascension Content Analytics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_content_calendar",
+    "shell": "lifeos",
+    "user": "Use Ascension Content Calendar.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_content_workspace",
+    "shell": "lifeos",
+    "user": "Use Ascension Content Workspace.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cross_sell",
+    "shell": "lifeos",
+    "user": "Use Ascension Cross Sell.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_crowdfunding",
+    "shell": "lifeos",
+    "user": "Use Ascension Crowdfunding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_crowdfunding_product",
+    "shell": "lifeos",
+    "user": "Use Ascension Crowdfunding Product.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_customer_service",
+    "shell": "lifeos",
+    "user": "Use Ascension Customer Service.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_customer_support",
+    "shell": "lifeos",
+    "user": "Use Ascension Customer Support.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dropshipping",
+    "shell": "lifeos",
+    "user": "Use Ascension Dropshipping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ecommerce",
+    "shell": "lifeos",
+    "user": "Use Ascension Ecommerce.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_etsy",
+    "shell": "lifeos",
+    "user": "Use Ascension Etsy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_export",
+    "shell": "lifeos",
+    "user": "Use Ascension Export.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_faq",
+    "shell": "lifeos",
+    "user": "Use Ascension FAQ.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fulfillment",
+    "shell": "lifeos",
+    "user": "Use Ascension Fulfillment.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fundraising",
+    "shell": "lifeos",
+    "user": "Use Ascension Fundraising.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_grants",
+    "shell": "lifeos",
+    "user": "Use Ascension Grants.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_growth_tracker",
+    "shell": "lifeos",
+    "user": "Use Ascension Growth Tracker.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hr",
+    "shell": "lifeos",
+    "user": "Use Ascension HR.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_helpdesk",
+    "shell": "lifeos",
+    "user": "Use Ascension Helpdesk.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_import",
+    "shell": "lifeos",
+    "user": "Use Ascension Import.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_influence",
+    "shell": "lifeos",
+    "user": "Use Ascension Influence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_inventory",
+    "shell": "lifeos",
+    "user": "Use Ascension Inventory.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_knowledge_base",
+    "shell": "lifeos",
+    "user": "Use Ascension Knowledge Base.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_live_chat",
+    "shell": "lifeos",
+    "user": "Use Ascension Live Chat.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_loyalty",
+    "shell": "lifeos",
+    "user": "Use Ascension Loyalty.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_marketing",
+    "shell": "lifeos",
+    "user": "Use Ascension Marketing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_merchandise",
+    "shell": "lifeos",
+    "user": "Use Ascension Merchandise.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_micro_launch",
+    "shell": "lifeos",
+    "user": "Use Ascension Micro Launch.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_onboarding",
+    "shell": "lifeos",
+    "user": "Use Ascension Onboarding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_open_enrollment",
+    "shell": "lifeos",
+    "user": "Use Ascension Open Enrollment.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pos",
+    "shell": "lifeos",
+    "user": "Use Ascension POS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_partnerships",
+    "shell": "lifeos",
+    "user": "Use Ascension Partnerships.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_patreon",
+    "shell": "lifeos",
+    "user": "Use Ascension Patreon.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pitch",
+    "shell": "lifeos",
+    "user": "Use Ascension Pitch.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_print_on_demand",
+    "shell": "lifeos",
+    "user": "Use Ascension Print On Demand.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_referral",
+    "shell": "lifeos",
+    "user": "Use Ascension Referral.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_reputation",
+    "shell": "lifeos",
+    "user": "Use Ascension Reputation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_retention",
+    "shell": "lifeos",
+    "user": "Use Ascension Retention.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sales",
+    "shell": "lifeos",
+    "user": "Use Ascension Sales.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_scorecards",
+    "shell": "lifeos",
+    "user": "Use Ascension Scorecards.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_service_designer",
+    "shell": "lifeos",
+    "user": "Use Ascension Service Designer.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shipping",
+    "shell": "lifeos",
+    "user": "Use Ascension Shipping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shopify",
+    "shell": "lifeos",
+    "user": "Use Ascension Shopify.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sponsorships",
+    "shell": "lifeos",
+    "user": "Use Ascension Sponsorships.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_startup",
+    "shell": "lifeos",
+    "user": "Use Ascension Startup.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tariffs",
+    "shell": "lifeos",
+    "user": "Use Ascension Tariffs.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ticketing",
+    "shell": "lifeos",
+    "user": "Use Ascension Ticketing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_upsell",
+    "shell": "lifeos",
+    "user": "Use Ascension Upsell.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_woocommerce",
+    "shell": "lifeos",
+    "user": "Use Ascension WooCommerce.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_workers_comp",
+    "shell": "lifeos",
+    "user": "Use Ascension Workers Comp.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ebay",
+    "shell": "lifeos",
+    "user": "Use Ascension eBay.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "business_growth",
+    "shell": "lifeos",
+    "user": "Use Business Growth.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_career",
+    "shell": "lifeos",
+    "user": "Use Ascension Career.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_linkedin_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension LinkedIn Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mentors",
+    "shell": "lifeos",
+    "user": "Use Ascension Mentors.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_professional_network",
+    "shell": "lifeos",
+    "user": "Use Ascension Professional Network.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_code",
+    "shell": "ap",
+    "user": "Use Ascension Code.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_completion",
+    "shell": "ap",
+    "user": "Use Code Completion.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_debugging",
+    "shell": "ap",
+    "user": "Use Code Debugging.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_execution",
+    "shell": "ap",
+    "user": "Use Code Execution.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_generation",
+    "shell": "ap",
+    "user": "Use Code Generation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_review",
+    "shell": "ap",
+    "user": "Use Code Review.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "documentation_generation",
+    "shell": "ap",
+    "user": "Use Documentation Generation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "test_generation",
+    "shell": "ap",
+    "user": "Use Test Generation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_activism",
+    "shell": "core",
+    "user": "Use Ascension Activism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_volunteering",
+    "shell": "core",
+    "user": "Use Ascension Volunteering.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_air_fryer",
+    "shell": "lifeos",
+    "user": "Use Ascension Air Fryer.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_bbq",
+    "shell": "lifeos",
+    "user": "Use Ascension BBQ.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_bread_making",
+    "shell": "lifeos",
+    "user": "Use Ascension Bread Making.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dehydrator",
+    "shell": "lifeos",
+    "user": "Use Ascension Dehydrator.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_grilling",
+    "shell": "lifeos",
+    "user": "Use Ascension Grilling.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pizza",
+    "shell": "lifeos",
+    "user": "Use Ascension Pizza.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pressure_cooker",
+    "shell": "lifeos",
+    "user": "Use Ascension Pressure Cooker.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_slow_cooker",
+    "shell": "lifeos",
+    "user": "Use Ascension Slow Cooker.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_smoking",
+    "shell": "lifeos",
+    "user": "Use Ascension Smoking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sourdough",
+    "shell": "lifeos",
+    "user": "Use Ascension Sourdough.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sous_vide",
+    "shell": "lifeos",
+    "user": "Use Ascension Sous Vide.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_3d_printing",
+    "shell": "ap",
+    "user": "Use Ascension 3D Printing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_amsr_studio",
+    "shell": "ap",
+    "user": "Use Ascension AMSR Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_arduino",
+    "shell": "ap",
+    "user": "Use Ascension Arduino.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_art",
+    "shell": "ap",
+    "user": "Use Ascension Art.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_branding",
+    "shell": "ap",
+    "user": "Use Ascension Branding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_build_path",
+    "shell": "ap",
+    "user": "Use Ascension Build Path.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cnc",
+    "shell": "ap",
+    "user": "Use Ascension CNC.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_color_grading",
+    "shell": "ap",
+    "user": "Use Ascension Color Grading.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_craft",
+    "shell": "ap",
+    "user": "Use Ascension Craft.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creation_auditor",
+    "shell": "ap",
+    "user": "Use Ascension Creation Auditor.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creation_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Creation Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creation_transformation",
+    "shell": "ap",
+    "user": "Use Ascension Creation Transformation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creative",
+    "shell": "ap",
+    "user": "Use Ascension Creative.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creative_manager",
+    "shell": "ap",
+    "user": "Use Ascension Creative Manager.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_creative_studio",
+    "shell": "ap",
+    "user": "Use Ascension Creative Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dance",
+    "shell": "ap",
+    "user": "Use Ascension Dance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_design",
+    "shell": "ap",
+    "user": "Use Ascension Design.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_design_assistant",
+    "shell": "ap",
+    "user": "Use Ascension Design Assistant.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_drones",
+    "shell": "ap",
+    "user": "Use Ascension Drones.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_electronics",
+    "shell": "ap",
+    "user": "Use Ascension Electronics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fanfiction",
+    "shell": "ap",
+    "user": "Use Ascension Fanfiction.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_filmmaking",
+    "shell": "ap",
+    "user": "Use Ascension Filmmaking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_github_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension GitHub Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ham_radio",
+    "shell": "ap",
+    "user": "Use Ascension Ham Radio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hardware_prototyping",
+    "shell": "ap",
+    "user": "Use Ascension Hardware Prototyping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_instagram",
+    "shell": "ap",
+    "user": "Use Ascension Instagram.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_invention_engine",
+    "shell": "ap",
+    "user": "Use Ascension Invention Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_inventor_lab",
+    "shell": "ap",
+    "user": "Use Ascension Inventor Lab.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_laser_cutting",
+    "shell": "ap",
+    "user": "Use Ascension Laser Cutting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_lyrics",
+    "shell": "ap",
+    "user": "Use Ascension Lyrics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mastering",
+    "shell": "ap",
+    "user": "Use Ascension Mastering.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_media_studio",
+    "shell": "ap",
+    "user": "Use Ascension Media Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_metalworking",
+    "shell": "ap",
+    "user": "Use Ascension Metalworking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mixing",
+    "shell": "ap",
+    "user": "Use Ascension Mixing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_music",
+    "shell": "ap",
+    "user": "Use Ascension Music.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_obs",
+    "shell": "ap",
+    "user": "Use Ascension OBS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_overlay_design",
+    "shell": "ap",
+    "user": "Use Ascension Overlay Design.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_photography",
+    "shell": "ap",
+    "user": "Use Ascension Photography.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_photography_gear",
+    "shell": "ap",
+    "user": "Use Ascension Photography Gear.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_podcast",
+    "shell": "ap",
+    "user": "Use Ascension Podcast.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_podcast_production",
+    "shell": "ap",
+    "user": "Use Ascension Podcast Production.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_poetry",
+    "shell": "ap",
+    "user": "Use Ascension Poetry.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_product_studio",
+    "shell": "ap",
+    "user": "Use Ascension Product Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_raspberry_pi",
+    "shell": "ap",
+    "user": "Use Ascension Raspberry Pi.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_roadmap_engine",
+    "shell": "ap",
+    "user": "Use Ascension Roadmap Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_robotics",
+    "shell": "ap",
+    "user": "Use Ascension Robotics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_software_studio",
+    "shell": "ap",
+    "user": "Use Ascension Software Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_soldering",
+    "shell": "ap",
+    "user": "Use Ascension Soldering.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sound_design",
+    "shell": "ap",
+    "user": "Use Ascension Sound Design.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_storytelling",
+    "shell": "ap",
+    "user": "Use Ascension Storytelling.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_streaming",
+    "shell": "ap",
+    "user": "Use Ascension Streaming.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_streaming_channel",
+    "shell": "ap",
+    "user": "Use Ascension Streaming Channel.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_streaming_moderator",
+    "shell": "ap",
+    "user": "Use Ascension Streaming Moderator.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_thumbnail",
+    "shell": "ap",
+    "user": "Use Ascension Thumbnail.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tiktok",
+    "shell": "ap",
+    "user": "Use Ascension TikTok.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tiktok_automation",
+    "shell": "ap",
+    "user": "Use Ascension TikTok Automation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tiktok_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension TikTok Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_twitter",
+    "shell": "ap",
+    "user": "Use Ascension Twitter.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_video_editing",
+    "shell": "ap",
+    "user": "Use Ascension Video Editing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_video_types",
+    "shell": "ap",
+    "user": "Use Ascension Video Types.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_voiceover",
+    "shell": "ap",
+    "user": "Use Ascension Voiceover.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_welding",
+    "shell": "ap",
+    "user": "Use Ascension Welding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_woodworking",
+    "shell": "ap",
+    "user": "Use Ascension Woodworking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_writing",
+    "shell": "ap",
+    "user": "Use Ascension Writing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_youtube",
+    "shell": "ap",
+    "user": "Use Ascension YouTube.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_youtube_automation",
+    "shell": "ap",
+    "user": "Use Ascension YouTube Automation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_youtube_seo",
+    "shell": "ap",
+    "user": "Use Ascension YouTube SEO.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "file_analysis",
+    "shell": "ap",
+    "user": "Use File Analysis.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_legal",
+    "shell": "ap",
+    "user": "Use Ascension Legal Assistant.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_college",
+    "shell": "ap",
+    "user": "Use Ascension College.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_exam",
+    "shell": "ap",
+    "user": "Use Ascension Exam.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_homework",
+    "shell": "ap",
+    "user": "Use Ascension Homework.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_memorization",
+    "shell": "ap",
+    "user": "Use Ascension Memorization.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_presentation",
+    "shell": "ap",
+    "user": "Use Ascension Presentation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_scholarship",
+    "shell": "ap",
+    "user": "Use Ascension Scholarship.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_school",
+    "shell": "ap",
+    "user": "Use Ascension School.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_studyskills",
+    "shell": "ap",
+    "user": "Use Ascension Study Skills.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_teaching",
+    "shell": "ap",
+    "user": "Use Ascension Teaching.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tutor",
+    "shell": "ap",
+    "user": "Use Ascension Tutor.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_api",
+    "shell": "ap",
+    "user": "Use Ascension API.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_blockchain",
+    "shell": "ap",
+    "user": "Use Ascension Blockchain.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cicd",
+    "shell": "ap",
+    "user": "Use Ascension CI/CD.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cloud",
+    "shell": "ap",
+    "user": "Use Ascension Cloud.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_databases",
+    "shell": "ap",
+    "user": "Use Ascension Databases.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_devops",
+    "shell": "ap",
+    "user": "Use Ascension DevOps.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_microservices",
+    "shell": "ap",
+    "user": "Use Ascension Microservices.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mining",
+    "shell": "ap",
+    "user": "Use Ascension Mining.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_monitoring",
+    "shell": "ap",
+    "user": "Use Ascension Monitoring.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_nodes",
+    "shell": "ap",
+    "user": "Use Ascension Nodes.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_security_tech",
+    "shell": "ap",
+    "user": "Use Ascension Security Tech.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_testing",
+    "shell": "ap",
+    "user": "Use Ascension Testing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "code_guardian",
+    "shell": "ap",
+    "user": "Use Code Guardian.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "desktop_os",
+    "shell": "ap",
+    "user": "Use Desktop OS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ip_guard",
+    "shell": "ap",
+    "user": "Use IP Guard.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "laptop_os",
+    "shell": "ap",
+    "user": "Use Laptop OS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "phone_drivers",
+    "shell": "ap",
+    "user": "Use Phone Driver Layer.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "phone_flash",
+    "shell": "ap",
+    "user": "Use Phone Flash.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "phone_os",
+    "shell": "ap",
+    "user": "Use Phone OS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "phone_recovery",
+    "shell": "ap",
+    "user": "Use Phone Recovery.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "smart_device_os",
+    "shell": "ap",
+    "user": "Use Smart Device OS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "device_drivers",
+    "shell": "ap",
+    "user": "Use Universal Device Drivers.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "device_flash",
+    "shell": "ap",
+    "user": "Use Universal Device Flash.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "universal_os",
+    "shell": "ap",
+    "user": "Use Universal OS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_astrology",
+    "shell": "core",
+    "user": "Use Ascension Astrology.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_betting",
+    "shell": "core",
+    "user": "Use Ascension Betting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_blackjack",
+    "shell": "core",
+    "user": "Use Ascension Blackjack.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_boardgames",
+    "shell": "core",
+    "user": "Use Ascension Board Games.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_books",
+    "shell": "core",
+    "user": "Use Ascension Books.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_casino",
+    "shell": "core",
+    "user": "Use Ascension Casino.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_chess",
+    "shell": "core",
+    "user": "Use Ascension Chess.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_comedy",
+    "shell": "core",
+    "user": "Use Ascension Comedy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_comics",
+    "shell": "core",
+    "user": "Use Ascension Comics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_concerts",
+    "shell": "core",
+    "user": "Use Ascension Concerts.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cosplay",
+    "shell": "core",
+    "user": "Use Ascension Cosplay.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_festivals",
+    "shell": "core",
+    "user": "Use Ascension Festivals.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_games",
+    "shell": "core",
+    "user": "Use Ascension Games.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_horoscope",
+    "shell": "core",
+    "user": "Use Ascension Horoscope.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_jokes",
+    "shell": "core",
+    "user": "Use Ascension Jokes.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_karaoke",
+    "shell": "core",
+    "user": "Use Ascension Karaoke.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_lottery",
+    "shell": "core",
+    "user": "Use Ascension Lottery.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_magic",
+    "shell": "core",
+    "user": "Use Ascension Magic.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_movies",
+    "shell": "core",
+    "user": "Use Ascension Movies.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_poker",
+    "shell": "core",
+    "user": "Use Ascension Poker.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_puzzles",
+    "shell": "core",
+    "user": "Use Ascension Puzzles.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_rc",
+    "shell": "core",
+    "user": "Use Ascension RC.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_riddles",
+    "shell": "core",
+    "user": "Use Ascension Riddles.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_roleplay",
+    "shell": "core",
+    "user": "Use Ascension Roleplay.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sports",
+    "shell": "core",
+    "user": "Use Ascension Sports.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sports_betting",
+    "shell": "core",
+    "user": "Use Ascension Sports Betting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_standup",
+    "shell": "core",
+    "user": "Use Ascension Standup.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tarot",
+    "shell": "core",
+    "user": "Use Ascension Tarot.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_trading_cards",
+    "shell": "core",
+    "user": "Use Ascension Trading Cards.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_trivia",
+    "shell": "core",
+    "user": "Use Ascension Trivia.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_environment",
+    "shell": "core",
+    "user": "Use Ascension Environment.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_weather",
+    "shell": "core",
+    "user": "Use Ascension Weather.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_child_development",
+    "shell": "nexus_family",
+    "user": "Use Ascension Child Development.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_family_abroad",
+    "shell": "nexus_family",
+    "user": "Use Ascension Family Abroad.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_family_sync",
+    "shell": "nexus_family",
+    "user": "Use Ascension Family Sync.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_family",
+    "shell": "nexus_family",
+    "user": "Use Ascension FamilyOS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_72h_sprint",
+    "shell": "lifeos",
+    "user": "Use Ascension 72h Sprint.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_accounting",
+    "shell": "lifeos",
+    "user": "Use Ascension Accounting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_airdrop",
+    "shell": "lifeos",
+    "user": "Use Ascension Airdrop.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_assets",
+    "shell": "lifeos",
+    "user": "Use Ascension Assets.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_audit",
+    "shell": "lifeos",
+    "user": "Use Ascension Audit.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_bookkeeping",
+    "shell": "lifeos",
+    "user": "Use Ascension Bookkeeping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_budgeting",
+    "shell": "lifeos",
+    "user": "Use Ascension Budgeting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_business_taxes",
+    "shell": "lifeos",
+    "user": "Use Ascension Business Taxes.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cash_strategy",
+    "shell": "lifeos",
+    "user": "Use Ascension Cash Strategy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_compound_engine",
+    "shell": "lifeos",
+    "user": "Use Ascension Compound Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_credit",
+    "shell": "lifeos",
+    "user": "Use Ascension Credit.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_credit_score",
+    "shell": "lifeos",
+    "user": "Use Ascension Credit Score.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_crypto",
+    "shell": "lifeos",
+    "user": "Use Ascension Crypto.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_crypto_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Crypto Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dao",
+    "shell": "lifeos",
+    "user": "Use Ascension DAO.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_daytrading",
+    "shell": "lifeos",
+    "user": "Use Ascension Day Trading.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_defi",
+    "shell": "lifeos",
+    "user": "Use Ascension DeFi.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_debt",
+    "shell": "lifeos",
+    "user": "Use Ascension Debt.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_deductible",
+    "shell": "lifeos",
+    "user": "Use Ascension Deductible.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dream_fund",
+    "shell": "lifeos",
+    "user": "Use Ascension Dream Fund.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_earthquake_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Earthquake Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_expenses",
+    "shell": "lifeos",
+    "user": "Use Ascension Expenses.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fsa",
+    "shell": "lifeos",
+    "user": "Use Ascension FSA.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fast_turn",
+    "shell": "lifeos",
+    "user": "Use Ascension Fast Turn.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_finance",
+    "shell": "lifeos",
+    "user": "Use Ascension Financial Intelligence.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_flood_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Flood Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_forex",
+    "shell": "lifeos",
+    "user": "Use Ascension Forex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_gig_sprint",
+    "shell": "lifeos",
+    "user": "Use Ascension Gig Sprint.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_global_economics",
+    "shell": "lifeos",
+    "user": "Use Ascension Global Economics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hsa",
+    "shell": "lifeos",
+    "user": "Use Ascension HSA.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_income_split",
+    "shell": "lifeos",
+    "user": "Use Ascension Income Split.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_insurance_review",
+    "shell": "lifeos",
+    "user": "Use Ascension Insurance Review.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_investing",
+    "shell": "lifeos",
+    "user": "Use Ascension Investing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_investment_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Investment Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_invoicing",
+    "shell": "lifeos",
+    "user": "Use Ascension Invoicing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_liability_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Liability Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_loans",
+    "shell": "lifeos",
+    "user": "Use Ascension Loans.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_money_flip",
+    "shell": "lifeos",
+    "user": "Use Ascension Money Flip.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mortgage",
+    "shell": "lifeos",
+    "user": "Use Ascension Mortgage.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_nfts",
+    "shell": "lifeos",
+    "user": "Use Ascension NFTs.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_opportunity_finance",
+    "shell": "lifeos",
+    "user": "Use Ascension Opportunity Finance.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_payroll",
+    "shell": "lifeos",
+    "user": "Use Ascension Payroll.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pet_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Pet Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_plaid_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Plaid Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_policy_review",
+    "shell": "lifeos",
+    "user": "Use Ascension Policy Review.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_prediction_markets",
+    "shell": "lifeos",
+    "user": "Use Ascension Prediction Market Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_premium",
+    "shell": "lifeos",
+    "user": "Use Ascension Premium.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_presale",
+    "shell": "lifeos",
+    "user": "Use Ascension Presale.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_revenue_tracker",
+    "shell": "lifeos",
+    "user": "Use Ascension Revenue Tracker.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_risk_budget",
+    "shell": "lifeos",
+    "user": "Use Ascension Risk Budget.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_staking",
+    "shell": "lifeos",
+    "user": "Use Ascension Staking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_swingtrading",
+    "shell": "lifeos",
+    "user": "Use Ascension Swing Trading.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_taxes",
+    "shell": "lifeos",
+    "user": "Use Ascension Taxes.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_trading",
+    "shell": "lifeos",
+    "user": "Use Ascension Trading Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_umbrella_insurance",
+    "shell": "lifeos",
+    "user": "Use Ascension Umbrella Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_wallet_automation",
+    "shell": "lifeos",
+    "user": "Use Ascension Wallet Automation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_whitelist",
+    "shell": "lifeos",
+    "user": "Use Ascension Whitelist.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_zero_capital",
+    "shell": "lifeos",
+    "user": "Use Ascension Zero Capital.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_post_workout",
+    "shell": "lifeos",
+    "user": "Use Ascension Post Workout.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pre_workout",
+    "shell": "lifeos",
+    "user": "Use Ascension Pre Workout.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_aging",
+    "shell": "lifeos",
+    "user": "Use Ascension Aging.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fitness",
+    "shell": "lifeos",
+    "user": "Use Ascension Fitness.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_health",
+    "shell": "lifeos",
+    "user": "Use Ascension Health.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_nutrition",
+    "shell": "lifeos",
+    "user": "Use Ascension Nutrition.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sleep",
+    "shell": "lifeos",
+    "user": "Use Ascension Sleep.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "emotional_intelligence",
+    "shell": "lifeos",
+    "user": "Use Emotional Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_appointments",
+    "shell": "nexus_home",
+    "user": "Use Ascension Appointments.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_aquaponics",
+    "shell": "nexus_home",
+    "user": "Use Ascension Aquaponics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_automotive",
+    "shell": "nexus_home",
+    "user": "Use Ascension Automotive.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_baking",
+    "shell": "nexus_home",
+    "user": "Use Ascension Baking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_balcony",
+    "shell": "nexus_home",
+    "user": "Use Ascension Balcony.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_canning",
+    "shell": "nexus_home",
+    "user": "Use Ascension Canning.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cleaning",
+    "shell": "nexus_home",
+    "user": "Use Ascension Cleaning.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_commute",
+    "shell": "nexus_home",
+    "user": "Use Ascension Commute.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_composting",
+    "shell": "nexus_home",
+    "user": "Use Ascension Composting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cooking",
+    "shell": "nexus_home",
+    "user": "Use Ascension Cooking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_decor",
+    "shell": "nexus_home",
+    "user": "Use Ascension Decor.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_events",
+    "shell": "nexus_home",
+    "user": "Use Ascension Events.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fermentation",
+    "shell": "nexus_home",
+    "user": "Use Ascension Fermentation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_garden",
+    "shell": "nexus_home",
+    "user": "Use Ascension Garden.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_gardening",
+    "shell": "nexus_home",
+    "user": "Use Ascension Gardening.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_grocery_list",
+    "shell": "nexus_home",
+    "user": "Use Ascension Grocery List.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_home",
+    "shell": "nexus_home",
+    "user": "Use Ascension HomeOS.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_household_sync",
+    "shell": "nexus_home",
+    "user": "Use Ascension Household Sync.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hydroponics",
+    "shell": "nexus_home",
+    "user": "Use Ascension Hydroponics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_interior_design",
+    "shell": "nexus_home",
+    "user": "Use Ascension Interior Design.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_landscaping",
+    "shell": "nexus_home",
+    "user": "Use Ascension Landscaping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_laundry",
+    "shell": "nexus_home",
+    "user": "Use Ascension Laundry.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_lawn_care",
+    "shell": "nexus_home",
+    "user": "Use Ascension Lawn Care.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_life_admin",
+    "shell": "nexus_home",
+    "user": "Use Ascension Life Admin.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_lighting",
+    "shell": "nexus_home",
+    "user": "Use Ascension Lighting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_maintenance",
+    "shell": "nexus_home",
+    "user": "Use Ascension Maintenance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mixology",
+    "shell": "nexus_home",
+    "user": "Use Ascension Mixology.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_moving",
+    "shell": "nexus_home",
+    "user": "Use Ascension Moving.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_organizing",
+    "shell": "nexus_home",
+    "user": "Use Ascension Organizing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_packing",
+    "shell": "nexus_home",
+    "user": "Use Ascension Packing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_parenting",
+    "shell": "nexus_home",
+    "user": "Use Ascension Parenting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pets",
+    "shell": "nexus_home",
+    "user": "Use Ascension Pets.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_preserving",
+    "shell": "nexus_home",
+    "user": "Use Ascension Preserving.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_realestate",
+    "shell": "nexus_home",
+    "user": "Use Ascension Real Estate.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_repair",
+    "shell": "nexus_home",
+    "user": "Use Ascension Repair.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_routine",
+    "shell": "nexus_home",
+    "user": "Use Ascension Routine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_smell",
+    "shell": "nexus_home",
+    "user": "Use Ascension Smell.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sound",
+    "shell": "nexus_home",
+    "user": "Use Ascension Sound.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_storage",
+    "shell": "nexus_home",
+    "user": "Use Ascension Storage.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_travel",
+    "shell": "nexus_home",
+    "user": "Use Ascension Travel.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_grief",
+    "shell": "lifeos",
+    "user": "Use Ascension Grief.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_human_life",
+    "shell": "lifeos",
+    "user": "Use Ascension Human Life.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_age",
+    "shell": "ap",
+    "user": "Use Ascension AGE.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_adaptive_quest",
+    "shell": "ap",
+    "user": "Use Ascension Adaptive Quest.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_astrology_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Astrology Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_behavioral_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Behavioral Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_biometric",
+    "shell": "ap",
+    "user": "Use Ascension Biometric.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cie",
+    "shell": "ap",
+    "user": "Use Ascension CIE.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_context_engine",
+    "shell": "ap",
+    "user": "Use Ascension Context Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_contribution",
+    "shell": "ap",
+    "user": "Use Ascension Contribution.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_decision_physics",
+    "shell": "ap",
+    "user": "Use Ascension Decision Physics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_family_profile",
+    "shell": "ap",
+    "user": "Use Ascension Family Profile.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_human_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Human Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_identity",
+    "shell": "ap",
+    "user": "Use Ascension Identity.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_knowledge_graph",
+    "shell": "ap",
+    "user": "Use Ascension Knowledge Graph.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_legacy",
+    "shell": "ap",
+    "user": "Use Ascension Legacy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_life_flow",
+    "shell": "ap",
+    "user": "Use Ascension Life Flow.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_life_orchestrator",
+    "shell": "ap",
+    "user": "Use Ascension Life Orchestrator.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_living_context",
+    "shell": "ap",
+    "user": "Use Ascension Living Context.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_living_memory",
+    "shell": "ap",
+    "user": "Use Ascension Living Memory.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_opportunity_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Opportunity Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_personal_vortex",
+    "shell": "ap",
+    "user": "Use Ascension Personal Vortex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_personality",
+    "shell": "ap",
+    "user": "Use Ascension Personality.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_proactive_engine",
+    "shell": "ap",
+    "user": "Use Ascension Proactive Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_proactivity",
+    "shell": "ap",
+    "user": "Use Ascension Proactivity.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_question_engine",
+    "shell": "ap",
+    "user": "Use Ascension Question Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_resource_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Resource Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_second_brain",
+    "shell": "ap",
+    "user": "Use Ascension Second Brain.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shell_orchestrator",
+    "shell": "ap",
+    "user": "Use Ascension Shell Orchestrator.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_unified_vortex",
+    "shell": "ap",
+    "user": "Use Ascension Unified Vortex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_user_profile",
+    "shell": "ap",
+    "user": "Use Ascension User Profile.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_vault",
+    "shell": "ap",
+    "user": "Use Ascension Vault.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_voice_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Voice Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_vortex_signals",
+    "shell": "ap",
+    "user": "Use Ascension Vortex Signals.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_world_vortex",
+    "shell": "ap",
+    "user": "Use Ascension World Vortex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "context_memory",
+    "shell": "ap",
+    "user": "Use Context Memory.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "intelligence_sweep",
+    "shell": "ap",
+    "user": "Use Intelligence Sweep.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "proactive_intelligence",
+    "shell": "ap",
+    "user": "Use Proactive Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_argumentation",
+    "shell": "ap",
+    "user": "Use Ascension Argumentation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_astronomy",
+    "shell": "ap",
+    "user": "Use Ascension Astronomy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_critical_thinking",
+    "shell": "ap",
+    "user": "Use Ascension Critical Thinking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_culture",
+    "shell": "ap",
+    "user": "Use Ascension Culture.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_debate",
+    "shell": "ap",
+    "user": "Use Ascension Debate.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_document_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Document Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_environmental",
+    "shell": "ap",
+    "user": "Use Ascension Environmental.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ethics",
+    "shell": "ap",
+    "user": "Use Ascension Ethics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_etiquette",
+    "shell": "ap",
+    "user": "Use Ascension Etiquette.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fallacies",
+    "shell": "ap",
+    "user": "Use Ascension Fallacies.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_government",
+    "shell": "ap",
+    "user": "Use Ascension Government.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_history",
+    "shell": "ap",
+    "user": "Use Ascension History.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_idea_validator",
+    "shell": "ap",
+    "user": "Use Ascension Idea Validator.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_knowledge_studio",
+    "shell": "ap",
+    "user": "Use Ascension Knowledge Studio.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_language",
+    "shell": "ap",
+    "user": "Use Ascension Language.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_location_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Location Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_logic",
+    "shell": "ap",
+    "user": "Use Ascension Logic.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_math",
+    "shell": "ap",
+    "user": "Use Ascension Math.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_news_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension News Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_persuasion",
+    "shell": "ap",
+    "user": "Use Ascension Persuasion.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_philosophy",
+    "shell": "ap",
+    "user": "Use Ascension Philosophy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_politics",
+    "shell": "ap",
+    "user": "Use Ascension Politics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_research_assistant",
+    "shell": "ap",
+    "user": "Use Ascension Research Assistant.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_science",
+    "shell": "ap",
+    "user": "Use Ascension Science.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_solution_engine",
+    "shell": "ap",
+    "user": "Use Ascension Solution Engine.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_weather_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension Weather Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_world_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension World Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_youtube_intelligence",
+    "shell": "ap",
+    "user": "Use Ascension YouTube Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_learning",
+    "shell": "ap",
+    "user": "Use Ascension Learning.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_adoption",
+    "shell": "ap",
+    "user": "Use Ascension Adoption.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_contracts",
+    "shell": "ap",
+    "user": "Use Ascension Contracts.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_custody",
+    "shell": "ap",
+    "user": "Use Ascension Custody.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_divorce",
+    "shell": "ap",
+    "user": "Use Ascension Divorce.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_immigration",
+    "shell": "ap",
+    "user": "Use Ascension Immigration.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_landlord",
+    "shell": "ap",
+    "user": "Use Ascension Landlord.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_prenup",
+    "shell": "ap",
+    "user": "Use Ascension Prenup.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tenant",
+    "shell": "ap",
+    "user": "Use Ascension Tenant.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_trust",
+    "shell": "ap",
+    "user": "Use Ascension Trust.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_will",
+    "shell": "ap",
+    "user": "Use Ascension Will.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_anniversary",
+    "shell": "lifeos",
+    "user": "Use Ascension Anniversary.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_babyshower",
+    "shell": "lifeos",
+    "user": "Use Ascension Baby Shower.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_birthday",
+    "shell": "lifeos",
+    "user": "Use Ascension Birthday.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_funeral",
+    "shell": "lifeos",
+    "user": "Use Ascension Funeral.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_gift",
+    "shell": "lifeos",
+    "user": "Use Ascension Gift.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_graduation",
+    "shell": "lifeos",
+    "user": "Use Ascension Graduation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_holiday",
+    "shell": "lifeos",
+    "user": "Use Ascension Holiday.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_party",
+    "shell": "lifeos",
+    "user": "Use Ascension Party.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_retirement",
+    "shell": "lifeos",
+    "user": "Use Ascension Retirement.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_wedding",
+    "shell": "lifeos",
+    "user": "Use Ascension Wedding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_antiques",
+    "shell": "lifeos",
+    "user": "Use Ascension Antiques.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_auction",
+    "shell": "lifeos",
+    "user": "Use Ascension Auction.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_coins",
+    "shell": "lifeos",
+    "user": "Use Ascension Coins.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_collector",
+    "shell": "lifeos",
+    "user": "Use Ascension Collector.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fashion",
+    "shell": "lifeos",
+    "user": "Use Ascension Fashion.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shopping",
+    "shell": "lifeos",
+    "user": "Use Ascension Shopping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_stamps",
+    "shell": "lifeos",
+    "user": "Use Ascension Stamps.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_vinyl",
+    "shell": "lifeos",
+    "user": "Use Ascension Vinyl.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_batch_cooking",
+    "shell": "lifeos",
+    "user": "Use Ascension Batch Cooking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_freezer_meals",
+    "shell": "lifeos",
+    "user": "Use Ascension Freezer Meals.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_juicing",
+    "shell": "lifeos",
+    "user": "Use Ascension Juicing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meal_planning",
+    "shell": "lifeos",
+    "user": "Use Ascension Meal Planning.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meal_prep",
+    "shell": "lifeos",
+    "user": "Use Ascension Meal Prep.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_protein",
+    "shell": "lifeos",
+    "user": "Use Ascension Protein.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_smoothies",
+    "shell": "lifeos",
+    "user": "Use Ascension Smoothies.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_supplements_stack",
+    "shell": "lifeos",
+    "user": "Use Ascension Supplements Stack.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_calendar_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Calendar Intelligence.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_email_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Email Intelligence.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_focus",
+    "shell": "lifeos",
+    "user": "Use Ascension Focus.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meetings",
+    "shell": "lifeos",
+    "user": "Use Ascension Meetings.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_time",
+    "shell": "lifeos",
+    "user": "Use Ascension Time.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_addiction",
+    "shell": "lifeos",
+    "user": "Use Ascension Addiction.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_communication",
+    "shell": "lifeos",
+    "user": "Use Ascension Communication.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_confidence",
+    "shell": "lifeos",
+    "user": "Use Ascension Confidence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_conflict",
+    "shell": "lifeos",
+    "user": "Use Ascension Conflict.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_habits",
+    "shell": "lifeos",
+    "user": "Use Ascension Habits.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mental_health",
+    "shell": "lifeos",
+    "user": "Use Ascension Mental Health.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_psychology",
+    "shell": "lifeos",
+    "user": "Use Ascension Psychology.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_stress",
+    "shell": "lifeos",
+    "user": "Use Ascension Stress.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_active_listening",
+    "shell": "nexus_family",
+    "user": "Use Ascension Active Listening.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_assertiveness",
+    "shell": "nexus_family",
+    "user": "Use Ascension Assertiveness.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_boundaries",
+    "shell": "nexus_family",
+    "user": "Use Ascension Boundaries.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_charisma",
+    "shell": "nexus_family",
+    "user": "Use Ascension Charisma.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_community",
+    "shell": "nexus_family",
+    "user": "Use Ascension Community.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_conflict_resolution",
+    "shell": "nexus_family",
+    "user": "Use Ascension Conflict Resolution.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_dating",
+    "shell": "nexus_family",
+    "user": "Use Ascension Dating.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_empathy",
+    "shell": "nexus_family",
+    "user": "Use Ascension Empathy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_network_vortex",
+    "shell": "nexus_family",
+    "user": "Use Ascension Network Vortex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_rapport",
+    "shell": "nexus_family",
+    "user": "Use Ascension Rapport.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_relationship_intelligence",
+    "shell": "nexus_family",
+    "user": "Use Ascension Relationship Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_relationships",
+    "shell": "nexus_family",
+    "user": "Use Ascension Relationships.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_social",
+    "shell": "nexus_family",
+    "user": "Use Ascension Social.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_news",
+    "shell": "ap",
+    "user": "Use Ascension News.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_research",
+    "shell": "ap",
+    "user": "Use Ascension Research.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_reviews",
+    "shell": "ap",
+    "user": "Use Ascension Reviews.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_security",
+    "shell": "ap",
+    "user": "Use Ascension Security.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_discord",
+    "shell": "core",
+    "user": "Use Ascension Discord.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_facebook",
+    "shell": "core",
+    "user": "Use Ascension Facebook.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_reddit",
+    "shell": "core",
+    "user": "Use Ascension Reddit.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "relationship_graph",
+    "shell": "core",
+    "user": "Use Relationship Graph.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ar_assistant",
+    "shell": "core",
+    "user": "Use AR Assistant.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_context_feed",
+    "shell": "core",
+    "user": "Use AR Context Feed.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_environment_scan",
+    "shell": "core",
+    "user": "Use AR Environment Scan.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_memory_anchor",
+    "shell": "core",
+    "user": "Use AR Memory Anchor.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_navigation",
+    "shell": "core",
+    "user": "Use AR Navigation.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_object_recognition",
+    "shell": "core",
+    "user": "Use AR Object Recognition.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_people_recognition",
+    "shell": "core",
+    "user": "Use AR People Recognition.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_proactive_data",
+    "shell": "core",
+    "user": "Use AR Proactive Data.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_realtime_translate",
+    "shell": "core",
+    "user": "Use AR Real-Time Translate.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ar_safety_alert",
+    "shell": "core",
+    "user": "Use AR Safety Alert.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "ascension_bahai",
+    "shell": "core",
+    "user": "Use Ascension Baha i.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_buddhism",
+    "shell": "core",
+    "user": "Use Ascension Buddhism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_christianity",
+    "shell": "core",
+    "user": "Use Ascension Christianity.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_confucianism",
+    "shell": "core",
+    "user": "Use Ascension Confucianism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_druidry",
+    "shell": "core",
+    "user": "Use Ascension Druidry.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hinduism",
+    "shell": "core",
+    "user": "Use Ascension Hinduism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_islam",
+    "shell": "core",
+    "user": "Use Ascension Islam.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_jainism",
+    "shell": "core",
+    "user": "Use Ascension Jainism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_judaism",
+    "shell": "core",
+    "user": "Use Ascension Judaism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meditation",
+    "shell": "core",
+    "user": "Use Ascension Meditation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mindfulness",
+    "shell": "core",
+    "user": "Use Ascension Mindfulness.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_native_spirituality",
+    "shell": "core",
+    "user": "Use Ascension Native Spirituality.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_paganism",
+    "shell": "core",
+    "user": "Use Ascension Paganism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shamanism",
+    "shell": "core",
+    "user": "Use Ascension Shamanism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shinto",
+    "shell": "core",
+    "user": "Use Ascension Shinto.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sikhism",
+    "shell": "core",
+    "user": "Use Ascension Sikhism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_spirituality",
+    "shell": "core",
+    "user": "Use Ascension Spirituality.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_taoism",
+    "shell": "core",
+    "user": "Use Ascension Taoism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_wicca",
+    "shell": "core",
+    "user": "Use Ascension Wicca.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_baseball",
+    "shell": "core",
+    "user": "Use Ascension Baseball.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_basketball",
+    "shell": "core",
+    "user": "Use Ascension Basketball.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cricket",
+    "shell": "core",
+    "user": "Use Ascension Cricket.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_esports",
+    "shell": "core",
+    "user": "Use Ascension Esports.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fantasy",
+    "shell": "core",
+    "user": "Use Ascension Fantasy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_football",
+    "shell": "core",
+    "user": "Use Ascension Football.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_golf",
+    "shell": "core",
+    "user": "Use Ascension Golf.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hockey",
+    "shell": "core",
+    "user": "Use Ascension Hockey.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_soccer",
+    "shell": "core",
+    "user": "Use Ascension Soccer.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tennis",
+    "shell": "core",
+    "user": "Use Ascension Tennis.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sprout",
+    "shell": "core",
+    "user": "Use Ascension Sprout.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_bag",
+    "shell": "core",
+    "user": "Use Ascension Bag.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_beard",
+    "shell": "core",
+    "user": "Use Ascension Beard.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_haircut",
+    "shell": "core",
+    "user": "Use Ascension Haircut.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_jewelry",
+    "shell": "core",
+    "user": "Use Ascension Jewelry.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_makeup",
+    "shell": "core",
+    "user": "Use Ascension Makeup.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_perfume",
+    "shell": "core",
+    "user": "Use Ascension Perfume.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_piercing",
+    "shell": "core",
+    "user": "Use Ascension Piercing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shoes",
+    "shell": "core",
+    "user": "Use Ascension Shoes.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sunglasses",
+    "shell": "core",
+    "user": "Use Ascension Sunglasses.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_tattoo",
+    "shell": "core",
+    "user": "Use Ascension Tattoo.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_wallet",
+    "shell": "core",
+    "user": "Use Ascension Wallet.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_watch",
+    "shell": "core",
+    "user": "Use Ascension Watch.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_chat",
+    "shell": "ap",
+    "user": "Use Ascension Native Chat.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "chat_claude",
+    "shell": "ap",
+    "user": "Use Chat Claude.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "chat_gpt4",
+    "shell": "ap",
+    "user": "Use Chat GPT-4.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "chat_gemini",
+    "shell": "ap",
+    "user": "Use Chat Gemini.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "writing_document",
+    "shell": "ap",
+    "user": "Use Document Writing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "writing_email",
+    "shell": "ap",
+    "user": "Use Email Writing.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "writing_marketing",
+    "shell": "ap",
+    "user": "Use Marketing Copy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "writing_script",
+    "shell": "ap",
+    "user": "Use Script Writing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "translation",
+    "shell": "ap",
+    "user": "Use Translation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_flight",
+    "shell": "core",
+    "user": "Use Ascension Flight.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_public_transit",
+    "shell": "core",
+    "user": "Use Ascension Public Transit.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_rideshare",
+    "shell": "core",
+    "user": "Use Ascension Rideshare.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_travel_insurance",
+    "shell": "core",
+    "user": "Use Ascension Travel Insurance.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "video_editing",
+    "shell": "core",
+    "user": "Use Video Editing.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "video_generation_luma",
+    "shell": "core",
+    "user": "Use Video Generation (Luma Dream Machine).",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "video_generation_pika",
+    "shell": "core",
+    "user": "Use Video Generation (Pika Labs).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "video_generation_runway",
+    "shell": "core",
+    "user": "Use Video Generation (Runway).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "video_generation_stable",
+    "shell": "core",
+    "user": "Use Video Generation (Stable Video).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "ascension_vision",
+    "shell": "core",
+    "user": "Use Ascension Vision.",
+    "status": "native_action",
+    "kind": "vision_action"
+  },
+  {
+    "id": "design_generation",
+    "shell": "core",
+    "user": "Use Design Generation.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "image_editing",
+    "shell": "core",
+    "user": "Use Image Editing.",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "image_generation_adobe",
+    "shell": "core",
+    "user": "Use Image Generation (Adobe Firefly).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "image_generation_dalle",
+    "shell": "core",
+    "user": "Use Image Generation (DALL-E 3).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "image_generation_midjourney",
+    "shell": "core",
+    "user": "Use Image Generation (Midjourney).",
+    "status": "native_action",
+    "kind": "media_action"
+  },
+  {
+    "id": "image_generation_stable",
+    "shell": "core",
+    "user": "Use Image Generation (Stable Diffusion).",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_voice",
+    "shell": "core",
+    "user": "Use Ascension Voice.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "web_browsing",
+    "shell": "ap",
+    "user": "Use Web Browsing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "web_search",
+    "shell": "ap",
+    "user": "Use Web Search.",
+    "status": "provider_action",
+    "kind": "provider_action"
+  },
+  {
+    "id": "ascension_affirmations",
+    "shell": "lifeos",
+    "user": "Use Ascension Affirmations.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_allergies",
+    "shell": "lifeos",
+    "user": "Use Ascension Allergies.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_archery",
+    "shell": "lifeos",
+    "user": "Use Ascension Archery.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_body_profile",
+    "shell": "lifeos",
+    "user": "Use Ascension Body Profile.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_boxing",
+    "shell": "lifeos",
+    "user": "Use Ascension Boxing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_breathing",
+    "shell": "lifeos",
+    "user": "Use Ascension Breathing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_camping",
+    "shell": "lifeos",
+    "user": "Use Ascension Camping.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_childbirth",
+    "shell": "lifeos",
+    "user": "Use Ascension Childbirth.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_chronic",
+    "shell": "lifeos",
+    "user": "Use Ascension Chronic.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_circadian",
+    "shell": "lifeos",
+    "user": "Use Ascension Circadian.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_climbing",
+    "shell": "lifeos",
+    "user": "Use Ascension Climbing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cold_exposure",
+    "shell": "lifeos",
+    "user": "Use Ascension Cold Exposure.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_confidence_building",
+    "shell": "lifeos",
+    "user": "Use Ascension Confidence Building.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_cycling",
+    "shell": "lifeos",
+    "user": "Use Ascension Cycling.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_disability",
+    "shell": "lifeos",
+    "user": "Use Ascension Disability.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ergonomics",
+    "shell": "lifeos",
+    "user": "Use Ascension Ergonomics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fencing",
+    "shell": "lifeos",
+    "user": "Use Ascension Fencing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_firstaid",
+    "shell": "lifeos",
+    "user": "Use Ascension First Aid.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_fishing",
+    "shell": "lifeos",
+    "user": "Use Ascension Fishing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_goals",
+    "shell": "lifeos",
+    "user": "Use Ascension Goals.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_gratitude",
+    "shell": "lifeos",
+    "user": "Use Ascension Gratitude.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_growth_mindset",
+    "shell": "lifeos",
+    "user": "Use Ascension Growth Mindset.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_gymnastics",
+    "shell": "lifeos",
+    "user": "Use Ascension Gymnastics.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_health_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Health Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_heat_exposure",
+    "shell": "lifeos",
+    "user": "Use Ascension Heat Exposure.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hiking",
+    "shell": "lifeos",
+    "user": "Use Ascension Hiking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_hunting",
+    "shell": "lifeos",
+    "user": "Use Ascension Hunting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ice_bath",
+    "shell": "lifeos",
+    "user": "Use Ascension Ice Bath.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_ice_skating",
+    "shell": "lifeos",
+    "user": "Use Ascension Ice Skating.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_journaling",
+    "shell": "lifeos",
+    "user": "Use Ascension Journaling.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_martialarts",
+    "shell": "lifeos",
+    "user": "Use Ascension Martial Arts.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meditation_guided",
+    "shell": "lifeos",
+    "user": "Use Ascension Meditation Guided.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_milestones",
+    "shell": "lifeos",
+    "user": "Use Ascension Milestones.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_mindset",
+    "shell": "lifeos",
+    "user": "Use Ascension Mindset.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_nap",
+    "shell": "lifeos",
+    "user": "Use Ascension Nap.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_postpartum",
+    "shell": "lifeos",
+    "user": "Use Ascension Postpartum.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_pregnancy",
+    "shell": "lifeos",
+    "user": "Use Ascension Pregnancy.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_recovery",
+    "shell": "lifeos",
+    "user": "Use Ascension Recovery.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_resilience",
+    "shell": "lifeos",
+    "user": "Use Ascension Resilience.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_roller_skating",
+    "shell": "lifeos",
+    "user": "Use Ascension Roller Skating.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_running",
+    "shell": "lifeos",
+    "user": "Use Ascension Running.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sauna",
+    "shell": "lifeos",
+    "user": "Use Ascension Sauna.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_shooting",
+    "shell": "lifeos",
+    "user": "Use Ascension Shooting.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_skateboarding",
+    "shell": "lifeos",
+    "user": "Use Ascension Skateboarding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_skiing",
+    "shell": "lifeos",
+    "user": "Use Ascension Skiing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_skincare",
+    "shell": "lifeos",
+    "user": "Use Ascension Skincare.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_sleep_hygiene",
+    "shell": "lifeos",
+    "user": "Use Ascension Sleep Hygiene.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_snowboarding",
+    "shell": "lifeos",
+    "user": "Use Ascension Snowboarding.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_spotify_intelligence",
+    "shell": "lifeos",
+    "user": "Use Ascension Spotify Intelligence.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_stoicism",
+    "shell": "lifeos",
+    "user": "Use Ascension Stoicism.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_stretching",
+    "shell": "lifeos",
+    "user": "Use Ascension Stretching.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_supplements",
+    "shell": "lifeos",
+    "user": "Use Ascension Supplements.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_surfing",
+    "shell": "lifeos",
+    "user": "Use Ascension Surfing.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_swimming",
+    "shell": "lifeos",
+    "user": "Use Ascension Swimming.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_visualization",
+    "shell": "lifeos",
+    "user": "Use Ascension Visualization.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_walking",
+    "shell": "lifeos",
+    "user": "Use Ascension Walking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_workout",
+    "shell": "lifeos",
+    "user": "Use Ascension Workout.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_wrestling",
+    "shell": "lifeos",
+    "user": "Use Ascension Wrestling.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_yoga",
+    "shell": "lifeos",
+    "user": "Use Ascension Yoga.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_feedback",
+    "shell": "lifeos",
+    "user": "Use Ascension Feedback.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_interview",
+    "shell": "lifeos",
+    "user": "Use Ascension Interview.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_leadership",
+    "shell": "lifeos",
+    "user": "Use Ascension Leadership.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_linkedin",
+    "shell": "lifeos",
+    "user": "Use Ascension LinkedIn.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_meet",
+    "shell": "lifeos",
+    "user": "Use Ascension Meet.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_negotiation",
+    "shell": "lifeos",
+    "user": "Use Ascension Negotiation.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_networking",
+    "shell": "lifeos",
+    "user": "Use Ascension Networking.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_project",
+    "shell": "lifeos",
+    "user": "Use Ascension Project.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_remote",
+    "shell": "lifeos",
+    "user": "Use Ascension Remote.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_resume",
+    "shell": "lifeos",
+    "user": "Use Ascension Resume.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_slack",
+    "shell": "lifeos",
+    "user": "Use Ascension Slack.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_task",
+    "shell": "lifeos",
+    "user": "Use Ascension Task.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_team",
+    "shell": "lifeos",
+    "user": "Use Ascension Team.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_teams",
+    "shell": "lifeos",
+    "user": "Use Ascension Teams.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_webex",
+    "shell": "lifeos",
+    "user": "Use Ascension Webex.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  },
+  {
+    "id": "ascension_zoom",
+    "shell": "lifeos",
+    "user": "Use Ascension Zoom.",
+    "status": "domain_prompt",
+    "kind": "advisory"
+  }
+]
