@@ -15,6 +15,14 @@ from src.core.model_runtime import NativeModelRuntime
 
 
 def score_case(case: dict, text: str) -> dict:
+    if not text or not text.strip():
+        return {
+            "case_id": case["id"],
+            "shell": case["shell"],
+            "passed": False,
+            "score": 0.0,
+            "response": "",
+        }
     lower = text.lower()
     rubric = case["rubric"]
     scores = []
