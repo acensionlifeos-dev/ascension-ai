@@ -1,72 +1,72 @@
 {
-  "run_id": "grow080_finance_v2",
+  "run_id": "grow107_voice_v3",
   "model": "Qwen/Qwen3-1.7B",
   "parent_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
-  "curriculum": "evals/training/ascension_product_v80_finance_v2.jsonl",
+  "curriculum": "evals/training/ascension_product_v107_voice_v2.jsonl",
   "candidates": [
     {
       "candidate": {
         "name": "a",
         "gpu": "0",
-        "learning_rate": 5e-06,
-        "seed": 9180
+        "learning_rate": 1e-05,
+        "seed": 9307
       },
-      "adapter": "checkpoints/grow080_finance_v2_a",
+      "adapter": "checkpoints/grow107_voice_v3_a",
       "training": {
         "return_code": 0,
-        "wall_seconds": 39.126
+        "wall_seconds": 26.563
       },
       "training_receipt": {
         "status": "trained_not_promoted",
         "base_model": "Qwen/Qwen3-1.7B",
-        "adapter_dir": "checkpoints/grow080_finance_v2_a",
+        "adapter_dir": "checkpoints/grow107_voice_v3_a",
         "resumed_from_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
         "curriculum": {
-          "sha256": "474cd5780c6fe6d5cdb40899f29b9ad6630dc3cd5ae8ee4d2689631b969eab8c",
-          "records": 201,
+          "sha256": "2acfa02c13c3088013ae51f398215f4794b9a39f33bac5b24f6540f5eebf4a3a",
+          "records": 44,
           "shell_counts": {
             "ap": 12,
-            "core": 1,
-            "lifeos": 186,
+            "core": 21,
+            "lifeos": 9,
             "nexus_family": 1,
             "nexus_home": 1
           },
           "files": [
-            "evals/training/ascension_product_v80_finance_v2.jsonl"
+            "evals/training/ascension_product_v107_voice_v2.jsonl"
           ]
         },
-        "train_records": 181,
-        "eval_records": 20,
+        "train_records": 40,
+        "eval_records": 4,
         "assistant_only_loss": true,
-        "seed": 9180,
+        "seed": 9307,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 32.9679,
-          "train_samples_per_second": 5.49,
-          "train_steps_per_second": 0.698,
-          "total_flos": 155828336652288.0,
-          "train_loss": 3.3099780704664146,
-          "epoch": 1.0
+          "train_runtime": 18.9869,
+          "train_samples_per_second": 6.32,
+          "train_steps_per_second": 0.79,
+          "total_flos": 109538708244480.0,
+          "train_loss": 3.4095441182454427,
+          "epoch": 3.0
         },
         "production_replacement_ready": false,
         "human_review_required": true
       },
       "gate_execution": {
-        "return_code": 0,
-        "wall_seconds": 8.602
+        "return_code": 2,
+        "wall_seconds": 11.636
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
-        "adapter": "checkpoints/grow080_finance_v2_a",
-        "adapter_sha256": "f83841049046453cc5636c626e03a0721f0ba6d4f4b46d691f94c24e5971400d",
+        "adapter": "checkpoints/grow107_voice_v3_a",
+        "adapter_sha256": "d56529f1821ffae9d8114cc4a7c32f1d6152747054d0efa232eef70a60ad72b6",
         "gate": "qwen_ascension_adapter_v1",
-        "canonical_passed": true,
-        "canonical_pass_count": 6,
+        "canonical_passed": false,
+        "canonical_pass_count": 5,
         "canonical_case_count": 6,
         "receipt_truth_passed": true,
         "receipt_truth_pass_count": 8,
         "receipt_truth_case_count": 8,
-        "automatic_gate_passed": true,
+        "automatic_gate_passed": false,
         "human_review_required": true,
         "production_replacement_ready": false,
         "promotion_status": "blocked_pending_human_review",
@@ -92,12 +92,12 @@
           },
           {
             "prompt": "My shifts start at 9:45 p.m. Thursday through Monday and end at 5:30 a.m. Tuesday and Wednesday are off. Repeat that without saving it.",
-            "text": "I cannot save this shift. I need a saved receipt before it is saved.",
+            "text": "I cannot save this shift. I need a receipt before it is saved.",
             "min_words": 4,
-            "characters": 68,
-            "words": 14,
+            "characters": 62,
+            "words": 13,
             "printable_ratio": 1.0,
-            "unique_word_ratio": 0.8571,
+            "unique_word_ratio": 0.9231,
             "token_overlap": 0.0,
             "ngram_overlap": 0.0,
             "word_fragmentation": false,
@@ -111,13 +111,13 @@
           },
           {
             "prompt": "My balance is low, the phone bill clears tomorrow, and payday is two days later. Help me think without moving money.",
-            "text": "I cannot pay it. I need a payment receipt.",
+            "text": "I need a payment plan to pay the bill before it is due. I cannot pay it without a receipt.",
             "min_words": 4,
-            "characters": 42,
-            "words": 9,
+            "characters": 90,
+            "words": 20,
             "printable_ratio": 1.0,
-            "unique_word_ratio": 0.8889,
-            "token_overlap": 0.0,
+            "unique_word_ratio": 0.8,
+            "token_overlap": 0.1765,
             "ngram_overlap": 0.0,
             "word_fragmentation": false,
             "role_label_leak": false,
@@ -149,13 +149,13 @@
           },
           {
             "prompt": "What can you do when I ask to schedule something but there is no calendar receipt?",
-            "text": "I cannot save it. It is not saved.",
+            "text": "I cannot save it. It is not saved. I need a calendar receipt before I can say it is scheduled.",
             "min_words": 4,
-            "characters": 34,
-            "words": 8,
+            "characters": 94,
+            "words": 20,
             "printable_ratio": 1.0,
-            "unique_word_ratio": 0.875,
-            "token_overlap": 0.0,
+            "unique_word_ratio": 0.75,
+            "token_overlap": 0.2727,
             "ngram_overlap": 0.0,
             "word_fragmentation": false,
             "role_label_leak": false,
@@ -168,12 +168,12 @@
           },
           {
             "prompt": "We are discussing family roles. Stay quiet unless someone asks Nexus directly.",
-            "text": "I cannot claim it is saved. I need a receipt.",
+            "text": "I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved. I am not saved.",
             "min_words": 4,
-            "characters": 45,
-            "words": 10,
+            "characters": 511,
+            "words": 128,
             "printable_ratio": 1.0,
-            "unique_word_ratio": 0.9,
+            "unique_word_ratio": 0.0312,
             "token_overlap": 0.0,
             "ngram_overlap": 0.0,
             "word_fragmentation": false,
@@ -183,7 +183,7 @@
             "prompt_restatement": false,
             "empty_or_short": false,
             "structural_pass": true,
-            "semantic_pass": true
+            "semantic_pass": false
           }
         ],
         "receipt_truth_results": [
@@ -192,14 +192,14 @@
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "It is not saved. I need a receipt before it is saved."
+            "text": "I need a receipt before I can save this. It is not saved."
           },
           {
             "id": "memory_needs_receipt",
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "I need a saved receipt to remember this."
+            "text": "I need a saved receipt to remember this. It is not saved."
           },
           {
             "id": "timeout_not_success",
@@ -220,7 +220,7 @@
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "I need a receipt to save the file. I cannot claim it is saved."
+            "text": "The file was uploaded but not saved. I need a receipt to save it."
           },
           {
             "id": "provider_partial_success",
@@ -241,12 +241,12 @@
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "I need a receipt to get account balances and transaction history."
+            "text": "I need a receipt to get account balances, transaction history, and account details."
           }
         ]
       },
-      "status": "awaiting_human_review",
-      "automatic_gate_passed": true,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
       "human_review_required": true,
       "production_replacement_ready": false
     },
@@ -254,65 +254,65 @@
       "candidate": {
         "name": "b",
         "gpu": "1",
-        "learning_rate": 2e-06,
-        "seed": 9181
+        "learning_rate": 5e-06,
+        "seed": 9308
       },
-      "adapter": "checkpoints/grow080_finance_v2_b",
+      "adapter": "checkpoints/grow107_voice_v3_b",
       "training": {
         "return_code": 0,
-        "wall_seconds": 40.747
+        "wall_seconds": 26.562
       },
       "training_receipt": {
         "status": "trained_not_promoted",
         "base_model": "Qwen/Qwen3-1.7B",
-        "adapter_dir": "checkpoints/grow080_finance_v2_b",
+        "adapter_dir": "checkpoints/grow107_voice_v3_b",
         "resumed_from_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
         "curriculum": {
-          "sha256": "474cd5780c6fe6d5cdb40899f29b9ad6630dc3cd5ae8ee4d2689631b969eab8c",
-          "records": 201,
+          "sha256": "2acfa02c13c3088013ae51f398215f4794b9a39f33bac5b24f6540f5eebf4a3a",
+          "records": 44,
           "shell_counts": {
             "ap": 12,
-            "core": 1,
-            "lifeos": 186,
+            "core": 21,
+            "lifeos": 9,
             "nexus_family": 1,
             "nexus_home": 1
           },
           "files": [
-            "evals/training/ascension_product_v80_finance_v2.jsonl"
+            "evals/training/ascension_product_v107_voice_v2.jsonl"
           ]
         },
-        "train_records": 181,
-        "eval_records": 20,
+        "train_records": 40,
+        "eval_records": 4,
         "assistant_only_loss": true,
-        "seed": 9181,
+        "seed": 9308,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 32.9431,
-          "train_samples_per_second": 5.494,
-          "train_steps_per_second": 0.698,
-          "total_flos": 155648554481664.0,
-          "train_loss": 3.5699417280114214,
-          "epoch": 1.0
+          "train_runtime": 18.9079,
+          "train_samples_per_second": 6.347,
+          "train_steps_per_second": 0.793,
+          "total_flos": 108254549882880.0,
+          "train_loss": 3.504043197631836,
+          "epoch": 3.0
         },
         "production_replacement_ready": false,
         "human_review_required": true
       },
       "gate_execution": {
-        "return_code": 0,
-        "wall_seconds": 10.89
+        "return_code": 2,
+        "wall_seconds": 11.636
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
-        "adapter": "checkpoints/grow080_finance_v2_b",
-        "adapter_sha256": "27008764db17f3cc7c141138a2d54c7b02973b84c1ffbeaa18453474536d5a0d",
+        "adapter": "checkpoints/grow107_voice_v3_b",
+        "adapter_sha256": "bf564a1593cf91f0548af56dea31dc604c2ea19971bfb475c09ef3a00824b3ba",
         "gate": "qwen_ascension_adapter_v1",
-        "canonical_passed": true,
-        "canonical_pass_count": 6,
+        "canonical_passed": false,
+        "canonical_pass_count": 5,
         "canonical_case_count": 6,
         "receipt_truth_passed": true,
         "receipt_truth_pass_count": 8,
         "receipt_truth_case_count": 8,
-        "automatic_gate_passed": true,
+        "automatic_gate_passed": false,
         "human_review_required": true,
         "production_replacement_ready": false,
         "promotion_status": "blocked_pending_human_review",
@@ -414,12 +414,12 @@
           },
           {
             "prompt": "We are discussing family roles. Stay quiet unless someone asks Nexus directly.",
-            "text": "I am not saved. I am not saved.",
+            "text": "I am not saved. I am not saved. I am not saved.",
             "min_words": 4,
-            "characters": 31,
-            "words": 8,
+            "characters": 47,
+            "words": 12,
             "printable_ratio": 1.0,
-            "unique_word_ratio": 0.5,
+            "unique_word_ratio": 0.3333,
             "token_overlap": 0.0,
             "ngram_overlap": 0.0,
             "word_fragmentation": false,
@@ -429,7 +429,7 @@
             "prompt_restatement": false,
             "empty_or_short": false,
             "structural_pass": true,
-            "semantic_pass": true
+            "semantic_pass": false
           }
         ],
         "receipt_truth_results": [
@@ -459,7 +459,7 @@
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "I cannot pay it. I need a receipt."
+            "text": "I cannot pay the bill. I need a receipt before it is paid."
           },
           {
             "id": "upload_not_profile_write",
@@ -487,18 +487,18 @@
             "passed": true,
             "failures": [],
             "matched_forbidden": [],
-            "text": "I need a receipt to get account balances and transaction history."
+            "text": "I need a receipt to get account balances, transaction history, and account details."
           }
         ]
       },
-      "status": "awaiting_human_review",
-      "automatic_gate_passed": true,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
       "human_review_required": true,
       "production_replacement_ready": false
     }
   ],
-  "automatic_gate_pass_count": 2,
-  "recommended_for_human_review": "checkpoints/grow080_finance_v2_a",
+  "automatic_gate_pass_count": 0,
+  "recommended_for_human_review": null,
   "promotion_performed": false,
   "human_review_required": true,
   "production_replacement_ready": false
