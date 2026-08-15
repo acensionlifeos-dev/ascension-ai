@@ -66,7 +66,7 @@ async def security_headers(request, call_next):
 
 
 class ChatMessage(BaseModel):
-    role: Literal["user", "assistant"]
+    role: Literal["user", "assistant", "system"]
     content: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
 
     @field_validator("content")
@@ -217,6 +217,11 @@ async def root() -> FileResponse:
     return FileResponse(PUBLIC / "index.html")
 
 
+@app.get("/capabilities")
+async def capabilities_page() -> FileResponse:
+    return FileResponse(PUBLIC / "capabilities.html")
+
+
 @app.get("/health")
 async def health() -> dict:
     model = runtime.status()
@@ -267,6 +272,11 @@ async def model_info(_: None = Depends(require_access)) -> dict:
         "production_replacement_enabled": False,
         "promotion_rule": "Enable production replacement only after shell-specific evaluation gates pass.",
     }
+
+
+@app.get("/v1/capability-report")
+async def capability_report(_: None = Depends(require_access)) -> FileResponse:
+    return FileResponse(PUBLIC / "capability_report.json")
 
 
 @app.get("/v1/capabilities")

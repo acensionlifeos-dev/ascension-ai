@@ -24,6 +24,57 @@
     "quality_note": "Stronger instruction-following profile for a 2 GB service."
   },
   "pro": {
+    "label": "Ascension v6b 1.7B LoRA",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "lora_path": "v6b_lora.gguf",
+    "lora_scale": 1.0,
+    "size_bytes": 1834426016,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B base with v6b per-capability/execution LoRA. 100% per-cap, 99.84% execution probe, 5/6 canonical 7/8 receipt. Test only; production replacement not yet approved."
+  },
+  "pro_proven": {
+    "label": "Ascension proven 1.7B LoRA",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "lora_path": "proven_parent_lora.gguf",
+    "lora_scale": 1.0,
+    "size_bytes": 1834426016,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B base with proven_parent LoRA. 100% generic canonical and receipt gates, 83% per-cap. Use for safety-first testing."
+  },
+  "pro_v16": {
+    "label": "Ascension v16 1.7B merged",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "v16_merged_70_30.gguf",
+    "download_url": "https://github.com/acensionlifeos-dev/ascension-ai/releases/download/v16-merged-70-30/v16_merged_70_30.gguf",
+    "sha256": "02cd588d8408b88df4e500595d7524d5caf5e56aa009d41f82115742d4e5f69c",
+    "size_bytes": 1832518240,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B full-model merge 70% proven_parent + 30% v6b. Converted to Q8_0 GGUF. Test/evaluate before promotion."
+  },
+  "pro_v19": {
+    "label": "Ascension v19 1.7B merged",
+    "repo_id": "local",
+    "filename": "v19_merged.gguf",
+    "sha256": "a0ba2346e600bdb123fa652ba4bde894a727f6478a8fa3a949b85d979638dafa",
+    "size_bytes": 1834426048,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B full-model merge of v17 support + v18 creative adapters. 640-capability API evaluator: 637/640 passed (99.53%). 3 'failures' are correct receipt-discipline refusals (post_workout, email_intelligence, writing_email). Converted to Q8_0 GGUF. Candidate ready; human review before replacement."
+  },
+  "pro_base": {
     "label": "Ascension Live 1.7B",
     "repo_id": "Qwen/Qwen3-1.7B-GGUF",
     "filename": "Qwen3-1.7B-Q8_0.gguf",

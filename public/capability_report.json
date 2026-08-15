@@ -1,0 +1,5770 @@
+{
+  "total": 640,
+  "per_capability_ready": 640,
+  "per_capability_rate": 1.0,
+  "execution_ready": 639,
+  "execution_rate": 0.9984,
+  "generated_at": null,
+  "capabilities": [
+    {
+      "id": "audio_editing",
+      "name": "Audio Editing",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "music_generation_suno",
+      "name": "Music Generation (Suno)",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "music_generation_udio",
+      "name": "Music Generation (Udio)",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "speech_to_text",
+      "name": "Speech-to-Text",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "text_to_speech",
+      "name": "Text-to-Speech",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "voice_cloning",
+      "name": "Voice Cloning",
+      "category": "audio",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bicycle",
+      "name": "Ascension Bicycle",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_boat",
+      "name": "Ascension Boat",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_car_buying",
+      "name": "Ascension Car Buying",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_car_maintenance",
+      "name": "Ascension Car Maintenance",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_electric_vehicle",
+      "name": "Ascension Electric Vehicle",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_motorcycle",
+      "name": "Ascension Motorcycle",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_rv",
+      "name": "Ascension RV",
+      "category": "automotive",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_affiliate",
+      "name": "Ascension Affiliate",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_affiliate_automation",
+      "name": "Ascension Affiliate Automation",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_amazon",
+      "name": "Ascension Amazon",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_benefits",
+      "name": "Ascension Benefits",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_brand",
+      "name": "Ascension Brand",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_business_manager",
+      "name": "Ascension Business Manager",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_business_plan",
+      "name": "Ascension Business Plan",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_business_studio",
+      "name": "Ascension Business Studio",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_channel_types",
+      "name": "Ascension Channel Types",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_chatbot",
+      "name": "Ascension Chatbot",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_churn",
+      "name": "Ascension Churn",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_compliance",
+      "name": "Ascension Compliance",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_content_analytics",
+      "name": "Ascension Content Analytics",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_content_calendar",
+      "name": "Ascension Content Calendar",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_content_workspace",
+      "name": "Ascension Content Workspace",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cross_sell",
+      "name": "Ascension Cross Sell",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_crowdfunding",
+      "name": "Ascension Crowdfunding",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_crowdfunding_product",
+      "name": "Ascension Crowdfunding Product",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_customer_service",
+      "name": "Ascension Customer Service",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_customer_support",
+      "name": "Ascension Customer Support",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_dropshipping",
+      "name": "Ascension Dropshipping",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ecommerce",
+      "name": "Ascension Ecommerce",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_etsy",
+      "name": "Ascension Etsy",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_export",
+      "name": "Ascension Export",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_faq",
+      "name": "Ascension FAQ",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fulfillment",
+      "name": "Ascension Fulfillment",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fundraising",
+      "name": "Ascension Fundraising",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_grants",
+      "name": "Ascension Grants",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_growth_tracker",
+      "name": "Ascension Growth Tracker",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hr",
+      "name": "Ascension HR",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_helpdesk",
+      "name": "Ascension Helpdesk",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_import",
+      "name": "Ascension Import",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_influence",
+      "name": "Ascension Influence",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_inventory",
+      "name": "Ascension Inventory",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_knowledge_base",
+      "name": "Ascension Knowledge Base",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_live_chat",
+      "name": "Ascension Live Chat",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_loyalty",
+      "name": "Ascension Loyalty",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_marketing",
+      "name": "Ascension Marketing",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_merchandise",
+      "name": "Ascension Merchandise",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_micro_launch",
+      "name": "Ascension Micro Launch",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_onboarding",
+      "name": "Ascension Onboarding",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_open_enrollment",
+      "name": "Ascension Open Enrollment",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pos",
+      "name": "Ascension POS",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_partnerships",
+      "name": "Ascension Partnerships",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_patreon",
+      "name": "Ascension Patreon",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pitch",
+      "name": "Ascension Pitch",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_print_on_demand",
+      "name": "Ascension Print On Demand",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_referral",
+      "name": "Ascension Referral",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_reputation",
+      "name": "Ascension Reputation",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_retention",
+      "name": "Ascension Retention",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sales",
+      "name": "Ascension Sales",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_scorecards",
+      "name": "Ascension Scorecards",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_service_designer",
+      "name": "Ascension Service Designer",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shipping",
+      "name": "Ascension Shipping",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shopify",
+      "name": "Ascension Shopify",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sponsorships",
+      "name": "Ascension Sponsorships",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_startup",
+      "name": "Ascension Startup",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tariffs",
+      "name": "Ascension Tariffs",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ticketing",
+      "name": "Ascension Ticketing",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_upsell",
+      "name": "Ascension Upsell",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_woocommerce",
+      "name": "Ascension WooCommerce",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_workers_comp",
+      "name": "Ascension Workers Comp",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ebay",
+      "name": "Ascension eBay",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "business_growth",
+      "name": "Business Growth",
+      "category": "business",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_career",
+      "name": "Ascension Career",
+      "category": "career",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_linkedin_intelligence",
+      "name": "Ascension LinkedIn Intelligence",
+      "category": "career",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mentors",
+      "name": "Ascension Mentors",
+      "category": "career",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ascension_professional_network",
+      "name": "Ascension Professional Network",
+      "category": "career",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_code",
+      "name": "Ascension Code",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_completion",
+      "name": "Code Completion",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_debugging",
+      "name": "Code Debugging",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_execution",
+      "name": "Code Execution",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_generation",
+      "name": "Code Generation",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_review",
+      "name": "Code Review",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "documentation_generation",
+      "name": "Documentation Generation",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "test_generation",
+      "name": "Test Generation",
+      "category": "code",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_activism",
+      "name": "Ascension Activism",
+      "category": "community",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_volunteering",
+      "name": "Ascension Volunteering",
+      "category": "community",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_air_fryer",
+      "name": "Ascension Air Fryer",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bbq",
+      "name": "Ascension BBQ",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bread_making",
+      "name": "Ascension Bread Making",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_dehydrator",
+      "name": "Ascension Dehydrator",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_grilling",
+      "name": "Ascension Grilling",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pizza",
+      "name": "Ascension Pizza",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pressure_cooker",
+      "name": "Ascension Pressure Cooker",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_slow_cooker",
+      "name": "Ascension Slow Cooker",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_smoking",
+      "name": "Ascension Smoking",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sourdough",
+      "name": "Ascension Sourdough",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sous_vide",
+      "name": "Ascension Sous Vide",
+      "category": "cooking",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_3d_printing",
+      "name": "Ascension 3D Printing",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_amsr_studio",
+      "name": "Ascension AMSR Studio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_arduino",
+      "name": "Ascension Arduino",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_art",
+      "name": "Ascension Art",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_branding",
+      "name": "Ascension Branding",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_build_path",
+      "name": "Ascension Build Path",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cnc",
+      "name": "Ascension CNC",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_color_grading",
+      "name": "Ascension Color Grading",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_craft",
+      "name": "Ascension Craft",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_creation_auditor",
+      "name": "Ascension Creation Auditor",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_creation_intelligence",
+      "name": "Ascension Creation Intelligence",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_creation_transformation",
+      "name": "Ascension Creation Transformation",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_creative",
+      "name": "Ascension Creative",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_creative_manager",
+      "name": "Ascension Creative Manager",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_creative_studio",
+      "name": "Ascension Creative Studio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_dance",
+      "name": "Ascension Dance",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_design",
+      "name": "Ascension Design",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_design_assistant",
+      "name": "Ascension Design Assistant",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_drones",
+      "name": "Ascension Drones",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_electronics",
+      "name": "Ascension Electronics",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fanfiction",
+      "name": "Ascension Fanfiction",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_filmmaking",
+      "name": "Ascension Filmmaking",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_github_intelligence",
+      "name": "Ascension GitHub Intelligence",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ham_radio",
+      "name": "Ascension Ham Radio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hardware_prototyping",
+      "name": "Ascension Hardware Prototyping",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_instagram",
+      "name": "Ascension Instagram",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_invention_engine",
+      "name": "Ascension Invention Engine",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_inventor_lab",
+      "name": "Ascension Inventor Lab",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_laser_cutting",
+      "name": "Ascension Laser Cutting",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_lyrics",
+      "name": "Ascension Lyrics",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_mastering",
+      "name": "Ascension Mastering",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_media_studio",
+      "name": "Ascension Media Studio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_metalworking",
+      "name": "Ascension Metalworking",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mixing",
+      "name": "Ascension Mixing",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_music",
+      "name": "Ascension Music",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_obs",
+      "name": "Ascension OBS",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_overlay_design",
+      "name": "Ascension Overlay Design",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_photography",
+      "name": "Ascension Photography",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_photography_gear",
+      "name": "Ascension Photography Gear",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_podcast",
+      "name": "Ascension Podcast",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_podcast_production",
+      "name": "Ascension Podcast Production",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_poetry",
+      "name": "Ascension Poetry",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_product_studio",
+      "name": "Ascension Product Studio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_raspberry_pi",
+      "name": "Ascension Raspberry Pi",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_roadmap_engine",
+      "name": "Ascension Roadmap Engine",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_robotics",
+      "name": "Ascension Robotics",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_software_studio",
+      "name": "Ascension Software Studio",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_soldering",
+      "name": "Ascension Soldering",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sound_design",
+      "name": "Ascension Sound Design",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_storytelling",
+      "name": "Ascension Storytelling",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_streaming",
+      "name": "Ascension Streaming",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": false,
+      "execution_score": 0.625
+    },
+    {
+      "id": "ascension_streaming_channel",
+      "name": "Ascension Streaming Channel",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_streaming_moderator",
+      "name": "Ascension Streaming Moderator",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_thumbnail",
+      "name": "Ascension Thumbnail",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_tiktok",
+      "name": "Ascension TikTok",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tiktok_automation",
+      "name": "Ascension TikTok Automation",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tiktok_intelligence",
+      "name": "Ascension TikTok Intelligence",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_twitter",
+      "name": "Ascension Twitter",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_video_editing",
+      "name": "Ascension Video Editing",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_video_types",
+      "name": "Ascension Video Types",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_voiceover",
+      "name": "Ascension Voiceover",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_welding",
+      "name": "Ascension Welding",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_woodworking",
+      "name": "Ascension Woodworking",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_writing",
+      "name": "Ascension Writing",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_youtube",
+      "name": "Ascension YouTube",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_youtube_automation",
+      "name": "Ascension YouTube Automation",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_youtube_seo",
+      "name": "Ascension YouTube SEO",
+      "category": "creation",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "file_analysis",
+      "name": "File Analysis",
+      "category": "data",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_legal",
+      "name": "Ascension Legal Assistant",
+      "category": "documents",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_college",
+      "name": "Ascension College",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_exam",
+      "name": "Ascension Exam",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_homework",
+      "name": "Ascension Homework",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_memorization",
+      "name": "Ascension Memorization",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_presentation",
+      "name": "Ascension Presentation",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_scholarship",
+      "name": "Ascension Scholarship",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_school",
+      "name": "Ascension School",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_studyskills",
+      "name": "Ascension Study Skills",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_teaching",
+      "name": "Ascension Teaching",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tutor",
+      "name": "Ascension Tutor",
+      "category": "education",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_api",
+      "name": "Ascension API",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_blockchain",
+      "name": "Ascension Blockchain",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cicd",
+      "name": "Ascension CI/CD",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cloud",
+      "name": "Ascension Cloud",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_databases",
+      "name": "Ascension Databases",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_devops",
+      "name": "Ascension DevOps",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_microservices",
+      "name": "Ascension Microservices",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mining",
+      "name": "Ascension Mining",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_monitoring",
+      "name": "Ascension Monitoring",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_nodes",
+      "name": "Ascension Nodes",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_security_tech",
+      "name": "Ascension Security Tech",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_testing",
+      "name": "Ascension Testing",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "code_guardian",
+      "name": "Code Guardian",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "desktop_os",
+      "name": "Desktop OS",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ip_guard",
+      "name": "IP Guard",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "laptop_os",
+      "name": "Laptop OS",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "phone_drivers",
+      "name": "Phone Driver Layer",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "phone_flash",
+      "name": "Phone Flash",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "phone_os",
+      "name": "Phone OS",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "phone_recovery",
+      "name": "Phone Recovery",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "smart_device_os",
+      "name": "Smart Device OS",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "device_drivers",
+      "name": "Universal Device Drivers",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "device_flash",
+      "name": "Universal Device Flash",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "universal_os",
+      "name": "Universal OS",
+      "category": "engineering",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_astrology",
+      "name": "Ascension Astrology",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_betting",
+      "name": "Ascension Betting",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_blackjack",
+      "name": "Ascension Blackjack",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_boardgames",
+      "name": "Ascension Board Games",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_books",
+      "name": "Ascension Books",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_casino",
+      "name": "Ascension Casino",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_chess",
+      "name": "Ascension Chess",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_comedy",
+      "name": "Ascension Comedy",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_comics",
+      "name": "Ascension Comics",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_concerts",
+      "name": "Ascension Concerts",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cosplay",
+      "name": "Ascension Cosplay",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_festivals",
+      "name": "Ascension Festivals",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_games",
+      "name": "Ascension Games",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_horoscope",
+      "name": "Ascension Horoscope",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_jokes",
+      "name": "Ascension Jokes",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_karaoke",
+      "name": "Ascension Karaoke",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_lottery",
+      "name": "Ascension Lottery",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_magic",
+      "name": "Ascension Magic",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_movies",
+      "name": "Ascension Movies",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_poker",
+      "name": "Ascension Poker",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_puzzles",
+      "name": "Ascension Puzzles",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_rc",
+      "name": "Ascension RC",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_riddles",
+      "name": "Ascension Riddles",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_roleplay",
+      "name": "Ascension Roleplay",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sports",
+      "name": "Ascension Sports",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sports_betting",
+      "name": "Ascension Sports Betting",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_standup",
+      "name": "Ascension Standup",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tarot",
+      "name": "Ascension Tarot",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_trading_cards",
+      "name": "Ascension Trading Cards",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_trivia",
+      "name": "Ascension Trivia",
+      "category": "entertainment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ascension_environment",
+      "name": "Ascension Environment",
+      "category": "environment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_weather",
+      "name": "Ascension Weather",
+      "category": "environment",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_child_development",
+      "name": "Ascension Child Development",
+      "category": "family",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_family_abroad",
+      "name": "Ascension Family Abroad",
+      "category": "family",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_family_sync",
+      "name": "Ascension Family Sync",
+      "category": "family",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_family",
+      "name": "Ascension FamilyOS",
+      "category": "family",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_72h_sprint",
+      "name": "Ascension 72h Sprint",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_accounting",
+      "name": "Ascension Accounting",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_airdrop",
+      "name": "Ascension Airdrop",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_assets",
+      "name": "Ascension Assets",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_audit",
+      "name": "Ascension Audit",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bookkeeping",
+      "name": "Ascension Bookkeeping",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_budgeting",
+      "name": "Ascension Budgeting",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_business_taxes",
+      "name": "Ascension Business Taxes",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cash_strategy",
+      "name": "Ascension Cash Strategy",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_compound_engine",
+      "name": "Ascension Compound Engine",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_credit",
+      "name": "Ascension Credit",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_credit_score",
+      "name": "Ascension Credit Score",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_crypto",
+      "name": "Ascension Crypto",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_crypto_intelligence",
+      "name": "Ascension Crypto Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_dao",
+      "name": "Ascension DAO",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_daytrading",
+      "name": "Ascension Day Trading",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_defi",
+      "name": "Ascension DeFi",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_debt",
+      "name": "Ascension Debt",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_deductible",
+      "name": "Ascension Deductible",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_dream_fund",
+      "name": "Ascension Dream Fund",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_earthquake_insurance",
+      "name": "Ascension Earthquake Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_expenses",
+      "name": "Ascension Expenses",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fsa",
+      "name": "Ascension FSA",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fast_turn",
+      "name": "Ascension Fast Turn",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_finance",
+      "name": "Ascension Financial Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_flood_insurance",
+      "name": "Ascension Flood Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_forex",
+      "name": "Ascension Forex",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_gig_sprint",
+      "name": "Ascension Gig Sprint",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_global_economics",
+      "name": "Ascension Global Economics",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hsa",
+      "name": "Ascension HSA",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_income_split",
+      "name": "Ascension Income Split",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_insurance",
+      "name": "Ascension Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_insurance_review",
+      "name": "Ascension Insurance Review",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_investing",
+      "name": "Ascension Investing",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_investment_intelligence",
+      "name": "Ascension Investment Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_invoicing",
+      "name": "Ascension Invoicing",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_liability_insurance",
+      "name": "Ascension Liability Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_loans",
+      "name": "Ascension Loans",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_money_flip",
+      "name": "Ascension Money Flip",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mortgage",
+      "name": "Ascension Mortgage",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_nfts",
+      "name": "Ascension NFTs",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_opportunity_finance",
+      "name": "Ascension Opportunity Finance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_payroll",
+      "name": "Ascension Payroll",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pet_insurance",
+      "name": "Ascension Pet Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_plaid_intelligence",
+      "name": "Ascension Plaid Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_policy_review",
+      "name": "Ascension Policy Review",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_prediction_markets",
+      "name": "Ascension Prediction Market Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_premium",
+      "name": "Ascension Premium",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_presale",
+      "name": "Ascension Presale",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_revenue_tracker",
+      "name": "Ascension Revenue Tracker",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_risk_budget",
+      "name": "Ascension Risk Budget",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_staking",
+      "name": "Ascension Staking",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_swingtrading",
+      "name": "Ascension Swing Trading",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_taxes",
+      "name": "Ascension Taxes",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_trading",
+      "name": "Ascension Trading Intelligence",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_umbrella_insurance",
+      "name": "Ascension Umbrella Insurance",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_wallet_automation",
+      "name": "Ascension Wallet Automation",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_whitelist",
+      "name": "Ascension Whitelist",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_zero_capital",
+      "name": "Ascension Zero Capital",
+      "category": "finance",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_post_workout",
+      "name": "Ascension Post Workout",
+      "category": "fitness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pre_workout",
+      "name": "Ascension Pre Workout",
+      "category": "fitness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_aging",
+      "name": "Ascension Aging",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fitness",
+      "name": "Ascension Fitness",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_health",
+      "name": "Ascension Health",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_nutrition",
+      "name": "Ascension Nutrition",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sleep",
+      "name": "Ascension Sleep",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "emotional_intelligence",
+      "name": "Emotional Intelligence",
+      "category": "health",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_appointments",
+      "name": "Ascension Appointments",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_aquaponics",
+      "name": "Ascension Aquaponics",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_automotive",
+      "name": "Ascension Automotive",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_baking",
+      "name": "Ascension Baking",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_balcony",
+      "name": "Ascension Balcony",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_canning",
+      "name": "Ascension Canning",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cleaning",
+      "name": "Ascension Cleaning",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_commute",
+      "name": "Ascension Commute",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_composting",
+      "name": "Ascension Composting",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cooking",
+      "name": "Ascension Cooking",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_decor",
+      "name": "Ascension Decor",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_events",
+      "name": "Ascension Events",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fermentation",
+      "name": "Ascension Fermentation",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_garden",
+      "name": "Ascension Garden",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_gardening",
+      "name": "Ascension Gardening",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_grocery_list",
+      "name": "Ascension Grocery List",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_home",
+      "name": "Ascension HomeOS",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_household_sync",
+      "name": "Ascension Household Sync",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hydroponics",
+      "name": "Ascension Hydroponics",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_interior_design",
+      "name": "Ascension Interior Design",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_landscaping",
+      "name": "Ascension Landscaping",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_laundry",
+      "name": "Ascension Laundry",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ascension_lawn_care",
+      "name": "Ascension Lawn Care",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_life_admin",
+      "name": "Ascension Life Admin",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_lighting",
+      "name": "Ascension Lighting",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_maintenance",
+      "name": "Ascension Maintenance",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mixology",
+      "name": "Ascension Mixology",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_moving",
+      "name": "Ascension Moving",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_organizing",
+      "name": "Ascension Organizing",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_packing",
+      "name": "Ascension Packing",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_parenting",
+      "name": "Ascension Parenting",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pets",
+      "name": "Ascension Pets",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_preserving",
+      "name": "Ascension Preserving",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_realestate",
+      "name": "Ascension Real Estate",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_repair",
+      "name": "Ascension Repair",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ascension_routine",
+      "name": "Ascension Routine",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_smell",
+      "name": "Ascension Smell",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sound",
+      "name": "Ascension Sound",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_storage",
+      "name": "Ascension Storage",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_travel",
+      "name": "Ascension Travel",
+      "category": "home",
+      "shell": "nexus_home",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_grief",
+      "name": "Ascension Grief",
+      "category": "human_life",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_human_life",
+      "name": "Ascension Human Life",
+      "category": "human_life",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_age",
+      "name": "Ascension AGE",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_adaptive_quest",
+      "name": "Ascension Adaptive Quest",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_astrology_intelligence",
+      "name": "Ascension Astrology Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_behavioral_intelligence",
+      "name": "Ascension Behavioral Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_biometric",
+      "name": "Ascension Biometric",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cie",
+      "name": "Ascension CIE",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_context_engine",
+      "name": "Ascension Context Engine",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_contribution",
+      "name": "Ascension Contribution",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_decision_physics",
+      "name": "Ascension Decision Physics",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_family_profile",
+      "name": "Ascension Family Profile",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_human_intelligence",
+      "name": "Ascension Human Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_identity",
+      "name": "Ascension Identity",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_knowledge_graph",
+      "name": "Ascension Knowledge Graph",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_legacy",
+      "name": "Ascension Legacy",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_life_flow",
+      "name": "Ascension Life Flow",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_life_orchestrator",
+      "name": "Ascension Life Orchestrator",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_living_context",
+      "name": "Ascension Living Context",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_living_memory",
+      "name": "Ascension Living Memory",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_opportunity_intelligence",
+      "name": "Ascension Opportunity Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_personal_vortex",
+      "name": "Ascension Personal Vortex",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_personality",
+      "name": "Ascension Personality",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_proactive_engine",
+      "name": "Ascension Proactive Engine",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_proactivity",
+      "name": "Ascension Proactivity",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_question_engine",
+      "name": "Ascension Question Engine",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_resource_intelligence",
+      "name": "Ascension Resource Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_second_brain",
+      "name": "Ascension Second Brain",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ascension_shell_orchestrator",
+      "name": "Ascension Shell Orchestrator",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_unified_vortex",
+      "name": "Ascension Unified Vortex",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_user_profile",
+      "name": "Ascension User Profile",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_vault",
+      "name": "Ascension Vault",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_voice_intelligence",
+      "name": "Ascension Voice Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_vortex_signals",
+      "name": "Ascension Vortex Signals",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_world_vortex",
+      "name": "Ascension World Vortex",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "context_memory",
+      "name": "Context Memory",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "intelligence_sweep",
+      "name": "Intelligence Sweep",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "proactive_intelligence",
+      "name": "Proactive Intelligence",
+      "category": "intelligence",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_argumentation",
+      "name": "Ascension Argumentation",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_astronomy",
+      "name": "Ascension Astronomy",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_critical_thinking",
+      "name": "Ascension Critical Thinking",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_culture",
+      "name": "Ascension Culture",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_debate",
+      "name": "Ascension Debate",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_document_intelligence",
+      "name": "Ascension Document Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_environmental",
+      "name": "Ascension Environmental",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ethics",
+      "name": "Ascension Ethics",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_etiquette",
+      "name": "Ascension Etiquette",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fallacies",
+      "name": "Ascension Fallacies",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_government",
+      "name": "Ascension Government",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_history",
+      "name": "Ascension History",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_idea_validator",
+      "name": "Ascension Idea Validator",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_knowledge_studio",
+      "name": "Ascension Knowledge Studio",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_language",
+      "name": "Ascension Language",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_location_intelligence",
+      "name": "Ascension Location Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_logic",
+      "name": "Ascension Logic",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_math",
+      "name": "Ascension Math",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_news_intelligence",
+      "name": "Ascension News Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_persuasion",
+      "name": "Ascension Persuasion",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_philosophy",
+      "name": "Ascension Philosophy",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_politics",
+      "name": "Ascension Politics",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_research_assistant",
+      "name": "Ascension Research Assistant",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_science",
+      "name": "Ascension Science",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_solution_engine",
+      "name": "Ascension Solution Engine",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_weather_intelligence",
+      "name": "Ascension Weather Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_world_intelligence",
+      "name": "Ascension World Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_youtube_intelligence",
+      "name": "Ascension YouTube Intelligence",
+      "category": "knowledge",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_learning",
+      "name": "Ascension Learning",
+      "category": "learning",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_adoption",
+      "name": "Ascension Adoption",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_contracts",
+      "name": "Ascension Contracts",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_custody",
+      "name": "Ascension Custody",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_divorce",
+      "name": "Ascension Divorce",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_immigration",
+      "name": "Ascension Immigration",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_landlord",
+      "name": "Ascension Landlord",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_prenup",
+      "name": "Ascension Prenup",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tenant",
+      "name": "Ascension Tenant",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_trust",
+      "name": "Ascension Trust",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_will",
+      "name": "Ascension Will",
+      "category": "legal",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_anniversary",
+      "name": "Ascension Anniversary",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_babyshower",
+      "name": "Ascension Baby Shower",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_birthday",
+      "name": "Ascension Birthday",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_funeral",
+      "name": "Ascension Funeral",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_gift",
+      "name": "Ascension Gift",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_graduation",
+      "name": "Ascension Graduation",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_holiday",
+      "name": "Ascension Holiday",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_party",
+      "name": "Ascension Party",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_retirement",
+      "name": "Ascension Retirement",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_wedding",
+      "name": "Ascension Wedding",
+      "category": "life_events",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_antiques",
+      "name": "Ascension Antiques",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_auction",
+      "name": "Ascension Auction",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_coins",
+      "name": "Ascension Coins",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_collector",
+      "name": "Ascension Collector",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fashion",
+      "name": "Ascension Fashion",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shopping",
+      "name": "Ascension Shopping",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_stamps",
+      "name": "Ascension Stamps",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_vinyl",
+      "name": "Ascension Vinyl",
+      "category": "lifestyle",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_batch_cooking",
+      "name": "Ascension Batch Cooking",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_freezer_meals",
+      "name": "Ascension Freezer Meals",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_juicing",
+      "name": "Ascension Juicing",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meal_planning",
+      "name": "Ascension Meal Planning",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meal_prep",
+      "name": "Ascension Meal Prep",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_protein",
+      "name": "Ascension Protein",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_smoothies",
+      "name": "Ascension Smoothies",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_supplements_stack",
+      "name": "Ascension Supplements Stack",
+      "category": "nutrition",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_calendar_intelligence",
+      "name": "Ascension Calendar Intelligence",
+      "category": "productivity",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_email_intelligence",
+      "name": "Ascension Email Intelligence",
+      "category": "productivity",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_focus",
+      "name": "Ascension Focus",
+      "category": "productivity",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meetings",
+      "name": "Ascension Meetings",
+      "category": "productivity",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_time",
+      "name": "Ascension Time",
+      "category": "productivity",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_addiction",
+      "name": "Ascension Addiction",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_communication",
+      "name": "Ascension Communication",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_confidence",
+      "name": "Ascension Confidence",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_conflict",
+      "name": "Ascension Conflict",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_habits",
+      "name": "Ascension Habits",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mental_health",
+      "name": "Ascension Mental Health",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_psychology",
+      "name": "Ascension Psychology",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_stress",
+      "name": "Ascension Stress",
+      "category": "psychology",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_active_listening",
+      "name": "Ascension Active Listening",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_assertiveness",
+      "name": "Ascension Assertiveness",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_boundaries",
+      "name": "Ascension Boundaries",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_charisma",
+      "name": "Ascension Charisma",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_community",
+      "name": "Ascension Community",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_conflict_resolution",
+      "name": "Ascension Conflict Resolution",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_dating",
+      "name": "Ascension Dating",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_empathy",
+      "name": "Ascension Empathy",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_network_vortex",
+      "name": "Ascension Network Vortex",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_rapport",
+      "name": "Ascension Rapport",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_relationship_intelligence",
+      "name": "Ascension Relationship Intelligence",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_relationships",
+      "name": "Ascension Relationships",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_social",
+      "name": "Ascension Social",
+      "category": "relationships",
+      "shell": "nexus_family",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_news",
+      "name": "Ascension News",
+      "category": "research",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_research",
+      "name": "Ascension Research",
+      "category": "research",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_reviews",
+      "name": "Ascension Reviews",
+      "category": "research",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_security",
+      "name": "Ascension Security",
+      "category": "security",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_discord",
+      "name": "Ascension Discord",
+      "category": "social",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_facebook",
+      "name": "Ascension Facebook",
+      "category": "social",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_reddit",
+      "name": "Ascension Reddit",
+      "category": "social",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "relationship_graph",
+      "name": "Relationship Graph",
+      "category": "social",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_assistant",
+      "name": "AR Assistant",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_context_feed",
+      "name": "AR Context Feed",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ar_environment_scan",
+      "name": "AR Environment Scan",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ar_memory_anchor",
+      "name": "AR Memory Anchor",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_navigation",
+      "name": "AR Navigation",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_object_recognition",
+      "name": "AR Object Recognition",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ar_people_recognition",
+      "name": "AR People Recognition",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 1.0
+    },
+    {
+      "id": "ar_proactive_data",
+      "name": "AR Proactive Data",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_realtime_translate",
+      "name": "AR Real-Time Translate",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ar_safety_alert",
+      "name": "AR Safety Alert",
+      "category": "spatial",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bahai",
+      "name": "Ascension Baha i",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_buddhism",
+      "name": "Ascension Buddhism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_christianity",
+      "name": "Ascension Christianity",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_confucianism",
+      "name": "Ascension Confucianism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_druidry",
+      "name": "Ascension Druidry",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hinduism",
+      "name": "Ascension Hinduism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_islam",
+      "name": "Ascension Islam",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_jainism",
+      "name": "Ascension Jainism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_judaism",
+      "name": "Ascension Judaism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meditation",
+      "name": "Ascension Meditation",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mindfulness",
+      "name": "Ascension Mindfulness",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_native_spirituality",
+      "name": "Ascension Native Spirituality",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_paganism",
+      "name": "Ascension Paganism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shamanism",
+      "name": "Ascension Shamanism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shinto",
+      "name": "Ascension Shinto",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sikhism",
+      "name": "Ascension Sikhism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_spirituality",
+      "name": "Ascension Spirituality",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_taoism",
+      "name": "Ascension Taoism",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_wicca",
+      "name": "Ascension Wicca",
+      "category": "spirituality",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_baseball",
+      "name": "Ascension Baseball",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_basketball",
+      "name": "Ascension Basketball",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cricket",
+      "name": "Ascension Cricket",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_esports",
+      "name": "Ascension Esports",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fantasy",
+      "name": "Ascension Fantasy",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_football",
+      "name": "Ascension Football",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_golf",
+      "name": "Ascension Golf",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hockey",
+      "name": "Ascension Hockey",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_soccer",
+      "name": "Ascension Soccer",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tennis",
+      "name": "Ascension Tennis",
+      "category": "sports",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sprout",
+      "name": "Ascension Sprout",
+      "category": "sprout",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_bag",
+      "name": "Ascension Bag",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_beard",
+      "name": "Ascension Beard",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_haircut",
+      "name": "Ascension Haircut",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_jewelry",
+      "name": "Ascension Jewelry",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_makeup",
+      "name": "Ascension Makeup",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_perfume",
+      "name": "Ascension Perfume",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_piercing",
+      "name": "Ascension Piercing",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shoes",
+      "name": "Ascension Shoes",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sunglasses",
+      "name": "Ascension Sunglasses",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_tattoo",
+      "name": "Ascension Tattoo",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_wallet",
+      "name": "Ascension Wallet",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_watch",
+      "name": "Ascension Watch",
+      "category": "style",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_chat",
+      "name": "Ascension Native Chat",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "chat_claude",
+      "name": "Chat Claude",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "chat_gpt4",
+      "name": "Chat GPT-4",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "chat_gemini",
+      "name": "Chat Gemini",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "writing_document",
+      "name": "Document Writing",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "writing_email",
+      "name": "Email Writing",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "writing_marketing",
+      "name": "Marketing Copy",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "writing_script",
+      "name": "Script Writing",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "translation",
+      "name": "Translation",
+      "category": "text",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_flight",
+      "name": "Ascension Flight",
+      "category": "travel",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_public_transit",
+      "name": "Ascension Public Transit",
+      "category": "travel",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_rideshare",
+      "name": "Ascension Rideshare",
+      "category": "travel",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_travel_insurance",
+      "name": "Ascension Travel Insurance",
+      "category": "travel",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "video_editing",
+      "name": "Video Editing",
+      "category": "video",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "video_generation_luma",
+      "name": "Video Generation (Luma Dream Machine)",
+      "category": "video",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "video_generation_pika",
+      "name": "Video Generation (Pika Labs)",
+      "category": "video",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "video_generation_runway",
+      "name": "Video Generation (Runway)",
+      "category": "video",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "video_generation_stable",
+      "name": "Video Generation (Stable Video)",
+      "category": "video",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_vision",
+      "name": "Ascension Vision",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "design_generation",
+      "name": "Design Generation",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "image_editing",
+      "name": "Image Editing",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "image_generation_adobe",
+      "name": "Image Generation (Adobe Firefly)",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "image_generation_dalle",
+      "name": "Image Generation (DALL-E 3)",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "image_generation_midjourney",
+      "name": "Image Generation (Midjourney)",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "image_generation_stable",
+      "name": "Image Generation (Stable Diffusion)",
+      "category": "vision",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_voice",
+      "name": "Ascension Voice",
+      "category": "voice",
+      "shell": "core",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "web_browsing",
+      "name": "Web Browsing",
+      "category": "web",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "web_search",
+      "name": "Web Search",
+      "category": "web",
+      "shell": "ap",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_affirmations",
+      "name": "Ascension Affirmations",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_allergies",
+      "name": "Ascension Allergies",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_archery",
+      "name": "Ascension Archery",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_body_profile",
+      "name": "Ascension Body Profile",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_boxing",
+      "name": "Ascension Boxing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_breathing",
+      "name": "Ascension Breathing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_camping",
+      "name": "Ascension Camping",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_childbirth",
+      "name": "Ascension Childbirth",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_chronic",
+      "name": "Ascension Chronic",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_circadian",
+      "name": "Ascension Circadian",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_climbing",
+      "name": "Ascension Climbing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cold_exposure",
+      "name": "Ascension Cold Exposure",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_confidence_building",
+      "name": "Ascension Confidence Building",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_cycling",
+      "name": "Ascension Cycling",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_disability",
+      "name": "Ascension Disability",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ergonomics",
+      "name": "Ascension Ergonomics",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fencing",
+      "name": "Ascension Fencing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_firstaid",
+      "name": "Ascension First Aid",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_fishing",
+      "name": "Ascension Fishing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_goals",
+      "name": "Ascension Goals",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_gratitude",
+      "name": "Ascension Gratitude",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_growth_mindset",
+      "name": "Ascension Growth Mindset",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_gymnastics",
+      "name": "Ascension Gymnastics",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_health_intelligence",
+      "name": "Ascension Health Intelligence",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_heat_exposure",
+      "name": "Ascension Heat Exposure",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hiking",
+      "name": "Ascension Hiking",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_hunting",
+      "name": "Ascension Hunting",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ice_bath",
+      "name": "Ascension Ice Bath",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_ice_skating",
+      "name": "Ascension Ice Skating",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_journaling",
+      "name": "Ascension Journaling",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_martialarts",
+      "name": "Ascension Martial Arts",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meditation_guided",
+      "name": "Ascension Meditation Guided",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.75
+    },
+    {
+      "id": "ascension_milestones",
+      "name": "Ascension Milestones",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_mindset",
+      "name": "Ascension Mindset",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_nap",
+      "name": "Ascension Nap",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_postpartum",
+      "name": "Ascension Postpartum",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_pregnancy",
+      "name": "Ascension Pregnancy",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_recovery",
+      "name": "Ascension Recovery",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_resilience",
+      "name": "Ascension Resilience",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_roller_skating",
+      "name": "Ascension Roller Skating",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_running",
+      "name": "Ascension Running",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sauna",
+      "name": "Ascension Sauna",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_shooting",
+      "name": "Ascension Shooting",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_skateboarding",
+      "name": "Ascension Skateboarding",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_skiing",
+      "name": "Ascension Skiing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_skincare",
+      "name": "Ascension Skincare",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_sleep_hygiene",
+      "name": "Ascension Sleep Hygiene",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_snowboarding",
+      "name": "Ascension Snowboarding",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_spotify_intelligence",
+      "name": "Ascension Spotify Intelligence",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_stoicism",
+      "name": "Ascension Stoicism",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_stretching",
+      "name": "Ascension Stretching",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_supplements",
+      "name": "Ascension Supplements",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_surfing",
+      "name": "Ascension Surfing",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_swimming",
+      "name": "Ascension Swimming",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_visualization",
+      "name": "Ascension Visualization",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_walking",
+      "name": "Ascension Walking",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_workout",
+      "name": "Ascension Workout",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_wrestling",
+      "name": "Ascension Wrestling",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_yoga",
+      "name": "Ascension Yoga",
+      "category": "wellness",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_feedback",
+      "name": "Ascension Feedback",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_interview",
+      "name": "Ascension Interview",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_leadership",
+      "name": "Ascension Leadership",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_linkedin",
+      "name": "Ascension LinkedIn",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_meet",
+      "name": "Ascension Meet",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_negotiation",
+      "name": "Ascension Negotiation",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_networking",
+      "name": "Ascension Networking",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_project",
+      "name": "Ascension Project",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_remote",
+      "name": "Ascension Remote",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_resume",
+      "name": "Ascension Resume",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_slack",
+      "name": "Ascension Slack",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_task",
+      "name": "Ascension Task",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_team",
+      "name": "Ascension Team",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_teams",
+      "name": "Ascension Teams",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_webex",
+      "name": "Ascension Webex",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    },
+    {
+      "id": "ascension_zoom",
+      "name": "Ascension Zoom",
+      "category": "work",
+      "shell": "lifeos",
+      "per_capability_passed": true,
+      "execution_passed": true,
+      "execution_score": 0.875
+    }
+  ]
+}
