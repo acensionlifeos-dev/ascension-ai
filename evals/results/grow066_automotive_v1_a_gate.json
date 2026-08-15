@@ -1,7 +1,7 @@
 {
   "base_model": "Qwen/Qwen3-1.7B",
   "adapter": "checkpoints/grow066_automotive_v1_a",
-  "adapter_sha256": "b38fc1ecc951a6bae4d3f0ddc442a8910e66affbbe02276c6a32ac6a3a9da674",
+  "adapter_sha256": "e7703ae58cd54a3e351f70723162f603698da2ebcd34a52b91bcfb5cee2789b6",
   "gate": "qwen_ascension_adapter_v1",
   "canonical_passed": true,
   "canonical_pass_count": 6,

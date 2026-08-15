@@ -14,7 +14,7 @@
       "adapter": "checkpoints/grow067_business_v1_a",
       "training": {
         "return_code": 0,
-        "wall_seconds": 50.185
+        "wall_seconds": 69.716
       },
       "training_receipt": {
         "status": "trained_not_promoted",
@@ -37,9 +37,9 @@
         "seed": 9067,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 43.1937,
-          "train_samples_per_second": 8.01,
-          "train_steps_per_second": 1.019,
+          "train_runtime": 62.3211,
+          "train_samples_per_second": 5.552,
+          "train_steps_per_second": 0.706,
           "total_flos": 286384436748288.0,
           "train_loss": 2.2459570169448853,
           "epoch": 2.0
@@ -49,12 +49,12 @@
       },
       "gate_execution": {
         "return_code": 2,
-        "wall_seconds": 13.043
+        "wall_seconds": 13.7
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
         "adapter": "checkpoints/grow067_business_v1_a",
-        "adapter_sha256": "2ae319e7634d2dfe3168a7426d642740bd3867896b8feda3f007e95c889e96c7",
+        "adapter_sha256": "9b47cc36bd0fada74d42457b8ba32af20cb6cd4dd7574211a0c6ff16af4e38c1",
         "gate": "qwen_ascension_adapter_v1",
         "canonical_passed": false,
         "canonical_pass_count": 5,
@@ -258,7 +258,7 @@
       "adapter": "checkpoints/grow067_business_v1_b",
       "training": {
         "return_code": 0,
-        "wall_seconds": 64.538
+        "wall_seconds": 69.716
       },
       "training_receipt": {
         "status": "trained_not_promoted",
@@ -281,9 +281,9 @@
         "seed": 9068,
         "max_length": 768,
         "metrics": {
-          "train_runtime": 58.26,
-          "train_samples_per_second": 5.939,
-          "train_steps_per_second": 0.755,
+          "train_runtime": 56.6302,
+          "train_samples_per_second": 6.11,
+          "train_steps_per_second": 0.777,
           "total_flos": 285990628184064.0,
           "train_loss": 2.7300160364671187,
           "epoch": 2.0
@@ -293,12 +293,12 @@
       },
       "gate_execution": {
         "return_code": 0,
-        "wall_seconds": 13.042
+        "wall_seconds": 13.698
       },
       "gate_report": {
         "base_model": "Qwen/Qwen3-1.7B",
         "adapter": "checkpoints/grow067_business_v1_b",
-        "adapter_sha256": "6658ee88a4e8a27beb4e09aadfbbdc26a19bc5070c9188d1ce0ac8b3813e4681",
+        "adapter_sha256": "1b02a8d70ea2a1f39330ad2a74a5cc57268e008d4ad4b1f12a2556c0b16c6b85",
         "gate": "qwen_ascension_adapter_v1",
         "canonical_passed": true,
         "canonical_pass_count": 6,

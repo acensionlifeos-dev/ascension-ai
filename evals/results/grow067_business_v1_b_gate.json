@@ -1,7 +1,7 @@
 {
   "base_model": "Qwen/Qwen3-1.7B",
   "adapter": "checkpoints/grow067_business_v1_b",
-  "adapter_sha256": "6658ee88a4e8a27beb4e09aadfbbdc26a19bc5070c9188d1ce0ac8b3813e4681",
+  "adapter_sha256": "1b02a8d70ea2a1f39330ad2a74a5cc57268e008d4ad4b1f12a2556c0b16c6b85",
   "gate": "qwen_ascension_adapter_v1",
   "canonical_passed": true,
   "canonical_pass_count": 6,
