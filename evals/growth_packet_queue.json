@@ -665,14 +665,15 @@
     {
       "id": "GROW-104",
       "focus": "Category: travel (4 capabilities, 20 records)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v104_travel.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow104_travel_v1 completed; human review required."
     },
     {
       "id": "GROW-105",
