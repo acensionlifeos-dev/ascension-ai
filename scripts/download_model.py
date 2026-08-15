@@ -1,11 +1,13 @@
 """Download and verify the pinned local model selected for this deployment."""
-
 from __future__ import annotations
 
 import hashlib
 import json
 import os
+import shutil
+import sys
 from pathlib import Path
+from urllib.request import Request, urlopen
 
 from huggingface_hub import hf_hub_download
 
@@ -23,6 +25,24 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def download_url(url: str, path: Path, expected_sha256: str | None = None) -> Path:
+    req = Request(url, headers={"User-Agent": "ascension-ai-download/1.0"})
+    path.parent.mkdir(parents=True, exist_ok=True)
+    digest = hashlib.sha256()
+    with urlopen(req, timeout=60) as source, path.open("wb") as target:
+        while True:
+            chunk = source.read(1024 * 1024)
+            if not chunk:
+                break
+            target.write(chunk)
+            digest.update(chunk)
+    actual = digest.hexdigest()
+    if expected_sha256 and actual != expected_sha256:
+        path.unlink(missing_ok=True)
+        raise SystemExit("Downloaded model checksum did not match the pinned manifest.")
+    return path
+
+
 def main() -> None:
     profiles = json.loads(PROFILES_PATH.read_text(encoding="utf-8"))
     name = os.getenv("ASCENSION_MODEL_PROFILE", "starter").strip().lower()
@@ -30,16 +50,24 @@ def main() -> None:
         raise SystemExit(f"Unknown ASCENSION_MODEL_PROFILE: {name}")
     profile = profiles[name]
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
-    downloaded = Path(hf_hub_download(
-        repo_id=profile["repo_id"],
-        filename=profile["filename"],
-        revision=profile["revision"],
-        local_dir=MODELS_DIR,
-    ))
-    actual = sha256(downloaded)
-    if actual != profile["sha256"]:
-        downloaded.unlink(missing_ok=True)
-        raise SystemExit("Downloaded model checksum did not match the pinned manifest.")
+
+    filename = profile["filename"]
+    if "download_url" in profile:
+        downloaded = MODELS_DIR / filename
+        if not downloaded.is_file() or sha256(downloaded) != profile["sha256"]:
+            downloaded = download_url(profile["download_url"], downloaded, profile.get("sha256"))
+    else:
+        downloaded = Path(hf_hub_download(
+            repo_id=profile["repo_id"],
+            filename=filename,
+            revision=profile["revision"],
+            local_dir=MODELS_DIR,
+        ))
+        actual = sha256(downloaded)
+        if actual != profile["sha256"]:
+            downloaded.unlink(missing_ok=True)
+            raise SystemExit("Downloaded model checksum did not match the pinned manifest.")
+
     print(json.dumps({
         "status": "verified",
         "profile": name,
