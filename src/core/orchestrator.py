@@ -183,6 +183,18 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "Email Writing is ready. What would you like the email to say, and who is it for? "
             "I can draft it for your review; nothing is delivered without your approval and a provider receipt."
         )
+    if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+\(?suno\)?\b", value):
+        return (
+            "ASCENSION SHELL: core\n"
+            "Suno music generation is ready. What would you like the track to be about? "
+            "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+udio\b", value):
+        return (
+            "ASCENSION SHELL: core\n"
+            "Udio music generation is ready. What would you like the track to be about? "
+            "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
+        )
     return None
 
 
