@@ -41,13 +41,13 @@
     "filename": "Qwen3-1.7B-Q8_0.gguf",
     "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
     "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
-    "lora_path": "ascension_lora.gguf",
+    "lora_path": "v6b_lora.gguf",
     "lora_scale": 1.0,
     "size_bytes": 1834426016,
     "minimum_render_plan": "pro_4gb",
     "context_tokens": 4096,
     "threads": 2,
-    "quality_note": "Qwen3-1.7B base with v6b per-capability/execution LoRA. Test only; not yet cleared through generic replacement gates."
+    "quality_note": "Qwen3-1.7B base with v6b per-capability/execution LoRA. 100% per-cap, 99.84% execution probe, 5/6 canonical 7/8 receipt. Test only."
   },
   "candidate": {
     "label": "Ascension Candidate 3B",
