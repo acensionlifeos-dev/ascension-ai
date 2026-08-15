@@ -70,6 +70,14 @@ class NativeModelRuntime:
                 digest.update(chunk)
         return digest.hexdigest()
 
+    def _lora_path(self) -> Path | None:
+        lora = self.profile.get("lora_path", os.getenv("ASCENSION_MODEL_LORA_PATH", "")).strip()
+        if not lora:
+            return None
+        if os.path.isabs(lora):
+            return Path(lora)
+        return ROOT / "models" / lora
+
     def load(self) -> None:
         try:
             from llama_cpp import Llama
@@ -79,16 +87,21 @@ class NativeModelRuntime:
                 raise RuntimeError("Pinned model file is missing. Run scripts/download_model.py during the build.")
             if os.getenv("ASCENSION_VERIFY_MODEL_ON_BOOT", "1") != "0" and self._sha256(path) != self.profile["sha256"]:
                 raise RuntimeError("Pinned model checksum verification failed.")
-            self.model = Llama(
-                model_path=str(path),
-                n_ctx=int(os.getenv("ASCENSION_MODEL_CONTEXT", self.profile["context_tokens"])),
-                n_threads=int(os.getenv("ASCENSION_MODEL_THREADS", self.profile["threads"])),
-                n_threads_batch=int(os.getenv("ASCENSION_MODEL_THREADS_BATCH", self.profile["threads"])),
-                n_batch=int(os.getenv("ASCENSION_MODEL_BATCH", "64")),
-                use_mmap=True,
-                use_mlock=False,
-                verbose=False,
-            )
+            lora_path = self._lora_path()
+            model_kwargs = {
+                "model_path": str(path),
+                "n_ctx": int(os.getenv("ASCENSION_MODEL_CONTEXT", self.profile["context_tokens"])),
+                "n_threads": int(os.getenv("ASCENSION_MODEL_THREADS", self.profile["threads"])),
+                "n_threads_batch": int(os.getenv("ASCENSION_MODEL_THREADS_BATCH", self.profile["threads"])),
+                "n_batch": int(os.getenv("ASCENSION_MODEL_BATCH", "64")),
+                "use_mmap": True,
+                "use_mlock": False,
+                "verbose": False,
+            }
+            if lora_path and lora_path.is_file():
+                model_kwargs["lora_path"] = str(lora_path)
+                model_kwargs["lora_scale"] = float(os.getenv("ASCENSION_MODEL_LORA_SCALE", self.profile.get("lora_scale", "1.0")))
+            self.model = Llama(**model_kwargs)
             self.loaded_at = time.time()
             self.load_error = None
             if not self._watchdog_running:

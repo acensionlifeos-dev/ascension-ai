@@ -35,6 +35,20 @@
     "threads": 2,
     "quality_note": "Primary latency-bounded profile for multilingual conversation, planning, structured cognition, and tool selection on the 4 GB Pro service."
   },
+  "pro_v6b": {
+    "label": "Ascension v6b 1.7B LoRA",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "Qwen3-1.7B-Q8_0.gguf",
+    "revision": "90862c4b9d2787eaed51d12237eafdfe7c5f6077",
+    "sha256": "061b54daade076b5d3362dac252678d17da8c68f07560be70818cace6590cb1a",
+    "lora_path": "ascension_lora.gguf",
+    "lora_scale": 1.0,
+    "size_bytes": 1834426016,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B base with v6b per-capability/execution LoRA. Test only; not yet cleared through generic replacement gates."
+  },
   "candidate": {
     "label": "Ascension Candidate 3B",
     "repo_id": "Qwen/Qwen2.5-3B-Instruct-GGUF",
