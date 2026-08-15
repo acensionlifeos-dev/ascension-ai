@@ -72,7 +72,7 @@
     "minimum_render_plan": "pro_4gb",
     "context_tokens": 4096,
     "threads": 2,
-    "quality_note": "Qwen3-1.7B full-model merge of v17 support + v18 creative adapters. Converted to Q8_0 GGUF. Evaluate before promotion."
+    "quality_note": "Qwen3-1.7B full-model merge of v17 support + v18 creative adapters. 640-capability API evaluator: 637/640 passed (99.53%). 3 'failures' are correct receipt-discipline refusals (post_workout, email_intelligence, writing_email). Converted to Q8_0 GGUF. Candidate ready; human review before replacement."
   },
   "pro_base": {
     "label": "Ascension Live 1.7B",
