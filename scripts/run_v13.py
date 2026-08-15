@@ -1,0 +1,28 @@
+"""Train v13 from proven parent on triple proven master + fills."""
+from __future__ import annotations
+
+import subprocess
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = ["python", "scripts/run_qwen_growth_experiment.py",
+            "--run-id", "grow167_triple_proven",
+            "--parent-adapter", str(ROOT / "checkpoints" / "proven_parent_grow018_v7_a"),
+            "--curriculum", "evals/training/ascension_product_v167_triple_proven.jsonl",
+            "--gpu-indices", "0,1",
+            "--learning-rates", "5e-6,2e-6",
+            "--seeds", "10001,10002",
+            "--epochs", "1.0",
+            "--max-length", "768",
+            "--tokens", "160",
+            "--report", "evals/results/grow167_triple_proven_comparison.json"]
+    return subprocess.run(args, cwd=ROOT).returncode
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
