@@ -508,14 +508,15 @@
     {
       "id": "GROW-092",
       "focus": "Category: productivity (5 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v92_productivity_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow092_productivity_v3 completed; human review required."
     },
     {
       "id": "GROW-093",
