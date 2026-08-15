@@ -691,14 +691,15 @@
     {
       "id": "GROW-106",
       "focus": "Category: vision (7 capabilities, 21 records)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v106_vision.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow106_vision_v1 completed; human review required."
     },
     {
       "id": "GROW-107",
