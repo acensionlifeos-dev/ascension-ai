@@ -418,7 +418,7 @@
     {
       "id": "GROW-085",
       "focus": "Category: intelligence (36 capabilities, 132 records (v2)",
-      "status": "pending",
+      "status": "training",
       "curriculum": "evals/training/ascension_product_v85_intelligence_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
