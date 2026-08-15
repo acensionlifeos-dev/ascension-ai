@@ -199,6 +199,28 @@ class NativeModelRuntime:
             str(result.get("choices", [{}])[0].get("message", {}).get("content", ""))
         )
         if not content:
+            # Some converted/merged GGUFs do not apply the chat template correctly
+            # through create_chat_completion. Fall back to a raw completion on the
+            # last user turn, which the base Qwen3 model and the merged v16 full
+            # model both follow.
+            last_user = ""
+            for message in reversed(inference_messages):
+                if message.get("role") == "user":
+                    last_user = str(message.get("content", "")).strip()
+                    break
+            prompt = f"User: {last_user}\nAssistant:"
+            raw_result = self.model.create_completion(
+                prompt=prompt,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                top_p=0.9,
+                repeat_penalty=1.08,
+                stop=["\n", "User:", "Assistant:", "<|endoftext|>"],
+            )
+            content = self._clean_content(
+                str(raw_result.get("choices", [{}])[0].get("text", ""))
+            )
+        if not content:
             raise RuntimeError("Native model returned an empty response.")
         return {
             "content": content,
