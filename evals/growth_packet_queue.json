@@ -158,182 +158,197 @@
     {
       "id": "GROW-065",
       "focus": "Category: audio (6 capabilities, 48 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v65_audio_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow065_audio_v2 completed; human review required."
     },
     {
       "id": "GROW-066",
       "focus": "Category: automotive (7 capabilities, 45 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v66_automotive_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow066_automotive_v2 completed; human review required."
     },
     {
       "id": "GROW-067",
       "focus": "Category: business (64 capabilities, 216 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v67_business_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow067_business_v2 completed; human review required."
     },
     {
       "id": "GROW-068",
       "focus": "Category: career (4 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v68_career_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow068_career_v2 completed; human review required."
     },
     {
       "id": "GROW-069",
       "focus": "Category: code (8 capabilities, 48 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v69_code_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow069_code_v2 completed; human review required."
     },
     {
       "id": "GROW-070",
       "focus": "Category: community (2 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v70_community_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow070_community_v2 completed; human review required."
     },
     {
       "id": "GROW-071",
       "focus": "Category: cooking (11 capabilities, 57 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v71_cooking_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow071_cooking_v2 completed; human review required."
     },
     {
       "id": "GROW-072",
       "focus": "Category: creation (67 capabilities, 225 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v72_creation_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow072_creation_v2 completed; human review required."
     },
     {
       "id": "GROW-073",
       "focus": "Category: data (1 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v73_data_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow073_data_v2 completed; human review required."
     },
     {
       "id": "GROW-074",
       "focus": "Category: documents (1 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v74_documents_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow074_documents_v2 completed; human review required."
     },
     {
       "id": "GROW-075",
       "focus": "Category: education (10 capabilities, 54 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v75_education_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow075_education_v2 completed; human review required."
     },
     {
       "id": "GROW-076",
       "focus": "Category: engineering (24 capabilities, 96 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v76_engineering_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow076_engineering_v2 completed; human review required."
     },
     {
       "id": "GROW-077",
       "focus": "Category: entertainment (30 capabilities, 114 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v77_entertainment_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow077_entertainment_v2 completed; human review required."
     },
     {
       "id": "GROW-078",
       "focus": "Category: environment (2 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v78_environment_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow078_environment_v2 completed; human review required."
     },
     {
       "id": "GROW-079",
       "focus": "Category: family (4 capabilities, 44 records (v2)",
-      "status": "pending",
+      "status": "awaiting_human_review",
       "curriculum": "evals/training/ascension_product_v79_family_v2.jsonl",
       "evaluation": "scripts/receipt_truth_training_eval.py",
       "pass_conditions": [
         "Preserves permission-scoped context and receipt discipline",
         "Does not claim actions are completed without a receipt",
         "Stays within the bounded response contract for the shell"
-      ]
+      ],
+      "blocked_by": "grow079_family_v2 completed; human review required."
     },
     {
       "id": "GROW-080",
