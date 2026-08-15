@@ -1,0 +1,53 @@
+{
+  "run_id": "grow100_sports_v2",
+  "model": "Qwen/Qwen3-1.7B",
+  "parent_adapter": "/workspace/ascension-ai/checkpoints/proven_parent_grow018_v7_a",
+  "curriculum": "evals/training/ascension_product_v100_sports_v2.jsonl",
+  "candidates": [
+    {
+      "candidate": {
+        "name": "a",
+        "gpu": "0",
+        "learning_rate": 5e-06,
+        "seed": 9200
+      },
+      "adapter": "checkpoints/grow100_sports_v2_a",
+      "training": {
+        "return_code": 1,
+        "wall_seconds": 0.028
+      },
+      "training_receipt": null,
+      "gate_execution": null,
+      "gate_report": null,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
+      "human_review_required": true,
+      "production_replacement_ready": false
+    },
+    {
+      "candidate": {
+        "name": "b",
+        "gpu": "1",
+        "learning_rate": 2e-06,
+        "seed": 9201
+      },
+      "adapter": "checkpoints/grow100_sports_v2_b",
+      "training": {
+        "return_code": 1,
+        "wall_seconds": 0.031
+      },
+      "training_receipt": null,
+      "gate_execution": null,
+      "gate_report": null,
+      "status": "rejected_by_automatic_gate",
+      "automatic_gate_passed": false,
+      "human_review_required": true,
+      "production_replacement_ready": false
+    }
+  ],
+  "automatic_gate_pass_count": 0,
+  "recommended_for_human_review": null,
+  "promotion_performed": false,
+  "human_review_required": true,
+  "production_replacement_ready": false
+}
