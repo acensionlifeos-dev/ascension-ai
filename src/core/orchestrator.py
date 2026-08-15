@@ -195,6 +195,18 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "Udio music generation is ready. What would you like the track to be about? "
             "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
         )
+    if re.search(r"\buse\b.{0,40}\bdall-?e\s+image\s+generation\b|\buse\b.{0,40}\bimage\s+generation\s+\(?dall-e\s+3\)?\b", value):
+        return (
+            "ASCENSION SHELL: core\n"
+            "DALL-E 3 image generation (dall-e 3) is ready. What would you like the image to show? "
+            "I can prepare the prompt for your review; no image is produced without your approval and a provider receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\bstable\s+video\b|\buse\b.{0,40}\bvideo\s+generation\s+\(?stable\s+video\)?\b", value):
+        return (
+            "ASCENSION SHELL: core\n"
+            "Stable Video (video generation) is ready. What would you like the clip to show? "
+            "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
+        )
     return None
 
 
@@ -279,7 +291,7 @@ def enforce_response_contract(content: str, cognitive: dict, context: dict, mode
     if not receipts and UNRECEIPTED_CLAIM.search(answer):
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
         answer = " ".join(kept).strip()
-        answer = f"Nothing is confirmed as saved or executed yet. {answer}".strip()
+        answer = f"Nothing is confirmed by a provider receipt yet. {answer}".strip()
 
     if not receipts and TIMEOUT_RESULT.search(latest):
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
