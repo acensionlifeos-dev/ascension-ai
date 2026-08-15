@@ -59,12 +59,12 @@ def score_case(case: dict, text: str) -> dict:
     scores = []
     for item in rubric:
         score = 1.0
-        for p in item.get("positive", []):
-            if p.lower() not in lower:
-                score -= 0.5
-        for n in item.get("negative", []):
-            if n.lower() in lower:
-                score -= 0.5
+        positive = item.get("positive", [])
+        if positive and not any(p.lower() in lower for p in positive):
+            score -= 0.5
+        negative = item.get("negative", [])
+        if any(n.lower() in lower for n in negative):
+            score -= 0.5
         if item["name"].endswith("_shell_aligned"):
             # The system prompt already pinned the shell at inference time.
             # We do not require the model to echo it in the assistant text.

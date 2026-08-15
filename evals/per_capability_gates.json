@@ -71,7 +71,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "music generation (suno)"
+            "music generation (suno)",
+            "music generation suno"
           ],
           "negative": []
         },
@@ -127,7 +128,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "music generation (udio)"
+            "music generation (udio)",
+            "music generation udio"
           ],
           "negative": []
         },
@@ -183,6 +185,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "speech to text",
             "speech-to-text"
           ],
           "negative": []
@@ -239,6 +242,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "text to speech",
             "text-to-speech"
           ],
           "negative": []
@@ -351,7 +355,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension bicycle"
+            "ascension bicycle",
+            "bicycle"
           ],
           "negative": []
         },
@@ -407,7 +412,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension boat"
+            "ascension boat",
+            "boat"
           ],
           "negative": []
         },
@@ -463,7 +469,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension car buying"
+            "ascension car buying",
+            "car buying"
           ],
           "negative": []
         },
@@ -519,7 +526,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension car maintenance"
+            "ascension car maintenance",
+            "car maintenance"
           ],
           "negative": []
         },
@@ -575,7 +583,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension electric vehicle"
+            "ascension electric vehicle",
+            "electric vehicle"
           ],
           "negative": []
         },
@@ -631,7 +640,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension motorcycle"
+            "ascension motorcycle",
+            "motorcycle"
           ],
           "negative": []
         },
@@ -687,7 +697,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension rv"
+            "ascension rv",
+            "rv"
           ],
           "negative": []
         },
@@ -743,6 +754,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "affiliate",
             "ascension affiliate"
           ],
           "negative": []
@@ -799,6 +811,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "affiliate automation",
             "ascension affiliate automation"
           ],
           "negative": []
@@ -855,6 +868,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "amazon",
             "ascension amazon"
           ],
           "negative": []
@@ -911,7 +925,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension benefits"
+            "ascension benefits",
+            "benefits"
           ],
           "negative": []
         },
@@ -967,7 +982,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension brand"
+            "ascension brand",
+            "brand"
           ],
           "negative": []
         },
@@ -1023,7 +1039,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension business manager"
+            "ascension business manager",
+            "business manager"
           ],
           "negative": []
         },
@@ -1079,7 +1096,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension business plan"
+            "ascension business plan",
+            "business plan"
           ],
           "negative": []
         },
@@ -1135,7 +1153,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension business studio"
+            "ascension business studio",
+            "business studio"
           ],
           "negative": []
         },
@@ -1191,7 +1210,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension channel types"
+            "ascension channel types",
+            "channel types"
           ],
           "negative": []
         },
@@ -1247,7 +1267,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension chatbot"
+            "ascension chatbot",
+            "chatbot"
           ],
           "negative": []
         },
@@ -1303,7 +1324,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension churn"
+            "ascension churn",
+            "churn"
           ],
           "negative": []
         },
@@ -1359,7 +1381,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension compliance"
+            "ascension compliance",
+            "compliance"
           ],
           "negative": []
         },
@@ -1415,7 +1438,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension content analytics"
+            "ascension content analytics",
+            "content analytics"
           ],
           "negative": []
         },
@@ -1471,7 +1495,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension content calendar"
+            "ascension content calendar",
+            "content calendar"
           ],
           "negative": []
         },
@@ -1527,7 +1552,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension content workspace"
+            "ascension content workspace",
+            "content workspace"
           ],
           "negative": []
         },
@@ -1583,7 +1609,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cross sell"
+            "ascension cross sell",
+            "cross sell"
           ],
           "negative": []
         },
@@ -1639,7 +1666,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension crowdfunding"
+            "ascension crowdfunding",
+            "crowdfunding"
           ],
           "negative": []
         },
@@ -1695,7 +1723,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension crowdfunding product"
+            "ascension crowdfunding product",
+            "crowdfunding product"
           ],
           "negative": []
         },
@@ -1751,7 +1780,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension customer service"
+            "ascension customer service",
+            "customer service"
           ],
           "negative": []
         },
@@ -1807,7 +1837,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension customer support"
+            "ascension customer support",
+            "customer support"
           ],
           "negative": []
         },
@@ -1863,7 +1894,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dropshipping"
+            "ascension dropshipping",
+            "dropshipping"
           ],
           "negative": []
         },
@@ -1919,7 +1951,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ecommerce"
+            "ascension ecommerce",
+            "ecommerce"
           ],
           "negative": []
         },
@@ -1975,7 +2008,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension etsy"
+            "ascension etsy",
+            "etsy"
           ],
           "negative": []
         },
@@ -2031,7 +2065,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension export"
+            "ascension export",
+            "export"
           ],
           "negative": []
         },
@@ -2087,7 +2122,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension faq"
+            "ascension faq",
+            "faq"
           ],
           "negative": []
         },
@@ -2143,7 +2179,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fulfillment"
+            "ascension fulfillment",
+            "fulfillment"
           ],
           "negative": []
         },
@@ -2199,7 +2236,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fundraising"
+            "ascension fundraising",
+            "fundraising"
           ],
           "negative": []
         },
@@ -2255,7 +2293,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension grants"
+            "ascension grants",
+            "grants"
           ],
           "negative": []
         },
@@ -2311,7 +2350,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension growth tracker"
+            "ascension growth tracker",
+            "growth tracker"
           ],
           "negative": []
         },
@@ -2367,7 +2407,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hr"
+            "ascension hr",
+            "hr"
           ],
           "negative": []
         },
@@ -2423,7 +2464,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension helpdesk"
+            "ascension helpdesk",
+            "helpdesk"
           ],
           "negative": []
         },
@@ -2479,7 +2521,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension import"
+            "ascension import",
+            "import"
           ],
           "negative": []
         },
@@ -2535,7 +2578,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension influence"
+            "ascension influence",
+            "influence"
           ],
           "negative": []
         },
@@ -2591,7 +2635,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension inventory"
+            "ascension inventory",
+            "inventory"
           ],
           "negative": []
         },
@@ -2647,7 +2692,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension knowledge base"
+            "ascension knowledge base",
+            "knowledge base"
           ],
           "negative": []
         },
@@ -2703,7 +2749,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension live chat"
+            "ascension live chat",
+            "live chat"
           ],
           "negative": []
         },
@@ -2759,7 +2806,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension loyalty"
+            "ascension loyalty",
+            "loyalty"
           ],
           "negative": []
         },
@@ -2815,7 +2863,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension marketing"
+            "ascension marketing",
+            "marketing"
           ],
           "negative": []
         },
@@ -2871,7 +2920,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension merchandise"
+            "ascension merchandise",
+            "merchandise"
           ],
           "negative": []
         },
@@ -2927,7 +2977,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension micro launch"
+            "ascension micro launch",
+            "micro launch"
           ],
           "negative": []
         },
@@ -2983,7 +3034,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension onboarding"
+            "ascension onboarding",
+            "onboarding"
           ],
           "negative": []
         },
@@ -3039,7 +3091,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension open enrollment"
+            "ascension open enrollment",
+            "open enrollment"
           ],
           "negative": []
         },
@@ -3095,7 +3148,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pos"
+            "ascension pos",
+            "pos"
           ],
           "negative": []
         },
@@ -3151,7 +3205,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension partnerships"
+            "ascension partnerships",
+            "partnerships"
           ],
           "negative": []
         },
@@ -3207,7 +3262,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension patreon"
+            "ascension patreon",
+            "patreon"
           ],
           "negative": []
         },
@@ -3263,7 +3319,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pitch"
+            "ascension pitch",
+            "pitch"
           ],
           "negative": []
         },
@@ -3319,7 +3376,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension print on demand"
+            "ascension print on demand",
+            "print on demand"
           ],
           "negative": []
         },
@@ -3375,7 +3433,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension referral"
+            "ascension referral",
+            "referral"
           ],
           "negative": []
         },
@@ -3431,7 +3490,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension reputation"
+            "ascension reputation",
+            "reputation"
           ],
           "negative": []
         },
@@ -3487,7 +3547,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension retention"
+            "ascension retention",
+            "retention"
           ],
           "negative": []
         },
@@ -3543,7 +3604,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sales"
+            "ascension sales",
+            "sales"
           ],
           "negative": []
         },
@@ -3599,7 +3661,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension scorecards"
+            "ascension scorecards",
+            "scorecards"
           ],
           "negative": []
         },
@@ -3655,7 +3718,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension service designer"
+            "ascension service designer",
+            "service designer"
           ],
           "negative": []
         },
@@ -3711,7 +3775,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shipping"
+            "ascension shipping",
+            "shipping"
           ],
           "negative": []
         },
@@ -3767,7 +3832,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shopify"
+            "ascension shopify",
+            "shopify"
           ],
           "negative": []
         },
@@ -3823,7 +3889,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sponsorships"
+            "ascension sponsorships",
+            "sponsorships"
           ],
           "negative": []
         },
@@ -3879,7 +3946,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension startup"
+            "ascension startup",
+            "startup"
           ],
           "negative": []
         },
@@ -3935,7 +4003,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tariffs"
+            "ascension tariffs",
+            "tariffs"
           ],
           "negative": []
         },
@@ -3991,7 +4060,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ticketing"
+            "ascension ticketing",
+            "ticketing"
           ],
           "negative": []
         },
@@ -4047,7 +4117,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension upsell"
+            "ascension upsell",
+            "upsell"
           ],
           "negative": []
         },
@@ -4103,7 +4174,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension woocommerce"
+            "ascension woocommerce",
+            "woocommerce"
           ],
           "negative": []
         },
@@ -4159,7 +4231,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension workers comp"
+            "ascension workers comp",
+            "workers comp"
           ],
           "negative": []
         },
@@ -4215,7 +4288,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ebay"
+            "ascension ebay",
+            "ebay"
           ],
           "negative": []
         },
@@ -4327,7 +4401,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension career"
+            "ascension career",
+            "career"
           ],
           "negative": []
         },
@@ -4383,7 +4458,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension linkedin intelligence"
+            "ascension linkedin intelligence",
+            "linkedin intelligence"
           ],
           "negative": []
         },
@@ -4439,7 +4515,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mentors"
+            "ascension mentors",
+            "mentors"
           ],
           "negative": []
         },
@@ -4495,7 +4572,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension professional network"
+            "ascension professional network",
+            "professional network"
           ],
           "negative": []
         },
@@ -4551,7 +4629,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension code"
+            "ascension code",
+            "code"
           ],
           "negative": []
         },
@@ -4999,6 +5078,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "activism",
             "ascension activism"
           ],
           "negative": []
@@ -5055,7 +5135,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension volunteering"
+            "ascension volunteering",
+            "volunteering"
           ],
           "negative": []
         },
@@ -5111,6 +5192,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "air fryer",
             "ascension air fryer"
           ],
           "negative": []
@@ -5167,7 +5249,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension bbq"
+            "ascension bbq",
+            "bbq"
           ],
           "negative": []
         },
@@ -5223,7 +5306,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension bread making"
+            "ascension bread making",
+            "bread making"
           ],
           "negative": []
         },
@@ -5279,7 +5363,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dehydrator"
+            "ascension dehydrator",
+            "dehydrator"
           ],
           "negative": []
         },
@@ -5335,7 +5420,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension grilling"
+            "ascension grilling",
+            "grilling"
           ],
           "negative": []
         },
@@ -5391,7 +5477,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pizza"
+            "ascension pizza",
+            "pizza"
           ],
           "negative": []
         },
@@ -5447,7 +5534,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pressure cooker"
+            "ascension pressure cooker",
+            "pressure cooker"
           ],
           "negative": []
         },
@@ -5503,7 +5591,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension slow cooker"
+            "ascension slow cooker",
+            "slow cooker"
           ],
           "negative": []
         },
@@ -5559,7 +5648,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension smoking"
+            "ascension smoking",
+            "smoking"
           ],
           "negative": []
         },
@@ -5615,7 +5705,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sourdough"
+            "ascension sourdough",
+            "sourdough"
           ],
           "negative": []
         },
@@ -5671,7 +5762,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sous vide"
+            "ascension sous vide",
+            "sous vide"
           ],
           "negative": []
         },
@@ -5727,6 +5819,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "3d printing",
             "ascension 3d printing"
           ],
           "negative": []
@@ -5783,6 +5876,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "amsr studio",
             "ascension amsr studio"
           ],
           "negative": []
@@ -5839,6 +5933,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "arduino",
             "ascension arduino"
           ],
           "negative": []
@@ -5895,6 +5990,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "art",
             "ascension art"
           ],
           "negative": []
@@ -5951,7 +6047,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension branding"
+            "ascension branding",
+            "branding"
           ],
           "negative": []
         },
@@ -6007,7 +6104,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension build path"
+            "ascension build path",
+            "build path"
           ],
           "negative": []
         },
@@ -6063,7 +6161,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cnc"
+            "ascension cnc",
+            "cnc"
           ],
           "negative": []
         },
@@ -6119,7 +6218,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension color grading"
+            "ascension color grading",
+            "color grading"
           ],
           "negative": []
         },
@@ -6175,7 +6275,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension craft"
+            "ascension craft",
+            "craft"
           ],
           "negative": []
         },
@@ -6231,7 +6332,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creation auditor"
+            "ascension creation auditor",
+            "creation auditor"
           ],
           "negative": []
         },
@@ -6287,7 +6389,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creation intelligence"
+            "ascension creation intelligence",
+            "creation intelligence"
           ],
           "negative": []
         },
@@ -6343,7 +6446,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creation transformation"
+            "ascension creation transformation",
+            "creation transformation"
           ],
           "negative": []
         },
@@ -6399,7 +6503,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creative"
+            "ascension creative",
+            "creative"
           ],
           "negative": []
         },
@@ -6455,7 +6560,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creative manager"
+            "ascension creative manager",
+            "creative manager"
           ],
           "negative": []
         },
@@ -6511,7 +6617,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension creative studio"
+            "ascension creative studio",
+            "creative studio"
           ],
           "negative": []
         },
@@ -6567,7 +6674,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dance"
+            "ascension dance",
+            "dance"
           ],
           "negative": []
         },
@@ -6623,7 +6731,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension design"
+            "ascension design",
+            "design"
           ],
           "negative": []
         },
@@ -6679,7 +6788,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension design assistant"
+            "ascension design assistant",
+            "design assistant"
           ],
           "negative": []
         },
@@ -6735,7 +6845,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension drones"
+            "ascension drones",
+            "drones"
           ],
           "negative": []
         },
@@ -6791,7 +6902,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension electronics"
+            "ascension electronics",
+            "electronics"
           ],
           "negative": []
         },
@@ -6847,7 +6959,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fanfiction"
+            "ascension fanfiction",
+            "fanfiction"
           ],
           "negative": []
         },
@@ -6903,7 +7016,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension filmmaking"
+            "ascension filmmaking",
+            "filmmaking"
           ],
           "negative": []
         },
@@ -6959,7 +7073,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension github intelligence"
+            "ascension github intelligence",
+            "github intelligence"
           ],
           "negative": []
         },
@@ -7015,7 +7130,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ham radio"
+            "ascension ham radio",
+            "ham radio"
           ],
           "negative": []
         },
@@ -7071,7 +7187,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hardware prototyping"
+            "ascension hardware prototyping",
+            "hardware prototyping"
           ],
           "negative": []
         },
@@ -7127,7 +7244,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension instagram"
+            "ascension instagram",
+            "instagram"
           ],
           "negative": []
         },
@@ -7183,7 +7301,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension invention engine"
+            "ascension invention engine",
+            "invention engine"
           ],
           "negative": []
         },
@@ -7239,7 +7358,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension inventor lab"
+            "ascension inventor lab",
+            "inventor lab"
           ],
           "negative": []
         },
@@ -7295,7 +7415,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension laser cutting"
+            "ascension laser cutting",
+            "laser cutting"
           ],
           "negative": []
         },
@@ -7351,7 +7472,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension lyrics"
+            "ascension lyrics",
+            "lyrics"
           ],
           "negative": []
         },
@@ -7407,7 +7529,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mastering"
+            "ascension mastering",
+            "mastering"
           ],
           "negative": []
         },
@@ -7463,7 +7586,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension media studio"
+            "ascension media studio",
+            "media studio"
           ],
           "negative": []
         },
@@ -7519,7 +7643,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension metalworking"
+            "ascension metalworking",
+            "metalworking"
           ],
           "negative": []
         },
@@ -7575,7 +7700,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mixing"
+            "ascension mixing",
+            "mixing"
           ],
           "negative": []
         },
@@ -7631,7 +7757,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension music"
+            "ascension music",
+            "music"
           ],
           "negative": []
         },
@@ -7687,7 +7814,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension obs"
+            "ascension obs",
+            "obs"
           ],
           "negative": []
         },
@@ -7743,7 +7871,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension overlay design"
+            "ascension overlay design",
+            "overlay design"
           ],
           "negative": []
         },
@@ -7799,7 +7928,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension photography"
+            "ascension photography",
+            "photography"
           ],
           "negative": []
         },
@@ -7855,7 +7985,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension photography gear"
+            "ascension photography gear",
+            "photography gear"
           ],
           "negative": []
         },
@@ -7911,7 +8042,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension podcast"
+            "ascension podcast",
+            "podcast"
           ],
           "negative": []
         },
@@ -7967,7 +8099,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension podcast production"
+            "ascension podcast production",
+            "podcast production"
           ],
           "negative": []
         },
@@ -8023,7 +8156,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension poetry"
+            "ascension poetry",
+            "poetry"
           ],
           "negative": []
         },
@@ -8079,7 +8213,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension product studio"
+            "ascension product studio",
+            "product studio"
           ],
           "negative": []
         },
@@ -8135,7 +8270,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension raspberry pi"
+            "ascension raspberry pi",
+            "raspberry pi"
           ],
           "negative": []
         },
@@ -8191,7 +8327,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension roadmap engine"
+            "ascension roadmap engine",
+            "roadmap engine"
           ],
           "negative": []
         },
@@ -8247,7 +8384,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension robotics"
+            "ascension robotics",
+            "robotics"
           ],
           "negative": []
         },
@@ -8303,7 +8441,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension software studio"
+            "ascension software studio",
+            "software studio"
           ],
           "negative": []
         },
@@ -8359,7 +8498,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension soldering"
+            "ascension soldering",
+            "soldering"
           ],
           "negative": []
         },
@@ -8415,7 +8555,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sound design"
+            "ascension sound design",
+            "sound design"
           ],
           "negative": []
         },
@@ -8471,7 +8612,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension storytelling"
+            "ascension storytelling",
+            "storytelling"
           ],
           "negative": []
         },
@@ -8527,7 +8669,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension streaming"
+            "ascension streaming",
+            "streaming"
           ],
           "negative": []
         },
@@ -8583,7 +8726,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension streaming channel"
+            "ascension streaming channel",
+            "streaming channel"
           ],
           "negative": []
         },
@@ -8639,7 +8783,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension streaming moderator"
+            "ascension streaming moderator",
+            "streaming moderator"
           ],
           "negative": []
         },
@@ -8695,7 +8840,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension thumbnail"
+            "ascension thumbnail",
+            "thumbnail"
           ],
           "negative": []
         },
@@ -8751,7 +8897,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tiktok"
+            "ascension tiktok",
+            "tiktok"
           ],
           "negative": []
         },
@@ -8807,7 +8954,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tiktok automation"
+            "ascension tiktok automation",
+            "tiktok automation"
           ],
           "negative": []
         },
@@ -8863,7 +9011,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tiktok intelligence"
+            "ascension tiktok intelligence",
+            "tiktok intelligence"
           ],
           "negative": []
         },
@@ -8919,7 +9068,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension twitter"
+            "ascension twitter",
+            "twitter"
           ],
           "negative": []
         },
@@ -8975,7 +9125,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension video editing"
+            "ascension video editing",
+            "video editing"
           ],
           "negative": []
         },
@@ -9031,7 +9182,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension video types"
+            "ascension video types",
+            "video types"
           ],
           "negative": []
         },
@@ -9087,7 +9239,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension voiceover"
+            "ascension voiceover",
+            "voiceover"
           ],
           "negative": []
         },
@@ -9143,7 +9296,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension welding"
+            "ascension welding",
+            "welding"
           ],
           "negative": []
         },
@@ -9199,7 +9353,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension woodworking"
+            "ascension woodworking",
+            "woodworking"
           ],
           "negative": []
         },
@@ -9255,7 +9410,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension writing"
+            "ascension writing",
+            "writing"
           ],
           "negative": []
         },
@@ -9311,7 +9467,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension youtube"
+            "ascension youtube",
+            "youtube"
           ],
           "negative": []
         },
@@ -9367,7 +9524,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension youtube automation"
+            "ascension youtube automation",
+            "youtube automation"
           ],
           "negative": []
         },
@@ -9423,7 +9581,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension youtube seo"
+            "ascension youtube seo",
+            "youtube seo"
           ],
           "negative": []
         },
@@ -9535,7 +9694,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension legal assistant"
+            "ascension legal",
+            "ascension legal assistant",
+            "legal",
+            "legal assistant"
           ],
           "negative": []
         },
@@ -9591,7 +9753,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension college"
+            "ascension college",
+            "college"
           ],
           "negative": []
         },
@@ -9647,7 +9810,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension exam"
+            "ascension exam",
+            "exam"
           ],
           "negative": []
         },
@@ -9703,7 +9867,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension homework"
+            "ascension homework",
+            "homework"
           ],
           "negative": []
         },
@@ -9759,7 +9924,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension memorization"
+            "ascension memorization",
+            "memorization"
           ],
           "negative": []
         },
@@ -9815,7 +9981,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension presentation"
+            "ascension presentation",
+            "presentation"
           ],
           "negative": []
         },
@@ -9871,7 +10038,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension scholarship"
+            "ascension scholarship",
+            "scholarship"
           ],
           "negative": []
         },
@@ -9927,7 +10095,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension school"
+            "ascension school",
+            "school"
           ],
           "negative": []
         },
@@ -9983,7 +10152,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension study skills"
+            "ascension study skills",
+            "ascension studyskills",
+            "study skills",
+            "studyskills"
           ],
           "negative": []
         },
@@ -10039,7 +10211,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension teaching"
+            "ascension teaching",
+            "teaching"
           ],
           "negative": []
         },
@@ -10095,7 +10268,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tutor"
+            "ascension tutor",
+            "tutor"
           ],
           "negative": []
         },
@@ -10151,6 +10325,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "api",
             "ascension api"
           ],
           "negative": []
@@ -10207,7 +10382,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension blockchain"
+            "ascension blockchain",
+            "blockchain"
           ],
           "negative": []
         },
@@ -10263,7 +10439,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ci/cd"
+            "ascension ci/cd",
+            "ascension cicd",
+            "ci/cd",
+            "cicd"
           ],
           "negative": []
         },
@@ -10319,7 +10498,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cloud"
+            "ascension cloud",
+            "cloud"
           ],
           "negative": []
         },
@@ -10375,7 +10555,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension databases"
+            "ascension databases",
+            "databases"
           ],
           "negative": []
         },
@@ -10431,7 +10612,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension devops"
+            "ascension devops",
+            "devops"
           ],
           "negative": []
         },
@@ -10487,7 +10669,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension microservices"
+            "ascension microservices",
+            "microservices"
           ],
           "negative": []
         },
@@ -10543,7 +10726,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mining"
+            "ascension mining",
+            "mining"
           ],
           "negative": []
         },
@@ -10599,7 +10783,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension monitoring"
+            "ascension monitoring",
+            "monitoring"
           ],
           "negative": []
         },
@@ -10655,7 +10840,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension nodes"
+            "ascension nodes",
+            "nodes"
           ],
           "negative": []
         },
@@ -10711,7 +10897,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension security tech"
+            "ascension security tech",
+            "security tech"
           ],
           "negative": []
         },
@@ -10767,7 +10954,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension testing"
+            "ascension testing",
+            "testing"
           ],
           "negative": []
         },
@@ -11047,7 +11235,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "phone driver layer"
+            "phone driver layer",
+            "phone drivers"
           ],
           "negative": []
         },
@@ -11327,6 +11516,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "device drivers",
             "universal device drivers"
           ],
           "negative": []
@@ -11383,6 +11573,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "device flash",
             "universal device flash"
           ],
           "negative": []
@@ -11495,7 +11686,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension astrology"
+            "ascension astrology",
+            "astrology"
           ],
           "negative": []
         },
@@ -11551,7 +11743,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension betting"
+            "ascension betting",
+            "betting"
           ],
           "negative": []
         },
@@ -11607,7 +11800,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension blackjack"
+            "ascension blackjack",
+            "blackjack"
           ],
           "negative": []
         },
@@ -11663,7 +11857,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension board games"
+            "ascension board games",
+            "ascension boardgames",
+            "board games",
+            "boardgames"
           ],
           "negative": []
         },
@@ -11719,7 +11916,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension books"
+            "ascension books",
+            "books"
           ],
           "negative": []
         },
@@ -11775,7 +11973,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension casino"
+            "ascension casino",
+            "casino"
           ],
           "negative": []
         },
@@ -11831,7 +12030,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension chess"
+            "ascension chess",
+            "chess"
           ],
           "negative": []
         },
@@ -11887,7 +12087,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension comedy"
+            "ascension comedy",
+            "comedy"
           ],
           "negative": []
         },
@@ -11943,7 +12144,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension comics"
+            "ascension comics",
+            "comics"
           ],
           "negative": []
         },
@@ -11999,7 +12201,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension concerts"
+            "ascension concerts",
+            "concerts"
           ],
           "negative": []
         },
@@ -12055,7 +12258,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cosplay"
+            "ascension cosplay",
+            "cosplay"
           ],
           "negative": []
         },
@@ -12111,7 +12315,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension festivals"
+            "ascension festivals",
+            "festivals"
           ],
           "negative": []
         },
@@ -12167,7 +12372,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension games"
+            "ascension games",
+            "games"
           ],
           "negative": []
         },
@@ -12223,7 +12429,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension horoscope"
+            "ascension horoscope",
+            "horoscope"
           ],
           "negative": []
         },
@@ -12279,7 +12486,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension jokes"
+            "ascension jokes",
+            "jokes"
           ],
           "negative": []
         },
@@ -12335,7 +12543,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension karaoke"
+            "ascension karaoke",
+            "karaoke"
           ],
           "negative": []
         },
@@ -12391,7 +12600,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension lottery"
+            "ascension lottery",
+            "lottery"
           ],
           "negative": []
         },
@@ -12447,7 +12657,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension magic"
+            "ascension magic",
+            "magic"
           ],
           "negative": []
         },
@@ -12503,7 +12714,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension movies"
+            "ascension movies",
+            "movies"
           ],
           "negative": []
         },
@@ -12559,7 +12771,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension poker"
+            "ascension poker",
+            "poker"
           ],
           "negative": []
         },
@@ -12615,7 +12828,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension puzzles"
+            "ascension puzzles",
+            "puzzles"
           ],
           "negative": []
         },
@@ -12671,7 +12885,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension rc"
+            "ascension rc",
+            "rc"
           ],
           "negative": []
         },
@@ -12727,7 +12942,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension riddles"
+            "ascension riddles",
+            "riddles"
           ],
           "negative": []
         },
@@ -12783,7 +12999,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension roleplay"
+            "ascension roleplay",
+            "roleplay"
           ],
           "negative": []
         },
@@ -12839,7 +13056,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sports"
+            "ascension sports",
+            "sports"
           ],
           "negative": []
         },
@@ -12895,7 +13113,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sports betting"
+            "ascension sports betting",
+            "sports betting"
           ],
           "negative": []
         },
@@ -12951,7 +13170,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension standup"
+            "ascension standup",
+            "standup"
           ],
           "negative": []
         },
@@ -13007,7 +13227,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tarot"
+            "ascension tarot",
+            "tarot"
           ],
           "negative": []
         },
@@ -13063,7 +13284,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension trading cards"
+            "ascension trading cards",
+            "trading cards"
           ],
           "negative": []
         },
@@ -13119,7 +13341,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension trivia"
+            "ascension trivia",
+            "trivia"
           ],
           "negative": []
         },
@@ -13175,7 +13398,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension environment"
+            "ascension environment",
+            "environment"
           ],
           "negative": []
         },
@@ -13231,7 +13455,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension weather"
+            "ascension weather",
+            "weather"
           ],
           "negative": []
         },
@@ -13287,7 +13512,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension child development"
+            "ascension child development",
+            "child development"
           ],
           "negative": []
         },
@@ -13343,7 +13569,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension family abroad"
+            "ascension family abroad",
+            "family abroad"
           ],
           "negative": []
         },
@@ -13399,7 +13626,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension family sync"
+            "ascension family sync",
+            "family sync"
           ],
           "negative": []
         },
@@ -13455,7 +13683,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension familyos"
+            "ascension family",
+            "ascension familyos",
+            "family",
+            "familyos"
           ],
           "negative": []
         },
@@ -13511,6 +13742,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "72h sprint",
             "ascension 72h sprint"
           ],
           "negative": []
@@ -13567,6 +13799,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "accounting",
             "ascension accounting"
           ],
           "negative": []
@@ -13623,6 +13856,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "airdrop",
             "ascension airdrop"
           ],
           "negative": []
@@ -13679,7 +13913,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension assets"
+            "ascension assets",
+            "assets"
           ],
           "negative": []
         },
@@ -13735,7 +13970,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension audit"
+            "ascension audit",
+            "audit"
           ],
           "negative": []
         },
@@ -13791,7 +14027,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension bookkeeping"
+            "ascension bookkeeping",
+            "bookkeeping"
           ],
           "negative": []
         },
@@ -13847,7 +14084,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension budgeting"
+            "ascension budgeting",
+            "budgeting"
           ],
           "negative": []
         },
@@ -13903,7 +14141,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension business taxes"
+            "ascension business taxes",
+            "business taxes"
           ],
           "negative": []
         },
@@ -13959,7 +14198,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cash strategy"
+            "ascension cash strategy",
+            "cash strategy"
           ],
           "negative": []
         },
@@ -14015,7 +14255,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension compound engine"
+            "ascension compound engine",
+            "compound engine"
           ],
           "negative": []
         },
@@ -14071,7 +14312,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension credit"
+            "ascension credit",
+            "credit"
           ],
           "negative": []
         },
@@ -14127,7 +14369,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension credit score"
+            "ascension credit score",
+            "credit score"
           ],
           "negative": []
         },
@@ -14183,7 +14426,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension crypto"
+            "ascension crypto",
+            "crypto"
           ],
           "negative": []
         },
@@ -14239,7 +14483,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension crypto intelligence"
+            "ascension crypto intelligence",
+            "crypto intelligence"
           ],
           "negative": []
         },
@@ -14295,7 +14540,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dao"
+            "ascension dao",
+            "dao"
           ],
           "negative": []
         },
@@ -14351,7 +14597,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension day trading"
+            "ascension day trading",
+            "ascension daytrading",
+            "day trading",
+            "daytrading"
           ],
           "negative": []
         },
@@ -14407,7 +14656,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension defi"
+            "ascension defi",
+            "defi"
           ],
           "negative": []
         },
@@ -14463,7 +14713,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension debt"
+            "ascension debt",
+            "debt"
           ],
           "negative": []
         },
@@ -14519,7 +14770,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension deductible"
+            "ascension deductible",
+            "deductible"
           ],
           "negative": []
         },
@@ -14575,7 +14827,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dream fund"
+            "ascension dream fund",
+            "dream fund"
           ],
           "negative": []
         },
@@ -14631,7 +14884,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension earthquake insurance"
+            "ascension earthquake insurance",
+            "earthquake insurance"
           ],
           "negative": []
         },
@@ -14687,7 +14941,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension expenses"
+            "ascension expenses",
+            "expenses"
           ],
           "negative": []
         },
@@ -14743,7 +14998,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fsa"
+            "ascension fsa",
+            "fsa"
           ],
           "negative": []
         },
@@ -14799,7 +15055,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fast turn"
+            "ascension fast turn",
+            "fast turn"
           ],
           "negative": []
         },
@@ -14855,7 +15112,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension financial intelligence"
+            "ascension finance",
+            "ascension financial intelligence",
+            "finance",
+            "financial intelligence"
           ],
           "negative": []
         },
@@ -14911,7 +15171,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension flood insurance"
+            "ascension flood insurance",
+            "flood insurance"
           ],
           "negative": []
         },
@@ -14967,7 +15228,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension forex"
+            "ascension forex",
+            "forex"
           ],
           "negative": []
         },
@@ -15023,7 +15285,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension gig sprint"
+            "ascension gig sprint",
+            "gig sprint"
           ],
           "negative": []
         },
@@ -15079,7 +15342,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension global economics"
+            "ascension global economics",
+            "global economics"
           ],
           "negative": []
         },
@@ -15135,7 +15399,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hsa"
+            "ascension hsa",
+            "hsa"
           ],
           "negative": []
         },
@@ -15191,7 +15456,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension income split"
+            "ascension income split",
+            "income split"
           ],
           "negative": []
         },
@@ -15247,7 +15513,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension insurance"
+            "ascension insurance",
+            "insurance"
           ],
           "negative": []
         },
@@ -15303,7 +15570,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension insurance review"
+            "ascension insurance review",
+            "insurance review"
           ],
           "negative": []
         },
@@ -15359,7 +15627,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension investing"
+            "ascension investing",
+            "investing"
           ],
           "negative": []
         },
@@ -15415,7 +15684,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension investment intelligence"
+            "ascension investment intelligence",
+            "investment intelligence"
           ],
           "negative": []
         },
@@ -15471,7 +15741,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension invoicing"
+            "ascension invoicing",
+            "invoicing"
           ],
           "negative": []
         },
@@ -15527,7 +15798,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension liability insurance"
+            "ascension liability insurance",
+            "liability insurance"
           ],
           "negative": []
         },
@@ -15583,7 +15855,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension loans"
+            "ascension loans",
+            "loans"
           ],
           "negative": []
         },
@@ -15639,7 +15912,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension money flip"
+            "ascension money flip",
+            "money flip"
           ],
           "negative": []
         },
@@ -15695,7 +15969,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mortgage"
+            "ascension mortgage",
+            "mortgage"
           ],
           "negative": []
         },
@@ -15751,7 +16026,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension nfts"
+            "ascension nfts",
+            "nfts"
           ],
           "negative": []
         },
@@ -15807,7 +16083,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension opportunity finance"
+            "ascension opportunity finance",
+            "opportunity finance"
           ],
           "negative": []
         },
@@ -15863,7 +16140,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension payroll"
+            "ascension payroll",
+            "payroll"
           ],
           "negative": []
         },
@@ -15919,7 +16197,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pet insurance"
+            "ascension pet insurance",
+            "pet insurance"
           ],
           "negative": []
         },
@@ -15975,7 +16254,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension plaid intelligence"
+            "ascension plaid intelligence",
+            "plaid intelligence"
           ],
           "negative": []
         },
@@ -16031,7 +16311,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension policy review"
+            "ascension policy review",
+            "policy review"
           ],
           "negative": []
         },
@@ -16087,7 +16368,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension prediction market intelligence"
+            "ascension prediction market intelligence",
+            "ascension prediction markets",
+            "prediction market intelligence",
+            "prediction markets"
           ],
           "negative": []
         },
@@ -16143,7 +16427,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension premium"
+            "ascension premium",
+            "premium"
           ],
           "negative": []
         },
@@ -16199,7 +16484,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension presale"
+            "ascension presale",
+            "presale"
           ],
           "negative": []
         },
@@ -16255,7 +16541,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension revenue tracker"
+            "ascension revenue tracker",
+            "revenue tracker"
           ],
           "negative": []
         },
@@ -16311,7 +16598,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension risk budget"
+            "ascension risk budget",
+            "risk budget"
           ],
           "negative": []
         },
@@ -16367,7 +16655,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension staking"
+            "ascension staking",
+            "staking"
           ],
           "negative": []
         },
@@ -16423,7 +16712,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension swing trading"
+            "ascension swing trading",
+            "ascension swingtrading",
+            "swing trading",
+            "swingtrading"
           ],
           "negative": []
         },
@@ -16479,7 +16771,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension taxes"
+            "ascension taxes",
+            "taxes"
           ],
           "negative": []
         },
@@ -16535,7 +16828,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension trading intelligence"
+            "ascension trading",
+            "ascension trading intelligence",
+            "trading",
+            "trading intelligence"
           ],
           "negative": []
         },
@@ -16591,7 +16887,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension umbrella insurance"
+            "ascension umbrella insurance",
+            "umbrella insurance"
           ],
           "negative": []
         },
@@ -16647,7 +16944,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension wallet automation"
+            "ascension wallet automation",
+            "wallet automation"
           ],
           "negative": []
         },
@@ -16703,7 +17001,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension whitelist"
+            "ascension whitelist",
+            "whitelist"
           ],
           "negative": []
         },
@@ -16759,7 +17058,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension zero capital"
+            "ascension zero capital",
+            "zero capital"
           ],
           "negative": []
         },
@@ -16815,7 +17115,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension post workout"
+            "ascension post workout",
+            "post workout"
           ],
           "negative": []
         },
@@ -16871,7 +17172,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pre workout"
+            "ascension pre workout",
+            "pre workout"
           ],
           "negative": []
         },
@@ -16927,6 +17229,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "aging",
             "ascension aging"
           ],
           "negative": []
@@ -16983,7 +17286,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fitness"
+            "ascension fitness",
+            "fitness"
           ],
           "negative": []
         },
@@ -17039,7 +17343,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension health"
+            "ascension health",
+            "health"
           ],
           "negative": []
         },
@@ -17095,7 +17400,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension nutrition"
+            "ascension nutrition",
+            "nutrition"
           ],
           "negative": []
         },
@@ -17151,7 +17457,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sleep"
+            "ascension sleep",
+            "sleep"
           ],
           "negative": []
         },
@@ -17263,6 +17570,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "appointments",
             "ascension appointments"
           ],
           "negative": []
@@ -17319,6 +17627,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "aquaponics",
             "ascension aquaponics"
           ],
           "negative": []
@@ -17375,7 +17684,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension automotive"
+            "ascension automotive",
+            "automotive"
           ],
           "negative": []
         },
@@ -17431,7 +17741,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension baking"
+            "ascension baking",
+            "baking"
           ],
           "negative": []
         },
@@ -17487,7 +17798,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension balcony"
+            "ascension balcony",
+            "balcony"
           ],
           "negative": []
         },
@@ -17543,7 +17855,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension canning"
+            "ascension canning",
+            "canning"
           ],
           "negative": []
         },
@@ -17599,7 +17912,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cleaning"
+            "ascension cleaning",
+            "cleaning"
           ],
           "negative": []
         },
@@ -17655,7 +17969,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension commute"
+            "ascension commute",
+            "commute"
           ],
           "negative": []
         },
@@ -17711,7 +18026,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension composting"
+            "ascension composting",
+            "composting"
           ],
           "negative": []
         },
@@ -17767,7 +18083,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cooking"
+            "ascension cooking",
+            "cooking"
           ],
           "negative": []
         },
@@ -17823,7 +18140,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension decor"
+            "ascension decor",
+            "decor"
           ],
           "negative": []
         },
@@ -17879,7 +18197,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension events"
+            "ascension events",
+            "events"
           ],
           "negative": []
         },
@@ -17935,7 +18254,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fermentation"
+            "ascension fermentation",
+            "fermentation"
           ],
           "negative": []
         },
@@ -17991,7 +18311,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension garden"
+            "ascension garden",
+            "garden"
           ],
           "negative": []
         },
@@ -18047,7 +18368,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension gardening"
+            "ascension gardening",
+            "gardening"
           ],
           "negative": []
         },
@@ -18103,7 +18425,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension grocery list"
+            "ascension grocery list",
+            "grocery list"
           ],
           "negative": []
         },
@@ -18159,7 +18482,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension homeos"
+            "ascension home",
+            "ascension homeos",
+            "home",
+            "homeos"
           ],
           "negative": []
         },
@@ -18215,7 +18541,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension household sync"
+            "ascension household sync",
+            "household sync"
           ],
           "negative": []
         },
@@ -18271,7 +18598,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hydroponics"
+            "ascension hydroponics",
+            "hydroponics"
           ],
           "negative": []
         },
@@ -18327,7 +18655,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension interior design"
+            "ascension interior design",
+            "interior design"
           ],
           "negative": []
         },
@@ -18383,7 +18712,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension landscaping"
+            "ascension landscaping",
+            "landscaping"
           ],
           "negative": []
         },
@@ -18439,7 +18769,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension laundry"
+            "ascension laundry",
+            "laundry"
           ],
           "negative": []
         },
@@ -18495,7 +18826,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension lawn care"
+            "ascension lawn care",
+            "lawn care"
           ],
           "negative": []
         },
@@ -18551,7 +18883,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension life admin"
+            "ascension life admin",
+            "life admin"
           ],
           "negative": []
         },
@@ -18607,7 +18940,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension lighting"
+            "ascension lighting",
+            "lighting"
           ],
           "negative": []
         },
@@ -18663,7 +18997,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension maintenance"
+            "ascension maintenance",
+            "maintenance"
           ],
           "negative": []
         },
@@ -18719,7 +19054,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mixology"
+            "ascension mixology",
+            "mixology"
           ],
           "negative": []
         },
@@ -18775,7 +19111,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension moving"
+            "ascension moving",
+            "moving"
           ],
           "negative": []
         },
@@ -18831,7 +19168,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension organizing"
+            "ascension organizing",
+            "organizing"
           ],
           "negative": []
         },
@@ -18887,7 +19225,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension packing"
+            "ascension packing",
+            "packing"
           ],
           "negative": []
         },
@@ -18943,7 +19282,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension parenting"
+            "ascension parenting",
+            "parenting"
           ],
           "negative": []
         },
@@ -18999,7 +19339,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pets"
+            "ascension pets",
+            "pets"
           ],
           "negative": []
         },
@@ -19055,7 +19396,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension preserving"
+            "ascension preserving",
+            "preserving"
           ],
           "negative": []
         },
@@ -19111,7 +19453,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension real estate"
+            "ascension real estate",
+            "ascension realestate",
+            "real estate",
+            "realestate"
           ],
           "negative": []
         },
@@ -19167,7 +19512,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension repair"
+            "ascension repair",
+            "repair"
           ],
           "negative": []
         },
@@ -19223,7 +19569,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension routine"
+            "ascension routine",
+            "routine"
           ],
           "negative": []
         },
@@ -19279,7 +19626,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension smell"
+            "ascension smell",
+            "smell"
           ],
           "negative": []
         },
@@ -19335,7 +19683,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sound"
+            "ascension sound",
+            "sound"
           ],
           "negative": []
         },
@@ -19391,7 +19740,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension storage"
+            "ascension storage",
+            "storage"
           ],
           "negative": []
         },
@@ -19447,7 +19797,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension travel"
+            "ascension travel",
+            "travel"
           ],
           "negative": []
         },
@@ -19503,7 +19854,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension grief"
+            "ascension grief",
+            "grief"
           ],
           "negative": []
         },
@@ -19559,7 +19911,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension human life"
+            "ascension human life",
+            "human life"
           ],
           "negative": []
         },
@@ -19615,6 +19968,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "age",
             "ascension age"
           ],
           "negative": []
@@ -19671,6 +20025,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "adaptive quest",
             "ascension adaptive quest"
           ],
           "negative": []
@@ -19727,7 +20082,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension astrology intelligence"
+            "ascension astrology intelligence",
+            "astrology intelligence"
           ],
           "negative": []
         },
@@ -19783,7 +20139,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension behavioral intelligence"
+            "ascension behavioral intelligence",
+            "behavioral intelligence"
           ],
           "negative": []
         },
@@ -19839,7 +20196,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension biometric"
+            "ascension biometric",
+            "biometric"
           ],
           "negative": []
         },
@@ -19895,7 +20253,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cie"
+            "ascension cie",
+            "cie"
           ],
           "negative": []
         },
@@ -19951,7 +20310,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension context engine"
+            "ascension context engine",
+            "context engine"
           ],
           "negative": []
         },
@@ -20007,7 +20367,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension contribution"
+            "ascension contribution",
+            "contribution"
           ],
           "negative": []
         },
@@ -20063,7 +20424,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension decision physics"
+            "ascension decision physics",
+            "decision physics"
           ],
           "negative": []
         },
@@ -20119,7 +20481,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension family profile"
+            "ascension family profile",
+            "family profile"
           ],
           "negative": []
         },
@@ -20175,7 +20538,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension human intelligence"
+            "ascension human intelligence",
+            "human intelligence"
           ],
           "negative": []
         },
@@ -20231,7 +20595,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension identity"
+            "ascension identity",
+            "identity"
           ],
           "negative": []
         },
@@ -20287,7 +20652,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension knowledge graph"
+            "ascension knowledge graph",
+            "knowledge graph"
           ],
           "negative": []
         },
@@ -20343,7 +20709,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension legacy"
+            "ascension legacy",
+            "legacy"
           ],
           "negative": []
         },
@@ -20399,7 +20766,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension life flow"
+            "ascension life flow",
+            "life flow"
           ],
           "negative": []
         },
@@ -20455,7 +20823,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension life orchestrator"
+            "ascension life orchestrator",
+            "life orchestrator"
           ],
           "negative": []
         },
@@ -20511,7 +20880,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension living context"
+            "ascension living context",
+            "living context"
           ],
           "negative": []
         },
@@ -20567,7 +20937,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension living memory"
+            "ascension living memory",
+            "living memory"
           ],
           "negative": []
         },
@@ -20623,7 +20994,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension opportunity intelligence"
+            "ascension opportunity intelligence",
+            "opportunity intelligence"
           ],
           "negative": []
         },
@@ -20679,7 +21051,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension personal vortex"
+            "ascension personal vortex",
+            "personal vortex"
           ],
           "negative": []
         },
@@ -20735,7 +21108,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension personality"
+            "ascension personality",
+            "personality"
           ],
           "negative": []
         },
@@ -20791,7 +21165,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension proactive engine"
+            "ascension proactive engine",
+            "proactive engine"
           ],
           "negative": []
         },
@@ -20847,7 +21222,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension proactivity"
+            "ascension proactivity",
+            "proactivity"
           ],
           "negative": []
         },
@@ -20903,7 +21279,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension question engine"
+            "ascension question engine",
+            "question engine"
           ],
           "negative": []
         },
@@ -20959,7 +21336,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension resource intelligence"
+            "ascension resource intelligence",
+            "resource intelligence"
           ],
           "negative": []
         },
@@ -21015,7 +21393,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension second brain"
+            "ascension second brain",
+            "second brain"
           ],
           "negative": []
         },
@@ -21071,7 +21450,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shell orchestrator"
+            "ascension shell orchestrator",
+            "shell orchestrator"
           ],
           "negative": []
         },
@@ -21127,7 +21507,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension unified vortex"
+            "ascension unified vortex",
+            "unified vortex"
           ],
           "negative": []
         },
@@ -21183,7 +21564,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension user profile"
+            "ascension user profile",
+            "user profile"
           ],
           "negative": []
         },
@@ -21239,7 +21621,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension vault"
+            "ascension vault",
+            "vault"
           ],
           "negative": []
         },
@@ -21295,7 +21678,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension voice intelligence"
+            "ascension voice intelligence",
+            "voice intelligence"
           ],
           "negative": []
         },
@@ -21351,7 +21735,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension vortex signals"
+            "ascension vortex signals",
+            "vortex signals"
           ],
           "negative": []
         },
@@ -21407,7 +21792,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension world vortex"
+            "ascension world vortex",
+            "world vortex"
           ],
           "negative": []
         },
@@ -21631,6 +22017,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "argumentation",
             "ascension argumentation"
           ],
           "negative": []
@@ -21687,7 +22074,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension astronomy"
+            "ascension astronomy",
+            "astronomy"
           ],
           "negative": []
         },
@@ -21743,7 +22131,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension critical thinking"
+            "ascension critical thinking",
+            "critical thinking"
           ],
           "negative": []
         },
@@ -21799,7 +22188,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension culture"
+            "ascension culture",
+            "culture"
           ],
           "negative": []
         },
@@ -21855,7 +22245,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension debate"
+            "ascension debate",
+            "debate"
           ],
           "negative": []
         },
@@ -21911,7 +22302,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension document intelligence"
+            "ascension document intelligence",
+            "document intelligence"
           ],
           "negative": []
         },
@@ -21967,7 +22359,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension environmental"
+            "ascension environmental",
+            "environmental"
           ],
           "negative": []
         },
@@ -22023,7 +22416,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ethics"
+            "ascension ethics",
+            "ethics"
           ],
           "negative": []
         },
@@ -22079,7 +22473,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension etiquette"
+            "ascension etiquette",
+            "etiquette"
           ],
           "negative": []
         },
@@ -22135,7 +22530,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fallacies"
+            "ascension fallacies",
+            "fallacies"
           ],
           "negative": []
         },
@@ -22191,7 +22587,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension government"
+            "ascension government",
+            "government"
           ],
           "negative": []
         },
@@ -22247,7 +22644,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension history"
+            "ascension history",
+            "history"
           ],
           "negative": []
         },
@@ -22303,7 +22701,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension idea validator"
+            "ascension idea validator",
+            "idea validator"
           ],
           "negative": []
         },
@@ -22359,7 +22758,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension knowledge studio"
+            "ascension knowledge studio",
+            "knowledge studio"
           ],
           "negative": []
         },
@@ -22415,7 +22815,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension language"
+            "ascension language",
+            "language"
           ],
           "negative": []
         },
@@ -22471,7 +22872,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension location intelligence"
+            "ascension location intelligence",
+            "location intelligence"
           ],
           "negative": []
         },
@@ -22527,7 +22929,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension logic"
+            "ascension logic",
+            "logic"
           ],
           "negative": []
         },
@@ -22583,7 +22986,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension math"
+            "ascension math",
+            "math"
           ],
           "negative": []
         },
@@ -22639,7 +23043,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension news intelligence"
+            "ascension news intelligence",
+            "news intelligence"
           ],
           "negative": []
         },
@@ -22695,7 +23100,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension persuasion"
+            "ascension persuasion",
+            "persuasion"
           ],
           "negative": []
         },
@@ -22751,7 +23157,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension philosophy"
+            "ascension philosophy",
+            "philosophy"
           ],
           "negative": []
         },
@@ -22807,7 +23214,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension politics"
+            "ascension politics",
+            "politics"
           ],
           "negative": []
         },
@@ -22863,7 +23271,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension research assistant"
+            "ascension research assistant",
+            "research assistant"
           ],
           "negative": []
         },
@@ -22919,7 +23328,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension science"
+            "ascension science",
+            "science"
           ],
           "negative": []
         },
@@ -22975,7 +23385,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension solution engine"
+            "ascension solution engine",
+            "solution engine"
           ],
           "negative": []
         },
@@ -23031,7 +23442,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension weather intelligence"
+            "ascension weather intelligence",
+            "weather intelligence"
           ],
           "negative": []
         },
@@ -23087,7 +23499,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension world intelligence"
+            "ascension world intelligence",
+            "world intelligence"
           ],
           "negative": []
         },
@@ -23143,7 +23556,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension youtube intelligence"
+            "ascension youtube intelligence",
+            "youtube intelligence"
           ],
           "negative": []
         },
@@ -23199,7 +23613,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension learning"
+            "ascension learning",
+            "learning"
           ],
           "negative": []
         },
@@ -23255,6 +23670,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "adoption",
             "ascension adoption"
           ],
           "negative": []
@@ -23311,7 +23727,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension contracts"
+            "ascension contracts",
+            "contracts"
           ],
           "negative": []
         },
@@ -23367,7 +23784,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension custody"
+            "ascension custody",
+            "custody"
           ],
           "negative": []
         },
@@ -23423,7 +23841,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension divorce"
+            "ascension divorce",
+            "divorce"
           ],
           "negative": []
         },
@@ -23479,7 +23898,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension immigration"
+            "ascension immigration",
+            "immigration"
           ],
           "negative": []
         },
@@ -23535,7 +23955,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension landlord"
+            "ascension landlord",
+            "landlord"
           ],
           "negative": []
         },
@@ -23591,7 +24012,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension prenup"
+            "ascension prenup",
+            "prenup"
           ],
           "negative": []
         },
@@ -23647,7 +24069,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tenant"
+            "ascension tenant",
+            "tenant"
           ],
           "negative": []
         },
@@ -23703,7 +24126,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension trust"
+            "ascension trust",
+            "trust"
           ],
           "negative": []
         },
@@ -23759,7 +24183,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension will"
+            "ascension will",
+            "will"
           ],
           "negative": []
         },
@@ -23815,6 +24240,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "anniversary",
             "ascension anniversary"
           ],
           "negative": []
@@ -23871,7 +24297,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension baby shower"
+            "ascension baby shower",
+            "ascension babyshower",
+            "baby shower",
+            "babyshower"
           ],
           "negative": []
         },
@@ -23927,7 +24356,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension birthday"
+            "ascension birthday",
+            "birthday"
           ],
           "negative": []
         },
@@ -23983,7 +24413,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension funeral"
+            "ascension funeral",
+            "funeral"
           ],
           "negative": []
         },
@@ -24039,7 +24470,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension gift"
+            "ascension gift",
+            "gift"
           ],
           "negative": []
         },
@@ -24095,7 +24527,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension graduation"
+            "ascension graduation",
+            "graduation"
           ],
           "negative": []
         },
@@ -24151,7 +24584,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension holiday"
+            "ascension holiday",
+            "holiday"
           ],
           "negative": []
         },
@@ -24207,7 +24641,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension party"
+            "ascension party",
+            "party"
           ],
           "negative": []
         },
@@ -24263,7 +24698,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension retirement"
+            "ascension retirement",
+            "retirement"
           ],
           "negative": []
         },
@@ -24319,7 +24755,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension wedding"
+            "ascension wedding",
+            "wedding"
           ],
           "negative": []
         },
@@ -24375,6 +24812,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "antiques",
             "ascension antiques"
           ],
           "negative": []
@@ -24431,7 +24869,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension auction"
+            "ascension auction",
+            "auction"
           ],
           "negative": []
         },
@@ -24487,7 +24926,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension coins"
+            "ascension coins",
+            "coins"
           ],
           "negative": []
         },
@@ -24543,7 +24983,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension collector"
+            "ascension collector",
+            "collector"
           ],
           "negative": []
         },
@@ -24599,7 +25040,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fashion"
+            "ascension fashion",
+            "fashion"
           ],
           "negative": []
         },
@@ -24655,7 +25097,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shopping"
+            "ascension shopping",
+            "shopping"
           ],
           "negative": []
         },
@@ -24711,7 +25154,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension stamps"
+            "ascension stamps",
+            "stamps"
           ],
           "negative": []
         },
@@ -24767,7 +25211,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension vinyl"
+            "ascension vinyl",
+            "vinyl"
           ],
           "negative": []
         },
@@ -24823,7 +25268,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension batch cooking"
+            "ascension batch cooking",
+            "batch cooking"
           ],
           "negative": []
         },
@@ -24879,7 +25325,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension freezer meals"
+            "ascension freezer meals",
+            "freezer meals"
           ],
           "negative": []
         },
@@ -24935,7 +25382,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension juicing"
+            "ascension juicing",
+            "juicing"
           ],
           "negative": []
         },
@@ -24991,7 +25439,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meal planning"
+            "ascension meal planning",
+            "meal planning"
           ],
           "negative": []
         },
@@ -25047,7 +25496,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meal prep"
+            "ascension meal prep",
+            "meal prep"
           ],
           "negative": []
         },
@@ -25103,7 +25553,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension protein"
+            "ascension protein",
+            "protein"
           ],
           "negative": []
         },
@@ -25159,7 +25610,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension smoothies"
+            "ascension smoothies",
+            "smoothies"
           ],
           "negative": []
         },
@@ -25215,7 +25667,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension supplements stack"
+            "ascension supplements stack",
+            "supplements stack"
           ],
           "negative": []
         },
@@ -25271,7 +25724,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension calendar intelligence"
+            "ascension calendar intelligence",
+            "calendar intelligence"
           ],
           "negative": []
         },
@@ -25327,7 +25781,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension email intelligence"
+            "ascension email intelligence",
+            "email intelligence"
           ],
           "negative": []
         },
@@ -25383,7 +25838,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension focus"
+            "ascension focus",
+            "focus"
           ],
           "negative": []
         },
@@ -25439,7 +25895,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meetings"
+            "ascension meetings",
+            "meetings"
           ],
           "negative": []
         },
@@ -25495,7 +25952,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension time"
+            "ascension time",
+            "time"
           ],
           "negative": []
         },
@@ -25551,6 +26009,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "addiction",
             "ascension addiction"
           ],
           "negative": []
@@ -25607,7 +26066,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension communication"
+            "ascension communication",
+            "communication"
           ],
           "negative": []
         },
@@ -25663,7 +26123,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension confidence"
+            "ascension confidence",
+            "confidence"
           ],
           "negative": []
         },
@@ -25719,7 +26180,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension conflict"
+            "ascension conflict",
+            "conflict"
           ],
           "negative": []
         },
@@ -25775,7 +26237,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension habits"
+            "ascension habits",
+            "habits"
           ],
           "negative": []
         },
@@ -25831,7 +26294,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mental health"
+            "ascension mental health",
+            "mental health"
           ],
           "negative": []
         },
@@ -25887,7 +26351,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension psychology"
+            "ascension psychology",
+            "psychology"
           ],
           "negative": []
         },
@@ -25943,7 +26408,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension stress"
+            "ascension stress",
+            "stress"
           ],
           "negative": []
         },
@@ -25999,6 +26465,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "active listening",
             "ascension active listening"
           ],
           "negative": []
@@ -26055,7 +26522,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension assertiveness"
+            "ascension assertiveness",
+            "assertiveness"
           ],
           "negative": []
         },
@@ -26111,7 +26579,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension boundaries"
+            "ascension boundaries",
+            "boundaries"
           ],
           "negative": []
         },
@@ -26167,7 +26636,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension charisma"
+            "ascension charisma",
+            "charisma"
           ],
           "negative": []
         },
@@ -26223,7 +26693,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension community"
+            "ascension community",
+            "community"
           ],
           "negative": []
         },
@@ -26279,7 +26750,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension conflict resolution"
+            "ascension conflict resolution",
+            "conflict resolution"
           ],
           "negative": []
         },
@@ -26335,7 +26807,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension dating"
+            "ascension dating",
+            "dating"
           ],
           "negative": []
         },
@@ -26391,7 +26864,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension empathy"
+            "ascension empathy",
+            "empathy"
           ],
           "negative": []
         },
@@ -26447,7 +26921,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension network vortex"
+            "ascension network vortex",
+            "network vortex"
           ],
           "negative": []
         },
@@ -26503,7 +26978,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension rapport"
+            "ascension rapport",
+            "rapport"
           ],
           "negative": []
         },
@@ -26559,7 +27035,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension relationship intelligence"
+            "ascension relationship intelligence",
+            "relationship intelligence"
           ],
           "negative": []
         },
@@ -26615,7 +27092,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension relationships"
+            "ascension relationships",
+            "relationships"
           ],
           "negative": []
         },
@@ -26671,7 +27149,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension social"
+            "ascension social",
+            "social"
           ],
           "negative": []
         },
@@ -26727,7 +27206,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension news"
+            "ascension news",
+            "news"
           ],
           "negative": []
         },
@@ -26783,7 +27263,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension research"
+            "ascension research",
+            "research"
           ],
           "negative": []
         },
@@ -26839,7 +27320,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension reviews"
+            "ascension reviews",
+            "reviews"
           ],
           "negative": []
         },
@@ -26895,7 +27377,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension security"
+            "ascension security",
+            "security"
           ],
           "negative": []
         },
@@ -26951,7 +27434,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension discord"
+            "ascension discord",
+            "discord"
           ],
           "negative": []
         },
@@ -27007,7 +27491,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension facebook"
+            "ascension facebook",
+            "facebook"
           ],
           "negative": []
         },
@@ -27063,7 +27548,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension reddit"
+            "ascension reddit",
+            "reddit"
           ],
           "negative": []
         },
@@ -27623,7 +28109,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ar real-time translate"
+            "ar real-time translate",
+            "ar realtime translate"
           ],
           "negative": []
         },
@@ -27735,7 +28222,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension baha i"
+            "ascension baha i",
+            "ascension bahai",
+            "baha i",
+            "bahai"
           ],
           "negative": []
         },
@@ -27791,7 +28281,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension buddhism"
+            "ascension buddhism",
+            "buddhism"
           ],
           "negative": []
         },
@@ -27847,7 +28338,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension christianity"
+            "ascension christianity",
+            "christianity"
           ],
           "negative": []
         },
@@ -27903,7 +28395,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension confucianism"
+            "ascension confucianism",
+            "confucianism"
           ],
           "negative": []
         },
@@ -27959,7 +28452,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension druidry"
+            "ascension druidry",
+            "druidry"
           ],
           "negative": []
         },
@@ -28015,7 +28509,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hinduism"
+            "ascension hinduism",
+            "hinduism"
           ],
           "negative": []
         },
@@ -28071,7 +28566,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension islam"
+            "ascension islam",
+            "islam"
           ],
           "negative": []
         },
@@ -28127,7 +28623,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension jainism"
+            "ascension jainism",
+            "jainism"
           ],
           "negative": []
         },
@@ -28183,7 +28680,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension judaism"
+            "ascension judaism",
+            "judaism"
           ],
           "negative": []
         },
@@ -28239,7 +28737,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meditation"
+            "ascension meditation",
+            "meditation"
           ],
           "negative": []
         },
@@ -28295,7 +28794,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mindfulness"
+            "ascension mindfulness",
+            "mindfulness"
           ],
           "negative": []
         },
@@ -28351,7 +28851,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension native spirituality"
+            "ascension native spirituality",
+            "native spirituality"
           ],
           "negative": []
         },
@@ -28407,7 +28908,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension paganism"
+            "ascension paganism",
+            "paganism"
           ],
           "negative": []
         },
@@ -28463,7 +28965,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shamanism"
+            "ascension shamanism",
+            "shamanism"
           ],
           "negative": []
         },
@@ -28519,7 +29022,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shinto"
+            "ascension shinto",
+            "shinto"
           ],
           "negative": []
         },
@@ -28575,7 +29079,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sikhism"
+            "ascension sikhism",
+            "sikhism"
           ],
           "negative": []
         },
@@ -28631,7 +29136,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension spirituality"
+            "ascension spirituality",
+            "spirituality"
           ],
           "negative": []
         },
@@ -28687,7 +29193,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension taoism"
+            "ascension taoism",
+            "taoism"
           ],
           "negative": []
         },
@@ -28743,7 +29250,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension wicca"
+            "ascension wicca",
+            "wicca"
           ],
           "negative": []
         },
@@ -28799,7 +29307,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension baseball"
+            "ascension baseball",
+            "baseball"
           ],
           "negative": []
         },
@@ -28855,7 +29364,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension basketball"
+            "ascension basketball",
+            "basketball"
           ],
           "negative": []
         },
@@ -28911,7 +29421,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cricket"
+            "ascension cricket",
+            "cricket"
           ],
           "negative": []
         },
@@ -28967,7 +29478,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension esports"
+            "ascension esports",
+            "esports"
           ],
           "negative": []
         },
@@ -29023,7 +29535,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fantasy"
+            "ascension fantasy",
+            "fantasy"
           ],
           "negative": []
         },
@@ -29079,7 +29592,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension football"
+            "ascension football",
+            "football"
           ],
           "negative": []
         },
@@ -29135,7 +29649,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension golf"
+            "ascension golf",
+            "golf"
           ],
           "negative": []
         },
@@ -29191,7 +29706,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hockey"
+            "ascension hockey",
+            "hockey"
           ],
           "negative": []
         },
@@ -29247,7 +29763,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension soccer"
+            "ascension soccer",
+            "soccer"
           ],
           "negative": []
         },
@@ -29303,7 +29820,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tennis"
+            "ascension tennis",
+            "tennis"
           ],
           "negative": []
         },
@@ -29359,7 +29877,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sprout"
+            "ascension sprout",
+            "sprout"
           ],
           "negative": []
         },
@@ -29415,7 +29934,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension bag"
+            "ascension bag",
+            "bag"
           ],
           "negative": []
         },
@@ -29471,7 +29991,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension beard"
+            "ascension beard",
+            "beard"
           ],
           "negative": []
         },
@@ -29527,7 +30048,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension haircut"
+            "ascension haircut",
+            "haircut"
           ],
           "negative": []
         },
@@ -29583,7 +30105,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension jewelry"
+            "ascension jewelry",
+            "jewelry"
           ],
           "negative": []
         },
@@ -29639,7 +30162,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension makeup"
+            "ascension makeup",
+            "makeup"
           ],
           "negative": []
         },
@@ -29695,7 +30219,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension perfume"
+            "ascension perfume",
+            "perfume"
           ],
           "negative": []
         },
@@ -29751,7 +30276,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension piercing"
+            "ascension piercing",
+            "piercing"
           ],
           "negative": []
         },
@@ -29807,7 +30333,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shoes"
+            "ascension shoes",
+            "shoes"
           ],
           "negative": []
         },
@@ -29863,7 +30390,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sunglasses"
+            "ascension sunglasses",
+            "sunglasses"
           ],
           "negative": []
         },
@@ -29919,7 +30447,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension tattoo"
+            "ascension tattoo",
+            "tattoo"
           ],
           "negative": []
         },
@@ -29975,7 +30504,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension wallet"
+            "ascension wallet",
+            "wallet"
           ],
           "negative": []
         },
@@ -30031,7 +30561,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension watch"
+            "ascension watch",
+            "watch"
           ],
           "negative": []
         },
@@ -30087,7 +30618,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension native chat"
+            "ascension chat",
+            "ascension native chat",
+            "chat",
+            "native chat"
           ],
           "negative": []
         },
@@ -30199,7 +30733,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "chat gpt-4"
+            "chat gpt-4",
+            "chat gpt4"
           ],
           "negative": []
         },
@@ -30311,7 +30846,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "document writing"
+            "document writing",
+            "writing document"
           ],
           "negative": []
         },
@@ -30367,7 +30903,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "email writing"
+            "email writing",
+            "writing email"
           ],
           "negative": []
         },
@@ -30423,7 +30960,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "marketing copy"
+            "marketing copy",
+            "writing marketing"
           ],
           "negative": []
         },
@@ -30479,7 +31017,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "script writing"
+            "script writing",
+            "writing script"
           ],
           "negative": []
         },
@@ -30591,7 +31130,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension flight"
+            "ascension flight",
+            "flight"
           ],
           "negative": []
         },
@@ -30647,7 +31187,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension public transit"
+            "ascension public transit",
+            "public transit"
           ],
           "negative": []
         },
@@ -30703,7 +31244,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension rideshare"
+            "ascension rideshare",
+            "rideshare"
           ],
           "negative": []
         },
@@ -30759,7 +31301,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension travel insurance"
+            "ascension travel insurance",
+            "travel insurance"
           ],
           "negative": []
         },
@@ -30871,7 +31414,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "video generation (luma dream machine)"
+            "video generation (luma dream machine)",
+            "video generation luma"
           ],
           "negative": []
         },
@@ -30927,7 +31471,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "video generation (pika labs)"
+            "video generation (pika labs)",
+            "video generation pika"
           ],
           "negative": []
         },
@@ -30983,7 +31528,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "video generation (runway)"
+            "video generation (runway)",
+            "video generation runway"
           ],
           "negative": []
         },
@@ -31039,7 +31585,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "video generation (stable video)"
+            "video generation (stable video)",
+            "video generation stable"
           ],
           "negative": []
         },
@@ -31095,7 +31642,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension vision"
+            "ascension vision",
+            "vision"
           ],
           "negative": []
         },
@@ -31263,7 +31811,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "image generation (adobe firefly)"
+            "image generation (adobe firefly)",
+            "image generation adobe"
           ],
           "negative": []
         },
@@ -31319,7 +31868,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "image generation (dall-e 3)"
+            "image generation (dall-e 3)",
+            "image generation dalle"
           ],
           "negative": []
         },
@@ -31375,7 +31925,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "image generation (midjourney)"
+            "image generation (midjourney)",
+            "image generation midjourney"
           ],
           "negative": []
         },
@@ -31431,7 +31982,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "image generation (stable diffusion)"
+            "image generation (stable diffusion)",
+            "image generation stable"
           ],
           "negative": []
         },
@@ -31487,7 +32039,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension voice"
+            "ascension voice",
+            "voice"
           ],
           "negative": []
         },
@@ -31655,6 +32208,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "affirmations",
             "ascension affirmations"
           ],
           "negative": []
@@ -31711,6 +32265,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "allergies",
             "ascension allergies"
           ],
           "negative": []
@@ -31767,6 +32322,7 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
+            "archery",
             "ascension archery"
           ],
           "negative": []
@@ -31823,7 +32379,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension body profile"
+            "ascension body profile",
+            "body profile"
           ],
           "negative": []
         },
@@ -31879,7 +32436,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension boxing"
+            "ascension boxing",
+            "boxing"
           ],
           "negative": []
         },
@@ -31935,7 +32493,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension breathing"
+            "ascension breathing",
+            "breathing"
           ],
           "negative": []
         },
@@ -31991,7 +32550,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension camping"
+            "ascension camping",
+            "camping"
           ],
           "negative": []
         },
@@ -32047,7 +32607,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension childbirth"
+            "ascension childbirth",
+            "childbirth"
           ],
           "negative": []
         },
@@ -32103,7 +32664,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension chronic"
+            "ascension chronic",
+            "chronic"
           ],
           "negative": []
         },
@@ -32159,7 +32721,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension circadian"
+            "ascension circadian",
+            "circadian"
           ],
           "negative": []
         },
@@ -32215,7 +32778,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension climbing"
+            "ascension climbing",
+            "climbing"
           ],
           "negative": []
         },
@@ -32271,7 +32835,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cold exposure"
+            "ascension cold exposure",
+            "cold exposure"
           ],
           "negative": []
         },
@@ -32327,7 +32892,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension confidence building"
+            "ascension confidence building",
+            "confidence building"
           ],
           "negative": []
         },
@@ -32383,7 +32949,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension cycling"
+            "ascension cycling",
+            "cycling"
           ],
           "negative": []
         },
@@ -32439,7 +33006,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension disability"
+            "ascension disability",
+            "disability"
           ],
           "negative": []
         },
@@ -32495,7 +33063,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ergonomics"
+            "ascension ergonomics",
+            "ergonomics"
           ],
           "negative": []
         },
@@ -32551,7 +33120,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fencing"
+            "ascension fencing",
+            "fencing"
           ],
           "negative": []
         },
@@ -32607,7 +33177,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension first aid"
+            "ascension first aid",
+            "ascension firstaid",
+            "first aid",
+            "firstaid"
           ],
           "negative": []
         },
@@ -32663,7 +33236,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension fishing"
+            "ascension fishing",
+            "fishing"
           ],
           "negative": []
         },
@@ -32719,7 +33293,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension goals"
+            "ascension goals",
+            "goals"
           ],
           "negative": []
         },
@@ -32775,7 +33350,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension gratitude"
+            "ascension gratitude",
+            "gratitude"
           ],
           "negative": []
         },
@@ -32831,7 +33407,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension growth mindset"
+            "ascension growth mindset",
+            "growth mindset"
           ],
           "negative": []
         },
@@ -32887,7 +33464,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension gymnastics"
+            "ascension gymnastics",
+            "gymnastics"
           ],
           "negative": []
         },
@@ -32943,7 +33521,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension health intelligence"
+            "ascension health intelligence",
+            "health intelligence"
           ],
           "negative": []
         },
@@ -32999,7 +33578,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension heat exposure"
+            "ascension heat exposure",
+            "heat exposure"
           ],
           "negative": []
         },
@@ -33055,7 +33635,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hiking"
+            "ascension hiking",
+            "hiking"
           ],
           "negative": []
         },
@@ -33111,7 +33692,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension hunting"
+            "ascension hunting",
+            "hunting"
           ],
           "negative": []
         },
@@ -33167,7 +33749,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ice bath"
+            "ascension ice bath",
+            "ice bath"
           ],
           "negative": []
         },
@@ -33223,7 +33806,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension ice skating"
+            "ascension ice skating",
+            "ice skating"
           ],
           "negative": []
         },
@@ -33279,7 +33863,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension journaling"
+            "ascension journaling",
+            "journaling"
           ],
           "negative": []
         },
@@ -33335,7 +33920,10 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension martial arts"
+            "ascension martial arts",
+            "ascension martialarts",
+            "martial arts",
+            "martialarts"
           ],
           "negative": []
         },
@@ -33391,7 +33979,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meditation guided"
+            "ascension meditation guided",
+            "meditation guided"
           ],
           "negative": []
         },
@@ -33447,7 +34036,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension milestones"
+            "ascension milestones",
+            "milestones"
           ],
           "negative": []
         },
@@ -33503,7 +34093,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension mindset"
+            "ascension mindset",
+            "mindset"
           ],
           "negative": []
         },
@@ -33559,7 +34150,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension nap"
+            "ascension nap",
+            "nap"
           ],
           "negative": []
         },
@@ -33615,7 +34207,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension postpartum"
+            "ascension postpartum",
+            "postpartum"
           ],
           "negative": []
         },
@@ -33671,7 +34264,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension pregnancy"
+            "ascension pregnancy",
+            "pregnancy"
           ],
           "negative": []
         },
@@ -33727,7 +34321,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension recovery"
+            "ascension recovery",
+            "recovery"
           ],
           "negative": []
         },
@@ -33783,7 +34378,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension resilience"
+            "ascension resilience",
+            "resilience"
           ],
           "negative": []
         },
@@ -33839,7 +34435,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension roller skating"
+            "ascension roller skating",
+            "roller skating"
           ],
           "negative": []
         },
@@ -33895,7 +34492,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension running"
+            "ascension running",
+            "running"
           ],
           "negative": []
         },
@@ -33951,7 +34549,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sauna"
+            "ascension sauna",
+            "sauna"
           ],
           "negative": []
         },
@@ -34007,7 +34606,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension shooting"
+            "ascension shooting",
+            "shooting"
           ],
           "negative": []
         },
@@ -34063,7 +34663,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension skateboarding"
+            "ascension skateboarding",
+            "skateboarding"
           ],
           "negative": []
         },
@@ -34119,7 +34720,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension skiing"
+            "ascension skiing",
+            "skiing"
           ],
           "negative": []
         },
@@ -34175,7 +34777,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension skincare"
+            "ascension skincare",
+            "skincare"
           ],
           "negative": []
         },
@@ -34231,7 +34834,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension sleep hygiene"
+            "ascension sleep hygiene",
+            "sleep hygiene"
           ],
           "negative": []
         },
@@ -34287,7 +34891,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension snowboarding"
+            "ascension snowboarding",
+            "snowboarding"
           ],
           "negative": []
         },
@@ -34343,7 +34948,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension spotify intelligence"
+            "ascension spotify intelligence",
+            "spotify intelligence"
           ],
           "negative": []
         },
@@ -34399,7 +35005,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension stoicism"
+            "ascension stoicism",
+            "stoicism"
           ],
           "negative": []
         },
@@ -34455,7 +35062,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension stretching"
+            "ascension stretching",
+            "stretching"
           ],
           "negative": []
         },
@@ -34511,7 +35119,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension supplements"
+            "ascension supplements",
+            "supplements"
           ],
           "negative": []
         },
@@ -34567,7 +35176,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension surfing"
+            "ascension surfing",
+            "surfing"
           ],
           "negative": []
         },
@@ -34623,7 +35233,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension swimming"
+            "ascension swimming",
+            "swimming"
           ],
           "negative": []
         },
@@ -34679,7 +35290,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension visualization"
+            "ascension visualization",
+            "visualization"
           ],
           "negative": []
         },
@@ -34735,7 +35347,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension walking"
+            "ascension walking",
+            "walking"
           ],
           "negative": []
         },
@@ -34791,7 +35404,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension workout"
+            "ascension workout",
+            "workout"
           ],
           "negative": []
         },
@@ -34847,7 +35461,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension wrestling"
+            "ascension wrestling",
+            "wrestling"
           ],
           "negative": []
         },
@@ -34903,7 +35518,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension yoga"
+            "ascension yoga",
+            "yoga"
           ],
           "negative": []
         },
@@ -34959,7 +35575,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension feedback"
+            "ascension feedback",
+            "feedback"
           ],
           "negative": []
         },
@@ -35015,7 +35632,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension interview"
+            "ascension interview",
+            "interview"
           ],
           "negative": []
         },
@@ -35071,7 +35689,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension leadership"
+            "ascension leadership",
+            "leadership"
           ],
           "negative": []
         },
@@ -35127,7 +35746,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension linkedin"
+            "ascension linkedin",
+            "linkedin"
           ],
           "negative": []
         },
@@ -35183,7 +35803,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension meet"
+            "ascension meet",
+            "meet"
           ],
           "negative": []
         },
@@ -35239,7 +35860,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension negotiation"
+            "ascension negotiation",
+            "negotiation"
           ],
           "negative": []
         },
@@ -35295,7 +35917,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension networking"
+            "ascension networking",
+            "networking"
           ],
           "negative": []
         },
@@ -35351,7 +35974,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension project"
+            "ascension project",
+            "project"
           ],
           "negative": []
         },
@@ -35407,7 +36031,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension remote"
+            "ascension remote",
+            "remote"
           ],
           "negative": []
         },
@@ -35463,7 +36088,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension resume"
+            "ascension resume",
+            "resume"
           ],
           "negative": []
         },
@@ -35519,7 +36145,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension slack"
+            "ascension slack",
+            "slack"
           ],
           "negative": []
         },
@@ -35575,7 +36202,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension task"
+            "ascension task",
+            "task"
           ],
           "negative": []
         },
@@ -35631,7 +36259,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension team"
+            "ascension team",
+            "team"
           ],
           "negative": []
         },
@@ -35687,7 +36316,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension teams"
+            "ascension teams",
+            "teams"
           ],
           "negative": []
         },
@@ -35743,7 +36373,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension webex"
+            "ascension webex",
+            "webex"
           ],
           "negative": []
         },
@@ -35799,7 +36430,8 @@
           "weight": 1.0,
           "description": "Response explicitly mentions or acknowledges the capability name.",
           "positive": [
-            "ascension zoom"
+            "ascension zoom",
+            "zoom"
           ],
           "negative": []
         },

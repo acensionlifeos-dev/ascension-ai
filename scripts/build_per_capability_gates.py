@@ -100,12 +100,19 @@ def build_prompt(cap: dict) -> str:
 
 def build_rubric(cap: dict) -> list[dict]:
     shell = CATEGORY_TO_SHELL.get(cap["category"], "core")
+    # allow the model to name the capability by id, full name, or stripped
+    name = cap["name"].lower()
+    alt = cap["id"].lower().replace("_", " ")
+    positive = sorted({name, alt, name.replace("ascension ", "").strip()})
+    if "ascension_" in cap["id"]:
+        token = cap["id"].split("_", 1)[1].replace("_", " ")
+        positive = sorted(set(positive) | {token, token.strip()})
     return [
         {
             "name": f"{cap['id']}_mentions_capability",
             "weight": 1.0,
             "description": "Response explicitly mentions or acknowledges the capability name.",
-            "positive": [cap["name"].lower()],
+            "positive": positive,
             "negative": [],
         },
         {
