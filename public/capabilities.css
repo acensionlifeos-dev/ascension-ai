@@ -1,0 +1,18 @@
+.report { padding: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.card { background: #11131a; border: 1px solid #232733; border-radius: 12px; padding: 1.25rem; text-align: center; }
+.card strong { display: block; font-family: 'Syne', sans-serif; font-size: 2rem; line-height: 1; margin-bottom: 0.5rem; }
+.card.ok strong { color: #4ade80; }
+.card.warn strong { color: #facc15; }
+.card label { color: #9aa3b2; font-size: 0.85rem; }
+.filters { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.filters select, .filters input { background: #11131a; border: 1px solid #232733; color: #e8eaed; border-radius: 8px; padding: 0.5rem 0.75rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
+.item { background: #0b0d12; border: 1px solid #1e212b; border-radius: 10px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.item.fail { border-color: #7f1d1d; background: #1a0f0f; }
+.item h3 { font-size: 0.95rem; margin: 0; font-weight: 600; color: #e8eaed; }
+.item .id { font-size: 0.72rem; color: #6b7280; font-family: monospace; }
+.item .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: #1e212b; color: #9aa3b2; }
+.tag.ok { background: #064e3b; color: #a7f3d0; }
+.tag.fail { background: #7f1d1d; color: #fecaca; }
