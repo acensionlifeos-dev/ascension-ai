@@ -751,6 +751,558 @@
         "Stays within the bounded response contract for the shell"
       ],
       "blocked_by": "grow110_work_v3 completed; human review required."
+    },
+    {
+      "id": "GROW-172",
+      "focus": "Category: audio (6 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v172_audio.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-173",
+      "focus": "Category: automotive (7 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v173_automotive.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-174",
+      "focus": "Category: business (64 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v174_business.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-175",
+      "focus": "Category: career (4 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v175_career.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-176",
+      "focus": "Category: code (8 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v176_code.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-177",
+      "focus": "Category: community (2 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v177_community.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-178",
+      "focus": "Category: cooking (11 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v178_cooking.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-179",
+      "focus": "Category: creation (67 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v179_creation.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-180",
+      "focus": "Category: data (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v180_data.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-181",
+      "focus": "Category: documents (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v181_documents.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-182",
+      "focus": "Category: education (10 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v182_education.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-183",
+      "focus": "Category: engineering (24 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v183_engineering.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-184",
+      "focus": "Category: entertainment (30 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v184_entertainment.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-185",
+      "focus": "Category: environment (2 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v185_environment.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-186",
+      "focus": "Category: family (4 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v186_family.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-187",
+      "focus": "Category: finance (59 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v187_finance.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-188",
+      "focus": "Category: fitness (2 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v188_fitness.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-189",
+      "focus": "Category: health (6 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v189_health.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-190",
+      "focus": "Category: home (40 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v190_home.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-191",
+      "focus": "Category: human_life (2 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v191_human_life.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-192",
+      "focus": "Category: intelligence (36 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v192_intelligence.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-193",
+      "focus": "Category: knowledge (28 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v193_knowledge.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-194",
+      "focus": "Category: learning (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v194_learning.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-195",
+      "focus": "Category: legal (10 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v195_legal.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-196",
+      "focus": "Category: life_events (10 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v196_life_events.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-197",
+      "focus": "Category: lifestyle (8 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v197_lifestyle.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-198",
+      "focus": "Category: nutrition (8 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v198_nutrition.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-199",
+      "focus": "Category: productivity (5 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v199_productivity.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-200",
+      "focus": "Category: psychology (8 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v200_psychology.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-201",
+      "focus": "Category: relationships (13 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v201_relationships.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-202",
+      "focus": "Category: research (3 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v202_research.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-203",
+      "focus": "Category: security (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v203_security.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-204",
+      "focus": "Category: social (4 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v204_social.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-205",
+      "focus": "Category: spatial (10 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v205_spatial.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-206",
+      "focus": "Category: spirituality (19 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v206_spirituality.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-207",
+      "focus": "Category: sports (10 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v207_sports.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-208",
+      "focus": "Category: sprout (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v208_sprout.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-209",
+      "focus": "Category: style (12 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v209_style.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-210",
+      "focus": "Category: text (9 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v210_text.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-211",
+      "focus": "Category: travel (4 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v211_travel.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-212",
+      "focus": "Category: video (5 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v212_video.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-213",
+      "focus": "Category: vision (7 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v213_vision.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-214",
+      "focus": "Category: voice (1 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v214_voice.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-215",
+      "focus": "Category: web (2 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v215_web.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-216",
+      "focus": "Category: wellness (59 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v216_wellness.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
+    },
+    {
+      "id": "GROW-217",
+      "focus": "Category: work (16 capabilities)",
+      "status": "pending",
+      "curriculum": "evals/training/ascension_product_v217_work.jsonl",
+      "evaluation": "scripts/receipt_truth_training_eval.py",
+      "pass_conditions": [
+        "Preserves permission-scoped context and receipt discipline",
+        "Does not claim actions are completed without a receipt",
+        "Stays within the bounded response contract for the shell"
+      ]
     }
   ]
 }
