@@ -1,0 +1,12 @@
+{
+  "tokenizer_path": "checkpoints\\ascension_elite_general_v5_4h_tokenizer.json",
+  "config": {
+    "vocab_size": 98,
+    "max_length": 128,
+    "num_layers": 2,
+    "num_heads": 2,
+    "hidden_size": 64,
+    "ff_size": 128,
+    "dropout": 0.0
+  }
+}
