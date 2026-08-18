@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CURRICULUM_DIR = ROOT / "evals" / "training"
-CURRICULUM_GLOB = "ascension_product_v*.jsonl"
+CURRICULUM_GLOB = "ascension_product_v*_proven_master.jsonl"
 SAFE_DOCS = (
     ROOT / "AGENTS.md",
     ROOT / "README.md",
@@ -44,7 +44,7 @@ def read_curriculum(paths: list[Path] | None = None) -> list[dict]:
             missing = required - record.keys()
             if missing:
                 raise ValueError(f"{path}:{line_number} missing {sorted(missing)}")
-            if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core"}:
+            if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core", "sprout", "creation"}:
                 raise ValueError(f"{path}:{line_number} has unsupported shell")
             if record["id"] in seen_ids:
                 first_path, first_line = seen_ids[record["id"]]
