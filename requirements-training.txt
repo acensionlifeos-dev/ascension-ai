@@ -4,3 +4,4 @@ datasets>=2.14.0
 tokenizers>=0.13.0
 accelerate>=1.8.0
 peft>=0.17.0
+safetensors>=0.4.0
