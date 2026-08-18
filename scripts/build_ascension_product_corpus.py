@@ -44,7 +44,7 @@ def read_curriculum(paths: list[Path] | None = None) -> list[dict]:
             missing = required - record.keys()
             if missing:
                 raise ValueError(f"{path}:{line_number} missing {sorted(missing)}")
-            if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core"}:
+            if record["shell"] not in {"ap", "lifeos", "nexus_home", "nexus_family", "core", "sprout"}:
                 raise ValueError(f"{path}:{line_number} has unsupported shell")
             if record["id"] in seen_ids:
                 first_path, first_line = seen_ids[record["id"]]
