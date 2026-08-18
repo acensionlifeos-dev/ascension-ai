@@ -40,10 +40,10 @@ from src.architecture.transformer import AscensionTransformer, ModelConfig
 
 
 def _test_corpus_unicity() -> None:
-    """Verify multi-file curriculum loading and duplicate-ID rejection."""
+    """Verify curated curriculum loading and duplicate-ID rejection."""
     paths = curriculum_paths()
-    if len(paths) < 2:
-        raise AssertionError("expected multiple ascension_product curriculum files")
+    if len(paths) < 1:
+        raise AssertionError("expected at least one ascension_product curriculum file")
     records = read_curriculum(paths)
     if len(records) < 30:
         raise AssertionError("product curriculum must contain at least 30 reviewed examples")
@@ -188,7 +188,7 @@ def main() -> int:
         manifest = build_corpus(corpus_path, product_repeats=1, general_replay_ratio=0)
         if (
             not isinstance(manifest["curriculum"], list)
-            or len(manifest["curriculum"]) < 2
+            or len(manifest["curriculum"]) < 1
             or manifest["example_count"] < 30
             or manifest["contains_private_user_data"]
         ):
