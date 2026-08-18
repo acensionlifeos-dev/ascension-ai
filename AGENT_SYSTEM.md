@@ -45,7 +45,3 @@ Google: Function Calling
 **Ascension AI: Full agent system with autonomous task execution**
 
 This gives us the most comprehensive agent capabilities.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

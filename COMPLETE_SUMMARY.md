@@ -216,7 +216,3 @@ Also fixed the main site boot loading issue:
 **GitHub**: https://github.com/acensionlifeos-dev/AscensionLifeOS
 
 This is the foundation for building the best AI on Earth that will eventually power the entire Ascension ecosystem.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

@@ -66,7 +66,3 @@ Google: Good SDK, limited agent support
 **Ascension AI: Full SDK with all capabilities (text, image, audio, agents)**
 
 This makes it easy for developers to use our AI in their applications.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

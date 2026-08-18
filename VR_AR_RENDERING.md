@@ -70,7 +70,3 @@ Meta: Strong VR/AR (Oculus, Spark AR)
 **Ascension AI: Full VR/AR + Metaverse + AI Video Generation**
 
 This is what makes AI truly immersive - it can create and render entire virtual worlds.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

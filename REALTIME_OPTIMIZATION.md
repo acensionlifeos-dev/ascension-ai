@@ -56,5 +56,3 @@ Google: Good real-time, good optimization
 **Ascension AI: Full real-time processing with advanced optimization for all scenarios**
 
 This is what makes AI production-ready - it can process data in real-time and be optimized for any deployment scenario.
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

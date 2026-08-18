@@ -43,7 +43,3 @@ Google: Static models, fine-tuning only
 **Ascension AI: Continuous self-improvement from every interaction**
 
 This is the key to building the best AI on Earth - it gets better with every use.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

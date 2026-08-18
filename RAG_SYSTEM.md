@@ -54,7 +54,3 @@ Google: RAG with Google Search integration
 **Ascension AI: Full RAG system with hybrid retrieval and vector database**
 
 This is what makes AI accurate and up-to-date - it can retrieve and use relevant knowledge.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

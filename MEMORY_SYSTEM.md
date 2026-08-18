@@ -62,7 +62,3 @@ Google: Limited context window
 **Ascension AI: Full memory system with personalization**
 
 This is what makes an AI truly yours - it remembers and adapts to you.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>

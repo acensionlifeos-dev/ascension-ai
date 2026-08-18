@@ -54,7 +54,3 @@ Google: Enterprise security, limited user control
 **Ascension AI: Enterprise-grade security with full user control**
 
 This is what makes AI enterprise-ready - security and privacy built in from the start.
-
-Generated with [Devin](https://devin.ai)
-
-Co-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>
