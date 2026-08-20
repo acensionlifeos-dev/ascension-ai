@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 
 
 CAPABILITIES = {
@@ -57,3 +59,50 @@ def capability_packet(domains: list[str]) -> dict:
     selected = {domain: CAPABILITIES[domain] for domain in domains if domain in CAPABILITIES}
     selected["safety"] = CAPABILITIES["safety"]
     return selected
+
+
+_CAPABILITY_CACHE: dict | None = None
+
+
+def _capability_report_path() -> Path:
+    return Path(__file__).resolve().parents[2] / "public" / "capability_report.json"
+
+
+def load_capability_report() -> dict:
+    global _CAPABILITY_CACHE
+    if _CAPABILITY_CACHE is None:
+        try:
+            with open(_capability_report_path(), "r", encoding="utf-8-sig") as report_file:
+                _CAPABILITY_CACHE = json.load(report_file)
+        except (OSError, json.JSONDecodeError):
+            _CAPABILITY_CACHE = {"capabilities": []}
+    return _CAPABILITY_CACHE
+
+
+def _capability_terms(capability: dict) -> set[str]:
+    terms: set[str] = set()
+    for field in ("id", "name", "category"):
+        value = str(capability.get(field) or "").lower().replace("_", " ").replace("-", " ")
+        terms.update(re.findall(r"[a-z0-9]+", value))
+    return terms
+
+
+def resolve_ascension_capabilities(text: str, top_n: int = 5) -> list[dict]:
+    """Resolve the most relevant Ascension AI capabilities from the 640-capability report."""
+    report = load_capability_report()
+    capabilities = report.get("capabilities", [])
+    if not capabilities:
+        return []
+    words = set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
+    if not words:
+        return []
+    scored: list[tuple[float, dict]] = []
+    for capability in capabilities:
+        cap_words = _capability_terms(capability)
+        if not cap_words:
+            continue
+        overlap = len(words & cap_words) / max(1, min(len(words), len(cap_words)))
+        if overlap > 0:
+            scored.append((overlap, capability))
+    scored.sort(key=lambda item: item[0], reverse=True)
+    return [capability for _, capability in scored[:top_n]]

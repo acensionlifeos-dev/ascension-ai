@@ -13,7 +13,7 @@ import re
 from collections import Counter
 from typing import Any
 
-from .capabilities import CAPABILITIES, detect_domains
+from .capabilities import CAPABILITIES, detect_domains, resolve_ascension_capabilities
 from .contracts import Shell
 
 
@@ -257,6 +257,22 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("calendar.external_write", "A calendar change must be resolved to a specific event and confirmed by the connected calendar provider.", {"request": str(text or "")[:1000]}, missing=["resolved date and timezone", "target calendar", "explicit final confirmation"]))
     if re.search(r"\b(?:i have an idea|idea for|create|build|make)\b", lowered):
         proposals.append(_proposal("creation.save_seed", "Preserve the idea without interrupting the conversation."))
+        resolved = resolve_ascension_capabilities(source)
+        resolved_ids = [cap.get("id") for cap in resolved]
+        if re.search(r"\b(?:build|make|create|write|draft)\b", lowered):
+            if re.search(r"\b(?:ebook|book|document|guide|manual|pdf|article|blog|post)\b", lowered):
+                proposals.append(_proposal(
+                    "documents.prepare_draft",
+                    "User requested a written artifact; prepare a draft for review.",
+                    {"topic": source, "resolved_capabilities": resolved_ids},
+                    missing=["content details"],
+                ))
+            proposals.append(_proposal(
+                "creation.prepare_project",
+                "User wants to turn an idea into a product for execution.",
+                {"topic": source, "resolved_capabilities": resolved_ids},
+                missing=["target outcome", "target completion"],
+            ))
     if re.search(r"\b(?:3d world|virtual world|vr experience|ar experience|augmented reality|virtual reality|spatial scene)\b", lowered):
         proposals.append(_proposal("immersive.prepare_world", "Compile an Ascension-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
