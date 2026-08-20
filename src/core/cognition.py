@@ -273,6 +273,13 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
                 {"topic": source, "resolved_capabilities": resolved_ids},
                 missing=["target outcome", "target completion"],
             ))
+    if re.search(r"\buse\b.{0,40}\bascension\s+streaming\b", lowered):
+        proposals.append(_proposal(
+            "creation.prepare_project",
+            "User wants to start an Ascension Streaming channel.",
+            {"capability": "ascension_streaming"},
+            missing=["streaming platform", "content focus"],
+        ))
     if re.search(r"\b(?:3d world|virtual world|vr experience|ar experience|augmented reality|virtual reality|spatial scene)\b", lowered):
         proposals.append(_proposal("immersive.prepare_world", "Compile an Ascension-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):

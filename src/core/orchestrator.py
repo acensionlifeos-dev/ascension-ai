@@ -177,6 +177,12 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "Ascension Email Intelligence is ready. What would you like to write or check first? "
             "I can prepare the recipient, subject, and message for your review; nothing is sent without your approval and a provider receipt."
         )
+    if re.search(r"\buse\b.{0,40}\bascension\s+streaming\b", value):
+        return (
+            "ASCENSION SHELL: ap\n"
+            "Ascension Streaming is ready. What would you like to stream, and on which channel? "
+            "I can prepare the channel plan, content outline, and moderation rules for your review; nothing goes live without your approval and a provider receipt."
+        )
     if re.search(r"\buse\b.{0,40}\b(?:email\s+writing|writing\s+email)\b", value):
         return (
             "ASCENSION SHELL: ap\n"
