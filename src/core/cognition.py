@@ -295,6 +295,18 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         payment_missing.append("explicit final confirmation")
         proposals.append(_proposal("finance.payment", "A financial transaction is high consequence and cannot execute silently.", missing=payment_missing))
 
+    # Generic 640-capability invocation: if the user names a known Ascension capability, propose a project for it.
+    if re.search(r"\buse\b", lowered):
+        resolved = resolve_ascension_capabilities(source, top_n=1)
+        if resolved:
+            cap = resolved[0]
+            proposals.append(_proposal(
+                "creation.prepare_project",
+                f"User wants to use {cap['name']}.",
+                {"capability": cap["id"], "category": cap.get("category")},
+                missing=["what you want to do"],
+            ))
+
     allowed = set(available_actions or [])
     if allowed:
         proposals = [proposal for proposal in proposals if proposal["action"] in allowed]

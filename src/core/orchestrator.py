@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import re
 
-from .capabilities import capability_packet, detect_domains
+from .capabilities import capability_packet, detect_domains, resolve_ascension_capabilities
 from .cognition import build_action_execution_contract, build_cognitive_packet
 from .contracts import Shell, Tier, response_contract, system_contract
 from .model_runtime import runtime
@@ -212,6 +212,15 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "ASCENSION SHELL: core\n"
             "Stable Video (video generation) is ready. What would you like the clip to show? "
             "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
+        )
+    # Generic 640-capability readiness: if the user names a known Ascension capability, acknowledge it honestly.
+    resolved = resolve_ascension_capabilities(str(latest or ""), top_n=1)
+    if resolved and re.search(r"\buse\b", latest or "", re.I):
+        cap = resolved[0]
+        return (
+            f"ASCENSION SHELL: {cap.get('shell', 'ap')}\n"
+            f"{cap['name']} is ready. What would you like to do first? "
+            "I can prepare the options for your review; nothing is executed without your approval and a provider receipt."
         )
     return None
 
