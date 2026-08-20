@@ -217,9 +217,24 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
     resolved = resolve_ascension_capabilities(str(latest or ""), top_n=1)
     if resolved and re.search(r"\buse\b", latest or "", re.I):
         cap = resolved[0]
+        category = cap.get("category", "")
+        if category in ("documents", "text", "code", "legal"):
+            follow_up = "What should the document cover?"
+        elif category in ("finance",):
+            follow_up = "What would you like to check or prepare?"
+        elif category in ("health", "wellness", "nutrition", "fitness", "sports"):
+            follow_up = "What would you like to track or plan?"
+        elif category in ("career", "learning", "education"):
+            follow_up = "What would you like to focus on?"
+        elif category in ("cooking",):
+            follow_up = "What would you like to cook or plan?"
+        elif category in ("audio", "video", "voice", "vision"):
+            follow_up = "What should it be about, and where should it run?"
+        else:
+            follow_up = "What would you like to do first?"
         return (
             f"ASCENSION SHELL: {cap.get('shell', 'ap')}\n"
-            f"{cap['name']} is ready. What would you like to do first? "
+            f"{cap['name']} is ready. {follow_up} "
             "I can prepare the options for your review; nothing is executed without your approval and a provider receipt."
         )
     return None

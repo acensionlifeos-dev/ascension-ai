@@ -222,6 +222,28 @@ def _proposal(action: str, reason: str, arguments: dict | None = None, missing: 
     }
 
 
+CAPABILITY_ACTION_MAP: dict[str, dict] = {
+    "audio": {"action": "creation.prepare_project", "missing": ["content description", "target platform"]},
+    "video": {"action": "creation.prepare_project", "missing": ["content description", "target platform"]},
+    "voice": {"action": "creation.prepare_project", "missing": ["content description", "target platform"]},
+    "vision": {"action": "creation.prepare_project", "missing": ["content description", "target device"]},
+    "documents": {"action": "documents.prepare_draft", "missing": ["what you want to do"]},
+    "text": {"action": "documents.prepare_draft", "missing": ["what you want to do"]},
+    "code": {"action": "documents.prepare_draft", "missing": ["what you want to do"]},
+    "legal": {"action": "documents.prepare_draft", "missing": ["what you want to do"]},
+    "finance": {"action": "finance.prepare_budget", "missing": ["verified balances", "dated bills", "income timing"]},
+    "cooking": {"action": "nutrition.research_recipes", "missing": ["dietary restrictions"]},
+    "nutrition": {"action": "nutrition.prepare_meal_plan", "missing": ["servings", "available budget"]},
+    "health": {"action": "nutrition.prepare_meal_plan", "missing": ["dietary restrictions"]},
+    "wellness": {"action": "task.create_quest", "missing": ["title", "target outcome", "target completion"]},
+    "fitness": {"action": "task.create_quest", "missing": ["title", "target outcome", "target completion"]},
+    "sports": {"action": "task.create_quest", "missing": ["title", "target outcome", "target completion"]},
+    "career": {"action": "career.research_jobs", "missing": ["what you want to do"]},
+    "learning": {"action": "learning.prepare_course", "missing": ["current skill level", "time available", "desired outcome"]},
+    "education": {"action": "learning.prepare_course", "missing": ["current skill level", "time available", "desired outcome"]},
+}
+
+
 def propose_actions(text: str, memory_candidates: list[dict], available_actions: list[str] | None = None) -> list[dict]:
     source = str(text or "")
     lowered = source.lower()
@@ -300,11 +322,14 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         resolved = resolve_ascension_capabilities(source, top_n=1)
         if resolved:
             cap = resolved[0]
+            mapping = CAPABILITY_ACTION_MAP.get(cap.get("category"), {})
+            action = mapping.get("action", "creation.prepare_project")
+            missing = mapping.get("missing", ["target outcome", "target completion"])
             proposals.append(_proposal(
-                "creation.prepare_project",
+                action,
                 f"User wants to use {cap['name']}.",
                 {"capability": cap["id"], "category": cap.get("category")},
-                missing=["what you want to do"],
+                missing=missing,
             ))
 
     allowed = set(available_actions or [])
