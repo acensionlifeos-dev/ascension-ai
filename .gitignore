@@ -8,6 +8,7 @@ data/*.txt
 data/*.manifest.json
 dist/
 .env
+ascension.env
 *.log
 .DS_Store
 docs/capabilities/

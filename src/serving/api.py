@@ -169,6 +169,9 @@ def _authorized_token(authorization: str | None) -> bool:
     supplied = ""
     if authorization and authorization.lower().startswith("bearer "):
         supplied = authorization[7:].strip()
+    allowed_email = os.getenv("ASCENSION_AI_ALLOWED_EMAIL", "").strip()
+    if allowed_email and hmac.compare_digest(supplied.lower(), allowed_email.lower()):
+        return True
     expected = [
         os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip(),
         os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip(),
@@ -177,10 +180,10 @@ def _authorized_token(authorization: str | None) -> bool:
 
 
 def require_access(authorization: str | None = Header(default=None)) -> None:
-    if not any(os.getenv(name, "").strip() for name in ("ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")):
+    if not any(os.getenv(name, "").strip() for name in ("ASCENSION_AI_ALLOWED_EMAIL", "ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")):
         raise HTTPException(status_code=503, detail="Private Ascension AI access is not configured.")
     if not _authorized_token(authorization):
-        raise HTTPException(status_code=401, detail="Invalid Ascension AI access code.")
+        raise HTTPException(status_code=401, detail="Invalid Ascension AI email or access code.")
 
 
 def require_native_ready() -> None:
