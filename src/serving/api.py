@@ -1,4 +1,4 @@
-"""Standalone self-contained Ascension AI service."""
+"""Standalone self-contained Aerynza AI service."""
 
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ async def lifespan(_: FastAPI):
     yield
 
 
-app = FastAPI(title="Ascension AI Native Core", version=APP_VERSION, lifespan=lifespan)
+app = FastAPI(title="Aerynza AI Native Core", version=APP_VERSION, lifespan=lifespan)
 allowed_origins = [value.strip() for value in os.getenv("ASCENSION_AI_ALLOWED_ORIGINS", "").split(",") if value.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -181,9 +181,9 @@ def _authorized_token(authorization: str | None) -> bool:
 
 def require_access(authorization: str | None = Header(default=None)) -> None:
     if not any(os.getenv(name, "").strip() for name in ("ASCENSION_AI_ALLOWED_EMAIL", "ASCENSION_AI_TEST_TOKEN", "ASCENSION_AI_SERVICE_TOKEN")):
-        raise HTTPException(status_code=503, detail="Private Ascension AI access is not configured.")
+        raise HTTPException(status_code=503, detail="Private Aerynza AI access is not configured.")
     if not _authorized_token(authorization):
-        raise HTTPException(status_code=401, detail="Invalid Ascension AI email or access code.")
+        raise HTTPException(status_code=401, detail="Invalid Aerynza AI email or access code.")
 
 
 def require_native_ready() -> None:
@@ -203,13 +203,13 @@ def stream_error_payload(error: Exception) -> dict:
     if isinstance(error, NativeInferenceQueueTimeout):
         return {
             "code": "native_inference_queue_timeout",
-            "message": "Ascension AI is busy. Retry this request shortly.",
+            "message": "Aerynza AI is busy. Retry this request shortly.",
             "retryable": True,
             "http_equivalent": 504,
         }
     return {
         "code": "native_inference_failed",
-        "message": "Ascension AI could not complete this stream.",
+        "message": "Aerynza AI could not complete this stream.",
         "retryable": True,
         "http_equivalent": 502,
     }
@@ -265,7 +265,7 @@ async def replacement_readiness(_: None = Depends(require_access)) -> dict:
 @app.get("/model/info")
 async def model_info(_: None = Depends(require_access)) -> dict:
     return {
-        "name": "Ascension AI Native Core",
+        "name": "Aerynza AI Native Core",
         "version": APP_VERSION,
         "runtime": runtime.status(),
         "shells": [shell.value for shell in Shell],

@@ -12,7 +12,7 @@
     try {
       const response = await fetch(path, { ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', ...(access() ? { Authorization: `Bearer ${access()}` } : {}), ...(options.headers || {}) } });
       const payload = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(payload.detail || 'Ascension AI request failed.');
+      if (!response.ok) throw new Error(payload.detail || 'Aerynza AI request failed.');
       return payload;
     } finally { clearTimeout(timer); }
   }
@@ -24,7 +24,7 @@
         method: 'POST', signal: controller.signal, body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json', ...(access() ? { Authorization: `Bearer ${access()}` } : {}) }
       });
-      if (!response.ok) { const error = await response.json().catch(() => ({})); throw new Error(error.detail || 'Ascension AI request failed.'); }
+      if (!response.ok) { const error = await response.json().catch(() => ({})); throw new Error(error.detail || 'Aerynza AI request failed.'); }
       if (!response.body) return null;
       const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = '';
       while (true) {
