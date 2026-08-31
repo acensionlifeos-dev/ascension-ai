@@ -163,6 +163,21 @@ def test_clean_natural_response():
     assert result["production_replacement_ready"] is False
 
 
+def test_malformed_outputs_cannot_pass_semantic_proxy():
+    for text in ("Yes.", "\n- ** in this area.",
+                 "ASSISTANT: enough distinct words for a response.",
+                 "AI What Cross needs " + ":**" * 30):
+        result = evaluate_response("Stay with me tonight.", text)
+        assert result["structural_pass"] is False
+        assert result["semantic_pass"] is False
+
+
+def test_normal_markdown_is_not_a_symbol_run():
+    result = evaluate_response("Help me choose.", "**First option:** take a walk. **Second option:** read a book.")
+    assert result["symbol_run"] is False
+    assert result["structural_pass"] is True
+
+
 def test_empty_response():
     """Empty output must be rejected."""
     result = evaluate_response("hello", "")

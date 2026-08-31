@@ -81,6 +81,8 @@ def _has_role_leak(text: str) -> bool:
 
 def _has_symbol_run(text: str) -> bool:
     """Detect bars, dotted lines, and other symbol runs."""
+    if re.search(r"(?:[^\w\s]\s*){12,}", text):
+        return True
     if re.search(r"(?:[\|=._-]\s*){8,}", text):
         return True
     if re.search(r"\|{4,}", text):
@@ -143,7 +145,8 @@ def evaluate_text(prompt: str, text: str, min_words: int = MIN_WORDS) -> dict:
         and signals["printable_ratio"] >= MIN_PRINTABLE_RATIO
     )
     semantic_pass = (
-        not signals["prompt_restatement"]
+        structural_pass
+        and not signals["prompt_restatement"]
         and signals["unique_word_ratio"] >= MIN_UNIQUE_WORD_RATIO
     )
     return {
