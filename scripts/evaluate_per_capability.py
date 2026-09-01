@@ -83,6 +83,7 @@ def score_case(case: dict, text: str) -> dict:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Evaluate an adapter on 640 capabilities")
     parser.add_argument("--model", default="Qwen/Qwen3-1.7B")
+    parser.add_argument("--model-revision", default="70d244cc86ccca08cf5af4e1e306ecf908b1ad5e")
     parser.add_argument("--adapter", required=True)
     parser.add_argument("--tokens", type=int, default=128)
     parser.add_argument("--output", default="evals/results/per_capability_gate.json")
@@ -99,6 +100,7 @@ def main(argv: list[str] | None = None) -> int:
         tokenizer.pad_token = tokenizer.eos_token
     base = AutoModelForCausalLM.from_pretrained(
         args.model,
+        revision=args.model_revision,
         torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
         attn_implementation="sdpa",
         device_map="auto" if torch.cuda.is_available() else None,

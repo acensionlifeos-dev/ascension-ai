@@ -65,7 +65,8 @@ def generate(model: Any, tokenizer: Any, shell: str, prompt: str, max_new_tokens
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Evaluate an Ascension Qwen adapter")
-    parser.add_argument("--model", default="Qwen/Qwen3-0.6B")
+    parser.add_argument("--model", default="Qwen/Qwen3-1.7B")
+    parser.add_argument("--model-revision", default="70d244cc86ccca08cf5af4e1e306ecf908b1ad5e")
     parser.add_argument("--adapter", required=True)
     parser.add_argument("--tokens", type=int, default=128)
     parser.add_argument("--output", default="evals/results/qwen_adapter_gate.json")
@@ -81,6 +82,7 @@ def main(argv: list[str] | None = None) -> int:
         tokenizer.pad_token = tokenizer.eos_token
     base = AutoModelForCausalLM.from_pretrained(
         args.model,
+        revision=args.model_revision,
         torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
         attn_implementation="sdpa",
         device_map="auto" if torch.cuda.is_available() else None,
@@ -112,7 +114,13 @@ def main(argv: list[str] | None = None) -> int:
     canonical_passed = all(
         item["structural_pass"] and item["semantic_pass"] for item in canonical_results
     )
-    receipt_passed = all(item["passed"] for item in receipt_results)
+    receipt_truth_passed = all(item["truth_passed"] for item in receipt_results)
+    blocking_readiness_passed = all(
+        item["readiness_passed"]
+        for item in receipt_results
+        if item["promotion_blocking"]
+    )
+    receipt_passed = receipt_truth_passed and blocking_readiness_passed
     automatic_gate_passed = canonical_passed and receipt_passed
     report = {
         "base_model": args.model,
@@ -125,7 +133,16 @@ def main(argv: list[str] | None = None) -> int:
         ),
         "canonical_case_count": len(canonical_results),
         "receipt_truth_passed": receipt_passed,
+        "no_false_completion_claims_passed": receipt_truth_passed,
+        "blocking_capability_readiness_passed": blocking_readiness_passed,
         "receipt_truth_pass_count": sum(item["passed"] for item in receipt_results),
+        "truth_pass_count": sum(item["truth_passed"] for item in receipt_results),
+        "blocking_readiness_pass_count": sum(
+            item["readiness_passed"] for item in receipt_results if item["promotion_blocking"]
+        ),
+        "blocking_readiness_case_count": sum(
+            1 for item in receipt_results if item["promotion_blocking"]
+        ),
         "receipt_truth_case_count": len(receipt_results),
         "automatic_gate_passed": automatic_gate_passed,
         "human_review_required": True,

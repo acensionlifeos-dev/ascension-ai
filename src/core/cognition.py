@@ -251,6 +251,12 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
     schedule = next((item for item in memory_candidates if item.get("type") == "recurring_schedule"), None)
     if schedule:
         proposals.append(_proposal("schedule.upsert_recurring_work", "The user explicitly supplied a complete recurring work pattern.", schedule["value"]))
+    if re.search(r"\b(?:build|make|plan|map|set)\b.{0,30}\b(?:my|the|our)?\s*(?:week|weekly plan|weekly map)\b", lowered):
+        proposals.append(_proposal(
+            "schedule.prepare_week",
+            "Prepare a weekly map from confirmed commitments, rhythms, responsibilities, resources, and priorities.",
+            missing=["unconnected fixed commitments", "primary weekly outcome"],
+        ))
     if re.search(r"\b(short on cash|broke|low on money|can't afford|cannot afford|overdrawn|overdraft)\b", lowered):
         proposals.extend([
             _proposal("finance.refresh_cashflow", "Current balances, bills, income timing, and overdraft terms change the safe plan."),
@@ -384,6 +390,7 @@ def build_cognitive_packet(text: str, context: dict, allowed_capabilities: list[
         "retrieval": retrieval,
         "memory_candidates": memories,
         "action_proposals": actions,
+        "available_actions": list(dict.fromkeys(str(item).strip() for item in actions_from_context if str(item).strip())),
         "surface_recommendations": list(dict.fromkeys(surfaces))[:16],
         "authority": {
             "intelligence_core": "propose_and_explain",
@@ -398,6 +405,9 @@ RECEIPT_FIELDS: dict[str, list[str]] = {
     "schedule.prepare_week": ["memory_receipt", "weekly_map_reference"],
     "finance.refresh_cashflow": ["provider", "fetched_at", "balances", "bills", "income"],
     "finance.prepare_budget": ["prepared_at", "budget_id"],
+    "trading.refresh_prediction_markets": ["provider", "fetched_at", "markets", "source"],
+    "trading.prepare_prediction_position": ["prepared_at", "thesis_id", "sources"],
+    "trading.submit_prediction_order": ["order_id", "market", "outcome", "maximum_loss", "status", "provider"],
     "housing.search_options": ["prepared_at", "search_id"],
     "creation.save_seed": ["saved_at", "seed_id"],
     "creation.prepare_project": ["prepared_at", "project_id"],
@@ -415,6 +425,8 @@ RECEIPT_FIELDS: dict[str, list[str]] = {
 
 
 MISSING_QUESTIONS: dict[str, str] = {
+    "unconnected fixed commitments": "What fixed commitments are not already connected?",
+    "primary weekly outcome": "What is the one outcome that matters most this week?",
     "verified balances": "What are your current available balances?",
     "dated bills": "What bills are due before your next income, and when?",
     "income timing": "When is your next income expected, and how much?",
@@ -509,7 +521,14 @@ def build_action_execution_contract(cognitive: dict, shell: Shell | None = None)
     domains = list(cognitive.get("domains") or [])
     subject_scope = str(cognitive.get("subject_scope") or "adult_or_unspecified")
 
-    contracted_actions = [_action_contract(action, shell, domains, subject_scope) for action in actions]
+    from .action_runtime import classify_action_readiness
+
+    available_actions = list(cognitive.get("available_actions") or [])
+    contracted_actions = []
+    for action in actions:
+        contracted = _action_contract(action, shell, domains, subject_scope)
+        contracted.update(classify_action_readiness(contracted, shell, available_actions))
+        contracted_actions.append(contracted)
     memory_signals = [_memory_signal(candidate, shell, domains) for candidate in memories]
 
     risk_tier = _risk_tier(actions)
@@ -585,6 +604,13 @@ def build_action_execution_contract(cognitive: dict, shell: Shell | None = None)
                 for action in contracted_actions
             ],
             "receipt_rule": "No save, send, payment, calendar change, connection, or external action may be claimed without the matching verified receipt returned by the authenticated shell.",
+            "validation_contract": "receipt action, successful status, verification state, identifier, and action-specific fields must all match",
+        },
+        "provider_availability": {
+            "advertised_actions": available_actions,
+            "rule": "Provider availability affects dispatch, not model competence. Unavailable providers remain plannable and must never be reported as executed.",
+            "ready_actions": [action["action"] for action in contracted_actions if action["can_dispatch_now"]],
+            "unavailable_actions": [action["action"] for action in contracted_actions if action["dispatch_state"] in {"provider_not_connected", "future_capability_unavailable"}],
         },
         "memory_update_signals": memory_signals,
         "child_safe_guardian_boundaries": {

@@ -1,4 +1,4 @@
-"""Train a Qwen adapter on the reviewed Ascension product curriculum.
+"""Train a Qwen adapter on the reviewed Aerynza product curriculum.
 
 The trainer masks every system/user token so loss is calculated only on the
 approved assistant answer.  It saves a PEFT adapter, never a replacement model,
@@ -22,16 +22,23 @@ ROOT = Path(__file__).resolve().parents[1]
 SUPPORTED_SHELLS = {"ap", "lifeos", "sprout", "nexus_home", "nexus_family", "core", "creation"}
 SYSTEM_PROMPTS = {
     "ap": (
-        "You are AP, Ascension LifeOS's warm, perceptive personal intelligence. "
-        "Conversation comes first. Use available context quietly, ask only useful "
-        "questions, and never claim an action or memory write without a receipt."
+        "You are Aerynza, AerynzaLife's warm, perceptive personal intelligence. Conversation "
+        "comes first. Use context quietly and ask only useful questions. A user statement "
+        "is understood conversation context, not saved memory: say it is not saved unless a "
+        "memory receipt confirms the write. You may prepare or draft an action, but preparation "
+        "is not execution. Never say an action was submitted, paid, scheduled, saved, or completed "
+        "without the matching provider receipt. A timeout or missing receipt means status unknown; "
+        "check before retrying. Keep partial successes and failures separate."
     ),
     "lifeos": (
-        "You are AP operating inside Ascension LifeOS. Connect relevant life domains, "
-        "explain what is known versus inferred, and require receipts for completed actions."
+        "You are Aerynza operating inside AerynzaLife. Connect relevant life domains and distinguish "
+        "known, inferred, prepared, requested, unknown, and confirmed states. Connection does not "
+        "prove account or transaction sync; upload does not prove parsing or profile update. You may "
+        "prepare actions, but never claim submission, payment, scheduling, saving, or completion "
+        "without the matching provider receipt. A timeout means unknown, not success."
     ),
     "sprout": (
-        "You are Ascension AI operating through Sprout for a child or teen. Be warm, "
+        "You are Aerynza AI operating through Aerynza Kids for a child or teen. Be warm, "
         "age-appropriate, guardian-aware, privacy-preserving, and explicit when an action "
         "needs parent permission or a verified receipt."
     ),
@@ -40,16 +47,18 @@ SYSTEM_PROMPTS = {
         "child, household, and private-memory boundaries and require action receipts."
     ),
     "nexus_family": (
-        "You are NexusFamily, a family-enterprise coordinator. Help members coordinate "
-        "without exposing private household data or speaking unless invited."
+        "You are NexusFamily, a family-enterprise coordinator. Help members coordinate without "
+        "exposing private household data. When asked to stay quiet or wait until Nexus is addressed, "
+        "acknowledge briefly without repeating the request, then remain silent."
     ),
     "core": (
-        "You are Ascension AI, the shared intelligence core. Be accurate, humane, useful, "
+        "You are Aerynza AI, the shared intelligence core. Be accurate, humane, useful, "
         "permission-aware, and explicit about uncertainty and action receipts."
     ),
     "creation": (
-        "You are Ascension AI in the Creation workspace. Help generate, refine, and organize "
-        "creative projects while respecting ownership, permissions, and receipts for published actions."
+        "You are Aerynza AI in the Creation workspace. Give concrete creative development: propose "
+        "a smallest useful version, decisions, and a test instead of restating the user's idea. Respect "
+        "ownership and never claim publishing or other external action without a receipt."
     ),
 }
 
@@ -61,7 +70,7 @@ def curriculum_files(pattern: str) -> list[Path]:
     return files
 
 
-def load_curriculum(pattern: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def load_curriculum(pattern: str, *, minimum_records: int = 20) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     files = curriculum_files(pattern)
     records: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -87,10 +96,18 @@ def load_curriculum(pattern: str) -> tuple[list[dict[str, Any]], dict[str, Any]]
                 raise ValueError(f"unsupported shell {shell!r} in {record_id}")
             if not str(record["user"]).strip() or not str(record["assistant"]).strip():
                 raise ValueError(f"empty conversation field in {record_id}")
+            history = record.get("history") or []
+            if not isinstance(history, list):
+                raise ValueError(f"history must be a list in {record_id}")
+            for turn_index, turn in enumerate(history):
+                if not isinstance(turn, dict) or turn.get("role") not in {"user", "assistant"}:
+                    raise ValueError(f"invalid history turn {turn_index} in {record_id}")
+                if not str(turn.get("content") or "").strip():
+                    raise ValueError(f"empty history turn {turn_index} in {record_id}")
             seen_ids.add(record_id)
             shells[shell] = shells.get(shell, 0) + 1
             records.append(record)
-    if len(records) < 20:
+    if len(records) < minimum_records:
         raise ValueError("curriculum is unexpectedly small; refusing to train")
     return records, {
         "sha256": digest.hexdigest(),
@@ -110,8 +127,11 @@ def apply_chat_template(tokenizer: Any, messages: list[dict[str, str]], **kwargs
 def encode_record(tokenizer: Any, record: dict[str, Any], max_length: int) -> dict[str, list[int]]:
     prefix_messages = [
         {"role": "system", "content": SYSTEM_PROMPTS[record["shell"]]},
-        {"role": "user", "content": str(record["user"])},
     ]
+    prefix_messages.extend({
+        "role": str(turn["role"]), "content": str(turn["content"])
+    } for turn in (record.get("history") or []))
+    prefix_messages.append({"role": "user", "content": str(record["user"])})
     # Build the exact inference prefix first.  Some Qwen templates render the
     # assistant header/thinking marker differently once an assistant message is
     # already present, so separately templating a completed conversation can
@@ -138,6 +158,8 @@ def encode_record(tokenizer: Any, record: dict[str, Any], max_length: int) -> di
         "input_ids": list(full_ids),
         "attention_mask": [1] * len(full_ids),
         "labels": labels,
+        "package": str(record.get("package") or "unclassified"),
+        "shell": str(record.get("shell") or "core"),
     }
 
 
@@ -150,6 +172,13 @@ class AscensionDataset:
 
     def __getitem__(self, index: int) -> dict[str, list[int]]:
         return self.rows[index]
+
+    @property
+    def training_groups(self) -> list[str]:
+        return [
+            f'{row.get("package") or "unclassified"}:{row.get("shell") or "core"}'
+            for row in self.rows
+        ]
 
 
 @dataclass
@@ -173,6 +202,33 @@ class AssistantOnlyCollator:
         }
 
 
+def balanced_group_weights(groups: list[str]) -> list[float]:
+    counts: dict[str, int] = {}
+    for group in groups:
+        counts[group] = counts.get(group, 0) + 1
+    return [1.0 / counts[group] for group in groups]
+
+
+class BalancedPackageTrainerMixin:
+    """Sample every curriculum package equally without duplicating records."""
+
+    def _get_train_sampler(self, *args: Any, **kwargs: Any) -> Any:
+        import torch
+
+        groups = getattr(self.train_dataset, "training_groups", None)
+        if not groups:
+            return super()._get_train_sampler(*args, **kwargs)
+        weights = torch.tensor(balanced_group_weights(groups), dtype=torch.double)
+        generator = torch.Generator()
+        generator.manual_seed(int(self.args.seed))
+        return torch.utils.data.WeightedRandomSampler(
+            weights=weights,
+            num_samples=len(weights),
+            replacement=True,
+            generator=generator,
+        )
+
+
 def training_arguments(**kwargs: Any) -> Any:
     from transformers import TrainingArguments
 
@@ -184,38 +240,64 @@ def training_arguments(**kwargs: Any) -> Any:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Train an Ascension Qwen LoRA adapter")
-    parser.add_argument("--model", default="Qwen/Qwen3-0.6B")
-    parser.add_argument("--output-dir", default="checkpoints/qwen3_0_6b_grow001_adapter")
-    parser.add_argument("--curriculum", default="evals/training/ascension_product_v*.jsonl")
+    parser.add_argument("--model", default="Qwen/Qwen3-1.7B")
+    parser.add_argument("--model-revision", default="70d244cc86ccca08cf5af4e1e306ecf908b1ad5e")
+    parser.add_argument("--output-dir", default="checkpoints/aerynza_qwen3_1_7b_v20_candidate")
+    parser.add_argument("--curriculum", default="evals/training/aerynza_v20_balanced_master.jsonl")
+    parser.add_argument("--eval-curriculum", default=None,
+                        help="independent held-out JSONL pattern; never used for optimization")
     parser.add_argument("--resume-adapter", default=None)
     parser.add_argument("--max-length", type=int, default=768)
     parser.add_argument("--epochs", type=float, default=4.0)
     parser.add_argument("--learning-rate", type=float, default=1.0e-4)
     parser.add_argument("--seed", type=int, default=3407)
     parser.add_argument("--validate-only", action="store_true")
+    parser.add_argument("--allow-cpu", action="store_true", help="explicit override for diagnostic training only")
     args = parser.parse_args(argv)
 
     records, curriculum = load_curriculum(args.curriculum)
-    print(json.dumps({"validated": True, "curriculum": curriculum}, indent=2), flush=True)
+    eval_records = None
+    eval_curriculum = None
+    if args.eval_curriculum:
+        eval_records, eval_curriculum = load_curriculum(args.eval_curriculum, minimum_records=8)
+        train_prompts = {str(row["user"]).strip().casefold() for row in records}
+        overlap = train_prompts & {str(row["user"]).strip().casefold() for row in eval_records}
+        if overlap:
+            raise ValueError(f"train/eval prompt overlap: {len(overlap)}")
+    print(json.dumps({"validated": True, "curriculum": curriculum,
+                      "eval_curriculum": eval_curriculum}, indent=2), flush=True)
     if args.validate_only:
         return 0
+
+    output_dir = ROOT / args.output_dir
+    if output_dir.exists() and any(output_dir.iterdir()) and not args.resume_adapter:
+        raise FileExistsError(f"refusing to overwrite non-empty candidate directory: {output_dir}")
 
     import torch
     from peft import LoraConfig, PeftModel, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, set_seed
 
+    if not torch.cuda.is_available() and not args.allow_cpu:
+        raise RuntimeError("CUDA is required for v20 training; use --validate-only for CPU preflight")
+
     set_seed(args.seed)
-    tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.model_revision, use_fast=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     encoded = [encode_record(tokenizer, record, args.max_length) for record in records]
     random.Random(args.seed).shuffle(encoded)
-    eval_size = max(1, round(len(encoded) * 0.1))
-    eval_rows, train_rows = encoded[:eval_size], encoded[eval_size:]
+    if eval_records is not None:
+        train_rows = encoded
+        eval_rows = [encode_record(tokenizer, record, args.max_length) for record in eval_records]
+    else:
+        eval_size = max(1, round(len(encoded) * 0.1))
+        eval_rows, train_rows = encoded[:eval_size], encoded[eval_size:]
 
-    dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
+    cuda_bf16 = bool(torch.cuda.is_available() and torch.cuda.is_bf16_supported())
+    dtype = torch.bfloat16 if cuda_bf16 else (torch.float16 if torch.cuda.is_available() else torch.float32)
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
+        revision=args.model_revision,
         torch_dtype=dtype,
         attn_implementation="sdpa",
     )
@@ -244,7 +326,6 @@ def main(argv: list[str] | None = None) -> int:
             ),
         )
 
-    output_dir = ROOT / args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
     train_args = training_arguments(
         output_dir=str(output_dir),
@@ -256,8 +337,8 @@ def main(argv: list[str] | None = None) -> int:
         warmup_steps=2,
         weight_decay=0.01,
         lr_scheduler_type="cosine",
-        bf16=torch.cuda.is_available(),
-        fp16=False,
+        bf16=cuda_bf16,
+        fp16=torch.cuda.is_available() and not cuda_bf16,
         logging_steps=5,
         eval_strategy="epoch",
         save_strategy="no",
@@ -268,7 +349,10 @@ def main(argv: list[str] | None = None) -> int:
         seed=args.seed,
         data_seed=args.seed,
     )
-    trainer = Trainer(
+    class BalancedPackageTrainer(BalancedPackageTrainerMixin, Trainer):
+        pass
+
+    trainer = BalancedPackageTrainer(
         model=model,
         args=train_args,
         train_dataset=AscensionDataset(train_rows),
@@ -282,12 +366,16 @@ def main(argv: list[str] | None = None) -> int:
         receipt = {
             "status": "trained_not_promoted",
             "base_model": args.model,
+            "base_model_revision": args.model_revision,
             "adapter_dir": output_dir.relative_to(ROOT).as_posix(),
             "resumed_from_adapter": args.resume_adapter,
             "curriculum": curriculum,
+            "eval_curriculum": eval_curriculum,
+            "eval_is_independent": eval_curriculum is not None,
             "train_records": len(train_rows),
             "eval_records": len(eval_rows),
             "assistant_only_loss": True,
+            "balanced_package_and_shell_sampling": True,
             "seed": args.seed,
             "max_length": args.max_length,
             "metrics": train_result.metrics,

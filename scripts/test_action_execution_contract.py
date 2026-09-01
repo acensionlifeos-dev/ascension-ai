@@ -9,7 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.core.cognition import build_action_execution_contract, build_cognitive_packet
+from src.core.cognition import RECEIPT_FIELDS, build_action_execution_contract, build_cognitive_packet
+from src.core.action_runtime import ACTION_EXECUTION_MODES
 from src.core.contracts import Shell, Tier
 from src.core.orchestrator import enforce_response_contract, surface_plan
 
@@ -186,6 +187,23 @@ def test_general_memory_and_parenting_context_become_candidates() -> None:
     assert any(item["key"] == "explicit_memory_request" for item in preference["memory_candidates"])
     parenting = build_cognitive_packet("I have my kids next week", {}, [], [])
     assert any(item["key"] == "parenting_schedule" for item in parenting["memory_candidates"])
+
+
+def test_every_executable_action_has_specific_receipt_fields() -> None:
+    assert set(ACTION_EXECUTION_MODES) <= set(RECEIPT_FIELDS)
+    assert all(RECEIPT_FIELDS[action] for action in ACTION_EXECUTION_MODES)
+
+
+def test_weekly_plan_selects_shell_action_and_missing_variables() -> None:
+    cognitive = build_cognitive_packet(
+        "Build my week.", {}, ["schedule"], ["schedule.prepare_week"]
+    )
+    contract = build_action_execution_contract(cognitive, Shell.AP)
+    weekly = next(item for item in contract["proposed_actions"] if item["action"] == "schedule.prepare_week")
+    assert weekly["dispatch_state"] == "awaiting_context"
+    assert set(weekly["missing_variables"]) == {
+        "unconnected fixed commitments", "primary weekly outcome"
+    }
 
 
 def main() -> None:

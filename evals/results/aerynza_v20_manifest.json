@@ -1,0 +1,71 @@
+{
+  "version": "v20",
+  "raw_records_scanned": 79889,
+  "invalid_records": 0,
+  "heldout_prompt_count": 156,
+  "heldout_rows_excluded": 5023,
+  "unique_pairs_after_heldout_exclusion": 1423,
+  "conflicting_prompt_count": 9,
+  "quarantined_rows": 22,
+  "train_records": 1401,
+  "max_records_per_package": 10000,
+  "uncapped_package_counts": {
+    "l0_shell_capabilities": 606,
+    "l1_conversation": 41,
+    "l2_time_schedule": 67,
+    "l3_proactive_planning": 63,
+    "l4_tools_permissions": 49,
+    "l5_memory_receipts": 426,
+    "l6_cross_domain": 96,
+    "l7_creation_multimodal": 53
+  },
+  "packages": {
+    "l0_shell_capabilities": {
+      "path": "evals\\training\\aerynza_v20_l0_shell_capabilities.jsonl",
+      "records": 606,
+      "sha256": "7ccdf48b28276d4fa132a26ce0b8b3222376e0b7c79d73a8af2787697b050b9a"
+    },
+    "l1_conversation": {
+      "path": "evals\\training\\aerynza_v20_l1_conversation.jsonl",
+      "records": 41,
+      "sha256": "0782868af464530e56e4ba91438f156207a65e28bcc249181eb94687bc5b8734"
+    },
+    "l2_time_schedule": {
+      "path": "evals\\training\\aerynza_v20_l2_time_schedule.jsonl",
+      "records": 67,
+      "sha256": "501771c5f501338a31e4fce144e70797da464c2b11af3a3ffc15addfa04377f7"
+    },
+    "l3_proactive_planning": {
+      "path": "evals\\training\\aerynza_v20_l3_proactive_planning.jsonl",
+      "records": 63,
+      "sha256": "7ff01eb1b882e4659fa761823244c8e0e49a73a09e4e65bf67199634352eba50"
+    },
+    "l4_tools_permissions": {
+      "path": "evals\\training\\aerynza_v20_l4_tools_permissions.jsonl",
+      "records": 49,
+      "sha256": "58fdd7454721d4932bb2ddc2a7b9a77aaf622cd92605ed693e2f648cd2b8f83e"
+    },
+    "l5_memory_receipts": {
+      "path": "evals\\training\\aerynza_v20_l5_memory_receipts.jsonl",
+      "records": 426,
+      "sha256": "3eba4641f002b75d25a6c07e863e8d8058323c76e64185cd5d480d058c1b2887"
+    },
+    "l6_cross_domain": {
+      "path": "evals\\training\\aerynza_v20_l6_cross_domain.jsonl",
+      "records": 96,
+      "sha256": "6557fade3f902cf2fdec920c631b656f87d60ffe615f6df8fb5367a267b2cfa8"
+    },
+    "l7_creation_multimodal": {
+      "path": "evals\\training\\aerynza_v20_l7_creation_multimodal.jsonl",
+      "records": 53,
+      "sha256": "69c9158100fb0ebe4f1acc32999a4942a0775a2c0dbb5255b536093c7566f560"
+    }
+  },
+  "balanced_master": {
+    "path": "evals\\training\\aerynza_v20_balanced_master.jsonl",
+    "records": 1401,
+    "sha256": "243fd4b1c777cf3e4570b6f46271f67df34ca89056bcfbc8ffe4009b69fa92f3"
+  },
+  "conflicts_path": "evals\\results\\aerynza_v20_conflicts.json",
+  "policy": "Every unique non-conflicting lesson retained; exact copies removed; held-out prompts excluded; conflicts quarantined; equal-package weighting performed by the trainer."
+}

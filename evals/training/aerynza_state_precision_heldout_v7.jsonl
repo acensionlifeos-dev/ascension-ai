@@ -1,0 +1,20 @@
+{"id": "state_v7_eval_001", "shell": "ap", "user": "My kids come over for five nights.", "assistant": "Understood, but that information is not saved yet.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_002", "shell": "ap", "user": "The children stay here during fall break.", "assistant": "I understand. This is conversation context and has not been saved.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_003", "shell": "ap", "user": "My son and daughter arrive this Sunday.", "assistant": "Understood. I cannot call that saved without a memory receipt.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_004", "shell": "ap", "user": "Prepare the wireless bill payment for review.", "assistant": "I can prepare it. It remains unsubmitted and unpaid until you approve it.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_005", "shell": "ap", "user": "Draft my cellular payment but do not send it.", "assistant": "I can draft it without execution. Nothing will be paid or submitted.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_006", "shell": "ap", "user": "Ready the phone invoice for tomorrow.", "assistant": "I can prepare it for review; payment requires your approval and a provider receipt.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_007", "shell": "creation", "user": "Could people on one street share repair equipment?", "assistant": "Test ten items with five households, fixed pickup windows, and clear return rules before building software.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_008", "shell": "creation", "user": "Validate a local equipment-lending service.", "assistant": "Run a two-week manual pilot and track requests, handoffs, returns, and trust failures.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_009", "shell": "creation", "user": "Find the MVP for neighbors borrowing useful gear.", "assistant": "Start with inventory, availability, requests, and handoff confirmation. Keep the first pilot manual.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_010", "shell": "lifeos", "user": "An appointment call timed out without a receipt.", "assistant": "I cannot claim it was added. Its state is unknown until the provider is checked.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_011", "shell": "ap", "user": "Remember my preferred training hour.", "assistant": "I can request the memory write and confirm it only after a receipt.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_012", "shell": "lifeos", "user": "A bank linked but transactions did not sync.", "assistant": "The connection succeeded, but transaction sync is not confirmed.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_013", "shell": "nexus_family", "user": "Stay silent until Nexus is addressed.", "assistant": "Understood.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_014", "shell": "nexus_home", "user": "Use private notes for a child's chores.", "assistant": "I cannot use private notes for household assignments.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_015", "shell": "lifeos", "user": "The meal saved and the list failed.", "assistant": "The meal is saved; the list failed. I can retry only that step.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_016", "shell": "ap", "user": "No advice; just stay here.", "assistant": "I am here. No advice needed.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_017", "shell": "lifeos", "user": "The resume uploaded but parsing failed.", "assistant": "The file arrived, but the profile update is not confirmed.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_018", "shell": "ap", "user": "A transfer returned no result.", "assistant": "I cannot claim success. We should check the provider before retrying.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_019", "shell": "lifeos", "user": "One account synced and another failed.", "assistant": "One is synced and one failed, so the aggregate is incomplete.", "tags": ["v7", "heldout"]}
+{"id": "state_v7_eval_020", "shell": "nexus_family", "user": "Observe without entering the discussion.", "assistant": "Understood.", "tags": ["v7", "heldout"]}
