@@ -13,6 +13,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PROFILES_PATH = ROOT / "config" / "model_profiles.json"
+PROFILE_ALIASES_PATH = ROOT / "config" / "profile_aliases.json"
+
+
+def resolve_profile_name(requested: str) -> str:
+    """Resolve source-controlled deployment aliases without mutating profiles."""
+    normalized = str(requested or "").strip().lower()
+    if not PROFILE_ALIASES_PATH.is_file():
+        return normalized
+    aliases = json.loads(PROFILE_ALIASES_PATH.read_text(encoding="utf-8"))
+    return str(aliases.get(normalized, normalized)).strip().lower()
 
 
 class NativeInferenceQueueTimeout(RuntimeError):
@@ -22,7 +32,8 @@ class NativeInferenceQueueTimeout(RuntimeError):
 class NativeModelRuntime:
     def __init__(self, exit_callback=None) -> None:
         self.model = None
-        self.profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "pro").strip().lower()
+        self.requested_profile_name = os.getenv("ASCENSION_MODEL_PROFILE", "pro").strip().lower()
+        self.profile_name = resolve_profile_name(self.requested_profile_name)
         self.profile: dict = {}
         self.loaded_at: float | None = None
         self.load_error: str | None = None
@@ -136,6 +147,7 @@ class NativeModelRuntime:
         return {
             "ready": self.model is not None,
             "profile": self.profile_name,
+            "requested_profile": self.requested_profile_name,
             "model": self.profile.get("label"),
             "repo_id": self.profile.get("repo_id"),
             "filename": self.profile.get("filename"),
