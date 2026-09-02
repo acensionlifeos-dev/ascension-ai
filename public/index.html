@@ -4,36 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#07080b">
-  <title>Aerynza AI — Private Candidate</title>
+  <title>Aerynza AI — Personal Assistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/ascension-ai.css?v=1.1.0">
+  <link rel="stylesheet" href="/static/ascension-ai.css?v=2.7.0">
+  <link rel="stylesheet" href="/static/ascension-yahoo.css?v=2.7.0">
 </head>
 <body>
-  <div class="access-gate" id="access-gate" hidden>
-    <form class="access-card" id="access-form">
-      <div class="access-mark">A</div>
-      <p class="eyebrow">PRIVATE CANDIDATE</p>
-      <h1>Aerynza AI Lab</h1>
-      <p>This private lab tests Ascension's native intelligence. It can reason, retrieve supplied context, and propose memories or actions; LifeOS remains responsible for permissioned execution and persistence.</p>
-      <label for="access-code">Email</label>
-      <div class="access-row"><input id="access-code" type="email" autocomplete="email" inputmode="email" required><button type="submit">Enter lab</button></div>
-      <span class="access-error" id="access-error"></span>
-    </form>
-  </div>
-
-  <div class="shell" id="shell" hidden>
+  <div class="shell" id="shell">
     <aside class="sidebar" id="sidebar">
-      <div class="brand"><div class="brand-mark">A</div><span><strong>AERYNZA AI</strong><small>Native alpha 2.3</small></span></div>
-      <button class="new-chat" id="new-chat" type="button"><span>＋</span> New test</button>
-      <p class="history-label">Test history</p>
-      <nav class="history" id="history" aria-label="Test conversations"></nav>
-      <div class="sidebar-foot"><button id="theme-toggle" type="button">Light mode</button><button id="lock-lab" type="button">Lock lab</button></div>
+      <div class="brand"><div class="brand-mark">A</div><span><strong>AERYNZA AI</strong><small>Personal v19</small></span></div>
+      <button class="new-chat" id="new-chat" type="button"><span>＋</span> New chat</button>
+      <p class="history-label">Chat history</p>
+      <nav class="history" id="history" aria-label="Chat history"></nav>
+      <div class="sidebar-foot"><button id="theme-toggle" type="button">Light mode</button></div>
     </aside>
 
     <main class="main">
       <header class="topbar">
-        <button class="menu" id="menu" type="button" aria-label="Open test history">☰</button>
+        <button class="menu" id="menu" type="button" aria-label="Open chat history">☰</button>
         <div class="engine-title"><strong>Aerynza AI Native</strong><label><span>Shell</span><select id="shell-select" aria-label="Aerynza intelligence shell"><option value="ap">AP · Personal</option><option value="lifeos">AerynzaLife · Domain intelligence</option><option value="nexus_home">NexusHome · Household</option><option value="nexus_family">NexusFamily · Family enterprise</option><option value="core">Core · Neutral reasoning</option></select></label><label><span>Tier</span><select id="tier-select" aria-label="Aerynza subscription tier"><option value="freeos">Free</option><option value="lifeos">AerynzaLife</option><option value="lifeos_plus">AerynzaLife+</option><option value="founderos">Founder</option><option value="lifeos_infinite" selected>Infinite</option></select></label></div>
         <div class="status" id="status"><i></i><span>Checking engine</span></div>
       </header>
@@ -41,26 +30,47 @@
       <section class="conversation" id="conversation" aria-live="polite">
         <div class="empty" id="empty">
           <div class="hero-mark">A</div>
-          <p class="eyebrow">ISOLATED INTELLIGENCE TEST</p>
-          <h1>What do you want to test?</h1>
-          <p>This candidate is separate from LifeOS and uses no outside AI provider. It can detect life domains, retrieve supplied evidence, notice memory candidates, and safely propose actions for AP, LifeOS, NexusHome, and NexusFamily.</p>
+          <p class="eyebrow">PERSONAL ASSISTANT</p>
+          <h1>What would you like to do?</h1>
+          <p>Private, local, voice-and-text assistant. No cloud AI. Your data stays on this machine.</p>
           <div class="starters">
-            <button type="button" data-prompt="Talk with me like a real friend. I had a hard day and I do not want advice immediately."><strong>Human conversation</strong><span>Presence before advice</span></button>
-            <button type="button" data-prompt="Help me turn a vague goal into a realistic plan. Ask only for information that truly changes the plan."><strong>Adaptive planning</strong><span>Judgment and questions</span></button>
-            <button type="button" data-prompt="I changed my mind about a goal we discussed. Show me how you handle correction and uncertainty."><strong>Memory discipline</strong><span>Correction without invention</span></button>
-            <button type="button" data-prompt="Help me reason through a difficult decision without taking control away from me."><strong>Reasoning quality</strong><span>Depth and agency</span></button>
+            <button type="button" data-prompt="Open Notepad for me."><strong>Open an app</strong><span>Type !open notepad</span></button>
+            <button type="button" data-prompt="Search Google for the best mechanical keyboards."><strong>Search the web</strong><span>Type !search best keyboards</span></button>
+            <button type="button" data-prompt="Send a test message to my phone."><strong>Phone bridge</strong><span>Type !android list or !iphone test</span></button>
+            <button type="button" data-prompt="Talk with me like a real friend."><strong>Just chat</strong><span>Ask anything</span></button>
           </div>
         </div>
         <div class="messages" id="messages"></div>
       </section>
 
       <footer class="composer-wrap">
-        <form class="composer" id="composer"><textarea id="prompt" rows="1" maxlength="12000" placeholder="Message Aerynza AI…" aria-label="Message Aerynza AI"></textarea><button id="send" type="submit" aria-label="Send">↑</button></form>
-        <p>Private native candidate · No outside AI · Structured cognition · Shell-authorized actions only</p>
+        <form class="composer" id="composer">
+          <button type="button" id="mic" aria-label="Speak" title="Speak your message">Mic</button>
+          <button type="button" id="attach" aria-label="Upload file" title="Upload a text file">File</button>
+          <textarea id="prompt" rows="1" maxlength="12000" placeholder="Message or !command (e.g. !open notepad)…" aria-label="Message Aerynza AI"></textarea>
+          <button id="send" type="submit" aria-label="Send">↑</button>
+          <button type="button" id="stop" aria-label="Stop generating" title="Stop generating" hidden>■</button>
+          <input type="file" id="file-upload" accept=".txt,.md,.json,.csv,.log,.py,.js,.html,.css,.yml,.yaml" hidden>
+          <button type="button" id="voice-toggle" aria-label="Read replies aloud" title="Read replies aloud">Voice</button>
+          <button type="button" id="help" aria-label="Command help" title="Command help">?</button>
+        </form>
+        <p id="footer-note">Private · Local · Voice and text · Windows + Android + iPhone control · <a href="#" id="help-link">Command help</a></p>
+        <div class="command-help" id="command-help" hidden>
+          <p>Type <code>!</code> to run local actions. Examples:</p>
+          <ul>
+            <li><code>!open notepad</code> — open an app</li>
+            <li><code>!search best keyboards</code> — search the web</li>
+            <li><code>!screenshot</code> — capture the screen</li>
+            <li><code>!android list</code> — list connected Android devices</li>
+            <li><code>!iphone test</code> — send a test message via iOS Shortcut</li>
+            <li><code>!chain open notepad; wait 1000; type Hello</code> — run multiple actions</li>
+          </ul>
+          <button type="button" id="close-help">Close</button>
+        </div>
       </footer>
     </main>
   </div>
   <div class="toast" id="toast" role="status"></div>
-  <script src="/static/ascension-ai.js?v=1.1.0" defer></script>
+  <script src="/static/ascension-ai.js?v=2.7.0" defer></script>
 </body>
 </html>

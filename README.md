@@ -2,7 +2,7 @@
 
 Ascension AI is the private, shared intelligence core for Ascension LifeOS. It runs a pinned open-weight model locally through `llama.cpp`; the production runtime does not call OpenAI, Gemini, Anthropic, or another hosted model.
 
-Current status: native alpha 2.3. The standalone service is live and suitable for evaluation and staged LifeOS routing. It is not yet approved as the only production intelligence provider; `/v1/readiness` deliberately reports that distinction.
+Current status: personal v19. The standalone service runs a pinned local model and is suitable for evaluation, local Windows/Android/iPhone control, and staged LifeOS routing. It is not yet approved as the only production intelligence provider; `/v1/readiness` deliberately reports that distinction.
 
 ## Product shells
 

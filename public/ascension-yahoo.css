@@ -1,0 +1,295 @@
+/* Ascension AI — Yahoo Messenger-style chat with the Ascension dark/gold theme.
+   Loaded after ascension-ai.css to override the chat skin.
+*/
+
+html .shell {
+  grid-template-columns: 260px 1fr;
+}
+
+html .sidebar {
+  border-right: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 0, rgba(221, 182, 89, .08), transparent 35%), var(--panel);
+  padding: 18px;
+}
+
+html .brand {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+html .history {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+html .history-item {
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: left;
+  color: var(--text);
+}
+
+html .history-item:hover,
+html .history-item.active {
+  background: rgba(221, 182, 89, .08);
+  border-color: var(--line);
+}
+
+html .topbar {
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  padding: 14px 22px;
+}
+
+html .conversation {
+  padding: 22px 26px;
+}
+
+html .messages {
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html .message {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 8px 0;
+  max-width: 100%;
+}
+
+html .message.user {
+  flex-direction: row-reverse;
+}
+
+html .message .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+html .message .message-body {
+  padding: 13px 18px;
+  border-radius: 20px;
+  background: var(--panel2);
+  line-height: 1.5;
+  max-width: 72%;
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow-wrap: anywhere;
+}
+
+html .message.user .message-body {
+  background: var(--accent);
+  color: var(--bg);
+  border-bottom-right-radius: 6px;
+}
+
+html .message.assistant .message-body {
+  border-bottom-left-radius: 6px;
+}
+
+html .message .meta {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+}
+
+html .message.assistant .meta {
+  text-align: left;
+}
+
+html .composer-wrap {
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+}
+
+html .composer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 14px 10px;
+}
+
+html .composer textarea,
+html .composer button,
+html .composer input[type="file"] + button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  font: 500 13px "DM Sans", sans-serif;
+  outline: none;
+}
+
+html .composer textarea {
+  flex: 1;
+  padding: 12px 14px;
+  resize: none;
+  max-height: 120px;
+  min-height: 44px;
+}
+
+html .composer button {
+  padding: 0 14px;
+  height: 44px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+html .composer button:hover {
+  border-color: var(--strong);
+}
+
+html #send {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+html #send:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+html #stop {
+  background: #7f1d1d;
+  color: #fecaca;
+  border-color: #7f1d1d;
+}
+
+html #stop[hidden] {
+  display: none;
+}
+
+html #voice-toggle.on {
+  background: rgba(221, 182, 89, .18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+html #help {
+  padding: 0 12px;
+}
+
+html .command-help {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+html .command-help p {
+  margin: 0 0 8px;
+}
+
+html .command-help ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+html .command-help li {
+  margin: 4px 0;
+}
+
+html .command-help code {
+  background: var(--panel2);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--text);
+}
+
+html .command-help[hidden] {
+  display: none;
+}
+
+html .command-help button {
+  padding: 6px 12px;
+  height: auto;
+  font-size: 12px;
+}
+
+html #footer-note a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+html .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+html .status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+html .status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  display: inline-block;
+}
+
+html .status.ready i {
+  background: #4ade80;
+}
+
+html .status.busy i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  background: transparent;
+}
+
+@media(max-width:760px) {
+  html .composer {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  html .composer textarea {
+    order: 1;
+    min-width: 100%;
+  }
+  html .composer button,
+  html #help {
+    order: 2;
+    flex: 1 1 auto;
+    padding: 0 10px;
+    height: 40px;
+  }
+  html .command-help {
+    padding: 10px;
+  }
+}
