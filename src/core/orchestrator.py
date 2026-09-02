@@ -511,7 +511,7 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
         **result,
         **{key: value for key, value in prepared.items() if key != "messages"},
         "outside_provider": False,
-        "production_replacement_enabled": False,
+        "production_replacement_enabled": runtime.profile_name == "pro_v231" and bool(runtime.status()["ready"]),
     }
 
 

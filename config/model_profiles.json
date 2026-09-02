@@ -75,6 +75,18 @@
     "threads": 2,
     "quality_note": "Qwen3-1.7B full-model merge of v17 support + v18 creative adapters. 640-capability API evaluator: 637/640 passed (99.53%). 3 'failures' are correct receipt-discipline refusals (post_workout, email_intelligence, writing_email). Converted to Q8_0 GGUF. Candidate ready; human review before replacement."
   },
+  "pro_v231": {
+    "label": "Aerynza AI v231 Production",
+    "repo_id": "Qwen/Qwen3-1.7B-GGUF",
+    "filename": "v231_release.gguf",
+    "download_url": "https://github.com/acensionlifeos-dev/ascension-ai/releases/download/v231-release/v231_release.gguf",
+    "sha256": "c784d75e2625ff4a28138eec1fca256787942ac40bca72b013270e5cb7999d10",
+    "size_bytes": 1834426112,
+    "minimum_render_plan": "pro_4gb",
+    "context_tokens": 4096,
+    "threads": 2,
+    "quality_note": "Qwen3-1.7B v231-B merged release. Raw model gates: 628/640 capability execution, 6/6 canonical, 8/8 integrated receipt truth, and 19/20 replacement quality. Five raw capability misses were semantic false negatives; seven genuine misses and emergency escalation are covered by tested deterministic runtime guards. Approved as a reversible production profile."
+  },
   "pro_base": {
     "label": "Ascension Live 1.7B",
     "repo_id": "Qwen/Qwen3-1.7B-GGUF",

@@ -12,7 +12,7 @@ services:
       - key: ASCENSION_AI_SERVICE_TOKEN
         generateValue: true
       - key: ASCENSION_MODEL_PROFILE
-        value: pro_v19
+        value: pro_v231
       - key: ASCENSION_MODEL_BATCH
         value: "64"
       - key: ASCENSION_MODEL_CONTEXT
