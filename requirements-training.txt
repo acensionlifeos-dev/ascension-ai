@@ -1,7 +1,11 @@
-torch>=2.0.0
-transformers>=4.51.3
+torch>=2.0.0,<2.6.0
+# Transformers 5.x currently breaks this Torch 2.4 training image during
+# import (its Accelerate integration references torch.nn before binding it).
+# Keep the proven 4.x trainer family until the runtime image is upgraded and
+# the full training/evaluation gate is rerun on a newer stack.
+transformers>=4.51.3,<5.0.0
 datasets>=2.14.0
 tokenizers>=0.13.0
-accelerate>=1.8.0
-peft>=0.17.0
+accelerate>=1.8.0,<1.13.0
+peft>=0.17.0,<0.19.0
 safetensors>=0.4.0
