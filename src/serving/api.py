@@ -22,7 +22,7 @@ from src.core.capabilities import CAPABILITIES
 from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
-from src.core.orchestrator import prepare_inference, respond, surface_plan
+from src.core.orchestrator import deterministic_response, prepare_inference, respond, surface_plan
 from src.core.safety import medical_emergency_response
 from src.core.thesis import build_member_thesis_contribution, build_thesis
 
@@ -482,6 +482,8 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
         mode=request.mode,
         allowed_capabilities=request.allowed_capabilities,
     )
+    latest = request.messages[-1].content
+    first_pass = deterministic_response(request.shell, latest, request.mode, prepared["cognition"])
 
     def events():
         started = time.perf_counter()
@@ -500,6 +502,15 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
         meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
         try:
+            if first_pass:
+                yield f"event: token\ndata: {json.dumps({'token': first_pass}, ensure_ascii=False)}\n\n"
+                done = {
+                    "latency_ms": round((time.perf_counter() - started) * 1000),
+                    "production_replacement_enabled": False,
+                    "contract_engine": True,
+                }
+                yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
+                return
             for token in runtime.stream_chat(prepared["messages"], request.temperature, effective_max_tokens(request.max_tokens, request.mode)):
                 yield f"event: token\ndata: {json.dumps({'token': token}, ensure_ascii=False)}\n\n"
             done = {"latency_ms": round((time.perf_counter() - started) * 1000), "production_replacement_enabled": False}

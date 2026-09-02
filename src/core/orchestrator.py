@@ -166,6 +166,42 @@ def _day_list(days: list[str]) -> str:
 def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
     """Short-circuit high-stakes capability invocations with a contract-safe first pass."""
     value = str(latest or "").lower()
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?electric\s+vehicle(?:\s+intelligence)?\b", value):
+        return (
+            "Electric Vehicle Intelligence is ready. I’ll start with your daily range, charging access, climate, passengers, cargo needs, and budget. "
+            "Then I can compare verified real-world range, charging time and networks, incentives, insurance, maintenance, battery warranty, depreciation, "
+            "and total ownership cost. I’ll rank the options with sourced evidence and clearly labeled estimates; purchasing and charging actions remain separate and require approval."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?referral(?:\s+intelligence)?\b", value):
+        return (
+            "Referral Intelligence is ready. I’ll define the eligible action, reward, limits, expiration, and fraud rules, then prepare the consent language, "
+            "attribution code, status tracking, stacked-discount policy, and analytics. An invite remains a draft until you approve it, and delivery is confirmed only by a messaging-provider receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?dream\s+fund\b", value):
+        return (
+            "Dream Fund is ready. I’ll connect the target price and date to the current amount, recurring contribution, competing bills, and real cash flow, "
+            "then calculate safe deposits, milestones, price-change scenarios, and the earliest responsible purchase window. No money moves without your approval and an authenticated financial receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?household\s+sync\b", value):
+        return (
+            "Household Sync is ready. I’ll confirm the members, shared categories, visibility permissions, calendars, chores, supplies, and devices involved, "
+            "then reconcile conflicts into a shared proposal without exposing private Life or Family data. Only the authorized shell can apply approved updates, with a result from each connected system."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?idea\s+validator\b", value):
+        return (
+            "Idea Validator is ready. I’ll clarify the intended user, problem, alternatives, and success target; assess desirability, differentiation, feasibility, economics, risks, "
+            "and evidence quality; then design the cheapest useful experiment. The result is a proceed, revise, or stop recommendation with assumptions—not a guarantee."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?batch\s+cooking\b", value):
+        return (
+            "Batch Cooking is ready. I’ll confirm servings, dietary needs, budget, equipment, storage space, and available time, then consolidate ingredients, sequence preparation, "
+            "build a cooking schedule, and include safe cooling, storage, and reheating guidance. I can produce the grocery list and timed plan; physical cooking is never claimed without an authorized appliance receipt."
+        )
+    if re.search(r"\buse\b.{0,40}\b(?:ascension\s+)?focus(?:\s+intelligence)?\b", value):
+        return (
+            "Focus Intelligence is ready. I’ll identify the task, deadline, available window, energy level, and likely distraction, define one finish line, and shape a protected focus block with a short recovery. "
+            "Progress is based on your report or verified activity evidence—not invented attention data."
+        )
     if re.search(r"\buse\b.{0,40}\bascension\s+post\s+workout\b", value):
         return (
             "ASCENSION SHELL: lifeos\n"
@@ -239,6 +275,18 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "I can prepare the options for your review; nothing is executed without your approval and a provider receipt."
         )
     return None
+
+
+def deterministic_response(shell: Shell, latest: str, mode: str, cognitive: dict) -> str | None:
+    """Shared deterministic first pass used by sync and streaming chat."""
+    return (
+        medical_emergency_response(latest)
+        or deterministic_scope_answer(shell, latest)
+        or deterministic_conversation_repair(latest, mode)
+        or deterministic_domain_answer(shell, latest, mode)
+        or deterministic_capability_answer(shell, latest)
+        or deterministic_first_pass(cognitive, mode)
+    )
 
 
 def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
@@ -446,14 +494,7 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
 def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int) -> dict:
     prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
     latest = messages[-1].get("content", "") if messages else ""
-    first_pass = (
-        medical_emergency_response(latest)
-        or deterministic_scope_answer(shell, latest)
-        or deterministic_conversation_repair(latest, mode)
-        or deterministic_domain_answer(shell, latest, mode)
-        or deterministic_capability_answer(shell, latest)
-        or deterministic_first_pass(prepared["cognition"], mode)
-    )
+    first_pass = deterministic_response(shell, latest, mode, prepared["cognition"])
     result = ({
         "content": first_pass,
         "model": "Ascension Contract Engine",
