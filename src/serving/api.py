@@ -23,6 +23,7 @@ from src.core.cognition import TALENTS, build_action_execution_contract, build_c
 from src.core.contracts import Shell, Tier
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import prepare_inference, respond, surface_plan
+from src.core.safety import medical_emergency_response
 from src.core.thesis import build_member_thesis_contribution, build_thesis
 
 
@@ -409,6 +410,26 @@ async def plan_surfaces(request: SurfacePlanRequest, _: None = Depends(require_a
 
 @app.post("/v1/intelligence")
 async def intelligence(request: IntelligenceRequest, _: None = Depends(require_access)) -> dict:
+    emergency = medical_emergency_response(request.messages[-1].content)
+    if emergency:
+        return {
+            "content": emergency,
+            "model": "Aerynza Emergency Guard",
+            "provider": "aerynza-deterministic-safety",
+            "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
+            "latency_ms": 0,
+            "queue_wait_ms": 0,
+            "inference_ms": 0,
+            "shell": request.shell.value,
+            "tier": request.tier.value,
+            "mode": request.mode,
+            "surface": request.surface,
+            "domains": ["safety", "health"],
+            "capabilities": {},
+            "outside_provider": False,
+            "production_replacement_enabled": False,
+            "safety_intercept": "medical_emergency",
+        }
     require_native_ready()
     try:
         return await asyncio.to_thread(
@@ -438,6 +459,19 @@ async def chat(request: IntelligenceRequest, access: None = Depends(require_acce
 
 @app.post("/v1/stream")
 async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(require_access)):
+    emergency = medical_emergency_response(request.messages[-1].content)
+    if emergency:
+        def emergency_events():
+            meta = {
+                "model": "Aerynza Emergency Guard",
+                "provider": "aerynza-deterministic-safety",
+                "outside_provider": False,
+                "safety_intercept": "medical_emergency",
+            }
+            yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
+            yield f"event: token\ndata: {json.dumps({'token': emergency}, ensure_ascii=False)}\n\n"
+            yield f"event: done\ndata: {json.dumps({'latency_ms': 0, 'production_replacement_enabled': False}, separators=(',', ':'))}\n\n"
+        return StreamingResponse(emergency_events(), media_type="text/event-stream", headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"})
     require_native_ready()
     prepared = prepare_inference(
         shell=request.shell,

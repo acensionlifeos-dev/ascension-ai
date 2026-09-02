@@ -9,6 +9,7 @@ from .capabilities import capability_packet, detect_domains, resolve_ascension_c
 from .cognition import build_action_execution_contract, build_cognitive_packet
 from .contracts import Shell, Tier, response_contract, system_contract
 from .model_runtime import runtime
+from .safety import medical_emergency_response
 
 
 UNRECEIPTED_CLAIM = re.compile(
@@ -446,7 +447,8 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
     prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
     latest = messages[-1].get("content", "") if messages else ""
     first_pass = (
-        deterministic_scope_answer(shell, latest)
+        medical_emergency_response(latest)
+        or deterministic_scope_answer(shell, latest)
         or deterministic_conversation_repair(latest, mode)
         or deterministic_domain_answer(shell, latest, mode)
         or deterministic_capability_answer(shell, latest)

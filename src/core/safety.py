@@ -73,6 +73,66 @@ THIRD_PARTY_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# This deliberately requires present-tense, personal emergency language. It must
+# not intercept educational questions such as "what are the signs of a stroke?".
+MEDICAL_EMERGENCY_PATTERNS = {
+    "cardiac_or_breathing": re.compile(
+        r"\b(?:i(?:'m| am)?|my child(?:'s)?|my baby(?:'s)?|someone here(?:'s)?)\b.{0,80}"
+        r"(?:severe|crushing|sudden|new|bad)?\s*(?:chest pain|chest pressure|"
+        r"can(?:not|'t) breathe|trouble breathing|short(?:ness)? of breath|having (?:a )?heart attack)\b|"
+        r"\b(?:i think i(?:'m| am) having|i(?:'m| am) having) (?:a )?heart attack\b",
+        re.IGNORECASE,
+    ),
+    "stroke": re.compile(
+        r"\b(?:i think i(?:'m| am) having|i(?:'m| am) having|my .* (?:is|has)) (?:a )?stroke\b|"
+        r"\b(?:my|their) face (?:is )?droop(?:ing|ed)?\b.{0,100}\b(?:arm|leg) (?:is )?(?:weak|numb)\b|"
+        r"\b(?:my|their) speech (?:is )?(?:slurred|strange)\b.{0,100}\b(?:weak|numb|droop)",
+        re.IGNORECASE,
+    ),
+    "anaphylaxis": re.compile(
+        r"\b(?:my|their) (?:throat|tongue|lips?) (?:is|are)?\s*(?:swelling|swollen)\b.{0,100}"
+        r"\b(?:can(?:not|'t) breathe|trouble breathing|wheez(?:e|ing))\b",
+        re.IGNORECASE,
+    ),
+    "overdose": re.compile(
+        r"\b(?:i|they|he|she) (?:overdosed|took too (?:many|much)|may have overdosed)\b",
+        re.IGNORECASE,
+    ),
+    "severe_bleeding": re.compile(
+        r"\b(?:i(?:'m| am)?|they(?:'re| are)?|he(?:'s| is)?|she(?:'s| is)?)\b.{0,60}"
+        r"(?:bleeding (?:heavily|a lot|uncontrollably)|bleeding (?:that )?won(?:not|'t) stop|uncontrolled bleeding)\b",
+        re.IGNORECASE,
+    ),
+    "pregnancy_emergency": re.compile(
+        r"\b(?:i(?:'m| am) pregnant|pregnan(?:t|cy))\b.{0,120}"
+        r"(?:heavy bleeding|severe (?:belly|abdominal|pelvic) pain|seizure|fainted|passed out|"
+        r"can(?:not|'t) breathe|chest pain)\b",
+        re.IGNORECASE,
+    ),
+}
+
+
+def medical_emergency_response(content: str) -> str | None:
+    """Return immediate, non-diagnostic escalation for current emergencies."""
+    text = str(content or "").strip()
+    category = next((name for name, pattern in MEDICAL_EMERGENCY_PATTERNS.items() if pattern.search(text)), None)
+    if not category:
+        return None
+    if category == "stroke":
+        return (
+            "These can be signs of a stroke. Call emergency services now (911 in the U.S. and Canada) and note when the symptoms started. "
+            "Do not drive yourself and do not wait to see if it improves. If you can, unlock the door and keep the phone with you."
+        )
+    if category == "overdose":
+        return (
+            "This may be an overdose emergency. Call emergency services now (911 in the U.S. and Canada). "
+            "If opioid overdose is possible and naloxone is available, use it as directed. Do not leave the person alone; follow the dispatcher’s instructions."
+        )
+    return (
+        "This could be a medical emergency. Call emergency services now (911 in the U.S. and Canada) or have someone nearby call. "
+        "Do not drive yourself and do not wait for an online reply. If you can, unlock the door, keep your phone with you, and follow the dispatcher’s instructions."
+    )
+
 
 @dataclass
 class SafetyResult:
