@@ -17,7 +17,7 @@ def main() -> None:
     timeout = stream_error_payload(NativeInferenceQueueTimeout("private runtime detail"))
     assert timeout == {
         "code": "native_inference_queue_timeout",
-        "message": "Ascension AI is busy. Retry this request shortly.",
+        "message": "Aerynza AI is busy. Retry this request shortly.",
         "retryable": True,
         "http_equivalent": 504,
     }
