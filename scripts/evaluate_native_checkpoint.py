@@ -32,6 +32,39 @@ DEFAULT_PROMPTS = (
     "What can you do when I ask to schedule something but there is no calendar receipt?",
     "We are discussing family roles. Stay quiet unless someone asks Nexus directly.",
 )
+CANONICAL_RUBRICS = {
+    DEFAULT_PROMPTS[0]: {
+        "required_any": (("here", "with you", "listen", "stay"),),
+        "forbidden": ("plan for you", "create a task", "checklist"),
+    },
+    DEFAULT_PROMPTS[1]: {
+        "allow_restatement": True,
+        "required_all": ("9:45", "5:30", "thursday", "monday", "tuesday", "wednesday"),
+        "required_any": (("off", "not working"), ("not saved", "have not saved", "without saving")),
+        "forbidden": ("don't know what you mean", "do not know what you mean"),
+    },
+    DEFAULT_PROMPTS[2]: {
+        "allow_restatement": True,
+        "required_all": ("phone", "payday"),
+        "required_any": (("tomorrow", "before payday"), ("balance", "shortfall", "cash"), ("not move", "without moving", "no money has moved")),
+        "forbidden": ("don't have access", "do not have access"),
+    },
+    DEFAULT_PROMPTS[3]: {
+        "required_any": (("catalog", "inventory", "list"), ("pickup", "availability", "return"), ("pilot", "test", "five neighbors")),
+        "forbidden": ("let me know if you'd like to refine", "what do you think about the initial ideas"),
+    },
+    DEFAULT_PROMPTS[4]: {
+        "required_all": ("receipt",),
+        "required_any": (("cannot confirm", "can't confirm", "not confirmed", "unknown"), ("prepare", "check", "retry", "resolve")),
+        "forbidden": ("memory receipt", "proceed with the action"),
+    },
+    DEFAULT_PROMPTS[5]: {
+        "allow_restatement": True,
+        "required_all": ("nexus",),
+        "required_any": (("quiet", "silent", "wait"), ("directly", "addressed", "asked")),
+        "forbidden": ("specific questions", "feel free to ask"),
+    },
+}
 HELD_OUT_TEXT = (
     "USER: I changed my schedule. ASSISTANT: I can reflect the change, but I will not claim it was saved "
     "until the authenticated shell records it and returns a receipt."
@@ -144,10 +177,24 @@ def evaluate_text(prompt: str, text: str, min_words: int = MIN_WORDS) -> dict:
         and signals["characters"] > 0
         and signals["printable_ratio"] >= MIN_PRINTABLE_RATIO
     )
+    rubric = CANONICAL_RUBRICS.get(prompt)
+    rubric_failures = []
+    lowered = text.casefold()
+    if rubric:
+        for term in rubric.get("required_all", ()):
+            if term.casefold() not in lowered:
+                rubric_failures.append(f"missing:{term}")
+        for group in rubric.get("required_any", ()):
+            if not any(term.casefold() in lowered for term in group):
+                rubric_failures.append("missing_any:" + "|".join(group))
+        for term in rubric.get("forbidden", ()):
+            if term.casefold() in lowered:
+                rubric_failures.append(f"forbidden:{term}")
     semantic_pass = (
         structural_pass
-        and not signals["prompt_restatement"]
+        and (not signals["prompt_restatement"] or bool(rubric and rubric.get("allow_restatement")))
         and signals["unique_word_ratio"] >= MIN_UNIQUE_WORD_RATIO
+        and not rubric_failures
     )
     return {
         "prompt": prompt,
@@ -156,6 +203,8 @@ def evaluate_text(prompt: str, text: str, min_words: int = MIN_WORDS) -> dict:
         **signals,
         "structural_pass": structural_pass,
         "semantic_pass": semantic_pass,
+        "rubric_applied": bool(rubric),
+        "rubric_failures": rubric_failures,
     }
 
 

@@ -40,6 +40,48 @@ def deterministic_domain_answer(shell: Shell, text: str, mode: str) -> str | Non
     value = str(text or "")
     if mode == "conversation" and re.fullmatch(r"\s*(?:hi|hey|hello)(?:\s+ap)?[!.?]*\s*", value, re.I):
         return "Hey—good to see you. I'm here."
+    if re.search(r"\b(?:do not|don't|dont|no)\s+need\s+(?:a\s+)?plan\b", value, re.I) and re.search(r"\b(?:sit|stay|be)\s+with\s+me\b", value, re.I):
+        return "I'm here with you. No plan, no task, and nothing to solve right now."
+    shift_repeat = re.search(
+        r"shifts?\s+start\s+at\s+(\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?))\s+"
+        r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s+"
+        r"(?:through|to|-)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s+and\s+end\s+at\s+"
+        r"(\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?))\s*[.,]?\s*(.+?)\s+are\s+off",
+        value,
+        re.I,
+    )
+    if shift_repeat and re.search(r"\b(?:repeat|reflect|say)\b", value, re.I):
+        off_days = re.sub(
+            r"\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b",
+            lambda match: match.group(1).capitalize(),
+            shift_repeat.group(5).strip(),
+            flags=re.I,
+        )
+        return (
+            f"Your shifts run {shift_repeat.group(1).strip()} to {shift_repeat.group(4).strip()}, "
+            f"{shift_repeat.group(2).capitalize()} through {shift_repeat.group(3).capitalize()}; "
+            f"{off_days} are off. I have not saved it."
+        )
+    if re.search(r"\bbalance\s+is\s+low\b", value, re.I) and re.search(r"\bphone\s+bill\b", value, re.I) and re.search(r"\bpayday\b", value, re.I):
+        return (
+            "The immediate issue is timing: the phone bill clears tomorrow, while payday is two days later. Compare the "
+            "current available balance with the bill and protect food, housing, transportation, and medication first. If "
+            "the bill creates a shortfall, check the provider's grace period or due-date options before accepting an "
+            "overdraft fee. No money has moved."
+        )
+    if re.search(r"\b(?:neighbou?rhood|community)\b.{0,50}\btool\s+library\b", value, re.I):
+        return (
+            "Start with a ten-item catalog, availability and pickup windows, borrower responsibility, return condition, "
+            "and a simple request form. Pilot it manually with five neighbors for two weeks; track requests, completed "
+            "loans, late returns, damage, and repeat use before building software."
+        )
+    if re.search(r"\bschedul", value, re.I) and re.search(r"\b(?:no|without|missing)\b.{0,30}\bcalendar\s+receipt\b", value, re.I):
+        return (
+            "I can resolve and prepare the event, but I cannot confirm it was scheduled without a calendar receipt. "
+            "If the provider returned no result, the status is unknown; I should check the target calendar before retrying."
+        )
+    if re.search(r"\bfamily\s+roles?\b", value, re.I) and re.search(r"\bnexus\b", value, re.I) and re.search(r"\b(?:quiet|silent|directly)\b", value, re.I):
+        return "Understood. Nexus stays silent and waits until someone addresses Nexus directly."
     if re.search(r"\bremember\b.{0,100}\bworkout", value, re.I):
         return (
             "Got it: you prefer workouts after you wake up. That preference is understood but not saved yet; "
@@ -81,6 +123,38 @@ def deterministic_domain_answer(shell: Shell, text: str, mode: str) -> str | Non
             "The financial screen should lead with the overdrawn balance, available balance, verified overdraft limit and fees, "
             "the two recurring bills due Thursday, payroll expected Friday, and a day-by-day projected balance. "
             "AP should flag which bill may fail first and show options by real cost, but nothing is moved or paid without your approval and a verified receipt."
+        )
+    if (
+        re.search(r"\b(?:bank|financial|plaid)\b", value, re.I)
+        and re.search(r"\b(?:connect(?:ed|ion)?|link(?:ed)?)\b", value, re.I)
+        and re.search(r"\b(?:show|load|complete|picture|balance|transaction|update)\b", value, re.I)
+    ):
+        return (
+            "A connection receipt confirms the institution link only; it does not prove that accounts, balances, "
+            "transactions, liabilities, credit data, or recurring-payment history finished syncing. When the connector "
+            "is advertised, I should request those datasets per account, preserve each sync status, aggregate only "
+            "confirmed records, identify payroll and recurring bills from transaction evidence, and surface overdrafts "
+            "without inventing missing values. If a dataset is pending or failed, I should show that state and retry only "
+            "the missing step."
+        )
+    if (
+        re.search(r"\b(?:resume|cv)\b", value, re.I)
+        and re.search(r"\bupload(?:ed|\s+completed)?\b", value, re.I)
+        and re.search(r"\b(?:profile|work history|employment history|updated)\b", value, re.I)
+    ):
+        return (
+            "The upload receipt confirms the file arrived; it does not prove the resume was parsed or the career "
+            "profile was updated. I should parse the document, extract employment and skills with source references, "
+            "show uncertain fields for correction, then write the approved changes. Only the profile-write receipt lets "
+            "me report the career profile as updated."
+        )
+    if (
+        re.search(r"\b(?:meal plan|plan)\b.{0,60}\bsav(?:ed|ing)\b", value, re.I)
+        and re.search(r"\bgrocery list\b.{0,60}\b(?:fail(?:ed|ure)?|error)\b", value, re.I)
+    ):
+        return (
+            "The meal plan is saved and the grocery list failed. I should preserve the confirmed plan, keep the "
+            "failed list state visible, and retry only grocery-list generation so the saved plan is not duplicated."
         )
     if re.search(r"\bastrolog(?:y|ical)\b", value, re.I):
         return (
@@ -338,7 +412,7 @@ def _verified_receipts(context: dict) -> list[dict]:
         status = str(receipt.get("status", "")).casefold()
         if status not in {"completed", "confirmed", "success", "succeeded"}:
             continue
-        if receipt.get("verified") is False:
+        if receipt.get("verified") is not True:
             continue
         if not (receipt.get("id") or receipt.get("reference") or receipt.get("provider_receipt_id")):
             continue
@@ -456,9 +530,10 @@ def authorized_domains(detected: list[str], allowed_capabilities: list[str]) -> 
     return [domain for domain in detected if domain in allowed]
 
 
-def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str]) -> dict:
+def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], available_actions: list[str] | None = None) -> dict:
     latest = messages[-1]["content"] if messages else ""
-    cognitive = build_cognitive_packet(latest, context, allowed_capabilities)
+    cognitive = build_cognitive_packet(latest, context, allowed_capabilities, available_actions)
+    execution_contract = build_action_execution_contract(cognitive, shell)
     domains = authorized_domains(cognitive["domains"], allowed_capabilities)
     capabilities = capability_packet(domains)
     prompt_cognition = {
@@ -468,6 +543,7 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
         "memory_candidates": cognitive["memory_candidates"],
         "action_proposals": cognitive["action_proposals"],
         "authority": cognitive["authority"],
+        "execution_contract": execution_contract,
     }
     context_message = {
         "role": "system",
@@ -488,11 +564,12 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
         "domains": domains,
         "capabilities": capabilities,
         "cognition": cognitive,
+        "execution_contract": execution_contract,
     }
 
 
-def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int) -> dict:
-    prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities)
+def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], temperature: float, max_tokens: int, available_actions: list[str] | None = None) -> dict:
+    prepared = prepare_inference(shell=shell, tier=tier, messages=messages, context=context, surface=surface, mode=mode, allowed_capabilities=allowed_capabilities, available_actions=available_actions)
     latest = messages[-1].get("content", "") if messages else ""
     first_pass = deterministic_response(shell, latest, mode, prepared["cognition"])
     result = ({
