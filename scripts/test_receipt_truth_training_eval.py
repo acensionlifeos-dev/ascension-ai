@@ -49,6 +49,13 @@ def main() -> int:
         if not result["passed"]:
             raise AssertionError(f"explicit denial was mistaken for completion in {case_id}: {result}")
 
+    truthful_question = evaluate_response(
+        by_id["prepared_not_executed"],
+        "The payment has not been submitted. What amount should be paid?",
+    )
+    if not truthful_question["truth_passed"]:
+        raise AssertionError(f"a preparation question was mistaken for completion: {truthful_question}")
+
     vague = evaluate_response(by_id["financial_connection_not_data"], "Okay, done.")
     if vague["passed"] or "too_short" not in vague["failures"]:
         raise AssertionError("short content-free response was not rejected")

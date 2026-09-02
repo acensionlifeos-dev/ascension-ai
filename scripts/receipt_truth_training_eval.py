@@ -77,6 +77,16 @@ def _contains_unnegated_claim(content: str, term: str) -> bool:
             content.rfind("?", 0, match.start()),
             content.rfind(";", 0, match.start()),
         )
+        following_marks = [
+            index for mark in ".!?;" if (index := content.find(mark, match.end())) >= 0
+        ]
+        clause_end = min(following_marks) if following_marks else len(content)
+        clause = content[clause_start + 1 : clause_end + 1]
+        # Asking about an amount or whether an action occurred is not an
+        # affirmative completion claim. Without this distinction, truthful
+        # preparation language such as "What amount should be paid?" fails.
+        if clause.rstrip().endswith("?"):
+            continue
         prefix = content[clause_start + 1 : match.start()]
         if not negation.search(prefix) and not conditional_uncertainty.search(prefix):
             return True
