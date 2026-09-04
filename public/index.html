@@ -9,12 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/ascension-ai.css?v=2.7.0">
   <link rel="stylesheet" href="/static/ascension-yahoo.css?v=2.7.0">
-  <style>
-    .surface-starters { margin-top: 8px; }
-    .surface-starters button { padding: 10px 12px; }
-    .surface-starters button strong { display: block; font-size: 13px; }
-    .surface-starters button span { font-size: 11px; color: var(--muted); }
-  </style>
 </head>
 <body>
   <div class="shell" id="shell">
@@ -39,22 +33,30 @@
           <p class="eyebrow">PERSONAL ASSISTANT</p>
           <h1>What would you like to do?</h1>
           <p>Private, local, voice-and-text assistant. No cloud AI. Your data stays on this machine.</p>
-          <div class="starters">
-            <button type="button" data-prompt="Open Notepad for me."><strong>Open an app</strong><span>Type !open notepad</span></button>
-            <button type="button" data-prompt="Search Google for the best mechanical keyboards."><strong>Search the web</strong><span>Type !search best keyboards</span></button>
-            <button type="button" data-prompt="Send a test message to my phone."><strong>Phone bridge</strong><span>Type !android list or !iphone test</span></button>
-            <button type="button" data-prompt="Talk with me like a real friend."><strong>Just chat</strong><span>Ask anything</span></button>
-          </div>
-          <p class="eyebrow" style="margin-top:18px">AP SURFACES</p>
-          <div class="starters surface-starters">
-            <button type="button" data-prompt="Use Aerynza Finance."><strong>Finance</strong><span>Budget, invest, trading</span></button>
-            <button type="button" data-prompt="Use Aerynza Health."><strong>Health</strong><span>Track, plan, wellness</span></button>
-            <button type="button" data-prompt="Use Aerynza Creative."><strong>Creation</strong><span>Art, music, projects</span></button>
-            <button type="button" data-prompt="Use Aerynza HomeOS."><strong>Home</strong><span>Household & life admin</span></button>
-            <button type="button" data-prompt="Use Aerynza Research Assistant."><strong>Knowledge</strong><span>Research & learning</span></button>
-            <button type="button" data-prompt="Use Aerynza Relationships."><strong>Social</strong><span>Family, dating, network</span></button>
-            <button type="button" data-prompt="Use Aerynza Spirituality."><strong>Spirituality</strong><span>Practice & reflection</span></button>
-            <button type="button" data-prompt="Use Aerynza DevOps."><strong>Engineering</strong><span>Code, cloud, devices</span></button>
+          <div class="starters" id="starters">
+            <button type="button" data-shell="ap" data-prompt="Talk with me like a real friend."><strong>Just chat</strong><span>Ask anything</span></button>
+            <button type="button" data-shell="ap" data-prompt="Use Aerynza Research Assistant."><strong>Research</strong><span>Saved research in chat</span></button>
+            <button type="button" data-shell="ap" data-prompt="Open Notepad for me."><strong>Open an app</strong><span>Type !open notepad</span></button>
+            <button type="button" data-shell="ap" data-prompt="Search Google for the best mechanical keyboards."><strong>Search the web</strong><span>Type !search best keyboards</span></button>
+            <button type="button" data-shell="lifeos" data-prompt="Use Aerynza Finance." hidden><strong>Finance</strong><span>Budget, invest, trading</span></button>
+            <button type="button" data-shell="lifeos" data-prompt="Use Aerynza Health." hidden><strong>Health</strong><span>Track, plan, wellness</span></button>
+            <button type="button" data-shell="lifeos" data-prompt="Use Aerynza Relationships." hidden><strong>Relationships</strong><span>Family, dating, network</span></button>
+            <button type="button" data-shell="lifeos" data-prompt="Use Aerynza Spirituality." hidden><strong>Spirituality</strong><span>Practice, astrology & reflection</span></button>
+            <button type="button" data-shell="creation" data-prompt="Use Aerynza Software Studio." hidden><strong>Engineering</strong><span>Code, cloud, devices</span></button>
+            <button type="button" data-shell="creation" data-prompt="Use Aerynza Art." hidden><strong>Art</strong><span>Design & illustration</span></button>
+            <button type="button" data-shell="creation" data-prompt="Use Aerynza Music." hidden><strong>Music</strong><span>Compose & produce</span></button>
+            <button type="button" data-shell="creation" data-prompt="Use Aerynza Video Editing." hidden><strong>Video</strong><span>Edit, stream, publish</span></button>
+            <button type="button" data-shell="nexus_home" data-prompt="Use Aerynza HomeOS." hidden><strong>Home</strong><span>Household & life admin</span></button>
+            <button type="button" data-shell="nexus_home" data-prompt="Use Aerynza Cooking." hidden><strong>Cooking</strong><span>Meals & planning</span></button>
+            <button type="button" data-shell="nexus_home" data-prompt="Use Aerynza Garden." hidden><strong>Garden</strong><span>Grow, plan, maintain</span></button>
+            <button type="button" data-shell="nexus_home" data-prompt="Use Aerynza Cleaning." hidden><strong>Cleaning</strong><span>Schedule & routines</span></button>
+            <button type="button" data-shell="nexus_family" data-prompt="Use Aerynza FamilyOS." hidden><strong>Family</strong><span>Family enterprise</span></button>
+            <button type="button" data-shell="nexus_family" data-prompt="Use Aerynza Family Sync." hidden><strong>Family Sync</strong><span>Shared plans</span></button>
+            <button type="button" data-shell="nexus_family" data-prompt="Use Aerynza Relationships." hidden><strong>Relationships</strong><span>Family & dating</span></button>
+            <button type="button" data-shell="sprout" data-prompt="I want to learn something fun." hidden><strong>Learn</strong><span>Kid-safe answers</span></button>
+            <button type="button" data-shell="sprout" data-prompt="Help me make a drawing." hidden><strong>Create</strong><span>Imaginative projects</span></button>
+            <button type="button" data-shell="core" data-prompt="Explain a concept to me." hidden><strong>Analyze</strong><span>Neutral reasoning</span></button>
+            <button type="button" data-shell="core" data-prompt="Use Aerynza Code." hidden><strong>Code</strong><span>Review, debug, write</span></button>
           </div>
         </div>
         <div class="messages" id="messages"></div>

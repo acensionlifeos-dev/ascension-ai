@@ -564,6 +564,7 @@
   function bindSelectors() {
     $('#shell-select').onchange = event => {
       state.shell = event.target.value;
+      renderStarters();
       createSession();
       toast(`Switched to ${event.target.options[event.target.selectedIndex].text}`);
     };
@@ -601,9 +602,25 @@
     };
   }
 
+  function renderStarters() {
+    const container = $('#starters');
+    if (!container) return;
+    container.querySelectorAll('[data-shell]').forEach(button => {
+      button.hidden = button.dataset.shell !== state.shell;
+    });
+  }
+
   function bindStarters() {
-    document.querySelectorAll('[data-prompt]').forEach(button => {
-      button.onclick = () => send(button.dataset.prompt);
+    const container = $('#starters');
+    if (!container) return;
+    container.addEventListener('click', event => {
+      const button = event.target.closest('[data-prompt]');
+      if (!button) return;
+      if (button.dataset.shell) {
+        state.shell = button.dataset.shell;
+        $('#shell-select').value = state.shell;
+      }
+      send(button.dataset.prompt);
     });
   }
 
@@ -674,6 +691,7 @@
     bindFileUpload();
     bindMic();
     bindHelp();
+    renderStarters();
   }
 
   async function boot() {
