@@ -430,7 +430,7 @@ export const CAPABILITIES = [
     category: 'audio',
     description: 'Convert speech to text with Whisper',
     providers: ['openai'],
-    default_provider: 'placeholder',
+    default_provider: 'openai',
     cost_per_1k_tokens: 25,
     requires_tier: 'individual',
     executor: 'audio',
