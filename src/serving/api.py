@@ -29,6 +29,7 @@ from src.core.capabilities import CAPABILITIES
 from src.core.action_runtime import shell_action_catalog, shell_allows_action, validate_action_receipt
 from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
+from src.core.media_executor import generate_image
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import deterministic_response, prepare_inference, respond, surface_plan
 from src.core.safety import medical_emergency_response
@@ -644,6 +645,17 @@ class iPhoneActionRequest(BaseModel):
 async def iphone_execute(request: iPhoneActionRequest, access: None = Depends(require_access)) -> dict:
     """Execute one allowed iPhone action through a user-configured iOS Shortcut webhook."""
     return iphone_bridge.run(request.action, **request.params)
+
+
+class MediaRequest(BaseModel):
+    prompt: str = Field(min_length=1, max_length=4000)
+    provider: str = Field(default="dall-e-3")
+
+
+@app.post("/v1/media/generate")
+async def media_generate(request: MediaRequest, _: None = Depends(require_access)) -> dict:
+    """Generate media through the configured outside provider. DALL-E 3 is the first supported provider."""
+    return await asyncio.to_thread(generate_image, request.prompt)
 
 
 @app.post("/v1/iphone/inbox")

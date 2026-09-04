@@ -12,3 +12,18 @@ ascension.env
 *.log
 .DS_Store
 docs/capabilities/
+
+# Devin scratch, eval results, and screenshots
+.devin-*
+.devin-*/
+.edge-data/
+*.err
+check_env.sh
+restart_*.sh
+start_*.sh
+inspect_*.py
+summarize_*.py
+tools/
+evals/results/
+public/screenshots/
+.git-commit-msg.txt

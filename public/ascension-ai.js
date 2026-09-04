@@ -250,8 +250,9 @@
   function safeImageUrl(url) {
     try {
       const u = new URL(url, window.location.origin);
-      if (u.origin !== window.location.origin) return null;
-      return u.pathname + u.search;
+      if (u.origin === window.location.origin) return u.pathname + u.search;
+      if (u.protocol === 'https:') return u.href;
+      return null;
     } catch (_) { return null; }
   }
 
@@ -339,14 +340,14 @@
   }
 
   function finalizeAction(node, live, result, metaPrefix, caption) {
-    if (result.status === 'screenshot' && result.url) {
+    if ((result.status === 'screenshot' || result.status === 'image') && result.url) {
       const url = safeImageUrl(result.url);
       if (url) {
         live.imageUrl = url;
         live.imageCaption = caption;
-        live.imageAlt = `${metaPrefix.toLowerCase()} screenshot`;
+        live.imageAlt = `${metaPrefix.toLowerCase()} image`;
       } else {
-        live.content = `Screenshot received an unsafe URL: ${result.url}`;
+        live.content = `${metaPrefix} received an unsafe URL: ${result.url}`;
       }
     } else {
       live.content = result.message ? `${result.status}: ${result.message}` : JSON.stringify(result, null, 2);
@@ -425,11 +426,38 @@
     }
   }
 
+  async function runDalle(tail) {
+    const session = current();
+    const prompt = '!dalle ' + tail;
+    state.busy = true;
+    appendUserMessage(prompt);
+    setBusy('Running DALL-E 3…');
+    const { live, node } = appendAssistantPlaceholder('DALL-E 3');
+    try {
+      const result = await request('/v1/media/generate', { method: 'POST', body: JSON.stringify({ prompt: tail, provider: 'dall-e-3' }) }, 90000);
+      finalizeAction(node, live, result, 'DALL-E 3', 'DALL-E 3 image:');
+      session.messages.push(live);
+      save();
+      if (state.voiceOn && !live.imageUrl) speak(live.content);
+    } catch (error) {
+      node.remove();
+      const saved = { role: 'assistant', content: error.name === 'AbortError' ? 'The DALL-E 3 request timed out.' : error.message, meta: 'DALL-E 3 action failed' };
+      session.messages.push(saved); save(); $('#messages').append(messageNode(saved));
+    } finally {
+      state.busy = false;
+      $('#send').disabled = false;
+      $('#prompt').focus();
+      $('#conversation').scrollTop = $('#conversation').scrollHeight;
+      setReady(state.health?.candidate_ready ? `${state.health.model} ready` : 'Setup incomplete');
+    }
+  }
+
   async function runAction(prompt) {
     const first = prompt.slice(1).trim().split(/\s+/)[0].toLowerCase();
     const tail = prompt.slice(1).trim().split(/\s+/).slice(1).join(' ');
     if (first === 'android') { return runAndroid(tail); }
     if (first === 'iphone') { return runiPhone(tail); }
+    if (first === 'dalle') { return runDalle(tail); }
     const session = current();
     state.busy = true;
     appendUserMessage(prompt);
