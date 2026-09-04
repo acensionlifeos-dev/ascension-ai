@@ -29,7 +29,7 @@ from src.core.capabilities import CAPABILITIES
 from src.core.action_runtime import shell_action_catalog, shell_allows_action, validate_action_receipt
 from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
 from src.core.contracts import Shell, Tier
-from src.core.media_executor import generate_image
+from src.core.media_executor import generate_image, parse_image_request
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.core.orchestrator import deterministic_response, prepare_inference, respond, surface_plan
 from src.core.safety import medical_emergency_response
@@ -489,6 +489,40 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             "production_replacement_enabled": production_replacement_enabled(),
             "safety_intercept": "medical_emergency",
         }
+
+    # Natural image-generation requests go straight to the configured media provider.
+    image_prompt = parse_image_request(request.messages[-1].content)
+    if image_prompt:
+        started = time.perf_counter()
+        result = await asyncio.to_thread(generate_image, image_prompt)
+        latency_ms = round((time.perf_counter() - started) * 1000)
+        if result["status"] == "image":
+            return {
+                "content": result["message"],
+                "imageUrl": result["url"],
+                "model": "dall-e-3",
+                "provider": "openai",
+                "outside_provider": True,
+                "production_replacement_enabled": production_replacement_enabled(),
+                "shell": request.shell.value,
+                "tier": request.tier.value,
+                "mode": request.mode,
+                "surface": request.surface,
+                "latency_ms": latency_ms,
+            }
+        return {
+            "content": result["message"],
+            "model": "dall-e-3",
+            "provider": "openai" if result["status"] != "no_key" else "Aerynza-Native",
+            "outside_provider": result["status"] != "no_key",
+            "production_replacement_enabled": production_replacement_enabled(),
+            "shell": request.shell.value,
+            "tier": request.tier.value,
+            "mode": request.mode,
+            "surface": request.surface,
+            "latency_ms": latency_ms,
+        }
+
     require_native_ready()
     try:
         return await asyncio.to_thread(
@@ -532,6 +566,41 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
             yield f"event: token\ndata: {json.dumps({'token': emergency}, ensure_ascii=False)}\n\n"
             yield f"event: done\ndata: {json.dumps({'latency_ms': 0, 'production_replacement_enabled': production_replacement_enabled()}, separators=(',', ':'))}\n\n"
         return StreamingResponse(emergency_events(), media_type="text/event-stream", headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"})
+
+    # Natural image-generation requests are sent to the configured media provider.
+    image_prompt = parse_image_request(request.messages[-1].content)
+    if image_prompt:
+        started = time.perf_counter()
+        result = await asyncio.to_thread(generate_image, image_prompt)
+        latency_ms = round((time.perf_counter() - started) * 1000)
+
+        def media_events():
+            meta = {
+                "shell": request.shell.value,
+                "tier": request.tier.value,
+                "model": "dall-e-3",
+                "provider": "openai",
+                "outside_provider": result["status"] == "image" or result["status"] != "no_key",
+            }
+            yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
+            if result["status"] == "image":
+                media_data = {"url": result["url"], "message": result["message"]}
+                yield f"event: media\ndata: {json.dumps(media_data, ensure_ascii=False)}\n\n"
+            else:
+                yield f"event: token\ndata: {json.dumps({'token': result['message']}, ensure_ascii=False)}\n\n"
+            done = {
+                "latency_ms": latency_ms,
+                "production_replacement_enabled": production_replacement_enabled(),
+                "outside_provider": result["status"] == "image" or result["status"] != "no_key",
+            }
+            yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
+
+        return StreamingResponse(
+            media_events(),
+            media_type="text/event-stream",
+            headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"},
+        )
+
     require_native_ready()
     prepared = prepare_inference(
         shell=request.shell,

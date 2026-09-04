@@ -507,6 +507,20 @@
     state.currentAbort = abortController;
     $('#stop').hidden = false;
 
+    function renderImageBody(caption, url) {
+      body.textContent = '';
+      const p = document.createElement('p');
+      p.textContent = caption || 'Generated image:';
+      body.append(p);
+      const img = document.createElement('img');
+      img.src = safeImageUrl(url) || url;
+      img.alt = 'DALL-E 3 image';
+      img.style.maxWidth = '100%';
+      img.style.borderRadius = '8px';
+      body.append(img);
+      $('#conversation').scrollTop = $('#conversation').scrollHeight;
+    }
+
     function onEvent(event, data) {
       if (event === 'meta') {
         meta = data;
@@ -517,6 +531,11 @@
         body.textContent += data.token || '';
         $('#conversation').scrollTop = $('#conversation').scrollHeight;
       }
+      if (event === 'media') {
+        live.content = data.message || '';
+        live.imageUrl = safeImageUrl(data.url);
+        renderImageBody(data.message, data.url);
+      }
       if (event === 'done') done = data;
     }
 
@@ -524,13 +543,19 @@
       const streamed = await streamRequest(payload, onEvent, 180000, abortController.signal);
       if (streamed === null) {
         const result = await request('/chat', { method: 'POST', body: JSON.stringify(payload) }, 180000, abortController.signal);
-        body.textContent = result.content;
+        if (result.imageUrl) {
+          live.content = result.content || '';
+          live.imageUrl = safeImageUrl(result.imageUrl);
+          renderImageBody(result.content, result.imageUrl);
+        } else {
+          body.textContent = result.content;
+        }
         meta = result;
         done = result;
       }
-      if (!body.textContent.trim()) throw new Error('Aerynza native returned an empty response.');
-      live.content = body.textContent;
-      live.meta = `${meta.shell || state.shell} shell · ${meta.tier || state.tier} · Aerynza native · ${meta.model || 'model unknown'} · ${done.latency_ms || 0} ms`;
+      if (!body.textContent.trim() && !live.imageUrl) throw new Error('Aerynza native returned an empty response.');
+      live.content = body.textContent || live.content || '';
+      live.meta = `${meta.shell || state.shell} shell · ${meta.tier || state.tier} · ${meta.provider || 'Aerynza native'} · ${meta.model || 'model unknown'} · ${done.latency_ms || 0} ms`;
       metaNode.textContent = live.meta;
       session.messages.push(live);
       save();

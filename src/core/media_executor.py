@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 
 
 def _openai_api_key() -> str:
@@ -12,6 +13,40 @@ def _openai_api_key() -> str:
         if value:
             return value
     return ""
+
+
+def parse_image_request(text: str) -> str | None:
+    """Extract an image-generation prompt from natural chat.
+
+    Catches things like 'a picture of a family in a meadow' and 'draw me a cat'.
+    """
+    value = str(text or "").strip()
+    # Specific 'a picture/photo/drawing of ...' patterns first.
+    m = re.search(
+        r"\b(?:an?\s+)?(?:image|picture|photo|drawing|sketch|painting)\b"
+        r"\s+(?:of|show|with|depict|display|featuring|containing)\s+(.+)",
+        value,
+        re.I,
+    )
+    if m:
+        return m.group(1).strip()
+    # Direct draw command: 'draw me ...'
+    m = re.search(r"\b(?:draw|paint|sketch)\b(?:\s+me)?[\s:—-]+(.+)", value, re.I)
+    if m:
+        return m.group(1).strip()
+    # Generic generation verbs followed by image/picture/etc.
+    m = re.search(
+        r"\b(?:generate|create|make|draw|paint|sketch|render|produce)\b"
+        r".{0,30}\b(?:an?\s+)?(?:image|picture|photo|drawing|sketch|painting)\b"
+        r"[\s:—-]*(.*)",
+        value,
+        re.I,
+    )
+    if m:
+        prompt = m.group(1).strip()
+        if prompt:
+            return prompt
+    return None
 
 
 def generate_image(prompt: str, size: str = "1024x1024", quality: str = "standard") -> dict:
