@@ -324,6 +324,25 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
             "Stable Video (video generation) is ready. What would you like the clip to show? "
             "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
         )
+    # Natural chat requests for media generation (no explicit "Use" invocation required).
+    if re.search(r"\b(?:generate|create|make|draw)\b.{0,40}\b(?:image|photo|picture|drawing)\b", value, re.I):
+        return (
+            f"AERYNZA SHELL: {shell.value}\n"
+            "I can generate an image with DALL-E 3. What would you like the image to show? "
+            "I can prepare the prompt for your review; no image is produced without your approval and a provider receipt."
+        )
+    if re.search(r"\b(?:generate|create|make|compose)\b.{0,40}\b(?:song|music|track|tune)\b", value, re.I):
+        return (
+            f"AERYNZA SHELL: {shell.value}\n"
+            "I can generate music with Suno. What would you like the track to be about? "
+            "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
+        )
+    if re.search(r"\b(?:generate|create|make|produce)\b.{0,40}\b(?:video|clip|movie|animation)\b", value, re.I):
+        return (
+            f"AERYNZA SHELL: {shell.value}\n"
+            "I can generate a video with Runway. What would you like the clip to show? "
+            "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
+        )
     # Generic 640-capability readiness: if the user names a known Aerynza capability, acknowledge it honestly.
     resolved = resolve_ascension_capabilities(str(latest or ""), top_n=1)
     if resolved and re.search(r"\buse\b", latest or "", re.I):
