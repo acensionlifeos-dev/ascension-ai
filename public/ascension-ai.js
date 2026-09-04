@@ -15,7 +15,6 @@
     health: null,
     talents: null,
     shell: 'ap',
-    surface: 'chat',
     tier: 'lifeos_infinite',
     voiceOn: false,
     currentAbort: null,
@@ -472,7 +471,7 @@
       shell: state.shell,
       tier: state.tier,
       messages: session.messages.map(({ role, content }) => ({ role, content })),
-      surface: state.surface,
+      surface: 'standalone_lab',
       mode: 'conversation'
     };
 
@@ -484,7 +483,7 @@
       if (event === 'meta') {
         meta = data;
         const talentCount = data.cognition?.talents?.length || 0;
-        metaNode.textContent = `${data.shell || state.shell} · ${state.surface} · ${data.tier || state.tier} · ${talentCount} relevant talents · ${data.model || 'Aerynza native'}`;
+        metaNode.textContent = `${data.shell || state.shell} · ${data.tier || state.tier} · ${talentCount} relevant talents · ${data.model || 'Aerynza native'}`;
       }
       if (event === 'token') {
         body.textContent += data.token || '';
@@ -503,7 +502,7 @@
       }
       if (!body.textContent.trim()) throw new Error('Aerynza native returned an empty response.');
       live.content = body.textContent;
-      live.meta = `${meta.shell || state.shell} shell · ${state.surface} surface · ${meta.tier || state.tier} · Aerynza native · ${meta.model || 'model unknown'} · ${done.latency_ms || 0} ms`;
+      live.meta = `${meta.shell || state.shell} shell · ${meta.tier || state.tier} · Aerynza native · ${meta.model || 'model unknown'} · ${done.latency_ms || 0} ms`;
       metaNode.textContent = live.meta;
       session.messages.push(live);
       save();
@@ -511,7 +510,7 @@
     } catch (error) {
       if (error.name === 'AbortError' && abortController.signal.aborted) {
         live.content = body.textContent.trim() || 'Stopped before any response.';
-        live.meta = `${meta.shell || state.shell} · ${state.surface} · stopped`;
+        live.meta = `${meta.shell || state.shell} · stopped`;
         metaNode.textContent = live.meta;
         session.messages.push(live);
         save();
@@ -567,10 +566,6 @@
       state.shell = event.target.value;
       createSession();
       toast(`Switched to ${event.target.options[event.target.selectedIndex].text}`);
-    };
-    $('#surface-select').onchange = event => {
-      state.surface = event.target.value;
-      toast(`Surface: ${event.target.options[event.target.selectedIndex].text}`);
     };
     $('#tier-select').onchange = event => {
       state.tier = event.target.value;
