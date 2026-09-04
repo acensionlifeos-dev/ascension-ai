@@ -31,6 +31,7 @@ from src.core.cognition import TALENTS, build_action_execution_contract, build_c
 from src.core.contracts import Shell, Tier
 from src.core.media_executor import generate_image, parse_image_request
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
+from src.financial.plaid_client import get_balances, parse_balance_query
 from src.core.orchestrator import deterministic_response, prepare_inference, respond, surface_plan
 from src.core.safety import medical_emergency_response
 from src.core.thesis import build_member_thesis_contribution, build_thesis
@@ -523,6 +524,24 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             "latency_ms": latency_ms,
         }
 
+    # Balance / fund queries go to Plaid if configured.
+    if parse_balance_query(request.messages[-1].content):
+        started = time.perf_counter()
+        result = await asyncio.to_thread(get_balances)
+        latency_ms = round((time.perf_counter() - started) * 1000)
+        return {
+            "content": result["message"],
+            "model": "plaid",
+            "provider": "plaid" if result["status"] != "no_key" else "Aerynza-Native",
+            "outside_provider": result["status"] != "no_key",
+            "production_replacement_enabled": production_replacement_enabled(),
+            "shell": request.shell.value,
+            "tier": request.tier.value,
+            "mode": request.mode,
+            "surface": request.surface,
+            "latency_ms": latency_ms,
+        }
+
     require_native_ready()
     try:
         return await asyncio.to_thread(
@@ -597,6 +616,35 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
 
         return StreamingResponse(
             media_events(),
+            media_type="text/event-stream",
+            headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"},
+        )
+
+    # Balance / fund queries go to Plaid if configured.
+    if parse_balance_query(request.messages[-1].content):
+        started = time.perf_counter()
+        result = await asyncio.to_thread(get_balances)
+        latency_ms = round((time.perf_counter() - started) * 1000)
+
+        def balance_events():
+            meta = {
+                "shell": request.shell.value,
+                "tier": request.tier.value,
+                "model": "plaid",
+                "provider": "plaid" if result["status"] != "no_key" else "Aerynza-Native",
+                "outside_provider": result["status"] != "no_key",
+            }
+            yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
+            yield f"event: token\ndata: {json.dumps({'token': result['message']}, ensure_ascii=False)}\n\n"
+            done = {
+                "latency_ms": latency_ms,
+                "production_replacement_enabled": production_replacement_enabled(),
+                "outside_provider": result["status"] != "no_key",
+            }
+            yield f"event: done\ndata: {json.dumps(done, separators=(',', ':'))}\n\n"
+
+        return StreamingResponse(
+            balance_events(),
             media_type="text/event-stream",
             headers={"X-Accel-Buffering": "no", "Cache-Control": "no-store"},
         )

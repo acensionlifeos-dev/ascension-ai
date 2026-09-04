@@ -13,7 +13,14 @@ from .safety import medical_emergency_response
 
 
 UNRECEIPTED_CLAIM = re.compile(
-    r"\bI(?:'ve| have|'ll| will)?\s+(?:saved|save|store|stored|add|added|update|updated|schedule|scheduled|connect|connected|send|sent|pay|paid|book|booked|delete|deleted|remove|removed|complete|completed|create|created)\b",
+    r"\bI(?:'ve| have|'ll| will)?\s+(?:saved|save|store|stored|add|added|update|updated|schedule|scheduled|connect|connected|send|sent|pay|paid|book|booked|delete|deleted|remove|removed|complete|completed|create|created)\b"
+    r"|\bdraft\s+(?:created|saved|updated|deleted|removed|completed|sent|paid|booked|scheduled)\b"
+    r"|\b(?:receipt:\s*quest|quest\s*#\d+|draft\s*#\d+)\b",
+    re.I,
+)
+
+INVENTED_FINANCIAL_CLAIM = re.compile(
+    r"\b(?:your|my|the)\s+(?:effective\s+monthly\s+income|monthly\s+income|income|balance|funds|payroll|cash)\s+(?:is|are|will\s+be|expected)\b",
     re.I,
 )
 EXPLICIT_PERSISTENCE_REQUEST = re.compile(
@@ -464,6 +471,11 @@ def enforce_response_contract(content: str, cognitive: dict, context: dict, mode
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
         answer = " ".join(kept).strip()
         answer = f"Nothing is confirmed by a provider receipt yet. {answer}".strip()
+
+    if not receipts and INVENTED_FINANCIAL_CLAIM.search(answer):
+        kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not INVENTED_FINANCIAL_CLAIM.search(sentence)]
+        answer = " ".join(kept).strip()
+        answer = f"I can't confirm those financial details without a verified provider receipt. {answer}".strip()
 
     if not receipts and TIMEOUT_RESULT.search(latest):
         kept = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", answer) if not UNRECEIPTED_CLAIM.search(sentence)]
