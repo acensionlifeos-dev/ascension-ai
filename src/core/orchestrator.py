@@ -302,25 +302,25 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
         )
     if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+\(?suno\)?\b", value):
         return (
-            "AERYNZA SHELL: core\n"
+            f"AERYNZA SHELL: {shell.value}\n"
             "Suno music generation is ready. What would you like the track to be about? "
             "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+udio\b", value):
         return (
-            "AERYNZA SHELL: core\n"
+            f"AERYNZA SHELL: {shell.value}\n"
             "Udio music generation is ready. What would you like the track to be about? "
             "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bdall-?e\s+image\s+generation\b|\buse\b.{0,40}\bimage\s+generation\s+\(?dall-e\s+3\)?\b", value):
         return (
-            "AERYNZA SHELL: core\n"
+            f"AERYNZA SHELL: {shell.value}\n"
             "DALL-E 3 image generation (dall-e 3) is ready. What would you like the image to show? "
             "I can prepare the prompt for your review; no image is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bstable\s+video\b|\buse\b.{0,40}\bvideo\s+generation\s+\(?stable\s+video\)?\b", value):
         return (
-            "AERYNZA SHELL: core\n"
+            f"AERYNZA SHELL: {shell.value}\n"
             "Stable Video (video generation) is ready. What would you like the clip to show? "
             "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
         )
@@ -344,7 +344,7 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
         else:
             follow_up = "What would you like to do first?"
         return (
-            f"AERYNZA SHELL: {cap.get('shell', 'ap')}\n"
+            f"AERYNZA SHELL: {shell.value}\n"
             f"{cap['name']} is ready. {follow_up} "
             "I can prepare the options for your review; nothing is executed without your approval and a provider receipt."
         )
