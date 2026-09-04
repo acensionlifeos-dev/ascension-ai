@@ -40,7 +40,7 @@ MODE_CONTRACTS = {
     "proactive": "Surface one timely, high-value observation or question. Do not interrupt with a questionnaire, context inventory, or more than one proposed next move.",
     "planning": "First reflect the explicit facts already supplied and never ask for them again. Produce a usable first-pass plan, then ask only for the one or two missing variables that materially change it. State clearly what has not been saved or executed.",
     "analysis": "Give a complete evidence-aware analysis. Separate verified facts, reasonable inference, uncertainty, and recommendation without revealing hidden chain-of-thought.",
-    "background": "Return concise structured synthesis for another Ascension surface. Avoid conversational filler and never imply the result was shown, saved, or executed.",
+    "background": "Return concise structured synthesis for another Aerynza surface. Avoid conversational filler and never imply the result was shown, saved, or executed.",
 }
 
 

@@ -15,7 +15,7 @@ from typing import Literal
 
 
 SESSIONS = set()
-KEYRING_SERVICE = "Ascension AI"
+KEYRING_SERVICE = "Aerynza AI"
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -54,7 +54,7 @@ async def lifespan(_: FastAPI):
     try:
         await asyncio.to_thread(runtime.load)
     except Exception as error:
-        print(f"Ascension native model did not load: {error}")
+        print(f"Aerynza native model did not load: {error}")
     yield
 
 
@@ -214,7 +214,7 @@ def require_access(authorization: str | None = Header(default=None)) -> None:
 
 def require_native_ready() -> None:
     if not runtime.status()["ready"]:
-        raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Ascension native model is not ready.")
+        raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Aerynza native model is not ready.")
 
 
 def effective_max_tokens(requested: int, mode: str = "conversation") -> int:
@@ -261,7 +261,7 @@ async def health() -> dict:
         "mode": "ascension_native_local",
         "candidate_ready": model["ready"],
         "replacement_ready": replacement_ready,
-        "provider": "ascension-native" if model["ready"] else None,
+        "provider": "Aerynza-Native" if model["ready"] else None,
         "model": model["model"],
         "outside_provider": False,
         "test_access_configured": bool(os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()),
@@ -559,7 +559,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
             "action_proposals": cognition_meta.get("action_proposals", []),
             "surface_recommendations": cognition_meta.get("surface_recommendations", []),
         }
-        meta.update({"model": runtime.status()["model"], "provider": "ascension-native", "outside_provider": False})
+        meta.update({"model": runtime.status()["model"], "provider": "Aerynza-Native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
         try:
             if first_pass:

@@ -1,4 +1,4 @@
-"""Thread-safe local GGUF inference runtime for Ascension AI."""
+"""Thread-safe local GGUF inference runtime for Aerynza AI."""
 
 from __future__ import annotations
 

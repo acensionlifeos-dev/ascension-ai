@@ -232,7 +232,7 @@ export async function generateCapabilitySurfaceReport(): Promise<AuditReport> {
   };
 }
 
-describe('Ascension AI capability surface coverage', () => {
+describe('Aerynza AI capability surface coverage', () => {
   const envBackup = {
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,

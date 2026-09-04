@@ -39,7 +39,7 @@ def handler_function(cap: dict) -> str:
   return {{
     content: `I can help with {name}. {desc} What do you need?`,
     model: '{name}',
-    provider: 'ascension-native',
+    provider: 'Aerynza-Native',
     tokensUsed: 0,
     capability: '{cid}',
     data: {{ question: null }}
@@ -78,8 +78,8 @@ export function routeNativeDomain(
   if (permissionMsg) {{
     return {{
       content: permissionMsg.content,
-      model: 'Ascension Permission Gate',
-      provider: 'ascension-native',
+      model: 'Aerynza Permission Gate',
+      provider: 'Aerynza-Native',
       tokensUsed: 0,
       capability: capabilityId
     }};
@@ -91,9 +91,9 @@ export function routeNativeDomain(
   }}
 
   return {{
-    content: `Ascension native response for ${{capabilityId}} (stub: domain handler not yet specialized).`,
-    model: 'Ascension Candidate 3B',
-    provider: 'ascension-native',
+    content: `Aerynza native response for ${{capabilityId}} (stub: domain handler not yet specialized).`,
+    model: 'Aerynza AI',
+    provider: 'Aerynza-Native',
     tokensUsed: 0,
     capability: capabilityId
   }};

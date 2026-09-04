@@ -1,6 +1,6 @@
-"""Ascension-first cognition, retrieval, memory-candidate, and action planning.
+"""Aerynza-first cognition, retrieval, memory-candidate, and action planning.
 
-This layer is deliberately stateless. The authenticated Ascension shell owns
+This layer is deliberately stateless. The authenticated Aerynza shell owns
 user memory, permissions, integrations, execution, receipts, and corrections.
 The native core interprets the permission-scoped packet and returns structured
 intelligence that the shell may validate and apply.
@@ -304,12 +304,12 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
     if re.search(r"\buse\b.{0,40}\bascension\s+streaming\b", lowered):
         proposals.append(_proposal(
             "creation.prepare_project",
-            "User wants to start an Ascension Streaming channel.",
+            "User wants to start an Aerynza Streaming channel.",
             {"capability": "ascension_streaming"},
             missing=["streaming platform", "content focus"],
         ))
     if re.search(r"\b(?:3d world|virtual world|vr experience|ar experience|augmented reality|virtual reality|spatial scene)\b", lowered):
-        proposals.append(_proposal("immersive.prepare_world", "Compile an Ascension-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
+        proposals.append(_proposal("immersive.prepare_world", "Compile an Aerynza-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
         proposals.append(_proposal("messages.send", "External communication requires the user to approve the exact recipient and content.", missing=["recipient", "final content", "connected provider"]))
     if re.search(r"\b(?:pay|payment|purchase|buy|transfer money)\b", lowered):
@@ -323,7 +323,7 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         payment_missing.append("explicit final confirmation")
         proposals.append(_proposal("finance.payment", "A financial transaction is high consequence and cannot execute silently.", missing=payment_missing))
 
-    # Generic 640-capability invocation: if the user names a known Ascension capability, propose a project for it.
+    # Generic 640-capability invocation: if the user names a known Aerynza capability, propose a project for it.
     if re.search(r"\buse\b", lowered):
         resolved = resolve_ascension_capabilities(source, top_n=1)
         if resolved:

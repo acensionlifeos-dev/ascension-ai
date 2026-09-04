@@ -23,7 +23,7 @@ const waitForServer = (url: string, timeout = 15000) =>
     poll();
   });
 
-describe('Ascension AI API integration', () => {
+describe('Aerynza AI API integration', () => {
   let server: any;
   const port = 3010;
 
@@ -65,9 +65,9 @@ describe('Ascension AI API integration', () => {
     });
     const data = await res.json();
     expect(res.status).toBe(200);
-    expect(data.provider).toBe('ascension-native');
+    expect(data.provider).toBe('Aerynza-Native');
     expect(data.capabilityId).toBe('ascension_chat');
-    expect(data.content).toContain('Ascension native response');
+    expect(data.content).toContain('Aerynza native response');
   });
 
   test('chat endpoint with explicit native capability returns native response', async () => {
@@ -88,7 +88,7 @@ describe('Ascension AI API integration', () => {
     });
     const data = await res.json();
     expect(res.status).toBe(200);
-    expect(data.provider).toBe('ascension-native');
+    expect(data.provider).toBe('Aerynza-Native');
     expect(data.capabilityId).toBe('ascension_home');
   });
 });

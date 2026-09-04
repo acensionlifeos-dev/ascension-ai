@@ -1,4 +1,4 @@
-"""Capability and UI-surface registry derived from the Ascension AI canon."""
+"""Capability and UI-surface registry derived from the Aerynza AI canon."""
 
 from __future__ import annotations
 
@@ -88,7 +88,7 @@ def _capability_terms(capability: dict) -> set[str]:
 
 
 def resolve_ascension_capabilities(text: str, top_n: int = 5) -> list[dict]:
-    """Resolve the most relevant Ascension AI capabilities from the 640-capability report."""
+    """Resolve the most relevant Aerynza AI capabilities from the 640-capability report."""
     report = load_capability_report()
     capabilities = report.get("capabilities", [])
     if not capabilities:

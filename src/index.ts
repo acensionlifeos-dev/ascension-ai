@@ -1,5 +1,5 @@
 /**
- * Express Server - Ascension AI API
+ * Express Server - Aerynza AI API
  */
 
 import express from 'express';
@@ -38,7 +38,7 @@ app.get('/health', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Ascension AI API running on port ${PORT}`);
+  console.log(`Aerynza AI API running on port ${PORT}`);
 });
 
 export default app;

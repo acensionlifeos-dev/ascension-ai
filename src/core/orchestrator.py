@@ -1,4 +1,4 @@
-"""Ascension shell routing and context aggregation."""
+"""Aerynza shell routing and context aggregation."""
 
 from __future__ import annotations
 
@@ -226,7 +226,7 @@ def deterministic_scope_answer(shell: Shell, text: str) -> str | None:
         )
     return (
         "I can use only the permission-scoped context included in this request. "
-        "I cannot see or access personal data that the authenticated Ascension shell did not explicitly supply."
+        "I cannot see or access personal data that the authenticated Aerynza shell did not explicitly supply."
     )
 
 
@@ -278,53 +278,53 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
         )
     if re.search(r"\buse\b.{0,40}\bascension\s+post\s+workout\b", value):
         return (
-            "ASCENSION SHELL: lifeos\n"
-            "Ascension Post Workout is ready. What would you like to track or do first? "
+            "AERYNZA SHELL: lifeos\n"
+            "Aerynza Post Workout is ready. What would you like to track or do first? "
             "I can prepare the workout recovery details, channel, and timing for your review; nothing is logged without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bascension\s+email\s+intelligence\b", value):
         return (
-            "ASCENSION SHELL: lifeos\n"
-            "Ascension Email Intelligence is ready. What would you like to write or check first? "
+            "AERYNZA SHELL: lifeos\n"
+            "Aerynza Email Intelligence is ready. What would you like to write or check first? "
             "I can prepare the recipient, subject, and message for your review; nothing is sent without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bascension\s+streaming\b", value):
         return (
-            "ASCENSION SHELL: ap\n"
-            "Ascension Streaming is ready. What would you like to stream, and on which channel? "
+            "AERYNZA SHELL: ap\n"
+            "Aerynza Streaming is ready. What would you like to stream, and on which channel? "
             "I can prepare the channel plan, content outline, and moderation rules for your review; nothing goes live without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\b(?:email\s+writing|writing\s+email)\b", value):
         return (
-            "ASCENSION SHELL: ap\n"
+            "AERYNZA SHELL: ap\n"
             "Email Writing is ready. What would you like the email to say, and who is it for? "
             "I can draft it for your review; nothing is delivered without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+\(?suno\)?\b", value):
         return (
-            "ASCENSION SHELL: core\n"
+            "AERYNZA SHELL: core\n"
             "Suno music generation is ready. What would you like the track to be about? "
             "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bmusic\s+generation\s+udio\b", value):
         return (
-            "ASCENSION SHELL: core\n"
+            "AERYNZA SHELL: core\n"
             "Udio music generation is ready. What would you like the track to be about? "
             "I can prepare the prompt for your review; no audio is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bdall-?e\s+image\s+generation\b|\buse\b.{0,40}\bimage\s+generation\s+\(?dall-e\s+3\)?\b", value):
         return (
-            "ASCENSION SHELL: core\n"
+            "AERYNZA SHELL: core\n"
             "DALL-E 3 image generation (dall-e 3) is ready. What would you like the image to show? "
             "I can prepare the prompt for your review; no image is produced without your approval and a provider receipt."
         )
     if re.search(r"\buse\b.{0,40}\bstable\s+video\b|\buse\b.{0,40}\bvideo\s+generation\s+\(?stable\s+video\)?\b", value):
         return (
-            "ASCENSION SHELL: core\n"
+            "AERYNZA SHELL: core\n"
             "Stable Video (video generation) is ready. What would you like the clip to show? "
             "I can prepare the prompt for your review; no video is produced without your approval and a provider receipt."
         )
-    # Generic 640-capability readiness: if the user names a known Ascension capability, acknowledge it honestly.
+    # Generic 640-capability readiness: if the user names a known Aerynza capability, acknowledge it honestly.
     resolved = resolve_ascension_capabilities(str(latest or ""), top_n=1)
     if resolved and re.search(r"\buse\b", latest or "", re.I):
         cap = resolved[0]
@@ -344,7 +344,7 @@ def deterministic_capability_answer(shell: Shell, latest: str) -> str | None:
         else:
             follow_up = "What would you like to do first?"
         return (
-            f"ASCENSION SHELL: {cap.get('shell', 'ap')}\n"
+            f"AERYNZA SHELL: {cap.get('shell', 'ap')}\n"
             f"{cap['name']} is ready. {follow_up} "
             "I can prepare the options for your review; nothing is executed without your approval and a provider receipt."
         )
@@ -551,7 +551,7 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
             f"Invocation mode: {mode}. Current product surface: {surface}. "
             f"Response contract: {response_contract(mode)} "
             f"Relevant domains: {','.join(domains)}. "
-            f"Ascension cognition packet: {json.dumps(prompt_cognition, ensure_ascii=False, separators=(',', ':'))}. "
+            f"Aerynza cognition packet: {json.dumps(prompt_cognition, ensure_ascii=False, separators=(',', ':'))}. "
             f"Permission-scoped context packet: {compact_context(context)}"
         ),
     }
@@ -574,8 +574,8 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
     first_pass = deterministic_response(shell, latest, mode, prepared["cognition"])
     result = ({
         "content": first_pass,
-        "model": "Ascension Contract Engine",
-        "provider": "ascension-native",
+        "model": "Aerynza Contract Engine",
+        "provider": "Aerynza-Native",
         "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
         "latency_ms": 0,
     } if first_pass else runtime.chat(
@@ -613,5 +613,5 @@ def surface_plan(*, shell: Shell, tier: Tier, trigger: str, context: dict, avail
         "entitlement_enforced_by": "calling_shell",
         "execution_state": "proposal_only",
         "requires_shell_authorization": True,
-        "rule": "Ascension AI proposes intelligence and actions; the authenticated shell validates permissions, executes, records evidence, and returns the outcome.",
+        "rule": "Aerynza AI proposes intelligence and actions; the authenticated shell validates permissions, executes, records evidence, and returns the outcome.",
     }

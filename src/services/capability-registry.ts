@@ -1,7 +1,7 @@
 /**
  * Capability Registry - All 200+ Capabilities Defined
  * 
- * This file defines ALL capabilities that Ascension AI will support.
+ * This file defines ALL capabilities that Aerynza AI will support.
  * New capabilities can be added here and they'll be available immediately.
  */
 
@@ -768,9 +768,9 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_chat',
-    name: 'Ascension Native Chat',
+    name: 'Aerynza Native Chat',
     category: 'text',
-    description: 'General chat powered by native Ascension AI core',
+    description: 'General chat powered by native Aerynza AI core',
     providers: ['ascension-native'],
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
@@ -787,7 +787,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_home',
-    name: 'Ascension HomeOS',
+    name: 'Aerynza HomeOS',
     category: 'home',
     description: 'Household and co-parenting coordination',
     providers: ['ascension-native'],
@@ -806,7 +806,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sprout',
-    name: 'Ascension Sprout',
+    name: 'Aerynza Sprout',
     category: 'sprout',
     description: 'Child development and learning paths',
     providers: ['ascension-native'],
@@ -821,7 +821,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_family',
-    name: 'Ascension FamilyOS',
+    name: 'Aerynza FamilyOS',
     category: 'family',
     description: 'Family enterprise, tree, and governance',
     providers: ['ascension-native'],
@@ -838,7 +838,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_health',
-    name: 'Ascension Health',
+    name: 'Aerynza Health',
     category: 'health',
     description: 'Health, wellness, and symptom guidance',
     providers: ['ascension-native'],
@@ -857,7 +857,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_finance',
-    name: 'Ascension Financial Intelligence',
+    name: 'Aerynza Financial Intelligence',
     category: 'finance',
     description: 'Financial analysis, planning, and opportunity finding',
     providers: ['ascension-native'],
@@ -876,7 +876,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_trading',
-    name: 'Ascension Trading Intelligence',
+    name: 'Aerynza Trading Intelligence',
     category: 'finance',
     description: 'Multi-market analysis, backtesting, and paper trading',
     providers: ['ascension-native'],
@@ -895,7 +895,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_prediction_markets',
-    name: 'Ascension Prediction Market Intelligence',
+    name: 'Aerynza Prediction Market Intelligence',
     category: 'finance',
     description: 'Research live prediction markets, compare implied odds with sourced evidence, and prepare risk-bounded paper positions',
     providers: ['ascension-native'],
@@ -914,7 +914,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_vision',
-    name: 'Ascension Vision',
+    name: 'Aerynza Vision',
     category: 'vision',
     description: 'Camera and environmental understanding',
     providers: ['ascension-native'],
@@ -933,7 +933,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_legal',
-    name: 'Ascension Legal Assistant',
+    name: 'Aerynza Legal Assistant',
     category: 'documents',
     description: 'Document review, contract analysis, and legal guidance flags',
     providers: ['ascension-native'],
@@ -948,7 +948,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_travel',
-    name: 'Ascension Travel',
+    name: 'Aerynza Travel',
     category: 'home',
     description: 'Trip planning, flight search, and itinerary preparation',
     providers: ['ascension-native'],
@@ -967,7 +967,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_realestate',
-    name: 'Ascension Real Estate',
+    name: 'Aerynza Real Estate',
     category: 'home',
     description: 'Housing search, lease review, and property analysis',
     providers: ['ascension-native'],
@@ -986,7 +986,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_research',
-    name: 'Ascension Research',
+    name: 'Aerynza Research',
     category: 'research',
     description: 'Deep research with source comparison and citation preparation',
     providers: ['ascension-native'],
@@ -1002,7 +1002,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_events',
-    name: 'Ascension Events',
+    name: 'Aerynza Events',
     category: 'home',
     description: 'Event planning, coordination, and logistics',
     providers: ['ascension-native'],
@@ -1021,7 +1021,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_automotive',
-    name: 'Ascension Automotive',
+    name: 'Aerynza Automotive',
     category: 'home',
     description: 'Vehicle maintenance, diagnostics, and buying guidance',
     providers: ['ascension-native'],
@@ -1040,7 +1040,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pets',
-    name: 'Ascension Pets',
+    name: 'Aerynza Pets',
     category: 'home',
     description: 'Pet care, health, training, and nutrition guidance',
     providers: ['ascension-native'],
@@ -1059,7 +1059,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_weather',
-    name: 'Ascension Weather',
+    name: 'Aerynza Weather',
     category: 'environment',
     description: 'Weather-aware planning and safety recommendations',
     providers: ['ascension-native'],
@@ -1074,7 +1074,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_nutrition',
-    name: 'Ascension Nutrition',
+    name: 'Aerynza Nutrition',
     category: 'health',
     description: 'Meal planning, nutrition analysis, and dietary guidance',
     providers: ['ascension-native'],
@@ -1093,7 +1093,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fitness',
-    name: 'Ascension Fitness',
+    name: 'Aerynza Fitness',
     category: 'health',
     description: 'Workout plans, form guidance, and progress tracking',
     providers: ['ascension-native'],
@@ -1112,7 +1112,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_career',
-    name: 'Ascension Career',
+    name: 'Aerynza Career',
     category: 'career',
     description: 'Resume review, job matching, and career planning',
     providers: ['ascension-native'],
@@ -1129,7 +1129,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_relationships',
-    name: 'Ascension Relationships',
+    name: 'Aerynza Relationships',
     category: 'relationships',
     description: 'Communication support, follow-up prep, and relationship context',
     providers: ['ascension-native'],
@@ -1148,7 +1148,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creative',
-    name: 'Ascension Creative',
+    name: 'Aerynza Creative',
     category: 'creation',
     description: 'Writing, music, art, and content generation planning',
     providers: ['ascension-native'],
@@ -1167,7 +1167,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_code',
-    name: 'Ascension Code',
+    name: 'Aerynza Code',
     category: 'code',
     description: 'Code generation, review, debugging, and architecture planning',
     providers: ['ascension-native'],
@@ -1186,7 +1186,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_learning',
-    name: 'Ascension Learning',
+    name: 'Aerynza Learning',
     category: 'learning',
     description: 'Adaptive skill paths, practice generation, and concept explanation',
     providers: ['ascension-native'],
@@ -1201,7 +1201,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meetings',
-    name: 'Ascension Meetings',
+    name: 'Aerynza Meetings',
     category: 'productivity',
     description: 'Meeting transcription, summaries, and action-item extraction',
     providers: ['ascension-native'],
@@ -1219,7 +1219,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_voice',
-    name: 'Ascension Voice',
+    name: 'Aerynza Voice',
     category: 'voice',
     description: 'Voice commands, transcription, and speech-driven control',
     providers: ['ascension-native'],
@@ -1234,7 +1234,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_security',
-    name: 'Ascension Security',
+    name: 'Aerynza Security',
     category: 'security',
     description: 'Security analysis, threat flags, and privacy guidance',
     providers: ['ascension-native'],
@@ -1249,7 +1249,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_psychology',
-    name: 'Ascension Psychology',
+    name: 'Aerynza Psychology',
     category: 'psychology',
     description: 'Human behavior, emotion, motivation, cognition, and mental health guidance',
     providers: ['ascension-native'],
@@ -1268,7 +1268,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_human_life',
-    name: 'Ascension Human Life',
+    name: 'Aerynza Human Life',
     category: 'human_life',
     description: 'Comprehensive guidance across identity, health, money, relationships, home, time, learning, creativity, meaning, and transitions',
     providers: ['ascension-native'],
@@ -1283,7 +1283,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_spirituality',
-    name: 'Ascension Spirituality',
+    name: 'Aerynza Spirituality',
     category: 'spirituality',
     description: 'Faith, meaning, meditation, ritual, nature, legacy, and existential exploration',
     providers: ['ascension-native'],
@@ -1302,7 +1302,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_grief',
-    name: 'Ascension Grief',
+    name: 'Aerynza Grief',
     category: 'human_life',
     description: 'Loss, bereavement, transition, and emotional support',
     providers: ['ascension-native'],
@@ -1317,7 +1317,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mental_health',
-    name: 'Ascension Mental Health',
+    name: 'Aerynza Mental Health',
     category: 'psychology',
     description: 'Stress, anxiety, mood, therapy navigation, and emotional regulation',
     providers: ['ascension-native'],
@@ -1336,7 +1336,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_communication',
-    name: 'Ascension Communication',
+    name: 'Aerynza Communication',
     category: 'psychology',
     description: 'Difficult conversations, feedback, listening, and conflict resolution',
     providers: ['ascension-native'],
@@ -1355,7 +1355,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_habits',
-    name: 'Ascension Habits',
+    name: 'Aerynza Habits',
     category: 'psychology',
     description: 'Habit formation, behavior change, cue-routine-reward loops, and identity-based change',
     providers: ['ascension-native'],
@@ -1374,7 +1374,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_stress',
-    name: 'Ascension Stress',
+    name: 'Aerynza Stress',
     category: 'psychology',
     description: 'Stress recognition, regulation, recovery, and burnout prevention',
     providers: ['ascension-native'],
@@ -1393,7 +1393,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sleep',
-    name: 'Ascension Sleep',
+    name: 'Aerynza Sleep',
     category: 'health',
     description: 'Sleep hygiene, circadian rhythm, and recovery planning',
     providers: ['ascension-native'],
@@ -1412,7 +1412,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_parenting',
-    name: 'Ascension Parenting',
+    name: 'Aerynza Parenting',
     category: 'home',
     description: 'Child development, discipline, co-parenting, and parent support',
     providers: ['ascension-native'],
@@ -1431,7 +1431,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mindfulness',
-    name: 'Ascension Mindfulness',
+    name: 'Aerynza Mindfulness',
     category: 'spirituality',
     description: 'Presence, meditation, breathing, and attention training',
     providers: ['ascension-native'],
@@ -1450,7 +1450,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_time',
-    name: 'Ascension Time',
+    name: 'Aerynza Time',
     category: 'productivity',
     description: 'Time management, energy mapping, priorities, and anti-procrastination',
     providers: ['ascension-native'],
@@ -1468,7 +1468,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_confidence',
-    name: 'Ascension Confidence',
+    name: 'Aerynza Confidence',
     category: 'psychology',
     description: 'Self-efficacy, confidence building, and self-doubt navigation',
     providers: ['ascension-native'],
@@ -1487,7 +1487,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_aging',
-    name: 'Ascension Aging',
+    name: 'Aerynza Aging',
     category: 'health',
     description: 'Healthy aging, longevity, and life-stage adaptation',
     providers: ['ascension-native'],
@@ -1506,7 +1506,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_addiction',
-    name: 'Ascension Addiction',
+    name: 'Aerynza Addiction',
     category: 'psychology',
     description: 'Substance and behavioral addiction support, recovery, and professional referrals',
     providers: ['ascension-native'],
@@ -1525,7 +1525,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_conflict',
-    name: 'Ascension Conflict',
+    name: 'Aerynza Conflict',
     category: 'psychology',
     description: 'Dispute resolution, de-escalation, and repair strategies',
     providers: ['ascension-native'],
@@ -1544,7 +1544,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dating',
-    name: 'Ascension Dating',
+    name: 'Aerynza Dating',
     category: 'relationships',
     description: 'Dating strategy, safety, boundaries, and communication',
     providers: ['ascension-native'],
@@ -1563,7 +1563,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cooking',
-    name: 'Ascension Cooking',
+    name: 'Aerynza Cooking',
     category: 'home',
     description: 'Meal planning, recipes, and kitchen guidance',
     providers: ['ascension-native'],
@@ -1582,7 +1582,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_social',
-    name: 'Ascension Social',
+    name: 'Aerynza Social',
     category: 'relationships',
     description: 'Friendship, networking, social skills, and community',
     providers: ['ascension-native'],
@@ -1601,7 +1601,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_volunteering',
-    name: 'Ascension Volunteering',
+    name: 'Aerynza Volunteering',
     category: 'community',
     description: 'Service, volunteering, and community contribution matching',
     providers: ['ascension-native'],
@@ -1616,7 +1616,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_focus',
-    name: 'Ascension Focus',
+    name: 'Aerynza Focus',
     category: 'productivity',
     description: 'Deep work, attention management, and distraction reduction',
     providers: ['ascension-native'],
@@ -1634,7 +1634,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meditation',
-    name: 'Ascension Meditation',
+    name: 'Aerynza Meditation',
     category: 'spirituality',
     description: 'Guided meditation, body scans, and contemplative practices',
     providers: ['ascension-native'],
@@ -1653,7 +1653,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_garden',
-    name: 'Ascension Garden',
+    name: 'Aerynza Garden',
     category: 'home',
     description: 'Garden planning, plant care, and growing guidance',
     providers: ['ascension-native'],
@@ -1672,7 +1672,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fashion',
-    name: 'Ascension Fashion',
+    name: 'Aerynza Fashion',
     category: 'lifestyle',
     description: 'Style, wardrobe, and occasion-appropriate dressing',
     providers: ['ascension-native'],
@@ -1691,7 +1691,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_repair',
-    name: 'Ascension Repair',
+    name: 'Aerynza Repair',
     category: 'home',
     description: 'DIY repairs, maintenance, and when-to-call-a-pro guidance',
     providers: ['ascension-native'],
@@ -1710,7 +1710,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_music',
-    name: 'Ascension Music',
+    name: 'Aerynza Music',
     category: 'creation',
     description: 'Music theory, composition, practice, and listening guidance',
     providers: ['ascension-native'],
@@ -1729,7 +1729,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_art',
-    name: 'Ascension Art',
+    name: 'Aerynza Art',
     category: 'creation',
     description: 'Art techniques, critiques, and creative direction',
     providers: ['ascension-native'],
@@ -1748,7 +1748,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_writing',
-    name: 'Ascension Writing',
+    name: 'Aerynza Writing',
     category: 'creation',
     description: 'Writing craft, editing, voice, and storytelling',
     providers: ['ascension-native'],
@@ -1767,7 +1767,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_movies',
-    name: 'Ascension Movies',
+    name: 'Aerynza Movies',
     category: 'entertainment',
     description: 'Film and TV recommendations, analysis, and watch planning',
     providers: ['ascension-native'],
@@ -1786,7 +1786,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_books',
-    name: 'Ascension Books',
+    name: 'Aerynza Books',
     category: 'entertainment',
     description: 'Book recommendations, analysis, and reading planning',
     providers: ['ascension-native'],
@@ -1805,7 +1805,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_news',
-    name: 'Ascension News',
+    name: 'Aerynza News',
     category: 'research',
     description: 'News curation, bias awareness, and summary synthesis',
     providers: ['ascension-native'],
@@ -1821,7 +1821,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sports',
-    name: 'Ascension Sports',
+    name: 'Aerynza Sports',
     category: 'entertainment',
     description: 'Sports analysis, training, and fan engagement',
     providers: ['ascension-native'],
@@ -1840,7 +1840,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_games',
-    name: 'Ascension Games',
+    name: 'Aerynza Games',
     category: 'entertainment',
     description: 'Game recommendations, strategy, and design discussion',
     providers: ['ascension-native'],
@@ -1859,7 +1859,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shopping',
-    name: 'Ascension Shopping',
+    name: 'Aerynza Shopping',
     category: 'lifestyle',
     description: 'Product research, comparison, and value-based buying',
     providers: ['ascension-native'],
@@ -1878,7 +1878,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_investing',
-    name: 'Ascension Investing',
+    name: 'Aerynza Investing',
     category: 'finance',
     description: 'Portfolio thinking, asset allocation, and long-term investing',
     providers: ['ascension-native'],
@@ -1897,7 +1897,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_taxes',
-    name: 'Ascension Taxes',
+    name: 'Aerynza Taxes',
     category: 'finance',
     description: 'Tax organization, deduction discovery, and preparer coordination',
     providers: ['ascension-native'],
@@ -1916,7 +1916,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_insurance',
-    name: 'Ascension Insurance',
+    name: 'Aerynza Insurance',
     category: 'finance',
     description: 'Insurance review, comparison, and gap analysis',
     providers: ['ascension-native'],
@@ -1935,7 +1935,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_moving',
-    name: 'Ascension Moving',
+    name: 'Aerynza Moving',
     category: 'home',
     description: 'Relocation planning, checklists, and logistics',
     providers: ['ascension-native'],
@@ -1954,7 +1954,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cleaning',
-    name: 'Ascension Cleaning',
+    name: 'Aerynza Cleaning',
     category: 'home',
     description: 'Cleaning routines, schedules, and product guidance',
     providers: ['ascension-native'],
@@ -1973,7 +1973,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_philosophy',
-    name: 'Ascension Philosophy',
+    name: 'Aerynza Philosophy',
     category: 'knowledge',
     description: 'Philosophical questions, schools of thought, and ethical reasoning',
     providers: ['ascension-native'],
@@ -1992,7 +1992,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_history',
-    name: 'Ascension History',
+    name: 'Aerynza History',
     category: 'knowledge',
     description: 'Historical context, events, and lessons',
     providers: ['ascension-native'],
@@ -2011,7 +2011,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_science',
-    name: 'Ascension Science',
+    name: 'Aerynza Science',
     category: 'knowledge',
     description: 'Scientific concepts, literacy, and exploration',
     providers: ['ascension-native'],
@@ -2030,7 +2030,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_math',
-    name: 'Ascension Math',
+    name: 'Aerynza Math',
     category: 'knowledge',
     description: 'Math explanation, problem-solving, and tutoring',
     providers: ['ascension-native'],
@@ -2049,7 +2049,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_language',
-    name: 'Ascension Language',
+    name: 'Aerynza Language',
     category: 'knowledge',
     description: 'Language learning, translation, and conversation practice',
     providers: ['ascension-native'],
@@ -2068,7 +2068,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_culture',
-    name: 'Ascension Culture',
+    name: 'Aerynza Culture',
     category: 'knowledge',
     description: 'Cultural understanding, etiquette, and context',
     providers: ['ascension-native'],
@@ -2087,7 +2087,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ethics',
-    name: 'Ascension Ethics',
+    name: 'Aerynza Ethics',
     category: 'knowledge',
     description: 'Moral reasoning, dilemma navigation, and values clarification',
     providers: ['ascension-native'],
@@ -2106,7 +2106,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_environment',
-    name: 'Ascension Environment',
+    name: 'Aerynza Environment',
     category: 'environment',
     description: 'Sustainability, climate, and ecological action planning',
     providers: ['ascension-native'],
@@ -2121,7 +2121,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_activism',
-    name: 'Ascension Activism',
+    name: 'Aerynza Activism',
     category: 'community',
     description: 'Civic action, advocacy, and community organizing',
     providers: ['ascension-native'],
@@ -2136,7 +2136,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_project',
-    name: 'Ascension Project',
+    name: 'Aerynza Project',
     category: 'work',
     description: 'Project planning, milestones, and delivery tracking',
     providers: ['ascension-native'],
@@ -2155,7 +2155,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_task',
-    name: 'Ascension Task',
+    name: 'Aerynza Task',
     category: 'work',
     description: 'Task breakdown, prioritization, and execution support',
     providers: ['ascension-native'],
@@ -2174,7 +2174,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_remote',
-    name: 'Ascension Remote',
+    name: 'Aerynza Remote',
     category: 'work',
     description: 'Remote work setup, routines, and collaboration',
     providers: ['ascension-native'],
@@ -2193,7 +2193,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_interview',
-    name: 'Ascension Interview',
+    name: 'Aerynza Interview',
     category: 'work',
     description: 'Interview preparation and practice',
     providers: ['ascension-native'],
@@ -2212,7 +2212,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_resume',
-    name: 'Ascension Resume',
+    name: 'Aerynza Resume',
     category: 'work',
     description: 'Resume and cover letter review',
     providers: ['ascension-native'],
@@ -2231,7 +2231,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_negotiation',
-    name: 'Ascension Negotiation',
+    name: 'Aerynza Negotiation',
     category: 'work',
     description: 'Salary, contract, and negotiation strategy',
     providers: ['ascension-native'],
@@ -2250,7 +2250,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_networking',
-    name: 'Ascension Networking',
+    name: 'Aerynza Networking',
     category: 'work',
     description: 'Professional networking and relationship building',
     providers: ['ascension-native'],
@@ -2269,7 +2269,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_leadership',
-    name: 'Ascension Leadership',
+    name: 'Aerynza Leadership',
     category: 'work',
     description: 'Leadership, management, and team guidance',
     providers: ['ascension-native'],
@@ -2288,7 +2288,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_team',
-    name: 'Ascension Team',
+    name: 'Aerynza Team',
     category: 'work',
     description: 'Team dynamics, conflict, and collaboration',
     providers: ['ascension-native'],
@@ -2307,7 +2307,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_feedback',
-    name: 'Ascension Feedback',
+    name: 'Aerynza Feedback',
     category: 'work',
     description: 'Giving and receiving feedback effectively',
     providers: ['ascension-native'],
@@ -2326,7 +2326,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_yoga',
-    name: 'Ascension Yoga',
+    name: 'Aerynza Yoga',
     category: 'wellness',
     description: 'Yoga poses, sequences, and practice guidance',
     providers: ['ascension-native'],
@@ -2345,7 +2345,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_running',
-    name: 'Ascension Running',
+    name: 'Aerynza Running',
     category: 'wellness',
     description: 'Running plans, form, and training progression',
     providers: ['ascension-native'],
@@ -2364,7 +2364,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_swimming',
-    name: 'Ascension Swimming',
+    name: 'Aerynza Swimming',
     category: 'wellness',
     description: 'Swim technique, workouts, and training',
     providers: ['ascension-native'],
@@ -2383,7 +2383,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cycling',
-    name: 'Ascension Cycling',
+    name: 'Aerynza Cycling',
     category: 'wellness',
     description: 'Cycling routes, training, and equipment',
     providers: ['ascension-native'],
@@ -2402,7 +2402,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hiking',
-    name: 'Ascension Hiking',
+    name: 'Aerynza Hiking',
     category: 'wellness',
     description: 'Hiking preparation, trails, and safety',
     providers: ['ascension-native'],
@@ -2421,7 +2421,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_climbing',
-    name: 'Ascension Climbing',
+    name: 'Aerynza Climbing',
     category: 'wellness',
     description: 'Climbing technique, training, and safety',
     providers: ['ascension-native'],
@@ -2441,7 +2441,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_martialarts',
     promoted: false,
-    name: 'Ascension Martial Arts',
+    name: 'Aerynza Martial Arts',
     category: 'wellness',
     description: 'Martial arts style guidance, drills, and conditioning',
     providers: ['ascension-native'],
@@ -2460,7 +2460,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_skincare',
-    name: 'Ascension Skincare',
+    name: 'Aerynza Skincare',
     category: 'wellness',
     description: 'Skincare routines, ingredients, and concerns',
     providers: ['ascension-native'],
@@ -2479,7 +2479,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ergonomics',
-    name: 'Ascension Ergonomics',
+    name: 'Aerynza Ergonomics',
     category: 'wellness',
     description: 'Desk, posture, and workspace ergonomics',
     providers: ['ascension-native'],
@@ -2498,7 +2498,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_firstaid',
-    name: 'Ascension First Aid',
+    name: 'Aerynza First Aid',
     category: 'wellness',
     description: 'First aid guidance and when to seek care',
     providers: ['ascension-native'],
@@ -2517,7 +2517,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dance',
-    name: 'Ascension Dance',
+    name: 'Aerynza Dance',
     category: 'creation',
     description: 'Dance styles, choreography, and practice',
     providers: ['ascension-native'],
@@ -2536,7 +2536,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_photography',
-    name: 'Ascension Photography',
+    name: 'Aerynza Photography',
     category: 'creation',
     description: 'Photography technique, composition, and editing guidance',
     providers: ['ascension-native'],
@@ -2555,7 +2555,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_filmmaking',
-    name: 'Ascension Filmmaking',
+    name: 'Aerynza Filmmaking',
     category: 'creation',
     description: 'Film, video, and content production guidance',
     providers: ['ascension-native'],
@@ -2574,7 +2574,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_podcast',
-    name: 'Ascension Podcast',
+    name: 'Aerynza Podcast',
     category: 'creation',
     description: 'Podcast planning, production, and distribution guidance',
     providers: ['ascension-native'],
@@ -2593,7 +2593,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_design',
-    name: 'Ascension Design',
+    name: 'Aerynza Design',
     category: 'creation',
     description: 'Graphic, UX, and visual design guidance',
     providers: ['ascension-native'],
@@ -2612,7 +2612,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_interior_design',
-    name: 'Ascension Interior Design',
+    name: 'Aerynza Interior Design',
     category: 'home',
     description: 'Interior layout, color, and decor planning',
     providers: ['ascension-native'],
@@ -2631,7 +2631,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_craft',
-    name: 'Ascension Craft',
+    name: 'Aerynza Craft',
     category: 'creation',
     description: 'Crafts, DIY, and maker project guidance',
     providers: ['ascension-native'],
@@ -2650,7 +2650,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_baking',
-    name: 'Ascension Baking',
+    name: 'Aerynza Baking',
     category: 'home',
     description: 'Baking recipes, technique, and troubleshooting',
     providers: ['ascension-native'],
@@ -2669,7 +2669,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mixology',
-    name: 'Ascension Mixology',
+    name: 'Aerynza Mixology',
     category: 'home',
     description: 'Cocktail, mocktail, and beverage guidance',
     providers: ['ascension-native'],
@@ -2688,7 +2688,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_etiquette',
-    name: 'Ascension Etiquette',
+    name: 'Aerynza Etiquette',
     category: 'knowledge',
     description: 'Etiquette, manners, and social situation guidance',
     providers: ['ascension-native'],
@@ -2707,7 +2707,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_wedding',
-    name: 'Ascension Wedding',
+    name: 'Aerynza Wedding',
     category: 'life_events',
     description: 'Wedding planning, timeline, and etiquette',
     providers: ['ascension-native'],
@@ -2726,7 +2726,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_birthday',
-    name: 'Ascension Birthday',
+    name: 'Aerynza Birthday',
     category: 'life_events',
     description: 'Birthday planning, themes, and gift ideas',
     providers: ['ascension-native'],
@@ -2745,7 +2745,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_party',
-    name: 'Ascension Party',
+    name: 'Aerynza Party',
     category: 'life_events',
     description: 'Party planning, guest lists, and logistics',
     providers: ['ascension-native'],
@@ -2764,7 +2764,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_holiday',
-    name: 'Ascension Holiday',
+    name: 'Aerynza Holiday',
     category: 'life_events',
     description: 'Holiday planning, traditions, and travel',
     providers: ['ascension-native'],
@@ -2783,7 +2783,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_gift',
-    name: 'Ascension Gift',
+    name: 'Aerynza Gift',
     category: 'life_events',
     description: 'Gift ideas, wrapping, and giving guidance',
     providers: ['ascension-native'],
@@ -2802,7 +2802,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_funeral',
-    name: 'Ascension Funeral',
+    name: 'Aerynza Funeral',
     category: 'life_events',
     description: 'Funeral planning, grief, and memorial support',
     providers: ['ascension-native'],
@@ -2821,7 +2821,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_babyshower',
-    name: 'Ascension Baby Shower',
+    name: 'Aerynza Baby Shower',
     category: 'life_events',
     description: 'Baby shower planning and registry guidance',
     providers: ['ascension-native'],
@@ -2840,7 +2840,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_graduation',
-    name: 'Ascension Graduation',
+    name: 'Aerynza Graduation',
     category: 'life_events',
     description: 'Graduation planning, gifts, and next steps',
     providers: ['ascension-native'],
@@ -2859,7 +2859,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_retirement',
-    name: 'Ascension Retirement',
+    name: 'Aerynza Retirement',
     category: 'life_events',
     description: 'Retirement planning, lifestyle, and transitions',
     providers: ['ascension-native'],
@@ -2878,7 +2878,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_anniversary',
-    name: 'Ascension Anniversary',
+    name: 'Aerynza Anniversary',
     category: 'life_events',
     description: 'Anniversary celebration and gift ideas',
     providers: ['ascension-native'],
@@ -2897,7 +2897,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_homework',
-    name: 'Ascension Homework',
+    name: 'Aerynza Homework',
     category: 'education',
     description: 'Homework help, explanation, and study guidance',
     providers: ['ascension-native'],
@@ -2916,7 +2916,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tutor',
-    name: 'Ascension Tutor',
+    name: 'Aerynza Tutor',
     category: 'education',
     description: 'One-on-one tutoring across subjects',
     providers: ['ascension-native'],
@@ -2935,7 +2935,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_school',
-    name: 'Ascension School',
+    name: 'Aerynza School',
     category: 'education',
     description: 'School selection, applications, and planning',
     providers: ['ascension-native'],
@@ -2954,7 +2954,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_college',
-    name: 'Ascension College',
+    name: 'Aerynza College',
     category: 'education',
     description: 'College search, applications, and planning',
     providers: ['ascension-native'],
@@ -2973,7 +2973,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_scholarship',
-    name: 'Ascension Scholarship',
+    name: 'Aerynza Scholarship',
     category: 'education',
     description: 'Scholarship search and application support',
     providers: ['ascension-native'],
@@ -2992,7 +2992,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_exam',
-    name: 'Ascension Exam',
+    name: 'Aerynza Exam',
     category: 'education',
     description: 'Exam preparation, strategy, and practice',
     providers: ['ascension-native'],
@@ -3011,7 +3011,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_studyskills',
-    name: 'Ascension Study Skills',
+    name: 'Aerynza Study Skills',
     category: 'education',
     description: 'Study habits, note-taking, and retention',
     providers: ['ascension-native'],
@@ -3030,7 +3030,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_memorization',
-    name: 'Ascension Memorization',
+    name: 'Aerynza Memorization',
     category: 'education',
     description: 'Memory techniques and spaced repetition',
     providers: ['ascension-native'],
@@ -3049,7 +3049,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_presentation',
-    name: 'Ascension Presentation',
+    name: 'Aerynza Presentation',
     category: 'education',
     description: 'Presentations, slides, and public speaking',
     providers: ['ascension-native'],
@@ -3068,7 +3068,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_teaching',
-    name: 'Ascension Teaching',
+    name: 'Aerynza Teaching',
     category: 'education',
     description: 'Teaching methods, lesson planning, and assessment',
     providers: ['ascension-native'],
@@ -3087,7 +3087,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_devops',
-    name: 'Ascension DevOps',
+    name: 'Aerynza DevOps',
     category: 'engineering',
     description: 'DevOps practices, pipelines, and infrastructure',
     providers: ['ascension-native'],
@@ -3106,7 +3106,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cloud',
-    name: 'Ascension Cloud',
+    name: 'Aerynza Cloud',
     category: 'engineering',
     description: 'Cloud architecture, services, and cost guidance',
     providers: ['ascension-native'],
@@ -3125,7 +3125,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_databases',
-    name: 'Ascension Databases',
+    name: 'Aerynza Databases',
     category: 'engineering',
     description: 'Database design, queries, and optimization',
     providers: ['ascension-native'],
@@ -3144,7 +3144,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_security_tech',
-    name: 'Ascension Security Tech',
+    name: 'Aerynza Security Tech',
     category: 'engineering',
     description: 'Application and infrastructure security guidance',
     providers: ['ascension-native'],
@@ -3163,7 +3163,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_testing',
-    name: 'Ascension Testing',
+    name: 'Aerynza Testing',
     category: 'engineering',
     description: 'Test strategy, automation, and quality assurance',
     providers: ['ascension-native'],
@@ -3182,7 +3182,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cicd',
-    name: 'Ascension CI/CD',
+    name: 'Aerynza CI/CD',
     category: 'engineering',
     description: 'Continuous integration and delivery guidance',
     providers: ['ascension-native'],
@@ -3201,7 +3201,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_monitoring',
-    name: 'Ascension Monitoring',
+    name: 'Aerynza Monitoring',
     category: 'engineering',
     description: 'Observability, logging, and alerting',
     providers: ['ascension-native'],
@@ -3220,7 +3220,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_api',
-    name: 'Ascension API',
+    name: 'Aerynza API',
     category: 'engineering',
     description: 'API design, versioning, and documentation',
     providers: ['ascension-native'],
@@ -3239,7 +3239,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_microservices',
-    name: 'Ascension Microservices',
+    name: 'Aerynza Microservices',
     category: 'engineering',
     description: 'Microservices architecture and tradeoffs',
     providers: ['ascension-native'],
@@ -3258,7 +3258,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_blockchain',
-    name: 'Ascension Blockchain',
+    name: 'Aerynza Blockchain',
     category: 'engineering',
     description: 'Blockchain concepts, smart contracts, and crypto basics',
     providers: ['ascension-native'],
@@ -3277,7 +3277,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_walking',
-    name: 'Ascension Walking',
+    name: 'Aerynza Walking',
     category: 'wellness',
     description: 'Walking plans, routes, and fitness integration',
     providers: ['ascension-native'],
@@ -3296,7 +3296,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_stretching',
-    name: 'Ascension Stretching',
+    name: 'Aerynza Stretching',
     category: 'wellness',
     description: 'Stretching routines, mobility, and flexibility',
     providers: ['ascension-native'],
@@ -3315,7 +3315,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_recovery',
-    name: 'Ascension Recovery',
+    name: 'Aerynza Recovery',
     category: 'wellness',
     description: 'Rest, recovery, and regeneration planning',
     providers: ['ascension-native'],
@@ -3334,7 +3334,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_supplements',
-    name: 'Ascension Supplements',
+    name: 'Aerynza Supplements',
     category: 'wellness',
     description: 'Supplement information and when to consult a clinician',
     providers: ['ascension-native'],
@@ -3353,7 +3353,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_allergies',
-    name: 'Ascension Allergies',
+    name: 'Aerynza Allergies',
     category: 'wellness',
     description: 'Allergy awareness, triggers, and management',
     providers: ['ascension-native'],
@@ -3372,7 +3372,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_chronic',
-    name: 'Ascension Chronic',
+    name: 'Aerynza Chronic',
     category: 'wellness',
     description: 'Chronic condition support and self-management guidance',
     providers: ['ascension-native'],
@@ -3391,7 +3391,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_disability',
-    name: 'Ascension Disability',
+    name: 'Aerynza Disability',
     category: 'wellness',
     description: 'Disability support, accommodations, and resources',
     providers: ['ascension-native'],
@@ -3410,7 +3410,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pregnancy',
-    name: 'Ascension Pregnancy',
+    name: 'Aerynza Pregnancy',
     category: 'wellness',
     description: 'Pregnancy planning, questions, and resource guidance',
     providers: ['ascension-native'],
@@ -3429,7 +3429,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_childbirth',
-    name: 'Ascension Childbirth',
+    name: 'Aerynza Childbirth',
     category: 'wellness',
     description: 'Childbirth preparation and birth plan support',
     providers: ['ascension-native'],
@@ -3448,7 +3448,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_postpartum',
-    name: 'Ascension Postpartum',
+    name: 'Aerynza Postpartum',
     category: 'wellness',
     description: 'Postpartum support, recovery, and newborn adjustment',
     providers: ['ascension-native'],
@@ -3467,7 +3467,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_packing',
-    name: 'Ascension Packing',
+    name: 'Aerynza Packing',
     category: 'home',
     description: 'Packing lists and travel preparation',
     providers: ['ascension-native'],
@@ -3486,7 +3486,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_commute',
-    name: 'Ascension Commute',
+    name: 'Aerynza Commute',
     category: 'home',
     description: 'Commute planning, routes, and optimization',
     providers: ['ascension-native'],
@@ -3505,7 +3505,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_laundry',
-    name: 'Ascension Laundry',
+    name: 'Aerynza Laundry',
     category: 'home',
     description: 'Laundry routines, stains, and care',
     providers: ['ascension-native'],
@@ -3524,7 +3524,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_organizing',
-    name: 'Ascension Organizing',
+    name: 'Aerynza Organizing',
     category: 'home',
     description: 'Organization systems and decluttering',
     providers: ['ascension-native'],
@@ -3543,7 +3543,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_storage',
-    name: 'Ascension Storage',
+    name: 'Aerynza Storage',
     category: 'home',
     description: 'Storage solutions and space planning',
     providers: ['ascension-native'],
@@ -3562,7 +3562,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_decor',
-    name: 'Ascension Decor',
+    name: 'Aerynza Decor',
     category: 'home',
     description: 'Decor choices, themes, and styling',
     providers: ['ascension-native'],
@@ -3581,7 +3581,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_lighting',
-    name: 'Ascension Lighting',
+    name: 'Aerynza Lighting',
     category: 'home',
     description: 'Lighting design, bulbs, and ambiance',
     providers: ['ascension-native'],
@@ -3600,7 +3600,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sound',
-    name: 'Ascension Sound',
+    name: 'Aerynza Sound',
     category: 'home',
     description: 'Sound, acoustics, and noise management',
     providers: ['ascension-native'],
@@ -3619,7 +3619,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_smell',
-    name: 'Ascension Smell',
+    name: 'Aerynza Smell',
     category: 'home',
     description: 'Scent, air quality, and fragrance guidance',
     providers: ['ascension-native'],
@@ -3638,7 +3638,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_balcony',
-    name: 'Ascension Balcony',
+    name: 'Aerynza Balcony',
     category: 'home',
     description: 'Balcony, patio, and small outdoor space use',
     providers: ['ascension-native'],
@@ -3657,7 +3657,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_will',
-    name: 'Ascension Will',
+    name: 'Aerynza Will',
     category: 'legal',
     description: 'Will planning and estate introduction',
     providers: ['ascension-native'],
@@ -3676,7 +3676,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_trust',
-    name: 'Ascension Trust',
+    name: 'Aerynza Trust',
     category: 'legal',
     description: 'Trust basics and estate planning guidance',
     providers: ['ascension-native'],
@@ -3695,7 +3695,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_prenup',
-    name: 'Ascension Prenup',
+    name: 'Aerynza Prenup',
     category: 'legal',
     description: 'Prenuptial agreement information and attorney referral',
     providers: ['ascension-native'],
@@ -3714,7 +3714,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_divorce',
-    name: 'Ascension Divorce',
+    name: 'Aerynza Divorce',
     category: 'legal',
     description: 'Divorce information and resource guidance',
     providers: ['ascension-native'],
@@ -3733,7 +3733,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_custody',
-    name: 'Ascension Custody',
+    name: 'Aerynza Custody',
     category: 'legal',
     description: 'Child custody information and co-parenting resources',
     providers: ['ascension-native'],
@@ -3752,7 +3752,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_adoption',
-    name: 'Ascension Adoption',
+    name: 'Aerynza Adoption',
     category: 'legal',
     description: 'Adoption information, steps, and resources',
     providers: ['ascension-native'],
@@ -3771,7 +3771,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_immigration',
-    name: 'Ascension Immigration',
+    name: 'Aerynza Immigration',
     category: 'legal',
     description: 'Immigration path overview and document organization',
     providers: ['ascension-native'],
@@ -3790,7 +3790,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_contracts',
-    name: 'Ascension Contracts',
+    name: 'Aerynza Contracts',
     category: 'legal',
     description: 'Contract review preparation and plain-language explanations',
     providers: ['ascension-native'],
@@ -3809,7 +3809,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tenant',
-    name: 'Ascension Tenant',
+    name: 'Aerynza Tenant',
     category: 'legal',
     description: 'Tenant rights, leases, and rental issues',
     providers: ['ascension-native'],
@@ -3828,7 +3828,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_landlord',
-    name: 'Ascension Landlord',
+    name: 'Aerynza Landlord',
     category: 'legal',
     description: 'Landlord responsibilities, leases, and tenant issues',
     providers: ['ascension-native'],
@@ -3847,7 +3847,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_startup',
-    name: 'Ascension Startup',
+    name: 'Aerynza Startup',
     category: 'business',
     description: 'Startup ideation, validation, and early operations',
     providers: ['ascension-native'],
@@ -3866,7 +3866,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_business_plan',
-    name: 'Ascension Business Plan',
+    name: 'Aerynza Business Plan',
     category: 'business',
     description: 'Business plan drafting and review',
     providers: ['ascension-native'],
@@ -3885,7 +3885,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_marketing',
-    name: 'Ascension Marketing',
+    name: 'Aerynza Marketing',
     category: 'business',
     description: 'Marketing strategy, channels, and campaigns',
     providers: ['ascension-native'],
@@ -3904,7 +3904,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sales',
-    name: 'Ascension Sales',
+    name: 'Aerynza Sales',
     category: 'business',
     description: 'Sales process, outreach, and closing',
     providers: ['ascension-native'],
@@ -3923,7 +3923,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_brand',
-    name: 'Ascension Brand',
+    name: 'Aerynza Brand',
     category: 'business',
     description: 'Brand positioning, voice, and identity',
     providers: ['ascension-native'],
@@ -3942,7 +3942,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_customer_service',
-    name: 'Ascension Customer Service',
+    name: 'Aerynza Customer Service',
     category: 'business',
     description: 'Customer service, support, and retention',
     providers: ['ascension-native'],
@@ -3961,7 +3961,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hr',
-    name: 'Ascension HR',
+    name: 'Aerynza HR',
     category: 'business',
     description: 'Hiring, onboarding, and employee relations',
     providers: ['ascension-native'],
@@ -3980,7 +3980,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fundraising',
-    name: 'Ascension Fundraising',
+    name: 'Aerynza Fundraising',
     category: 'business',
     description: 'Fundraising, investors, and grant seeking',
     providers: ['ascension-native'],
@@ -3999,7 +3999,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pitch',
-    name: 'Ascension Pitch',
+    name: 'Aerynza Pitch',
     category: 'business',
     description: 'Pitch deck and investor presentation practice',
     providers: ['ascension-native'],
@@ -4018,7 +4018,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_partnerships',
-    name: 'Ascension Partnerships',
+    name: 'Aerynza Partnerships',
     category: 'business',
     description: 'Partnership, alliance, and deal strategy',
     providers: ['ascension-native'],
@@ -4037,7 +4037,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_car_buying',
-    name: 'Ascension Car Buying',
+    name: 'Aerynza Car Buying',
     category: 'automotive',
     description: 'Car buying, negotiation, and research',
     providers: ['ascension-native'],
@@ -4056,7 +4056,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_car_maintenance',
-    name: 'Ascension Car Maintenance',
+    name: 'Aerynza Car Maintenance',
     category: 'automotive',
     description: 'Car maintenance, service schedules, and troubleshooting',
     providers: ['ascension-native'],
@@ -4075,7 +4075,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_motorcycle',
-    name: 'Ascension Motorcycle',
+    name: 'Aerynza Motorcycle',
     category: 'automotive',
     description: 'Motorcycle riding, gear, and maintenance',
     providers: ['ascension-native'],
@@ -4094,7 +4094,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bicycle',
-    name: 'Ascension Bicycle',
+    name: 'Aerynza Bicycle',
     category: 'automotive',
     description: 'Bicycle selection, maintenance, and riding',
     providers: ['ascension-native'],
@@ -4113,7 +4113,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_boat',
-    name: 'Ascension Boat',
+    name: 'Aerynza Boat',
     category: 'automotive',
     description: 'Boating basics, safety, and maintenance',
     providers: ['ascension-native'],
@@ -4132,7 +4132,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_rv',
-    name: 'Ascension RV',
+    name: 'Aerynza RV',
     category: 'automotive',
     description: 'RV travel, maintenance, and trip planning',
     providers: ['ascension-native'],
@@ -4151,7 +4151,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_electric_vehicle',
-    name: 'Ascension Electric Vehicle',
+    name: 'Aerynza Electric Vehicle',
     category: 'automotive',
     description: 'EV selection, charging, and ownership',
     providers: ['ascension-native'],
@@ -4170,7 +4170,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_public_transit',
-    name: 'Ascension Public Transit',
+    name: 'Aerynza Public Transit',
     category: 'travel',
     description: 'Public transit navigation, schedules, and tips',
     providers: ['ascension-native'],
@@ -4187,7 +4187,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_rideshare',
-    name: 'Ascension Rideshare',
+    name: 'Aerynza Rideshare',
     category: 'travel',
     description: 'Rideshare, taxi, and driver guidance',
     providers: ['ascension-native'],
@@ -4204,7 +4204,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_flight',
-    name: 'Ascension Flight',
+    name: 'Aerynza Flight',
     category: 'travel',
     description: 'Flight booking, airports, and travel strategy',
     providers: ['ascension-native'],
@@ -4221,7 +4221,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cricket',
-    name: 'Ascension Cricket',
+    name: 'Aerynza Cricket',
     category: 'sports',
     description: 'Cricket rules, strategy, and fan questions',
     providers: ['ascension-native'],
@@ -4240,7 +4240,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_basketball',
-    name: 'Ascension Basketball',
+    name: 'Aerynza Basketball',
     category: 'sports',
     description: 'Basketball strategy, training, and analysis',
     providers: ['ascension-native'],
@@ -4259,7 +4259,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_football',
-    name: 'Ascension Football',
+    name: 'Aerynza Football',
     category: 'sports',
     description: 'Football strategy, training, and analysis',
     providers: ['ascension-native'],
@@ -4278,7 +4278,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_baseball',
-    name: 'Ascension Baseball',
+    name: 'Aerynza Baseball',
     category: 'sports',
     description: 'Baseball rules, strategy, and analysis',
     providers: ['ascension-native'],
@@ -4297,7 +4297,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_soccer',
-    name: 'Ascension Soccer',
+    name: 'Aerynza Soccer',
     category: 'sports',
     description: 'Soccer tactics, training, and fan questions',
     providers: ['ascension-native'],
@@ -4316,7 +4316,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tennis',
-    name: 'Ascension Tennis',
+    name: 'Aerynza Tennis',
     category: 'sports',
     description: 'Tennis technique, training, and matches',
     providers: ['ascension-native'],
@@ -4335,7 +4335,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_golf',
-    name: 'Ascension Golf',
+    name: 'Aerynza Golf',
     category: 'sports',
     description: 'Golf swing, course strategy, and equipment',
     providers: ['ascension-native'],
@@ -4354,7 +4354,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hockey',
-    name: 'Ascension Hockey',
+    name: 'Aerynza Hockey',
     category: 'sports',
     description: 'Hockey rules, strategy, and training',
     providers: ['ascension-native'],
@@ -4373,7 +4373,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_esports',
-    name: 'Ascension Esports',
+    name: 'Aerynza Esports',
     category: 'sports',
     description: 'Esports games, teams, and strategy',
     providers: ['ascension-native'],
@@ -4392,7 +4392,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fantasy',
-    name: 'Ascension Fantasy',
+    name: 'Aerynza Fantasy',
     category: 'sports',
     description: 'Fantasy sports draft, lineup, and strategy',
     providers: ['ascension-native'],
@@ -4411,7 +4411,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_horoscope',
-    name: 'Ascension Horoscope',
+    name: 'Aerynza Horoscope',
     category: 'entertainment',
     description: 'Horoscope, astrology, and personal sign guidance',
     providers: ['ascension-native'],
@@ -4430,7 +4430,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_astrology',
-    name: 'Ascension Astrology',
+    name: 'Aerynza Astrology',
     category: 'entertainment',
     description: 'Astrology chart basics and sign compatibility',
     providers: ['ascension-native'],
@@ -4449,7 +4449,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tarot',
-    name: 'Ascension Tarot',
+    name: 'Aerynza Tarot',
     category: 'entertainment',
     description: 'Tarot card meanings and reflective readings',
     providers: ['ascension-native'],
@@ -4468,7 +4468,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tattoo',
-    name: 'Ascension Tattoo',
+    name: 'Aerynza Tattoo',
     category: 'style',
     description: 'Tattoo ideas, styles, and aftercare',
     providers: ['ascension-native'],
@@ -4487,7 +4487,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_piercing',
-    name: 'Ascension Piercing',
+    name: 'Aerynza Piercing',
     category: 'style',
     description: 'Piercing types, care, and safety',
     providers: ['ascension-native'],
@@ -4506,7 +4506,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_perfume',
-    name: 'Ascension Perfume',
+    name: 'Aerynza Perfume',
     category: 'style',
     description: 'Fragrance, perfume, and scent guidance',
     providers: ['ascension-native'],
@@ -4525,7 +4525,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_jewelry',
-    name: 'Ascension Jewelry',
+    name: 'Aerynza Jewelry',
     category: 'style',
     description: 'Jewelry selection, care, and occasion matching',
     providers: ['ascension-native'],
@@ -4544,7 +4544,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_watch',
-    name: 'Ascension Watch',
+    name: 'Aerynza Watch',
     category: 'style',
     description: 'Watch selection, care, and collection guidance',
     providers: ['ascension-native'],
@@ -4563,7 +4563,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shoes',
-    name: 'Ascension Shoes',
+    name: 'Aerynza Shoes',
     category: 'style',
     description: 'Shoe selection, fit, and care',
     providers: ['ascension-native'],
@@ -4582,7 +4582,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bag',
-    name: 'Ascension Bag',
+    name: 'Aerynza Bag',
     category: 'style',
     description: 'Bag and luggage selection and care',
     providers: ['ascension-native'],
@@ -4601,7 +4601,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_wallet',
-    name: 'Ascension Wallet',
+    name: 'Aerynza Wallet',
     category: 'style',
     description: 'Wallet selection and organization',
     providers: ['ascension-native'],
@@ -4620,7 +4620,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sunglasses',
-    name: 'Ascension Sunglasses',
+    name: 'Aerynza Sunglasses',
     category: 'style',
     description: 'Sunglasses, UV protection, and style',
     providers: ['ascension-native'],
@@ -4639,7 +4639,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_haircut',
-    name: 'Ascension Haircut',
+    name: 'Aerynza Haircut',
     category: 'style',
     description: 'Haircut styles, face shape, and maintenance',
     providers: ['ascension-native'],
@@ -4658,7 +4658,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_beard',
-    name: 'Ascension Beard',
+    name: 'Aerynza Beard',
     category: 'style',
     description: 'Beard styles, growth, and grooming',
     providers: ['ascension-native'],
@@ -4677,7 +4677,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_makeup',
-    name: 'Ascension Makeup',
+    name: 'Aerynza Makeup',
     category: 'style',
     description: 'Makeup techniques, products, and looks',
     providers: ['ascension-native'],
@@ -4696,7 +4696,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_camping',
-    name: 'Ascension Camping',
+    name: 'Aerynza Camping',
     category: 'wellness',
     description: 'Camping gear, sites, and outdoor skills',
     providers: ['ascension-native'],
@@ -4715,7 +4715,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fishing',
-    name: 'Ascension Fishing',
+    name: 'Aerynza Fishing',
     category: 'wellness',
     description: 'Fishing techniques, gear, and locations',
     providers: ['ascension-native'],
@@ -4735,7 +4735,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_hunting',
     promoted: false,
-    name: 'Ascension Hunting',
+    name: 'Aerynza Hunting',
     category: 'wellness',
     description: 'Hunting safety, gear, and ethics',
     providers: ['ascension-native'],
@@ -4755,7 +4755,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_shooting',
     promoted: false,
-    name: 'Ascension Shooting',
+    name: 'Aerynza Shooting',
     category: 'wellness',
     description: 'Firearm safety, range practice, and training',
     providers: ['ascension-native'],
@@ -4775,7 +4775,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_archery',
     promoted: false,
-    name: 'Ascension Archery',
+    name: 'Aerynza Archery',
     category: 'wellness',
     description: 'Archery technique, gear, and practice',
     providers: ['ascension-native'],
@@ -4795,7 +4795,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_fencing',
     promoted: false,
-    name: 'Ascension Fencing',
+    name: 'Aerynza Fencing',
     category: 'wellness',
     description: 'Fencing styles, gear, and training',
     providers: ['ascension-native'],
@@ -4815,7 +4815,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_boxing',
     promoted: false,
-    name: 'Ascension Boxing',
+    name: 'Aerynza Boxing',
     category: 'wellness',
     description: 'Boxing technique, training, and conditioning',
     providers: ['ascension-native'],
@@ -4835,7 +4835,7 @@ export const CAPABILITIES = [
   {
     id: 'ascension_wrestling',
     promoted: false,
-    name: 'Ascension Wrestling',
+    name: 'Aerynza Wrestling',
     category: 'wellness',
     description: 'Wrestling styles, training, and technique',
     providers: ['ascension-native'],
@@ -4854,7 +4854,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_gymnastics',
-    name: 'Ascension Gymnastics',
+    name: 'Aerynza Gymnastics',
     category: 'wellness',
     description: 'Gymnastics skills, training, and safety',
     providers: ['ascension-native'],
@@ -4873,7 +4873,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_skateboarding',
-    name: 'Ascension Skateboarding',
+    name: 'Aerynza Skateboarding',
     category: 'wellness',
     description: 'Skateboarding tricks, gear, and spots',
     providers: ['ascension-native'],
@@ -4892,7 +4892,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_surfing',
-    name: 'Ascension Surfing',
+    name: 'Aerynza Surfing',
     category: 'wellness',
     description: 'Surfing technique, waves, and board selection',
     providers: ['ascension-native'],
@@ -4911,7 +4911,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_skiing',
-    name: 'Ascension Skiing',
+    name: 'Aerynza Skiing',
     category: 'wellness',
     description: 'Skiing technique, gear, and resorts',
     providers: ['ascension-native'],
@@ -4930,7 +4930,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_snowboarding',
-    name: 'Ascension Snowboarding',
+    name: 'Aerynza Snowboarding',
     category: 'wellness',
     description: 'Snowboarding technique, gear, and resorts',
     providers: ['ascension-native'],
@@ -4949,7 +4949,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ice_skating',
-    name: 'Ascension Ice Skating',
+    name: 'Aerynza Ice Skating',
     category: 'wellness',
     description: 'Ice skating technique, gear, and rinks',
     providers: ['ascension-native'],
@@ -4968,7 +4968,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_roller_skating',
-    name: 'Ascension Roller Skating',
+    name: 'Aerynza Roller Skating',
     category: 'wellness',
     description: 'Roller skating technique, gear, and spots',
     providers: ['ascension-native'],
@@ -4987,7 +4987,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_magic',
-    name: 'Ascension Magic',
+    name: 'Aerynza Magic',
     category: 'entertainment',
     description: 'Magic tricks, sleight of hand, and performance',
     providers: ['ascension-native'],
@@ -5006,7 +5006,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_comedy',
-    name: 'Ascension Comedy',
+    name: 'Aerynza Comedy',
     category: 'entertainment',
     description: 'Comedy writing, timing, and performance',
     providers: ['ascension-native'],
@@ -5025,7 +5025,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_jokes',
-    name: 'Ascension Jokes',
+    name: 'Aerynza Jokes',
     category: 'entertainment',
     description: 'Joke writing, setups, and punchlines',
     providers: ['ascension-native'],
@@ -5044,7 +5044,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_riddles',
-    name: 'Ascension Riddles',
+    name: 'Aerynza Riddles',
     category: 'entertainment',
     description: 'Riddles, brain teasers, and lateral thinking',
     providers: ['ascension-native'],
@@ -5063,7 +5063,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_puzzles',
-    name: 'Ascension Puzzles',
+    name: 'Aerynza Puzzles',
     category: 'entertainment',
     description: 'Puzzles, logic, and problem-solving games',
     providers: ['ascension-native'],
@@ -5082,7 +5082,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_standup',
-    name: 'Ascension Standup',
+    name: 'Aerynza Standup',
     category: 'entertainment',
     description: 'Stand-up comedy writing and performance',
     providers: ['ascension-native'],
@@ -5101,7 +5101,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_poetry',
-    name: 'Ascension Poetry',
+    name: 'Aerynza Poetry',
     category: 'creation',
     description: 'Poetry forms, technique, and writing',
     providers: ['ascension-native'],
@@ -5120,7 +5120,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_lyrics',
-    name: 'Ascension Lyrics',
+    name: 'Aerynza Lyrics',
     category: 'creation',
     description: 'Lyric writing, rhyme, and song structure',
     providers: ['ascension-native'],
@@ -5139,7 +5139,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_storytelling',
-    name: 'Ascension Storytelling',
+    name: 'Aerynza Storytelling',
     category: 'creation',
     description: 'Story structure, narrative, and oral telling',
     providers: ['ascension-native'],
@@ -5158,7 +5158,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fanfiction',
-    name: 'Ascension Fanfiction',
+    name: 'Aerynza Fanfiction',
     category: 'creation',
     description: 'Fanfiction writing, tropes, and platforms',
     providers: ['ascension-native'],
@@ -5177,7 +5177,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cosplay',
-    name: 'Ascension Cosplay',
+    name: 'Aerynza Cosplay',
     category: 'entertainment',
     description: 'Cosplay design, construction, and events',
     providers: ['ascension-native'],
@@ -5196,7 +5196,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_roleplay',
-    name: 'Ascension Roleplay',
+    name: 'Aerynza Roleplay',
     category: 'entertainment',
     description: 'Roleplay genres, character creation, and safety',
     providers: ['ascension-native'],
@@ -5215,7 +5215,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_reviews',
-    name: 'Ascension Reviews',
+    name: 'Aerynza Reviews',
     category: 'research',
     description: 'Product, media, and service review writing',
     providers: ['ascension-native'],
@@ -5231,7 +5231,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_trivia',
-    name: 'Ascension Trivia',
+    name: 'Aerynza Trivia',
     category: 'entertainment',
     description: 'Trivia facts, hosting, and categories',
     providers: ['ascension-native'],
@@ -5250,7 +5250,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_boardgames',
-    name: 'Ascension Board Games',
+    name: 'Aerynza Board Games',
     category: 'entertainment',
     description: 'Board game rules, strategy, and recommendations',
     providers: ['ascension-native'],
@@ -5269,7 +5269,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_streaming',
-    name: 'Ascension Streaming',
+    name: 'Aerynza Streaming',
     category: 'creation',
     description: 'Live streaming setup, platforms, and growth',
     providers: ['ascension-native'],
@@ -5288,7 +5288,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_youtube',
-    name: 'Ascension YouTube',
+    name: 'Aerynza YouTube',
     category: 'creation',
     description: 'YouTube content, SEO, and channel growth',
     providers: ['ascension-native'],
@@ -5307,7 +5307,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tiktok',
-    name: 'Ascension TikTok',
+    name: 'Aerynza TikTok',
     category: 'creation',
     description: 'TikTok content, trends, and strategy',
     providers: ['ascension-native'],
@@ -5326,7 +5326,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_instagram',
-    name: 'Ascension Instagram',
+    name: 'Aerynza Instagram',
     category: 'creation',
     description: 'Instagram content, reels, and growth',
     providers: ['ascension-native'],
@@ -5345,7 +5345,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_twitter',
-    name: 'Ascension Twitter',
+    name: 'Aerynza Twitter',
     category: 'creation',
     description: 'Twitter/X content, threads, and engagement',
     providers: ['ascension-native'],
@@ -5364,7 +5364,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_linkedin',
-    name: 'Ascension LinkedIn',
+    name: 'Aerynza LinkedIn',
     category: 'work',
     description: 'LinkedIn profile, content, and networking',
     providers: ['ascension-native'],
@@ -5383,7 +5383,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_facebook',
-    name: 'Ascension Facebook',
+    name: 'Aerynza Facebook',
     category: 'social',
     description: 'Facebook groups, pages, and events',
     providers: ['ascension-native'],
@@ -5400,7 +5400,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_reddit',
-    name: 'Ascension Reddit',
+    name: 'Aerynza Reddit',
     category: 'social',
     description: 'Reddit communities, posts, and etiquette',
     providers: ['ascension-native'],
@@ -5417,7 +5417,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_discord',
-    name: 'Ascension Discord',
+    name: 'Aerynza Discord',
     category: 'social',
     description: 'Discord servers, roles, and moderation',
     providers: ['ascension-native'],
@@ -5434,7 +5434,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_slack',
-    name: 'Ascension Slack',
+    name: 'Aerynza Slack',
     category: 'work',
     description: 'Slack workspace, channels, and bots',
     providers: ['ascension-native'],
@@ -5453,7 +5453,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_teams',
-    name: 'Ascension Teams',
+    name: 'Aerynza Teams',
     category: 'work',
     description: 'Microsoft Teams meetings and collaboration',
     providers: ['ascension-native'],
@@ -5472,7 +5472,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_zoom',
-    name: 'Ascension Zoom',
+    name: 'Aerynza Zoom',
     category: 'work',
     description: 'Zoom meetings, webinars, and setup',
     providers: ['ascension-native'],
@@ -5491,7 +5491,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meet',
-    name: 'Ascension Meet',
+    name: 'Aerynza Meet',
     category: 'work',
     description: 'Google Meet calls and settings',
     providers: ['ascension-native'],
@@ -5510,7 +5510,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_webex',
-    name: 'Ascension Webex',
+    name: 'Aerynza Webex',
     category: 'work',
     description: 'Webex meetings and setup',
     providers: ['ascension-native'],
@@ -5529,7 +5529,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_obs',
-    name: 'Ascension OBS',
+    name: 'Aerynza OBS',
     category: 'creation',
     description: 'OBS Studio setup, scenes, and streaming',
     providers: ['ascension-native'],
@@ -5548,7 +5548,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_chess',
-    name: 'Ascension Chess',
+    name: 'Aerynza Chess',
     category: 'entertainment',
     description: 'Chess openings, tactics, and strategy',
     providers: ['ascension-native'],
@@ -5567,7 +5567,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_poker',
-    name: 'Ascension Poker',
+    name: 'Aerynza Poker',
     category: 'entertainment',
     description: 'Poker strategy, odds, and bankroll',
     providers: ['ascension-native'],
@@ -5586,7 +5586,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_blackjack',
-    name: 'Ascension Blackjack',
+    name: 'Aerynza Blackjack',
     category: 'entertainment',
     description: 'Blackjack strategy and odds',
     providers: ['ascension-native'],
@@ -5605,7 +5605,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_betting',
-    name: 'Ascension Betting',
+    name: 'Aerynza Betting',
     category: 'entertainment',
     description: 'Sports betting, odds, and risk management',
     providers: ['ascension-native'],
@@ -5624,7 +5624,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_lottery',
-    name: 'Ascension Lottery',
+    name: 'Aerynza Lottery',
     category: 'entertainment',
     description: 'Lottery odds and expectation guidance',
     providers: ['ascension-native'],
@@ -5643,7 +5643,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_auction',
-    name: 'Ascension Auction',
+    name: 'Aerynza Auction',
     category: 'lifestyle',
     description: 'Auction bidding, valuation, and strategy',
     providers: ['ascension-native'],
@@ -5662,7 +5662,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_collector',
-    name: 'Ascension Collector',
+    name: 'Aerynza Collector',
     category: 'lifestyle',
     description: 'Collecting strategy, valuation, and curation',
     providers: ['ascension-native'],
@@ -5681,7 +5681,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_antiques',
-    name: 'Ascension Antiques',
+    name: 'Aerynza Antiques',
     category: 'lifestyle',
     description: 'Antique identification, value, and care',
     providers: ['ascension-native'],
@@ -5700,7 +5700,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_stamps',
-    name: 'Ascension Stamps',
+    name: 'Aerynza Stamps',
     category: 'lifestyle',
     description: 'Stamp collecting and valuation',
     providers: ['ascension-native'],
@@ -5719,7 +5719,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_coins',
-    name: 'Ascension Coins',
+    name: 'Aerynza Coins',
     category: 'lifestyle',
     description: 'Coin collecting and numismatics',
     providers: ['ascension-native'],
@@ -5738,7 +5738,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_comics',
-    name: 'Ascension Comics',
+    name: 'Aerynza Comics',
     category: 'entertainment',
     description: 'Comic books, grading, and collecting',
     providers: ['ascension-native'],
@@ -5757,7 +5757,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_trading_cards',
-    name: 'Ascension Trading Cards',
+    name: 'Aerynza Trading Cards',
     category: 'entertainment',
     description: 'Trading cards, value, and protection',
     providers: ['ascension-native'],
@@ -5776,7 +5776,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_vinyl',
-    name: 'Ascension Vinyl',
+    name: 'Aerynza Vinyl',
     category: 'lifestyle',
     description: 'Vinyl records, collecting, and care',
     providers: ['ascension-native'],
@@ -5795,7 +5795,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_concerts',
-    name: 'Ascension Concerts',
+    name: 'Aerynza Concerts',
     category: 'entertainment',
     description: 'Concert planning, tickets, and etiquette',
     providers: ['ascension-native'],
@@ -5814,7 +5814,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_festivals',
-    name: 'Ascension Festivals',
+    name: 'Aerynza Festivals',
     category: 'entertainment',
     description: 'Festival planning, packing, and safety',
     providers: ['ascension-native'],
@@ -5833,7 +5833,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_karaoke',
-    name: 'Ascension Karaoke',
+    name: 'Aerynza Karaoke',
     category: 'entertainment',
     description: 'Karaoke song choice, setup, and fun',
     providers: ['ascension-native'],
@@ -5852,7 +5852,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_casino',
-    name: 'Ascension Casino',
+    name: 'Aerynza Casino',
     category: 'entertainment',
     description: 'Casino game odds, strategy, and risk awareness',
     providers: ['ascension-native'],
@@ -5871,7 +5871,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sports_betting',
-    name: 'Ascension Sports Betting',
+    name: 'Aerynza Sports Betting',
     category: 'entertainment',
     description: 'Sports betting strategy and risk management',
     providers: ['ascension-native'],
@@ -5890,7 +5890,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_daytrading',
-    name: 'Ascension Day Trading',
+    name: 'Aerynza Day Trading',
     category: 'finance',
     description: 'Day trading strategy, risk, and psychology',
     providers: ['ascension-native'],
@@ -5909,7 +5909,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_swingtrading',
-    name: 'Ascension Swing Trading',
+    name: 'Aerynza Swing Trading',
     category: 'finance',
     description: 'Swing trading setups and position management',
     providers: ['ascension-native'],
@@ -5928,7 +5928,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_forex',
-    name: 'Ascension Forex',
+    name: 'Aerynza Forex',
     category: 'finance',
     description: 'Forex basics, pairs, and risk',
     providers: ['ascension-native'],
@@ -5947,7 +5947,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_crypto',
-    name: 'Ascension Crypto',
+    name: 'Aerynza Crypto',
     category: 'finance',
     description: 'Cryptocurrency basics, custody, and safety',
     providers: ['ascension-native'],
@@ -5966,7 +5966,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_nfts',
-    name: 'Ascension NFTs',
+    name: 'Aerynza NFTs',
     category: 'finance',
     description: 'NFTs, marketplaces, and valuation',
     providers: ['ascension-native'],
@@ -5985,7 +5985,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mining',
-    name: 'Ascension Mining',
+    name: 'Aerynza Mining',
     category: 'engineering',
     description: 'Crypto mining hardware and profitability',
     providers: ['ascension-native'],
@@ -6004,7 +6004,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_staking',
-    name: 'Ascension Staking',
+    name: 'Aerynza Staking',
     category: 'finance',
     description: 'Staking, yields, and validator selection',
     providers: ['ascension-native'],
@@ -6023,7 +6023,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_defi',
-    name: 'Ascension DeFi',
+    name: 'Aerynza DeFi',
     category: 'finance',
     description: 'DeFi protocols, yields, and risks',
     providers: ['ascension-native'],
@@ -6042,7 +6042,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dao',
-    name: 'Ascension DAO',
+    name: 'Aerynza DAO',
     category: 'finance',
     description: 'DAO governance and participation',
     providers: ['ascension-native'],
@@ -6061,7 +6061,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_airdrop',
-    name: 'Ascension Airdrop',
+    name: 'Aerynza Airdrop',
     category: 'finance',
     description: 'Airdrop farming, safety, and taxes',
     providers: ['ascension-native'],
@@ -6080,7 +6080,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_presale',
-    name: 'Ascension Presale',
+    name: 'Aerynza Presale',
     category: 'finance',
     description: 'Presale research, red flags, and allocation',
     providers: ['ascension-native'],
@@ -6099,7 +6099,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_whitelist',
-    name: 'Ascension Whitelist',
+    name: 'Aerynza Whitelist',
     category: 'finance',
     description: 'Whitelist registration and security',
     providers: ['ascension-native'],
@@ -6118,7 +6118,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_nodes',
-    name: 'Ascension Nodes',
+    name: 'Aerynza Nodes',
     category: 'engineering',
     description: 'Blockchain nodes, setup, and maintenance',
     providers: ['ascension-native'],
@@ -6137,7 +6137,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_3d_printing',
-    name: 'Ascension 3D Printing',
+    name: 'Aerynza 3D Printing',
     category: 'creation',
     description: '3D printing, slicing, and materials',
     providers: ['ascension-native'],
@@ -6156,7 +6156,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_laser_cutting',
-    name: 'Ascension Laser Cutting',
+    name: 'Aerynza Laser Cutting',
     category: 'creation',
     description: 'Laser cutting, engraving, and design',
     providers: ['ascension-native'],
@@ -6175,7 +6175,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cnc',
-    name: 'Ascension CNC',
+    name: 'Aerynza CNC',
     category: 'creation',
     description: 'CNC machining, tooling, and safety',
     providers: ['ascension-native'],
@@ -6194,7 +6194,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_woodworking',
-    name: 'Ascension Woodworking',
+    name: 'Aerynza Woodworking',
     category: 'creation',
     description: 'Woodworking projects, tools, and joinery',
     providers: ['ascension-native'],
@@ -6213,7 +6213,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_metalworking',
-    name: 'Ascension Metalworking',
+    name: 'Aerynza Metalworking',
     category: 'creation',
     description: 'Metalworking tools, forging, and finishing',
     providers: ['ascension-native'],
@@ -6232,7 +6232,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_welding',
-    name: 'Ascension Welding',
+    name: 'Aerynza Welding',
     category: 'creation',
     description: 'Welding processes, safety, and certification',
     providers: ['ascension-native'],
@@ -6251,7 +6251,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_soldering',
-    name: 'Ascension Soldering',
+    name: 'Aerynza Soldering',
     category: 'creation',
     description: 'Soldering, desoldering, and circuit repair',
     providers: ['ascension-native'],
@@ -6270,7 +6270,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_electronics',
-    name: 'Ascension Electronics',
+    name: 'Aerynza Electronics',
     category: 'creation',
     description: 'Electronics basics, circuits, and components',
     providers: ['ascension-native'],
@@ -6289,7 +6289,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_arduino',
-    name: 'Ascension Arduino',
+    name: 'Aerynza Arduino',
     category: 'creation',
     description: 'Arduino projects, sensors, and code',
     providers: ['ascension-native'],
@@ -6308,7 +6308,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_raspberry_pi',
-    name: 'Ascension Raspberry Pi',
+    name: 'Aerynza Raspberry Pi',
     category: 'creation',
     description: 'Raspberry Pi projects, OS, and hardware',
     providers: ['ascension-native'],
@@ -6327,7 +6327,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_robotics',
-    name: 'Ascension Robotics',
+    name: 'Aerynza Robotics',
     category: 'creation',
     description: 'Robotics kits, programming, and projects',
     providers: ['ascension-native'],
@@ -6346,7 +6346,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_drones',
-    name: 'Ascension Drones',
+    name: 'Aerynza Drones',
     category: 'creation',
     description: 'Drones, flying, regulations, and repairs',
     providers: ['ascension-native'],
@@ -6365,7 +6365,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_rc',
-    name: 'Ascension RC',
+    name: 'Aerynza RC',
     category: 'entertainment',
     description: 'RC cars, planes, boats, and maintenance',
     providers: ['ascension-native'],
@@ -6384,7 +6384,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ham_radio',
-    name: 'Ascension Ham Radio',
+    name: 'Aerynza Ham Radio',
     category: 'creation',
     description: 'Ham radio, licensing, and operation',
     providers: ['ascension-native'],
@@ -6403,7 +6403,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_astronomy',
-    name: 'Ascension Astronomy',
+    name: 'Aerynza Astronomy',
     category: 'knowledge',
     description: 'Astronomy, stargazing, and equipment',
     providers: ['ascension-native'],
@@ -6422,7 +6422,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_photography_gear',
-    name: 'Ascension Photography Gear',
+    name: 'Aerynza Photography Gear',
     category: 'creation',
     description: 'Cameras, lenses, and photography equipment',
     providers: ['ascension-native'],
@@ -6441,7 +6441,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_video_editing',
-    name: 'Ascension Video Editing',
+    name: 'Aerynza Video Editing',
     category: 'creation',
     description: 'Video editing, software, and workflow',
     providers: ['ascension-native'],
@@ -6460,7 +6460,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_color_grading',
-    name: 'Ascension Color Grading',
+    name: 'Aerynza Color Grading',
     category: 'creation',
     description: 'Color grading, LUTs, and look development',
     providers: ['ascension-native'],
@@ -6479,7 +6479,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sound_design',
-    name: 'Ascension Sound Design',
+    name: 'Aerynza Sound Design',
     category: 'creation',
     description: 'Sound design, Foley, and audio libraries',
     providers: ['ascension-native'],
@@ -6498,7 +6498,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mixing',
-    name: 'Ascension Mixing',
+    name: 'Aerynza Mixing',
     category: 'creation',
     description: 'Audio mixing, levels, and balance',
     providers: ['ascension-native'],
@@ -6517,7 +6517,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mastering',
-    name: 'Ascension Mastering',
+    name: 'Aerynza Mastering',
     category: 'creation',
     description: 'Audio mastering, loudness, and delivery',
     providers: ['ascension-native'],
@@ -6536,7 +6536,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_voiceover',
-    name: 'Ascension Voiceover',
+    name: 'Aerynza Voiceover',
     category: 'creation',
     description: 'Voiceover recording, performance, and equipment',
     providers: ['ascension-native'],
@@ -6555,7 +6555,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_podcast_production',
-    name: 'Ascension Podcast Production',
+    name: 'Aerynza Podcast Production',
     category: 'creation',
     description: 'Podcast production, editing, and publishing',
     providers: ['ascension-native'],
@@ -6574,7 +6574,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_youtube_seo',
-    name: 'Ascension YouTube SEO',
+    name: 'Aerynza YouTube SEO',
     category: 'creation',
     description: 'YouTube SEO, titles, and thumbnails',
     providers: ['ascension-native'],
@@ -6593,7 +6593,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_thumbnail',
-    name: 'Ascension Thumbnail',
+    name: 'Aerynza Thumbnail',
     category: 'creation',
     description: 'Thumbnail design, text, and contrast',
     providers: ['ascension-native'],
@@ -6612,7 +6612,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_branding',
-    name: 'Ascension Branding',
+    name: 'Aerynza Branding',
     category: 'creation',
     description: 'Brand identity, voice, and assets',
     providers: ['ascension-native'],
@@ -6631,7 +6631,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_merchandise',
-    name: 'Ascension Merchandise',
+    name: 'Aerynza Merchandise',
     category: 'business',
     description: 'Merch design, production, and sales',
     providers: ['ascension-native'],
@@ -6650,7 +6650,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_crowdfunding',
-    name: 'Ascension Crowdfunding',
+    name: 'Aerynza Crowdfunding',
     category: 'business',
     description: 'Crowdfunding campaigns, rewards, and promotion',
     providers: ['ascension-native'],
@@ -6669,7 +6669,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_patreon',
-    name: 'Ascension Patreon',
+    name: 'Aerynza Patreon',
     category: 'business',
     description: 'Patreon tiers, rewards, and growth',
     providers: ['ascension-native'],
@@ -6688,7 +6688,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sponsorships',
-    name: 'Ascension Sponsorships',
+    name: 'Aerynza Sponsorships',
     category: 'business',
     description: 'Sponsorship outreach and deal terms',
     providers: ['ascension-native'],
@@ -6707,7 +6707,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_affiliate',
-    name: 'Ascension Affiliate',
+    name: 'Aerynza Affiliate',
     category: 'business',
     description: 'Affiliate marketing, links, and commissions',
     providers: ['ascension-native'],
@@ -6726,7 +6726,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ecommerce',
-    name: 'Ascension Ecommerce',
+    name: 'Aerynza Ecommerce',
     category: 'business',
     description: 'Ecommerce strategy, platforms, and operations',
     providers: ['ascension-native'],
@@ -6745,7 +6745,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shopify',
-    name: 'Ascension Shopify',
+    name: 'Aerynza Shopify',
     category: 'business',
     description: 'Shopify store setup, apps, and optimization',
     providers: ['ascension-native'],
@@ -6764,7 +6764,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_woocommerce',
-    name: 'Ascension WooCommerce',
+    name: 'Aerynza WooCommerce',
     category: 'business',
     description: 'WooCommerce setup, plugins, and payments',
     providers: ['ascension-native'],
@@ -6783,7 +6783,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_amazon',
-    name: 'Ascension Amazon',
+    name: 'Aerynza Amazon',
     category: 'business',
     description: 'Amazon selling, FBA, and listings',
     providers: ['ascension-native'],
@@ -6802,7 +6802,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ebay',
-    name: 'Ascension eBay',
+    name: 'Aerynza eBay',
     category: 'business',
     description: 'eBay selling, auctions, and shipping',
     providers: ['ascension-native'],
@@ -6821,7 +6821,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_etsy',
-    name: 'Ascension Etsy',
+    name: 'Aerynza Etsy',
     category: 'business',
     description: 'Etsy listings, SEO, and shop management',
     providers: ['ascension-native'],
@@ -6840,7 +6840,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dropshipping',
-    name: 'Ascension Dropshipping',
+    name: 'Aerynza Dropshipping',
     category: 'business',
     description: 'Dropshipping suppliers, products, and risks',
     providers: ['ascension-native'],
@@ -6859,7 +6859,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_print_on_demand',
-    name: 'Ascension Print On Demand',
+    name: 'Aerynza Print On Demand',
     category: 'business',
     description: 'Print on demand products and suppliers',
     providers: ['ascension-native'],
@@ -6878,7 +6878,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fulfillment',
-    name: 'Ascension Fulfillment',
+    name: 'Aerynza Fulfillment',
     category: 'business',
     description: 'Order fulfillment, 3PL, and warehousing',
     providers: ['ascension-native'],
@@ -6897,7 +6897,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_inventory',
-    name: 'Ascension Inventory',
+    name: 'Aerynza Inventory',
     category: 'business',
     description: 'Inventory tracking, forecasting, and management',
     providers: ['ascension-native'],
@@ -6916,7 +6916,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pos',
-    name: 'Ascension POS',
+    name: 'Aerynza POS',
     category: 'business',
     description: 'Point of sale systems and setup',
     providers: ['ascension-native'],
@@ -6935,7 +6935,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_import',
-    name: 'Ascension Import',
+    name: 'Aerynza Import',
     category: 'business',
     description: 'Importing goods, suppliers, and customs',
     providers: ['ascension-native'],
@@ -6954,7 +6954,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_export',
-    name: 'Ascension Export',
+    name: 'Aerynza Export',
     category: 'business',
     description: 'Exporting goods, compliance, and markets',
     providers: ['ascension-native'],
@@ -6973,7 +6973,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tariffs',
-    name: 'Ascension Tariffs',
+    name: 'Aerynza Tariffs',
     category: 'business',
     description: 'Tariffs, duties, and trade compliance',
     providers: ['ascension-native'],
@@ -6992,7 +6992,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shipping',
-    name: 'Ascension Shipping',
+    name: 'Aerynza Shipping',
     category: 'business',
     description: 'Shipping carriers, rates, and packaging',
     providers: ['ascension-native'],
@@ -7011,7 +7011,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_customer_support',
-    name: 'Ascension Customer Support',
+    name: 'Aerynza Customer Support',
     category: 'business',
     description: 'Customer support, tickets, and responses',
     providers: ['ascension-native'],
@@ -7030,7 +7030,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_helpdesk',
-    name: 'Ascension Helpdesk',
+    name: 'Aerynza Helpdesk',
     category: 'business',
     description: 'Helpdesk organization, priorities, and SLAs',
     providers: ['ascension-native'],
@@ -7049,7 +7049,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ticketing',
-    name: 'Ascension Ticketing',
+    name: 'Aerynza Ticketing',
     category: 'business',
     description: 'Ticket creation, routing, and resolution',
     providers: ['ascension-native'],
@@ -7068,7 +7068,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_live_chat',
-    name: 'Ascension Live Chat',
+    name: 'Aerynza Live Chat',
     category: 'business',
     description: 'Live chat scripts, routing, and handoff',
     providers: ['ascension-native'],
@@ -7087,7 +7087,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_chatbot',
-    name: 'Ascension Chatbot',
+    name: 'Aerynza Chatbot',
     category: 'business',
     description: 'Chatbot design, flows, and fallback',
     providers: ['ascension-native'],
@@ -7106,7 +7106,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_knowledge_base',
-    name: 'Ascension Knowledge Base',
+    name: 'Aerynza Knowledge Base',
     category: 'business',
     description: 'Knowledge base articles, search, and updates',
     providers: ['ascension-native'],
@@ -7125,7 +7125,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_faq',
-    name: 'Ascension FAQ',
+    name: 'Aerynza FAQ',
     category: 'business',
     description: 'FAQ generation, maintenance, and answers',
     providers: ['ascension-native'],
@@ -7144,7 +7144,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_onboarding',
-    name: 'Ascension Onboarding',
+    name: 'Aerynza Onboarding',
     category: 'business',
     description: 'Customer and employee onboarding flows',
     providers: ['ascension-native'],
@@ -7163,7 +7163,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_retention',
-    name: 'Ascension Retention',
+    name: 'Aerynza Retention',
     category: 'business',
     description: 'Customer retention strategies and signals',
     providers: ['ascension-native'],
@@ -7182,7 +7182,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_churn',
-    name: 'Ascension Churn',
+    name: 'Aerynza Churn',
     category: 'business',
     description: 'Churn analysis and prevention',
     providers: ['ascension-native'],
@@ -7201,7 +7201,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_upsell',
-    name: 'Ascension Upsell',
+    name: 'Aerynza Upsell',
     category: 'business',
     description: 'Upsell recommendations and timing',
     providers: ['ascension-native'],
@@ -7220,7 +7220,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cross_sell',
-    name: 'Ascension Cross Sell',
+    name: 'Aerynza Cross Sell',
     category: 'business',
     description: 'Cross-sell pairing and messaging',
     providers: ['ascension-native'],
@@ -7239,7 +7239,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_loyalty',
-    name: 'Ascension Loyalty',
+    name: 'Aerynza Loyalty',
     category: 'business',
     description: 'Loyalty programs, points, and rewards',
     providers: ['ascension-native'],
@@ -7258,7 +7258,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_referral',
-    name: 'Ascension Referral',
+    name: 'Aerynza Referral',
     category: 'business',
     description: 'Referral program design and tracking',
     providers: ['ascension-native'],
@@ -7277,7 +7277,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_reputation',
-    name: 'Ascension Reputation',
+    name: 'Aerynza Reputation',
     category: 'business',
     description: 'Online reputation monitoring and response',
     providers: ['ascension-native'],
@@ -7296,7 +7296,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_accounting',
-    name: 'Ascension Accounting',
+    name: 'Aerynza Accounting',
     category: 'finance',
     description: 'Accounting principles, bookkeeping, and reports',
     providers: ['ascension-native'],
@@ -7315,7 +7315,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bookkeeping',
-    name: 'Ascension Bookkeeping',
+    name: 'Aerynza Bookkeeping',
     category: 'finance',
     description: 'Bookkeeping entries, ledgers, and reconciliation',
     providers: ['ascension-native'],
@@ -7334,7 +7334,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_invoicing',
-    name: 'Ascension Invoicing',
+    name: 'Aerynza Invoicing',
     category: 'finance',
     description: 'Invoice creation, terms, and collection',
     providers: ['ascension-native'],
@@ -7353,7 +7353,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_payroll',
-    name: 'Ascension Payroll',
+    name: 'Aerynza Payroll',
     category: 'finance',
     description: 'Payroll processing, taxes, and compliance',
     providers: ['ascension-native'],
@@ -7372,7 +7372,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_budgeting',
-    name: 'Ascension Budgeting',
+    name: 'Aerynza Budgeting',
     category: 'finance',
     description: 'Budget creation, tracking, and variance',
     providers: ['ascension-native'],
@@ -7391,7 +7391,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_expenses',
-    name: 'Ascension Expenses',
+    name: 'Aerynza Expenses',
     category: 'finance',
     description: 'Expense tracking, reimbursement, and policies',
     providers: ['ascension-native'],
@@ -7410,7 +7410,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_business_taxes',
-    name: 'Ascension Business Taxes',
+    name: 'Aerynza Business Taxes',
     category: 'finance',
     description: 'Business tax planning, deductions, and filing',
     providers: ['ascension-native'],
@@ -7429,7 +7429,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_audit',
-    name: 'Ascension Audit',
+    name: 'Aerynza Audit',
     category: 'finance',
     description: 'Audit preparation, documentation, and response',
     providers: ['ascension-native'],
@@ -7448,7 +7448,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_compliance',
-    name: 'Ascension Compliance',
+    name: 'Aerynza Compliance',
     category: 'business',
     description: 'Regulatory compliance, policies, and controls',
     providers: ['ascension-native'],
@@ -7467,7 +7467,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_grants',
-    name: 'Ascension Grants',
+    name: 'Aerynza Grants',
     category: 'business',
     description: 'Grant research, applications, and reporting',
     providers: ['ascension-native'],
@@ -7486,7 +7486,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_loans',
-    name: 'Ascension Loans',
+    name: 'Aerynza Loans',
     category: 'finance',
     description: 'Loan types, terms, and applications',
     providers: ['ascension-native'],
@@ -7505,7 +7505,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_credit',
-    name: 'Ascension Credit',
+    name: 'Aerynza Credit',
     category: 'finance',
     description: 'Credit cards, lines, and management',
     providers: ['ascension-native'],
@@ -7524,7 +7524,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_debt',
-    name: 'Ascension Debt',
+    name: 'Aerynza Debt',
     category: 'finance',
     description: 'Debt payoff, consolidation, and strategy',
     providers: ['ascension-native'],
@@ -7543,7 +7543,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_credit_score',
-    name: 'Ascension Credit Score',
+    name: 'Aerynza Credit Score',
     category: 'finance',
     description: 'Credit score building and repair',
     providers: ['ascension-native'],
@@ -7562,7 +7562,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mortgage',
-    name: 'Ascension Mortgage',
+    name: 'Aerynza Mortgage',
     category: 'finance',
     description: 'Mortgage types, rates, and refinancing',
     providers: ['ascension-native'],
@@ -7581,7 +7581,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_insurance_review',
-    name: 'Ascension Insurance Review',
+    name: 'Aerynza Insurance Review',
     category: 'finance',
     description: 'Insurance policy review and coverage gaps',
     providers: ['ascension-native'],
@@ -7600,7 +7600,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_policy_review',
-    name: 'Ascension Policy Review',
+    name: 'Aerynza Policy Review',
     category: 'finance',
     description: 'Policy terms, exclusions, and renewals',
     providers: ['ascension-native'],
@@ -7619,7 +7619,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_deductible',
-    name: 'Ascension Deductible',
+    name: 'Aerynza Deductible',
     category: 'finance',
     description: 'Deductible strategy and tradeoffs',
     providers: ['ascension-native'],
@@ -7638,7 +7638,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_premium',
-    name: 'Ascension Premium',
+    name: 'Aerynza Premium',
     category: 'finance',
     description: 'Premium pricing, payment, and discounts',
     providers: ['ascension-native'],
@@ -7657,7 +7657,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hsa',
-    name: 'Ascension HSA',
+    name: 'Aerynza HSA',
     category: 'finance',
     description: 'Health Savings Accounts and strategy',
     providers: ['ascension-native'],
@@ -7676,7 +7676,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fsa',
-    name: 'Ascension FSA',
+    name: 'Aerynza FSA',
     category: 'finance',
     description: 'Flexible Spending Accounts and planning',
     providers: ['ascension-native'],
@@ -7695,7 +7695,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_benefits',
-    name: 'Ascension Benefits',
+    name: 'Aerynza Benefits',
     category: 'business',
     description: 'Employee benefits packages and selection',
     providers: ['ascension-native'],
@@ -7714,7 +7714,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_open_enrollment',
-    name: 'Ascension Open Enrollment',
+    name: 'Aerynza Open Enrollment',
     category: 'business',
     description: 'Open enrollment choices and deadlines',
     providers: ['ascension-native'],
@@ -7733,7 +7733,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_workers_comp',
-    name: 'Ascension Workers Comp',
+    name: 'Aerynza Workers Comp',
     category: 'business',
     description: 'Workers compensation basics and claims',
     providers: ['ascension-native'],
@@ -7752,7 +7752,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_liability_insurance',
-    name: 'Ascension Liability Insurance',
+    name: 'Aerynza Liability Insurance',
     category: 'finance',
     description: 'Liability insurance types and limits',
     providers: ['ascension-native'],
@@ -7771,7 +7771,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_umbrella_insurance',
-    name: 'Ascension Umbrella Insurance',
+    name: 'Aerynza Umbrella Insurance',
     category: 'finance',
     description: 'Umbrella policy limits and use cases',
     providers: ['ascension-native'],
@@ -7790,7 +7790,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_flood_insurance',
-    name: 'Ascension Flood Insurance',
+    name: 'Aerynza Flood Insurance',
     category: 'finance',
     description: 'Flood insurance, zones, and claims',
     providers: ['ascension-native'],
@@ -7809,7 +7809,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_earthquake_insurance',
-    name: 'Ascension Earthquake Insurance',
+    name: 'Aerynza Earthquake Insurance',
     category: 'finance',
     description: 'Earthquake coverage and risk',
     providers: ['ascension-native'],
@@ -7828,7 +7828,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pet_insurance',
-    name: 'Ascension Pet Insurance',
+    name: 'Aerynza Pet Insurance',
     category: 'finance',
     description: 'Pet insurance plans and claims',
     providers: ['ascension-native'],
@@ -7847,7 +7847,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_travel_insurance',
-    name: 'Ascension Travel Insurance',
+    name: 'Aerynza Travel Insurance',
     category: 'travel',
     description: 'Travel insurance coverage and claims',
     providers: ['ascension-native'],
@@ -7864,7 +7864,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_gardening',
-    name: 'Ascension Gardening',
+    name: 'Aerynza Gardening',
     category: 'home',
     description: 'Garden planning, planting, and care',
     providers: ['ascension-native'],
@@ -7883,7 +7883,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_landscaping',
-    name: 'Ascension Landscaping',
+    name: 'Aerynza Landscaping',
     category: 'home',
     description: 'Landscape design, plants, and maintenance',
     providers: ['ascension-native'],
@@ -7902,7 +7902,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_lawn_care',
-    name: 'Ascension Lawn Care',
+    name: 'Aerynza Lawn Care',
     category: 'home',
     description: 'Lawn care, mowing, and fertilization',
     providers: ['ascension-native'],
@@ -7921,7 +7921,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_composting',
-    name: 'Ascension Composting',
+    name: 'Aerynza Composting',
     category: 'home',
     description: 'Composting methods, balance, and use',
     providers: ['ascension-native'],
@@ -7940,7 +7940,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hydroponics',
-    name: 'Ascension Hydroponics',
+    name: 'Aerynza Hydroponics',
     category: 'home',
     description: 'Hydroponic systems, nutrients, and crops',
     providers: ['ascension-native'],
@@ -7959,7 +7959,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_aquaponics',
-    name: 'Ascension Aquaponics',
+    name: 'Aerynza Aquaponics',
     category: 'home',
     description: 'Aquaponics systems, fish, and plants',
     providers: ['ascension-native'],
@@ -7978,7 +7978,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fermentation',
-    name: 'Ascension Fermentation',
+    name: 'Aerynza Fermentation',
     category: 'home',
     description: 'Fermentation, pickles, and safety',
     providers: ['ascension-native'],
@@ -7997,7 +7997,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_preserving',
-    name: 'Ascension Preserving',
+    name: 'Aerynza Preserving',
     category: 'home',
     description: 'Food preservation, canning, and drying',
     providers: ['ascension-native'],
@@ -8016,7 +8016,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_canning',
-    name: 'Ascension Canning',
+    name: 'Aerynza Canning',
     category: 'home',
     description: 'Canning methods, safety, and storage',
     providers: ['ascension-native'],
@@ -8035,7 +8035,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_smoking',
-    name: 'Ascension Smoking',
+    name: 'Aerynza Smoking',
     category: 'cooking',
     description: 'Smoking meats, woods, and temperatures',
     providers: ['ascension-native'],
@@ -8054,7 +8054,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bbq',
-    name: 'Ascension BBQ',
+    name: 'Aerynza BBQ',
     category: 'cooking',
     description: 'BBQ styles, rubs, and techniques',
     providers: ['ascension-native'],
@@ -8073,7 +8073,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_grilling',
-    name: 'Ascension Grilling',
+    name: 'Aerynza Grilling',
     category: 'cooking',
     description: 'Grilling techniques, heat, and timing',
     providers: ['ascension-native'],
@@ -8092,7 +8092,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pizza',
-    name: 'Ascension Pizza',
+    name: 'Aerynza Pizza',
     category: 'cooking',
     description: 'Pizza dough, sauce, and oven setup',
     providers: ['ascension-native'],
@@ -8111,7 +8111,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bread_making',
-    name: 'Ascension Bread Making',
+    name: 'Aerynza Bread Making',
     category: 'cooking',
     description: 'Bread formulas, kneading, and baking',
     providers: ['ascension-native'],
@@ -8130,7 +8130,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sourdough',
-    name: 'Ascension Sourdough',
+    name: 'Aerynza Sourdough',
     category: 'cooking',
     description: 'Sourdough starter, fermentation, and baking',
     providers: ['ascension-native'],
@@ -8149,7 +8149,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meal_prep',
-    name: 'Ascension Meal Prep',
+    name: 'Aerynza Meal Prep',
     category: 'nutrition',
     description: 'Meal prep, containers, and storage',
     providers: ['ascension-native'],
@@ -8168,7 +8168,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_batch_cooking',
-    name: 'Ascension Batch Cooking',
+    name: 'Aerynza Batch Cooking',
     category: 'nutrition',
     description: 'Batch cooking plans and reheating',
     providers: ['ascension-native'],
@@ -8187,7 +8187,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_freezer_meals',
-    name: 'Ascension Freezer Meals',
+    name: 'Aerynza Freezer Meals',
     category: 'nutrition',
     description: 'Freezer meal recipes and storage',
     providers: ['ascension-native'],
@@ -8206,7 +8206,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_slow_cooker',
-    name: 'Ascension Slow Cooker',
+    name: 'Aerynza Slow Cooker',
     category: 'cooking',
     description: 'Slow cooker recipes and timing',
     providers: ['ascension-native'],
@@ -8225,7 +8225,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pressure_cooker',
-    name: 'Ascension Pressure Cooker',
+    name: 'Aerynza Pressure Cooker',
     category: 'cooking',
     description: 'Pressure cooker safety and recipes',
     providers: ['ascension-native'],
@@ -8244,7 +8244,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_air_fryer',
-    name: 'Ascension Air Fryer',
+    name: 'Aerynza Air Fryer',
     category: 'cooking',
     description: 'Air fryer recipes, timing, and conversions',
     providers: ['ascension-native'],
@@ -8263,7 +8263,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sous_vide',
-    name: 'Ascension Sous Vide',
+    name: 'Aerynza Sous Vide',
     category: 'cooking',
     description: 'Sous vide temperatures, times, and searing',
     providers: ['ascension-native'],
@@ -8282,7 +8282,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dehydrator',
-    name: 'Ascension Dehydrator',
+    name: 'Aerynza Dehydrator',
     category: 'cooking',
     description: 'Dehydrator recipes and storage',
     providers: ['ascension-native'],
@@ -8301,7 +8301,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_juicing',
-    name: 'Ascension Juicing',
+    name: 'Aerynza Juicing',
     category: 'nutrition',
     description: 'Juicing recipes, produce, and cleanup',
     providers: ['ascension-native'],
@@ -8320,7 +8320,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_smoothies',
-    name: 'Ascension Smoothies',
+    name: 'Aerynza Smoothies',
     category: 'nutrition',
     description: 'Smoothie blends, protein, and macros',
     providers: ['ascension-native'],
@@ -8339,7 +8339,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_protein',
-    name: 'Ascension Protein',
+    name: 'Aerynza Protein',
     category: 'nutrition',
     description: 'Protein sources, timing, and targets',
     providers: ['ascension-native'],
@@ -8358,7 +8358,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_supplements_stack',
-    name: 'Ascension Supplements Stack',
+    name: 'Aerynza Supplements Stack',
     category: 'nutrition',
     description: 'Supplement stacking, timing, and safety',
     providers: ['ascension-native'],
@@ -8377,7 +8377,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_pre_workout',
-    name: 'Ascension Pre Workout',
+    name: 'Aerynza Pre Workout',
     category: 'fitness',
     description: 'Pre-workout nutrition, timing, and ingredients',
     providers: ['ascension-native'],
@@ -8392,7 +8392,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_post_workout',
-    name: 'Ascension Post Workout',
+    name: 'Aerynza Post Workout',
     category: 'fitness',
     description: 'Post-workout nutrition and recovery',
     providers: ['ascension-native'],
@@ -8407,7 +8407,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meal_planning',
-    name: 'Ascension Meal Planning',
+    name: 'Aerynza Meal Planning',
     category: 'nutrition',
     description: 'Weekly meal plans, balance, and shopping',
     providers: ['ascension-native'],
@@ -8426,7 +8426,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_grocery_list',
-    name: 'Ascension Grocery List',
+    name: 'Aerynza Grocery List',
     category: 'home',
     description: 'Grocery list creation, pantry check, and budget',
     providers: ['ascension-native'],
@@ -8445,7 +8445,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_meditation_guided',
-    name: 'Ascension Meditation Guided',
+    name: 'Aerynza Meditation Guided',
     category: 'wellness',
     description: 'Guided meditation and relaxation',
     providers: ['ascension-native'],
@@ -8464,7 +8464,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_breathing',
-    name: 'Ascension Breathing',
+    name: 'Aerynza Breathing',
     category: 'wellness',
     description: 'Breathing exercises and techniques',
     providers: ['ascension-native'],
@@ -8483,7 +8483,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cold_exposure',
-    name: 'Ascension Cold Exposure',
+    name: 'Aerynza Cold Exposure',
     category: 'wellness',
     description: 'Cold exposure, showers, and safety',
     providers: ['ascension-native'],
@@ -8502,7 +8502,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_heat_exposure',
-    name: 'Ascension Heat Exposure',
+    name: 'Aerynza Heat Exposure',
     category: 'wellness',
     description: 'Sauna, hot bath, and heat safety',
     providers: ['ascension-native'],
@@ -8521,7 +8521,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sauna',
-    name: 'Ascension Sauna',
+    name: 'Aerynza Sauna',
     category: 'wellness',
     description: 'Sauna protocols, hydration, and safety',
     providers: ['ascension-native'],
@@ -8540,7 +8540,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_ice_bath',
-    name: 'Ascension Ice Bath',
+    name: 'Aerynza Ice Bath',
     category: 'wellness',
     description: 'Ice bath setup, duration, and safety',
     providers: ['ascension-native'],
@@ -8559,7 +8559,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sleep_hygiene',
-    name: 'Ascension Sleep Hygiene',
+    name: 'Aerynza Sleep Hygiene',
     category: 'wellness',
     description: 'Sleep routines, environment, and habits',
     providers: ['ascension-native'],
@@ -8578,7 +8578,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_nap',
-    name: 'Ascension Nap',
+    name: 'Aerynza Nap',
     category: 'wellness',
     description: 'Nap length, timing, and recovery',
     providers: ['ascension-native'],
@@ -8597,7 +8597,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_circadian',
-    name: 'Ascension Circadian',
+    name: 'Aerynza Circadian',
     category: 'wellness',
     description: 'Circadian rhythm, light, and schedule',
     providers: ['ascension-native'],
@@ -8616,7 +8616,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_journaling',
-    name: 'Ascension Journaling',
+    name: 'Aerynza Journaling',
     category: 'wellness',
     description: 'Journaling prompts, habits, and review',
     providers: ['ascension-native'],
@@ -8635,7 +8635,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_gratitude',
-    name: 'Ascension Gratitude',
+    name: 'Aerynza Gratitude',
     category: 'wellness',
     description: 'Gratitude practice and reflection',
     providers: ['ascension-native'],
@@ -8654,7 +8654,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_affirmations',
-    name: 'Ascension Affirmations',
+    name: 'Aerynza Affirmations',
     category: 'wellness',
     description: 'Affirmations, wording, and practice',
     providers: ['ascension-native'],
@@ -8673,7 +8673,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_visualization',
-    name: 'Ascension Visualization',
+    name: 'Aerynza Visualization',
     category: 'wellness',
     description: 'Visualization techniques and mental rehearsal',
     providers: ['ascension-native'],
@@ -8692,7 +8692,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mindset',
-    name: 'Ascension Mindset',
+    name: 'Aerynza Mindset',
     category: 'wellness',
     description: 'Mindset coaching and reframes',
     providers: ['ascension-native'],
@@ -8711,7 +8711,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_resilience',
-    name: 'Ascension Resilience',
+    name: 'Aerynza Resilience',
     category: 'wellness',
     description: 'Resilience building and stress recovery',
     providers: ['ascension-native'],
@@ -8730,7 +8730,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_growth_mindset',
-    name: 'Ascension Growth Mindset',
+    name: 'Aerynza Growth Mindset',
     category: 'wellness',
     description: 'Growth mindset and learning attitude',
     providers: ['ascension-native'],
@@ -8749,7 +8749,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_stoicism',
-    name: 'Ascension Stoicism',
+    name: 'Aerynza Stoicism',
     category: 'wellness',
     description: 'Stoic principles and daily practice',
     providers: ['ascension-native'],
@@ -8768,7 +8768,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_buddhism',
-    name: 'Ascension Buddhism',
+    name: 'Aerynza Buddhism',
     category: 'spirituality',
     description: 'Buddhist concepts, practice, and meditation',
     providers: ['ascension-native'],
@@ -8787,7 +8787,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hinduism',
-    name: 'Ascension Hinduism',
+    name: 'Aerynza Hinduism',
     category: 'spirituality',
     description: 'Hindu philosophy, texts, and practice',
     providers: ['ascension-native'],
@@ -8806,7 +8806,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_christianity',
-    name: 'Ascension Christianity',
+    name: 'Aerynza Christianity',
     category: 'spirituality',
     description: 'Christian beliefs, practice, and study',
     providers: ['ascension-native'],
@@ -8825,7 +8825,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_islam',
-    name: 'Ascension Islam',
+    name: 'Aerynza Islam',
     category: 'spirituality',
     description: 'Islamic beliefs, practice, and study',
     providers: ['ascension-native'],
@@ -8844,7 +8844,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_judaism',
-    name: 'Ascension Judaism',
+    name: 'Aerynza Judaism',
     category: 'spirituality',
     description: 'Jewish beliefs, practice, and study',
     providers: ['ascension-native'],
@@ -8863,7 +8863,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_taoism',
-    name: 'Ascension Taoism',
+    name: 'Aerynza Taoism',
     category: 'spirituality',
     description: 'Taoist philosophy and practice',
     providers: ['ascension-native'],
@@ -8882,7 +8882,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_confucianism',
-    name: 'Ascension Confucianism',
+    name: 'Aerynza Confucianism',
     category: 'spirituality',
     description: 'Confucian values and practice',
     providers: ['ascension-native'],
@@ -8901,7 +8901,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shinto',
-    name: 'Ascension Shinto',
+    name: 'Aerynza Shinto',
     category: 'spirituality',
     description: 'Shinto practice, kami, and shrines',
     providers: ['ascension-native'],
@@ -8920,7 +8920,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_sikhism',
-    name: 'Ascension Sikhism',
+    name: 'Aerynza Sikhism',
     category: 'spirituality',
     description: 'Sikh beliefs, practice, and study',
     providers: ['ascension-native'],
@@ -8939,7 +8939,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_jainism',
-    name: 'Ascension Jainism',
+    name: 'Aerynza Jainism',
     category: 'spirituality',
     description: 'Jain beliefs and practice',
     providers: ['ascension-native'],
@@ -8958,7 +8958,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_bahai',
-    name: 'Ascension Baha i',
+    name: 'Aerynza Baha i',
     category: 'spirituality',
     description: 'Baha i principles and practice',
     providers: ['ascension-native'],
@@ -8977,7 +8977,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_paganism',
-    name: 'Ascension Paganism',
+    name: 'Aerynza Paganism',
     category: 'spirituality',
     description: 'Pagan paths, seasons, and practice',
     providers: ['ascension-native'],
@@ -8996,7 +8996,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_wicca',
-    name: 'Ascension Wicca',
+    name: 'Aerynza Wicca',
     category: 'spirituality',
     description: 'Wiccan practice, sabbats, and ethics',
     providers: ['ascension-native'],
@@ -9015,7 +9015,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_druidry',
-    name: 'Ascension Druidry',
+    name: 'Aerynza Druidry',
     category: 'spirituality',
     description: 'Druidry, nature, and ritual',
     providers: ['ascension-native'],
@@ -9034,7 +9034,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_native_spirituality',
-    name: 'Ascension Native Spirituality',
+    name: 'Aerynza Native Spirituality',
     category: 'spirituality',
     description: 'Indigenous spiritual practices and respect',
     providers: ['ascension-native'],
@@ -9053,7 +9053,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shamanism',
-    name: 'Ascension Shamanism',
+    name: 'Aerynza Shamanism',
     category: 'spirituality',
     description: 'Shamanic journeying and practice',
     providers: ['ascension-native'],
@@ -9072,7 +9072,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_logic',
-    name: 'Ascension Logic',
+    name: 'Aerynza Logic',
     category: 'knowledge',
     description: 'Logic, reasoning, and fallacies',
     providers: ['ascension-native'],
@@ -9091,7 +9091,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_critical_thinking',
-    name: 'Ascension Critical Thinking',
+    name: 'Aerynza Critical Thinking',
     category: 'knowledge',
     description: 'Critical thinking and evaluation',
     providers: ['ascension-native'],
@@ -9110,7 +9110,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_argumentation',
-    name: 'Ascension Argumentation',
+    name: 'Aerynza Argumentation',
     category: 'knowledge',
     description: 'Argument structure and evidence',
     providers: ['ascension-native'],
@@ -9129,7 +9129,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fallacies',
-    name: 'Ascension Fallacies',
+    name: 'Aerynza Fallacies',
     category: 'knowledge',
     description: 'Logical fallacies and spotting them',
     providers: ['ascension-native'],
@@ -9148,7 +9148,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_debate',
-    name: 'Ascension Debate',
+    name: 'Aerynza Debate',
     category: 'knowledge',
     description: 'Debate formats, prep, and rebuttal',
     providers: ['ascension-native'],
@@ -9167,7 +9167,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_persuasion',
-    name: 'Ascension Persuasion',
+    name: 'Aerynza Persuasion',
     category: 'knowledge',
     description: 'Persuasion principles and ethics',
     providers: ['ascension-native'],
@@ -9186,7 +9186,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_rapport',
-    name: 'Ascension Rapport',
+    name: 'Aerynza Rapport',
     category: 'relationships',
     description: 'Building rapport and trust',
     providers: ['ascension-native'],
@@ -9205,7 +9205,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_empathy',
-    name: 'Ascension Empathy',
+    name: 'Aerynza Empathy',
     category: 'relationships',
     description: 'Empathy, listening, and response',
     providers: ['ascension-native'],
@@ -9224,7 +9224,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_charisma',
-    name: 'Ascension Charisma',
+    name: 'Aerynza Charisma',
     category: 'relationships',
     description: 'Charisma, presence, and influence',
     providers: ['ascension-native'],
@@ -9243,7 +9243,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_confidence_building',
-    name: 'Ascension Confidence Building',
+    name: 'Aerynza Confidence Building',
     category: 'wellness',
     description: 'Confidence building and self-efficacy',
     providers: ['ascension-native'],
@@ -9262,7 +9262,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_assertiveness',
-    name: 'Ascension Assertiveness',
+    name: 'Aerynza Assertiveness',
     category: 'relationships',
     description: 'Assertive communication and boundaries',
     providers: ['ascension-native'],
@@ -9281,7 +9281,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_boundaries',
-    name: 'Ascension Boundaries',
+    name: 'Aerynza Boundaries',
     category: 'relationships',
     description: 'Personal boundaries and maintenance',
     providers: ['ascension-native'],
@@ -9300,7 +9300,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_conflict_resolution',
-    name: 'Ascension Conflict Resolution',
+    name: 'Aerynza Conflict Resolution',
     category: 'relationships',
     description: 'Conflict resolution and mediation',
     providers: ['ascension-native'],
@@ -9319,7 +9319,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_active_listening',
-    name: 'Ascension Active Listening',
+    name: 'Aerynza Active Listening',
     category: 'relationships',
     description: 'Active listening and reflective response',
     providers: ['ascension-native'],
@@ -9338,7 +9338,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_wallet_automation',
-    name: 'Ascension Wallet Automation',
+    name: 'Aerynza Wallet Automation',
     category: 'finance',
     description: 'Connect a wallet and run automated financial strategies',
     providers: ['ascension-native'],
@@ -9357,7 +9357,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_fast_turn',
-    name: 'Ascension Fast Turn',
+    name: 'Aerynza Fast Turn',
     category: 'finance',
     description: 'Fast capital multiplication strategies with explicit risk warnings',
     providers: ['ascension-native'],
@@ -9376,7 +9376,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_income_split',
-    name: 'Ascension Income Split',
+    name: 'Aerynza Income Split',
     category: 'finance',
     description: 'Split direct deposits into spending, savings, bills, quick investment, long-term investment, and dream board buckets',
     providers: ['ascension-native'],
@@ -9395,7 +9395,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_inventor_lab',
-    name: 'Ascension Inventor Lab',
+    name: 'Aerynza Inventor Lab',
     category: 'creation',
     description: 'Co-inventor and lab partner for product design, prototyping, and experiments',
     providers: ['ascension-native'],
@@ -9414,7 +9414,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_hardware_prototyping',
-    name: 'Ascension Hardware Prototyping',
+    name: 'Aerynza Hardware Prototyping',
     category: 'creation',
     description: 'Step-by-step hardware build plans, materials, models, and cost-efficient methods',
     providers: ['ascension-native'],
@@ -9433,7 +9433,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_youtube_automation',
-    name: 'Ascension YouTube Automation',
+    name: 'Aerynza YouTube Automation',
     category: 'creation',
     description: 'Build and automate a YouTube channel including uploads, SEO, and monetization',
     providers: ['ascension-native'],
@@ -9452,7 +9452,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tiktok_automation',
-    name: 'Ascension TikTok Automation',
+    name: 'Aerynza TikTok Automation',
     category: 'creation',
     description: 'Build and automate a TikTok account including uploads, trends, and monetization',
     providers: ['ascension-native'],
@@ -9471,7 +9471,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_amsr_studio',
-    name: 'Ascension AMSR Studio',
+    name: 'Aerynza AMSR Studio',
     category: 'creation',
     description: 'Create and automate AMSR content, videos, and channel growth',
     providers: ['ascension-native'],
@@ -9490,7 +9490,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_affiliate_automation',
-    name: 'Ascension Affiliate Automation',
+    name: 'Aerynza Affiliate Automation',
     category: 'business',
     description: 'Automate affiliate program discovery, application, and revenue tracking',
     providers: ['ascension-native'],
@@ -9509,7 +9509,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_streaming_channel',
-    name: 'Ascension Streaming Channel',
+    name: 'Aerynza Streaming Channel',
     category: 'creation',
     description: 'Build a live streaming channel, schedule, overlays, and audience growth',
     providers: ['ascension-native'],
@@ -9528,7 +9528,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_streaming_moderator',
-    name: 'Ascension Streaming Moderator',
+    name: 'Aerynza Streaming Moderator',
     category: 'creation',
     description: 'Live moderation, chat engagement, and safety for streaming sessions',
     providers: ['ascension-native'],
@@ -9547,7 +9547,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_overlay_design',
-    name: 'Ascension Overlay Design',
+    name: 'Aerynza Overlay Design',
     category: 'creation',
     description: 'Design cool overlays, alerts, and scenes for live streams',
     providers: ['ascension-native'],
@@ -9566,7 +9566,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_research_assistant',
-    name: 'Ascension Research Assistant',
+    name: 'Aerynza Research Assistant',
     category: 'knowledge',
     description: 'Best research and design assistant on the planet for facts, patents, and experiments',
     providers: ['ascension-native'],
@@ -9585,7 +9585,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_design_assistant',
-    name: 'Ascension Design Assistant',
+    name: 'Aerynza Design Assistant',
     category: 'creation',
     description: 'Best design assistant for products, experiences, and interfaces',
     providers: ['ascension-native'],
@@ -9604,7 +9604,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_crowdfunding_product',
-    name: 'Ascension Crowdfunding Product',
+    name: 'Aerynza Crowdfunding Product',
     category: 'business',
     description: 'Plan and run crowdfunding campaigns for inventions and products',
     providers: ['ascension-native'],
@@ -9623,7 +9623,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_dream_fund',
-    name: 'Ascension Dream Fund',
+    name: 'Aerynza Dream Fund',
     category: 'finance',
     description: 'Track aspirations and dream board goals with automated savings and milestone planning',
     providers: ['ascension-native'],
@@ -9642,7 +9642,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_content_workspace',
-    name: 'Ascension Content Workspace',
+    name: 'Aerynza Content Workspace',
     category: 'business',
     description: 'Create and organize workspaces for content projects, channels, and campaigns',
     providers: ['ascension-native'],
@@ -9661,7 +9661,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_content_analytics',
-    name: 'Ascension Content Analytics',
+    name: 'Aerynza Content Analytics',
     category: 'business',
     description: 'Wire analytics for content, streams, and social accounts to track performance',
     providers: ['ascension-native'],
@@ -9680,7 +9680,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_growth_tracker',
-    name: 'Ascension Growth Tracker',
+    name: 'Aerynza Growth Tracker',
     category: 'business',
     description: 'Track followers, views, subscribers, and growth metrics across platforms',
     providers: ['ascension-native'],
@@ -9699,7 +9699,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_revenue_tracker',
-    name: 'Ascension Revenue Tracker',
+    name: 'Aerynza Revenue Tracker',
     category: 'finance',
     description: 'Track ad, affiliate, sponsorship, and product revenue from content and streams',
     providers: ['ascension-native'],
@@ -9718,7 +9718,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_content_calendar',
-    name: 'Ascension Content Calendar',
+    name: 'Aerynza Content Calendar',
     category: 'business',
     description: 'Plan and schedule content releases, streams, and campaigns across platforms',
     providers: ['ascension-native'],
@@ -9737,7 +9737,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_solution_engine',
-    name: 'Ascension Solution Engine',
+    name: 'Aerynza Solution Engine',
     category: 'knowledge',
     description: 'Invent custom solutions for any goal with constraints, permissions, and a build path',
     providers: ['ascension-native'],
@@ -9756,7 +9756,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_invention_engine',
-    name: 'Ascension Invention Engine',
+    name: 'Aerynza Invention Engine',
     category: 'creation',
     description: 'Invent products, services, and experiences from scratch with materials, cost, and steps',
     providers: ['ascension-native'],
@@ -9775,7 +9775,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_video_types',
-    name: 'Ascension Video Types',
+    name: 'Aerynza Video Types',
     category: 'creation',
     description: 'Recommend the right video formats for any channel, niche, and monetization goal',
     providers: ['ascension-native'],
@@ -9794,7 +9794,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_channel_types',
-    name: 'Ascension Channel Types',
+    name: 'Aerynza Channel Types',
     category: 'business',
     description: 'Recommend channel types and services for any audience, income, and cash situation',
     providers: ['ascension-native'],
@@ -9813,7 +9813,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cash_strategy',
-    name: 'Ascension Cash Strategy',
+    name: 'Aerynza Cash Strategy',
     category: 'finance',
     description: 'Invent cash solutions for any budget, timeline, and risk level',
     providers: ['ascension-native'],
@@ -9832,7 +9832,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_zero_capital',
-    name: 'Ascension Zero Capital',
+    name: 'Aerynza Zero Capital',
     category: 'finance',
     description: 'Build income and solutions when starting with no money',
     providers: ['ascension-native'],
@@ -9851,7 +9851,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_micro_launch',
-    name: 'Ascension Micro Launch',
+    name: 'Aerynza Micro Launch',
     category: 'business',
     description: 'Launch a product, channel, or service with a tiny budget and fast feedback loop',
     providers: ['ascension-native'],
@@ -9870,7 +9870,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_service_designer',
-    name: 'Ascension Service Designer',
+    name: 'Aerynza Service Designer',
     category: 'business',
     description: 'Design a service offering, pricing, and delivery path for any skill or audience',
     providers: ['ascension-native'],
@@ -9889,7 +9889,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_idea_validator',
-    name: 'Ascension Idea Validator',
+    name: 'Aerynza Idea Validator',
     category: 'knowledge',
     description: 'Quickly validate an idea, market, and first move before building',
     providers: ['ascension-native'],
@@ -9908,7 +9908,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_build_path',
-    name: 'Ascension Build Path',
+    name: 'Aerynza Build Path',
     category: 'creation',
     description: 'Generate a step-by-step build path for any invention, project, or channel',
     providers: ['ascension-native'],
@@ -9927,7 +9927,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_compound_engine',
-    name: 'Ascension Compound Engine',
+    name: 'Aerynza Compound Engine',
     category: 'finance',
     description: 'Build a reinvestment and compounding plan for any small starting amount and time horizon with explicit risk warnings',
     providers: ['ascension-native'],
@@ -9946,7 +9946,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_72h_sprint',
-    name: 'Ascension 72h Sprint',
+    name: 'Aerynza 72h Sprint',
     category: 'finance',
     description: 'Design a high-activity 72-hour income or growth sprint with realistic targets and legal methods',
     providers: ['ascension-native'],
@@ -9965,7 +9965,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_risk_budget',
-    name: 'Ascension Risk Budget',
+    name: 'Aerynza Risk Budget',
     category: 'finance',
     description: 'Set a risk budget for fast-turn experiments so survival money is never at risk',
     providers: ['ascension-native'],
@@ -9984,7 +9984,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_gig_sprint',
-    name: 'Ascension Gig Sprint',
+    name: 'Aerynza Gig Sprint',
     category: 'finance',
     description: 'Map the fastest gig and task income for a small amount in a short window',
     providers: ['ascension-native'],
@@ -10003,7 +10003,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_money_flip',
-    name: 'Ascension Money Flip',
+    name: 'Aerynza Money Flip',
     category: 'finance',
     description: 'Plug in any amount and get a custom flip plan with realistic target, timeline, and risk warning',
     providers: ['ascension-native'],
@@ -10022,7 +10022,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_second_brain',
-    name: 'Ascension Second Brain',
+    name: 'Aerynza Second Brain',
     category: 'intelligence',
     description: 'Personal knowledge engine that captures, connects, and retrieves everything the user shares',
     providers: ['ascension-native'],
@@ -10041,7 +10041,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_life_orchestrator',
-    name: 'Ascension Life Orchestrator',
+    name: 'Aerynza Life Orchestrator',
     category: 'intelligence',
     description: 'Coordinate the full stack of life domains: work, family, health, home, finance, and creativity',
     providers: ['ascension-native'],
@@ -10060,7 +10060,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_user_profile',
-    name: 'Ascension User Profile',
+    name: 'Aerynza User Profile',
     category: 'intelligence',
     description: 'Maintain a living profile of the user: goals, skills, schedule, people, and preferences',
     providers: ['ascension-native'],
@@ -10079,7 +10079,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_family_profile',
-    name: 'Ascension Family Profile',
+    name: 'Aerynza Family Profile',
     category: 'intelligence',
     description: 'Maintain a living profile of the household and extended family with permission boundaries',
     providers: ['ascension-native'],
@@ -10098,7 +10098,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_context_engine',
-    name: 'Ascension Context Engine',
+    name: 'Aerynza Context Engine',
     category: 'intelligence',
     description: 'Share permissioned context across AP, Nexus, HomeOS, and Sprout shells',
     providers: ['ascension-native'],
@@ -10117,7 +10117,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_shell_orchestrator',
-    name: 'Ascension Shell Orchestrator',
+    name: 'Aerynza Shell Orchestrator',
     category: 'intelligence',
     description: 'Route tasks and insights between AP, Nexus, HomeOS, Sprout, and product shells',
     providers: ['ascension-native'],
@@ -10136,7 +10136,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_knowledge_graph',
-    name: 'Ascension Knowledge Graph',
+    name: 'Aerynza Knowledge Graph',
     category: 'intelligence',
     description: 'Connect people, places, projects, goals, and events into a queryable knowledge graph',
     providers: ['ascension-native'],
@@ -10155,7 +10155,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_proactive_engine',
-    name: 'Ascension Proactive Engine',
+    name: 'Aerynza Proactive Engine',
     category: 'intelligence',
     description: 'Surface reminders, opportunities, and next steps before the user asks',
     providers: ['ascension-native'],
@@ -10174,7 +10174,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_appointments',
-    name: 'Ascension Appointments',
+    name: 'Aerynza Appointments',
     category: 'home',
     description: 'Track, schedule, and prepare for appointments across health, work, family, and services',
     providers: ['ascension-native'],
@@ -10193,7 +10193,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_maintenance',
-    name: 'Ascension Maintenance',
+    name: 'Aerynza Maintenance',
     category: 'home',
     description: 'Track home, vehicle, health, and device maintenance schedules with reminders',
     providers: ['ascension-native'],
@@ -10212,7 +10212,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_family_sync',
-    name: 'Ascension Family Sync',
+    name: 'Aerynza Family Sync',
     category: 'family',
     description: 'Sync schedules, tasks, and updates across household and extended family members',
     providers: ['ascension-native'],
@@ -10229,7 +10229,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_family_abroad',
-    name: 'Ascension Family Abroad',
+    name: 'Aerynza Family Abroad',
     category: 'family',
     description: 'Support coordination, calls, gifts, visits, and updates for family living abroad',
     providers: ['ascension-native'],
@@ -10246,7 +10246,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_household_sync',
-    name: 'Ascension Household Sync',
+    name: 'Aerynza Household Sync',
     category: 'home',
     description: 'Sync chores, shopping, meals, and routines across the household',
     providers: ['ascension-native'],
@@ -10265,7 +10265,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_life_admin',
-    name: 'Ascension Life Admin',
+    name: 'Aerynza Life Admin',
     category: 'home',
     description: 'Manage paperwork, renewals, deadlines, and bureaucratic tasks for the user and family',
     providers: ['ascension-native'],
@@ -10284,7 +10284,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creative_manager',
-    name: 'Ascension Creative Manager',
+    name: 'Aerynza Creative Manager',
     category: 'creation',
     description: 'Track projects, ideas, assets, and releases across all creative pursuits',
     providers: ['ascension-native'],
@@ -10303,7 +10303,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_business_manager',
-    name: 'Ascension Business Manager',
+    name: 'Aerynza Business Manager',
     category: 'business',
     description: 'Track leads, revenue, tasks, and operations across businesses and side projects',
     providers: ['ascension-native'],
@@ -10322,7 +10322,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_child_development',
-    name: 'Ascension Child Development',
+    name: 'Aerynza Child Development',
     category: 'family',
     description: 'Track developmental milestones, learning, and activities for each child',
     providers: ['ascension-native'],
@@ -10339,7 +10339,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_goals',
-    name: 'Ascension Goals',
+    name: 'Aerynza Goals',
     category: 'wellness',
     description: 'Set, track, and break down goals across every life domain with milestones and reviews',
     providers: ['ascension-native'],
@@ -10358,7 +10358,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_milestones',
-    name: 'Ascension Milestones',
+    name: 'Aerynza Milestones',
     category: 'wellness',
     description: 'Track milestones, celebrations, and progress across personal and family life',
     providers: ['ascension-native'],
@@ -10377,7 +10377,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_routine',
-    name: 'Ascension Routine',
+    name: 'Aerynza Routine',
     category: 'home',
     description: 'Design, sync, and adapt daily, weekly, and seasonal routines for the user and household',
     providers: ['ascension-native'],
@@ -10396,7 +10396,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_human_intelligence',
-    name: 'Ascension Human Intelligence',
+    name: 'Aerynza Human Intelligence',
     category: 'intelligence',
     description: 'Understand the human completely: identity, emotion, life flow, biometric, voice, behavior',
     providers: ['ascension-native'],
@@ -10415,7 +10415,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_behavioral_intelligence',
-    name: 'Ascension Behavioral Intelligence',
+    name: 'Aerynza Behavioral Intelligence',
     category: 'intelligence',
     description: 'Model procrastination, consistency, risk tolerance, follow-through, and motivation patterns',
     providers: ['ascension-native'],
@@ -10434,7 +10434,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_astrology_intelligence',
-    name: 'Ascension Astrology Intelligence',
+    name: 'Aerynza Astrology Intelligence',
     category: 'intelligence',
     description: 'Symbolic astrological context as a supplement, never a deterministic prediction',
     providers: ['ascension-native'],
@@ -10453,7 +10453,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_identity',
-    name: 'Ascension Identity',
+    name: 'Aerynza Identity',
     category: 'intelligence',
     description: 'Track and evolve the user',
     providers: ['ascension-native'],
@@ -10472,7 +10472,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_life_flow',
-    name: 'Ascension Life Flow',
+    name: 'Aerynza Life Flow',
     category: 'intelligence',
     description: 'Model energy, schedule, recovery, and optimal execution windows',
     providers: ['ascension-native'],
@@ -10491,7 +10491,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_biometric',
-    name: 'Ascension Biometric',
+    name: 'Aerynza Biometric',
     category: 'intelligence',
     description: 'Read and act on HRV, sleep, recovery, and wearable signals',
     providers: ['ascension-native'],
@@ -10510,7 +10510,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_voice_intelligence',
-    name: 'Ascension Voice Intelligence',
+    name: 'Aerynza Voice Intelligence',
     category: 'intelligence',
     description: 'Voice-based interaction, tone, and voiceprint identity signals',
     providers: ['ascension-native'],
@@ -10529,7 +10529,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_personality',
-    name: 'Ascension Personality',
+    name: 'Aerynza Personality',
     category: 'intelligence',
     description: 'Track personality layers, preferences, and decision style',
     providers: ['ascension-native'],
@@ -10548,7 +10548,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_resource_intelligence',
-    name: 'Ascension Resource Intelligence',
+    name: 'Aerynza Resource Intelligence',
     category: 'intelligence',
     description: 'Manage all resources: money, time, energy, skills, assets, credit, investments',
     providers: ['ascension-native'],
@@ -10567,7 +10567,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_global_economics',
-    name: 'Ascension Global Economics',
+    name: 'Aerynza Global Economics',
     category: 'finance',
     description: 'Track macro signals: inflation, rates, employment, commodities, government incentives',
     providers: ['ascension-native'],
@@ -10586,7 +10586,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_assets',
-    name: 'Ascension Assets',
+    name: 'Aerynza Assets',
     category: 'finance',
     description: 'Track real estate, vehicles, collectibles, and illiquid assets',
     providers: ['ascension-native'],
@@ -10605,7 +10605,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_opportunity_finance',
-    name: 'Ascension Opportunity Finance',
+    name: 'Aerynza Opportunity Finance',
     category: 'finance',
     description: 'Find grants, scholarships, tax credits, refinancing, and rebates',
     providers: ['ascension-native'],
@@ -10624,7 +10624,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_world_intelligence',
-    name: 'Ascension World Intelligence',
+    name: 'Aerynza World Intelligence',
     category: 'knowledge',
     description: 'Understand the external world: environment, markets, government, science, tech',
     providers: ['ascension-native'],
@@ -10643,7 +10643,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_environmental',
-    name: 'Ascension Environmental',
+    name: 'Aerynza Environmental',
     category: 'knowledge',
     description: 'Track environmental, weather, pollen, AQI, and climate factors',
     providers: ['ascension-native'],
@@ -10662,7 +10662,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_government',
-    name: 'Ascension Government',
+    name: 'Aerynza Government',
     category: 'knowledge',
     description: 'Track government programs, policy, and regulatory impact',
     providers: ['ascension-native'],
@@ -10681,7 +10681,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_politics',
-    name: 'Ascension Politics',
+    name: 'Aerynza Politics',
     category: 'knowledge',
     description: 'Track political context and civic opportunities',
     providers: ['ascension-native'],
@@ -10700,7 +10700,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_relationship_intelligence',
-    name: 'Ascension Relationship Intelligence',
+    name: 'Aerynza Relationship Intelligence',
     category: 'relationships',
     description: 'Synthesize relationships, network, community, mentors, and influence',
     providers: ['ascension-native'],
@@ -10719,7 +10719,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_network_vortex',
-    name: 'Ascension Network Vortex',
+    name: 'Aerynza Network Vortex',
     category: 'relationships',
     description: 'Maintain the people graph: relationships, organizations, and community',
     providers: ['ascension-native'],
@@ -10738,7 +10738,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_community',
-    name: 'Ascension Community',
+    name: 'Aerynza Community',
     category: 'relationships',
     description: 'Track communities, groups, and local/global causes',
     providers: ['ascension-native'],
@@ -10757,7 +10757,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_professional_network',
-    name: 'Ascension Professional Network',
+    name: 'Aerynza Professional Network',
     category: 'career',
     description: 'Track mentors, recruiters, collaborators, and career relationships',
     providers: ['ascension-native'],
@@ -10774,7 +10774,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_mentors',
-    name: 'Ascension Mentors',
+    name: 'Aerynza Mentors',
     category: 'career',
     description: 'Track mentors, coaches, advisors, and guidance relationships',
     providers: ['ascension-native'],
@@ -10791,7 +10791,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_influence',
-    name: 'Ascension Influence',
+    name: 'Aerynza Influence',
     category: 'business',
     description: 'Track thought leadership, audience, and influence growth',
     providers: ['ascension-native'],
@@ -10810,7 +10810,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creation_intelligence',
-    name: 'Ascension Creation Intelligence',
+    name: 'Aerynza Creation Intelligence',
     category: 'creation',
     description: 'Accelerate creation across business, media, product, software, knowledge, and creative studios',
     providers: ['ascension-native'],
@@ -10829,7 +10829,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_business_studio',
-    name: 'Ascension Business Studio',
+    name: 'Aerynza Business Studio',
     category: 'business',
     description: 'Think like a founder: model, revenue, CAC, retention, operations, funding',
     providers: ['ascension-native'],
@@ -10848,7 +10848,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_media_studio',
-    name: 'Ascension Media Studio',
+    name: 'Aerynza Media Studio',
     category: 'creation',
     description: 'Think like a publisher: consistency, audience, engagement, monetization',
     providers: ['ascension-native'],
@@ -10867,7 +10867,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_product_studio',
-    name: 'Ascension Product Studio',
+    name: 'Aerynza Product Studio',
     category: 'creation',
     description: 'Think like an industrial designer and manufacturing advisor',
     providers: ['ascension-native'],
@@ -10886,7 +10886,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_software_studio',
-    name: 'Ascension Software Studio',
+    name: 'Aerynza Software Studio',
     category: 'creation',
     description: 'Think like a software architect: architecture, tech debt, testing, deployment, security',
     providers: ['ascension-native'],
@@ -10905,7 +10905,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_knowledge_studio',
-    name: 'Ascension Knowledge Studio',
+    name: 'Aerynza Knowledge Studio',
     category: 'knowledge',
     description: 'Think like an educator, researcher, and author',
     providers: ['ascension-native'],
@@ -10924,7 +10924,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creative_studio',
-    name: 'Ascension Creative Studio',
+    name: 'Aerynza Creative Studio',
     category: 'creation',
     description: 'Think like an art director, creative coach, and portfolio strategist',
     providers: ['ascension-native'],
@@ -10943,7 +10943,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creation_auditor',
-    name: 'Ascension Creation Auditor',
+    name: 'Aerynza Creation Auditor',
     category: 'creation',
     description: 'Continuous health audit for any project or studio',
     providers: ['ascension-native'],
@@ -10962,7 +10962,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_roadmap_engine',
-    name: 'Ascension Roadmap Engine',
+    name: 'Aerynza Roadmap Engine',
     category: 'creation',
     description: 'Build and track project roadmaps, milestones, and dependencies',
     providers: ['ascension-native'],
@@ -10981,7 +10981,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_scorecards',
-    name: 'Ascension Scorecards',
+    name: 'Aerynza Scorecards',
     category: 'business',
     description: 'Idea maturity, execution momentum, validation, launch, and risk scorecards',
     providers: ['ascension-native'],
@@ -11000,7 +11000,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_creation_transformation',
-    name: 'Ascension Creation Transformation',
+    name: 'Aerynza Creation Transformation',
     category: 'creation',
     description: 'Dream-to-reality transformation loop: observe, design, build, launch, scale',
     providers: ['ascension-native'],
@@ -11019,7 +11019,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_opportunity_intelligence',
-    name: 'Ascension Opportunity Intelligence',
+    name: 'Aerynza Opportunity Intelligence',
     category: 'intelligence',
     description: 'Synthesize all engines to find and prioritize opportunities',
     providers: ['ascension-native'],
@@ -11038,7 +11038,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_decision_physics',
-    name: 'Ascension Decision Physics',
+    name: 'Aerynza Decision Physics',
     category: 'intelligence',
     description: 'Observe, predict, simulate, decide, explain, and learn from outcomes',
     providers: ['ascension-native'],
@@ -11057,7 +11057,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_adaptive_quest',
-    name: 'Ascension Adaptive Quest',
+    name: 'Aerynza Adaptive Quest',
     category: 'intelligence',
     description: 'Calibrate quest difficulty and selection based on tri-baseline, life flow, and behavior',
     providers: ['ascension-native'],
@@ -11076,7 +11076,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_cie',
-    name: 'Ascension CIE',
+    name: 'Aerynza CIE',
     category: 'intelligence',
     description: 'Conversation Intelligence Engine: score and gate all proactive AP messages',
     providers: ['ascension-native'],
@@ -11095,9 +11095,9 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_age',
-    name: 'Ascension AGE',
+    name: 'Aerynza AGE',
     category: 'intelligence',
-    description: 'Ascension Guide Engine: onboarding, feature unlocking, and readiness scoring',
+    description: 'Aerynza Guide Engine: onboarding, feature unlocking, and readiness scoring',
     providers: ['ascension-native'],
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
@@ -11114,7 +11114,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_personal_vortex',
-    name: 'Ascension Personal Vortex',
+    name: 'Aerynza Personal Vortex',
     category: 'intelligence',
     description: 'Everything about the user: identity, goals, behavior, history, preferences',
     providers: ['ascension-native'],
@@ -11133,7 +11133,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_world_vortex',
-    name: 'Ascension World Vortex',
+    name: 'Aerynza World Vortex',
     category: 'intelligence',
     description: 'Everything external: markets, science, tech, politics, weather, news',
     providers: ['ascension-native'],
@@ -11152,7 +11152,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_unified_vortex',
-    name: 'Ascension Unified Vortex',
+    name: 'Aerynza Unified Vortex',
     category: 'intelligence',
     description: 'Synthesize Personal, World, and Network Vortex into composite insights',
     providers: ['ascension-native'],
@@ -11171,7 +11171,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_vortex_signals',
-    name: 'Ascension Vortex Signals',
+    name: 'Aerynza Vortex Signals',
     category: 'intelligence',
     description: 'Store and reason over signals from every engine and connected API',
     providers: ['ascension-native'],
@@ -11190,7 +11190,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_calendar_intelligence',
-    name: 'Ascension Calendar Intelligence',
+    name: 'Aerynza Calendar Intelligence',
     category: 'productivity',
     description: 'Infer productivity windows, meeting density, key relationships, and burnout from calendar',
     providers: ['ascension-native'],
@@ -11208,7 +11208,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_email_intelligence',
-    name: 'Ascension Email Intelligence',
+    name: 'Aerynza Email Intelligence',
     category: 'productivity',
     description: 'Infer communication network, opportunity signals, and subscription creep from email',
     providers: ['ascension-native'],
@@ -11226,7 +11226,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_plaid_intelligence',
-    name: 'Ascension Plaid Intelligence',
+    name: 'Aerynza Plaid Intelligence',
     category: 'finance',
     description: 'Infer financial behavior, stress spending, and cash flow patterns from Plaid',
     providers: ['ascension-native'],
@@ -11245,7 +11245,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_investment_intelligence',
-    name: 'Ascension Investment Intelligence',
+    name: 'Aerynza Investment Intelligence',
     category: 'finance',
     description: 'Infer risk, diversification, contribution discipline, and retirement readiness',
     providers: ['ascension-native'],
@@ -11264,7 +11264,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_crypto_intelligence',
-    name: 'Ascension Crypto Intelligence',
+    name: 'Aerynza Crypto Intelligence',
     category: 'finance',
     description: 'Track wallets, exchanges, staking, DeFi, and tax events',
     providers: ['ascension-native'],
@@ -11283,7 +11283,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_health_intelligence',
-    name: 'Ascension Health Intelligence',
+    name: 'Aerynza Health Intelligence',
     category: 'wellness',
     description: 'Read HRV, sleep, recovery, and burnout signals from wearables',
     providers: ['ascension-native'],
@@ -11302,7 +11302,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_location_intelligence',
-    name: 'Ascension Location Intelligence',
+    name: 'Aerynza Location Intelligence',
     category: 'knowledge',
     description: 'Infer routines, gym attendance, nature exposure, and home-away ratio',
     providers: ['ascension-native'],
@@ -11321,7 +11321,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_spotify_intelligence',
-    name: 'Ascension Spotify Intelligence',
+    name: 'Aerynza Spotify Intelligence',
     category: 'wellness',
     description: 'Infer mood, energy, work style, and stress management from music',
     providers: ['ascension-native'],
@@ -11340,7 +11340,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_linkedin_intelligence',
-    name: 'Ascension LinkedIn Intelligence',
+    name: 'Aerynza LinkedIn Intelligence',
     category: 'career',
     description: 'Infer career velocity, recruiter activity, and professional influence',
     providers: ['ascension-native'],
@@ -11357,7 +11357,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_youtube_intelligence',
-    name: 'Ascension YouTube Intelligence',
+    name: 'Aerynza YouTube Intelligence',
     category: 'knowledge',
     description: 'Infer learning investment, topic depth, and research patterns',
     providers: ['ascension-native'],
@@ -11376,7 +11376,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_tiktok_intelligence',
-    name: 'Ascension TikTok Intelligence',
+    name: 'Aerynza TikTok Intelligence',
     category: 'creation',
     description: 'Infer creator momentum, content discipline, and trend awareness',
     providers: ['ascension-native'],
@@ -11395,7 +11395,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_github_intelligence',
-    name: 'Ascension GitHub Intelligence',
+    name: 'Aerynza GitHub Intelligence',
     category: 'creation',
     description: 'Infer coding consistency, technical growth, and architecture maturity',
     providers: ['ascension-native'],
@@ -11414,7 +11414,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_weather_intelligence',
-    name: 'Ascension Weather Intelligence',
+    name: 'Aerynza Weather Intelligence',
     category: 'knowledge',
     description: 'Infer mood/energy correlation and activity suitability from weather',
     providers: ['ascension-native'],
@@ -11433,7 +11433,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_news_intelligence',
-    name: 'Ascension News Intelligence',
+    name: 'Aerynza News Intelligence',
     category: 'knowledge',
     description: 'Infer industry opportunity, economic context, and regulatory impact',
     providers: ['ascension-native'],
@@ -11452,7 +11452,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_question_engine',
-    name: 'Ascension Question Engine',
+    name: 'Aerynza Question Engine',
     category: 'intelligence',
     description: 'Ask one question at a time, track state, and adapt follow-ups',
     providers: ['ascension-native'],
@@ -11471,7 +11471,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_vault',
-    name: 'Ascension Vault',
+    name: 'Aerynza Vault',
     category: 'intelligence',
     description: 'Permanent digital estate: AP can read, never write or delete',
     providers: ['ascension-native'],
@@ -11490,7 +11490,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_living_memory',
-    name: 'Ascension Living Memory',
+    name: 'Aerynza Living Memory',
     category: 'intelligence',
     description: 'Active cognition: current goals, patterns, and recent interactions',
     providers: ['ascension-native'],
@@ -11509,7 +11509,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_living_context',
-    name: 'Ascension Living Context',
+    name: 'Aerynza Living Context',
     category: 'intelligence',
     description: 'Weekly pre-computed working memory snapshot for fast AP responses',
     providers: ['ascension-native'],
@@ -11528,7 +11528,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_proactivity',
-    name: 'Ascension Proactivity',
+    name: 'Aerynza Proactivity',
     category: 'intelligence',
     description: 'Configure silent to always-on reaction levels',
     providers: ['ascension-native'],
@@ -11547,7 +11547,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_workout',
-    name: 'Ascension Workout',
+    name: 'Aerynza Workout',
     category: 'wellness',
     description: 'Plan and adapt exercise routines and physical training',
     providers: ['ascension-native'],
@@ -11566,7 +11566,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_body_profile',
-    name: 'Ascension Body Profile',
+    name: 'Aerynza Body Profile',
     category: 'wellness',
     description: 'Track body data, photos, weight, BMR, and TDEE',
     providers: ['ascension-native'],
@@ -11585,7 +11585,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_document_intelligence',
-    name: 'Ascension Document Intelligence',
+    name: 'Aerynza Document Intelligence',
     category: 'knowledge',
     description: 'OCR, classify, extract, and persist structured data from uploaded documents',
     providers: ['ascension-native'],
@@ -11604,7 +11604,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_legacy',
-    name: 'Ascension Legacy',
+    name: 'Aerynza Legacy',
     category: 'intelligence',
     description: 'Plan contribution, generational impact, and long-term life legacy',
     providers: ['ascension-native'],
@@ -11623,7 +11623,7 @@ export const CAPABILITIES = [
   },
   {
     id: 'ascension_contribution',
-    name: 'Ascension Contribution',
+    name: 'Aerynza Contribution',
     category: 'intelligence',
     description: 'Track giving, mentorship, community impact, and contribution goals',
     providers: ['ascension-native'],
@@ -11764,7 +11764,7 @@ export const CAPABILITIES = [
       'device_flash',
       'ip_guard'
     ],
-    context: 'Triggers: user asks about a laptop OS, notebook OS, or running Ascension OS on a laptop. Cross-references: universal_os, device_drivers, device_flash, ip_guard. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about a laptop OS, notebook OS, or running Aerynza OS on a laptop. Cross-references: universal_os, device_drivers, device_flash, ip_guard. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'desktop_os',
@@ -11784,7 +11784,7 @@ export const CAPABILITIES = [
       'device_flash',
       'ip_guard'
     ],
-    context: 'Triggers: user asks about a desktop OS, tower OS, or running Ascension OS on a desktop. Cross-references: universal_os, laptop_os, device_drivers, device_flash, ip_guard. Use with permission-scoped context and a receipt for any action.'
+    context: 'Triggers: user asks about a desktop OS, tower OS, or running Aerynza OS on a desktop. Cross-references: universal_os, laptop_os, device_drivers, device_flash, ip_guard. Use with permission-scoped context and a receipt for any action.'
   },
   {
     id: 'smart_device_os',
@@ -11853,7 +11853,7 @@ export const CAPABILITIES = [
     promoted: false,
     name: 'IP Guard',
     category: 'engineering',
-    description: 'Protect Ascension intellectual property in source code, models, designs, and binaries through licensing, watermarking, and access control',
+    description: 'Protect Aerynza intellectual property in source code, models, designs, and binaries through licensing, watermarking, and access control',
     providers: ['ascension-native'],
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,
@@ -11872,7 +11872,7 @@ export const CAPABILITIES = [
     promoted: false,
     name: 'Code Guardian',
     category: 'engineering',
-    description: 'Audit, sign, encrypt, and vault Ascension source code and artifacts to prevent unauthorized exfiltration or tampering',
+    description: 'Audit, sign, encrypt, and vault Aerynza source code and artifacts to prevent unauthorized exfiltration or tampering',
     providers: ['ascension-native'],
     default_provider: 'ascension-native',
     cost_per_1k_tokens: 0,

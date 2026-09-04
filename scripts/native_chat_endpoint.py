@@ -1,7 +1,7 @@
 """Native chat endpoint for local testing.
 
 Runs a lightweight HTTP server that invokes the deterministic parts of
-the Ascension contract engine, and falls back to the loaded local model
+the Aerynza contract engine, and falls back to the loaded local model
 for open-ended generation. It does not promote the native model to primary;
 it is for evaluation and development only.
 """
@@ -63,8 +63,8 @@ def handle_chat(body: dict) -> dict:
     if safety.action in ('escalate', 'block'):
         return {
             'content': safety.message,
-            'model': 'Ascension Safety Guard',
-            'provider': 'ascension-native',
+            'model': 'Aerynza Safety Guard',
+            'provider': 'Aerynza-Native',
             'tokensUsed': 0,
             'safety': safety.__dict__,
         }
@@ -107,8 +107,8 @@ def handle_chat(body: dict) -> dict:
     if first_pass:
         return {
             'content': warn_prefix + first_pass,
-            'model': 'Ascension Contract Engine',
-            'provider': 'ascension-native',
+            'model': 'Aerynza Contract Engine',
+            'provider': 'Aerynza-Native',
             'tokensUsed': 0,
             'cognition': prepared.get('cognition'),
             'safety_level': safety.level,
@@ -118,9 +118,9 @@ def handle_chat(body: dict) -> dict:
     runtime = get_runtime()
     if runtime is None:
         return {
-            'content': warn_prefix + f'Ascension native response for {capability} (stub: generative model not loaded yet).',
-            'model': 'Ascension Candidate 3B (stub)',
-            'provider': 'ascension-native',
+            'content': warn_prefix + f'Aerynza native response for {capability} (stub: generative model not loaded yet).',
+            'model': 'Aerynza AI (stub)',
+            'provider': 'Aerynza-Native',
             'tokensUsed': 0,
             'fallback': True,
             'safety_level': safety.level,
@@ -133,17 +133,17 @@ def handle_chat(body: dict) -> dict:
         )
         return {
             'content': warn_prefix + guarded_content,
-            'model': model_output.get('model', runtime.status().get('model', 'Ascension Native')),
-            'provider': 'ascension-native',
+            'model': model_output.get('model', runtime.status().get('model', 'Aerynza AI')),
+            'provider': 'Aerynza-Native',
             'tokensUsed': model_output.get('tokensUsed', 0),
             'safety_level': safety.level,
             'cognition': prepared.get('cognition'),
         }
     except Exception as error:
         return {
-            'content': warn_prefix + f'Ascension native response for {capability} (model error: {error}).',
-            'model': 'Ascension Native',
-            'provider': 'ascension-native',
+            'content': warn_prefix + f'Aerynza native response for {capability} (model error: {error}).',
+            'model': 'Aerynza AI',
+            'provider': 'Aerynza-Native',
             'tokensUsed': 0,
             'fallback': True,
             'safety_level': safety.level,
@@ -194,7 +194,7 @@ class NativeChatHandler(BaseHTTPRequestHandler):
             }
             self._json_response(200, {
                 'status': 'ok' if status.get('ready') else 'model_unavailable',
-                'provider': 'ascension-native',
+                'provider': 'Aerynza-Native',
                 'candidate_ready': status.get('ready', False),
                 'outside_provider': False,
                 'model': status

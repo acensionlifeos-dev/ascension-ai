@@ -52,7 +52,7 @@ def missing_handler_block(cap: dict) -> str:
   return {{
     content: `I can help with {name}. {desc} What do you need?`,
     model: '{name}',
-    provider: 'ascension-native',
+    provider: 'Aerynza-Native',
     tokensUsed: 0,
     capability: '{cid}',
     data: {{ question: null }}

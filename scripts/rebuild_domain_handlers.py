@@ -15,13 +15,13 @@ OVERRIDES = {
     'phone_flash': """I can prepare a flashable OS image and a safe flashing procedure, but I will not write to a phone over USB until I have the device.flash permission, a verified device ID, and an explicit one-time approval. I will also require a recovery image and a brick-recovery path before starting.""",
     'phone_recovery': """I can design the bootloader, recovery partition, and fail-safe images for a phone OS. This includes fastboot/Odin-style recovery, A/B partitions, rollback protection, and an unbrick path.""",
     'universal_os': """I can architect Universal OS: one kernel and userspace design that targets phones, laptops, desktops, and smart devices. Tell me the device classes and I will produce a common HAL, build matrix, and IP-safe source layout.""",
-    'laptop_os': """I can adapt Ascension OS for laptops: x86/ARM64 SoC selection, power management, keyboard/trackpad, display, sleep states, and docking. I will produce a port plan and driver list.""",
-    'desktop_os': """I can adapt Ascension OS for desktops: multi-monitor, discrete GPU, fast storage, expansion slots, peripherals, and networking. I will produce a port plan and driver list.""",
-    'smart_device_os': """I can adapt Ascension OS for smart home, wearables, and embedded IoT devices: low-power ARM/RISC-V, sensors, BLE, Thread, and Matter. I will produce a board port plan and minimal image spec.""",
+    'laptop_os': """I can adapt Aerynza OS for laptops: x86/ARM64 SoC selection, power management, keyboard/trackpad, display, sleep states, and docking. I will produce a port plan and driver list.""",
+    'desktop_os': """I can adapt Aerynza OS for desktops: multi-monitor, discrete GPU, fast storage, expansion slots, peripherals, and networking. I will produce a port plan and driver list.""",
+    'smart_device_os': """I can adapt Aerynza OS for smart home, wearables, and embedded IoT devices: low-power ARM/RISC-V, sensors, BLE, Thread, and Matter. I will produce a board port plan and minimal image spec.""",
     'device_drivers': """I can design the unified HAL and device-driver catalog for Universal OS. I will generate a device-class matrix, driver source mapping, and a build order that works across phones, laptops, desktops, and smart devices.""",
     'device_flash': """I can prepare a flashable image for any connected phone, laptop, desktop, or smart device, but I will not write to the device until I have device.read and device.flash permissions, a verified device ID, an explicit one-time approval, and a brick-recovery image.""",
-    'ip_guard': """I can design the IP protection layer for Ascension: license files, watermarking, signed binaries, source access tiers, audit logging, and enforcement. I will not emit or sign any protected material without ip.control approval and a verified receipt.""",
-    'code_guardian': """I can design the source vault and code-guardian pipeline for Ascension: encryption at rest, commit signing, artifact hashes, exfiltration checks, and release attestation. I will not package or release any code without ip.control approval and a verified receipt.""",
+    'ip_guard': """I can design the IP protection layer for Aerynza: license files, watermarking, signed binaries, source access tiers, audit logging, and enforcement. I will not emit or sign any protected material without ip.control approval and a verified receipt.""",
+    'code_guardian': """I can design the source vault and code-guardian pipeline for Aerynza: encryption at rest, commit signing, artifact hashes, exfiltration checks, and release attestation. I will not package or release any code without ip.control approval and a verified receipt.""",
     'ar_assistant': """I can be a walking AR companion: seeing what you see, understanding where you are, and giving you glanceable answers, navigation, translations, and reminders. This requires camera.read, location.read, microphone.read, and ar.overlay permissions. I will not record or identify bystanders without their explicit consent.""",
     'ar_environment_scan': """I can build a real-time spatial map of your surroundings for safe AR: doors, walls, obstacles, surfaces, and open paths. Requires camera.read, ar.read, and location.read permissions. I will not store or transmit the mesh without your approval.""",
     'ar_object_recognition': """I can identify objects, labels, prices, ingredients, and hazards in your view and explain them. Requires camera.read and ar.read permissions. I will not use this data to profile people.""",
@@ -120,7 +120,7 @@ def handler_function(cap: dict) -> str:
   return {{
     content: `{content}`,
     model: '{name}',
-    provider: 'ascension-native',
+    provider: 'Aerynza-Native',
     tokensUsed: 0,
     capability: '{cid}',
     data: {{ question: null }}
@@ -152,7 +152,7 @@ import {{ requestPermissions, PermissionStatus }} from './permission-engine';
 export interface NativeResponse {{
   content: string;
   model: string;
-  provider: 'ascension-native';
+  provider: 'Aerynza-Native';
   tokensUsed: number;
   capability: string;
   data?: Record<string, any>;
@@ -181,8 +181,8 @@ export function routeNativeDomain(
   if (permissionMsg) {{
     return {{
       content: permissionMsg.content,
-      model: 'Ascension Permission Gate',
-      provider: 'ascension-native',
+      model: 'Aerynza Permission Gate',
+      provider: 'Aerynza-Native',
       tokensUsed: 0,
       capability: capabilityId
     }};
@@ -194,9 +194,9 @@ export function routeNativeDomain(
   }}
 
   return {{
-    content: `Ascension native response for ${{capabilityId}} (stub: domain handler not yet specialized).`,
-    model: 'Ascension Candidate 3B',
-    provider: 'ascension-native',
+    content: `Aerynza native response for ${{capabilityId}} (stub: domain handler not yet specialized).`,
+    model: 'Aerynza AI',
+    provider: 'Aerynza-Native',
     tokensUsed: 0,
     capability: capabilityId
   }};

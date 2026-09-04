@@ -1,7 +1,7 @@
 import { modelRouter } from '../src/services/model-router';
 import { getCapabilityById } from '../src/services/capability-registry';
 
-describe('Ascension Native Provider Routing', () => {
+describe('Aerynza Native Provider Routing', () => {
   const originalEnv = process.env;
 
   beforeEach(() => {
@@ -18,7 +18,7 @@ describe('Ascension Native Provider Routing', () => {
     const decision = await modelRouter.route('ascension_chat', 'individual');
 
     expect(decision.provider).toBe('ascension-native');
-    expect(decision.model).toBe('Ascension Candidate 3B');
+    expect(decision.model).toBe('Aerynza AI');
   });
 
   test('fallback to openai when native is not enabled for a dual-provider capability', async () => {
@@ -50,17 +50,17 @@ describe('Ascension Native Provider Routing', () => {
     }
   });
 
-  test('executeAscensionNative returns a fallback response when runtime is unavailable', async () => {
+  test('executeAerynzaNative returns a fallback response when runtime is unavailable', async () => {
     process.env.ASCENSION_NATIVE_ENABLED = 'true';
     process.env.ASCENSION_NATIVE_URL = 'http://localhost:19999/chat'; // no server here
 
     const result = await modelRouter.execute(
-      { provider: 'ascension-native', model: 'Ascension Candidate 3B', reason: 'test', estimatedCost: 0 },
+      { provider: 'ascension-native', model: 'Aerynza AI', reason: 'test', estimatedCost: 0 },
       { messages: [{ role: 'user', content: 'hello' }], capability: 'ascension_chat' }
     );
 
-    expect(result.provider).toBe('ascension-native');
-    expect(result.model).toBe('Ascension Candidate 3B');
+    expect(result.provider).toBe('Aerynza-Native');
+    expect(result.model).toBe('Aerynza AI');
     expect(result.fallback).toBe(true);
     expect(typeof result.content).toBe('string');
   });

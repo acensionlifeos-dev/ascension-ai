@@ -141,7 +141,7 @@ class ModelRouter {
       case 'stability':
         return 'stable-diffusion-xl';
       case 'ascension-native':
-        return 'Ascension Candidate 3B';
+        return 'Aerynza AI';
       case 'custom':
         return 'custom-model';
       default:
@@ -200,7 +200,7 @@ class ModelRouter {
       case 'anthropic':
         return this.executeAnthropic(routingDecision, request);
       case 'ascension-native':
-        return this.executeAscensionNative(routingDecision, request);
+        return this.executeAerynzaNative(routingDecision, request);
       // case 'google':
       //   return this.executeGoogle(routingDecision, request);
       default:
@@ -245,7 +245,7 @@ class ModelRouter {
     };
   }
   
-  private async executeAscensionNative(routingDecision: RoutingDecision, request: any): Promise<any> {
+  private async executeAerynzaNative(routingDecision: RoutingDecision, request: any): Promise<any> {
     // Route to the native Python core via internal endpoint or local model
     const nativeEndpoint = process.env.ASCENSION_NATIVE_URL || 'http://localhost:8000/chat';
     const capability = request.capability || 'ascension_chat';
@@ -284,7 +284,7 @@ class ModelRouter {
       const result = {
         content: data.content,
         model: routingDecision.model,
-        provider: 'ascension-native',
+        provider: 'Aerynza-Native',
         tokensUsed: data.tokensUsed || 0
       };
       
@@ -296,9 +296,9 @@ class ModelRouter {
     } catch (error) {
       // Fallback to first-pass deterministic response if native runtime is unavailable
       return {
-        content: `Ascension native response for ${routingDecision.model} (stub: native model not loaded yet).`,
+        content: `Aerynza native response for ${routingDecision.model} (stub: native model not loaded yet).`,
         model: routingDecision.model,
-        provider: 'ascension-native',
+        provider: 'Aerynza-Native',
         tokensUsed: 0,
         fallback: true
       };

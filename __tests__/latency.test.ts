@@ -26,14 +26,14 @@ describe('Native latency', () => {
   test('cached native response returns without network call', async () => {
     responseCache.set('ascension_chat', 'cached benchmark', {
       content: 'cached',
-      model: 'Ascension Candidate 3B',
-      provider: 'ascension-native',
+      model: 'Aerynza AI',
+      provider: 'Aerynza-Native',
       tokensUsed: 0
     });
 
     const start = performance.now();
     const result = await modelRouter.execute(
-      { provider: 'ascension-native', model: 'Ascension Candidate 3B', reason: 'test', estimatedCost: 0 },
+      { provider: 'ascension-native', model: 'Aerynza AI', reason: 'test', estimatedCost: 0 },
       { messages: [{ role: 'user', content: 'cached benchmark' }], capability: 'ascension_chat' }
     );
     const elapsed = performance.now() - start;
