@@ -14,7 +14,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-import pyautogui
+try:
+    import pyautogui
+    pyautogui.PAUSE = 0.05
+except Exception:
+    pyautogui = None
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,9 +38,6 @@ ALLOWED_ACTIONS = {
     "wait",
     "chain",
 }
-
-# Pausable small delay so control messages can be read before execution.
-pyautogui.PAUSE = 0.05
 
 
 def _ensure_public_dirs() -> None:
