@@ -5,13 +5,22 @@ from __future__ import annotations
 import os
 
 
+def _openai_api_key() -> str:
+    """Read the OpenAI API key from the most common environment names."""
+    for name in ("OPENAI_API_KEY", "OPENAI_KEY", "ASCENSION_OPENAI_API_KEY"):
+        value = os.getenv(name, "").strip()
+        if value:
+            return value
+    return ""
+
+
 def generate_image(prompt: str, size: str = "1024x1024", quality: str = "standard") -> dict:
-    """Generate an image with DALL-E 3 if OPENAI_API_KEY is configured."""
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    """Generate an image with DALL-E 3 if an OpenAI key is configured."""
+    api_key = _openai_api_key()
     if not api_key:
         return {
             "status": "no_key",
-            "message": "OPENAI_API_KEY is not configured. Add the key to the environment to enable DALL-E 3 image generation.",
+            "message": "No OpenAI API key found (checked OPENAI_API_KEY, OPENAI_KEY, ASCENSION_OPENAI_API_KEY). Add one to the environment to enable DALL-E 3 image generation.",
         }
     try:
         import openai
