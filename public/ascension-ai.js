@@ -27,7 +27,8 @@
       domains: cognition.domains || [],
       surfaces: cognition.surface_recommendations || [],
       retrieval: cognition.retrieval || [],
-      actions: cognition.action_proposals || []
+      actions: cognition.action_proposals || [],
+      panels: cognition.data_panels || []
     };
   }
 
@@ -35,11 +36,36 @@
     if (!data) return null;
     const panel = document.createElement('div');
     panel.className = 'data-panel';
+    if (data.panels?.length) panel.append(panelCards(data.panels));
     if (data.domains?.length) panel.append(dataChips('Domains', data.domains));
     if (data.surfaces?.length) panel.append(dataChips('Surfaces', data.surfaces));
     if (data.retrieval?.length) panel.append(retrievalList(data.retrieval));
     if (data.actions?.length) panel.append(actionCards(data.actions));
     return panel.childNodes.length ? panel : null;
+  }
+
+  function panelCards(panels) {
+    const wrap = document.createElement('div');
+    wrap.className = 'data-section data-panels';
+    panels.forEach(panel => {
+      const card = document.createElement('div');
+      card.className = 'data-panel-card';
+      const title = document.createElement('div');
+      title.className = 'data-panel-card-title';
+      title.textContent = panel.title || panel.id;
+      if (panel.count != null) title.textContent += ` (${panel.count})`;
+      card.append(title);
+      const ul = document.createElement('ul');
+      ul.className = 'data-list';
+      (panel.items || []).slice(0, 3).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = String(item).slice(0, 160);
+        ul.append(li);
+      });
+      card.append(ul);
+      wrap.append(card);
+    });
+    return wrap;
   }
 
   function appendDataPanel(data, wrap) {

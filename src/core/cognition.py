@@ -90,7 +90,7 @@ def _words(text: str) -> list[str]:
 
 def _document_rows(context: dict) -> list[dict]:
     rows: list[dict] = []
-    for key in ("knowledge", "documents", "memories", "evidence"):
+    for key in ("knowledge", "documents", "memories", "evidence", "verified_evidence", "human_thesis", "home_thesis", "family_thesis", "sprout_profile", "child_profile", "profile", "schedule", "finance", "health", "goals", "relationships"):
         value = context.get(key, []) if isinstance(context, dict) else []
         if isinstance(value, dict):
             value = [value]
@@ -392,12 +392,84 @@ def build_cognitive_packet(text: str, context: dict, allowed_capabilities: list[
         "action_proposals": actions,
         "available_actions": list(dict.fromkeys(str(item).strip() for item in actions_from_context if str(item).strip())),
         "surface_recommendations": list(dict.fromkeys(surfaces))[:16],
+        "data_panels": extract_data_panels(context),
         "authority": {
             "intelligence_core": "propose_and_explain",
             "authenticated_shell": "validate_permissions_execute_persist_and_return_receipts",
             "external_high_risk_actions": "explicit_confirmation_required",
         },
     }
+
+
+DATA_PANEL_TITLES: dict[str, str] = {
+    "human_thesis": "Human Thesis",
+    "home_thesis": "Home Thesis",
+    "family_thesis": "Family Thesis",
+    "sprout_profile": "Sprout",
+    "child_profile": "Child Profile",
+    "verified_evidence": "Evidence",
+    "evidence": "Evidence",
+    "documents": "Documents",
+    "memories": "Memories",
+    "knowledge": "Knowledge",
+    "profile": "Profile",
+    "schedule": "Schedule",
+    "finance": "Finance",
+    "health": "Health",
+    "relationships": "Relationships",
+    "goals": "Goals",
+    "action_receipts": "Action Receipts",
+    "memory_receipts": "Memory Receipts",
+    "available_actions": "Available Actions",
+}
+
+
+def _format_panel_item(value: Any, key: str = "") -> str:
+    if isinstance(value, dict):
+        text = (
+            value.get("summary")
+            or value.get("text")
+            or value.get("content")
+            or value.get("fact")
+            or value.get("name")
+            or value.get("title")
+        )
+        if text:
+            return str(text)[:220]
+        pairs = [f"{k}: {v}" for k, v in value.items() if v is not None and k not in {"text", "content", "summary"}]
+        return "; ".join(pairs)[:220]
+    if isinstance(value, (list, tuple)):
+        return "; ".join(str(item) for item in value[:3])[:220]
+    return str(value)[:220]
+
+
+def extract_data_panels(context: dict) -> list[dict]:
+    """Turn the permission-scoped context into front-end data panels.
+
+    The AI reads each context key and produces a structured panel so the
+    shell front ends can render live cards for the current user/household/family.
+    """
+    if not isinstance(context, dict):
+        return []
+    panels: list[dict] = []
+    for key, value in context.items():
+        if key in {"debug", "telemetry", "ui_state", "provider_keys"}:
+            continue
+        title = DATA_PANEL_TITLES.get(key, key.replace("_", " ").title())
+        items: list[str] = []
+        if isinstance(value, dict):
+            items.append(_format_panel_item(value, key))
+        elif isinstance(value, list):
+            for item in value[:5]:
+                formatted = _format_panel_item(item, key)
+                if formatted:
+                    items.append(formatted)
+        else:
+            items.append(str(value)[:220])
+        items = [item for item in items if item]
+        if items:
+            panels.append({"id": key, "title": title, "items": items, "count": len(value) if isinstance(value, list) else None})
+    return panels[:12]
 
 
 RECEIPT_FIELDS: dict[str, list[str]] = {
