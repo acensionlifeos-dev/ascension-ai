@@ -681,7 +681,8 @@ def respond(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, su
 
 
 def surface_plan(*, shell: Shell, tier: Tier, trigger: str, context: dict, available_actions: list[str], allowed_capabilities: list[str]) -> dict:
-    cognitive = build_cognitive_packet(trigger, context, allowed_capabilities, available_actions)
+    scoped_context = scope_context(context, shell)
+    cognitive = build_cognitive_packet(trigger, scoped_context, allowed_capabilities, available_actions)
     domains = authorized_domains(cognitive["domains"], allowed_capabilities)
     capabilities = capability_packet(domains)
     surfaces = []

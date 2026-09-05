@@ -32,7 +32,7 @@ from src.core.contracts import Shell, Tier
 from src.core.media_executor import generate_image, parse_image_request
 from src.core.model_runtime import NativeInferenceQueueTimeout, runtime
 from src.financial.plaid_client import get_balances, parse_balance_query
-from src.core.orchestrator import deterministic_response, prepare_inference, respond, surface_plan
+from src.core.orchestrator import deterministic_response, prepare_inference, respond, scope_context, surface_plan
 from src.core.safety import medical_emergency_response
 from src.core.thesis import build_member_thesis_contribution, build_thesis
 from src.phone import android_bridge, iphone_bridge
@@ -375,9 +375,10 @@ async def talents(_: None = Depends(require_access)) -> dict:
 
 @app.post("/v1/cognition")
 async def cognition(request: CognitionRequest, _: None = Depends(require_access)) -> dict:
+    scoped_context = scope_context(request.context, request.shell)
     packet = build_cognitive_packet(
         request.trigger,
-        request.context,
+        scoped_context,
         request.allowed_capabilities,
         request.available_actions,
     )
@@ -400,9 +401,10 @@ async def agent_plan(request: CognitionRequest, access: None = Depends(require_a
 
 @app.post("/v1/retrieve")
 async def retrieve(request: RetrievalRequest, _: None = Depends(require_access)) -> dict:
+    scoped_context = scope_context(request.context, request.shell)
     return {
         "query": request.query,
-        "results": hybrid_retrieve(request.query, request.context, request.top_k),
+        "results": hybrid_retrieve(request.query, scoped_context, request.top_k),
         "scope": "request_supplied_permissioned_context",
         "outside_provider": False,
     }
