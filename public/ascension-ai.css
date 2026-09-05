@@ -16,3 +16,7 @@
 .data-panel-card{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
 .data-panel-card-title{color:var(--accent);font:700 11px Syne,sans-serif;text-transform:uppercase;letter-spacing:.08em}
 .data-panel-card .data-list{margin-top:4px;padding-left:14px}
+.starters{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.starters button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;white-space:normal;height:auto;min-height:64px}
+.starters button strong{display:block;font-size:13px;line-height:1.3}
+.starters button span{display:block;font-size:11px;color:var(--muted);line-height:1.3}
