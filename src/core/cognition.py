@@ -262,6 +262,11 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
             _proposal("finance.refresh_cashflow", "Current balances, bills, income timing, and overdraft terms change the safe plan."),
             _proposal("finance.prepare_budget", "Prepare a protected-expense budget after current cash flow is refreshed.", missing=["verified balances", "dated bills", "income timing"]),
         ])
+    if re.search(r"\b(?:make|earn|need|want|get).{0,40}(?:money|cash|funds|\$|\d+k).{0,40}(?:fast|quick|easy|now|weeks?|months?|days?|soon|by|within)\b", lowered):
+        proposals.extend([
+            _proposal("task.create_quest", "Create a tracked income-generation quest from the user's goal.", {"goal": str(text or "")[:1000]}, missing=["title", "target outcome", "target completion"]),
+            _proposal("finance.prepare_budget", "Prepare a cash-flow plan that closes the stated money gap safely.", {"goal": str(text or "")[:1000]}, missing=["verified balances", "dated bills", "income timing"]),
+        ])
     if re.search(r"\b(place to stay|apartment hunting|house hunting|find (?:an? )?(?:apartment|house|home))\b", lowered):
         proposals.append(_proposal("housing.search_options", "The user has expressed an active housing need.", missing=["location", "move-in date", "household needs", "verified monthly housing limit", "total move-in cash available"]))
     if re.search(r"\b(polymarket|prediction market|market odds|implied probability)\b", lowered):

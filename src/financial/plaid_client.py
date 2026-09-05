@@ -18,6 +18,13 @@ BALANCE_QUERY_RE = re.compile(
     re.I,
 )
 
+BALANCE_GOAL_RE = re.compile(
+    r"\b(?:want|need|wish|like|get|make|reach|increase|raise)\b.{0,25}"
+    r"\b(?:balance|funds|bank)\b.{0,25}"
+    r"\b(?:to\s+be|to\s+reach|to\s+hit|to\s+get|to\s+make|by|in\s+\d+|within\s+\d+|\d+\s*(?:week|month|day|hour|min|minute)s?)\b",
+    re.I,
+)
+
 
 def _plaid_env_url(context: dict | None = None) -> str:
     env = provider_key(context, "plaid", "env", "PLAID_ENV", "production").strip().lower()
@@ -35,8 +42,11 @@ def _plaid_credentials(context: dict | None = None) -> tuple[str, str, str]:
 
 
 def parse_balance_query(text: str) -> bool:
-    """Detect a request for current cash/account balance."""
-    return bool(BALANCE_QUERY_RE.search(str(text or "")))
+    """Detect a request for current cash/account balance; ignore future-balance goals."""
+    text = str(text or "")
+    if BALANCE_GOAL_RE.search(text):
+        return False
+    return bool(BALANCE_QUERY_RE.search(text))
 
 
 def format_balances(accounts: list[dict]) -> str:

@@ -628,7 +628,9 @@
       messages: session.messages.map(({ role, content }) => ({ role, content })),
       surface: 'standalone_lab',
       mode: 'conversation',
-      context: shellContext()
+      context: shellContext(),
+      session_id: session.id,
+      persist_context: true
     };
 
     const abortController = new AbortController();
