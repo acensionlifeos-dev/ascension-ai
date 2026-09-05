@@ -495,7 +495,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
     image_prompt = parse_image_request(request.messages[-1].content)
     if image_prompt:
         started = time.perf_counter()
-        result = await asyncio.to_thread(generate_image, image_prompt)
+        result = await asyncio.to_thread(generate_image, image_prompt, request.context)
         latency_ms = round((time.perf_counter() - started) * 1000)
         if result["status"] == "image":
             return {
@@ -527,7 +527,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
     # Balance / fund queries go to Plaid if configured.
     if parse_balance_query(request.messages[-1].content):
         started = time.perf_counter()
-        result = await asyncio.to_thread(get_balances)
+        result = await asyncio.to_thread(get_balances, request.context)
         latency_ms = round((time.perf_counter() - started) * 1000)
         return {
             "content": result["message"],
@@ -590,7 +590,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
     image_prompt = parse_image_request(request.messages[-1].content)
     if image_prompt:
         started = time.perf_counter()
-        result = await asyncio.to_thread(generate_image, image_prompt)
+        result = await asyncio.to_thread(generate_image, image_prompt, request.context)
         latency_ms = round((time.perf_counter() - started) * 1000)
 
         def media_events():
@@ -623,7 +623,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
     # Balance / fund queries go to Plaid if configured.
     if parse_balance_query(request.messages[-1].content):
         started = time.perf_counter()
-        result = await asyncio.to_thread(get_balances)
+        result = await asyncio.to_thread(get_balances, request.context)
         latency_ms = round((time.perf_counter() - started) * 1000)
 
         def balance_events():
@@ -767,12 +767,13 @@ async def iphone_execute(request: iPhoneActionRequest, access: None = Depends(re
 class MediaRequest(BaseModel):
     prompt: str = Field(min_length=1, max_length=4000)
     provider: str = Field(default="dall-e-3")
+    context: dict = Field(default_factory=dict)
 
 
 @app.post("/v1/media/generate")
 async def media_generate(request: MediaRequest, _: None = Depends(require_access)) -> dict:
     """Generate media through the configured outside provider. DALL-E 3 is the first supported provider."""
-    return await asyncio.to_thread(generate_image, request.prompt)
+    return await asyncio.to_thread(generate_image, request.prompt, request.context)
 
 
 @app.post("/v1/iphone/inbox")

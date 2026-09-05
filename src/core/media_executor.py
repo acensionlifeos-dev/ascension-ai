@@ -6,8 +6,13 @@ import os
 import re
 
 
-def _openai_api_key() -> str:
-    """Read the OpenAI API key from the most common environment names."""
+def _openai_api_key(context: dict | None = None) -> str:
+    """Read the OpenAI API key from shell context first, then environment names."""
+    if context:
+        provider_keys = context.get("provider_keys") or {}
+        key = str(provider_keys.get("openai", {}).get("api_key", "")).strip()
+        if key:
+            return key
     for name in ("OPENAI_API_KEY", "OPENAI_KEY", "ASCENSION_OPENAI_API_KEY"):
         value = os.getenv(name, "").strip()
         if value:
@@ -49,13 +54,13 @@ def parse_image_request(text: str) -> str | None:
     return None
 
 
-def generate_image(prompt: str, size: str = "1024x1024", quality: str = "standard") -> dict:
+def generate_image(prompt: str, size: str = "1024x1024", quality: str = "standard", context: dict | None = None) -> dict:
     """Generate an image with DALL-E 3 if an OpenAI key is configured."""
-    api_key = _openai_api_key()
+    api_key = _openai_api_key(context)
     if not api_key:
         return {
             "status": "no_key",
-            "message": "No OpenAI API key found (checked OPENAI_API_KEY, OPENAI_KEY, ASCENSION_OPENAI_API_KEY). Add one to the environment to enable DALL-E 3 image generation.",
+            "message": "No OpenAI API key found. The shell can supply it in context['provider_keys']['openai']['api_key'], or set OPENAI_API_KEY / OPENAI_KEY / ASCENSION_OPENAI_API_KEY in the environment.",
         }
     try:
         import openai

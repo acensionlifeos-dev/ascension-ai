@@ -24,10 +24,18 @@ def _plaid_env_url() -> str:
     return "https://production.plaid.com"
 
 
-def _plaid_credentials() -> tuple[str, str, str]:
-    client_id = os.getenv("PLAID_CLIENT_ID", "").strip()
-    secret = os.getenv("PLAID_SECRET", "").strip()
-    access_token = os.getenv("PLAID_ACCESS_TOKEN", "").strip()
+def _plaid_credentials(context: dict | None = None) -> tuple[str, str, str]:
+    """Read Plaid credentials from shell context first, then environment."""
+    if context:
+        provider_keys = context.get("provider_keys") or {}
+        plaid = provider_keys.get("plaid", {})
+        client_id = str(plaid.get("client_id", "")).strip() or os.getenv("PLAID_CLIENT_ID", "").strip()
+        secret = str(plaid.get("secret", "")).strip() or os.getenv("PLAID_SECRET", "").strip()
+        access_token = str(plaid.get("access_token", "")).strip() or os.getenv("PLAID_ACCESS_TOKEN", "").strip()
+    else:
+        client_id = os.getenv("PLAID_CLIENT_ID", "").strip()
+        secret = os.getenv("PLAID_SECRET", "").strip()
+        access_token = os.getenv("PLAID_ACCESS_TOKEN", "").strip()
     return client_id, secret, access_token
 
 
@@ -66,15 +74,16 @@ def format_balances(accounts: list[dict]) -> str:
     return "No account balances were returned from Plaid."
 
 
-def get_balances() -> dict:
+def get_balances(context: dict | None = None) -> dict:
     """Fetch current balances from Plaid if credentials are configured."""
-    client_id, secret, access_token = _plaid_credentials()
+    client_id, secret, access_token = _plaid_credentials(context)
     if not (client_id and secret and access_token):
         return {
             "status": "no_key",
             "message": (
-                "Plaid is not configured. Add PLAID_CLIENT_ID, PLAID_SECRET, and "
-                "PLAID_ACCESS_TOKEN to the environment to check account balances."
+                "Plaid is not configured. The shell can supply credentials in "
+                "context['provider_keys']['plaid'] with 'client_id', 'secret', and 'access_token', "
+                "or set PLAID_CLIENT_ID, PLAID_SECRET, and PLAID_ACCESS_TOKEN in the environment."
             ),
         }
 
