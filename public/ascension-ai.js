@@ -21,6 +21,39 @@
   };
   const $ = selector => document.querySelector(selector);
 
+  function buildData(cognition) {
+    if (!cognition) return null;
+    return {
+      domains: cognition.domains || [],
+      surfaces: cognition.surface_recommendations || [],
+      retrieval: cognition.retrieval || [],
+      actions: cognition.action_proposals || []
+    };
+  }
+
+  function buildDataPanel(data) {
+    if (!data) return null;
+    const panel = document.createElement('div');
+    panel.className = 'data-panel';
+    if (data.domains?.length) panel.append(dataChips('Domains', data.domains));
+    if (data.surfaces?.length) panel.append(dataChips('Surfaces', data.surfaces));
+    if (data.retrieval?.length) panel.append(retrievalList(data.retrieval));
+    if (data.actions?.length) panel.append(actionCards(data.actions));
+    return panel.childNodes.length ? panel : null;
+  }
+
+  function appendDataPanel(data, wrap) {
+    if (!data || !wrap) return;
+    // Remove any previously appended data panel to avoid duplicates on updates.
+    wrap.querySelector('.data-panel')?.remove();
+    const panel = buildDataPanel(data);
+    if (panel) {
+      const meta = wrap.querySelector('.meta');
+      if (meta) wrap.insertBefore(panel, meta);
+      else wrap.append(panel);
+    }
+  }
+
   function shellContext() {
     // Family shells inject per-user provider keys and permissioned context here.
     // This object is never persisted to localStorage.
@@ -152,6 +185,7 @@
     avatar.className = 'avatar';
     avatar.textContent = message.role === 'assistant' ? 'A' : 'YOU';
     const wrap = document.createElement('div');
+    wrap.className = 'message-wrap';
     const body = document.createElement('div');
     body.className = 'message-body';
     if (message.imageUrl) {
@@ -168,6 +202,10 @@
       body.textContent = message.content;
     }
     wrap.append(body);
+    if (message.data) {
+      const panel = buildDataPanel(message.data);
+      if (panel) wrap.append(panel);
+    }
     if (message.meta) {
       const meta = document.createElement('div');
       meta.className = 'meta';
@@ -176,6 +214,62 @@
     }
     article.append(avatar, wrap);
     return article;
+  }
+
+  function dataChips(label, items) {
+    const wrap = document.createElement('div');
+    wrap.className = 'data-section';
+    const title = document.createElement('span');
+    title.className = 'data-label';
+    title.textContent = label;
+    wrap.append(title);
+    items.forEach(item => {
+      const chip = document.createElement('span');
+      chip.className = 'data-chip';
+      chip.textContent = String(item);
+      wrap.append(chip);
+    });
+    return wrap;
+  }
+
+  function retrievalList(items) {
+    const wrap = document.createElement('div');
+    wrap.className = 'data-section';
+    const title = document.createElement('span');
+    title.className = 'data-label';
+    title.textContent = 'Evidence';
+    wrap.append(title);
+    const list = document.createElement('ul');
+    list.className = 'data-list';
+    items.slice(0, 3).forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = String(item.text || item.document || item.metadata?.source || JSON.stringify(item)).slice(0, 220);
+      list.append(li);
+    });
+    wrap.append(list);
+    return wrap;
+  }
+
+  function actionCards(items) {
+    const wrap = document.createElement('div');
+    wrap.className = 'data-section';
+    const title = document.createElement('span');
+    title.className = 'data-label';
+    title.textContent = 'Proposed actions';
+    wrap.append(title);
+    items.slice(0, 6).forEach(action => {
+      const card = document.createElement('div');
+      card.className = 'action-card';
+      const header = document.createElement('div');
+      header.className = 'action-card-title';
+      header.textContent = action.action || 'action';
+      const meta = document.createElement('div');
+      meta.className = 'action-card-meta';
+      meta.textContent = `${action.domain || ''} · ${action.approval || ''}`.replace(/^\s*·\s*|\s*·\s*$/g, '');
+      card.append(header, meta);
+      wrap.append(card);
+    });
+    return wrap;
   }
 
   function renderHistory() {
@@ -339,10 +433,11 @@
   }
 
   function appendAssistantPlaceholder(metaLabel) {
-    const live = { role: 'assistant', content: '', meta: metaLabel };
+    const live = { role: 'assistant', content: '', meta: metaLabel, data: null };
     const node = messageNode(live);
     $('#messages').append(node);
-    return { live, node, body: node.querySelector('.message-body'), metaNode: node.querySelector('.meta') };
+    const wrap = node.querySelector('.message-wrap');
+    return { live, node, wrap, body: node.querySelector('.message-body'), metaNode: node.querySelector('.meta') };
   }
 
   function finalizeAction(node, live, result, metaPrefix, caption) {
@@ -498,7 +593,7 @@
     state.busy = true;
     appendUserMessage(prompt);
     setBusy('Aerynza native is thinking…');
-    const { live, node, body, metaNode } = appendAssistantPlaceholder('Aerynza native is thinking…');
+    const { live, node, wrap, body, metaNode } = appendAssistantPlaceholder('Aerynza native is thinking…');
     let meta = {};
     let done = {};
     const payload = {
@@ -531,6 +626,8 @@
     function onEvent(event, data) {
       if (event === 'meta') {
         meta = data;
+        live.data = buildData(data.cognition);
+        appendDataPanel(live.data, wrap);
         const talentCount = data.cognition?.talents?.length || 0;
         metaNode.textContent = `${data.shell || state.shell} · ${data.tier || state.tier} · ${talentCount} relevant talents · ${data.model || 'Aerynza native'}`;
       }
@@ -559,6 +656,8 @@
         }
         meta = result;
         done = result;
+        live.data = buildData(result.cognition);
+        appendDataPanel(live.data, wrap);
       }
       if (!body.textContent.trim() && !live.imageUrl) throw new Error('Aerynza native returned an empty response.');
       live.content = body.textContent || live.content || '';

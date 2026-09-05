@@ -546,6 +546,17 @@ SENSITIVE_CONTEXT_KEYS = {
 }
 
 
+SHELL_CONTEXT_DENYLIST: dict[Shell, set[str]] = {
+    Shell.CORE: {"human_thesis", "home_thesis", "family_thesis", "sprout_profile"},
+    Shell.AP: {"home_thesis", "family_thesis", "sprout_profile"},
+    Shell.LIFE_OS: {"home_thesis", "family_thesis", "sprout_profile"},
+    Shell.NEXUS_HOME: {"human_thesis", "family_thesis", "sprout_profile"},
+    Shell.NEXUS_FAMILY: {"human_thesis", "home_thesis", "sprout_profile"},
+    Shell.SPROUT: {"human_thesis", "home_thesis", "family_thesis", "finance", "health", "relationships", "goals", "documents", "memories"},
+    Shell.CREATION: {"human_thesis", "home_thesis", "family_thesis", "sprout_profile"},
+}
+
+
 def _redact_sensitive(value: Any) -> Any:
     """Recursively redact known secret-bearing fields from context copies."""
     if isinstance(value, dict):
@@ -559,6 +570,25 @@ def _redact_sensitive(value: Any) -> Any:
     if isinstance(value, list):
         return [_redact_sensitive(item) for item in value]
     return value
+
+
+def scope_context(context: dict, shell: Shell) -> dict:
+    """Return a shell-scoped copy of the context, redacted and privacy-filtered.
+
+    Each shell receives only the data it is permitted to reason over. Provider keys
+    and other secrets are removed before the model prompt, and sensitive theses
+    (e.g. an individual's Human Thesis) are not exposed to household or family
+    shells. Sprout begins as a new user and receives only child-safe context keys.
+    """
+    if not isinstance(context, dict):
+        return {}
+    redacted = _redact_sensitive(context)
+    deny = SHELL_CONTEXT_DENYLIST.get(shell, set())
+    return {
+        key: value
+        for key, value in redacted.items()
+        if key not in deny and key != "provider_keys"
+    }
 
 
 def compact_context(context: dict, limit: int = 8_000) -> str:
@@ -589,7 +619,8 @@ def authorized_domains(detected: list[str], allowed_capabilities: list[str]) -> 
 
 def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context: dict, surface: str, mode: str, allowed_capabilities: list[str], available_actions: list[str] | None = None) -> dict:
     latest = messages[-1]["content"] if messages else ""
-    cognitive = build_cognitive_packet(latest, context, allowed_capabilities, available_actions)
+    scoped_context = scope_context(context, shell)
+    cognitive = build_cognitive_packet(latest, scoped_context, allowed_capabilities, available_actions)
     execution_contract = build_action_execution_contract(cognitive, shell)
     domains = authorized_domains(cognitive["domains"], allowed_capabilities)
     capabilities = capability_packet(domains)
@@ -609,7 +640,7 @@ def prepare_inference(*, shell: Shell, tier: Tier, messages: list[dict], context
             f"Response contract: {response_contract(mode)} "
             f"Relevant domains: {','.join(domains)}. "
             f"Aerynza cognition packet: {json.dumps(prompt_cognition, ensure_ascii=False, separators=(',', ':'))}. "
-            f"Permission-scoped context packet: {compact_context(context)}"
+            f"Permission-scoped context packet: {compact_context(scoped_context)}"
         ),
     }
     return {

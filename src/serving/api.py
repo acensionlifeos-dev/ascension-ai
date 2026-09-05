@@ -676,6 +676,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
             "memory_candidates": cognition_meta.get("memory_candidates", []),
             "action_proposals": cognition_meta.get("action_proposals", []),
             "surface_recommendations": cognition_meta.get("surface_recommendations", []),
+            "retrieval": (cognition_meta.get("retrieval", []) or [])[:3],
         }
         meta.update({"model": runtime.status()["model"], "provider": "Aerynza-Native", "outside_provider": False})
         yield f"event: meta\ndata: {json.dumps(meta, separators=(',', ':'))}\n\n"
