@@ -37,7 +37,7 @@ KEYWORDS = {
     "creation": r"\b(create|creation|content|video|music|write|idea|audience|youtube|twitch|kick)\b",
     "relationships": r"\b(friend|relationship|dating|partner|social|message|reply|person|people)\b",
     "family": r"\b(family|familyos|nexusfamily|family tree|family economy|relative|legacy|governance)\b",
-    "home": r"\b(household|homeos|nexushome|coparent|co-parent|child|children|custody|sprout|chore|smart home|device)\b",
+    "home": r"\b(home|household|homeos|nexushome|coparent|co-parent|child|children|custody|sprout|chore|smart home|device)\b",
     "sprout": r"\b(sprout|child development|milestone|parenting|learning path|age appropriate|kid|toddler|teen)\b",
     "career": r"\b(job|career|resume|employer|interview|work opportunity|profession)\b",
     "emotional": r"\b(feel|emotion|sad|angry|anxious|stressed|overwhelmed|happy|lonely|journal)\b",
