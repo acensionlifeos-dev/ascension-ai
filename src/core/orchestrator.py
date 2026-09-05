@@ -548,8 +548,8 @@ SENSITIVE_CONTEXT_KEYS = {
 
 SHELL_CONTEXT_DENYLIST: dict[Shell, set[str]] = {
     Shell.CORE: {"human_thesis", "home_thesis", "family_thesis", "sprout_profile"},
-    Shell.AP: {"home_thesis", "family_thesis", "sprout_profile"},
-    Shell.LIFE_OS: {"home_thesis", "family_thesis", "sprout_profile"},
+    Shell.AP: {"sprout_profile"},
+    Shell.LIFE_OS: {"sprout_profile"},
     Shell.NEXUS_HOME: {"human_thesis", "family_thesis", "sprout_profile"},
     Shell.NEXUS_FAMILY: {"human_thesis", "home_thesis", "sprout_profile"},
     Shell.SPROUT: {"human_thesis", "home_thesis", "family_thesis", "finance", "health", "relationships", "goals", "documents", "memories"},
