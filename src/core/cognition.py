@@ -262,11 +262,13 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
             _proposal("finance.refresh_cashflow", "Current balances, bills, income timing, and overdraft terms change the safe plan."),
             _proposal("finance.prepare_budget", "Prepare a protected-expense budget after current cash flow is refreshed.", missing=["verified balances", "dated bills", "income timing"]),
         ])
-    if re.search(r"\b(?:make|earn|need|want|get).{0,40}(?:money|cash|funds|\$|\d+k).{0,40}(?:fast|quick|easy|now|weeks?|months?|days?|soon|by|within)\b", lowered):
+    if re.search(r"\b(?:make|earn|need|want|get|save|have).{0,40}(?:money|cash|funds|\$|\d+k).{0,40}(?:fast|quick|easy|now|weeks?|months?|days?|soon|by|within|nest\s+egg|savings|emergency\s+fund|rainy\s+day)\b", lowered):
         proposals.extend([
-            _proposal("task.create_quest", "Create a tracked income-generation quest from the user's goal.", {"goal": str(text or "")[:1000]}, missing=["title", "target outcome", "target completion"]),
+            _proposal("task.create_quest", "Create a tracked income or savings quest from the user's goal.", {"goal": str(text or "")[:1000]}, missing=["title", "target outcome", "target completion"]),
             _proposal("finance.prepare_budget", "Prepare a cash-flow plan that closes the stated money gap safely.", {"goal": str(text or "")[:1000]}, missing=["verified balances", "dated bills", "income timing"]),
         ])
+    if re.search(r"\b(?:pay|spend|cost|owe|bill).{0,30}(?:\$\d+|\d+\s*(?:dollars?|usd)?|\d+k).{0,20}(?:a|per)\s+(?:week|month|year)\b", lowered):
+        proposals.append(_proposal("finance.prepare_budget", "User listed recurring expenses; prepare a protected-expense budget.", {"expenses": str(text or "")[:1000]}, missing=["verified balances", "dated bills", "income timing"]))
     if re.search(r"\b(place to stay|apartment hunting|house hunting|find (?:an? )?(?:apartment|house|home))\b", lowered):
         proposals.append(_proposal("housing.search_options", "The user has expressed an active housing need.", missing=["location", "move-in date", "household needs", "verified monthly housing limit", "total move-in cash available"]))
     if re.search(r"\b(polymarket|prediction market|market odds|implied probability)\b", lowered):
@@ -317,7 +319,7 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("immersive.prepare_world", "Compile an Aerynza-native spatial world manifest; a real engine receipt is required before claiming it rendered.", missing=["target device", "experience mode", "authorized assets"]))
     if re.search(r"\b(?:send|email|message|post)\b", lowered):
         proposals.append(_proposal("messages.send", "External communication requires the user to approve the exact recipient and content.", missing=["recipient", "final content", "connected provider"]))
-    if re.search(r"\b(?:pay|payment|purchase|buy|transfer money)\b", lowered):
+    if re.search(r"\b(?:make a payment|send a payment|transfer money|send money|(?:pay|send|transfer)\s+(?:\$\d+|\d+[,.]?\d*\s*(?:dollars?|usd))\s+(?:to|from)\b|pay\s+(?:the |my |a )?(?:bill|invoice|rent|mortgage|payment|dues))\b", lowered):
         payment_missing = []
         if not re.search(r"(?:\$|usd\s*)\s*\d+(?:[,.]\d{1,2})?\b", source, re.I):
             payment_missing.append("amount")
