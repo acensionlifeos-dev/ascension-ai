@@ -413,6 +413,15 @@ def deterministic_first_pass(cognitive: dict, mode: str) -> str | None:
             "keep the hours before work light, and place demanding personal work on the nights off when possible. "
             "The two details that materially change the weekly map are the preferred sleep window and any fixed commitments or commute time."
         )
+    if "task.create_quest" in actions:
+        quest = next((item for item in cognitive.get("action_proposals", []) if item.get("action") == "task.create_quest"), {})
+        goal = str(quest.get("arguments", {}).get("goal", "")).strip()
+        lowered = (goal or "").lower()
+        if any(term in lowered for term in ("2k", "2000", "k in", "nest egg", "savings", "make money", "earn", "income", "extra money", "raise")):
+            return (
+                "Let's turn this into a tracked quest. Fast, realistic paths: cut variable spending, add quick income, sell unused assets, or negotiate recurring bills. "
+                f"I can build it around your goal: {goal}. Which path do you want to explore first?"
+            )
     if "finance.prepare_budget" in actions:
         return (
             "Nothing has been budgeted or moved yet. First protect housing, utilities, food, transportation, medication, and the income-producing essentials. "
