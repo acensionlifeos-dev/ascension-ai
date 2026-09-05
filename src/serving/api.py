@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import hmac
 import json
 import keyring
@@ -11,11 +12,67 @@ import secrets
 import time
 from contextlib import asynccontextmanager
 from pathlib import Path
+from threading import Lock
 from typing import Literal
 
 
 SESSIONS = set()
 KEYRING_SERVICE = "Aerynza AI"
+SESSION_CONTEXTS: dict[str, dict] = {}
+_SESSION_LOCK = Lock()
+MAX_SESSION_CONTEXT_BYTES = 200_000
+
+
+def _session_key(session_id: str, authorization: str | None) -> str:
+    token = ""
+    if authorization and authorization.lower().startswith("bearer "):
+        token = authorization[7:].strip()
+    return hashlib.sha256(f"{token}:{session_id}".encode("utf-8")).hexdigest()
+
+
+def get_session_context(session_id: str, authorization: str | None) -> dict:
+    if not session_id:
+        return {}
+    key = _session_key(session_id, authorization)
+    with _SESSION_LOCK:
+        return SESSION_CONTEXTS.get(key, {}).copy()
+
+
+def set_session_context(session_id: str, context: dict, authorization: str | None, merge: bool = False) -> dict:
+    if not session_id:
+        return context
+    key = _session_key(session_id, authorization)
+    with _SESSION_LOCK:
+        existing = SESSION_CONTEXTS.get(key, {}) if merge else {}
+        merged = _merge_context(existing, context)
+        if len(json.dumps(merged, default=str)) > MAX_SESSION_CONTEXT_BYTES:
+            raise ValueError("session context exceeds size limit")
+        SESSION_CONTEXTS[key] = merged
+    return merged
+
+
+def _merge_context(existing: dict, new: dict) -> dict:
+    result = {**existing}
+    for key, value in new.items():
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = _merge_context(result[key], value)
+        elif key in result and isinstance(result[key], list) and isinstance(value, list):
+            result[key] = result[key] + value
+        else:
+            result[key] = value
+    return result
+
+
+def resolve_session_context(request, authorization: str | None) -> dict:
+    """Merge persisted session context with request context; persist the result when asked."""
+    if not getattr(request, "session_id", None):
+        return request.context
+    stored = get_session_context(request.session_id, authorization)
+    merged = _merge_context(stored, request.context)
+    if getattr(request, "persist_context", False):
+        set_session_context(request.session_id, request.context, authorization, merge=True)
+    return merged
+
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -107,6 +164,8 @@ class IntelligenceRequest(BaseModel):
     available_actions: list[str] = Field(default_factory=list, max_length=100)
     temperature: float = Field(default=0.65, ge=0.0, le=1.2)
     max_tokens: int = Field(default=500, ge=32, le=1600)
+    session_id: str = Field(default="", max_length=120)
+    persist_context: bool = True
 
     @field_validator("messages")
     @classmethod
@@ -139,6 +198,8 @@ class SurfacePlanRequest(BaseModel):
     context: dict = Field(default_factory=dict)
     available_actions: list[str] = Field(default_factory=list, max_length=100)
     allowed_capabilities: list[str] = Field(default_factory=list, max_length=100)
+    session_id: str = Field(default="", max_length=120)
+    persist_context: bool = True
 
 
 class CognitionRequest(SurfacePlanRequest):
@@ -153,6 +214,22 @@ class RetrievalRequest(BaseModel):
 
 class MemoryCandidateRequest(BaseModel):
     text: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
+
+
+class SessionContextRequest(BaseModel):
+    session_id: str = Field(min_length=1, max_length=120)
+    context: dict = Field(default_factory=dict)
+    merge: bool = True
+
+
+class SessionRefreshRequest(BaseModel):
+    session_id: str = Field(min_length=1, max_length=120)
+    shell: Shell = Shell.AP
+    tier: Tier = Tier.LIFE_OS
+    trigger: str = Field(default="refresh", min_length=1, max_length=MAX_MESSAGE_LENGTH)
+    surface: str = Field(default="chat", max_length=100)
+    allowed_capabilities: list[str] = Field(default_factory=list, max_length=100)
+    available_actions: list[str] = Field(default_factory=list, max_length=100)
 
 
 class ThesisRequest(BaseModel):
@@ -374,8 +451,9 @@ async def talents(_: None = Depends(require_access)) -> dict:
 
 
 @app.post("/v1/cognition")
-async def cognition(request: CognitionRequest, _: None = Depends(require_access)) -> dict:
-    scoped_context = scope_context(request.context, request.shell)
+async def cognition(request: CognitionRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    context = resolve_session_context(request, authorization)
+    scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet(
         request.trigger,
         scoped_context,
@@ -386,7 +464,7 @@ async def cognition(request: CognitionRequest, _: None = Depends(require_access)
     return {
         "shell": request.shell.value,
         "tier": request.tier.value,
-        "surface": request.context.get("surface", "chat"),
+        "surface": context.get("surface", "chat"),
         **packet,
         "execution_contract": execution_contract,
         "outside_provider": False,
@@ -459,19 +537,54 @@ async def thesis_contribution(request: ThesisContributionRequest, _: None = Depe
 
 
 @app.post("/v1/surface-plan")
-async def plan_surfaces(request: SurfacePlanRequest, _: None = Depends(require_access)) -> dict:
+async def plan_surfaces(request: SurfacePlanRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    context = resolve_session_context(request, authorization)
     return surface_plan(
         shell=request.shell,
         tier=request.tier,
         trigger=request.trigger,
-        context=request.context,
+        context=context,
         available_actions=request.available_actions,
         allowed_capabilities=request.allowed_capabilities,
     )
 
 
+@app.post("/v1/session/context")
+async def set_session(request: SessionContextRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    merged = set_session_context(request.session_id, request.context, authorization, merge=request.merge)
+    return {
+        "session_id": request.session_id,
+        "keys": list(merged.keys()),
+        "size_bytes": len(json.dumps(merged, default=str)),
+        "rule": "Session context is merged with any previously stored context for this token/session.",
+    }
+
+
+@app.post("/v1/session/data-panels")
+async def session_data_panels(request: SessionRefreshRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    context = get_session_context(request.session_id, authorization)
+    scoped_context = scope_context(context, request.shell)
+    packet = build_cognitive_packet(
+        request.trigger,
+        scoped_context,
+        request.allowed_capabilities,
+        request.available_actions,
+    )
+    return {
+        "session_id": request.session_id,
+        "shell": request.shell.value,
+        "tier": request.tier.value,
+        "surface": request.surface,
+        "data_panels": packet.get("data_panels", []),
+        "surface_recommendations": packet.get("surface_recommendations", []),
+        "domains": packet.get("domains", []),
+        "outside_provider": False,
+    }
+
+
 @app.post("/v1/intelligence")
-async def intelligence(request: IntelligenceRequest, _: None = Depends(require_access)) -> dict:
+async def intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
         return {
@@ -497,7 +610,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
     image_prompt = parse_image_request(request.messages[-1].content)
     if image_prompt:
         started = time.perf_counter()
-        result = await asyncio.to_thread(generate_image, image_prompt, request.context)
+        result = await asyncio.to_thread(generate_image, image_prompt, context)
         latency_ms = round((time.perf_counter() - started) * 1000)
         if result["status"] == "image":
             return {
@@ -529,7 +642,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
     # Balance / fund queries go to Plaid if configured.
     if parse_balance_query(request.messages[-1].content):
         started = time.perf_counter()
-        result = await asyncio.to_thread(get_balances, request.context)
+        result = await asyncio.to_thread(get_balances, context)
         latency_ms = round((time.perf_counter() - started) * 1000)
         return {
             "content": result["message"],
@@ -551,7 +664,7 @@ async def intelligence(request: IntelligenceRequest, _: None = Depends(require_a
             shell=request.shell,
             tier=request.tier,
             messages=[message.model_dump() for message in request.messages],
-            context=request.context,
+            context=context,
             surface=request.surface,
             mode=request.mode,
             allowed_capabilities=request.allowed_capabilities,
@@ -573,7 +686,8 @@ async def chat(request: IntelligenceRequest, access: None = Depends(require_acce
 
 
 @app.post("/v1/stream")
-async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(require_access)):
+async def stream_intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)):
+    context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
         def emergency_events():
@@ -592,7 +706,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
     image_prompt = parse_image_request(request.messages[-1].content)
     if image_prompt:
         started = time.perf_counter()
-        result = await asyncio.to_thread(generate_image, image_prompt, request.context)
+        result = await asyncio.to_thread(generate_image, image_prompt, context)
         latency_ms = round((time.perf_counter() - started) * 1000)
 
         def media_events():
@@ -625,7 +739,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
     # Balance / fund queries go to Plaid if configured.
     if parse_balance_query(request.messages[-1].content):
         started = time.perf_counter()
-        result = await asyncio.to_thread(get_balances, request.context)
+        result = await asyncio.to_thread(get_balances, context)
         latency_ms = round((time.perf_counter() - started) * 1000)
 
         def balance_events():
@@ -656,7 +770,7 @@ async def stream_intelligence(request: IntelligenceRequest, _: None = Depends(re
         shell=request.shell,
         tier=request.tier,
         messages=[message.model_dump() for message in request.messages],
-        context=request.context,
+        context=context,
         surface=request.surface,
         mode=request.mode,
         allowed_capabilities=request.allowed_capabilities,
