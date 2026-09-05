@@ -232,6 +232,15 @@ class SessionRefreshRequest(BaseModel):
     available_actions: list[str] = Field(default_factory=list, max_length=100)
 
 
+class RelationshipFeedRequest(BaseModel):
+    shell: Shell = Shell.AP
+    tier: Tier = Tier.LIFE_OS
+    context: dict = Field(default_factory=dict)
+    surface: str = Field(default="relationship_feed", max_length=100)
+    session_id: str = Field(default="", max_length=120)
+    persist_context: bool = True
+
+
 class ThesisRequest(BaseModel):
     scope: Literal["human", "sprout", "home", "family", "product"]
     subject_id: str = Field(min_length=1, max_length=200)
@@ -578,6 +587,72 @@ async def session_data_panels(request: SessionRefreshRequest, authorization: str
         "data_panels": packet.get("data_panels", []),
         "surface_recommendations": packet.get("surface_recommendations", []),
         "domains": packet.get("domains", []),
+        "outside_provider": False,
+    }
+
+
+def _build_relationships_feed(context: dict, shell: Shell) -> dict:
+    """Combine social, Aerynza, family, home, and dating entries into a mixed feed.
+
+    Full relationship profiles stay in AP; lightweight social acquaintances are
+    labelled so the screen can distinguish real friends from social-only contacts.
+    """
+    feed: list[dict] = []
+    tabs: list[dict] = []
+    full_profiles: list[dict] = []
+    opportunities: list[dict] = []
+    source_map = {
+        "social_contacts": ("Social Media", "social", False),
+        "aerynza_social": ("Aerynza Social", "aerynza", False),
+        "family_members": ("Family", "family", True),
+        "home_members": ("Home", "home", True),
+        "dating_profiles": ("Aerynza Dating", "dating", True),
+        "actual_relationships": ("Actual Relationships", "actual", True),
+    }
+    for key, (label, tab, is_real) in source_map.items():
+        items = context.get(key, []) if isinstance(context.get(key), (list, tuple)) else []
+        if not items:
+            continue
+        tabs.append({"id": tab, "label": label, "count": len(items)})
+        for item in items[:20]:
+            if isinstance(item, str):
+                row = {"title": item, "summary": "", "real_relationship": is_real, "source": tab}
+            elif isinstance(item, dict):
+                row = {
+                    "title": item.get("name") or item.get("title") or str(item)[:80],
+                    "summary": item.get("summary") or item.get("note") or "",
+                    "real_relationship": is_real,
+                    "source": tab,
+                }
+            else:
+                continue
+            feed.append(row)
+            if is_real:
+                full_profiles.append({**row, "domain": tab})
+            elif tab in {"social", "aerynza"}:
+                opportunities.append(row)
+    return {
+        "feed": feed[:30],
+        "tabs": tabs,
+        "opportunities": opportunities[:6],
+        "full_profiles": full_profiles[:12],
+        "rule": "Social acquaintances are not real friendships. Full profiles are for family, home, dating, and explicitly marked actual relationships.",
+    }
+
+
+@app.post("/v1/relationships/feed")
+async def relationships_feed(request: RelationshipFeedRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    context = resolve_session_context(request, authorization)
+    scoped_context = scope_context(context, request.shell)
+    packet = build_cognitive_packet("mixed social feed", scoped_context, [])
+    feed = _build_relationships_feed(scoped_context, request.shell)
+    return {
+        "shell": request.shell.value,
+        "tier": request.tier.value,
+        "surface": request.surface,
+        **feed,
+        "data_panels": packet.get("data_panels", []),
+        "surface_recommendations": packet.get("surface_recommendations", []),
         "outside_provider": False,
     }
 

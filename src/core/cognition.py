@@ -286,6 +286,8 @@ def propose_actions(text: str, memory_candidates: list[dict], available_actions:
         proposals.append(_proposal("learning.prepare_course", "The user requested learning; prepare an optional adaptive Academy course.", missing=["current skill level", "time available", "desired outcome"]))
     if re.search(r"\b(?:job|career|resume|apply)\b", lowered):
         proposals.append(_proposal("career.research_jobs", "Research and enrich relevant opportunities without inventing missing facts."))
+    if re.search(r"\b(?:network|connect|meet new people|make friends|expand.*circle|introduce)\b", lowered):
+        proposals.append(_proposal("messages.send", "Reach out to build or maintain a relationship.", missing=["recipient", "final content", "connected provider"]))
     if re.search(r"\b(?:quest|task)\b", lowered):
         proposals.append(_proposal("task.create_quest", "Create a tracked quest from the user's explicit goal.", missing=["title", "target outcome", "target completion"]))
     if re.search(r"\b(?:add|schedule|book|put|create|remove|delete|cancel)\b.{0,50}\b(?:appointment|event|calendar|meeting)\b", lowered):
