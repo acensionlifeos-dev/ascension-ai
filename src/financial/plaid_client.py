@@ -8,6 +8,8 @@ import re
 import urllib.error
 import urllib.request
 
+from src.core.provider_keys import provider_key
+
 
 BALANCE_QUERY_RE = re.compile(
     r"\b(?:how\s+much\s+(?:do\s+i\s+have|is\s+in|money|cash|funds)|"
@@ -17,8 +19,8 @@ BALANCE_QUERY_RE = re.compile(
 )
 
 
-def _plaid_env_url() -> str:
-    env = os.getenv("PLAID_ENV", "production").strip().lower()
+def _plaid_env_url(context: dict | None = None) -> str:
+    env = provider_key(context, "plaid", "env", "PLAID_ENV", "production").strip().lower()
     if env in ("sandbox", "development"):
         return f"https://{env}.plaid.com"
     return "https://production.plaid.com"
@@ -26,16 +28,9 @@ def _plaid_env_url() -> str:
 
 def _plaid_credentials(context: dict | None = None) -> tuple[str, str, str]:
     """Read Plaid credentials from shell context first, then environment."""
-    if context:
-        provider_keys = context.get("provider_keys") or {}
-        plaid = provider_keys.get("plaid", {})
-        client_id = str(plaid.get("client_id", "")).strip() or os.getenv("PLAID_CLIENT_ID", "").strip()
-        secret = str(plaid.get("secret", "")).strip() or os.getenv("PLAID_SECRET", "").strip()
-        access_token = str(plaid.get("access_token", "")).strip() or os.getenv("PLAID_ACCESS_TOKEN", "").strip()
-    else:
-        client_id = os.getenv("PLAID_CLIENT_ID", "").strip()
-        secret = os.getenv("PLAID_SECRET", "").strip()
-        access_token = os.getenv("PLAID_ACCESS_TOKEN", "").strip()
+    client_id = provider_key(context, "plaid", "client_id", "PLAID_CLIENT_ID")
+    secret = provider_key(context, "plaid", "secret", "PLAID_SECRET")
+    access_token = provider_key(context, "plaid", "access_token", "PLAID_ACCESS_TOKEN")
     return client_id, secret, access_token
 
 
@@ -93,7 +88,7 @@ def get_balances(context: dict | None = None) -> dict:
         "access_token": access_token,
     }).encode("utf-8")
     req = urllib.request.Request(
-        f"{_plaid_env_url()}/accounts/balance/get",
+        f"{_plaid_env_url(context)}/accounts/balance/get",
         data=payload,
         headers={"Content-Type": "application/json"},
         method="POST",

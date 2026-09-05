@@ -21,6 +21,12 @@
   };
   const $ = selector => document.querySelector(selector);
 
+  function shellContext() {
+    // Family shells inject per-user provider keys and permissioned context here.
+    // This object is never persisted to localStorage.
+    return (typeof window !== 'undefined' && window.ASCENSION_SHELL_CONTEXT) || {};
+  }
+
   function migrateStorage(newKey, legacyKey) {
     const current = localStorage.getItem(newKey);
     if (current !== null) return current;
@@ -408,7 +414,7 @@
     const { live, node } = appendAssistantPlaceholder('iPhone shell');
     try {
       const command = parseiPhoneCommand(tail);
-      const result = await request('/v1/iphone/execute', { method: 'POST', body: JSON.stringify(command) }, 12000);
+      const result = await request('/v1/iphone/execute', { method: 'POST', body: JSON.stringify({ ...command, context: shellContext() }) }, 12000);
       finalizeAction(node, live, result, 'iPhone', 'iPhone screenshot:');
       session.messages.push(live);
       save();
@@ -434,7 +440,7 @@
     setBusy('Running DALL-E 3…');
     const { live, node } = appendAssistantPlaceholder('DALL-E 3');
     try {
-      const result = await request('/v1/media/generate', { method: 'POST', body: JSON.stringify({ prompt: tail, provider: 'dall-e-3' }) }, 90000);
+      const result = await request('/v1/media/generate', { method: 'POST', body: JSON.stringify({ prompt: tail, provider: 'dall-e-3', context: shellContext() }) }, 90000);
       finalizeAction(node, live, result, 'DALL-E 3', 'DALL-E 3 image:');
       session.messages.push(live);
       save();
@@ -500,7 +506,8 @@
       tier: state.tier,
       messages: session.messages.map(({ role, content }) => ({ role, content })),
       surface: 'standalone_lab',
-      mode: 'conversation'
+      mode: 'conversation',
+      context: shellContext()
     };
 
     const abortController = new AbortController();

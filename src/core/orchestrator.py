@@ -539,8 +539,30 @@ def enforce_response_contract(content: str, cognitive: dict, context: dict, mode
     return answer
 
 
+SENSITIVE_CONTEXT_KEYS = {
+    "provider_keys", "api_key", "api_keys", "secret", "secrets", "token", "tokens",
+    "access_token", "refresh_token", "password", "passwords", "credential",
+    "credentials", "webhook_url", "private_key", "cert", "certificate",
+}
+
+
+def _redact_sensitive(value: Any) -> Any:
+    """Recursively redact known secret-bearing fields from context copies."""
+    if isinstance(value, dict):
+        cleaned: dict[str, Any] = {}
+        for key, item in value.items():
+            if key in SENSITIVE_CONTEXT_KEYS or any(secret in key.lower() for secret in ("key", "secret", "token", "password", "credential", "webhook", "certificate", "cert")):
+                cleaned[key] = "<redacted>"
+            else:
+                cleaned[key] = _redact_sensitive(item)
+        return cleaned
+    if isinstance(value, list):
+        return [_redact_sensitive(item) for item in value]
+    return value
+
+
 def compact_context(context: dict, limit: int = 8_000) -> str:
-    """Keep evidence and receipts ahead of low-value UI/runtime metadata."""
+    """Keep evidence and receipts ahead of low-value UI/runtime metadata; never expose provider keys."""
     if not isinstance(context, dict):
         return "{}"
     priority = (
@@ -548,8 +570,12 @@ def compact_context(context: dict, limit: int = 8_000) -> str:
         "memories", "documents", "knowledge", "profile", "schedule", "finance",
         "health", "relationships", "goals", "available_actions",
     )
-    ordered = {key: context[key] for key in priority if key in context}
-    ordered.update({key: value for key, value in context.items() if key not in ordered and key not in {"debug", "telemetry", "ui_state"}})
+    ordered = {key: _redact_sensitive(context[key]) for key in priority if key in context}
+    ordered.update({
+        key: _redact_sensitive(value)
+        for key, value in context.items()
+        if key not in ordered and key not in {"debug", "telemetry", "ui_state"}
+    })
     encoded = json.dumps(ordered, ensure_ascii=False, separators=(",", ":"), default=str)
     return encoded[:limit]
 

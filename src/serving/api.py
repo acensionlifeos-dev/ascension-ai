@@ -725,6 +725,7 @@ async def generate(request: LegacyGenerationRequest, access: None = Depends(requ
 class WindowsActionRequest(BaseModel):
     action: str = Field(min_length=1, max_length=40)
     params: dict = Field(default_factory=dict)
+    context: dict = Field(default_factory=dict)
 
 
 @app.post("/v1/windows/execute")
@@ -741,6 +742,7 @@ async def windows_execute(request: WindowsActionRequest, access: None = Depends(
 class AndroidActionRequest(BaseModel):
     action: str = Field(min_length=1, max_length=40)
     params: dict = Field(default_factory=dict)
+    context: dict = Field(default_factory=dict)
 
 
 @app.post("/v1/android/execute")
@@ -756,12 +758,13 @@ async def android_execute(request: AndroidActionRequest, access: None = Depends(
 class iPhoneActionRequest(BaseModel):
     action: str = Field(min_length=1, max_length=40)
     params: dict = Field(default_factory=dict)
+    context: dict = Field(default_factory=dict)
 
 
 @app.post("/v1/iphone/execute")
 async def iphone_execute(request: iPhoneActionRequest, access: None = Depends(require_access)) -> dict:
     """Execute one allowed iPhone action through a user-configured iOS Shortcut webhook."""
-    return iphone_bridge.run(request.action, **request.params)
+    return iphone_bridge.run(request.action, context=request.context, **request.params)
 
 
 class MediaRequest(BaseModel):

@@ -3,8 +3,11 @@
 The Windows side hosts a FastAPI endpoint. The iPhone reaches the PC over the
 local network and/or a user-configured webhook URL.
 
-Required environment:
-    IPHONE_WEBHOOK_URL  - the URL of an iOS Shortcut that can receive POST JSON.
+The webhook URL can be supplied by the shell in::
+
+    context["provider_keys"]["iphone"]["webhook_url"]
+
+or by the environment variable IPHONE_WEBHOOK_URL.
 
 The iPhone can also POST to /v1/iphone/inbox to send data to Ascension.
 """
@@ -12,18 +15,22 @@ The iPhone can also POST to /v1/iphone/inbox to send data to Ascension.
 from __future__ import annotations
 
 import json
-import os
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import requests
+from src.core.provider_keys import provider_key
 
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 INBOX_FILE = DATA / "iphone_inbox.json"
-IPHONE_WEBHOOK_URL = os.environ.get("IPHONE_WEBHOOK_URL", "").strip()
+
+
+def _webhook_url(context: dict | None = None) -> str:
+    return provider_key(context, "iphone", "webhook_url", "IPHONE_WEBHOOK_URL")
 
 
 def _ensure_data() -> None:
@@ -47,12 +54,13 @@ def _save_inbox(inbox: list) -> None:
         json.dump(inbox, file, indent=2)
 
 
-def send(message: str) -> dict:
+def send(message: str, context: dict | None = None) -> dict:
     """Send a message to the configured iOS Shortcut webhook."""
-    if not IPHONE_WEBHOOK_URL:
+    url = _webhook_url(context)
+    if not url:
         return {
             "status": "error",
-            "message": "IPHONE_WEBHOOK_URL is not set. Add it to ascension.env and restart.",
+            "message": "iPhone webhook URL is not set. Supply it in context['provider_keys']['iphone']['webhook_url'] or set IPHONE_WEBHOOK_URL.",
         }
     try:
         payload = {
@@ -60,24 +68,34 @@ def send(message: str) -> dict:
             "from": "Ascension AI",
             "sent_at": datetime.now(timezone.utc).isoformat(),
         }
-        response = requests.post(IPHONE_WEBHOOK_URL, json=payload, timeout=30)
+        request = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            body = response.read().decode("utf-8", errors="replace")[:500]
         return {
             "status": "sent",
-            "url": IPHONE_WEBHOOK_URL,
-            "response_status": response.status_code,
-            "body": response.text[:500],
+            "url": url,
+            "response_status": response.status,
+            "body": body,
         }
+    except urllib.error.HTTPError as error:
+        body = error.read().decode("utf-8", errors="replace")[:500]
+        return {"status": "error", "message": f"iPhone webhook returned {error.code}: {body}"}
     except Exception as error:
         return {"status": "error", "message": str(error)}
 
 
-def list_messages() -> dict:
+def list_messages(context: dict | None = None) -> dict:
     """Return messages received from the iPhone inbox."""
     inbox = _load_inbox()
     return {"status": "listed", "count": len(inbox), "messages": inbox[-50:]}
 
 
-def receive(payload: dict) -> dict:
+def receive(payload: dict, context: dict | None = None) -> dict:
     """Store a payload received from the iPhone."""
     inbox = _load_inbox()
     item = {

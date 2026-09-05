@@ -2,22 +2,19 @@
 
 from __future__ import annotations
 
-import os
 import re
+
+from src.core.provider_keys import provider_key
 
 
 def _openai_api_key(context: dict | None = None) -> str:
     """Read the OpenAI API key from shell context first, then environment names."""
-    if context:
-        provider_keys = context.get("provider_keys") or {}
-        key = str(provider_keys.get("openai", {}).get("api_key", "")).strip()
-        if key:
-            return key
-    for name in ("OPENAI_API_KEY", "OPENAI_KEY", "ASCENSION_OPENAI_API_KEY"):
-        value = os.getenv(name, "").strip()
-        if value:
-            return value
-    return ""
+    return provider_key(
+        context,
+        provider="openai",
+        key="api_key",
+        env_names=["OPENAI_API_KEY", "OPENAI_KEY", "ASCENSION_OPENAI_API_KEY"],
+    )
 
 
 def parse_image_request(text: str) -> str | None:
