@@ -99,3 +99,21 @@ def test_production_action_guard_blocks_all_device_dispatch(monkeypatch):
     monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
     for handler in (api.windows_execute, api.android_execute, api.iphone_execute):
         assert "require_certified_action_gateway" in handler.__code__.co_names
+
+
+def test_production_rejects_shared_token_session_reads_and_writes(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    with pytest.raises(HTTPException) as read_error:
+        api.get_session_context("same-session-across-users", "Bearer service-secret")
+    assert read_error.value.status_code == 403
+    with pytest.raises(HTTPException) as write_error:
+        api.set_session_context("same-session-across-users", {"private": True}, "Bearer service-secret")
+    assert write_error.value.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_production_rejects_iphone_inbox_persistence(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    with pytest.raises(HTTPException) as error:
+        await api.iphone_inbox({"location": "private"})
+    assert error.value.status_code == 403
