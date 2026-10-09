@@ -14,7 +14,6 @@ def example():
         "request_id": "request-1", "issuer": "aerynza-app", "subject": "user-1",
         "shell": "ap", "key_id": "key-1", "nonce": "unique-1",
         "issued_at": 1000, "expires_at": 1060, "payload_hash": payload_sha256(body),
-        "http_method": "POST", "http_path": "/v1/intelligence",
         "http_method": "POST", "http_path": "/v1/memory/candidates",
     }
     key = b"a" * 32
