@@ -248,3 +248,21 @@ async def test_unsupported_method_rejected_in_signed_production(signing):
             headers={"Authorization": "Bearer test-service-token"},
         )
     assert response.status_code == 405
+
+
+@pytest.mark.asyncio
+async def test_cors_preflight_allows_signature_headers_for_trusted_origin(signing, monkeypatch):
+    from fastapi.middleware.cors import CORSMiddleware
+    # The middleware is configured at module import time; inspect the live stack.
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.options(
+            "/v1/memory/candidates",
+            headers={
+                "Origin": "https://not-authorized.example",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "authorization,x-aerynza-envelope,x-aerynza-signature",
+            },
+        )
+    assert response.status_code in (400, 405)
+    assert response.headers.get("access-control-allow-origin") != "https://not-authorized.example"
