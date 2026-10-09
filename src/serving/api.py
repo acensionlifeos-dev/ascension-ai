@@ -156,7 +156,7 @@ async def signed_request_boundary(request, call_next):
         nonce_store = redis_nonce_store(config[2])
         identity = await asyncio.to_thread(
             check_http_envelope, request.headers, payload, config=config,
-            nonce_store=nonce_store,
+            nonce_store=nonce_store, method=request.method, path=request.url.path,
         )
         declared_shell = payload.get("shell")
         if declared_shell is not None and declared_shell != identity["shell"]:
