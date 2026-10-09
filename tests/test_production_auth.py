@@ -76,3 +76,10 @@ def test_production_requires_explicit_shell_allowlist(monkeypatch):
     monkeypatch.delenv("ASCENSION_AI_SERVICE_SHELLS", raising=False)
     with pytest.raises(RuntimeError, match="ASCENSION_AI_SERVICE_SHELLS"):
         api.validate_auth_configuration()
+
+
+def test_production_direct_action_guard(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    with pytest.raises(HTTPException) as error:
+        api.require_certified_action_gateway()
+    assert error.value.status_code == 403
