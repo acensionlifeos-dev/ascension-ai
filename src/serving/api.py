@@ -146,7 +146,9 @@ async def signed_request_boundary(request, call_next):
     protected_get = request.method == "GET" and (
         request.url.path.startswith("/v1/") or request.url.path == "/model/info"
     )
-    if request.method != "POST" and not protected_get:
+    if request.method not in ("POST", "GET"):
+        return JSONResponse(status_code=405, content={"detail": "Method not allowed"})
+    if request.method == "GET" and not protected_get:
         return await call_next(request)
     if not _authorized_token(request.headers.get("authorization")):
         return JSONResponse(status_code=401, content={"detail": "Authentication required"})
