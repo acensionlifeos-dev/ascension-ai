@@ -147,3 +147,23 @@ async def test_unsigned_get_shell_catalog_denied_in_signed_mode(signing):
             headers={"Authorization": "Bearer test-service-token"},
         )
     assert response.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_signed_disallowed_shell_rejected_even_without_body_shell(signing):
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="disallowed-shell", shell="nexus_family")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_signed_allowed_shell_succeeds_without_body_shell(signing):
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="allowed-shell", shell="ap")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 200
