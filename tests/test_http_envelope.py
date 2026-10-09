@@ -283,3 +283,30 @@ async def test_production_hides_api_schema(signing, path):
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.get(path)
     assert response.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_cross_runtime_node_signature_is_admitted_and_replay_rejected(signing, monkeypatch):
+    from src.serving import envelope_validation, replay_guard
+    monkeypatch.setattr(envelope_validation.time, "time", lambda: 1760000030)
+    monkeypatch.setattr(replay_guard.time, "time", lambda: 1760000030)
+    body = {"text": "Remember my preference"}
+    envelope = {
+        "request_id": "node-http-123", "issuer": "aerynza-product",
+        "subject": "user:123", "shell": "ap", "key_id": "current",
+        "nonce": "node-http-123", "issued_at": 1759999999,
+        "expires_at": 1760000060, "http_method": "POST",
+        "http_path": "/v1/memory/candidates",
+        "payload_hash": "fa0ca8723bd848cf83f572154f5f86ae3559b73d20bf402d5316851b03ec7631",
+    }
+    headers = {
+        "Authorization": "Bearer test-service-token",
+        "X-Aerynza-Envelope": json.dumps(envelope),
+        "X-Aerynza-Signature": "5b79d5c4cd531f32b5889f4da76fda25f2e844b93c642bbfc7320b71c858c253",
+    }
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        accepted = await client.post("/v1/memory/candidates", json=body, headers=headers)
+        replay = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert accepted.status_code == 200, accepted.text
+    assert replay.status_code == 401
