@@ -39,13 +39,13 @@ def signing(monkeypatch):
     return key
 
 
-def auth_headers(body, key, *, nonce="nonce-1", shell="ap"):
+def auth_headers(body, key, *, nonce="nonce-1", shell="ap", method="POST", path="/v1/memory/candidates"):
     now = int(time.time())
     envelope = {
         "request_id": nonce, "issuer": "aerynza-product", "subject": "user-123",
         "shell": shell, "key_id": "current", "nonce": nonce,
         "issued_at": now - 1, "expires_at": now + 60,
-        "http_method": "POST", "http_path": "/v1/memory/candidates",
+        "http_method": method, "http_path": path,
         "payload_hash": payload_sha256(body),
     }
     signature = hmac.new(key, canonical_payload(envelope), hashlib.sha256).hexdigest()
@@ -193,4 +193,36 @@ async def test_non_object_envelope_rejected(signing):
     transport = httpx.ASGITransport(app=api.app)
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_signed_get_shell_catalog_allowed(signing):
+    path = "/v1/actions/catalog/ap"
+    headers = auth_headers({}, signing, nonce="signed-get-catalog", method="GET", path=path)
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(path, headers=headers)
+    assert response.status_code == 200, response.text
+
+
+@pytest.mark.asyncio
+async def test_signed_get_cannot_be_replayed(signing):
+    path = "/v1/actions/catalog/ap"
+    headers = auth_headers({}, signing, nonce="signed-get-replay", method="GET", path=path)
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        first = await client.get(path, headers=headers)
+        second = await client.get(path, headers=headers)
+    assert first.status_code == 200, first.text
+    assert second.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_unsigned_readiness_denied_in_signed_mode(signing):
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(
+            "/v1/readiness", headers={"Authorization": "Bearer test-service-token"}
+        )
     assert response.status_code == 401
