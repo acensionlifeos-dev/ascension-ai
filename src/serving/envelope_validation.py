@@ -20,7 +20,12 @@ def validate_metadata(envelope, *, issuer, now=None, lifetime=120, clock_skew=30
         value = envelope[field]
         if not isinstance(value, str) or not _ID.fullmatch(value):
             raise InvalidEnvelope("Invalid envelope identifier")
-    if envelope["http_method"] not in ("POST", "PUT", "PATCH", "DELETE"):\n        raise InvalidEnvelope("Unsupported method")\n    path = envelope["http_path"]\n    if not isinstance(path, str) or not path.startswith("/") or len(path) > 512 or "?" in path:\n        raise InvalidEnvelope("Invalid signed path")\n    if envelope["issuer"] != issuer:
+    if envelope["http_method"] not in ("POST", "PUT", "PATCH", "DELETE"):
+        raise InvalidEnvelope("Unsupported method")
+    path = envelope["http_path"]
+    if not isinstance(path, str) or not path.startswith("/") or len(path) > 512 or "?" in path:
+        raise InvalidEnvelope("Invalid signed path")
+    if envelope["issuer"] != issuer:
         raise InvalidEnvelope("Untrusted issuer")
     start, end = envelope["issued_at"], envelope["expires_at"]
     if type(start) is not int or type(end) is not int:
