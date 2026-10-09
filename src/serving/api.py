@@ -117,8 +117,6 @@ def production_replacement_enabled() -> bool:
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     validate_auth_configuration()
-    if _auth_mode() == "production" and signing_enabled():
-        load_signing_configuration()
     try:
         await asyncio.to_thread(runtime.load)
     except Exception as error:
