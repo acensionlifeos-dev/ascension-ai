@@ -1,0 +1,23 @@
+name: Native AI security checks
+on:
+  pull_request:
+  push:
+    branches: [master]
+jobs:
+  security-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install project and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest httpx
+      - name: Compile service modules
+        run: python -m compileall -q src/serving
+      - name: Run security regression suite
+        run: python -m pytest -q tests/test_production_auth.py tests/test_thesis_shell_isolation.py
