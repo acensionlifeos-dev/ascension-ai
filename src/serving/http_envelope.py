@@ -47,6 +47,8 @@ def check_http_envelope(headers, payload, *, config, nonce_store, method, path):
         envelope = json.loads(raw)
     except (TypeError, ValueError) as exc:
         raise InvalidEnvelope("Malformed envelope JSON") from exc
+    if not isinstance(envelope, dict):
+        raise InvalidEnvelope("Envelope must be an object")
     if envelope.get("http_method") != method or envelope.get("http_path") != path:
         raise InvalidEnvelope("Signed HTTP target mismatch")
     issuer, keys, _ = config
