@@ -6,6 +6,12 @@ from src.core.contracts import Shell
 from src.serving import api
 
 
+@pytest.fixture(autouse=True)
+def explicit_development_shell_mode(monkeypatch):
+    """Route unit tests exercise thesis scope rules independently of deployment credentials."""
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "development")
+
+
 @pytest.mark.asyncio
 async def test_thesis_rejects_wrong_shell():
     request = api.ThesisRequest(
@@ -39,3 +45,13 @@ async def test_retrieve_scopes_to_declared_shell(monkeypatch):
     result = await api.retrieve(request)
     assert seen["shell"] == Shell.NEXUS_HOME
     assert result["results"] == []
+
+
+@pytest.mark.asyncio
+async def test_production_denies_unlisted_thesis_shell(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", Shell.AP.value)
+    request = api.ThesisRequest(scope="family", subject_id="family-1", shell=Shell.NEXUS_FAMILY, context={})
+    with pytest.raises(HTTPException) as error:
+        await api.thesis(request)
+    assert error.value.status_code == 403
