@@ -31,6 +31,8 @@ def _session_key(session_id: str, authorization: str | None) -> str:
 
 
 def get_session_context(session_id: str, authorization: str | None) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Shared-token session storage disabled pending caller-bound identity")
     if not session_id:
         return {}
     key = _session_key(session_id, authorization)
@@ -39,6 +41,8 @@ def get_session_context(session_id: str, authorization: str | None) -> dict:
 
 
 def set_session_context(session_id: str, context: dict, authorization: str | None, merge: bool = False) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Shared-token session storage disabled pending caller-bound identity")
     if not session_id:
         return context
     key = _session_key(session_id, authorization)
@@ -1028,6 +1032,7 @@ async def iphone_inbox(payload: dict, access: None = Depends(require_access)) ->
     The iPhone can POST here to send battery, location, or any other
     data it is allowed to share. Data is stored locally in data/iphone_inbox.json.
     """
+    require_certified_action_gateway()
     return iphone_bridge.receive(payload)
 
 
