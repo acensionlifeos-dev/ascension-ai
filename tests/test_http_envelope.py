@@ -322,3 +322,25 @@ async def test_memory_candidate_route_rejects_other_allowed_shell(signing, monke
             headers = auth_headers(body, signing, nonce="memory-shell-" + shell, shell=shell)
             result = await client.post("/v1/memory/candidates", json=body, headers=headers)
             assert result.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_shell_aware_route_rejects_missing_or_forged_shell(signing, monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap,nexus_family")
+    path = "/v1/retrieve"
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        body = {"query": "private information"}
+        headers = auth_headers(body, signing, nonce="missing-shell", shell="nexus_family", path=path)
+        missing = await client.post(path, json=body, headers=headers)
+        assert missing.status_code == 401
+
+        body = {"query": "private information", "shell": "ap"}
+        headers = auth_headers(body, signing, nonce="forged-shell", shell="nexus_family", path=path)
+        forged = await client.post(path, json=body, headers=headers)
+        assert forged.status_code == 401
+
+        body = {"query": "hello", "shell": "ap"}
+        headers = auth_headers(body, signing, nonce="matched-shell", shell="ap", path=path)
+        allowed = await client.post(path, json=body, headers=headers)
+        assert allowed.status_code == 200, allowed.text
