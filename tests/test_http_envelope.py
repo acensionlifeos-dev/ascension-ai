@@ -167,3 +167,19 @@ async def test_signed_allowed_shell_succeeds_without_body_shell(signing):
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.post("/v1/memory/candidates", json=body, headers=headers)
     assert response.status_code == 200
+
+
+@pytest.mark.parametrize("value", ["tru", "yes", "1", "TRUEE", "enabled"])
+def test_malformed_signing_configuration_fails_closed(monkeypatch, value):
+    from src.serving.http_envelope import signing_enabled
+    monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", value)
+    with pytest.raises(RuntimeError, match="ASCENSION_AI_REQUIRE_SIGNED_REQUESTS"):
+        signing_enabled()
+
+
+def test_explicit_signing_modes(monkeypatch):
+    from src.serving.http_envelope import signing_enabled
+    monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "true")
+    assert signing_enabled() is True
+    monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "false")
+    assert signing_enabled() is False
