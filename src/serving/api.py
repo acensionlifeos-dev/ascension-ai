@@ -110,6 +110,7 @@ def production_replacement_enabled() -> bool:
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    validate_auth_configuration()
     try:
         await asyncio.to_thread(runtime.load)
     except Exception as error:
@@ -277,27 +278,41 @@ class ActionReceiptRequest(BaseModel):
     receipt: dict = Field(default_factory=dict)
 
 
+def _auth_mode() -> str:
+    mode = os.getenv("ASCENSION_AI_AUTH_MODE", "production").strip().lower()
+    if mode not in {"production", "development"}:
+        raise RuntimeError("ASCENSION_AI_AUTH_MODE must be production or development")
+    return mode
+
+
 def _authorized_token(authorization: str | None) -> bool:
-    supplied = ""
-    if authorization and authorization.lower().startswith("bearer "):
-        supplied = authorization[7:].strip()
+    if not authorization or not authorization.lower().startswith("bearer "):
+        return False
+    supplied = authorization[7:].strip()
     if not supplied:
         return False
-    if supplied in SESSIONS:
+    service_token = os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip()
+    if service_token and hmac.compare_digest(supplied, service_token):
         return True
-    allowed_email = os.getenv("ASCENSION_AI_ALLOWED_EMAIL", "").strip()
-    if allowed_email and hmac.compare_digest(supplied.lower(), allowed_email.lower()):
-        return True
-    expected = [
-        os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip(),
-        os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip(),
-    ]
-    return any(token and hmac.compare_digest(supplied, token) for token in expected)
+    if _auth_mode() == "development":
+        if supplied in SESSIONS:
+            return True
+        test_token = os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()
+        return bool(test_token and hmac.compare_digest(supplied, test_token))
+    return False
 
 
 def require_access(authorization: str | None = Header(default=None)) -> None:
-    """Local-only access: authentication is not required for the personal desktop build."""
-    return
+    """Deny unauthenticated requests; development bypass is explicit only."""
+    if _auth_mode() == "development" and os.getenv("ASCENSION_AI_LOCAL_DEV_BYPASS", "").lower() in {"1", "true"}:
+        return
+    if not _authorized_token(authorization):
+        raise HTTPException(status_code=401, detail="Authentication required")
+
+
+def validate_auth_configuration() -> None:
+    if _auth_mode() == "production" and not os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip():
+        raise RuntimeError("ASCENSION_AI_SERVICE_TOKEN is required in production")
 
 
 def require_native_ready() -> None:
