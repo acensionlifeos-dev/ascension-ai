@@ -128,3 +128,21 @@ async def test_production_rejects_iphone_inbox_persistence(monkeypatch):
     with pytest.raises(HTTPException) as error:
         await api.iphone_inbox({"location": "private"})
     assert error.value.status_code == 403
+
+
+def test_production_rejects_unsigned_mode(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_TOKEN", "service-secret")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap")
+    monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "false")
+    with pytest.raises(RuntimeError, match="ASCENSION_AI_REQUIRE_SIGNED_REQUESTS"):
+        api.validate_auth_configuration()
+
+
+def test_production_rejects_missing_signing_key(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_TOKEN", "service-secret")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap")
+    monkeypatch.delenv("ASCENSION_AI_SIGNING_KEY_BASE64", raising=False)
+    with pytest.raises(RuntimeError, match="Signed requests require"):
+        api.validate_auth_configuration()
