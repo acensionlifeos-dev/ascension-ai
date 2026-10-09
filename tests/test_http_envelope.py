@@ -136,3 +136,14 @@ async def test_invalid_json_rejected_without_handler_execution(signing):
             headers={**headers, "Content-Type": "application/json"},
         )
     assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_unsigned_get_shell_catalog_denied_in_signed_mode(signing):
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(
+            "/v1/actions/catalog/ap",
+            headers={"Authorization": "Bearer test-service-token"},
+        )
+    assert response.status_code == 403
