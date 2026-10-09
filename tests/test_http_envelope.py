@@ -45,6 +45,7 @@ def auth_headers(body, key, *, nonce="nonce-1", shell="ap"):
         "request_id": nonce, "issuer": "aerynza-product", "subject": "user-123",
         "shell": shell, "key_id": "current", "nonce": nonce,
         "issued_at": now - 1, "expires_at": now + 60,
+        "http_method": "POST", "http_path": "/v1/memory/candidates",
         "payload_hash": payload_sha256(body),
     }
     signature = hmac.new(key, canonical_payload(envelope), hashlib.sha256).hexdigest()
