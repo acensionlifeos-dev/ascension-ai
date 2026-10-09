@@ -496,6 +496,8 @@ async def capabilities(_: None = Depends(require_access)) -> dict:
 
 @app.get("/v1/actions/catalog/{shell}")
 async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> dict:
+    if _auth_mode() == "production" and signing_enabled():
+        raise HTTPException(status_code=403, detail="Unsigned shell catalog disabled in signed production mode")
     enforce_shell_access(shell)
     return {
         "shell": shell.value,
