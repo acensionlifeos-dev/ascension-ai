@@ -183,3 +183,14 @@ def test_explicit_signing_modes(monkeypatch):
     assert signing_enabled() is True
     monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "false")
     assert signing_enabled() is False
+
+
+@pytest.mark.asyncio
+async def test_non_object_envelope_rejected(signing):
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="not-object")
+    headers["X-Aerynza-Envelope"] = "[]"
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 401
