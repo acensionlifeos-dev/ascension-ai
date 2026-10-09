@@ -9,7 +9,13 @@ from src.serving.replay_guard import RedisNonceStore
 
 
 def signing_enabled() -> bool:
-    return os.getenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "").lower() == "true"
+    """Reject misspelled security-mode settings instead of silently disabling signing."""
+    raw = os.getenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "").strip().lower()
+    if raw in ("", "false"):
+        return False
+    if raw == "true":
+        return True
+    raise RuntimeError("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS must be true or false")
 
 
 def load_signing_configuration():
