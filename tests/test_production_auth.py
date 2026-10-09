@@ -48,3 +48,11 @@ def test_malformed_auth_and_unknown_mode_fail_closed(monkeypatch):
     monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "invalid")
     with pytest.raises(RuntimeError):
         api.validate_auth_configuration()
+
+
+@pytest.mark.asyncio
+async def test_production_disables_desktop_login(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    with pytest.raises(HTTPException) as error:
+        await api.login(api.LoginRequest(email="owner@example.test", password="not-a-secret"))
+    assert error.value.status_code == 404
