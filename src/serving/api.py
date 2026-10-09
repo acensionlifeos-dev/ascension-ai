@@ -1004,7 +1004,9 @@ class LoginRequest(BaseModel):
 
 @app.post("/v1/login")
 async def login(request: LoginRequest) -> dict:
-    """Authenticate with email and password stored in Windows Credential Manager."""
+    """Local desktop login is unavailable in production service mode."""
+    if _auth_mode() != "development":
+        raise HTTPException(status_code=404, detail="Not found")
     stored = keyring.get_password(KEYRING_SERVICE, request.email)
     if not stored or not hmac.compare_digest(stored, request.password):
         raise HTTPException(status_code=401, detail="Invalid email or password.")
