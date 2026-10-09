@@ -251,9 +251,7 @@ async def test_unsupported_method_rejected_in_signed_production(signing):
 
 
 @pytest.mark.asyncio
-async def test_cors_preflight_allows_signature_headers_for_trusted_origin(signing, monkeypatch):
-    from fastapi.middleware.cors import CORSMiddleware
-    # The middleware is configured at module import time; inspect the live stack.
+async def test_cors_preflight_rejects_untrusted_origin(signing):
     transport = httpx.ASGITransport(app=api.app)
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.options(
