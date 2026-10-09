@@ -31,7 +31,7 @@ def load_signing_configuration():
     return issuer, {key_id: key}, redis_url
 
 
-def check_http_envelope(headers, payload, *, config, nonce_store):
+def check_http_envelope(headers, payload, *, config, nonce_store, method, path):
     """Verify cryptography and consume single-use nonce; errors reject request."""
     raw = headers.get("x-aerynza-envelope", "")
     signature = headers.get("x-aerynza-signature", "")
@@ -41,6 +41,8 @@ def check_http_envelope(headers, payload, *, config, nonce_store):
         envelope = json.loads(raw)
     except (TypeError, ValueError) as exc:
         raise InvalidEnvelope("Malformed envelope JSON") from exc
+    if envelope.get("http_method") != method or envelope.get("http_path") != path:
+        raise InvalidEnvelope("Signed HTTP target mismatch")
     issuer, keys, _ = config
     return admit_request(
         envelope, payload, signature, keys=keys,
