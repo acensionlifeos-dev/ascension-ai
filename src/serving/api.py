@@ -379,6 +379,9 @@ def require_access(authorization: str | None = Header(default=None)) -> None:
 
 def validate_auth_configuration() -> None:
     if _auth_mode() == "production":
+        if not signing_enabled():
+            raise RuntimeError("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS=true is required in production")
+        load_signing_configuration()
         if not os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip():
             raise RuntimeError("ASCENSION_AI_SERVICE_TOKEN is required in production")
         if not _authorized_shells():
