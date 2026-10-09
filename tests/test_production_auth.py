@@ -146,3 +146,37 @@ def test_production_rejects_missing_signing_key(monkeypatch):
     monkeypatch.delenv("ASCENSION_AI_SIGNING_KEY_BASE64", raising=False)
     with pytest.raises(RuntimeError, match="Signed requests require"):
         api.validate_auth_configuration()
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("scope,shell", [
+    ("sprout", "ap"),
+    ("home", "nexus_home"),
+    ("family", "nexus_family"),
+])
+async def test_sensitive_thesis_requires_resource_ownership(monkeypatch, scope, shell):
+    from src.core.contracts import Shell
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap,nexus_home,nexus_family")
+    request = api.ThesisRequest(
+        scope=scope, subject_id="other-users-resource", shell=Shell(shell), context={}
+    )
+    with pytest.raises(HTTPException) as error:
+        await api.thesis(request)
+    assert error.value.status_code == 403
+    assert "ownership" in error.value.detail.lower()
+
+
+@pytest.mark.asyncio
+async def test_thesis_contribution_requires_verified_consent_in_production(monkeypatch):
+    from src.core.contracts import Shell
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap")
+    request = api.ThesisContributionRequest(
+        member_id="member-1", target_scope="nexus_family",
+        shell=Shell.AP, human_thesis={},
+        selections=[{"domain": "wellness"}], consent_receipt_id="unverified-receipt"
+    )
+    with pytest.raises(HTTPException) as error:
+        await api.thesis_contribution(request)
+    assert error.value.status_code == 403
