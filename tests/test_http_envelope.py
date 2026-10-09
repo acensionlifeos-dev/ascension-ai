@@ -310,3 +310,15 @@ async def test_cross_runtime_node_signature_is_admitted_and_replay_rejected(sign
         replay = await client.post("/v1/memory/candidates", json=body, headers=headers)
     assert accepted.status_code == 200, accepted.text
     assert replay.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_memory_candidate_route_rejects_other_allowed_shell(signing, monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap,nexus_family,sprout")
+    body = {"text": "Private preference"}
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        for shell in ("nexus_family", "sprout"):
+            headers = auth_headers(body, signing, nonce="memory-shell-" + shell, shell=shell)
+            result = await client.post("/v1/memory/candidates", json=body, headers=headers)
+            assert result.status_code == 401
