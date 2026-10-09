@@ -146,7 +146,7 @@ async def test_unsigned_get_shell_catalog_denied_in_signed_mode(signing):
             "/v1/actions/catalog/ap",
             headers={"Authorization": "Bearer test-service-token"},
         )
-    assert response.status_code == 403
+    assert response.status_code == 401
 
 
 @pytest.mark.asyncio
