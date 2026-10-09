@@ -83,3 +83,19 @@ def test_production_direct_action_guard(monkeypatch):
     with pytest.raises(HTTPException) as error:
         api.require_certified_action_gateway()
     assert error.value.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_action_catalog_requires_authorized_shell(monkeypatch):
+    from src.core.contracts import Shell
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", Shell.AP.value)
+    with pytest.raises(HTTPException) as error:
+        await api.actions_catalog(Shell.NEXUS_HOME)
+    assert error.value.status_code == 403
+
+
+def test_production_action_guard_blocks_all_device_dispatch(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    for handler in (api.windows_execute, api.android_execute, api.iphone_execute):
+        assert "require_certified_action_gateway" in handler.__code__.co_names
