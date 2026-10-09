@@ -21,7 +21,7 @@ ENVELOPE = {
     "http_path": "/v1/retrieve",
     "payload_hash": "88c6b84eba9e19eb15156f1592a49ba7db70f30c45d7ab8bf1eda73f2c0df513",
 }
-SIGNATURE = "21bf92b2451dfb8cee2492809131142872e68d22cd2b4df82f16f2358614f014"
+SIGNATURE = "c53c0ce2cb60b51bd50d3740acecaf9437cb0a00461da2380cb4d2cac0ed87f4"
 KEY = base64.b64decode("c3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3M=")
 
 
