@@ -237,3 +237,14 @@ async def test_signed_catalog_cannot_access_other_allowed_shell(signing, monkeyp
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.get(path, headers=headers)
     assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_unsupported_method_rejected_in_signed_production(signing):
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.put(
+            "/v1/memory/candidates", json={"text": "hello"},
+            headers={"Authorization": "Bearer test-service-token"},
+        )
+    assert response.status_code == 405
