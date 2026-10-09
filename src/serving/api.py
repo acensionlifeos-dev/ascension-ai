@@ -161,6 +161,8 @@ async def signed_request_boundary(request, call_next):
         declared_shell = payload.get("shell")
         if declared_shell is not None and declared_shell != identity["shell"]:
             raise InvalidEnvelope("Shell identity mismatch")
+        if identity["shell"] not in _authorized_shells():
+            raise InvalidEnvelope("Signed shell not authorized for this service")
         request.state.signed_identity = identity
     except (InvalidEnvelope, ValueError, TypeError):
         return JSONResponse(status_code=401, content={"detail": "Invalid signed request"})
