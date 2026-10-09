@@ -303,6 +303,20 @@ def _authorized_token(authorization: str | None) -> bool:
     return False
 
 
+def _authorized_shells() -> set[str]:
+    """Production caller's allowed shell identities, configured server-side."""
+    raw = os.getenv("ASCENSION_AI_SERVICE_SHELLS", "")
+    return {part.strip().lower() for part in raw.split(",") if part.strip()}
+
+
+def enforce_shell_access(shell: Shell) -> None:
+    """Never trust a request body to grant a shell identity."""
+    if _auth_mode() == "development":
+        return
+    if shell.value.lower() not in _authorized_shells():
+        raise HTTPException(status_code=403, detail="Shell not authorized")
+
+
 def require_access(authorization: str | None = Header(default=None)) -> None:
     """Deny unauthenticated requests; development bypass is explicit only."""
     if _auth_mode() == "development" and os.getenv("ASCENSION_AI_LOCAL_DEV_BYPASS", "").lower() in {"1", "true"}:
@@ -312,8 +326,11 @@ def require_access(authorization: str | None = Header(default=None)) -> None:
 
 
 def validate_auth_configuration() -> None:
-    if _auth_mode() == "production" and not os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip():
-        raise RuntimeError("ASCENSION_AI_SERVICE_TOKEN is required in production")
+    if _auth_mode() == "production":
+        if not os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip():
+            raise RuntimeError("ASCENSION_AI_SERVICE_TOKEN is required in production")
+        if not _authorized_shells():
+            raise RuntimeError("ASCENSION_AI_SERVICE_SHELLS is required in production")
 
 
 def require_native_ready() -> None:
