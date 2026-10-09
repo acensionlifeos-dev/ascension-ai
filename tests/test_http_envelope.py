@@ -88,3 +88,13 @@ async def test_payload_tampering_rejected(signing):
             "/v1/memory/candidates", json={"text": "altered"}, headers=headers,
         )
     assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_signed_target_cannot_be_reused_on_different_route(signing):
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="different-route")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/iphone/inbox", json=body, headers=headers)
+    assert response.status_code == 401
