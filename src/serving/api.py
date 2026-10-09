@@ -170,7 +170,7 @@ async def signed_request_boundary(request, call_next):
         # Shell-aware operations must explicitly declare the same shell as the signed envelope.
         # Otherwise a non-AP signature could reach a handler whose Pydantic default is AP.
         shell_bound_routes = {
-            "/v1/intelligence", "/v1/stream", "/v1/cognition",
+            "/v1/intelligence", "/v1/stream", "/chat", "/v1/cognition",
             "/v1/agent/plan", "/v1/retrieve", "/v1/surface-plan",
             "/v1/relationships/feed", "/v1/session/data-panels",
             "/v1/thesis", "/v1/thesis/contribution",
@@ -1015,6 +1015,8 @@ async def stream_intelligence(request: IntelligenceRequest, authorization: str |
 
 @app.post("/generate")
 async def generate(request: LegacyGenerationRequest, access: None = Depends(require_access)) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Legacy generation route disabled pending explicit shell identity")
     result = await intelligence(
         IntelligenceRequest(
             shell=Shell.CORE,
