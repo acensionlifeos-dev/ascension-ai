@@ -168,6 +168,10 @@ async def signed_request_boundary(request, call_next):
             raise InvalidEnvelope("Shell identity mismatch")
         if identity["shell"] not in _authorized_shells():
             raise InvalidEnvelope("Signed shell not authorized for this service")
+        if request.url.path.startswith("/v1/actions/catalog/"):
+            catalog_shell = request.url.path.rsplit("/", 1)[-1]
+            if catalog_shell != identity["shell"]:
+                raise InvalidEnvelope("Catalog shell mismatch")
         request.state.signed_identity = identity
     except (InvalidEnvelope, ValueError, TypeError):
         return JSONResponse(status_code=401, content={"detail": "Invalid signed request"})
