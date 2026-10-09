@@ -364,3 +364,14 @@ async def test_legacy_generate_denied_even_with_valid_signed_request(signing):
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.post("/generate", json=body, headers=headers)
     assert response.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_core_tier_cannot_authenticate_as_shell(signing, monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap,core")
+    body = {"text": "private"}
+    headers = auth_headers(body, signing, nonce="core-not-shell", shell="core", path="/v1/memory/candidates")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 401
