@@ -55,3 +55,16 @@ async def test_production_denies_unlisted_thesis_shell(monkeypatch):
     with pytest.raises(HTTPException) as error:
         await api.thesis(request)
     assert error.value.status_code == 403
+
+
+def test_founder_ai_shell_tier_canon():
+    from src.core.contracts import Shell, Tier, SHELL_CONTRACTS
+    from src.core.action_runtime import shell_allows_action
+    assert Tier.CORE.value == "core"
+    assert Shell.EXECUTIVE.value == "executive"
+    assert Shell.EXECUTIVE in SHELL_CONTRACTS
+    assert Shell.SPROUT in SHELL_CONTRACTS
+    assert Shell.NEXUS_HOME in SHELL_CONTRACTS
+    assert Shell.NEXUS_FAMILY in SHELL_CONTRACTS
+    assert shell_allows_action(Shell.EXECUTIVE, "documents.draft")
+    assert not shell_allows_action(Shell.EXECUTIVE, "trading.submit_prediction_order")
