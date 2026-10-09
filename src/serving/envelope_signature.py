@@ -15,6 +15,8 @@ def verify_signed_envelope(envelope, payload, signature, *, keys, trusted_issuer
     validate_metadata(envelope, issuer=trusted_issuer, now=now)
     if not hmac.compare_digest(envelope["payload_hash"], payload_sha256(payload)):
         raise InvalidEnvelope("Payload changed")
+    if "shell" in payload and payload["shell"] != envelope["shell"]:
+        raise InvalidEnvelope("Shell identity mismatch")
     key = keys.get(envelope["key_id"])
     if not isinstance(key, bytes) or len(key) < 32:
         raise InvalidEnvelope("Missing or weak signing key")
