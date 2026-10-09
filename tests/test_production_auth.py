@@ -5,6 +5,17 @@ from fastapi import HTTPException
 from src.serving import api
 
 
+@pytest.fixture(autouse=True)
+def signed_production_config(monkeypatch):
+    """Supply signing config so auth tests isolate the property under test."""
+    import base64
+    monkeypatch.setenv("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS", "true")
+    monkeypatch.setenv("ASCENSION_AI_TRUSTED_ISSUER", "aerynza-test")
+    monkeypatch.setenv("ASCENSION_AI_SIGNING_KEY_ID", "test-key")
+    monkeypatch.setenv("ASCENSION_AI_SIGNING_KEY_BASE64", base64.b64encode(b"k" * 32).decode())
+    monkeypatch.setenv("ASCENSION_AI_REPLAY_REDIS_URL", "redis://localhost:6379/0")
+
+
 def test_production_requires_service_secret(monkeypatch):
     monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
     monkeypatch.delenv("ASCENSION_AI_SERVICE_TOKEN", raising=False)
