@@ -605,6 +605,8 @@ async def memory_candidates(request: MemoryCandidateRequest, _: None = Depends(r
 @app.post("/v1/thesis")
 async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> dict:
     enforce_shell_access(request.shell)
+    if _auth_mode() == "production" and request.scope in {"sprout", "home", "family"}:
+        raise HTTPException(status_code=403, detail="Resource ownership verification required for this thesis scope")
     required_shell = {
         "human": {Shell.AP, Shell.LIFE_OS},
         "sprout": {Shell.AP, Shell.LIFE_OS},
@@ -624,6 +626,8 @@ async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> d
 @app.post("/v1/thesis/contribution")
 async def thesis_contribution(request: ThesisContributionRequest, _: None = Depends(require_access)) -> dict:
     enforce_shell_access(request.shell)
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Member consent and resource ownership verification required")
     if request.shell not in {Shell.AP, Shell.LIFE_OS}:
         raise HTTPException(status_code=403, detail="only the member's AP or LifeOS shell can prepare a thesis contribution")
     try:
