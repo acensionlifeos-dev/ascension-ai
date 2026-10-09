@@ -264,3 +264,22 @@ async def test_cors_preflight_rejects_untrusted_origin(signing):
         )
     assert response.status_code in (400, 405)
     assert response.headers.get("access-control-allow-origin") != "https://not-authorized.example"
+
+
+@pytest.mark.asyncio
+async def test_private_get_query_string_cannot_escape_signed_target(signing):
+    path = "/v1/actions/catalog/ap"
+    headers = auth_headers({}, signing, nonce="query-string", method="GET", path=path)
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(path + "?resource=other-user", headers=headers)
+    assert response.status_code == 400
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("path", ["/docs", "/redoc", "/openapi.json"])
+async def test_production_hides_api_schema(signing, path):
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(path)
+    assert response.status_code == 404
