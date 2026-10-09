@@ -141,7 +141,12 @@ app.mount("/static", StaticFiles(directory=str(PUBLIC)), name="static")
 @app.middleware("http")
 async def signed_request_boundary(request, call_next):
     """Staged signing enforcement; requires real Redis and matching product signer."""
-    if _auth_mode() != "production" or not signing_enabled() or request.method != "POST":
+    if _auth_mode() != "production" or not signing_enabled():
+        return await call_next(request)
+    protected_get = request.method == "GET" and (
+        request.url.path.startswith("/v1/") or request.url.path == "/model/info"
+    )
+    if request.method != "POST" and not protected_get:
         return await call_next(request)
     if not _authorized_token(request.headers.get("authorization")):
         return JSONResponse(status_code=401, content={"detail": "Authentication required"})
@@ -149,7 +154,7 @@ async def signed_request_boundary(request, call_next):
         body_bytes = await request.body()
         if len(body_bytes) > 1_048_576:
             return JSONResponse(status_code=413, content={"detail": "Request too large"})
-        payload = json.loads(body_bytes)
+        payload = {} if protected_get and not body_bytes else json.loads(body_bytes)
         if not isinstance(payload, dict):
             raise InvalidEnvelope("Expected JSON object body")
         config = load_signing_configuration()
@@ -498,8 +503,6 @@ async def capabilities(_: None = Depends(require_access)) -> dict:
 
 @app.get("/v1/actions/catalog/{shell}")
 async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> dict:
-    if _auth_mode() == "production" and signing_enabled():
-        raise HTTPException(status_code=403, detail="Unsigned shell catalog disabled in signed production mode")
     enforce_shell_access(shell)
     return {
         "shell": shell.value,
