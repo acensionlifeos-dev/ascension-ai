@@ -226,3 +226,14 @@ async def test_unsigned_readiness_denied_in_signed_mode(signing):
             "/v1/readiness", headers={"Authorization": "Bearer test-service-token"}
         )
     assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_signed_catalog_cannot_access_other_allowed_shell(signing, monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", "ap,nexus_family")
+    path = "/v1/actions/catalog/nexus_family"
+    headers = auth_headers({}, signing, nonce="cross-shell-get", shell="ap", method="GET", path=path)
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.get(path, headers=headers)
+    assert response.status_code == 401
