@@ -141,6 +141,10 @@ async def signed_request_boundary(request, call_next):
     """Staged signing enforcement; requires real Redis and matching product signer."""
     if _auth_mode() != "production" or not signing_enabled():
         return await call_next(request)
+    if request.url.path in {"/docs", "/redoc", "/openapi.json"}:
+        return JSONResponse(status_code=404, content={"detail": "Not found"})
+    if request.url.query and request.url.path.startswith("/v1/"):
+        return JSONResponse(status_code=400, content={"detail": "Unsigned query parameters are not supported"})
     protected_get = request.method == "GET" and (
         request.url.path.startswith("/v1/") or request.url.path == "/model/info"
     )
