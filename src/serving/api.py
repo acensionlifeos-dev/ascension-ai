@@ -172,6 +172,9 @@ async def signed_request_boundary(request, call_next):
             raise InvalidEnvelope("Shell identity mismatch")
         if identity["shell"] not in _authorized_shells():
             raise InvalidEnvelope("Signed shell not authorized for this service")
+        # Memory extraction is personal AP work, never a family, home, or child shell operation.
+        if request.url.path == "/v1/memory/candidates" and identity["shell"] != "ap":
+            raise InvalidEnvelope("Memory candidate route requires AP shell")
         if request.url.path.startswith("/v1/actions/catalog/"):
             catalog_shell = request.url.path.rsplit("/", 1)[-1]
             if catalog_shell != identity["shell"]:
