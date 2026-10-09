@@ -461,6 +461,7 @@ async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> di
 
 @app.post("/v1/actions/receipt/validate")
 async def action_receipt_validate(request: ActionReceiptRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     if not shell_allows_action(request.shell, request.action):
         raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot execute {request.action}")
     action = {"action": request.action, "receipt_fields": request.receipt_fields}
@@ -494,6 +495,7 @@ async def talents(_: None = Depends(require_access)) -> dict:
 
 @app.post("/v1/cognition")
 async def cognition(request: CognitionRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet(
@@ -521,6 +523,7 @@ async def agent_plan(request: CognitionRequest, access: None = Depends(require_a
 
 @app.post("/v1/retrieve")
 async def retrieve(request: RetrievalRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     scoped_context = scope_context(request.context, request.shell)
     return {
         "query": request.query,
@@ -541,6 +544,7 @@ async def memory_candidates(request: MemoryCandidateRequest, _: None = Depends(r
 
 @app.post("/v1/thesis")
 async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     required_shell = {
         "human": {Shell.AP, Shell.LIFE_OS},
         "sprout": {Shell.AP, Shell.LIFE_OS},
@@ -559,6 +563,7 @@ async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> d
 
 @app.post("/v1/thesis/contribution")
 async def thesis_contribution(request: ThesisContributionRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     if request.shell not in {Shell.AP, Shell.LIFE_OS}:
         raise HTTPException(status_code=403, detail="only the member's AP or LifeOS shell can prepare a thesis contribution")
     try:
@@ -576,6 +581,7 @@ async def thesis_contribution(request: ThesisContributionRequest, _: None = Depe
 
 @app.post("/v1/surface-plan")
 async def plan_surfaces(request: SurfacePlanRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     return surface_plan(
         shell=request.shell,
@@ -600,6 +606,7 @@ async def set_session(request: SessionContextRequest, authorization: str | None 
 
 @app.post("/v1/session/data-panels")
 async def session_data_panels(request: SessionRefreshRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = get_session_context(request.session_id, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet(
@@ -671,6 +678,7 @@ def _build_relationships_feed(context: dict, shell: Shell) -> dict:
 
 @app.post("/v1/relationships/feed")
 async def relationships_feed(request: RelationshipFeedRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet("mixed social feed", scoped_context, [])
@@ -688,6 +696,7 @@ async def relationships_feed(request: RelationshipFeedRequest, authorization: st
 
 @app.post("/v1/intelligence")
 async def intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
@@ -791,6 +800,7 @@ async def chat(request: IntelligenceRequest, access: None = Depends(require_acce
 
 @app.post("/v1/stream")
 async def stream_intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)):
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
