@@ -56,3 +56,23 @@ async def test_production_disables_desktop_login(monkeypatch):
     with pytest.raises(HTTPException) as error:
         await api.login(api.LoginRequest(email="owner@example.test", password="not-a-secret"))
     assert error.value.status_code == 404
+
+
+def test_production_shell_allowlist_denies_unlisted_shell(monkeypatch):
+    from src.core.contracts import Shell
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_TOKEN", "service-secret")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_SHELLS", Shell.AP.value)
+    api.validate_auth_configuration()
+    api.enforce_shell_access(Shell.AP)
+    with pytest.raises(HTTPException) as error:
+        api.enforce_shell_access(Shell.NEXUS_FAMILY)
+    assert error.value.status_code == 403
+
+
+def test_production_requires_explicit_shell_allowlist(monkeypatch):
+    monkeypatch.setenv("ASCENSION_AI_AUTH_MODE", "production")
+    monkeypatch.setenv("ASCENSION_AI_SERVICE_TOKEN", "service-secret")
+    monkeypatch.delenv("ASCENSION_AI_SERVICE_SHELLS", raising=False)
+    with pytest.raises(RuntimeError, match="ASCENSION_AI_SERVICE_SHELLS"):
+        api.validate_auth_configuration()
