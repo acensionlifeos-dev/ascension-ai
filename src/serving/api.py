@@ -208,6 +208,7 @@ class CognitionRequest(SurfacePlanRequest):
 
 
 class RetrievalRequest(BaseModel):
+    shell: Shell = Shell.AP
     query: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
     context: dict = Field(default_factory=dict)
     top_k: int = Field(default=6, ge=1, le=10)
@@ -530,6 +531,13 @@ async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> d
         "family": {Shell.NEXUS_FAMILY},
         "product": {Shell.CORE},
     }
+    if request.shell not in required_shell[request.scope]:
+        raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot build the {request.scope} thesis")
+    try:
+        result = build_thesis(request.scope, request.subject_id, request.context)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {**result, "shell": request.shell.value, "outside_provider": False}
 
 
 @app.post("/v1/thesis/contribution")
@@ -547,17 +555,6 @@ async def thesis_contribution(request: ThesisContributionRequest, _: None = Depe
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     return {**contribution, "shell": request.shell.value, "outside_provider": False}
-    if request.shell not in required_shell[request.scope]:
-        raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot build the {request.scope} thesis")
-    try:
-        result = build_thesis(request.scope, request.subject_id, request.context)
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return {
-        **result,
-        "shell": request.shell.value,
-        "outside_provider": False,
-    }
 
 
 @app.post("/v1/surface-plan")
