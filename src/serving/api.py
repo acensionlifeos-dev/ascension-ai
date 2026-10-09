@@ -167,6 +167,17 @@ async def signed_request_boundary(request, call_next):
             check_http_envelope, request.headers, payload, config=config,
             nonce_store=nonce_store, method=request.method, path=request.url.path,
         )
+        # Shell-aware operations must explicitly declare the same shell as the signed envelope.
+        # Otherwise a non-AP signature could reach a handler whose Pydantic default is AP.
+        shell_bound_routes = {
+            "/v1/intelligence", "/v1/stream", "/v1/cognition",
+            "/v1/agent/plan", "/v1/retrieve", "/v1/surface-plan",
+            "/v1/relationships/feed", "/v1/session/data-panels",
+            "/v1/thesis", "/v1/thesis/contribution",
+            "/v1/actions/receipt/validate",
+        }
+        if request.url.path in shell_bound_routes and payload.get("shell") != identity["shell"]:
+            raise InvalidEnvelope("Explicit matching shell required")
         declared_shell = payload.get("shell")
         if declared_shell is not None and declared_shell != identity["shell"]:
             raise InvalidEnvelope("Shell identity mismatch")
