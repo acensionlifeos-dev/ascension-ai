@@ -98,3 +98,41 @@ async def test_signed_target_cannot_be_reused_on_different_route(signing):
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.post("/v1/iphone/inbox", json=body, headers=headers)
     assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_signed_shell_conflict_rejected(signing):
+    body = {"text": "hello", "shell": "nexus_family"}
+    headers = auth_headers(body, signing, nonce="shell-conflict", shell="ap")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 401
+
+
+@pytest.mark.asyncio
+async def test_replay_store_failure_fails_closed(signing, monkeypatch):
+    class UnavailableNonceStore:
+        def claim(self, key, ttl_seconds):
+            raise ConnectionError("Replay store unavailable")
+
+    monkeypatch.setattr(api, "redis_nonce_store", lambda _url: UnavailableNonceStore())
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="redis-outage")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post("/v1/memory/candidates", json=body, headers=headers)
+    assert response.status_code == 503
+
+
+@pytest.mark.asyncio
+async def test_invalid_json_rejected_without_handler_execution(signing):
+    body = {"text": "hello"}
+    headers = auth_headers(body, signing, nonce="invalid-json")
+    transport = httpx.ASGITransport(app=api.app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        response = await client.post(
+            "/v1/memory/candidates", content=b"{not valid json",
+            headers={**headers, "Content-Type": "application/json"},
+        )
+    assert response.status_code == 401
