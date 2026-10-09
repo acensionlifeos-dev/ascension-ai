@@ -333,6 +333,12 @@ def validate_auth_configuration() -> None:
             raise RuntimeError("ASCENSION_AI_SERVICE_SHELLS is required in production")
 
 
+def require_certified_action_gateway() -> None:
+    """Fail closed until production action authorization and receipts are certified."""
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Direct device execution disabled in production")
+
+
 def require_native_ready() -> None:
     if not runtime.status()["ready"]:
         raise HTTPException(status_code=503, detail=runtime.status()["error"] or "Aerynza native model is not ready.")
@@ -451,6 +457,7 @@ async def capabilities(_: None = Depends(require_access)) -> dict:
 
 @app.get("/v1/actions/catalog/{shell}")
 async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(shell)
     return {
         "shell": shell.value,
         "actions": shell_action_catalog(shell),
@@ -968,6 +975,7 @@ async def windows_execute(request: WindowsActionRequest, access: None = Depends(
     The request is authenticated and the shell remains responsible for
     deciding when an action is appropriate.
     """
+    require_certified_action_gateway()
     return executor.run(request.action, **request.params)
 
 
@@ -984,6 +992,7 @@ async def android_execute(request: AndroidActionRequest, access: None = Depends(
     The phone must have USB debugging enabled and be authorized.
     The bridge uses the local `tools/adb/platform-tools/adb.exe` binary.
     """
+    require_certified_action_gateway()
     return android_bridge.run(request.action, **request.params)
 
 
@@ -996,6 +1005,7 @@ class iPhoneActionRequest(BaseModel):
 @app.post("/v1/iphone/execute")
 async def iphone_execute(request: iPhoneActionRequest, access: None = Depends(require_access)) -> dict:
     """Execute one allowed iPhone action through a user-configured iOS Shortcut webhook."""
+    require_certified_action_gateway()
     return iphone_bridge.run(request.action, context=request.context, **request.params)
 
 
