@@ -80,12 +80,14 @@ def resolve_session_context(request, authorization: str | None) -> dict:
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 
+from src.serving.http_envelope import signing_enabled, load_signing_configuration, check_http_envelope, redis_nonce_store
+from src.serving.envelope_validation import InvalidEnvelope
 from src.core.capabilities import CAPABILITIES
 from src.core.action_runtime import shell_action_catalog, shell_allows_action, validate_action_receipt
 from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
@@ -115,6 +117,8 @@ def production_replacement_enabled() -> bool:
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     validate_auth_configuration()
+    if _auth_mode() == "production" and signing_enabled():
+        load_signing_configuration()
     try:
         await asyncio.to_thread(runtime.load)
     except Exception as error:
@@ -132,6 +136,37 @@ app.add_middleware(
     allow_headers=["Authorization", "Content-Type"],
 )
 app.mount("/static", StaticFiles(directory=str(PUBLIC)), name="static")
+
+
+@app.middleware("http")
+async def signed_request_boundary(request, call_next):
+    """Staged signing enforcement; requires real Redis and matching product signer."""
+    if _auth_mode() != "production" or not signing_enabled() or request.method != "POST":
+        return await call_next(request)
+    if not _authorized_token(request.headers.get("authorization")):
+        return JSONResponse(status_code=401, content={"detail": "Authentication required"})
+    try:
+        body_bytes = await request.body()
+        if len(body_bytes) > 1_048_576:
+            return JSONResponse(status_code=413, content={"detail": "Request too large"})
+        payload = json.loads(body_bytes)
+        if not isinstance(payload, dict):
+            raise InvalidEnvelope("Expected JSON object body")
+        config = load_signing_configuration()
+        nonce_store = redis_nonce_store(config[2])
+        identity = await asyncio.to_thread(
+            check_http_envelope, request.headers, payload, config=config,
+            nonce_store=nonce_store,
+        )
+        declared_shell = payload.get("shell")
+        if declared_shell is not None and declared_shell != identity["shell"]:
+            raise InvalidEnvelope("Shell identity mismatch")
+        request.state.signed_identity = identity
+    except (InvalidEnvelope, ValueError, TypeError):
+        return JSONResponse(status_code=401, content={"detail": "Invalid signed request"})
+    except Exception:
+        return JSONResponse(status_code=503, content={"detail": "Signed request verification unavailable"})
+    return await call_next(request)
 
 
 @app.middleware("http")
