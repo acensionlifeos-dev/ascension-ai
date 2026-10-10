@@ -1,14 +1,14 @@
 """Canonical request payload integrity helpers for the planned service envelope."""
 import hashlib
-import json
+import rfc8785
 
 
 def canonical_payload(payload: dict) -> bytes:
-    return json.dumps(
-        payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
-        allow_nan=False,
-    ).encode("utf-8")
+    # RFC 8785 uses ECMAScript numbers and UTF-16 key ordering on both runtimes.
+    # This rejects unsafe integers, non-finite values and invalid Unicode.
+    return rfc8785.dumps(payload)
 
 
 def payload_sha256(payload: dict) -> str:
     return hashlib.sha256(canonical_payload(payload)).hexdigest()
+
