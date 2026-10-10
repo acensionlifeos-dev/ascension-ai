@@ -31,6 +31,8 @@ def _session_key(session_id: str, authorization: str | None) -> str:
 
 
 def get_session_context(session_id: str, authorization: str | None) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Shared-token session storage disabled pending caller-bound identity")
     if not session_id:
         return {}
     key = _session_key(session_id, authorization)
@@ -39,6 +41,8 @@ def get_session_context(session_id: str, authorization: str | None) -> dict:
 
 
 def set_session_context(session_id: str, context: dict, authorization: str | None, merge: bool = False) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Shared-token session storage disabled pending caller-bound identity")
     if not session_id:
         return context
     key = _session_key(session_id, authorization)
@@ -76,12 +80,14 @@ def resolve_session_context(request, authorization: str | None) -> dict:
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 
+from src.serving.http_envelope import signing_enabled, load_signing_configuration, check_http_envelope, redis_nonce_store
+from src.serving.envelope_validation import InvalidEnvelope
 from src.core.capabilities import CAPABILITIES
 from src.core.action_runtime import shell_action_catalog, shell_allows_action, validate_action_receipt
 from src.core.cognition import TALENTS, build_action_execution_contract, build_cognitive_packet, extract_memory_candidates, hybrid_retrieve
@@ -110,6 +116,7 @@ def production_replacement_enabled() -> bool:
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    validate_auth_configuration()
     try:
         await asyncio.to_thread(runtime.load)
     except Exception as error:
@@ -124,9 +131,74 @@ app.add_middleware(
     allow_origins=allowed_origins,
     allow_credentials=False,
     allow_methods=["GET", "POST"],
-    allow_headers=["Authorization", "Content-Type"],
+    allow_headers=["Authorization", "Content-Type", "X-Aerynza-Envelope", "X-Aerynza-Signature"],
 )
 app.mount("/static", StaticFiles(directory=str(PUBLIC)), name="static")
+
+
+@app.middleware("http")
+async def signed_request_boundary(request, call_next):
+    """Staged signing enforcement; requires real Redis and matching product signer."""
+    if _auth_mode() != "production" or not signing_enabled():
+        return await call_next(request)
+    if request.url.path in {"/docs", "/redoc", "/openapi.json"}:
+        return JSONResponse(status_code=404, content={"detail": "Not found"})
+    if request.url.query and request.url.path.startswith("/v1/"):
+        return JSONResponse(status_code=400, content={"detail": "Unsigned query parameters are not supported"})
+    protected_get = request.method == "GET" and (
+        request.url.path.startswith("/v1/") or request.url.path == "/model/info"
+    )
+    if request.method not in ("POST", "GET"):
+        return JSONResponse(status_code=405, content={"detail": "Method not allowed"})
+    if request.method == "GET" and not protected_get:
+        return await call_next(request)
+    if not _authorized_token(request.headers.get("authorization")):
+        return JSONResponse(status_code=401, content={"detail": "Authentication required"})
+    try:
+        body_bytes = await request.body()
+        if len(body_bytes) > 1_048_576:
+            return JSONResponse(status_code=413, content={"detail": "Request too large"})
+        payload = {} if protected_get and not body_bytes else json.loads(body_bytes)
+        if not isinstance(payload, dict):
+            raise InvalidEnvelope("Expected JSON object body")
+        config = load_signing_configuration()
+        nonce_store = redis_nonce_store(config[2])
+        identity = await asyncio.to_thread(
+            check_http_envelope, request.headers, payload, config=config,
+            nonce_store=nonce_store, method=request.method, path=request.url.path,
+        )
+        # Shell-aware operations must explicitly declare the same shell as the signed envelope.
+        # Otherwise a non-AP signature could reach a handler whose Pydantic default is AP.
+        shell_bound_routes = {
+            "/v1/intelligence", "/v1/stream", "/chat", "/v1/cognition",
+            "/v1/agent/plan", "/v1/retrieve", "/v1/surface-plan",
+            "/v1/relationships/feed", "/v1/session/data-panels",
+            "/v1/thesis", "/v1/thesis/contribution",
+            "/v1/actions/receipt/validate",
+        }
+        if request.url.path in shell_bound_routes and payload.get("shell") != identity["shell"]:
+            raise InvalidEnvelope("Explicit matching shell required")
+        declared_shell = payload.get("shell")
+        if declared_shell is not None and declared_shell != identity["shell"]:
+            raise InvalidEnvelope("Shell identity mismatch")
+        # Core is an entitlement tier, not a production caller/shell identity.
+        if identity["shell"] == "core":
+            raise InvalidEnvelope("Core is a tier, not an AI shell")
+        if identity["shell"] not in _authorized_shells():
+            raise InvalidEnvelope("Signed shell not authorized for this service")
+        # Memory extraction is personal AP work, never a family, home, or child shell operation.
+        if request.url.path == "/v1/memory/candidates" and identity["shell"] != "ap":
+            raise InvalidEnvelope("Memory candidate route requires AP shell")
+        if request.url.path.startswith("/v1/actions/catalog/"):
+            catalog_shell = request.url.path.rsplit("/", 1)[-1]
+            if catalog_shell != identity["shell"]:
+                raise InvalidEnvelope("Catalog shell mismatch")
+        request.state.signed_identity = identity
+    except (InvalidEnvelope, ValueError, TypeError):
+        return JSONResponse(status_code=401, content={"detail": "Invalid signed request"})
+    except Exception:
+        return JSONResponse(status_code=503, content={"detail": "Signed request verification unavailable"})
+    return await call_next(request)
 
 
 @app.middleware("http")
@@ -207,6 +279,7 @@ class CognitionRequest(SurfacePlanRequest):
 
 
 class RetrievalRequest(BaseModel):
+    shell: Shell = Shell.AP
     query: str = Field(min_length=1, max_length=MAX_MESSAGE_LENGTH)
     context: dict = Field(default_factory=dict)
     top_k: int = Field(default=6, ge=1, le=10)
@@ -277,27 +350,67 @@ class ActionReceiptRequest(BaseModel):
     receipt: dict = Field(default_factory=dict)
 
 
+def _auth_mode() -> str:
+    mode = os.getenv("ASCENSION_AI_AUTH_MODE", "production").strip().lower()
+    if mode not in {"production", "development"}:
+        raise RuntimeError("ASCENSION_AI_AUTH_MODE must be production or development")
+    return mode
+
+
 def _authorized_token(authorization: str | None) -> bool:
-    supplied = ""
-    if authorization and authorization.lower().startswith("bearer "):
-        supplied = authorization[7:].strip()
+    if not authorization or not authorization.lower().startswith("bearer "):
+        return False
+    supplied = authorization[7:].strip()
     if not supplied:
         return False
-    if supplied in SESSIONS:
+    service_token = os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip()
+    if service_token and hmac.compare_digest(supplied, service_token):
         return True
-    allowed_email = os.getenv("ASCENSION_AI_ALLOWED_EMAIL", "").strip()
-    if allowed_email and hmac.compare_digest(supplied.lower(), allowed_email.lower()):
-        return True
-    expected = [
-        os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip(),
-        os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip(),
-    ]
-    return any(token and hmac.compare_digest(supplied, token) for token in expected)
+    if _auth_mode() == "development":
+        if supplied in SESSIONS:
+            return True
+        test_token = os.getenv("ASCENSION_AI_TEST_TOKEN", "").strip()
+        return bool(test_token and hmac.compare_digest(supplied, test_token))
+    return False
+
+
+def _authorized_shells() -> set[str]:
+    """Production caller's allowed shell identities, configured server-side."""
+    raw = os.getenv("ASCENSION_AI_SERVICE_SHELLS", "")
+    return {part.strip().lower() for part in raw.split(",") if part.strip()}
+
+
+def enforce_shell_access(shell: Shell) -> None:
+    """Never trust a request body to grant a shell identity."""
+    if _auth_mode() == "development":
+        return
+    if shell.value.lower() not in _authorized_shells():
+        raise HTTPException(status_code=403, detail="Shell not authorized")
 
 
 def require_access(authorization: str | None = Header(default=None)) -> None:
-    """Local-only access: authentication is not required for the personal desktop build."""
-    return
+    """Deny unauthenticated requests; development bypass is explicit only."""
+    if _auth_mode() == "development" and os.getenv("ASCENSION_AI_LOCAL_DEV_BYPASS", "").lower() in {"1", "true"}:
+        return
+    if not _authorized_token(authorization):
+        raise HTTPException(status_code=401, detail="Authentication required")
+
+
+def validate_auth_configuration() -> None:
+    if _auth_mode() == "production":
+        if not signing_enabled():
+            raise RuntimeError("ASCENSION_AI_REQUIRE_SIGNED_REQUESTS=true is required in production")
+        load_signing_configuration()
+        if not os.getenv("ASCENSION_AI_SERVICE_TOKEN", "").strip():
+            raise RuntimeError("ASCENSION_AI_SERVICE_TOKEN is required in production")
+        if not _authorized_shells():
+            raise RuntimeError("ASCENSION_AI_SERVICE_SHELLS is required in production")
+
+
+def require_certified_action_gateway() -> None:
+    """Fail closed until production action authorization and receipts are certified."""
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Direct device execution disabled in production")
 
 
 def require_native_ready() -> None:
@@ -418,6 +531,7 @@ async def capabilities(_: None = Depends(require_access)) -> dict:
 
 @app.get("/v1/actions/catalog/{shell}")
 async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(shell)
     return {
         "shell": shell.value,
         "actions": shell_action_catalog(shell),
@@ -428,6 +542,7 @@ async def actions_catalog(shell: Shell, _: None = Depends(require_access)) -> di
 
 @app.post("/v1/actions/receipt/validate")
 async def action_receipt_validate(request: ActionReceiptRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     if not shell_allows_action(request.shell, request.action):
         raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot execute {request.action}")
     action = {"action": request.action, "receipt_fields": request.receipt_fields}
@@ -461,6 +576,7 @@ async def talents(_: None = Depends(require_access)) -> dict:
 
 @app.post("/v1/cognition")
 async def cognition(request: CognitionRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet(
@@ -488,6 +604,7 @@ async def agent_plan(request: CognitionRequest, access: None = Depends(require_a
 
 @app.post("/v1/retrieve")
 async def retrieve(request: RetrievalRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     scoped_context = scope_context(request.context, request.shell)
     return {
         "query": request.query,
@@ -508,6 +625,9 @@ async def memory_candidates(request: MemoryCandidateRequest, _: None = Depends(r
 
 @app.post("/v1/thesis")
 async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
+    if _auth_mode() == "production" and request.scope in {"sprout", "home", "family"}:
+        raise HTTPException(status_code=403, detail="Resource ownership verification required for this thesis scope")
     required_shell = {
         "human": {Shell.AP, Shell.LIFE_OS},
         "sprout": {Shell.AP, Shell.LIFE_OS},
@@ -515,10 +635,20 @@ async def thesis(request: ThesisRequest, _: None = Depends(require_access)) -> d
         "family": {Shell.NEXUS_FAMILY},
         "product": {Shell.CORE},
     }
+    if request.shell not in required_shell[request.scope]:
+        raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot build the {request.scope} thesis")
+    try:
+        result = build_thesis(request.scope, request.subject_id, request.context)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {**result, "shell": request.shell.value, "outside_provider": False}
 
 
 @app.post("/v1/thesis/contribution")
 async def thesis_contribution(request: ThesisContributionRequest, _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Member consent and resource ownership verification required")
     if request.shell not in {Shell.AP, Shell.LIFE_OS}:
         raise HTTPException(status_code=403, detail="only the member's AP or LifeOS shell can prepare a thesis contribution")
     try:
@@ -532,21 +662,11 @@ async def thesis_contribution(request: ThesisContributionRequest, _: None = Depe
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     return {**contribution, "shell": request.shell.value, "outside_provider": False}
-    if request.shell not in required_shell[request.scope]:
-        raise HTTPException(status_code=403, detail=f"{request.shell.value} cannot build the {request.scope} thesis")
-    try:
-        result = build_thesis(request.scope, request.subject_id, request.context)
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return {
-        **result,
-        "shell": request.shell.value,
-        "outside_provider": False,
-    }
 
 
 @app.post("/v1/surface-plan")
 async def plan_surfaces(request: SurfacePlanRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     return surface_plan(
         shell=request.shell,
@@ -571,6 +691,7 @@ async def set_session(request: SessionContextRequest, authorization: str | None 
 
 @app.post("/v1/session/data-panels")
 async def session_data_panels(request: SessionRefreshRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = get_session_context(request.session_id, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet(
@@ -642,6 +763,7 @@ def _build_relationships_feed(context: dict, shell: Shell) -> dict:
 
 @app.post("/v1/relationships/feed")
 async def relationships_feed(request: RelationshipFeedRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     scoped_context = scope_context(context, request.shell)
     packet = build_cognitive_packet("mixed social feed", scoped_context, [])
@@ -659,6 +781,7 @@ async def relationships_feed(request: RelationshipFeedRequest, authorization: st
 
 @app.post("/v1/intelligence")
 async def intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)) -> dict:
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
@@ -762,6 +885,7 @@ async def chat(request: IntelligenceRequest, access: None = Depends(require_acce
 
 @app.post("/v1/stream")
 async def stream_intelligence(request: IntelligenceRequest, authorization: str | None = Header(default=None), _: None = Depends(require_access)):
+    enforce_shell_access(request.shell)
     context = resolve_session_context(request, authorization)
     emergency = medical_emergency_response(request.messages[-1].content)
     if emergency:
@@ -894,6 +1018,8 @@ async def stream_intelligence(request: IntelligenceRequest, authorization: str |
 
 @app.post("/generate")
 async def generate(request: LegacyGenerationRequest, access: None = Depends(require_access)) -> dict:
+    if _auth_mode() == "production":
+        raise HTTPException(status_code=403, detail="Legacy generation route disabled pending explicit shell identity")
     result = await intelligence(
         IntelligenceRequest(
             shell=Shell.CORE,
@@ -929,6 +1055,7 @@ async def windows_execute(request: WindowsActionRequest, access: None = Depends(
     The request is authenticated and the shell remains responsible for
     deciding when an action is appropriate.
     """
+    require_certified_action_gateway()
     return executor.run(request.action, **request.params)
 
 
@@ -945,6 +1072,7 @@ async def android_execute(request: AndroidActionRequest, access: None = Depends(
     The phone must have USB debugging enabled and be authorized.
     The bridge uses the local `tools/adb/platform-tools/adb.exe` binary.
     """
+    require_certified_action_gateway()
     return android_bridge.run(request.action, **request.params)
 
 
@@ -957,6 +1085,7 @@ class iPhoneActionRequest(BaseModel):
 @app.post("/v1/iphone/execute")
 async def iphone_execute(request: iPhoneActionRequest, access: None = Depends(require_access)) -> dict:
     """Execute one allowed iPhone action through a user-configured iOS Shortcut webhook."""
+    require_certified_action_gateway()
     return iphone_bridge.run(request.action, context=request.context, **request.params)
 
 
@@ -979,6 +1108,7 @@ async def iphone_inbox(payload: dict, access: None = Depends(require_access)) ->
     The iPhone can POST here to send battery, location, or any other
     data it is allowed to share. Data is stored locally in data/iphone_inbox.json.
     """
+    require_certified_action_gateway()
     return iphone_bridge.receive(payload)
 
 
@@ -989,7 +1119,9 @@ class LoginRequest(BaseModel):
 
 @app.post("/v1/login")
 async def login(request: LoginRequest) -> dict:
-    """Authenticate with email and password stored in Windows Credential Manager."""
+    """Local desktop login is unavailable in production service mode."""
+    if _auth_mode() != "development":
+        raise HTTPException(status_code=404, detail="Not found")
     stored = keyring.get_password(KEYRING_SERVICE, request.email)
     if not stored or not hmac.compare_digest(stored, request.password):
         raise HTTPException(status_code=401, detail="Invalid email or password.")
