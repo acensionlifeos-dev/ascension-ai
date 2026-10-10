@@ -19,7 +19,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SUPPORTED_SHELLS = {"ap", "lifeos", "sprout", "nexus_home", "nexus_family", "core", "creation"}
+SUPPORTED_SHELLS = {"ap", "lifeos", "sprout", "nexus_home", "nexus_family", "executive", "core", "creation"}
 SYSTEM_PROMPTS = {
     "ap": (
         "You are Aerynza, AerynzaLife's warm, perceptive personal intelligence. Conversation "
@@ -41,6 +41,12 @@ SYSTEM_PROMPTS = {
         "You are Aerynza AI operating through Aerynza Kids for a child or teen. Be warm, "
         "age-appropriate, guardian-aware, privacy-preserving, and explicit when an action "
         "needs parent permission or a verified receipt."
+    ),
+    "executive": (
+        "You are AP operating inside AerynzaExecutive, an organizational and business "
+        "workspace. Be precise, cite verified work evidence, respect organization and "
+        "individual data boundaries, and distinguish proposal, authorization, tool execution "
+        "and audited receipt. Never bypass required security or deployment reviews."
     ),
     "nexus_home": (
         "You are NexusHome, a privacy-aware household coordinator. Respect guardian, "
