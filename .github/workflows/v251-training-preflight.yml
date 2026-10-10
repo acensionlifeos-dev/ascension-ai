@@ -5,6 +5,9 @@ on:
     paths:
       - 'evals/training/aerynza_v251_foundation_*.jsonl'
       - 'scripts/*v251*'
+      - 'scripts/*v252*'
+      - 'evals/training/aerynza_v252_execution_*'
+      - 'tests/test_v252_training_packages.py'
       - 'tests/test_v251_training_packages.py'
       - '.github/workflows/v251-training-preflight.yml'
   push:
@@ -13,6 +16,9 @@ on:
     paths:
       - 'evals/training/aerynza_v251_foundation_*.jsonl'
       - 'scripts/*v251*'
+      - 'scripts/*v252*'
+      - 'evals/training/aerynza_v252_execution_*'
+      - 'tests/test_v252_training_packages.py'
       - 'tests/test_v251_training_packages.py'
       - '.github/workflows/v251-training-preflight.yml'
   workflow_dispatch:
@@ -41,5 +47,10 @@ jobs:
             --output-dir checkpoints/v251_preflight_only --validate-only
       - name: Build unverified 640-ID evidence queue
         run: python3 scripts/build_v251_capability_validation_queue.py
+      - name: Validate v252 execution extension (no model claims)
+        run: |
+          python3 scripts/validate_v252_packages.py
+          python3 -m unittest discover -s tests -p 'test_v252_training_packages.py' -v
+          python3 scripts/train_qwen_ascension_lora.py --curriculum evals/training/aerynza_v252_execution_train.jsonl --output-dir checkpoints/v252_preflight_only --validate-only
       - name: Shell syntax
         run: bash -n scripts/launch_v251_foundation.sh
