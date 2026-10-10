@@ -37,7 +37,7 @@ def load(path: Path) -> list[dict]:
     return rows
 
 def norm(value: str) -> str:
-    return re.sub(r"\\s+", " ", value.strip()).casefold()
+    return re.sub(r"\s+", " ", value.strip()).casefold()
 
 def check_records(train: list[dict], heldout: list[dict]) -> dict:
     if len(train) < 40 or len(heldout) < 12:
